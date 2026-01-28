@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withremit - 공지사항</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+</head>
+
+<body class="db-body">
+    <div id="headerContainer"></div>
+
+    <main class="db-main-container container">
+        <div class="db-layout-flex">
+            <div id="sidebarContainer"></div>
+
+            <div class="db-content">
+                <div class="db-page-header">
+                    <h2 class="db-page-title">공지사항</h2>
+                </div>
+
+                <div class="db-content-card">
+                    <button class="db-mobile-search-toggle" id="mobileSearchToggle">
+                        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <span class="search-text">검색 필터 열기</span>
+                        <svg class="close-icon" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                        <span class="close-text">검색 필터 닫기</span>
+                    </button>
+
+                    <div class="db-search-box" id="searchBox">
+                        <select class="db-search-type">
+                            <option value="all">제목+내용</option>
+                            <option value="title">제목</option>
+                            <option value="content">내용</option>
+                        </select>
+                        <input type="text" class="db-search-input" placeholder="검색어를 입력하세요">
+                        <button class="db-search-btn">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            검색
+                        </button>
+                        <button class="db-reset-btn">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                                <path d="M21 3v5h-5"></path>
+                                <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                                <path d="M3 21v-5h5"></path>
+                            </svg>
+                            <span class="reset-btn-text">초기화</span>
+                        </button>
+                    </div>
+
+                    <div class="db-table-info">
+                        <span class="db-total-count">총 <strong>135</strong>건</span>
+                    </div>
+
+                    <div class="db-notice-list-page">
+                        <table class="db-notice-table">
+                            <colgroup>
+                                <col class="col-num" style="width: 80px;">
+                                <col class="col-title">
+                                <col style="width: 100px;">
+                                <col class="col-views" style="width: 80px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th class="th-num">번호</th>
+                                    <th>제목</th>
+                                    <th>작성일</th>
+                                    <th class="th-views">조회수</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="td-num">135</td>
+                                    <td class="notice-title"><a href="#">연말연시 영업일 안내</a></td>
+                                    <td>2025.12.29</td>
+                                    <td class="td-views">66</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-num">134</td>
+                                    <td class="notice-title"><a href="#">추석 연휴에도 withremit은 정상근무합니다.</a></td>
+                                    <td>2025.10.03</td>
+                                    <td class="td-views">50</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-num">133</td>
+                                    <td class="notice-title"><a href="#">설 연휴 중 농협은행, 지역 농협은행 인터넷 뱅킹 중지 안내</a></td>
+                                    <td>2025.01.24</td>
+                                    <td class="td-views">126</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-num">132</td>
+                                    <td class="notice-title"><a href="#">2024년 12월 시스템 점검 안내</a></td>
+                                    <td>2024.12.01</td>
+                                    <td class="td-views">89</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-num">131</td>
+                                    <td class="notice-title"><a href="#">환율 우대 이벤트 안내</a></td>
+                                    <td>2024.11.15</td>
+                                    <td class="td-views">203</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-num">130</td>
+                                    <td class="notice-title"><a href="#">신규 수취국가 추가 안내 (베트남, 몽골)</a></td>
+                                    <td>2024.10.20</td>
+                                    <td class="td-views">178</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-num">129</td>
+                                    <td class="notice-title"><a href="#">모바일 앱 업데이트 안내</a></td>
+                                    <td>2024.09.05</td>
+                                    <td class="td-views">145</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-num">128</td>
+                                    <td class="notice-title"><a href="#">송금 한도 변경 안내</a></td>
+                                    <td>2024.08.12</td>
+                                    <td class="td-views">267</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-num">127</td>
+                                    <td class="notice-title"><a href="#">고객센터 운영시간 변경 안내</a></td>
+                                    <td>2024.07.28</td>
+                                    <td class="td-views">98</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-num">126</td>
+                                    <td class="notice-title"><a href="#">개인정보처리방침 변경 안내</a></td>
+                                    <td>2024.06.30</td>
+                                    <td class="td-views">156</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="db-table-footer">
+                            <div class="db-pagination">
+                                <button class="db-page-btn db-page-first">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="11 17 6 12 11 7"></polyline>
+                                        <polyline points="18 17 13 12 18 7"></polyline>
+                                    </svg>
+                                </button>
+                                <button class="db-page-btn db-page-prev">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="15 18 9 12 15 6"></polyline>
+                                    </svg>
+                                </button>
+                                <button class="db-page-num active">1</button>
+                                <button class="db-page-num">2</button>
+                                <button class="db-page-num">3</button>
+                                <button class="db-page-num">4</button>
+                                <button class="db-page-num">5</button>
+                                <button class="db-page-num">6</button>
+                                <button class="db-page-num">7</button>
+                                <button class="db-page-num">8</button>
+                                <button class="db-page-num">9</button>
+                                <button class="db-page-num">10</button>
+                                <button class="db-page-btn db-page-next">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </button>
+                                <button class="db-page-btn db-page-last">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="13 17 18 12 13 7"></polyline>
+                                        <polyline points="6 17 11 12 6 7"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                            <select class="db-rows-select">
+                                <option value="10" selected>10개씩 보기</option>
+                                <option value="20">20개씩 보기</option>
+                                <option value="30">30개씩 보기</option>
+                                <option value="50">50개씩 보기</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Contact Info Bar -->
+    <div class="contact-info-bar">
+        <div class="container">
+            <div class="contact-info-items">
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <span>한국어 상담 02-2285-2077</span>
+                </div>
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <span>日本語 相談 070-8785-1799</span>
+                </div>
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20" />
+                    </svg>
+                    <span>FAX 02-2285-2078</span>
+                </div>
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <span>hana@oneremit.co.kr</span>
+                </div>
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>평일 09:00~18:00 · 토/공휴일 10:00~16:00 · 일요일 휴무</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footerContainer"></div>
+
+    <div class="db-overlay-mask" id="dbOverlay"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/includes.js"></script>
+    <script>
+        // Mobile search toggle
+        const mobileSearchToggle = document.getElementById('mobileSearchToggle');
+        const searchBox = document.getElementById('searchBox');
+
+        if (mobileSearchToggle && searchBox) {
+            mobileSearchToggle.addEventListener('click', () => {
+                mobileSearchToggle.classList.toggle('active');
+                searchBox.classList.toggle('mobile-active');
+            });
+        }
+
+        // Table row click handler
+        const noticeTableRows = document.querySelectorAll('.db-notice-table tbody tr');
+        noticeTableRows.forEach(row => {
+            row.addEventListener('click', () => {
+                const titleElement = row.querySelector('.notice-title');
+                if (titleElement) {
+                    const title = titleElement.textContent.trim();
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const isGuest = urlParams.get('guest') === 'true';
+                    let targetUrl = `CS_01_02.html?title=${encodeURIComponent(title)}`;
+                    if (isGuest) {
+                        targetUrl += '&guest=true';
+                    }
+                    window.location.href = targetUrl;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

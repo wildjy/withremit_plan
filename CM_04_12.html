@@ -1,0 +1,1126 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인회원 가입 - 정보 입력</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+    <style>
+        /* 국적 선택 버튼 스타일 */
+        .nationality-selector {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .nationality-btn-label {
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .nationality-btn-label input {
+            display: none;
+        }
+
+        .nationality-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 52px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.2s;
+        }
+
+        .nationality-btn-label input:checked+.nationality-btn {
+            border-color: #00A0DC;
+            background: #00A0DC;
+            color: #fff;
+        }
+
+        /* 모달 스타일 (HI_01_01.html 참조) */
+        .remit-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .remit-modal.show {
+            display: flex;
+        }
+
+        .remit-modal-content {
+            background-color: #fff;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .remit-modal-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .remit-modal-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111;
+            margin: 0;
+        }
+
+        .remit-modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .remit-modal-body {
+            padding: 24px;
+            overflow-y: auto;
+        }
+
+        /* Drag & Drop 영역 */
+        .ocr-upload-area {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            background: #f9f9f9;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .ocr-upload-area {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            background: #f9f9f9;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .ocr-upload-area.has-image {
+            padding: 20px;
+        }
+
+        .ocr-upload-area.drag-over {
+            border-color: #00A0DC;
+            background: #f0f9ff;
+        }
+
+        .quick-btn.small {
+            padding: 4px 8px;
+            font-size: 13px;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            color: #333;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="login-page">
+    <main class="login-container register-max-wrap">
+        <div class="login-logo">
+            <a href="CM_02_01.html">
+                <img src="images/logo-withremit.png" alt="withremit">
+            </a>
+        </div>
+        <div class="login-card register-card-wide">
+            <h2 class="login-title">개인회원 가입</h2>
+            <form action="register_complete.html" method="POST" class="info-form-body">
+                <section class="form-sec">
+                    <div class="form-sec-head">계정 정보</div>
+                    <div class="form-row-full">
+                        <div class="field-item">
+                            <label class="field-label">
+                                아이디
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <div class="field-flex">
+                                <input type="text" placeholder="예: gdhong123" class="login-input">
+                                <button type="button" class="btn-sub-action">중복 확인</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row-2">
+                        <div class="field-item">
+                            <label class="field-label">
+                                비밀번호
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <div class="input-box-group">
+                                <input type="password" placeholder="8자 이상 조합" class="login-input">
+                                <span class="keypad-btn">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label">
+                                비밀번호 확인
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <div class="input-box-group">
+                                <input type="password" placeholder="비밀번호 재입력" class="login-input">
+                                <span class="keypad-btn">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="form-sec border-none" id="nationalitySection">
+                    <div class="field-item">
+                        <div class="nationality-selector">
+                            <label class="nationality-btn-label">
+                                <input type="radio" name="nationality" value="domestic" id="domesticRadio">
+                                <div class="nationality-btn">내국인 회원가입</div>
+                            </label>
+                            <label class="nationality-btn-label">
+                                <input type="radio" name="nationality" value="foreign" id="foreignRadio">
+                                <div class="nationality-btn">외국인 회원가입</div>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 내국인 서류 업로드 -->
+                <section class="form-sec" id="domesticDocSection" style="display: none;">
+                    <div class="form-sec-head">서류 업로드</div>
+                    <div class="form-row-2">
+                        <div class="field-item">
+                            <label class="field-label">
+                                본인확인서류 앞면
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <button type="button" class="file-upload-wrap upload-btn"
+                                onclick="openOCRModal('domestic-front', '본인확인서류 앞면 업로드')">
+                                <span class="file-name-display" id="domestic-front-display">파일을 선택해 주세요</span>
+                                <span class="btn-file-trigger">찾아보기</span>
+                            </button>
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label">
+                                본인확인서류 뒷면
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <button type="button" class="file-upload-wrap upload-btn"
+                                onclick="openOCRModal('domestic-back', '본인확인서류 뒷면 업로드')">
+                                <span class="file-name-display" id="domestic-back-display">파일을 선택해 주세요</span>
+                                <span class="btn-file-trigger">찾아보기</span>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="field-desc accent-red">* 주민등록증 또는 운전면허증 중 한 가지만 양면 올려주세요.</p>
+                </section>
+
+                <!-- 외국인 서류 업로드 -->
+                <section class="form-sec" id="foreignDocSection" style="display: none;">
+                    <div class="form-sec-head">서류 업로드</div>
+                    <div class="form-row-2">
+                        <div class="field-item">
+                            <label class="field-label">
+                                여권 앞면
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <button type="button" class="file-upload-wrap upload-btn"
+                                onclick="openOCRModal('passport-front', '여권 앞면 업로드')">
+                                <span class="file-name-display" id="passport-front-display">파일을 선택해 주세요</span>
+                                <span class="btn-file-trigger">찾아보기</span>
+                            </button>
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label">
+                                여권 뒷면
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <button type="button" class="file-upload-wrap upload-btn"
+                                onclick="openOCRModal('passport-back', '여권 뒷면 업로드')">
+                                <span class="file-name-display" id="passport-back-display">파일을 선택해 주세요</span>
+                                <span class="btn-file-trigger">찾아보기</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-row-2">
+                        <div class="field-item">
+                            <label class="field-label">
+                                외국인등록증 앞면
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <button type="button" class="file-upload-wrap upload-btn"
+                                onclick="openOCRModal('alien-front', '외국인등록증 앞면 업로드')">
+                                <span class="file-name-display" id="alien-front-display">파일을 선택해 주세요</span>
+                                <span class="btn-file-trigger">찾아보기</span>
+                            </button>
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label">
+                                외국인등록증 뒷면
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <button type="button" class="file-upload-wrap upload-btn"
+                                onclick="openOCRModal('alien-back', '외국인등록증 뒷면 업로드')">
+                                <span class="file-name-display" id="alien-back-display">파일을 선택해 주세요</span>
+                                <span class="btn-file-trigger">찾아보기</span>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="field-desc accent-red">* 여권과 외국인등록증 양면을 모두 올려주세요.</p>
+                </section>
+
+                <section class="form-sec" id="personalInfoSection" style="display: none;">
+                    <div class="form-sec-head">개인 정보</div>
+                    <div class="form-row-2">
+                        <div class="field-item">
+                            <label class="field-label">
+                                성 (한글)
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <input type="text" placeholder="예: 홍" class="login-input" id="lastNameKo">
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label">
+                                이름 (한글)
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <input type="text" placeholder="예: 길동" class="login-input" id="firstNameKo">
+                        </div>
+                    </div>
+                    <div class="form-row-2">
+                        <div class="field-item">
+                            <label class="field-label">
+                                이름 (영문)
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <input type="text" placeholder="예: GILDONG" class="login-input" id="firstNameEn">
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label">
+                                성 (영문)
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <input type="text" placeholder="예: HONG" class="login-input" id="lastNameEn">
+                        </div>
+                    </div>
+                    <div class="form-row-3">
+                        <div class="field-item">
+                            <label class="field-label">
+                                생년월일
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <input type="date" class="login-input date-picker-custom" id="birthDate">
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label">
+                                국적
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <select class="login-input select-styled" id="nationalitySelect">
+                                <option value="" disabled selected>국적 선택</option>
+                                <option value="KR">대한민국</option>
+                                <option value="JP">일본</option>
+                                <option value="CN">중국</option>
+                                <option value="VN">베트남</option>
+                                <option value="PH">필리핀</option>
+                                <option value="TH">태국</option>
+                                <option value="ID">인도네시아</option>
+                                <option value="MY">말레이시아</option>
+                            </select>
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label">
+                                성별
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <div class="field-flex h-52">
+                                <label class="radio-wrap">
+                                    <input type="radio" name="g" id="genderMale">
+                                    <span class="custom-radio"></span>
+                                    <span>남성</span>
+                                </label>
+                                <label class="radio-wrap">
+                                    <input type="radio" name="g" id="genderFemale">
+                                    <span class="custom-radio"></span>
+                                    <span>여성</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row-3">
+                        <div class="field-item">
+                            <label class="field-label">
+                                전화번호
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <input type="text" placeholder="예: 01012345678" class="login-input">
+                        </div>
+                        <div class="field-item flex-2">
+                            <label class="field-label">
+                                이메일 주소
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <div class="field-flex full-width">
+                                <input type="email" placeholder="example@email.com" class="login-input">
+                                <button type="button" class="btn-sub-action">이메일 중복 확인</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field-item top-level">
+                        <label class="field-label">
+                            주소
+                            <span class="badge-required">필수</span>
+                        </label>
+                        <div class="field-flex mb-12">
+                            <input type="text" placeholder="우편번호" class="login-input" readonly id="postcodeInput">
+                            <button type="button" class="btn-sub-action" onclick="openPostcodeModal()">우편번호 검색</button>
+                        </div>
+                        <input type="text" placeholder="기본 주소" class="login-input mb-12" readonly
+                            id="addressBasicInput">
+                        <input type="text" placeholder="상세 주소를 입력해 주세요" class="login-input">
+                    </div>
+                </section>
+
+                <section class="form-sec" id="bankInfoSection" style="display: none;">
+                    <div class="form-sec-head">은행 정보</div>
+                    <div class="form-row-3">
+                        <div class="field-item">
+                            <label class="field-label">
+                                은행명
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <select class="login-input select-styled">
+                                <option value="" disabled selected>은행 선택</option>
+                                <option>국민은행</option>
+                                <option>신한은행</option>
+                                <option>우리은행</option>
+                                <option>하나은행</option>
+                                <option>농협은행</option>
+                                <option>기업은행</option>
+                                <option>카카오뱅크</option>
+                                <option>토스뱅크</option>
+                            </select>
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label">
+                                계좌 번호
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <input type="text" placeholder="'-' 없이 숫자만 입력" class="login-input">
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label">
+                                계좌 소유주
+                                <span class="badge-required">필수</span>
+                            </label>
+                            <input type="text" placeholder="성함 자동 입력" class="login-input" readonly>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="form-sec border-none" id="remittancePurposeSection" style="display: none;">
+                    <div class="form-sec-head">송금 목적 (복수 선택 가능)</div>
+                    <div class="purpose-grid-full">
+                        <label class="check-label-group">
+                            <input type="checkbox" class="agree-item">
+                            <span class="custom-check"></span>
+                            <span class="check-text">통관수입대금</span>
+                        </label>
+                        <label class="check-label-group">
+                            <input type="checkbox" class="agree-item">
+                            <span class="custom-check"></span>
+                            <span class="check-text">무통관수입대금</span>
+                        </label>
+                        <label class="check-label-group">
+                            <input type="checkbox" class="agree-item">
+                            <span class="custom-check"></span>
+                            <span class="check-text">수출대금 반송분</span>
+                        </label>
+                        <label class="check-label-group">
+                            <input type="checkbox" class="agree-item">
+                            <span class="custom-check"></span>
+                            <span class="check-text">유학 및 연수</span>
+                        </label>
+                        <label class="check-label-group">
+                            <input type="checkbox" class="agree-item">
+                            <span class="custom-check"></span>
+                            <span class="check-text">여행</span>
+                        </label>
+                        <label class="check-label-group">
+                            <input type="checkbox" class="agree-item">
+                            <span class="custom-check"></span>
+                            <span class="check-text">운수</span>
+                        </label>
+                        <label class="check-label-group">
+                            <input type="checkbox" class="agree-item">
+                            <span class="custom-check"></span>
+                            <span class="check-text">보험료</span>
+                        </label>
+                        <label class="check-label-group">
+                            <input type="checkbox" class="agree-item">
+                            <span class="custom-check"></span>
+                            <span class="check-text">투자수익(배당금 및 이자)</span>
+                        </label>
+                        <label class="check-label-group">
+                            <input type="checkbox" class="agree-item">
+                            <span class="custom-check"></span>
+                            <span class="check-text">정부거래</span>
+                        </label>
+                        <label class="check-label-group">
+                            <input type="checkbox" class="agree-item">
+                            <span class="custom-check"></span>
+                            <span class="check-text">서비스거래(사업서비스)</span>
+                        </label>
+                        <label class="check-label-group">
+                            <input type="checkbox" class="agree-item">
+                            <span class="custom-check"></span>
+                            <span class="check-text">서비스거래(임금)</span>
+                        </label>
+                        <label class="check-label-group">
+                            <input type="checkbox" class="agree-item">
+                            <span class="custom-check"></span>
+                            <span class="check-text">이전거래(무상지급)</span>
+                        </label>
+                        <label class="check-label-group">
+                            <input type="checkbox" class="agree-item">
+                            <span class="custom-check"></span>
+                            <span class="check-text">해외증권투자</span>
+                        </label>
+                        <label class="check-label-group">
+                            <input type="checkbox" class="agree-item">
+                            <span class="custom-check"></span>
+                            <span class="check-text">차입 상환</span>
+                        </label>
+                        <label class="check-label-group">
+                            <input type="checkbox" class="agree-item">
+                            <span class="custom-check"></span>
+                            <span class="check-text">부동산 거래</span>
+                        </label>
+                        <label class="check-label-group">
+                            <input type="checkbox" class="agree-item">
+                            <span class="custom-check"></span>
+                            <span class="check-text">기타 자본거래</span>
+                        </label>
+                    </div>
+                </section>
+
+                <div class="reg-action-btns">
+                    <button type="button" class="btn-step-prev" onclick="location.href='CM_02_01.html'">취소</button>
+                    <button type="button" class="btn-main-login" onclick="showRegModal()">회원가입 신청 완료</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- OCR 신분증 업로드 모달 -->
+        <div id="ocrModal" class="remit-modal">
+            <div class="remit-modal-content">
+                <div class="remit-modal-header">
+                    <h2 class="remit-modal-title" id="ocrModalTitle">신분증 업로드</h2>
+                    <button type="button" class="remit-modal-close" onclick="closeOCRModal()">&times;</button>
+                </div>
+
+                <div class="remit-modal-body">
+                    <!-- 이미지 업로드 영역 -->
+                    <div style="margin-bottom: 24px;">
+                        <input type="file" id="ocrFileInput" accept="image/*" style="display: none;"
+                            onchange="handleOCRImageUpload(event)">
+                        <div id="ocrUploadArea" class="ocr-upload-area"
+                            onclick="document.getElementById('ocrFileInput').click()" ondragover="handleDragOver(event)"
+                            ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00A0DC"
+                                stroke-width="2" style="margin: 0 auto 12px;">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" />
+                            </svg>
+                            <p style="color: #666; margin: 0; font-weight: 500;">클릭 또는 이미지를 여기로 끌어오세요</p>
+                        </div>
+                        <div id="ocrImagePreview" class="ocr-upload-area has-image"
+                            style="display: none; margin-top: 16px; text-align: center; cursor: default;">
+                            <img id="ocrPreviewImg" style="max-width: 100%; max-height: 250px; border-radius: 8px;">
+                            <p id="previewText" style="margin-top: 10px; color: #666; font-size: 14px;">이미지 확인 중...</p>
+                            <div style="display: flex; gap: 12px; justify-content: center; margin-top: 16px;">
+                                <button type="button" class="quick-btn small" onclick="resetOCRModal()">이미지 다시
+                                    등록</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="ocrResultSection" style="display: none;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <div class="form-sec-head" style="margin: 0; font-size: 16px;">인식된 정보</div>
+                        </div>
+                        <div class="form-row-2" style="margin-bottom: 12px;">
+                            <div class="field-item">
+                                <label class="field-label">
+                                    성 (한글)
+                                    <span class="badge-required">필수</span>
+                                </label>
+                                <input type="text" id="ocrLastNameKo" class="login-input">
+                            </div>
+                            <div class="field-item">
+                                <label class="field-label">
+                                    이름 (한글)
+                                    <span class="badge-required">필수</span>
+                                </label>
+                                <input type="text" id="ocrFirstNameKo" class="login-input">
+                            </div>
+                        </div>
+                        <div class="form-row-2" style="margin-bottom: 12px;">
+                            <div class="field-item">
+                                <label class="field-label">
+                                    이름 (영문)
+                                    <span class="badge-required">필수</span>
+                                </label>
+                                <input type="text" id="ocrFirstNameEn" class="login-input">
+                            </div>
+                            <div class="field-item">
+                                <label class="field-label">
+                                    성 (영문)
+                                    <span class="badge-required">필수</span>
+                                </label>
+                                <input type="text" id="ocrLastNameEn" class="login-input">
+                            </div>
+                        </div>
+                        <div class="form-row-3" style="margin-bottom: 12px;">
+                            <div class="field-item">
+                                <label class="field-label">
+                                    생년월일
+                                    <span class="badge-required">필수</span>
+                                </label>
+                                <input type="date" id="ocrBirthDate" class="login-input">
+                            </div>
+                            <div class="field-item">
+                                <label class="field-label">
+                                    국적
+                                    <span class="badge-required">필수</span>
+                                </label>
+                                <select id="ocrNationality" class="login-input select-styled">
+                                    <option value="">국적 선택</option>
+                                    <option value="KR">대한민국</option>
+                                    <option value="JP">일본</option>
+                                    <option value="CN">중국</option>
+                                    <option value="VN">베트남</option>
+                                    <option value="PH">필리핀</option>
+                                    <option value="TH">태국</option>
+                                    <option value="ID">인도네시아</option>
+                                    <option value="MY">말레이시아</option>
+                                </select>
+                            </div>
+                            <div class="field-item">
+                                <label class="field-label">
+                                    성별
+                                    <span class="badge-required">필수</span>
+                                </label>
+                                <div class="field-flex h-52">
+                                    <label class="radio-wrap">
+                                        <input type="radio" name="ocrGender" value="male" id="ocrGenderMale">
+                                        <span class="custom-radio"></span>
+                                        <span>남성</span>
+                                    </label>
+                                    <label class="radio-wrap">
+                                        <input type="radio" name="ocrGender" value="female" id="ocrGenderFemale">
+                                        <span class="custom-radio"></span>
+                                        <span>여성</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 12px; margin-top: 24px;">
+                        <button type="button" class="btn-step-prev" onclick="closeOCRModal()"
+                            style="flex: 1;">취소</button>
+                        <button type="button" class="btn-main-login" onclick="applyOCRData()"
+                            style="flex: 1;">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="regCompleteModal" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="#00A0DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11"></polyline>
+                    </svg>
+                </div>
+                <h3>회원가입 완료</h3>
+                <p>회원가입이 완료되었습니다.<br>이메일 인증을 완료하여 주시기 바랍니다.</p>
+                <button class="modal-btn-success" onclick="location.href='CM_02_01.html'">확인</button>
+            </div>
+        </div>
+
+        <!-- Postcode Search Modal -->
+        <div class="remit-modal" id="postcodeModal">
+            <div class="remit-modal-content" style="max-width: 500px;">
+                <div class="remit-modal-header">
+                    <h2 class="remit-modal-title">우편번호 찾기</h2>
+                    <button type="button" class="remit-modal-close" onclick="closePostcodeModal()">&times;</button>
+                </div>
+                <div class="remit-modal-body">
+                    <div class="postcode-search-desc" style="text-align: center; margin-bottom: 20px;">
+                        <p style="color: #00A0DC; font-weight: 700; margin-bottom: 8px;">찾으시려는 동 혹은 도로의 이름을 입력해 주세요.</p>
+                        <p style="color: #666; font-size: 13px; line-height: 1.5;">지번주소 : 동/읍/면/리 이름을 입력하세요.
+                            (예:서현동)<br>도로명(새주소) : 도로명을 입력하세요. (예:성남대로)</p>
+                    </div>
+
+                    <div class="postcode-search-box" style="display: flex; gap: 8px; margin-bottom: 24px;">
+                        <input type="text" class="login-input" placeholder="검색어 입력" style="flex: 1;"
+                            id="postcodeSearchInput">
+                        <button type="button" class="btn btn-primary" style="width: 80px; height: 52px;"
+                            onclick="searchPostcode()">검색</button>
+                    </div>
+
+                    <div class="postcode-result-area"
+                        style="border: 1px solid #ddd; border-radius: 4px; max-height: 400px; overflow-y: auto;">
+                        <ul class="postcode-list" style="list-style: none; padding: 0; margin: 0;"
+                            id="postcodeResultList">
+                            <!-- Sample Results -->
+                            <li style="padding: 12px 16px; border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: 12px; cursor: pointer;"
+                                onclick="selectAddress('13560', '경기도 성남시 분당구 불정로 1')">
+                                <div style="min-width: 60px; color: #666; font-size: 13px; line-height: 1.4;">
+                                    463-867<br>13560
+                                </div>
+                                <div style="flex: 1;">
+                                    <div style="margin-bottom: 4px;"><span
+                                            style="background: #94a3b8; color: #fff; font-size: 11px; padding: 1px 4px; border-radius: 3px; margin-right: 4px;">지번</span>
+                                        <span style="font-size: 14px;">경기도 성남시 분당구 정자동 177</span>
+                                    </div>
+                                    <div><span
+                                            style="background: #60a5fa; color: #fff; font-size: 11px; padding: 1px 4px; border-radius: 3px; margin-right: 4px;">도로명</span>
+                                        <span style="font-size: 14px;">경기도 성남시 분당구 불정로 1</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li style="padding: 12px 16px; border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: 12px; cursor: pointer;"
+                                onclick="selectAddress('13606', '경기도 성남시 분당구 불정로 100')">
+                                <div style="min-width: 60px; color: #666; font-size: 13px; line-height: 1.4;">
+                                    463-815<br>13606
+                                </div>
+                                <div style="flex: 1;">
+                                    <div style="margin-bottom: 4px;"><span
+                                            style="background: #94a3b8; color: #fff; font-size: 11px; padding: 1px 4px; border-radius: 3px; margin-right: 4px;">지번</span>
+                                        <span style="font-size: 14px;">경기도 성남시 분당구 정자동 207</span>
+                                    </div>
+                                    <div><span
+                                            style="background: #60a5fa; color: #fff; font-size: 11px; padding: 1px 4px; border-radius: 3px; margin-right: 4px;">도로명</span>
+                                        <span style="font-size: 14px;">경기도 성남시 분당구 불정로 100</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="remit-modal-footer"
+                    style="padding: 20px 24px; border-top: 1px solid #eee; text-align: right;">
+                    <button type="button" class="btn btn-outline" onclick="closePostcodeModal()">닫기</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function openPostcodeModal() {
+            document.getElementById('postcodeModal').classList.add('show');
+            document.getElementById('postcodeSearchInput').value = '';
+        }
+
+        function closePostcodeModal() {
+            document.getElementById('postcodeModal').classList.remove('show');
+        }
+
+        function searchPostcode() {
+            const query = document.getElementById('postcodeSearchInput').value;
+            if (!query) {
+                alert('검색어를 입력해주세요.');
+                return;
+            }
+            document.getElementById('postcodeResultList').style.display = 'block';
+        }
+
+        function selectAddress(postcode, address) {
+            document.getElementById('postcodeInput').value = postcode;
+            document.getElementById('addressBasicInput').value = address;
+            closePostcodeModal();
+        }
+        // 전역 변수
+        let currentDocType = '';
+        let currentFileName = '';
+
+        // 1. 내/외국인 선택 이벤트
+        document.addEventListener('DOMContentLoaded', function () {
+            const domesticRadio = document.getElementById('domesticRadio');
+            const foreignRadio = document.getElementById('foreignRadio');
+
+            function handleNationalityChange() {
+                // 폼 초기화
+                resetForm();
+
+                const natSelect = document.getElementById('nationalitySelect');
+                const krOption = natSelect.querySelector('option[value="KR"]');
+
+                if (domesticRadio.checked) {
+                    document.getElementById('domesticDocSection').style.display = 'block';
+                    document.getElementById('foreignDocSection').style.display = 'none';
+                    document.getElementById('personalInfoSection').style.display = 'block';
+                    document.getElementById('bankInfoSection').style.display = 'block';
+                    document.getElementById('remittancePurposeSection').style.display = 'block';
+
+                    // 내국인: 대한민국 자동 선택 및 비활성화
+                    if (krOption) krOption.style.display = 'block'; // 혹시 숨겨져 있었다면 보임
+                    natSelect.value = 'KR';
+                    natSelect.disabled = true;
+                    // 비활성화 되면 폼 전송 시 값이 안 넘어갈 수 있으므로 hidden input 고려 필요하지만
+                    // 여기서는 UI 로직만 구현. 필요 시 disabled 풀어주는 로직이나 hidden input 추가.
+                    // (일단 UI 요구사항에 집중)
+                } else if (foreignRadio.checked) {
+                    document.getElementById('domesticDocSection').style.display = 'none';
+                    document.getElementById('foreignDocSection').style.display = 'block';
+                    document.getElementById('personalInfoSection').style.display = 'block';
+                    document.getElementById('bankInfoSection').style.display = 'block';
+                    document.getElementById('remittancePurposeSection').style.display = 'block';
+
+                    // 외국인: 대한민국 선택 불가 (숨김 또는 제거)
+                    natSelect.disabled = false;
+                    natSelect.value = ''; // 초기화
+                    if (krOption) krOption.style.display = 'none';
+                }
+            }
+
+            // 폼 초기화 함수
+            function resetForm() {
+                // 1. 모든 텍스트 입력 초기화
+                const inputs = document.querySelectorAll('input[type="text"], input[type="date"], select, input[type="password"]');
+                inputs.forEach(input => input.value = '');
+
+                // 2. 파일 업로드 텍스트 및 상태 초기화
+                const fileDisplays = document.querySelectorAll('.file-upload-name');
+                fileDisplays.forEach(display => {
+                    display.textContent = '선택된 파일 없음';
+                    display.style.color = '#999';
+                    display.style.fontWeight = 'normal';
+                });
+
+                // 3. 라디오 버튼 초기화 (성별 등)
+                // 주의: 국적 선택 라디오는 제외해야 함
+                const radios = document.querySelectorAll('input[type="radio"]:not([name="nationality"])');
+                radios.forEach(radio => radio.checked = false);
+            }
+
+            domesticRadio.addEventListener('change', handleNationalityChange);
+            foreignRadio.addEventListener('change', handleNationalityChange);
+
+            // 날짜 직접 입력 및 유효성 검사
+            const dateInput = document.querySelector('.date-picker-custom');
+            if (dateInput) {
+                dateInput.addEventListener('change', function () {
+                    if (!this.value || this.validity.badInput) {
+                        const today = new Date().toISOString().split('T')[0];
+                        this.value = today;
+                    }
+                });
+            }
+        });
+
+        // 2. OCR 모달 열기
+        function openOCRModal(docType, title) {
+            currentDocType = docType;
+            if (title) {
+                document.getElementById('ocrModalTitle').textContent = title;
+            }
+            const modal = document.getElementById('ocrModal');
+            modal.classList.add('show');
+            resetOCRModal();
+        }
+
+        // 모달 상태 초기화
+        function resetOCRModal() {
+            document.getElementById('ocrImagePreview').style.display = 'none';
+            document.getElementById('ocrResultSection').style.display = 'none';
+            document.getElementById('ocrUploadArea').style.display = 'block';
+            document.getElementById('ocrFileInput').value = '';
+            document.getElementById('ocrUploadArea').style.display = 'block';
+            document.getElementById('ocrFileInput').value = '';
+            document.getElementById('previewText').textContent = '이미지 확인 중...';
+            currentFileName = '';
+        }
+
+        // 3. OCR 모달 닫기
+        function closeOCRModal() {
+            const modal = document.getElementById('ocrModal');
+            modal.classList.remove('show');
+        }
+
+        // 4. Drag & Drop 이벤트 핸들러
+        function handleDragOver(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            document.getElementById('ocrUploadArea').classList.add('drag-over');
+        }
+
+        function handleDragLeave(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            document.getElementById('ocrUploadArea').classList.remove('drag-over');
+        }
+
+        function handleDrop(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            document.getElementById('ocrUploadArea').classList.remove('drag-over');
+
+            const files = event.dataTransfer.files;
+            if (files.length > 0) {
+                const file = files[0];
+                if (file.type.startsWith('image/')) {
+                    processFile(file);
+                } else {
+                    alert('이미지 파일만 업로드 가능합니다.');
+                }
+            }
+        }
+
+        // 5. 이미지 업로드 처리 (input change)
+        function handleOCRImageUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            processFile(file);
+        }
+
+        // 파일 처리 공통 함수
+        function processFile(file) {
+            currentFileName = file.name; // 파일명 저장
+            // 이미지 미리보기
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('ocrPreviewImg').src = e.target.result;
+                document.getElementById('ocrImagePreview').style.display = 'block';
+                document.getElementById('ocrUploadArea').style.display = 'none';
+
+                // OCR 기능 대상인지 확인
+                const isOCRTarget = (currentDocType === 'domestic-front' || currentDocType === 'passport-front');
+
+                if (isOCRTarget) {
+                    // OCR 시뮬레이션 (빠른 응답을 위해 300ms로 단축)
+                    setTimeout(function () {
+                        simulateOCR();
+                    }, 300);
+                } else {
+                    // 단순 이미지 업로드인 경우
+                    document.getElementById('previewText').textContent = '이미지가 선택되었습니다. 확인 버튼을 눌러주세요.';
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // 6. OCR 시뮬레이션 (더미 데이터)
+        function simulateOCR() {
+            // 문서 타입에 따라 다른 더미 데이터
+            let dummyData = {
+                lastNameKo: '홍',
+                firstNameKo: '길동',
+                firstNameEn: 'GILDONG',
+                lastNameEn: 'HONG',
+                birthDate: '1990-01-15',
+                nationality: 'KR',
+                gender: 'male'
+            };
+
+            // 외국인 문서인 경우 (여권)
+            if (currentDocType.includes('passport')) {
+                dummyData = {
+                    lastNameKo: '왕',
+                    firstNameKo: '샤오밍',
+                    firstNameEn: 'XIAOMING',
+                    lastNameEn: 'WANG',
+                    birthDate: '1995-03-20',
+                    nationality: 'CN',
+                    gender: 'female'
+                };
+            }
+
+            // OCR 결과 필드에 데이터 입력
+            document.getElementById('ocrLastNameKo').value = dummyData.lastNameKo;
+            document.getElementById('ocrFirstNameKo').value = dummyData.firstNameKo;
+            document.getElementById('ocrFirstNameEn').value = dummyData.firstNameEn;
+            document.getElementById('ocrLastNameEn').value = dummyData.lastNameEn;
+            document.getElementById('ocrBirthDate').value = dummyData.birthDate;
+            document.getElementById('ocrBirthDate').value = dummyData.birthDate;
+
+            // 국적 선택 로직 적용 (메인 폼과 동일하게)
+            const ocrNatSelect = document.getElementById('ocrNationality');
+            const ocrKrOption = ocrNatSelect.querySelector('option[value="KR"]');
+
+            // 현재 내/외국인 상태 확인
+            const isDomestic = document.getElementById('domesticRadio').checked;
+
+            if (isDomestic) {
+                // 내국인: 대한민국 고정 및 비활성화
+                if (ocrKrOption) ocrKrOption.style.display = 'block';
+                ocrNatSelect.value = 'KR';
+                ocrNatSelect.disabled = true;
+            } else {
+                // 외국인: 대한민국 제외 (숨김) 및 활성화
+                ocrNatSelect.disabled = false;
+                if (ocrKrOption) ocrKrOption.style.display = 'none';
+
+                // OCR 결과가 KR인 경우 (더미데이터 상의 오류 방지) 다른 값으로 변경하거나 안내
+                if (dummyData.nationality === 'KR') {
+                    // 외국인인데 KR로 인식된 경우 (시뮬레이션 데이터 오류 방지용)
+                    ocrNatSelect.value = '';
+                } else {
+                    ocrNatSelect.value = dummyData.nationality;
+                }
+            }
+
+            if (dummyData.gender === 'male') {
+                document.getElementById('ocrGenderMale').checked = true;
+            } else {
+                document.getElementById('ocrGenderFemale').checked = true;
+            }
+
+            // 결과 섹션 표시
+            document.getElementById('ocrResultSection').style.display = 'block';
+            document.getElementById('previewText').textContent = '인식 완료! 정보를 확인해주세요.';
+        }
+
+        // 7. OCR 데이터 적용 / 이미지 업로드 완료
+        function applyOCRData() {
+            const isOCRTarget = (currentDocType === 'domestic-front' || currentDocType === 'passport-front');
+
+            if (isOCRTarget) {
+                // OCR 데이터를 메인 폼으로 복사 (OCR 대상인 경우에만)
+                // 결과 섹션이 보이는 경우에만 복사
+                if (document.getElementById('ocrResultSection').style.display !== 'none') {
+                    document.getElementById('lastNameKo').value = document.getElementById('ocrLastNameKo').value;
+                    document.getElementById('firstNameKo').value = document.getElementById('ocrFirstNameKo').value;
+                    document.getElementById('firstNameEn').value = document.getElementById('ocrFirstNameEn').value;
+                    document.getElementById('lastNameEn').value = document.getElementById('ocrLastNameEn').value;
+                    document.getElementById('birthDate').value = document.getElementById('ocrBirthDate').value;
+                    document.getElementById('nationalitySelect').value = document.getElementById('ocrNationality').value;
+
+                    const ocrGender = document.querySelector('input[name="ocrGender"]:checked');
+                    if (ocrGender) {
+                        if (ocrGender.value === 'male') {
+                            document.getElementById('genderMale').checked = true; // 주의: 메인 폼에 id가 genderMale인지 확인 필요 (기존 코드에 input name="g"만 있고 id 없음. 아래에서 수정 필요)
+                            // 기존 HTML에는 id가 없으므로 querySelector로 찾아야 함
+                            const maleRadio = document.querySelector('#personalInfoSection input[value="male"]'); // 값이 없으면 순서로?
+                            // 기존 HTML Line 250: <input type="radio" name="g"> -> 남성
+                            // 기존 HTML Line 255: <input type="radio" name="g"> -> 여성
+                            // 안전하게 하기 위해 메인 폼의 라디오 버튼에 ID를 추가하거나 순서로 접근해야 함.
+                            // 여기서는 간단히 값을 넣거나, 사용자가 직접 입력하게 둠.
+
+                            // 더 정확한 처리를 위해 메인 폼의 성별 라디오 버튼을 찾아 체크
+                            const genderRadios = document.querySelectorAll('#personalInfoSection input[name="g"]');
+                            if (genderRadios.length >= 2) {
+                                if (ocrGender.value === 'male') genderRadios[0].checked = true;
+                                else genderRadios[1].checked = true;
+                            }
+                        } else {
+                            const genderRadios = document.querySelectorAll('#personalInfoSection input[name="g"]');
+                            if (genderRadios.length >= 2) genderRadios[1].checked = true;
+                        }
+                    }
+                }
+            }
+
+            // 파일명 표시 업데이트
+            const displayId = currentDocType + '-display';
+            const displayElement = document.getElementById(displayId);
+
+            if (displayElement) {
+                // 실제 파일 처리 로직이 있다면 여기서 수행 (예: FormData에 추가)
+                displayElement.textContent = currentFileName || '업로드 완료';
+                displayElement.style.color = '#00A0DC';
+                displayElement.style.fontWeight = 'bold';
+            }
+
+            // 모달 닫기
+            closeOCRModal();
+        }
+
+        // 헬퍼 함수: 값 복사
+        function copyValue(sourceId, targetId) {
+            const source = document.getElementById(sourceId);
+            const target = document.getElementById(targetId);
+            if (source && target) {
+                target.value = source.value;
+            }
+        }
+
+        // 헬퍼 함수: 라디오 체크 (안전하게)
+        function safeCheck(elementId) {
+            const el = document.getElementById(elementId);
+            if (el) el.checked = true;
+        }
+
+
+        // 8. 회원가입 완료 모달 표시
+        function showRegModal() {
+            const modal = document.getElementById('regCompleteModal');
+            if (modal) {
+                modal.classList.add('active');
+            }
+        }
+
+        // 9. 모달 외부 클릭 시 닫기
+        document.addEventListener('click', function (event) {
+            const ocrModal = document.getElementById('ocrModal');
+            if (event.target === ocrModal) {
+                closeOCRModal();
+            }
+
+            const regModal = document.getElementById('regCompleteModal');
+            if (event.target === regModal) {
+                regModal.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+
+</html>

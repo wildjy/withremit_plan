@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth Test Page</title>
+    <!-- 1. Include the CSS for the Auth Modal -->
+    <link rel="stylesheet" href="css/auth.css">
+
+    <!-- 2. Include the Auth Script (Recommended in HEAD to run correctly) -->
+    <script src="js/auth.js"></script>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 2rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content {
+            background: #f0f0f0;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Protected Page Example</h1>
+    <div class="content">
+        <p>If you can read this, you have successfully authenticated!</p>
+        <p>The password is <strong>1234</strong>.</p>
+        <hr>
+        <button onclick="sessionStorage.removeItem('wr_auth_session'); location.reload();">Logout (Clear
+            Session)</button>
+    </div>
+
+</body>
+
+</html>

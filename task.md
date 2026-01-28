@@ -1,0 +1,29 @@
+# Task List
+
+- [x] Banner Redesign
+    - [x] Generate 3D illustrations (Referral, Birthday, Security) - *Completed*
+    - [x] Update HTML structure (DB_01_01, CM_02_01) - *Completed*
+    - [x] Update CSS for layout and responsiveness - *Completed*
+    - [x] Verify across devices - *Completed*
+- [x] Visual Fixes
+    - [x] Fix "funeral look" with vibrant gradients - *Completed*
+    - [x] Fix image borders with `mix-blend-mode` - *Completed*
+    - [x] Make banners clickable - *Completed*
+    - [x] Adjust text/image alignment - *Completed*
+- [x] Dashboard Restructuring (Local Only)
+    - [x] Swap Limit and Balance cards - *Completed*
+    - [x] Reduce Limit card height - *Completed*
+    - [x] Change Balance card button to Transaction History - *Completed*
+    - [x] Move Transaction History button to right side (reduce height) - *Completed*
+    - [x] Remove Kakao Bank account info - *Completed*
+    - [x] Add Sendable Countries sliding card - *Completed*
+- [x] Fix Layout Breakage (481px-1024px) (Local Only)
+    - [x] Add flex-wrap to balance card - *Completed*
+    - [x] Adjust font size for tablet - *Completed*
+    - [x] Reorder cards for tablet (<= 1024px) - *Completed*
+    - [x] Fix horizontal scroll at <= 1024px - *Completed*
+    - [x] Fix width > 100% overflow at <= 1024px - *Completed*
+    - [x] Fix sidebar layout causing overflow (481px-1024px) - *Completed*
+    - [x] Enforce single-column grids (Limit, Buttons) at <= 1024px - *Completed*
+    - [x] Fix calculator card selector preventing resize - *Completed*
+    - [x] Add comprehensive width constraints to containers - *Completed*

@@ -1,0 +1,761 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withremit - 수취 내역</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+</head>
+
+<body class="db-body">
+    <div id="headerContainer"></div>
+
+    <main class="db-main-container container">
+        <div class="db-layout-flex">
+            <div id="sidebarContainer"></div>
+
+            <div class="db-content">
+                <div class="db-page-header">
+                    <h2 class="db-page-title">수취 내역</h2>
+                </div>
+
+                <div class="db-content-card">
+                    <!-- Mobile Search Filter Toggle Button -->
+                    <button class="db-mobile-search-toggle" id="mobileSearchToggle">
+                        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <span class="search-text">검색 필터 열기</span>
+                        <svg class="close-icon" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                        <span class="close-text">검색 필터 닫기</span>
+                    </button>
+
+                    <!-- Search Box -->
+                    <div class="remit-search-wrapper">
+                        <div class="remit-search-row">
+                            <!-- Left: Search Conditions -->
+                            <div class="remit-search-left">
+                                <!-- Period Section -->
+                                <div class="remit-search-section">
+                                    <div class="search-label">기간</div>
+                                    <input type="date" class="db-search-input date-picker-custom" id="startDate"
+                                        value="2026-01-01">
+                                    <span class="date-separator">-</span>
+                                    <input type="date" class="db-search-input date-picker-custom" id="endDate"
+                                        value="2026-01-12">
+                                    <div class="remit-quick-btns-inline">
+                                        <button type="button" class="remit-quick-btn-small" data-days="0">당일</button>
+                                        <button type="button" class="remit-quick-btn-small" data-days="7">1주일</button>
+                                        <button type="button" class="remit-quick-btn-small" data-days="30">1개월</button>
+                                        <button type="button" class="remit-quick-btn-small" data-days="90">3개월</button>
+                                        <button type="button" class="remit-quick-btn-small" data-days="180">6개월</button>
+                                    </div>
+                                </div>
+                                <!-- Detail Section (Collapsible) -->
+                                <div class="remit-search-detail" id="searchDetail">
+                                    <div class="search-label">상태</div>
+                                    <select class="db-search-type" id="statusSelect">
+                                        <option value="all">전체</option>
+                                        <option value="접수">접수</option>
+                                        <option value="신청중">신청중</option>
+                                        <option value="접수 완료">접수 완료</option>
+                                        <option value="입금 완료">입금 완료</option>
+                                        <option value="거래 성공">거래 성공</option>
+                                        <option value="거래 실패">거래 실패</option>
+                                        <option value="거래 보류">거래 보류</option>
+                                        <option value="거래 취소">거래 취소</option>
+                                    </select>
+                                    <div class="search-label">접수 번호</div>
+                                    <input type="text" class="db-search-input" placeholder="접수 번호 입력"
+                                        id="receiptNumber">
+                                </div>
+                            </div>
+                            <!-- Right: Buttons -->
+                            <div class="remit-search-right">
+                                <div class="remit-search-buttons">
+                                    <button class="db-search-btn">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                        </svg>
+                                        검색
+                                    </button>
+                                    <button class="db-reset-btn" id="resetBtn" title="초기화">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                                            <path d="M21 3v5h-5"></path>
+                                            <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                                            <path d="M3 21v-5h5"></path>
+                                        </svg>
+                                        <span class="reset-btn-text">초기화</span>
+                                    </button>
+                                </div>
+                                <button class="remit-detail-toggle-btn" id="detailToggleBtn">
+                                    세부 검색
+                                    <svg class="toggle-arrow" viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="db-table-info">
+                        <span class="db-total-count">총 <strong>10</strong>건</span>
+                        <div class="remit-sort-wrapper">
+                            <select class="remit-sort-select" id="sortOrder">
+                                <option value="desc">최신 거래순</option>
+                                <option value="asc">오래된 거래순</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Remittance Card Grid -->
+                    <div class="remit-card-grid" id="remitCardGrid"></div>
+
+                    <div class="db-table-footer">
+                        <div class="db-pagination">
+                            <button class="db-page-btn db-page-first">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="11 17 6 12 11 7"></polyline>
+                                    <polyline points="18 17 13 12 18 7"></polyline>
+                                </svg>
+                            </button>
+                            <button class="db-page-btn db-page-prev">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="15 18 9 12 15 6"></polyline>
+                                </svg>
+                            </button>
+                            <button class="db-page-num active">1</button>
+                            <button class="db-page-num">2</button>
+                            <button class="db-page-num">3</button>
+                            <button class="db-page-btn db-page-next">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                            <button class="db-page-btn db-page-last">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="13 17 18 12 13 7"></polyline>
+                                    <polyline points="6 17 11 12 6 7"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <select class="db-rows-select">
+                            <option value="10" selected>10개씩 보기</option>
+                            <option value="20">20개씩 보기</option>
+                            <option value="30">30개씩 보기</option>
+                            <option value="50">50개씩 보기</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <!-- Contact Info Bar -->
+    <div class="contact-info-bar">
+        <div class="container">
+            <div class="contact-info-items">
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <span>한국어 상담 02-2285-2077</span>
+                </div>
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <span>日本語 相談 070-8785-1799</span>
+                </div>
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20" />
+                    </svg>
+                    <span>FAX 02-2285-2078</span>
+                </div>
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <span>hana@oneremit.co.kr</span>
+                </div>
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>평일 09:00~18:00 · 토/공휴일 10:00~16:00 · 일요일 휴무</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footerContainer"></div>
+
+    <div class="db-overlay-mask" id="dbOverlay"></div>
+
+    <!-- Remittance Detail Modal -->
+    <div class="remit-modal" id="remitModal">
+        <div class="remit-modal-content">
+            <div class="remit-modal-header">
+                <h3 class="remit-modal-title">해외 수취 내역서</h3>
+                <button class="remit-modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="remit-modal-body" id="modalBody">
+                <!-- Modal content will be dynamically inserted here -->
+            </div>
+            <div class="remit-modal-footer">
+                <button class="btn-receipt-print" onclick="window.print()">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    인쇄
+                </button>
+                <button class="btn-receipt-close" id="modalCloseBtn">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/includes.js"></script>
+    <script>
+        // Sample remittance data (10 items) - Receive History
+        const remittanceData = [
+            {
+                receiptNum: '123456',
+                date: '2026.01.12',
+                sendAmount: '¥111,200',
+                depositAmount: '¥111,200',
+                receiveAmount: '₩1,000,000',
+                receiveCurrency: '₩1,000,000',
+                flag: 'images/jp.png',
+                name: 'Kim Minho',
+                bank: '신한은행',
+                receiveDate: '2026.01.12',
+                status: 'cancel',
+                statusText: '거래 취소',
+                country: '일본'
+            },
+            {
+                receiptNum: '123457',
+                date: '2026.01.11',
+                sendAmount: '¥5,400',
+                depositAmount: '¥5,400',
+                receiveAmount: '₩1,000,000',
+                receiveCurrency: '₩1,000,000',
+                flag: 'images/cn.png',
+                name: 'Lee Jisoo',
+                bank: '우리은행',
+                receiveDate: '2026.01.11',
+                status: 'approved',
+                statusText: '접수 완료',
+                country: '중국'
+            },
+            {
+                receiptNum: '123458',
+                date: '2026.01.10',
+                sendAmount: 'A$1,089',
+                depositAmount: 'A$1,089',
+                receiveAmount: '₩1,000,000',
+                receiveCurrency: '₩1,000,000',
+                flag: 'images/au.png',
+                name: 'Park Jiwon',
+                bank: 'KB국민은행',
+                receiveDate: '2026.01.10',
+                status: 'success',
+                statusText: '거래 성공',
+                country: '호주'
+            },
+            {
+                receiptNum: '123459',
+                date: '2026.01.09',
+                sendAmount: '₱21,000',
+                depositAmount: '₱21,000',
+                receiveAmount: '₩500,000',
+                receiveCurrency: '₩500,000',
+                flag: 'images/ph.png',
+                name: 'Choi Seohyun',
+                bank: '하나은행',
+                receiveDate: '2026.01.09',
+                status: 'complete',
+                statusText: '입금 완료',
+                country: '필리핀'
+            },
+            {
+                receiptNum: '123460',
+                date: '2026.01.08',
+                sendAmount: '₫13,900,000',
+                depositAmount: '₫13,900,000',
+                receiveAmount: '₩800,000',
+                receiveCurrency: '₩800,000',
+                flag: 'images/vn.png',
+                name: 'Jung Hana',
+                bank: 'IBK기업은행',
+                receiveDate: '2026.01.08',
+                status: 'success',
+                statusText: '거래 성공',
+                country: '베트남'
+            },
+            {
+                receiptNum: '123461',
+                date: '2026.01.07',
+                sendAmount: '৳57,600',
+                depositAmount: '৳57,600',
+                receiveAmount: '₩650,000',
+                receiveCurrency: '₩650,000',
+                flag: 'images/bd.png',
+                name: 'Kang Subin',
+                bank: 'NH농협은행',
+                receiveDate: '2026.01.07',
+                status: 'approved',
+                statusText: '접수 완료',
+                country: '방글라데시'
+            },
+            {
+                receiptNum: '123462',
+                date: '2026.01.06',
+                sendAmount: 'HK$6,900',
+                depositAmount: 'HK$6,900',
+                receiveAmount: '₩1,200,000',
+                receiveCurrency: '₩1,200,000',
+                flag: 'images/hk.png',
+                name: 'Song Minji',
+                bank: '카카오뱅크',
+                receiveDate: '2026.01.06',
+                status: 'success',
+                statusText: '거래 성공',
+                country: '홍콩'
+            },
+            {
+                receiptNum: '123463',
+                date: '2026.01.05',
+                sendAmount: '₨44,000',
+                depositAmount: '₨44,000',
+                receiveAmount: '₩450,000',
+                receiveCurrency: '₩450,000',
+                flag: 'images/np.png',
+                name: 'Yoon Jihoon',
+                bank: '토스뱅크',
+                receiveDate: '2026.01.05',
+                status: 'pending',
+                statusText: '거래 보류',
+                country: '네팔'
+            },
+            {
+                receiptNum: '123464',
+                date: '2026.01.04',
+                sendAmount: '₮1,880,000',
+                depositAmount: '₮1,880,000',
+                receiveAmount: '₩750,000',
+                receiveCurrency: '₩750,000',
+                flag: 'images/mn.png',
+                name: 'Han Yoona',
+                bank: 'SC제일은행',
+                receiveDate: '2026.01.04',
+                status: 'success',
+                statusText: '거래 성공',
+                country: '몽골'
+            },
+            {
+                receiptNum: '123465',
+                date: '2026.01.03',
+                sendAmount: '₨123,000',
+                depositAmount: '₨123,000',
+                receiveAmount: '₩550,000',
+                receiveCurrency: '₩550,000',
+                flag: 'images/lk.png',
+                name: 'Seo Hyunwoo',
+                bank: '케이뱅크',
+                receiveDate: '2026.01.03',
+                status: 'complete',
+                statusText: '입금 완료',
+                country: '스리랑카'
+            }
+        ];
+
+        // Generate status SVG
+        function getStatusSVG(status) {
+            const svgs = {
+                cancel: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>',
+                approved: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>',
+                success: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>',
+                complete: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>',
+                pending: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>'
+            };
+            return svgs[status] || '';
+        }
+
+        // Generate location map placeholder
+        function getMapPlaceholder(country) {
+            return `<svg viewBox="0 0 200 80" width="100%" height="80" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="80" fill="#e5e7eb"/>
+                <circle cx="100" cy="40" r="8" fill="#ef4444"/>
+                <text x="100" y="60" font-family="Arial" font-size="10" fill="#6b7280" text-anchor="middle">${country}</text>
+            </svg>`;
+        }
+
+        // Render remittance cards
+        function renderCards() {
+            const grid = document.getElementById('remitCardGrid');
+            grid.innerHTML = '';
+
+            remittanceData.forEach((data, index) => {
+                const card = document.createElement('div');
+                card.className = 'remit-card';
+                card.innerHTML = `
+                    <!-- First Row: Receipt Info -->
+                    <div class="remit-card-header">
+                        <span class="remit-card-receipt-num">${data.receiptNum}</span>
+                        <span class="remit-card-date">${data.date}</span>
+                        <button class="remit-card-view-btn" onclick="openModal(${index})">
+                            내역 보기
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                    <!-- Second Row: 4 Columns -->
+                    <div class="remit-card-body">
+                        <!-- Column 1: Foreign Flag + Send/Deposit Amounts -->
+                        <div class="remit-card-col remit-card-kr-amounts">
+                            <img src="${data.flag}" alt="flag" class="remit-card-flag">
+                            <div class="remit-card-amounts-krw">
+                                <div class="remit-card-amount-row">
+                                    <span class="remit-card-amount-label">송금</span>
+                                    <span class="remit-card-amount-value">${data.sendAmount}</span>
+                                </div>
+                                <div class="remit-card-amount-row">
+                                    <span class="remit-card-amount-label">입금</span>
+                                    <span class="remit-card-amount-value">${data.depositAmount}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Arrow -->
+                        <div class="remit-card-arrow">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </div>
+                        <!-- Column 2: KR Flag + Receive Amount (KRW) -->
+                        <div class="remit-card-col remit-card-receive-amount">
+                            <img src="images/kr.png" alt="KR" class="remit-card-flag">
+                            <span class="remit-card-amount-value">${data.receiveCurrency}</span>
+                        </div>
+                        <!-- Column 3: Details (Name, Bank, Date) -->
+                        <div class="remit-card-col remit-card-details">
+                            <div class="remit-card-detail-row">
+                                <span class="remit-card-detail-label">이름</span>
+                                <span class="remit-card-detail-value">${data.name}</span>
+                            </div>
+                            <div class="remit-card-detail-row">
+                                <span class="remit-card-detail-label">은행명</span>
+                                <span class="remit-card-detail-value">${data.bank}</span>
+                            </div>
+                            <div class="remit-card-detail-row">
+                                <span class="remit-card-detail-label">수취일</span>
+                                <span class="remit-card-detail-value">${data.receiveDate}</span>
+                            </div>
+                        </div>
+                        <!-- Column 4: Status -->
+                        <div class="remit-card-col remit-card-status-wrapper">
+                            <span class="remit-status status-${data.status}">
+                                ${getStatusSVG(data.status)}
+                                ${data.statusText}
+                            </span>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Open modal with detail
+        function openModal(index) {
+            const data = remittanceData[index];
+            const modal = document.getElementById('remitModal');
+            const modalBody = document.getElementById('modalBody');
+
+            modalBody.innerHTML = `
+                <div class="receipt-layout">
+                    <!-- Header (Visible in Print) -->
+                    <div class="receipt-header">
+                        <img src="images/logo-withmoney.png" alt="withmoney" class="receipt-logo">
+                        <div class="receipt-title">해외 수취 내역서</div>
+                        <p class="receipt-sub-text">Foreign Inbound Remittance Statement</p>
+                    </div>
+
+                    <!-- Section 1: Transaction Summary -->
+                    <div class="receipt-section">
+                        <div class="receipt-row">
+                            <span class="receipt-label">송금 상태 (Status)</span>
+                            <span class="receipt-value highlight">${data.statusText}</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span class="receipt-label">접수 번호 (Ref No.)</span>
+                            <span class="receipt-value">${data.receiptNum}</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span class="receipt-label">접수 일시 (Date)</span>
+                            <span class="receipt-value">${data.date}</span>
+                        </div>
+                    </div>
+
+                    <div class="receipt-divider"></div>
+
+                    <!-- Section 2: Sender & Receiver -->
+                    <div class="receipt-section">
+                        <div class="receipt-section-title">보내는 분 (Sender)</div>
+                        <div class="receipt-row">
+                            <span class="receipt-label">송금 국가 (Country)</span>
+                            <span class="receipt-value">${data.country}</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span class="receipt-label">송금액 (Send Amount)</span>
+                            <span class="receipt-value">${data.sendAmount}</span>
+                        </div>
+                        <!-- Placeholder for fees/exchange rate if available in data, simplified for now -->
+                         <div class="receipt-row">
+                            <span class="receipt-label">입금액 (Deposit)</span>
+                            <span class="receipt-value">${data.depositAmount}</span>
+                        </div>
+                    </div>
+
+                    <div class="receipt-divider dashed"></div>
+
+                    <div class="receipt-section">
+                        <div class="receipt-section-title">받는 분 (Receiver)</div>
+                        <div class="receipt-row">
+                            <span class="receipt-label">수취인 (Name)</span>
+                            <span class="receipt-value">${data.name}</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span class="receipt-label">수취 국가 (Country)</span>
+                            <span class="receipt-value">대한민국</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span class="receipt-label">은행 (Bank)</span>
+                            <span class="receipt-value">${data.bank}</span>
+                        </div>
+                         <div class="receipt-row">
+                            <span class="receipt-label">계좌 번호 (Account)</span>
+                            <span class="receipt-value">*******1234</span> <!-- Masked for security -->
+                        </div>
+                    </div>
+
+                    <!-- Total Section -->
+                    <div class="receipt-total-section">
+                        <div class="receipt-total-row">
+                            <span class="receipt-total-label">실 수취 금액<br><span style="font-size:0.8em; font-weight:400;">(Receive Amount)</span></span>
+                            <span class="receipt-total-value">${data.receiveAmount}</span>
+                        </div>
+                        <div class="receipt-row" style="margin-top:10px; padding:0;">
+                             <span class="receipt-label" style="text-align:right; flex:1;">적용 환율 : 1 KRW = 1,435.00 USD</span>
+                        </div>
+                    </div>
+
+                    <!-- Footer Disclaimer -->
+                    <div class="receipt-footer">
+                        본 영수증은 고객님의 해외 수취 거래 내역을 증명하기 위해 발급되었습니다.<br>
+                        This receipt is issued to certify your foreign inbound remittance transaction.<br>
+                        <strong>(주)위드머니 / withmoney Inc.</strong>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.add('show');
+        }
+
+        // Close modal
+        function closeModal() {
+            const modal = document.getElementById('remitModal');
+            modal.classList.remove('show');
+        }
+
+        // Auto-setup table for responsive and expandable features
+        function setupRemittanceTable() {
+            const table = document.querySelector('.remit-table');
+            if (!table) return;
+
+            const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr')).filter(tr => !tr.classList.contains('remit-detail-row'));
+
+            rows.forEach((row, index) => {
+                // Add row classes and data attributes if not already present
+                if (!row.classList.contains('remit-row')) {
+                    row.classList.add('remit-row');
+                    row.setAttribute('data-row-id', index + 1);
+                }
+
+                // Add data-label attributes for responsive view
+                const cells = row.querySelectorAll('td');
+                cells.forEach((cell, cellIndex) => {
+                    if (headers[cellIndex]) {
+                        cell.setAttribute('data-label', headers[cellIndex]);
+                    }
+                    // Add hide-desktop class to columns that should be hidden
+                    if (cellIndex === 4 || cellIndex === 6 || cellIndex === 7 || cellIndex === 9) {
+                        cell.classList.add('hide-desktop');
+                    }
+                });
+
+                // Create detail row if it doesn't exist
+                let detailRow = row.nextElementSibling;
+                if (!detailRow || !detailRow.classList.contains('remit-detail-row')) {
+                    detailRow = document.createElement('tr');
+                    detailRow.classList.add('remit-detail-row');
+                    detailRow.setAttribute('data-detail-id', index + 1);
+
+                    const detailCell = document.createElement('td');
+                    detailCell.setAttribute('colspan', '10');
+
+                    const detailContent = document.createElement('div');
+                    detailContent.classList.add('remit-detail-content');
+
+                    // Extract hidden column data
+                    const receiveDate = cells[4]?.textContent.trim();
+                    const bankName = cells[6]?.textContent.trim();
+                    const receiveAmount = cells[7]?.textContent.trim();
+                    const sendButton = cells[9]?.querySelector('.remit-action-btn');
+
+                    if (receiveDate) {
+                        const item1 = document.createElement('div');
+                        item1.classList.add('remit-detail-item');
+                        item1.innerHTML = `
+                            <span class="remit-detail-label">수취일</span>
+                            <span class="remit-detail-value">${receiveDate}</span>
+                        `;
+                        detailContent.appendChild(item1);
+                    }
+
+                    if (bankName) {
+                        const item2 = document.createElement('div');
+                        item2.classList.add('remit-detail-item');
+                        item2.innerHTML = `
+                            <span class="remit-detail-label">은행명</span>
+                            <span class="remit-detail-value">${bankName}</span>
+                        `;
+                        detailContent.appendChild(item2);
+                    }
+
+                    if (receiveAmount) {
+                        const item3 = document.createElement('div');
+                        item3.classList.add('remit-detail-item');
+                        item3.innerHTML = `
+                            <span class="remit-detail-label">수취 금액</span>
+                            <span class="remit-detail-value">${receiveAmount}</span>
+                        `;
+                        detailContent.appendChild(item3);
+                    }
+                }
+            });
+        }
+
+        // Detail search toggle
+        const detailToggleBtn = document.getElementById('detailToggleBtn');
+        const searchDetail = document.getElementById('searchDetail');
+
+        if (detailToggleBtn && searchDetail) {
+            detailToggleBtn.addEventListener('click', () => {
+                detailToggleBtn.classList.toggle('active');
+                searchDetail.classList.toggle('show');
+            });
+        }
+
+        // Quick date button functionality
+        const quickBtns = document.querySelectorAll('.remit-quick-btn-small');
+        const startDateInput = document.getElementById('startDate');
+        const endDateInput = document.getElementById('endDate');
+
+        quickBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const days = parseInt(btn.getAttribute('data-days'));
+                const today = new Date();
+                const endDate = new Date(today);
+
+                // Format date as YYYY-MM-DD
+                const formatDate = (date) => {
+                    const year = date.getFullYear();
+                    const month = String(date.getMonth() + 1).padStart(2, '0');
+                    const day = String(date.getDate()).padStart(2, '0');
+                    return `${year}-${month}-${day}`;
+                };
+
+                if (days === 0) {
+                    // 당일: Start and end are today
+                    startDateInput.value = formatDate(today);
+                    endDateInput.value = formatDate(today);
+                } else {
+                    // Calculate start date by subtracting days
+                    const startDate = new Date(today);
+                    startDate.setDate(today.getDate() - days);
+                    startDateInput.value = formatDate(startDate);
+                    endDateInput.value = formatDate(endDate);
+                }
+            });
+        });
+
+        // Mobile search toggle
+        const mobileSearchToggle = document.getElementById('mobileSearchToggle');
+        const searchWrapper = document.querySelector('.remit-search-wrapper');
+
+        if (mobileSearchToggle && searchWrapper) {
+            mobileSearchToggle.addEventListener('click', () => {
+                mobileSearchToggle.classList.toggle('active');
+                searchWrapper.classList.toggle('mobile-active');
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCards();
+
+            // Modal close handlers
+            document.getElementById('modalClose').addEventListener('click', closeModal);
+            document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+
+            // Close modal on outside click
+            document.getElementById('remitModal').addEventListener('click', (e) => {
+                if (e.target.id === 'remitModal') {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

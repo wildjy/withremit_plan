@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="withremit 로그인 - 해외송금 서비스">
+    <title>로그인 - WithMoney</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+</head>
+
+<body class="login-page">
+
+    <!-- Login Container -->
+    <main class="login-container">
+        <div class="login-logo">
+            <a href="CM_02_01.html"><img src="images/logo-withremit.png" alt="withremit"></a>
+        </div>
+
+        <div class="login-card">
+            <h2 class="login-title">로그인</h2>
+            <form class="login-form" action="#" method="post">
+                <div class="field-group">
+                    <label class="field-label" for="userId">아이디</label>
+                    <div class="input-box-group" id="userIdBox"> <input type="text" id="userId" name="userId"
+                            class="login-input" placeholder="아이디를 입력하세요">
+                    </div>
+                    <div class="error-msg" id="userIdError"></div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label" for="userPassword">비밀번호</label>
+                    <div class="input-box-group" id="userPasswordBox">
+                        <div class="password-wrap">
+                            <input type="password" id="userPassword" name="userPassword" class="login-input"
+                                placeholder="비밀번호를 입력하세요" readonly onclick="toggleKeypad('userPassword')">
+                            <button type="button" class="keypad-btn" tabindex="-1">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
+                                </svg>
+                            </button>
+                            <div id="securityKeypad" class="security-keypad">
+                                <div class="keypad-header">
+                                    <span>보안 키보드</span>
+                                    <button type="button" class="close-keypad" onclick="toggleKeypad()">&times;</button>
+                                </div>
+                                <div id="keypadContainer" class="keypad-grid"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="error-msg" id="userPasswordError"></div>
+                </div>
+
+                <div class="login-options">
+                    <label class="keep-login-wrap">
+                        <input type="checkbox" name="autoLogin">
+                        <span class="custom-check"></span>
+                        <span class="opt-label">로그인 상태 유지</span>
+                    </label>
+                    <div class="find-links">
+                        <a href="CM_03_02.html">아이디/비밀번호찾기</a>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-main-login" onclick="handleLoginRedirect()">로그인</button>
+                <a href="CM_02_01.html" class="btn-back-cancel">취소</a>
+            </form>
+            <div class="register-wrap">
+                <a href="CM_04_01.html" class="register-item">첫 송금인가요? 지금 회원가입하세요.</a>
+
+                <div class="sns-separator"></div>
+
+                <div class="sns-login-buttons">
+                    <!-- Line -->
+                    <button type="button" class="btn-sns btn-line">
+                        <div class="sns-icon-wrap">
+                            <img src="images/icon-line.png" alt="LINE" class="sns-icon-img">
+                        </div>
+                        LINE으로 로그인
+                    </button>
+
+                    <!-- Kakao -->
+                    <button type="button" class="btn-sns btn-kakao">
+                        <div class="sns-icon-wrap">
+                            <img src="images/icon-kakao.png" alt="Kakao" class="sns-icon-img">
+                        </div>
+                        카카오로 로그인
+                    </button>
+
+                    <!-- Facebook -->
+                    <button type="button" class="btn-sns btn-facebook">
+                        <div class="sns-icon-wrap">
+                            <img src="images/icon-facebook.png" alt="Facebook" class="sns-icon-img">
+                        </div>
+                        페이스북으로 로그인
+                    </button>
+
+                    <!-- Viber -->
+                    <button type="button" class="btn-sns btn-viber">
+                        <div class="sns-icon-wrap">
+                            <img src="images/icon-viber.png" alt="Viber" class="sns-icon-img">
+                        </div>
+                        Viber로 로그인
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="login-footer-wrap">
+
+            <footer class="footer-simple">
+                <div class="menu-text-list">
+                    <a href="#company">회사소개</a>
+                    <span class="v-bar"></span>
+                    <a href="#privacy" class="footer-link-important">개인정보처리방침</a>
+                    <span class="v-bar"></span>
+                    <a href="#terms">이용약관</a>
+                    <span class="v-bar"></span>
+                    <a href="#antisocial">반사회적세력방침</a>
+                    <span class="v-bar"></span>
+                    <a href="#fraud">사기피해주의</a>
+                </div>
+                <div class="info-text-list">
+                    <p>Copyright ⓒ 2026 withmoney Inc. All rights reserved.</p>
+                    <p>기획재정부 인가 소액해외송금업체 (등록번호: 2018-7)</p>
+                </div>
+            </footer>
+        </div>
+    </main>
+    <script src="js/main.js"></script>
+    <script>
+        function handleLoginRedirect() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const redirectTarget = urlParams.get('redirect');
+
+            if (redirectTarget) {
+                location.href = redirectTarget;
+            } else {
+                location.href = 'DB_01_01.html';
+            }
+        }
+    </script>
+</body>
+
+</html>

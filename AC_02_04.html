@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WithRemit - 출금 계좌 등록</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/account.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body class="db-body">
+    <div id="headerContainer"></div>
+
+    <main class="db-main-container container">
+        <div class="db-layout-flex">
+            <div id="sidebarContainer"></div>
+
+            <div class="db-content">
+                <div class="db-page-header">
+                    <h1 class="db-page-title">출금 계좌 등록</h1>
+                </div>
+
+                <div class="db-content-card">
+
+
+                    <!-- Top Disclaimer -->
+                    <div class="remit-balance-round-box" style="margin-bottom: 30px;">
+                        법령에 따라 조회 동의는 최대 5년까지 유효하며, 1년마다 재동의 여부를 확인해야 합니다.
+                    </div>
+
+                    <div class="guide-section" style="margin-bottom: 0; padding-bottom: 0; border: none;">
+                        <h2 class="form-sec-head" style="margin-bottom: 16px;">
+                            등록할 계좌 정보
+                        </h2>
+                    </div>
+
+                    <!-- Account Table -->
+                    <div class="bank-table-card">
+                        <div class="db-table-responsive">
+                            <table class="db-notice-table">
+                                <colgroup>
+                                    <col width="40%">
+                                    <col width="60%">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th class="center">은행명</th>
+                                        <th class="center">계좌 번호</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="center" data-label="은행명">산업</td>
+                                        <td class="center" data-label="계좌 번호">06493117232310 01</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="center" data-label="은행명">산업</td>
+                                        <td class="center" data-label="계좌 번호">06493117266310 01</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="center" data-label="은행명">케이뱅크</td>
+                                        <td class="center" data-label="계좌 번호">100144380011</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="center" data-label="은행명">카카오뱅크</td>
+                                        <td class="center" data-label="계좌 번호">3333037115702</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="center" data-label="은행명">카카오뱅크</td>
+                                        <td class="center" data-label="계좌 번호">3388140671141</td>
+                                    </tr>
+                                    <tr class="dotted-line-row">
+                                        <td class="center" data-label="은행명">토스뱅크</td>
+                                        <td class="center" data-label="계좌 번호">100063347871</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Info -->
+                    <div class="guide-note">
+                        <ul class="guide-list">
+                            <li>[전자서명]버튼을 눌러 전자서명 절차를 진행해 주세요.</li>
+                            <li>계좌등록을 위해서는 전자서명을 완료해야 합니다.</li>
+                        </ul>
+                    </div>
+
+
+                    <!-- Action Buttons -->
+                    <div class="remit-action-btns" style="margin-top: 40px;">
+                        <button type="button" class="btn btn-outline btn-remit-cancel"
+                            onclick="location.href='AC_02_01.html'">취소</button>
+                        <button type="button" class="btn btn-primary" onclick="openModal('confirmModal')">모바일
+                            인증</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="contactContainer"></div>
+    <div id="footerContainer"></div>
+
+    <!-- Confirm Modal -->
+    <div id="confirmModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <!-- Question Mark Icon -->
+                <!-- Question Mark Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="#1B5E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+            </div>
+            <h3>출금 계좌로 등록하시겠습니까?</h3>
+            <p>본인 인증 완료 후, <br> 선택한 계좌를 출금 계좌로 등록합니다.</p>
+            <div class="modal-btn-group">
+                <button class="btn-cancel" onclick="closeModal('confirmModal')">취소</button>
+                <button class="btn-confirm-action" onclick="confirmRegistration()">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/includes.js"></script>
+    <script>
+        // Manual override to ensure sidebar active state
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkSidebar = setInterval(() => {
+                const nav = document.getElementById('navWithdrawalAccount');
+                if (nav) {
+                    nav.classList.add('active');
+                    clearInterval(checkSidebar);
+                }
+            }, 100);
+            setTimeout(() => clearInterval(checkSidebar), 5000); // Stop after 5s if not found
+        });
+
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        function confirmRegistration() {
+            closeModal('confirmModal');
+            // Navigate to List
+            location.href = 'AC_02_01.html';
+        }
+
+        // Close modal on click outside
+        window.onclick = function (event) {
+            const modal = document.getElementById('confirmModal');
+            if (event.target == modal) {
+                closeModal('confirmModal');
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,475 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withremit - 마이 페이지</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+    <link rel="stylesheet" href="css/utility.css">
+</head>
+
+<body class="db-body">
+    <div id="headerContainer"></div>
+
+    <main class="db-main-container container">
+        <div class="db-layout-flex">
+            <div id="sidebarContainer"></div>
+
+            <div class="db-content">
+                <div class="db-page-header">
+                    <h1 class="db-page-title">마이 페이지</h1>
+                </div>
+
+                <div class="db-content-card">
+                    <!-- 계정 정보 -->
+                    <div class="remit-form-section">
+                        <div class="form-sec-head-wrap">
+                            <h2 class="form-sec-head">계정 정보</h2>
+                        </div>
+                        <div class="form-sec">
+                            <div class="form-row-full">
+                                <div class="field-item">
+                                    <label class="field-label">아이디</label>
+                                    <div class="field-value-plain">withbusiness</div>
+                                </div>
+                            </div>
+                            <div class="form-row-2">
+                                <div class="field-item">
+                                    <label class="field-label">비밀번호 <span class="badge-required">필수</span></label>
+                                    <div class="input-box-group">
+                                        <input type="password" placeholder="8자 이상 조합" class="login-input">
+                                    </div>
+                                </div>
+                                <div class="field-item">
+                                    <label class="field-label">비밀번호 확인 <span class="badge-required">필수</span></label>
+                                    <div class="field-flex">
+                                        <input type="password" placeholder="비밀번호 재입력" class="login-input">
+                                        <button type="button" class="btn-sub-action">비밀번호 변경</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 법인 정보 -->
+                    <div class="remit-form-section">
+                        <div class="form-sec-head-wrap">
+                            <h2 class="form-sec-head">법인 정보</h2>
+                        </div>
+                        <div class="form-sec">
+                            <div class="form-row-4">
+                                <div class="field-item">
+                                    <label class="field-label">법인명 (한글)</label>
+                                    <div class="field-value-plain">(주)위드머니</div>
+                                </div>
+                                <div class="field-item">
+                                    <label class="field-label">법인명 (영문)</label>
+                                    <div class="field-value-plain">WITHMONEY CO., LTD</div>
+                                </div>
+                                <div class="field-item grid-span-2">
+                                    <label class="field-label">회사형태</label>
+                                    <select class="login-input select-styled">
+                                        <option>주식회사</option>
+                                        <option>유한회사</option>
+                                        <option>합자회사</option>
+                                        <option>합명회사</option>
+                                        <option>유한책임회사</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row-4">
+                                <div class="field-item">
+                                    <label class="field-label">성 (한글)</label>
+                                    <div class="field-value-plain">홍</div>
+                                </div>
+                                <div class="field-item">
+                                    <label class="field-label">이름 (한글)</label>
+                                    <div class="field-value-plain">길동</div>
+                                </div>
+                                <div class="field-item">
+                                    <label class="field-label">이름 (영문)</label>
+                                    <div class="field-value-plain">GILDONG</div>
+                                </div>
+                                <div class="field-item">
+                                    <label class="field-label">성 (영문)</label>
+                                    <div class="field-value-plain">HONG</div>
+                                </div>
+                            </div>
+                            <div class="form-row-2">
+                                <div class="field-item">
+                                    <label class="field-label">업종</label>
+                                    <input type="text" value="서비스/IT" class="login-input">
+                                </div>
+                                <div class="field-item">
+                                    <label class="field-label">사업자등록번호</label>
+                                    <div class="field-value-plain">123-45-67890</div>
+                                </div>
+                            </div>
+                            <div class="form-row-4">
+                                <div class="field-item">
+                                    <label class="field-label">전화번호</label>
+                                    <input type="text" value="02-123-4567" class="login-input">
+                                </div>
+                                <div class="field-item">
+                                    <label class="field-label">팩스번호</label>
+                                    <input type="text" value="02-123-4568" class="login-input">
+                                </div>
+                                <div class="field-item grid-span-2">
+                                    <label class="field-label">부서명</label>
+                                    <input type="text" value="재무팀" class="login-input">
+                                </div>
+                            </div>
+                            <div class="field-item top-level">
+                                <label class="field-label">법인 주소 <span class="badge-required">필수</span></label>
+                                <div class="field-flex mb-12">
+                                    <input type="text" value="06164" class="login-input" readonly id="postcodeInput">
+                                    <button type="button" class="btn-sub-action"
+                                        onclick="openPostcodeModal()">우편번호검색</button>
+                                </div>
+                                <input type="text" value="서울특별시 강남구 영동대로 511" class="login-input mb-12" readonly
+                                    id="addressBasicInput">
+                                <input type="text" value="트레이드타워 15층" class="login-input" placeholder="상세 주소를 입력해 주세요">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 법인 관리자 정보 -->
+                    <div class="remit-form-section">
+                        <div class="form-sec-head-wrap">
+                            <h2 class="form-sec-head">법인 관리자 정보</h2>
+                        </div>
+                        <div class="form-sec">
+                            <div class="form-row-3">
+                                <div class="field-item">
+                                    <label class="field-label">이름 (한글)</label>
+                                    <input type="text" value="김관리" class="login-input">
+                                </div>
+                                <div class="field-item">
+                                    <label class="field-label">생년월일</label>
+                                    <input type="date" value="1985-05-20" class="login-input date-picker-custom">
+                                </div>
+                                <div class="field-item">
+                                    <label class="field-label">성별</label>
+                                    <div class="field-flex h-52">
+                                        <label class="radio-wrap">
+                                            <input type="radio" name="admin_g" checked>
+                                            <span class="custom-radio"></span>
+                                            <span>남성</span>
+                                        </label>
+                                        <label class="radio-wrap">
+                                            <input type="radio" name="admin_g">
+                                            <span class="custom-radio"></span>
+                                            <span>여성</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row-3">
+                                <div class="field-item">
+                                    <label class="field-label">직업</label>
+                                    <select class="login-input select-styled">
+                                        <option selected>회사원</option>
+                                        <option>전문직</option>
+                                        <option>개인사업자</option>
+                                    </select>
+                                </div>
+                                <div class="field-item">
+                                    <label class="field-label">이메일 표시 언어</label>
+                                    <select class="login-input select-styled">
+                                        <option selected>한국어</option>
+                                        <option>English</option>
+                                        <option>日本語</option>
+                                    </select>
+                                </div>
+                                <div class="field-item">
+                                    <label class="field-label">관리자 전화번호</label>
+                                    <input type="text" value="010-9876-5432" class="login-input">
+                                </div>
+                            </div>
+                            <div class="field-item top-level">
+                                <label class="field-label">관리자 이메일 주소 <span class="badge-required">필수</span></label>
+                                <div class="field-flex full-width">
+                                    <input type="email" value="admin@withmoney.co.kr" class="login-input">
+                                    <button type="button" class="btn-sub-action">이메일 중복 확인</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 주주 명부 -->
+                    <div class="remit-form-section">
+                        <div class="form-sec-head-flex"
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h2 class="form-sec-head" style="margin: 0;">주주 명부</h2>
+                            <button type="button" class="btn-add-row" onclick="addShareholder()">주주 추가</button>
+                        </div>
+                        <div class="form-sec">
+                            <div class="shareholder-table">
+                                <div class="sh-header">
+                                    <div>이름(한글)</div>
+                                    <div>이름(영문)</div>
+                                    <div>생년월일</div>
+                                    <div>지분율(%)</div>
+                                    <div class="sh-addr-col">주소</div>
+                                    <div class="sh-action-col">삭제</div>
+                                </div>
+                                <div id="shareholderContainer">
+                                    <div class="sh-row">
+                                        <div class="sh-field">
+                                            <span class="sh-mobile-label">이름(한글)</span>
+                                            <input type="text" value="홍길동" class="sh-input">
+                                        </div>
+                                        <div class="sh-field">
+                                            <span class="sh-mobile-label">이름(영문)</span>
+                                            <input type="text" value="HONG GILDONG" class="sh-input">
+                                        </div>
+                                        <div class="sh-field">
+                                            <span class="sh-mobile-label">생년월일</span>
+                                            <input type="text" value="19800101" class="sh-input">
+                                        </div>
+                                        <div class="sh-field">
+                                            <span class="sh-mobile-label">지분율</span>
+                                            <input type="text" value="100" class="sh-input">
+                                        </div>
+                                        <div class="sh-field sh-addr">
+                                            <span class="sh-mobile-label">주소</span>
+                                            <input type="text" value="서울특별시 중구 남대문로 120" class="sh-input">
+                                        </div>
+                                        <div class="sh-action">
+                                            <button type="button" class="btn-sh-del"
+                                                onclick="removeRow(this)">삭제</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="field-desc accent-red" style="margin-top: 12px; font-size: 13px; color: #ef4444;">
+                                * 주식 25% 이상 소유자를 입력해 주세요.</p>
+                        </div>
+                    </div>
+
+                    <!-- 송금 목적 -->
+                    <div class="remit-form-section">
+                        <div class="form-sec-head-wrap">
+                            <h2 class="form-sec-head">송금 목적 (복수 선택 가능)</h2>
+                        </div>
+                        <div class="form-sec">
+                            <div class="purpose-grid-full business-purpose-grid">
+                                <label class="check-label-group"><input type="checkbox" checked><span
+                                        class="custom-check"></span><span class="check-text">통관수입대금</span></label>
+                                <label class="check-label-group"><input type="checkbox"><span
+                                        class="custom-check"></span><span class="check-text">무통관수입대금</span></label>
+                                <label class="check-label-group"><input type="checkbox"><span
+                                        class="custom-check"></span><span class="check-text">수출대금 반송분</span></label>
+                                <label class="check-label-group"><input type="checkbox"><span
+                                        class="custom-check"></span><span class="check-text">유학 및 연수</span></label>
+                                <label class="check-label-group"><input type="checkbox"><span
+                                        class="custom-check"></span><span class="check-text">여행</span></label>
+                                <label class="check-label-group"><input type="checkbox"><span
+                                        class="custom-check"></span><span class="check-text">운수</span></label>
+                                <label class="check-label-group"><input type="checkbox"><span
+                                        class="custom-check"></span><span class="check-text">보험(보험료, 보험금
+                                        등)</span></label>
+                                <label class="check-label-group"><input type="checkbox" checked><span
+                                        class="custom-check"></span><span class="check-text">투자수익(배당금 및
+                                        이자)</span></label>
+                                <label class="check-label-group"><input type="checkbox"><span
+                                        class="custom-check"></span><span class="check-text">정부거래</span></label>
+                                <label class="check-label-group"><input type="checkbox" checked><span
+                                        class="custom-check"></span><span class="check-text">서비스거래(사업서비스)</span></label>
+                                <label class="check-label-group"><input type="checkbox"><span
+                                        class="custom-check"></span><span class="check-text">서비스거래(임금)</span></label>
+                                <label class="check-label-group"><input type="checkbox"><span
+                                        class="custom-check"></span><span class="check-text">이전거래(무상지급)</span></label>
+                                <label class="check-label-group"><input type="checkbox"><span
+                                        class="custom-check"></span><span class="check-text">해외증권투자</span></label>
+                                <label class="check-label-group"><input type="checkbox"><span
+                                        class="custom-check"></span><span class="check-text">차입 상환</span></label>
+                                <label class="check-label-group"><input type="checkbox"><span
+                                        class="custom-check"></span><span class="check-text">부동산 거래</span></label>
+                                <label class="check-label-group"><input type="checkbox"><span
+                                        class="custom-check"></span><span class="check-text">기타 자본거래</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 하단 버튼 -->
+                    <div class="remit-action-btns">
+                        <button type="button" class="btn btn-outline" onclick="history.back()">취소</button>
+                        <button type="button" class="btn btn-primary" onclick="openModal('successModal')">저장</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="contactContainer"></div>
+    <div id="footerContainer"></div>
+
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="#00A0DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11"></polyline>
+                </svg>
+            </div>
+            <h3>저장 완료</h3>
+            <p>기업 회원 정보를 수정하였습니다.</p>
+            <button class="modal-btn-warning" style="background-color: #00A0DC;"
+                onclick="closeModal('successModal')">확인</button>
+        </div>
+    </div>
+
+    <!-- Postcode Search Modal -->
+    <div class="remit-modal" id="postcodeModal">
+        <div class="remit-modal-content" style="max-width: 500px;">
+            <div class="remit-modal-header">
+                <h2 class="remit-modal-title">우편번호 찾기</h2>
+                <button type="button" class="remit-modal-close" onclick="closePostcodeModal()">&times;</button>
+            </div>
+            <div class="remit-modal-body">
+                <div class="postcode-search-desc" style="text-align: center; margin-bottom: 20px;">
+                    <p style="color: #00A0DC; font-weight: 700; margin-bottom: 8px;">찾으시려는 동 혹은 도로의 이름을 입력해 주세요.</p>
+                    <p style="color: #666; font-size: 13px; line-height: 1.5;">지번주소 : 동/읍/면/리 이름을 입력하세요.
+                        (예:서현동)<br>도로명(새주소) : 도로명을 입력하세요. (예:성남대로)</p>
+                </div>
+
+                <div class="postcode-search-box" style="display: flex; gap: 8px; margin-bottom: 24px;">
+                    <input type="text" class="login-input" placeholder="검색어 입력" style="flex: 1;"
+                        id="postcodeSearchInput">
+                    <button type="button" class="btn btn-primary" style="width: 80px; height: 52px;"
+                        onclick="searchPostcode()">검색</button>
+                </div>
+
+                <div class="postcode-result-area"
+                    style="border: 1px solid #ddd; border-radius: 4px; max-height: 400px; overflow-y: auto;">
+                    <ul class="postcode-list" style="list-style: none; padding: 0; margin: 0;" id="postcodeResultList">
+                        <!-- Sample Results -->
+                        <li style="padding: 12px 16px; border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: 12px; cursor: pointer;"
+                            onclick="selectAddress('13560', '경기도 성남시 분당구 불정로 1')">
+                            <div style="min-width: 60px; color: #666; font-size: 13px; line-height: 1.4;">
+                                463-867<br>13560</div>
+                            <div style="flex: 1;">
+                                <div style="margin-bottom: 4px;"><span
+                                        style="background: #94a3b8; color: #fff; font-size: 11px; padding: 1px 4px; border-radius: 3px; margin-right: 4px;">지번</span>
+                                    <span style="font-size: 14px;">경기도 성남시 분당구 정자동 177</span>
+                                </div>
+                                <div><span
+                                        style="background: #60a5fa; color: #fff; font-size: 11px; padding: 1px 4px; border-radius: 3px; margin-right: 4px;">도로명</span>
+                                    <span style="font-size: 14px;">경기도 성남시 분당구 불정로 1</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="remit-modal-footer" style="padding: 20px 24px; border-top: 1px solid #eee; text-align: right;">
+                <button type="button" class="btn btn-outline" onclick="closePostcodeModal()">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="db-overlay" id="dbOverlay"></div>
+
+    <div id="warningModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                    </path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+            </div>
+            <h3 id="warningTitle">안내</h3>
+            <p id="warningMessage">최소 한 명의 주주 정보는 필요합니다.</p>
+            <button class="modal-btn-warning" onclick="closeModal('warningModal')">확인</button>
+        </div>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/includes.js"></script>
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function openPostcodeModal() {
+            document.getElementById('postcodeModal').classList.add('show');
+            document.getElementById('dbOverlay').classList.add('show');
+            document.getElementById('postcodeSearchInput').value = '';
+        }
+
+        function closePostcodeModal() {
+            document.getElementById('postcodeModal').classList.remove('show');
+            document.getElementById('dbOverlay').classList.remove('show');
+        }
+
+        function searchPostcode() {
+            const query = document.getElementById('postcodeSearchInput').value;
+            if (!query) {
+                alert('검색어를 입력해주세요.');
+                return;
+            }
+            document.getElementById('postcodeResultList').style.display = 'block';
+        }
+
+        function selectAddress(postcode, address) {
+            document.getElementById('postcodeInput').value = postcode;
+            document.getElementById('addressBasicInput').value = address;
+            closePostcodeModal();
+        }
+
+        function addShareholder() {
+            const container = document.getElementById('shareholderContainer');
+            const newRow = document.createElement('div');
+            newRow.className = 'sh-row';
+            newRow.innerHTML = `
+                <div class="sh-field"><span class="sh-mobile-label">이름(한글)</span><input type="text" placeholder="이름(한글)" class="sh-input"></div>
+                <div class="sh-field"><span class="sh-mobile-label">이름(영문)</span><input type="text" placeholder="이름(영문)" class="sh-input"></div>
+                <div class="sh-field"><span class="sh-mobile-label">생년월일</span><input type="text" placeholder="YYYYMMDD" class="sh-input"></div>
+                <div class="sh-field"><span class="sh-mobile-label">지분율(%)</span><input type="text" placeholder="00" class="sh-input"></div>
+                <div class="sh-field sh-addr"><span class="sh-mobile-label">주소</span><input type="text" placeholder="주소" class="sh-input"></div>
+                <div class="sh-action"><button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button></div>
+            `;
+            container.appendChild(newRow);
+        }
+
+        function removeRow(btn) {
+            const rows = document.querySelectorAll('.sh-row');
+            if (rows.length > 1) {
+                btn.closest('.sh-row').remove();
+            } else {
+                openModal('warningModal');
+            }
+        }
+
+        // 사이드바 메뉴 로드 후 모든 active 클래스 제거 (마이페이지는 메뉴에 없음)
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                const sidebarItems = document.querySelectorAll('.sidebar-menu-item');
+                sidebarItems.forEach(item => item.classList.remove('active'));
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>

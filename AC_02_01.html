@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withremit - 출금 계좌</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel='stylesheet' href='css/auth.css'>
+    <link rel='stylesheet' href='css/account.css'>
+    <script src='js/auth.js'></script>
+</head>
+
+<body class="db-body">
+    <div id="headerContainer"></div>
+
+    <main class="db-main-container container">
+        <div class="db-layout-flex">
+            <div id="sidebarContainer"></div>
+
+            <div class="db-content">
+                <div class="db-page-header">
+                    <h1 class="db-page-title">출금 계좌</h1>
+                    <div class="db-page-actions">
+                        <button type="button" class="btn btn-primary"
+                            onclick="location.href='AC_02_02.html'">등록</button>
+                    </div>
+                </div>
+
+                <div class="db-content-card">
+                    <!-- Total Count -->
+                    <div class="db-table-info">
+                        <span class="db-total-count">총 <strong id="totalCount">0</strong>건</span>
+                    </div>
+
+                    <!-- Table Container -->
+                    <div class="db-table-responsive">
+                        <table class="db-notice-table history-mode">
+                            <colgroup>
+                                <col class="col-num">
+                                <col>
+                                <col>
+                                <col>
+                                <col class="col-delete">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th class="th-num">번호</th>
+                                    <th>은행명</th>
+                                    <th>계좌 번호</th>
+                                    <th>생성일</th>
+                                    <th>삭제</th>
+                                </tr>
+                            </thead>
+                            <tbody id="accountTableBody">
+                                <!-- Sample Data -->
+                                <tr>
+                                    <td class="td-num" data-label="번호">3</td>
+                                    <td data-label="은행명">신한은행</td>
+                                    <td data-label="계좌 번호">1234*******</td>
+                                    <td data-label="생성일">2024.12.25</td>
+                                    <td data-label="삭제">
+                                        <button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-num" data-label="번호">2</td>
+                                    <td data-label="은행명">우리은행</td>
+                                    <td data-label="계좌 번호">5678*******</td>
+                                    <td data-label="생성일">2024.11.10</td>
+                                    <td data-label="삭제">
+                                        <button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-num" data-label="번호">1</td>
+                                    <td data-label="은행명">KB국민은행</td>
+                                    <td data-label="계좌 번호">9012*******</td>
+                                    <td data-label="생성일">2024.10.05</td>
+                                    <td data-label="삭제">
+                                        <button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <div id="contactContainer"></div>
+    <div id="footerContainer"></div>
+    <div class="db-overlay" id="dbOverlay"></div>
+
+    <!-- Delete Confirm Modal -->
+    <div id="deleteConfirmModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="#1B5E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+            </div>
+            <h3>계좌 삭제</h3>
+            <p>정말 삭제하시겠습니까?</p>
+            <div class="modal-btn-group">
+                <button class="btn-cancel" onclick="closeDeleteModal()">취소</button>
+                <button class="btn-confirm-action" onclick="confirmDelete()">삭제</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/includes.js"></script>
+    <script>
+        let currentDeleteButton = null;
+
+        function removeRow(button) {
+            currentDeleteButton = button;
+            document.getElementById('deleteConfirmModal').classList.add('active');
+        }
+
+        function confirmDelete() {
+            if (currentDeleteButton) {
+                currentDeleteButton.closest('tr').remove();
+                // Re-number rows
+                const tbody = document.getElementById('accountTableBody');
+                const rows = tbody.querySelectorAll('tr');
+                rows.forEach((row, index) => {
+                    row.querySelector('td:first-child').textContent = rows.length - index;
+                });
+                currentDeleteButton = null;
+                updateTotalCount();
+            }
+            closeDeleteModal();
+        }
+
+        function closeDeleteModal() {
+            document.getElementById('deleteConfirmModal').classList.remove('active');
+            currentDeleteButton = null;
+        }
+
+        function updateTotalCount() {
+            const tbody = document.getElementById('accountTableBody');
+            const count = tbody ? tbody.querySelectorAll('tr').length : 0;
+            const countElement = document.getElementById('totalCount');
+            if (countElement) {
+                countElement.textContent = count;
+            }
+        }
+
+        // Initialize count on load
+        document.addEventListener('DOMContentLoaded', updateTotalCount);
+    </script>
+</body>
+
+</html>

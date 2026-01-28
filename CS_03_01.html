@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withremit - 1:1 문의</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css?v=1.4">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+</head>
+
+<body class="db-body">
+    <div id="headerContainer"></div>
+
+    <main class="db-main-container container">
+        <div class="db-layout-flex">
+            <div id="sidebarContainer"></div>
+
+            <div class="db-content">
+                <div class="db-page-header">
+                    <h1 class="db-page-title">1:1 문의</h1>
+                </div>
+
+                <div class="db-content-card">
+
+                    <!-- 문의 내용 입력 -->
+                    <div class="remit-form-section">
+                        <div class="form-sec">
+                            <!-- 제목 -->
+                            <div class="field-item mb-24">
+                                <label class="field-label">제목 <span class="badge-required">필수</span></label>
+                                <input type="text" placeholder="제목을 입력하세요" class="login-input" id="inquiryTitle">
+                                <span class="field-error" id="inquiryTitleError"></span>
+                            </div>
+
+                            <!-- 이메일 & 이름 -->
+                            <div class="form-row-2">
+                                <div class="field-item">
+                                    <label class="field-label">이메일 <span class="badge-required">필수</span></label>
+                                    <input type="email" placeholder="이메일 주소를 입력하세요" class="login-input"
+                                        id="inquiryEmail">
+                                    <span class="field-error" id="inquiryEmailError"></span>
+                                </div>
+                                <div class="field-item">
+                                    <label class="field-label">이름 <span class="badge-required">필수</span></label>
+                                    <input type="text" placeholder="이름을 입력하세요" class="login-input" id="inquiryName">
+                                    <span class="field-error" id="inquiryNameError"></span>
+                                </div>
+                            </div>
+
+                            <!-- 성별 & 직업 -->
+                            <div class="form-row-2">
+                                <div class="field-item">
+                                    <label class="field-label">성별</label>
+                                    <div class="field-flex h-52">
+                                        <label class="radio-wrap">
+                                            <input type="radio" name="g" id="genderMale">
+                                            <span class="custom-radio"></span>
+                                            <span>남성</span>
+                                        </label>
+                                        <label class="radio-wrap">
+                                            <input type="radio" name="g" id="genderFemale">
+                                            <span class="custom-radio"></span>
+                                            <span>여성</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="field-item">
+                                    <label class="field-label">직업</label>
+                                    <select class="login-input select-styled" id="inquiryJob">
+                                        <option value="" selected>선택</option>
+                                        <option value="office">사무직</option>
+                                        <option value="professional">전문직</option>
+                                        <option value="business">자영업</option>
+                                        <option value="student">학생</option>
+                                        <option value="housewife">전업주부</option>
+                                        <option value="other">기타</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- 내용 -->
+                            <div class="field-item">
+                                <label class="field-label">내용</label>
+                                <textarea placeholder="내용을 입력하세요" class="login-input textarea-inquiry"
+                                    id="inquiryContent" rows="10"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 하단 버튼 -->
+                    <div class="remit-action-btns">
+                        <button type="button" class="btn btn-primary" onclick="openConfirmModal()">문의하기</button>
+                    </div>
+
+                    <!-- 문의 내역 확인 박스 -->
+                    <div class="inquiry-bottom-info">
+                        <div class="inquiry-info-text">
+                            <strong>문의하신 내역이 있으신가요?</strong>
+                            등록하신 1:1 문의 내역과 답변 상황을 확인하실 수 있습니다.
+                        </div>
+                        <button type="button" class="btn btn-outline" onclick="location.href='CS_03_02.html'">문의 내역
+                            확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="contactContainer"></div>
+    <div id="footerContainer"></div>
+    <div class="db-overlay" id="dbOverlay"></div>
+
+    <!-- Confirm Modal -->
+    <div id="confirmModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="#1B5E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+            </div>
+            <h3>문의하시겠습니까?</h3>
+            <p>문의에 대한 답변을 이메일로 받아보실 수 있습니다.</p>
+            <div class="modal-btn-group">
+                <button class="btn-cancel" onclick="closeModal('confirmModal')">취소</button>
+                <button class="btn-confirm-action" onclick="submitInquiry()">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/includes.js"></script>
+    <script>
+        function openConfirmModal() {
+            // Validation
+            clearAllErrors();
+            let hasError = false;
+
+            const fields = [
+                { id: 'inquiryTitle', message: '제목을 입력해 주세요.' },
+                { id: 'inquiryEmail', message: '이메일을 입력해 주세요.' },
+                { id: 'inquiryName', message: '이름을 입력해 주세요.' }
+            ];
+
+            fields.forEach(field => {
+                const el = document.getElementById(field.id);
+                if (!el.value.trim()) {
+                    showFieldError(field.id, field.message);
+                    hasError = true;
+                }
+            });
+
+            if (hasError) return;
+
+            document.getElementById('confirmModal').classList.add('active');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        function submitInquiry() {
+            location.href = 'CS_03_02.html';
+        }
+
+        function showFieldError(elementId, message) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            element.classList.add('error');
+            const errorSpan = document.getElementById(`${elementId}Error`);
+            if (errorSpan) errorSpan.textContent = message;
+        }
+
+        function clearAllErrors() {
+            document.querySelectorAll('.login-input.error').forEach(el => el.classList.remove('error'));
+            document.querySelectorAll('.field-error').forEach(el => el.textContent = '');
+        }
+
+        // Check for guest mode and hide inquiry history link
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('guest') === 'true') {
+                const bottomInfo = document.querySelector('.inquiry-bottom-info');
+                if (bottomInfo) {
+                    bottomInfo.style.display = 'none';
+                }
+            }
+        });
+
+        // Close modal when clicking overlay
+        document.getElementById('confirmModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeModal('confirmModal');
+            }
+        });
+    </script>
+</body>
+
+</html>

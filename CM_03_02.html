@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="withremit 아이디/비밀번호 찾기">
+    <title>아이디/비밀번호 찾기 - WithMoney</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+    <style>
+        .find-tabs {
+            display: flex;
+            border-bottom: 2px solid #E5E7EB;
+            margin-bottom: 30px;
+        }
+
+        .find-tab-btn {
+            flex: 1;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #9CA3AF;
+            background: none;
+            border: none;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
+        }
+
+        .find-tab-btn.active {
+            color: var(--primary-green);
+            border-bottom-color: var(--primary-green);
+        }
+
+        .find-tab-content {
+            display: none;
+        }
+
+        .find-tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="login-page">
+
+    <!-- Login Container -->
+    <main class="login-container">
+        <div class="login-logo">
+            <a href="CM_02_01.html"><img src="images/logo-withremit.png" alt="withremit"></a>
+        </div>
+
+        <div class="login-card">
+            <h2 class="login-title">아이디/비밀번호 찾기</h2>
+
+            <div class="find-tabs">
+                <button type="button" class="find-tab-btn active" onclick="switchTab('findId')">아이디 찾기</button>
+                <button type="button" class="find-tab-btn" onclick="switchTab('findPw')">비밀번호 찾기</button>
+            </div>
+
+            <!-- 아이디 찾기 폼 -->
+            <div id="findIdContent" class="find-tab-content active">
+                <form class="login-form">
+                    <div class="field-group">
+                        <label class="field-label" for="userNameId">영문 이름</label>
+                        <div class="input-box-group" id="userNameIdBox">
+                            <input type="text" id="userNameId" class="login-input" placeholder="영문 이름을 입력하세요">
+                        </div>
+                        <div class="field-error" id="userNameIdError"></div>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-label" for="userEmailId">이메일</label>
+                        <div class="input-box-group" id="userEmailIdBox">
+                            <input type="email" id="userEmailId" class="login-input" placeholder="이메일을 입력하세요">
+                        </div>
+                        <div class="field-error" id="userEmailIdError"></div>
+                    </div>
+
+                    <button type="button" class="btn-main-login" onclick="validateFindId()">확인</button>
+                    <a href="CM_03_01.html" class="btn-back-cancel">취소</a>
+                    <div class="register-wrap">
+                        <a href="CM_03_01.html" class="register-item">로그인 하러 가기</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 비밀번호 찾기 폼 -->
+            <div id="findPwContent" class="find-tab-content">
+                <form class="login-form">
+                    <div class="field-group">
+                        <label class="field-label" for="userIdPw">아이디</label>
+                        <div class="input-box-group" id="userIdPwBox">
+                            <input type="text" id="userIdPw" class="login-input" placeholder="아이디를 입력하세요">
+                        </div>
+                        <div class="field-error" id="userIdPwError"></div>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-label" for="userEmailPw">이메일</label>
+                        <div class="input-box-group" id="userEmailPwBox">
+                            <input type="email" id="userEmailPw" class="login-input" placeholder="이메일을 입력하세요">
+                        </div>
+                        <div class="field-error" id="userEmailPwError"></div>
+                    </div>
+
+                    <button type="button" class="btn-main-login" onclick="validateFindPw()">확인</button>
+                    <a href="CM_03_01.html" class="btn-back-cancel">취소</a>
+                    <div class="register-wrap">
+                        <a href="CM_03_01.html" class="register-item">로그인 하러 가기</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        </div>
+
+        <div class="login-footer-wrap">
+            <footer class="footer-simple">
+                <div class="menu-text-list">
+                    <a href="#company">회사소개</a>
+                    <span class="v-bar"></span>
+                    <a href="#privacy" class="footer-link-important">개인정보처리방침</a>
+                    <span class="v-bar"></span>
+                    <a href="#terms">이용약관</a>
+                    <span class="v-bar"></span>
+                    <a href="#antisocial">반사회적세력방침</a>
+                    <span class="v-bar"></span>
+                    <a href="#fraud">사기피해주의</a>
+                </div>
+                <div class="info-text-list">
+                    <p>Copyright ⓒ 2026 withmoney Inc. All rights reserved.</p>
+                    <p>기획재정부 인가 소액해외송금업체 (등록번호: 2018-7)</p>
+                </div>
+            </footer>
+        </div>
+    </main>
+    <script src="js/main.js"></script>
+    <script>
+        function switchTab(tabId) {
+            // 버튼 상태 변경
+            document.querySelectorAll('.find-tab-btn').forEach(btn => btn.classList.remove('active'));
+            if (tabId === 'findId') {
+                document.querySelector('button[onclick="switchTab(\'findId\')"]').classList.add('active');
+            } else {
+                document.querySelector('button[onclick="switchTab(\'findPw\')"]').classList.add('active');
+            }
+
+            // 컨텐츠 표시 변경
+            document.querySelectorAll('.find-tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(tabId + 'Content').classList.add('active');
+
+            // 에러 초기화
+            clearErrors();
+        }
+
+        function clearErrors() {
+            document.querySelectorAll('.input-box-group').forEach(box => box.classList.remove('error'));
+            document.querySelectorAll('.field-error').forEach(error => error.textContent = '');
+        }
+
+        function showError(inputId, message) {
+            document.getElementById(inputId + 'Box').classList.add('error');
+            document.getElementById(inputId + 'Error').textContent = message;
+        }
+
+        function validateFindId() {
+            clearErrors();
+            let isValid = true;
+
+            const name = document.getElementById('userNameId').value.trim();
+            const email = document.getElementById('userEmailId').value.trim();
+
+            if (!name) {
+                showError('userNameId', '영문 이름을 입력해주세요.');
+                isValid = false;
+            }
+
+            if (!email) {
+                showError('userEmailId', '이메일을 입력해주세요.');
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert('아이디 찾기 기능은 준비중입니다.');
+            }
+        }
+
+        function validateFindPw() {
+            clearErrors();
+            let isValid = true;
+
+            const id = document.getElementById('userIdPw').value.trim();
+            const email = document.getElementById('userEmailPw').value.trim();
+
+            if (!id) {
+                showError('userIdPw', '아이디를 입력해주세요.');
+                isValid = false;
+            }
+
+            if (!email) {
+                showError('userEmailPw', '이메일을 입력해주세요.');
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert('비밀번호 찾기 기능은 준비중입니다.');
+            }
+        }
+    </script>
+</body>
+
+</html>

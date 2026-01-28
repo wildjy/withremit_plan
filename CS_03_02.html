@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withremit - 1:1 문의</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+</head>
+
+<body class="db-body">
+    <div id="headerContainer"></div>
+
+    <main class="db-main-container container">
+        <div class="db-layout-flex">
+            <div id="sidebarContainer"></div>
+
+            <div class="db-content">
+                <div class="db-page-header">
+                    <h1 class="db-page-title">1:1 문의</h1>
+                    <button class="btn btn-primary" onclick="location.href='CS_03_01.html'">문의하기</button>
+                </div>
+
+                <div class="db-content-card">
+                    <button class="db-mobile-search-toggle" id="mobileSearchToggle">
+                        <!-- Open State -->
+                        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <span class="search-text">검색 필터 열기</span>
+
+                        <!-- Close State -->
+                        <svg class="close-icon" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                        <span class="close-text">검색 필터 닫기</span>
+                    </button>
+
+                    <div class="db-search-box" id="searchBox">
+                        <select class="db-search-type">
+                            <option value="all">제목+내용</option>
+                            <option value="title">제목</option>
+                            <option value="content">내용</option>
+                        </select>
+                        <input type="text" class="db-search-input" placeholder="검색어를 입력하세요">
+                        <button class="db-search-btn">검색</button>
+                    </div>
+
+                    <div class="db-table-info">
+                        <span class="db-total-count">총 <strong>3</strong>건</span>
+                    </div>
+
+                    <div class="db-notice-list-page">
+                        <table class="db-notice-table history-mode">
+                            <colgroup>
+                                <col class="col-num" style="width: 80px;">
+                                <col class="col-title">
+                                <col style="width: 120px;">
+                                <col style="width: 100px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th class="th-num">번호</th>
+                                    <th>제목</th>
+                                    <th>등록일</th>
+                                    <th>상태</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr onclick="location.href='CS_03_03.html'" style="cursor: pointer;">
+                                    <td class="td-num" data-label="번호">3</td>
+                                    <td class="notice-title" data-label="제목"><a href="CS_03_03.html">송금 완료까지 얼마나
+                                            걸리나요?</a></td>
+                                    <td data-label="등록일">2026.01.26</td>
+                                    <td data-label="상태">
+                                        <span class="badge-status pending">
+                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <polyline points="12 6 12 12 16 14"></polyline>
+                                            </svg>
+                                            처리중
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr onclick="location.href='CS_03_03.html'" style="cursor: pointer;">
+                                    <td class="td-num" data-label="번호">2</td>
+                                    <td class="notice-title" data-label="제목"><a href="CS_03_03.html">회원 탈퇴는 어떻게 하나요?</a>
+                                    </td>
+                                    <td data-label="등록일">2026.01.25</td>
+                                    <td data-label="상태">
+                                        <span class="badge-status completed">
+                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                            답변 완료
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr onclick="location.href='CS_03_03.html'" style="cursor: pointer;">
+                                    <td class="td-num" data-label="번호">1</td>
+                                    <td class="notice-title" data-label="제목"><a href="CS_03_03.html">이메일 변경 문의드립니다.</a>
+                                    </td>
+                                    <td data-label="등록일">2026.01.20</td>
+                                    <td data-label="상태">
+                                        <span class="badge-status completed">
+                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                            답변 완료
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="db-table-footer">
+                            <div class="db-pagination">
+                                <button class="db-page-btn db-page-first">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="11 17 6 12 11 7"></polyline>
+                                        <polyline points="18 17 13 12 18 7"></polyline>
+                                    </svg>
+                                </button>
+                                <button class="db-page-btn db-page-prev">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="15 18 9 12 15 6"></polyline>
+                                    </svg>
+                                </button>
+                                <button class="db-page-num active">1</button>
+                                <button class="db-page-btn db-page-next">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </button>
+                                <button class="db-page-btn db-page-last">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="13 17 18 12 13 7"></polyline>
+                                        <polyline points="6 17 11 12 6 7"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                            <select class="db-rows-select">
+                                <option value="10" selected>10개씩 보기</option>
+                                <option value="20">20개씩 보기</option>
+                                <option value="30">30개씩 보기</option>
+                                <option value="50">50개씩 보기</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="contactContainer"></div>
+    <div id="footerContainer"></div>
+
+    <div class="db-overlay" id="dbOverlay"></div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/includes.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleBtn = document.getElementById('mobileSearchToggle');
+            const searchBox = document.getElementById('searchBox');
+
+            if (toggleBtn && searchBox) {
+                toggleBtn.addEventListener('click', function () {
+                    toggleBtn.classList.toggle('active');
+                    searchBox.classList.toggle('show');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

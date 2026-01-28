@@ -1,0 +1,371 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withremit - 출금 계좌 등록</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel='stylesheet' href='css/auth.css'>
+    <link rel='stylesheet' href='css/account.css'>
+    <script src='js/auth.js'></script>
+
+</head>
+
+<body class="db-body">
+    <div id="headerContainer"></div>
+
+    <main class="db-main-container container">
+        <div class="db-layout-flex">
+            <div id="sidebarContainer"></div>
+
+            <div class="db-content">
+                <div class="db-page-header">
+                    <h1 class="db-page-title">출금 계좌 등록</h1>
+                </div>
+
+                <div class="db-content-card">
+                    <div class="load-account-top">
+                        <span class="total-count">총 <span id="totalCountDisplay">0</span>건</span>
+                        <div class="select-all-wrap">
+                            <label class="check-label-group">
+                                <input type="checkbox" id="selectAll">
+                                <span class="custom-check"></span>
+                                <span class="check-text">전체 선택</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Bank Group 1 -->
+                    <div class="bank-group">
+                        <div class="guide-section" style="margin-bottom: 0; padding-bottom: 0; border: none;">
+                            <h2 class="form-sec-head" style="margin-bottom: 16px;">
+                                산업 (총 2계좌)
+                            </h2>
+                        </div>
+                        <div class="bank-table-card">
+                            <div class="db-table-responsive">
+                                <table class="db-notice-table">
+                                    <colgroup>
+                                        <col class="col-check">
+                                        <col class="col-type">
+                                        <col class="col-name">
+                                        <col class="col-num">
+                                        <col class="col-balance">
+                                        <col class="col-status">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th class="center">선택</th>
+                                            <th>계좌 종류</th>
+                                            <th>계좌명</th>
+                                            <th>계좌 번호</th>
+                                            <th class="right">현재 잔액</th>
+                                            <th class="center">등록 구분</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="center" data-label="선택">
+                                                <label class="check-label-group" style="justify-content: center;">
+                                                    <input type="checkbox" class="account-check" data-id="1">
+                                                    <span class="custom-check" style="margin-right: 0;"></span>
+                                                </label>
+                                            </td>
+                                            <td class="center" data-label="계좌 종류">예금 · 적금</td>
+                                            <td data-label="계좌명">KDB 정기예금</td>
+                                            <td data-label="계좌 번호">76346662510674</td>
+                                            <td class="right col-balance" data-label="현재 잔액">30,000,000원</td>
+                                            <td class="center" data-label="등록 구분">
+                                                <div class="status-available">
+                                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                                        stroke="currentColor" stroke-width="2">
+                                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                                    </svg>
+                                                    <span>등록가능</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="center" data-label="선택">
+                                                <label class="check-label-group" style="justify-content: center;">
+                                                    <input type="checkbox" class="account-check" data-id="2">
+                                                    <span class="custom-check" style="margin-right: 0;"></span>
+                                                </label>
+                                            </td>
+                                            <td class="center" data-label="계좌 종류">예금 · 적금</td>
+                                            <td data-label="계좌명">KDB 정기예금</td>
+                                            <td data-label="계좌 번호">93808008753696</td>
+                                            <td class="right col-balance" data-label="현재 잔액">20,000,000원</td>
+                                            <td class="center" data-label="등록 구분">
+                                                <div class="status-available">
+                                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                                        stroke="currentColor" stroke-width="2">
+                                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                                    </svg>
+                                                    <span>등록가능</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bank Group 2 -->
+                    <div class="bank-group">
+                        <div class="guide-section" style="margin-bottom: 0; padding-bottom: 0; border: none;">
+                            <h2 class="form-sec-head" style="margin-bottom: 16px;">
+                                케이뱅크 (총 1계좌)
+                            </h2>
+                        </div>
+                        <div class="bank-table-card">
+                            <div class="db-table-responsive">
+                                <table class="db-notice-table">
+                                    <colgroup>
+                                        <col class="col-check">
+                                        <col class="col-type">
+                                        <col class="col-name">
+                                        <col class="col-num">
+                                        <col class="col-balance">
+                                        <col class="col-status">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th class="center">선택</th>
+                                            <th>계좌 종류</th>
+                                            <th>계좌명</th>
+                                            <th>계좌 번호</th>
+                                            <th class="right">현재 잔액</th>
+                                            <th class="center">등록 구분</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="center" data-label="선택">
+                                                <label class="check-label-group" style="justify-content: center;">
+                                                    <input type="checkbox" class="account-check" data-id="3">
+                                                    <span class="custom-check" style="margin-right: 0;"></span>
+                                                </label>
+                                            </td>
+                                            <td class="center" data-label="계좌 종류">입출금</td>
+                                            <td data-label="계좌명">듀얼K 입출금통장</td>
+                                            <td data-label="계좌 번호">100144380011</td>
+                                            <td class="right col-balance" data-label="현재 잔액">330,017원</td>
+                                            <td class="center" data-label="등록 구분">
+                                                <div class="status-available">
+                                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                                        stroke="currentColor" stroke-width="2">
+                                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                                    </svg>
+                                                    <span>등록가능</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bank Group 3 -->
+                    <div class="bank-group">
+                        <div class="guide-section" style="margin-bottom: 0; padding-bottom: 0; border: none;">
+                            <h2 class="form-sec-head" style="margin-bottom: 16px;">
+                                카카오뱅크 (총 2계좌)
+                            </h2>
+                        </div>
+                        <div class="bank-table-card">
+                            <div class="db-table-responsive">
+                                <table class="db-notice-table">
+                                    <colgroup>
+                                        <col class="col-check">
+                                        <col class="col-type">
+                                        <col class="col-name">
+                                        <col class="col-num">
+                                        <col class="col-balance">
+                                        <col class="col-status">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th class="center">선택</th>
+                                            <th>계좌 종류</th>
+                                            <th>계좌명</th>
+                                            <th>계좌 번호</th>
+                                            <th class="right">현재 잔액</th>
+                                            <th class="center">등록 구분</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="center" data-label="선택">
+                                                <label class="check-label-group" style="justify-content: center;">
+                                                    <!-- Disabled example -->
+                                                    <input type="checkbox" class="account-check" data-id="4" disabled>
+                                                    <span class="custom-check"
+                                                        style="margin-right: 0; background-color: #f3f4f6; border-color: #e5e7eb; cursor: not-allowed;"></span>
+                                                </label>
+                                            </td>
+                                            <td class="center" data-label="계좌 종류">입출금</td>
+                                            <td data-label="계좌명">카카오뱅크 입출금통장</td>
+                                            <td data-label="계좌 번호">3333037115702</td>
+                                            <td class="right col-balance" data-label="현재 잔액"><span
+                                                    style="color:#9ca3af;">613,612원</span></td>
+                                            <td class="center" data-label="등록 구분">
+                                                <div class="status-unavailable">
+                                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                                        stroke="currentColor" stroke-width="2">
+                                                        <circle cx="12" cy="12" r="10"></circle>
+                                                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                                                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                                    </svg>
+                                                    <span>등록불가</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="center" data-label="선택">
+                                                <label class="check-label-group" style="justify-content: center;">
+                                                    <input type="checkbox" class="account-check" data-id="5">
+                                                    <span class="custom-check" style="margin-right: 0;"></span>
+                                                </label>
+                                            </td>
+                                            <td class="center" data-label="계좌 종류">예금·적금</td>
+                                            <td data-label="계좌명">카카오뱅크 정기예금</td>
+                                            <td data-label="계좌 번호">3388140671141</td>
+                                            <td class="right col-balance" data-label="현재 잔액">30,000,000원</td>
+                                            <td class="center" data-label="등록 구분">
+                                                <div class="status-available">
+                                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                                        stroke="currentColor" stroke-width="2">
+                                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                                    </svg>
+                                                    <span>등록가능</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="remit-action-btns">
+                        <button type="button" class="btn btn-outline btn-remit-cancel"
+                            onclick="location.href='AC_02_02.html'">취소</button>
+                        <button type="button" class="btn btn-primary" id="btnRegister" onclick="registerSelected()"
+                            disabled style="opacity: 0.5; cursor: not-allowed;">0개
+                            계좌
+                            등록</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="contactContainer"></div>
+    <div id="footerContainer"></div>
+    <div class="db-overlay" id="dbOverlay"></div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/includes.js"></script>
+    <script>
+        // Generate random account numbers on load
+        function generateRandomAccountNumber() {
+            // Simple random 12-14 digit number
+            let num = '';
+            const length = Math.floor(Math.random() * 3) + 12; // 12 to 14
+            for (let i = 0; i < length; i++) {
+                num += Math.floor(Math.random() * 10);
+            }
+            return num;
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            updateTotalCount();
+        });
+
+        const selectAll = document.getElementById('selectAll');
+        const checkboxes = document.querySelectorAll('.account-check:not([disabled])');
+        const btnRegister = document.getElementById('btnRegister');
+
+        function updateTotalCount() {
+            const allAccounts = document.querySelectorAll('.account-check').length;
+            document.getElementById('totalCountDisplay').textContent = allAccounts;
+        }
+
+        function updateSelectionState() {
+            const checkedCount = document.querySelectorAll('.account-check:checked').length;
+            const enabledCount = checkboxes.length;
+
+            // Update Select All state
+            selectAll.checked = (checkedCount > 0 && checkedCount === enabledCount);
+
+            // Update Button Text
+            btnRegister.textContent = `${checkedCount}개 계좌 등록`;
+
+            // Enable/Disable Button
+            if (checkedCount === 0) {
+                btnRegister.disabled = true;
+                btnRegister.style.opacity = '0.5';
+                btnRegister.style.cursor = 'not-allowed';
+            } else {
+                btnRegister.disabled = false;
+                btnRegister.style.opacity = '1';
+                btnRegister.style.cursor = 'pointer';
+            }
+        }
+
+        selectAll.addEventListener('change', () => {
+            checkboxes.forEach(cb => {
+                cb.checked = selectAll.checked;
+            });
+            updateSelectionState();
+        });
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', () => {
+                updateSelectionState();
+            });
+        });
+
+        // Row Click Logic
+        const tableRows = document.querySelectorAll('.db-notice-table tbody tr');
+        tableRows.forEach(row => {
+            row.addEventListener('click', (e) => {
+                // If clicked element is input or label, let default behavior happen
+                if (e.target.tagName === 'INPUT' || e.target.closest('label')) {
+                    return;
+                }
+
+                const checkbox = row.querySelector('.account-check');
+                if (checkbox && !checkbox.disabled) {
+                    checkbox.checked = !checkbox.checked;
+                    // Manually trigger change event to update counters
+                    checkbox.dispatchEvent(new Event('change'));
+                }
+            });
+        });
+
+        function registerSelected() {
+            const checkedCount = document.querySelectorAll('.account-check:checked').length;
+            if (checkedCount === 0) {
+                // Should not happen if disabled works, but safety check
+                return;
+            }
+            // Proceed to AC_02_04
+            location.href = 'AC_02_04.html';
+        }
+
+    </script>
+</body>
+
+</html>

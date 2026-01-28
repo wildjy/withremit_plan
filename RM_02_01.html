@@ -1,0 +1,833 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withremit - 정기 해외 송금</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+    <style>
+        /* 추가 스타일 */
+        .text-right {
+            text-align: right;
+        }
+
+        .text-red {
+            color: #dc3545;
+        }
+
+        .btn-delete {
+            background: #fef2f2;
+            color: #ef4444;
+            border: 1px solid #fca5a5;
+        }
+
+        .btn-delete:hover {
+            background: #fee2e2;
+        }
+
+        /* 상태 뱃지 가시성 개선 */
+        .badge {
+            color: #333;
+            /* 기본 글자색 어둡게 */
+        }
+
+        .badge-normal {
+            color: #1976D2;
+            /* 파란색 텍스트 복원 */
+        }
+
+        .badge-modal {
+            color: #7B1FA2;
+        }
+
+        /* 모달 영수증 스타일 */
+        .receipt-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 10px 0;
+        }
+
+        .receipt-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 12px;
+        }
+
+        .receipt-row:last-child {
+            border-bottom: none;
+        }
+
+        .receipt-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .receipt-value {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .receipt-value.highlight {
+            color: #00A0DC;
+        }
+
+        /* 출금 계좌 정보 박스 */
+        /* 출금 계좌 정보 텍스트 */
+        .account-info-box {
+            color: #333;
+            font-size: 15px;
+            font-weight: 500;
+            text-align: right;
+            /* 모바일 아닌 경우 우측 정렬 유지 */
+        }
+
+        /* 모달 상태 아이콘 정렬 */
+        #modalStatus {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            justify-content: flex-end;
+            /* 우측 정렬 */
+        }
+
+        /* 모달 480px 이하에서 상태 값 정렬 */
+        @media (max-width: 480px) {
+            #modalStatus {
+                width: 100%;
+                justify-content: flex-end;
+                /* 모바일에서도 값은 우측 정렬 */
+            }
+        }
+    </style>
+    <style>
+        /* 추가적인 커스텀 스타일이 필요한 경우에만 작성 */
+
+        /* 그리드 컬럼 너비 조정 (RM_02_01 전용) */
+        .remit-card-col-bank {
+            min-width: 200px;
+            flex: 1.5;
+            /* 은행명 길면 말 줄임 */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: block !important;
+            /* Force block for truncation logic inside flex item if needed, but flex items usually truncate with min-width:0. Let's try flexible approach first, but user asked for truncation. */
+            display: flex !important;
+            /* Restore flex for label placement */
+            align-items: center;
+        }
+
+        /* Truncation on the value specifically */
+        .remit-card-col-bank .remit-card-detail-value {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 140px;
+            /* Adjust as needed */
+            vertical-align: middle;
+        }
+
+        .remit-card-col-type {
+            min-width: 160px;
+            /* Slight increase */
+            flex: 1;
+        }
+
+        .remit-card-col-amount {
+            min-width: 180px;
+            flex: 1.2;
+        }
+
+        .remit-card-col-cycle {
+            min-width: 120px;
+            /* Slight decrease */
+            flex: 1;
+        }
+
+        /* 상태 값 우측 정렬 */
+        .remit-card-status-wrapper {
+            justify-content: flex-end;
+        }
+
+        /* 라벨 스타일 (데스크탑) - 인라인 배치 */
+        .remit-card-label {
+            display: inline-block;
+            color: #888;
+            font-size: 13px;
+            margin-right: 8px;
+            font-weight: 500;
+        }
+
+        /* 값 스타일 미세 조정 - 글자 크기 축소 */
+        .remit-card-detail-value,
+        .remit-card-amount-value {
+            display: inline-block;
+            font-size: 15px;
+            /* 조금 줄임 (기존 16px 추정 or default) */
+        }
+
+        /* 페이지 헤더 버튼 위치 조정 */
+        .db-page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+            /* Keep on same line */
+            gap: 10px;
+        }
+
+        .db-page-title {
+            margin: 0;
+            /* Title truncates if needed on very small screens to keep button visible */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .db-page-actions {
+            margin-left: auto;
+            flex-shrink: 0;
+            /* Prevent button from shrinking */
+        }
+
+        @media (max-width: 768px) {
+
+            .remit-card-col-bank,
+            .remit-card-col-type,
+            .remit-card-col-amount,
+            .remit-card-col-cycle,
+            .remit-card-status-wrapper {
+                min-width: auto;
+                flex: none;
+                width: 100%;
+                margin-bottom: 4px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            /* 상태 라벨 표시 (모바일) */
+            .remit-card-status-label {
+                display: inline-block !important;
+                color: #888;
+                font-size: 13px;
+                margin-right: 8px;
+                font-weight: 500;
+            }
+
+            /* Ensure pseudo-elements are removed since we use real labels now */
+            .remit-card-col-bank::before,
+            .remit-card-col-type::before,
+            .remit-card-col-amount::before,
+            .remit-card-col-cycle::before {
+                content: none !important;
+            }
+
+            .remit-card-label {
+                font-size: 13px;
+                margin-right: 0;
+            }
+        }
+
+        /* 모달 480px 이하에서도 좌우 배치 강제 */
+        @media (max-width: 480px) {
+            .receipt-row {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center;
+            }
+
+            /* 출금 계좌 정보만 세로 배치 */
+            .receipt-row.account-modal-row {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 6px;
+                padding-bottom: 12px;
+            }
+
+            .receipt-row.account-modal-row .account-info-box {
+                text-align: left;
+                width: 100%;
+            }
+
+            .receipt-label {
+                margin-bottom: 0 !important;
+                /* 혹시 모를 마진 제거 */
+            }
+
+            .receipt-value {
+                text-align: right;
+            }
+        }
+    </style>
+    <style>
+        /* CM_01_01 Modal Styles for Confirm/Success */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            /* Ensure it is on top of everything including other modals */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            /* Center align for standard modals */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-icon {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .modal-content h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .modal-content p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            word-break: keep-all;
+        }
+
+        /* Modal Buttons */
+        .modal-btn-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .btn-cancel {
+            background-color: #f1f5f9;
+            color: #64748b;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .btn-confirm-action {
+            background-color: #1B5E9E;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .modal-btn-warning {
+            background-color: #1B5E9E;
+            /* Primary Blue for OK button */
+            color: #fff;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            min-width: 120px;
+        }
+    </style>
+</head>
+
+<body class="db-body">
+    <div id="headerContainer"></div>
+
+    <main class="db-main-container container">
+        <div class="db-layout-flex">
+            <div id="sidebarContainer"></div>
+
+            <div class="db-content">
+                <div class="db-page-header">
+                    <h1 class="db-page-title">정기 해외 송금</h1>
+                    <div class="db-page-actions">
+                        <button type="button" class="btn btn-primary"
+                            onclick="location.href='RM_02_03.html'">등록</button>
+                    </div>
+                </div>
+
+                <div class="db-content-card">
+                    <!-- 총 건 수 추가 -->
+                    <div class="db-table-info">
+                        <span class="db-total-count">총 <strong id="totalCount">3</strong>건</span>
+                    </div>
+
+                    <!-- Remittance Card Grid (Using existing class from HI_01_01) -->
+                    <div class="remit-card-grid" id="remitCardGrid"></div>
+                    <!-- JS로 렌더링 -->
+
+                    <!-- 페이지네이션 추가 (카드 내부로 이동) -->
+                    <div class="db-table-footer">
+                        <div class="db-pagination">
+                            <button class="db-page-btn db-page-first">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="11 17 6 12 11 7"></polyline>
+                                    <polyline points="18 17 13 12 18 7"></polyline>
+                                </svg>
+                            </button>
+                            <button class="db-page-btn db-page-prev">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="15 18 9 12 15 6"></polyline>
+                                </svg>
+                            </button>
+                            <button class="db-page-num active">1</button>
+                            <button class="db-page-btn db-page-next">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                            <button class="db-page-btn db-page-last">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="13 17 18 12 13 7"></polyline>
+                                    <polyline points="6 17 11 12 6 7"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <select class="db-rows-select">
+                            <option value="10" selected>10개씩 보기</option>
+                            <option value="20">20개씩 보기</option>
+                            <option value="30">30개씩 보기</option>
+                            <option value="50">50개씩 보기</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 페이지네이션 추가 (카드 하단) -->
+
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <div id="contactContainer"></div>
+    <div id="footerContainer"></div>
+
+    <div class="db-overlay" id="dbOverlay"></div>
+
+    <!-- 정기 송금 상세 모달 (Mock) -->
+    <div id="scheduleDetailModal" class="remit-modal">
+        <div class="remit-modal-content">
+            <div class="remit-modal-header">
+                <h2 class="remit-modal-title">정기 송금 정보</h2>
+                <button type="button" class="remit-modal-close" onclick="closeDetailModal()">&times;</button>
+            </div>
+            <div class="remit-modal-body">
+                <div class="receipt-section">
+                    <div class="receipt-row">
+                        <span class="receipt-label">수취인 명</span>
+                        <span class="receipt-value" id="modalRecipient"></span>
+                    </div>
+                    <div class="receipt-row">
+                        <span class="receipt-label">수취 은행</span>
+                        <span class="receipt-value" id="modalBank"></span>
+                    </div>
+                    <div class="receipt-row">
+                        <span class="receipt-label">송금 구분</span>
+                        <span class="receipt-value" id="modalType"></span>
+                    </div>
+                    <div class="receipt-row" id="amountRow">
+                        <span class="receipt-label" id="modalAmountLabel">송금 금액</span>
+                        <span class="receipt-value highlight" id="modalAmount"></span>
+                    </div>
+                    <div class="receipt-row">
+                        <span class="receipt-label">송금 주기</span>
+                        <span class="receipt-value" id="modalCycle"></span>
+                    </div>
+                    <div class="receipt-row account-modal-row">
+                        <span class="receipt-label">출금 계좌</span>
+                        <div class="account-info-box" id="modalWithdrawalAccount"></div>
+                    </div>
+                    <div class="receipt-row">
+                        <span class="receipt-label">상태</span>
+                        <span class="receipt-value" id="modalStatus"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="remit-modal-footer">
+                <button type="button" class="btn btn-delete" onclick="confirmStop()">정지</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='RM_02_04.html'">수정</button>
+            </div>
+        </div>
+
+        <!-- 정지 확인 모달 (CM_01_01 스타일 - Standard Confirm Blue) -->
+        <div id="stopConfirmModal" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="#1B5E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                </div>
+                <h3>정기 송금 정지</h3>
+                <p>정기 해외 송금 정지 후 재개할 수 없습니다.<br>정말 정지하시겠습니까?</p>
+                <div class="modal-btn-group">
+                    <button class="btn-cancel" onclick="closeModal('stopConfirmModal')">취소</button>
+                    <button class="btn-confirm-action" onclick="executeStop()">정지</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 정지 성공 모달 (CM_01_01 스타일 - Standard Success Blue) -->
+        <div id="stopSuccessModal" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="#00A0DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11"></polyline>
+                    </svg>
+                </div>
+                <h3>정지 완료</h3>
+                <p>정기 해외 송금이 정지되었습니다.</p>
+                <button class="modal-btn-warning" style="background-color: #00A0DC;"
+                    onclick="closeStopSuccess()">확인</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/includes.js"></script>
+    <script>
+        // 사이드바 활성화 (정기 해외 송금)
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const links = document.querySelectorAll('.db-sidebar-nav a');
+                links.forEach(link => {
+                    if (link.textContent.includes('정기 해외 송금')) {
+                        link.classList.add('active');
+                    }
+                });
+            }, 100);
+
+            // 데이터 렌더링 호출
+            renderCards();
+        });
+
+
+
+        // 카드 리스트 렌더링 함수 (통합)
+        function renderCards() {
+            // Target the grid container
+            const grid = document.getElementById('remitCardGrid');
+            grid.innerHTML = '';
+
+            dataArray.forEach((item, index) => { // Changed from remittanceData to dataArray
+                const card = document.createElement('div');
+                card.className = 'remit-card';
+                card.onclick = (e) => {
+                    if (!e.target.closest('button')) openDetailModal(item.id);
+                };
+
+                // Status Logic
+                let statusClass = '';
+                let statusSvg = '';
+
+                switch (item.status) {
+                    case 'active':
+                        statusClass = 'status-success'; // Green
+                        statusSvg = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                        break;
+                    case 'paused':
+                        statusClass = 'status-pending'; // Gray
+                        statusSvg = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>'; // Alert icon
+                        break;
+                    default:
+                        statusClass = 'status-pending';
+                }
+
+                // Amount Display Logic
+                let amountDisplay = '';
+                let amountLabel = '금액';
+
+                if (item.type === '송금액 기준') {
+                    amountDisplay = `${item.sendAmount}`; // Use sendAmount from mockData
+                    amountLabel = '송금 금액';
+                } else {
+                    amountDisplay = `${item.receiveAmount}`; // Use receiveAmount from mockData
+                    amountLabel = '수취 금액';
+                }
+
+                card.innerHTML = `
+                    <!-- 1. Header: Name & View Button -->
+                    <div class="remit-card-header">
+                        <!-- Recipient Name as Title -->
+                        <span class="remit-card-date" style="font-size: 1.1rem;">${item.recipient}</span>
+                        <!-- View Button -->
+                        <button class="remit-card-view-btn" onclick="openDetailModal(${item.id})">
+                            자세히
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- 2. Body: Info Grid -->
+                    <div class="remit-card-body">
+                        <!-- Col 1: Bank -->
+                        <div class="remit-card-col remit-card-col-bank">
+                            <span class="remit-card-label">은행</span>
+                            <span class="remit-card-detail-value">${item.bank}</span>
+                        </div>
+
+                        <!-- Col 2: Type -->
+                        <div class="remit-card-col remit-card-col-type">
+                            <span class="remit-card-label">송금 구분</span>
+                            <span class="remit-card-detail-value">${item.type}</span>
+                        </div>
+
+                        <!-- Col 3: Amount -->
+                        <div class="remit-card-col remit-card-col-amount">
+                            <span class="remit-card-label">${amountLabel}</span>
+                            <span class="remit-card-amount-value" style="font-size: 1rem;">${amountDisplay}</span>
+                        </div>
+
+                        <!-- Col 4: Cycle -->
+                        <div class="remit-card-col remit-card-col-cycle">
+                            <span class="remit-card-label">주기</span>
+                            <span class="remit-card-detail-value">${item.cycle}</span>
+                        </div>
+
+                        <!-- Col 5: Status (Right Aligned, No Label -> Mobile: Label + Value) -->
+                        <div class="remit-card-col remit-card-status-wrapper">
+                            <span class="remit-card-label remit-card-status-label" style="display: none;">상태</span>
+                            <span class="remit-status ${statusClass}">
+                                ${statusSvg}
+                                ${item.statusText}
+                            </span>
+                        </div>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+
+            document.getElementById('totalCount').innerText = dataArray.length;
+        }
+
+        // 모달 데이터 (Mock)
+        const mockData = {
+            1: {
+                id: 1,
+                no: 3,
+                recipient: 'MARIA SANTOS',
+                bank: 'BDO Unibank',
+                type: '수취 금액 기준',
+                sendAmount: '₩ 500,000',
+                receiveAmount: '₱ 21,000',
+                cycle: '매월 25일',
+                status: 'active',
+                statusText: '진행중',
+                withdrawalAccount: { bankName: '기업은행', accountNumber: '064-146189-04-024', holderName: '홍길동' }
+            },
+            2: {
+                id: 2,
+                no: 2,
+                recipient: 'KIM CHULSU',
+                bank: 'Mizuho Bank',
+                type: '송금액 기준',
+                sendAmount: '₩ 500,000',
+                receiveAmount: '¥ 50,000',
+                cycle: '매월 10일',
+                status: 'active',
+                statusText: '진행중',
+                withdrawalAccount: { bankName: '농협은행', accountNumber: '301-0313-2544-01', holderName: '홍길동' }
+            },
+            3: {
+                id: 3,
+                no: 1,
+                recipient: 'LEE YOUNGHEE',
+                bank: 'Vietcombank',
+                type: '송금액 기준',
+                sendAmount: '₩ 100,000',
+                receiveAmount: '₫ 1,852,000',
+                cycle: '매주 월요일',
+                status: 'paused',
+                statusText: '정지',
+                withdrawalAccount: { bankName: '신한은행', accountNumber: '110-456-789012', holderName: '홍길동' }
+            },
+            4: {
+                id: 4,
+                no: 4,
+                recipient: 'RAJESH KUMAR',
+                bank: 'Nepal Bank',
+                type: '수취 금액 기준',
+                sendAmount: '₩ 300,000',
+                receiveAmount: '₨ 29,500',
+                cycle: '매월 1일',
+                status: 'active',
+                statusText: '진행중',
+                withdrawalAccount: { bankName: '기업은행', accountNumber: '064-146189-04-024', holderName: '홍길동' }
+            },
+            5: {
+                id: 5,
+                no: 5,
+                recipient: 'ZHANG WEI',
+                bank: 'ICBC',
+                type: '송금액 기준',
+                sendAmount: '₩ 2,000,000',
+                receiveAmount: '¥ 10,800',
+                cycle: '매주 금요일',
+                status: 'paused',
+                statusText: '정지',
+                withdrawalAccount: { bankName: '농협은행', accountNumber: '301-0313-2544-01', holderName: '홍길동' }
+            }
+        };
+
+        const dataArray = Object.values(mockData).sort((a, b) => b.no - a.no);
+
+        // SVG Helper from HI_01_01
+        function getStatusSVG(status) {
+            const svgs = {
+                running: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
+                paused: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
+                active: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
+                stop: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>'
+            };
+            return svgs[status] || svgs['running'];
+        }
+
+        let currentDetailId = null;
+
+        function openDetailModal(id) {
+            currentDetailId = id; // Store current ID
+            const data = mockData[id];
+
+            if (data) {
+                document.getElementById('modalRecipient').textContent = data.recipient;
+                document.getElementById('modalBank').textContent = data.bank;
+                document.getElementById('modalType').textContent = data.type;
+
+                // 송금 구분에 따라 금액과 라벨 표시
+                if (data.type === '송금액 기준') {
+                    document.getElementById('modalAmountLabel').textContent = '송금 금액';
+                    document.getElementById('modalAmount').textContent = data.sendAmount;
+                } else {
+                    document.getElementById('modalAmountLabel').textContent = '수취 금액';
+                    document.getElementById('modalAmount').textContent = data.receiveAmount;
+                }
+
+                document.getElementById('modalCycle').textContent = data.cycle;
+
+                // 출금 계좌 정보 표시 (슬래시로 구분)
+                const wa = data.withdrawalAccount;
+                document.getElementById('modalWithdrawalAccount').textContent =
+                    `${wa.bankName} / ${wa.accountNumber} / ${wa.holderName}`;
+
+                // 상태 아이콘과 텍스트 함께 표시
+                const statusIcon = getStatusSVG(data.status);
+                document.getElementById('modalStatus').innerHTML = `${statusIcon} <span>${data.statusText}</span>`;
+
+                // Status coloring in modal
+                const statusSpan = document.getElementById('modalStatus');
+                if (data.status === 'active') {
+                    statusSpan.style.color = '#059669'; // success color
+                } else if (data.status === 'paused') {
+                    statusSpan.style.color = '#6b7280'; // gray
+                }
+
+                const modal = document.getElementById('scheduleDetailModal');
+                modal.classList.add('show');
+            }
+        }
+
+        // CM_01_01 Modal Helpers
+        function openCommonModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+
+        // Stop Flow
+        function confirmStop() {
+            openCommonModal('stopConfirmModal');
+        }
+
+        function executeStop() {
+            closeModal('stopConfirmModal');
+
+            // Logic to update status
+            if (currentDetailId && mockData[currentDetailId]) {
+                mockData[currentDetailId].status = 'paused';
+                mockData[currentDetailId].statusText = '정지'; // '중지' -> '정지'
+
+                // Re-render list
+                renderCards();
+
+                // Update Detail Modal View if open
+                const statusIcon = getStatusSVG('paused');
+                document.getElementById('modalStatus').innerHTML = `${statusIcon} <span>정지</span>`;
+                document.getElementById('modalStatus').style.color = '#6b7280';
+            }
+
+            openCommonModal('stopSuccessModal');
+        }
+
+        function closeStopSuccess() {
+            closeModal('stopSuccessModal');
+            closeDetailModal(); // Close the main detail modal too
+        }
+
+        function closeDetailModal() {
+            const modal = document.getElementById('scheduleDetailModal');
+            modal.classList.remove('show');
+        }
+    </script>
+</body>
+
+</html>

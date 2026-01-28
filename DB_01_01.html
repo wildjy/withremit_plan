@@ -1,0 +1,799 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withremit - 마이 대시보드</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+</head>
+
+<body class="db-body">
+    <div id="headerContainer"></div>
+
+    <main class="db-main-container container">
+        <div class="db-layout-flex">
+            <div id="sidebarContainer"></div>
+
+            <div class="db-content">
+                <!-- Dashboard Banner Card -->
+                <div class="db-banner-card">
+                    <div class="db-banner-slider">
+                        <div class="db-banner-slides">
+                            <a href="#" class="db-banner-slide active db-banner-slide-1"
+                                style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                <div class="db-banner-content">
+                                    <div class="banner-text-group">
+                                        <h2 data-i18n="banner.referral.title">친구도 나도, 송금 수수료 0원!</h2>
+                                        <p data-i18n="banner.referral.desc">친구가 가입 후 첫 송금을 마치면 두 분 모두에게 수수료 무료 쿠폰을 드립니다.
+                                        </p>
+                                    </div>
+                                    <div class="banner-image-group">
+                                        <img src="images/banner_referral.png" alt="친구 추천 이벤트"
+                                            data-i18n="banner.referral.alt">
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="db-banner-slide db-banner-slide-2"
+                                style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                <div class="db-banner-content">
+                                    <div class="banner-text-group">
+                                        <h2 data-i18n="banner.birthday.title">해피 벌스데이! 위드레미트가 드리는 생일 선물</h2>
+                                        <p data-i18n="banner.birthday.desc">생일인 달에는 송금 수수료가 무료! 지금 쿠폰함에서 확인해 보세요.</p>
+                                    </div>
+                                    <div class="banner-image-group">
+                                        <img src="images/banner_birthday.png" alt="생일 쿠폰 이벤트"
+                                            data-i18n="banner.birthday.alt">
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="db-banner-slide db-banner-slide-3"
+                                style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                                <div class="db-banner-content">
+                                    <div class="banner-text-group">
+                                        <h2 data-i18n="banner.security.title">국가가 인증하고 서울보증보험이 약속합니다.</h2>
+                                        <p data-i18n="banner.security.desc">기획재정부 인가 및 SGI 서울보증보험 가입으로 단 1원도 안심하고 보내세요.
+                                        </p>
+                                    </div>
+                                    <div class="banner-image-group">
+                                        <img src="images/banner_security.png" alt="보안 안심 송금"
+                                            data-i18n="banner.security.alt">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Dashboard Banner Controls -->
+                        <div class="db-banner-controls">
+                            <button class="db-banner-control-btn" id="dbBannerPlayPause" aria-label="재생/정지">
+                                <svg class="play-icon hidden" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                                <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                                </svg>
+                            </button>
+                            <div class="db-banner-indicators">
+                                <button class="db-banner-indicator active" data-slide="0" aria-label="배너 1"></button>
+                                <button class="db-banner-indicator" data-slide="1" aria-label="배너 2"></button>
+                                <button class="db-banner-indicator" data-slide="2" aria-label="배너 3"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Division 1: 송금 시뮬레이션 + 현재 보유 잔액, 나의 송금 한도 -->
+                <div class="db-grid">
+                    <!-- Left Column -->
+                    <div class="db-col-calc">
+                        <!-- Calculator Card -->
+                        <div class="calculator-card db-calculator-card">
+                            <h3 class="db-card-title">송금 시뮬레이션</h3>
+
+                            <div class="calc-row">
+                                <div class="calc-row-header">
+                                    <label class="calc-label" data-i18n="calc.send">보내실 금액</label>
+                                    <span class="calc-max-amount" data-i18n="calc.maxAmount">최대 송금액 6,500,000원</span>
+                                </div>
+                                <div class="calc-input-group">
+                                    <div class="calc-input calc-input-with-symbol">
+                                        <span class="calc-currency-symbol-fixed">₩</span>
+                                        <input type="text" class="calc-amount-input" id="sendAmount" value="1,000,000"
+                                            placeholder="금액 입력">
+                                    </div>
+                                    <div class="calc-currency">
+                                        <img src="images/kr.png" alt="한국" class="calc-currency-flag">
+                                        <span class="calc-currency-code">KRW</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="calc-rate">
+                                <div class="calc-rate-info">
+                                    <span class="calc-rate-value" id="exchangeRate">1 KRW = 0.1085 JPY</span>
+                                    <span class="calc-rate-label" data-i18n="calc.rate">실시간 환율 적용</span>
+                                </div>
+                                <div class="calc-arrow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="calc-row">
+                                <label class="calc-label" data-i18n="calc.receive">받으실 금액</label>
+                                <div class="calc-input-group">
+                                    <div class="calc-input calc-input-with-symbol">
+                                        <span class="calc-currency-symbol-fixed" id="receiveCurrencySymbol">¥</span>
+                                        <input type="text" class="calc-amount-input receive" id="receiveAmount"
+                                            value="9,216,590" placeholder="금액 입력">
+                                    </div>
+                                    <div class="calc-currency-dropdown" id="currencyDropdown">
+                                        <button type="button" class="calc-currency-btn" id="currencyBtn">
+                                            <img src="images/jp.png" alt="일본" class="calc-currency-flag"
+                                                id="receiveCurrencyFlag">
+                                            <span class="calc-currency-code" id="receiveCurrencyCode">JPY</span>
+                                            <svg class="calc-currency-arrow" xmlns="http://www.w3.org/2000/svg"
+                                                width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <polyline points="6 9 12 15 18 9"></polyline>
+                                            </svg>
+                                        </button>
+                                        <div class="calc-currency-options" id="currencyOptions">
+                                            <div class="calc-currency-option" data-value="JPY">
+                                                <img src="images/jp.png" alt="일본">
+                                                <span>JPY</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="PHP">
+                                                <img src="images/ph.png" alt="필리핀">
+                                                <span>PHP</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="CNY">
+                                                <img src="images/cn.png" alt="중국">
+                                                <span>CNY</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="NPR">
+                                                <img src="images/np.png" alt="네팔">
+                                                <span>NPR</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="AUD">
+                                                <img src="images/au.png" alt="호주">
+                                                <span>AUD</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="HKD">
+                                                <img src="images/hk.png" alt="홍콩">
+                                                <span>HKD</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="MNT">
+                                                <img src="images/mn.png" alt="몽골">
+                                                <span>MNT</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="VND">
+                                                <img src="images/vn.png" alt="베트남">
+                                                <span>VND</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="LKR">
+                                                <img src="images/lk.png" alt="스리랑카">
+                                                <span>LKR</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="BDT">
+                                                <img src="images/bd.png" alt="방글라데시">
+                                                <span>BDT</span>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" id="receiveCurrency" value="JPY">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hidden">
+                                <div id="receiveAmountDisplay"></div>
+                            </div>
+
+                            <div class="calc-fee-box">
+                                <div class="calc-fee-header">
+                                    <span data-i18n="calc.deposit">입금할 금액</span>
+                                    <span class="calc-fee-total" id="depositAmount">₩1,010,000</span>
+                                </div>
+                                <div class="calc-fee-row">
+                                    <span data-i18n="calc.transferFee">송금 수수료</span>
+                                    <span id="transferFee">₩10,000</span>
+                                </div>
+                                <div class="calc-fee-row">
+                                    <span data-i18n="calc.withdrawalFee">수취 수수료</span>
+                                    <span id="withdrawalFee">¥660</span>
+                                </div>
+                            </div>
+
+                            <div class="calc-compare" id="savings">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>은행 대비 약 <strong>322,581 JPY</strong> 더 받으세요!</span>
+                            </div>
+
+                            <button class="calc-btn" data-i18n="calc.btn" onclick="goToRemittance()">지금 바로 송금하기</button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="db-col-info">
+                        <!-- Limit Info Card (Now First) -->
+                        <div class="db-info-card db-limit-card">
+                            <h3 class="db-card-title-white">나의 송금 한도</h3>
+                            <div class="db-limit-grid">
+                                <div class="db-limit-item">
+                                    <div class="db-limit-icon">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <path d="M12 6v6l4 2"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="db-limit-content">
+                                        <div class="db-limit-label">1회 한도액</div>
+                                        <div class="db-limit-value">$ 5,000</div>
+                                    </div>
+                                </div>
+                                <div class="db-limit-item">
+                                    <div class="db-limit-icon">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        </svg>
+                                    </div>
+                                    <div class="db-limit-content">
+                                        <div class="db-limit-label">연간 한도액</div>
+                                        <div class="db-limit-value">$ 100,000</div>
+                                    </div>
+                                </div>
+                                <div class="db-limit-item">
+                                    <div class="db-limit-icon">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="db-limit-content">
+                                        <div class="db-limit-label">송금액</div>
+                                        <div class="db-limit-value highlight">$ 50,000.00</div>
+                                    </div>
+                                </div>
+                                <div class="db-limit-item">
+                                    <div class="db-limit-icon">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="db-limit-content">
+                                        <div class="db-limit-label">송금 가능 금액</div>
+                                        <div class="db-limit-value highlight">$ 50,000.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Balance Card (Now Second) -->
+                        <div class="db-info-card db-balance-card db-balance-card-blue">
+                            <h3 class="db-card-title-white">현재 보유 잔액</h3>
+                            <div class="db-main-wallet">
+                                <div class="wallet-val-white">₩ 1,250,000</div>
+                                <div class="wallet-btns">
+                                    <a href="HI_02_01.html" class="btn btn-white-outline"
+                                        style="height:40px; padding:0 20px; font-size: 0.9rem; display:inline-flex; align-items:center;">거래
+                                        내역 보기</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sendable Countries Card (New) -->
+                        <div class="db-info-card db-country-card">
+                            <div class="db-card-header">
+                                <h3 class="db-card-title">송금 가능 국가</h3>
+                                <a href="GU_01_01.html#countries" class="db-more-link">더 보기</a>
+                            </div>
+                            <div class="country-slider-container">
+                                <div class="country-slider">
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/jp.png" alt="JPY"></div><span
+                                            class="country-name">일본</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/ph.png" alt="PHP"></div><span
+                                            class="country-name">필리핀</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/cn.png" alt="CNY"></div><span
+                                            class="country-name">중국</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/np.png" alt="NPR"></div><span
+                                            class="country-name">네팔</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/au.png" alt="AUD"></div><span
+                                            class="country-name">호주</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/hk.png" alt="HKD"></div><span
+                                            class="country-name">홍콩</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/mn.png" alt="MNT"></div><span
+                                            class="country-name">몽골</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/vn.png" alt="VND"></div><span
+                                            class="country-name">베트남</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/lk.png" alt="LKR"></div><span
+                                            class="country-name">스리랑카</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/bd.png" alt="BDT"></div><span
+                                            class="country-name">방글라데시</span>
+                                    </div>
+                                    <!-- Duplicate -->
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/jp.png" alt="JPY"></div><span
+                                            class="country-name">일본</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/ph.png" alt="PHP"></div><span
+                                            class="country-name">필리핀</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/cn.png" alt="CNY"></div><span
+                                            class="country-name">중국</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/np.png" alt="NPR"></div><span
+                                            class="country-name">네팔</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/au.png" alt="AUD"></div><span
+                                            class="country-name">호주</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/hk.png" alt="HKD"></div><span
+                                            class="country-name">홍콩</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/mn.png" alt="MNT"></div><span
+                                            class="country-name">몽골</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/vn.png" alt="VND"></div><span
+                                            class="country-name">베트남</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/lk.png" alt="LKR"></div><span
+                                            class="country-name">스리랑카</span>
+                                    </div>
+                                    <div class="country-item">
+                                        <div class="country-flag-circle"><img src="images/bd.png" alt="BDT"></div><span
+                                            class="country-name">방글라데시</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Division 2: 최근 송금 내역, 최근 거래 내역, 자주 쓰는 계좌 (3단) -->
+                <div class="db-grid-3col">
+                    <!-- Ongoing Transfer Card -->
+                    <div class="db-info-card db-ongoing-card">
+                        <div class="db-card-header">
+                            <h3 class="db-card-title">최근 송금 내역</h3>
+                            <a href="HI_01_01.html" class="db-more-link">더 보기</a>
+                        </div>
+                        <div class="db-ongoing-info">
+                            <div class="db-ongoing-row">
+                                <span class="db-ongoing-label">송금액</span>
+                                <span class="db-ongoing-value">₩1,000,000</span>
+                            </div>
+                            <div class="db-ongoing-row">
+                                <span class="db-ongoing-label">입금액</span>
+                                <span class="db-ongoing-value">₩995,000</span>
+                            </div>
+                            <div class="db-ongoing-row">
+                                <span class="db-ongoing-label">수취인</span>
+                                <span class="db-ongoing-value">Kevin Chen</span>
+                            </div>
+                            <div class="db-ongoing-row">
+                                <span class="db-ongoing-label">수취 국가</span>
+                                <span class="db-ongoing-value">중국</span>
+                            </div>
+                            <div class="db-ongoing-row">
+                                <span class="db-ongoing-label">실 수취 금액</span>
+                                <span class="db-ongoing-value">¥5,400</span>
+                            </div>
+                            <div class="db-ongoing-row">
+                                <span class="db-ongoing-label">송금 상태</span>
+                                <div class="db-status-inline">
+                                    <div class="db-status-icon-mini">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12 6 12 12 16 14"></polyline>
+                                        </svg>
+                                    </div>
+                                    <span class="db-ongoing-value status-complete">접수 완료</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Transactions -->
+                    <div class="db-info-card db-transactions-card">
+                        <div class="db-card-header">
+                            <h3 class="db-card-title">최근 거래 내역</h3>
+                            <a href="HI_02_01.html" class="db-more-link">더 보기</a>
+                        </div>
+                        <div class="db-transaction-list-new">
+                            <div class="db-transaction-item-new">
+                                <div class="db-trans-icon deposit">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                        stroke-width="2.5">
+                                        <path d="M12 5v14M5 12l7 7 7-7" />
+                                    </svg>
+                                </div>
+                                <div class="db-trans-info">
+                                    <div class="db-trans-date-new">2026.01.15</div>
+                                    <div class="db-trans-type-new deposit">입금</div>
+                                </div>
+                                <div class="db-trans-amounts">
+                                    <div class="db-trans-amount-new deposit">+500,000</div>
+                                    <div class="db-trans-balance-new">₩ 1,250,000</div>
+                                </div>
+                            </div>
+                            <div class="db-transaction-item-new">
+                                <div class="db-trans-icon withdraw">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                        stroke-width="2.5">
+                                        <path d="M12 19V5M5 12l7-7 7 7" />
+                                    </svg>
+                                </div>
+                                <div class="db-trans-info">
+                                    <div class="db-trans-date-new">2026.01.12</div>
+                                    <div class="db-trans-type-new withdraw">출금</div>
+                                </div>
+                                <div class="db-trans-amounts">
+                                    <div class="db-trans-amount-new withdraw">-1,000,000</div>
+                                    <div class="db-trans-balance-new">₩ 750,000</div>
+                                </div>
+                            </div>
+                            <div class="db-transaction-item-new">
+                                <div class="db-trans-icon deposit">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                        stroke-width="2.5">
+                                        <path d="M12 5v14M5 12l7 7 7-7" />
+                                    </svg>
+                                </div>
+                                <div class="db-trans-info">
+                                    <div class="db-trans-date-new">2026.01.10</div>
+                                    <div class="db-trans-type-new deposit">입금</div>
+                                </div>
+                                <div class="db-trans-amounts">
+                                    <div class="db-trans-amount-new deposit">+2,000,000</div>
+                                    <div class="db-trans-balance-new">₩ 1,750,000</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frequent Accounts -->
+                    <div class="db-info-card db-accounts-card">
+                        <div class="db-card-header">
+                            <h3 class="db-card-title">자주 쓰는 계좌</h3>
+                            <a href="AC_03_01.html" class="db-more-link">더 보기</a>
+                        </div>
+                        <div class="db-account-list">
+                            <div class="db-account-item">
+                                <div class="db-account-flag">
+                                    <img src="images/jp.png" alt="일본">
+                                </div>
+                                <div class="db-account-info">
+                                    <div class="db-account-name">Tanaka (일본)</div>
+                                    <div class="db-account-bank">JP 모건 ****1234</div>
+                                </div>
+                            </div>
+                            <div class="db-account-item">
+                                <div class="db-account-flag">
+                                    <img src="images/ph.png" alt="필리핀">
+                                </div>
+                                <div class="db-account-info">
+                                    <div class="db-account-name">Rizal (필리핀)</div>
+                                    <div class="db-account-bank">BDO Unibank ****4567</div>
+                                </div>
+                            </div>
+                            <div class="db-account-item">
+                                <div class="db-account-flag">
+                                    <img src="images/cn.png" alt="중국">
+                                </div>
+                                <div class="db-account-info">
+                                    <div class="db-account-name">Kevin Chen (중국)</div>
+                                    <div class="db-account-bank">ICBC ****8901</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Division 3: 공지사항, 도움이 필요하신가요? (2단) -->
+                <div class="db-grid-2col">
+                    <!-- Notices Card -->
+                    <div class="db-info-card db-notices-card">
+                        <div class="db-card-header">
+                            <h3 class="db-card-title">공지사항</h3>
+                            <a href="CS_01_01.html" class="db-more-link">더 보기</a>
+                        </div>
+                        <div class="db-notice-list">
+                            <a href="CS_01_02.html?title=연말연시 영업일 안내" class="db-notice-item">
+                                <span class="db-notice-title">연말연시 영업일 안내</span>
+                                <span class="db-notice-date">2025.12.29</span>
+                            </a>
+                            <a href="CS_01_02.html?title=추석 연휴에도 withremit은 정상근무합니다." class="db-notice-item">
+                                <span class="db-notice-title">추석 연휴에도 withremit은 정상근무합니다.</span>
+                                <span class="db-notice-date">2025.10.03</span>
+                            </a>
+                            <a href="CS_01_02.html?title=설 연휴 중 농협은행, 지역 농협은행 인터넷 뱅킹 중지 안내" class="db-notice-item">
+                                <span class="db-notice-title">설 연휴 중 농협은행, 지역 농협은행 인터넷 뱅킹 중지 안내</span>
+                                <span class="db-notice-date">2025.01.24</span>
+                            </a>
+                            <a href="CS_01_02.html?title=[안내] 서비스 고도화에 따른 시스템 점검 안내 (02/10)" class="db-notice-item">
+                                <span class="db-notice-title">[안내] 서비스 고도화에 따른 시스템 점검 안내 (02/10)</span>
+                                <span class="db-notice-date">2025.01.20</span>
+                            </a>
+                            <a href="CS_01_02.html?title=[이벤트] 친구 초대하고 최대 5만 포인트 받으세요!" class="db-notice-item">
+                                <span class="db-notice-title">[이벤트] 친구 초대하고 최대 5만 포인트 받으세요!</span>
+                                <span class="db-notice-date">2025.01.15</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Help Card -->
+                    <div class="db-info-card db-help-card">
+                        <h3 class="db-card-title">도움이 필요하신가요?</h3>
+                        <div class="db-help-content-wrapper">
+                            <div class="db-help-btns-new">
+                                <a href="CS_02_01.html" class="db-help-btn-new db-help-btn-outline">
+                                    <div class="db-help-icon">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                        </svg>
+                                    </div>
+                                    <span>자주 묻는 질문</span>
+                                </a>
+                                <a href="CS_03_01.html" class="db-help-btn-new db-help-btn-primary">
+                                    <div class="db-help-icon">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <span>1:1 문의</span>
+                                </a>
+                            </div>
+                            <div class="db-help-qr-section">
+                                <div class="db-help-qr-item">
+                                    <h4>LINE</h4>
+                                    <img src="images/lineQR.png" alt="LINE QR Code" class="db-help-qr-code">
+                                </div>
+                                <div class="db-help-qr-item">
+                                    <h4>Kakao Talk</h4>
+                                    <img src="images/kakaoQR.png" alt="Kakao Talk QR Code" class="db-help-qr-code">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <!-- Contact Info Bar -->
+    <div class="contact-info-bar">
+        <div class="container">
+            <div class="contact-info-items">
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <span>한국어 상담 02-2285-2077</span>
+                </div>
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <span>日本語 相談 070-8785-1799</span>
+                </div>
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20" />
+                    </svg>
+                    <span>FAX 02-2285-2078</span>
+                </div>
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <span>hana@oneremit.co.kr</span>
+                </div>
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>평일 09:00~18:00 · 토/공휴일 10:00~16:00 · 일요일 휴무</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footerContainer"></div>
+
+    <div class="db-overlay-mask" id="dbOverlay"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/includes.js"></script>
+
+    <div id="limitModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                    </path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+            </div>
+
+            <h3 data-i18n="modal.limit.title">송금 한도 초과</h3>
+            <p data-i18n="modal.limit.memo" id="modalMessage">
+                외환거래법령에 따라 건당 최대 <b>$5,000(USD)</b>까지 송금이 가능합니다.<br><br>
+                현재 환율 기준 송금 가능액인 <b>6,750,000원</b>으로 조정되었습니다.
+            </p>
+            <button data-i18n="modal.ok" class="modal-btn-warning" onclick="closeLimitModal()">확인</button>
+        </div>
+    </div>
+
+    <script>
+        function goToRemittance() {
+            // 통화 코드를 국가 코드로 매핑
+            const currencyToCountry = {
+                'JPY': 'JP',
+                'PHP': 'PH',
+                'CNY': 'CN',
+                'NPR': 'NP',
+                'AUD': 'AU',
+                'HKD': 'HK',
+                'MNT': 'MN',
+                'VND': 'VN',
+                'LKR': 'LK',
+                'BDT': 'BD'
+            };
+
+            const sendAmountInput = document.getElementById('sendAmount');
+            const receiveCurrencyInput = document.getElementById('receiveCurrency');
+
+            const amount = sendAmountInput.value.replace(/,/g, '');
+            const currency = receiveCurrencyInput.value;
+            const country = currencyToCountry[currency] || 'JP';
+
+            // URL 파라미터로 전달
+            window.location.href = `RM_01_01.html?amount=${amount}&country=${country}`;
+        }
+    </script>
+
+    <!-- Dashboard Banner Slider Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.db-banner-slide');
+            const indicators = document.querySelectorAll('.db-banner-indicator');
+            const playPauseBtn = document.getElementById('dbBannerPlayPause');
+
+            if (!playPauseBtn) return; // 배너가 없는 경우 종료
+
+            const playIcon = playPauseBtn.querySelector('.play-icon');
+            const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+
+            let currentSlide = 0;
+            let isPlaying = true;
+            let slideInterval;
+
+            // 슬라이드 변경 함수
+            function goToSlide(index) {
+                // 모든 슬라이드와 인디케이터 비활성화
+                slides.forEach(slide => slide.classList.remove('active'));
+                indicators.forEach(indicator => indicator.classList.remove('active'));
+
+                // 현재 슬라이드와 인디케이터 활성화
+                slides[index].classList.add('active');
+                indicators[index].classList.add('active');
+                currentSlide = index;
+            }
+
+            // 다음 슬라이드로 이동
+            function nextSlide() {
+                const next = (currentSlide + 1) % slides.length;
+                goToSlide(next);
+            }
+
+            // 자동 슬라이드 시작
+            function startAutoSlide() {
+                slideInterval = setInterval(nextSlide, 5000);
+                isPlaying = true;
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+            }
+
+            // 자동 슬라이드 정지
+            function stopAutoSlide() {
+                clearInterval(slideInterval);
+                isPlaying = false;
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+            }
+
+            // 재생/정지 버튼 클릭
+            playPauseBtn.addEventListener('click', function () {
+                if (isPlaying) {
+                    stopAutoSlide();
+                } else {
+                    startAutoSlide();
+                }
+            });
+
+            // 인디케이터 클릭
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', function () {
+                    goToSlide(index);
+                    // 인디케이터 클릭 시 자동 슬라이드 재시작
+                    if (isPlaying) {
+                        clearInterval(slideInterval);
+                        slideInterval = setInterval(nextSlide, 5000);
+                    }
+                });
+            });
+
+            // 초기 자동 슬라이드 시작
+            startAutoSlide();
+        });
+    </script>
+</body>
+
+</html>

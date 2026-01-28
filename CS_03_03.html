@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withremit - 1:1 문의</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+</head>
+
+<body class="db-body">
+    <div id="headerContainer"></div>
+
+    <main class="db-main-container container">
+        <div class="db-layout-flex">
+            <div id="sidebarContainer"></div>
+
+            <div class="db-content">
+                <div class="db-page-header">
+                    <h1 class="db-page-title">1:1 문의</h1>
+                </div>
+
+                <div class="notice-detail-card">
+                    <div class="notice-detail-header">
+                        <div class="notice-status-badge">
+                            <span class="badge-status pending">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                처리중
+                            </span>
+                        </div>
+                        <h2 class="notice-detail-title">송금 완료까지 얼마나 걸리나요?</h2>
+                        <div class="notice-detail-meta">
+                            <span class="meta-item">
+                                <span class="meta-label">등록일</span>
+                                <span class="meta-value">2026.01.26</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="notice-detail-divider"></div>
+
+                    <div class="notice-detail-content">
+                        <p>송금 신청을 완료했는데, 수취인에게 언제쯤 전달되나요?</p>
+                        <p>급한 송금이라 확인 부탁드립니다.</p>
+                    </div>
+
+                    <div class="notice-detail-divider"></div>
+
+                    <!-- 답변 영역 (처리중일 때는 비어있거나 안내 문구) -->
+                    <div class="inquiry-reply-section">
+                        <h3 class="reply-title">답변 내용</h3>
+                        <div class="reply-content">
+                            <p class="empty-reply">담당자가 확인 중인 문의입니다. 답변이 등록되면 이메일로 안내해 드립니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="notice-detail-footer">
+                        <hr class="divider-thin">
+                        <button class="btn btn-primary" onclick="location.href='CS_03_02.html'">목록</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="contactContainer"></div>
+    <div id="footerContainer"></div>
+
+    <div class="db-overlay" id="dbOverlay"></div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/includes.js"></script>
+</body>
+
+</html>

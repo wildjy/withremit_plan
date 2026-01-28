@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withremit - 공지사항</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+</head>
+
+<body class="db-body">
+    <div id="headerContainer"></div>
+
+    <main class="db-main-container container">
+        <div class="db-layout-flex">
+            <div id="sidebarContainer"></div>
+
+            <div class="db-content">
+                <div class="db-page-header">
+                    <h1 class="db-page-title">공지사항</h1>
+                </div>
+
+                <div class="notice-detail-card">
+                    <div class="notice-detail-header">
+                        <h2 class="notice-detail-title" id="noticeTitle">추석 연휴에도 withremit은 정상근무합니다.</h2>
+                        <div class="notice-detail-meta">
+                            <span class="meta-item">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <span class="meta-label">작성일</span>
+                                <span class="meta-value" id="noticeDate">2025-10-03</span>
+                            </span>
+                            <span class="meta-item">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                <span class="meta-label">작성자</span>
+                                <span class="meta-value" id="noticeAuthor">manager</span>
+                            </span>
+                            <span class="meta-item">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                <span class="meta-label">조회수</span>
+                                <span class="meta-value" id="noticeViews">52</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="notice-detail-divider"></div>
+
+                    <div class="notice-detail-content" id="noticeContent">
+                        <p>안녕하세요. withremit입니다.</p>
+                        <br>
+                        <p>항상 withremit을 이용해 주셔서 감사합니다.<br>
+                            하기의 추석 연휴기간 중 일요일을 제외하고 withremit은 정상영업합니다.</p>
+                        <br>
+                        <p>10월3일(금) ～ 10월9일(목)</p>
+                        <br>
+                        <p>* 10시부터 17시까지(당일송금 17시 마감) 입니다.</p>
+                        <br>
+                        <p>그 외 궁금하신 점이 있으시면 withremit 고객센터로 연락주세요.<br>
+                            감사합니다.</p>
+                    </div>
+
+                    <div class="notice-detail-divider"></div>
+
+                    <div class="notice-detail-nav">
+                        <a href="#" class="notice-nav-item" id="prevNotice" style="display: none;">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="18 15 12 9 6 15"></polyline>
+                            </svg>
+                            <span class="nav-number"></span>
+                            <span class="nav-title"></span>
+                        </a>
+                        <a href="#" class="notice-nav-item" id="nextNotice" style="display: none;">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                            <span class="nav-number"></span>
+                            <span class="nav-title"></span>
+                        </a>
+                    </div>
+
+                    <div class="notice-detail-footer">
+                        <button class="btn btn-primary" id="btnList">목록</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="contactContainer"></div>
+    <div id="footerContainer"></div>
+
+    <div class="db-overlay" id="dbOverlay"></div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/includes.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 공지사항 데이터
+            const notices = [
+                {
+                    number: 135,
+                    title: '연말연시 영업일 안내',
+                    date: '2025.12.29',
+                    author: 'manager',
+                    views: 69,
+                    content: `안녕하세요. withremit입니다.
+
+올해에도 withremit에 많은 관심과 충전을 보내 주신 분들에 감사드립니다.
+
+설 연휴의 영업일을 다음과 같이 안내 드립니다.
+새해에도 변함없는 관심과 사랑을 부탁드립니다.
+아무쪼록 새해에도 잘 부탁드립니다.
+
+                        - 기 -
+
+12/29 정상영업
+12/30 오전근무 (오전 11시까지 정오까지 당일 출금)`
+                },
+                {
+                    number: 134,
+                    title: '추석 연휴에도 withremit은 정상근무합니다.',
+                    date: '2025.10.03',
+                    author: 'manager',
+                    views: 52,
+                    content: `안녕하세요. withremit입니다.
+항상 withremit을 이용해 주셔서 감사합니다.
+하기의 추석 연휴기간 중 일요일을 제외하고 withremit은 정상영업합니다.
+10월3일(금) ～ 10월9일(목)
+10시부터 17시까지(당일송금 17시 마감) 입니다.
+그 외 궁금하신 점이 있으시면 withremit 고객센터로 연락주세요.
+감사합니다.`
+                },
+                {
+                    number: 133,
+                    title: '설 연휴 중 농협은행, 지역 농협은행 인터넷 뱅킹 중지 안내',
+                    date: '2025.01.24',
+                    author: 'manager',
+                    views: 38,
+                    content: `안녕하세요. withremit입니다.
+
+설 연휴 중 농협은행과 지역 농협은행의 인터넷 뱅킹 서비스가 일시 중지됩니다.
+
+중지 기간: 2025년 1월 28일 ~ 2월 1일
+
+해당 기간 동안 농협 계좌로의 송금이 지연될 수 있으니 참고 부탁드립니다.
+
+감사합니다.`
+                },
+                {
+                    number: 132,
+                    title: '2024년 12월 시스템 점검 안내',
+                    date: '2024.12.01',
+                    author: 'manager',
+                    views: 125,
+                    content: `안녕하세요. withremit입니다.
+
+시스템 안정화를 위한 정기 점검을 실시합니다.
+
+점검 일시: 2024년 12월 20일 02:00 ~ 06:00
+
+점검 시간 동안 서비스 이용이 일시 중단됩니다.
+이용에 불편을 드려 죄송합니다.
+
+감사합니다.`
+                },
+                {
+                    number: 131,
+                    title: '환율 우대 이벤트 안내',
+                    date: '2024.11.15',
+                    author: 'manager',
+                    views: 243,
+                    content: `안녕하세요. withremit입니다.
+
+연말 감사 이벤트로 환율 우대 혜택을 제공합니다.
+
+이벤트 기간: 2024년 12월 1일 ~ 12월 31일
+우대 내용: 기본 환율 대비 0.5% 추가 우대
+
+많은 이용 부탁드립니다.
+감사합니다.`
+                }
+            ];
+
+            // URL 파라미터에서 제목 가져오기 및 공지사항 표시
+            const urlParams = new URLSearchParams(window.location.search);
+            const titleParam = urlParams.get('title');
+
+            let currentIndex = 0;
+            if (titleParam) {
+                const decodedTitle = decodeURIComponent(titleParam);
+                currentIndex = notices.findIndex(n => n.title === decodedTitle);
+                if (currentIndex === -1) currentIndex = 0;
+            }
+
+            function displayNotice(index) {
+                const notice = notices[index];
+                document.getElementById('noticeTitle').textContent = notice.title;
+                document.getElementById('noticeDate').textContent = notice.date;
+                document.getElementById('noticeAuthor').textContent = notice.author;
+                document.getElementById('noticeViews').textContent = notice.views;
+                document.getElementById('noticeContent').innerHTML = notice.content.split('\n').map(line =>
+                    line.trim() === '' ? '<br>' : `<p>${line}</p>`
+                ).join('\n');
+
+                // 이전글 설정 (번호가 더 큰 글 = 더 최신 글)
+                const prevNotice = document.getElementById('prevNotice');
+                if (index > 0) {
+                    prevNotice.style.display = 'flex';
+                    prevNotice.querySelector('.nav-number').textContent = notices[index - 1].number;
+                    prevNotice.querySelector('.nav-title').textContent = notices[index - 1].title;
+                    prevNotice.onclick = (e) => {
+                        e.preventDefault();
+                        displayNotice(index - 1);
+                        currentIndex = index - 1;
+                    };
+                } else {
+                    prevNotice.style.display = 'none';
+                }
+
+                // 다음글 설정 (번호가 더 작은 글 = 더 오래된 글)
+                const nextNotice = document.getElementById('nextNotice');
+                if (index < notices.length - 1) {
+                    nextNotice.style.display = 'flex';
+                    nextNotice.querySelector('.nav-number').textContent = notices[index + 1].number;
+                    nextNotice.querySelector('.nav-title').textContent = notices[index + 1].title;
+                    nextNotice.onclick = (e) => {
+                        e.preventDefault();
+                        displayNotice(index + 1);
+                        currentIndex = index + 1;
+                    };
+                } else {
+                    nextNotice.style.display = 'none';
+                }
+            }
+
+            // 초기 공지사항 표시
+            displayNotice(currentIndex);
+
+            // 목록 버튼 클릭 이벤트
+            const btnList = document.getElementById('btnList');
+            if (btnList) {
+                btnList.addEventListener('click', () => {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const isGuest = urlParams.get('guest') === 'true';
+                    let targetUrl = 'CS_01_01.html';
+                    if (isGuest) {
+                        targetUrl += '?guest=true';
+                    }
+                    window.location.href = targetUrl;
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

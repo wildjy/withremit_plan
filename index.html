@@ -1,0 +1,799 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withremit - 화면 목록</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .table-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: auto;
+            /* Enable both scrollbars */
+            max-height: calc(100vh - 120px);
+            /* Limit height to viewport */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 1200px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #4A90E2;
+            color: white;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f0f7ff;
+        }
+
+        a {
+            color: #4A90E2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #357ABD;
+        }
+
+        .no-link {
+            color: #999;
+            font-weight: 400;
+        }
+
+        .blue-text {
+            color: #4A90E2;
+            font-weight: 500;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .badge-normal {
+            background-color: #E3F2FD;
+            color: #1976D2;
+        }
+
+        .badge-modal {
+            background-color: #F3E5F5;
+            color: #7B1FA2;
+        }
+    </style>
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+</head>
+
+<body>
+    <h1>withremit - 화면 목록</h1>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th class="center">구분</th>
+                    <th>1차 메뉴</th>
+                    <th>2차 메뉴</th>
+                    <th class="center">순번</th>
+                    <th>화면 아이디</th>
+                    <th>화면 이름</th>
+                    <th class="center">로그인 전</th>
+                    <th class="center">로그인 후</th>
+                    <th class="center">유형</th>
+                    <th>비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 공통 -->
+                <tr>
+                    <td>공통</td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">1</td>
+                    <td><a href="CM_01_01.html" target="_blank">CM_01_01</a></td>
+                    <td>공용 모달</td>
+                    <td class="center">O</td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-modal">모달</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">2</td>
+                    <td><a href="CM_01_02.html" target="_blank">CM_01_02</a></td>
+                    <td>진행중</td>
+                    <td class="center">O</td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">3</td>
+                    <td><a href="CM_01_03.html" target="_blank">CM_01_03</a></td>
+                    <td>오류</td>
+                    <td class="center">O</td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">4</td>
+                    <td><a href="CM_01_04.html" target="_blank">CM_01_04</a></td>
+                    <td>비밀번호 확인</td>
+                    <td class="center">O</td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td>회원 정보 수정 등 비밀번호 확인 후 진입</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">5</td>
+                    <td><span class="blue-text">CM_01_05(CM_04_12에 포함)</span></td>
+                    <td>우편번호 확인</td>
+                    <td class="center">O</td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-modal">모달</span></td>
+                    <td></td>
+                </tr>
+
+                <!-- 메인 -->
+                <tr>
+                    <td>메인</td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">6</td>
+                    <td><a href="CM_02_01.html" target="_blank">CM_02_01</a></td>
+                    <td>메인</td>
+                    <td class="center">O</td>
+                    <td class="center"></td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td>로그인 전 메인</td>
+                </tr>
+
+                <!-- 로그인 -->
+                <tr>
+                    <td>로그인</td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">7</td>
+                    <td><a href="CM_03_01.html" target="_blank">CM_03_01</a></td>
+                    <td>로그인</td>
+                    <td class="center">O</td>
+                    <td class="center"></td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">8</td>
+                    <td><a href="CM_03_02.html" target="_blank">CM_03_02</a></td>
+                    <td>아이디/비밀번호 찾기</td>
+                    <td class="center">O</td>
+                    <td class="center"></td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">9</td>
+                    <td><a href="CM_03_03.html" target="_blank">CM_03_03</a></td>
+                    <td>비밀번호 재설정</td>
+                    <td class="center">O</td>
+                    <td class="center"></td>
+                    <td class="center"><span class="badge badge-modal">모달</span></td>
+                    <td></td>
+                </tr>
+
+                <!-- 회원 가입 -->
+                <tr>
+                    <td>회원 가입</td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">10</td>
+                    <td><a href="CM_04_01.html" target="_blank">CM_04_01</a></td>
+                    <td>가입 유형 선택</td>
+                    <td class="center">O</td>
+                    <td class="center"></td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td>소셜 가입 추가</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">11</td>
+                    <td><a href="CM_04_02.html" target="_blank">CM_04_02</a></td>
+                    <td>회원 유형 선택</td>
+                    <td class="center">O</td>
+                    <td class="center"></td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">12</td>
+                    <td><a href="CM_04_11.html" target="_blank">CM_04_11</a></td>
+                    <td>개인 회원 가입 동의</td>
+                    <td class="center">O</td>
+                    <td class="center"></td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">13</td>
+                    <td><a href="CM_04_12.html" target="_blank">CM_04_12</a></td>
+                    <td>개인 회원 정보 등록</td>
+                    <td class="center">O</td>
+                    <td class="center"></td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td>신분증 OCR</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">14</td>
+                    <td><a href="CM_04_21.html" target="_blank">CM_04_21</a></td>
+                    <td>기업 회원 가입 동의</td>
+                    <td class="center">O</td>
+                    <td class="center"></td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">15</td>
+                    <td><a href="CM_04_22.html" target="_blank">CM_04_22</a></td>
+                    <td>기업 회원 정보 등록</td>
+                    <td class="center">O</td>
+                    <td class="center"></td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td>신분증 OCR</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">16</td>
+                    <td><span class="blue-text">CM_04_31(CM_04_12에 포함)</span></td>
+                    <td>신분증 등록</td>
+                    <td class="center">O</td>
+                    <td class="center"></td>
+                    <td class="center"><span class="badge badge-modal">모달</span></td>
+                    <td></td>
+                </tr>
+
+                <!-- 대표 메뉴 - 홈 -->
+                <tr>
+                    <td>대표 메뉴</td>
+                    <td>홈</td>
+                    <td></td>
+                    <td class="center">17</td>
+                    <td><a href="DB_01_01.html" target="_blank">DB_01_01</a></td>
+                    <td>대시보드</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+
+                <!-- 해외 송금 -->
+                <tr>
+                    <td></td>
+                    <td>해외 송금</td>
+                    <td>해외 송금 신청</td>
+                    <td class="center">18</td>
+                    <td><a href="RM_01_01.html" target="_blank">RM_01_01</a></td>
+                    <td>해외 송금 신청</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td>프리미엄 즉시 송금, 일반 송금</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">19</td>
+                    <td><span class="blue-text">RM_01_02(RM_01_01에 포함)</span></td>
+                    <td>자주 쓰는 계좌 (모달)</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-modal">모달</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">20</td>
+                    <td><span class="blue-text">RM_01_03(RM_01_01에 포함)</span></td>
+                    <td>최근 입금 계좌 (모달)</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-modal">모달</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>정기 해외 송금</td>
+                    <td class="center">21</td>
+                    <td><a href="RM_02_01.html" target="_blank">RM_02_01</a></td>
+                    <td>정기 송금 목록</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">22</td>
+                    <td><span class="blue-text">RM_02_02(RM_02_01에 포함)</span></td>
+                    <td>정기 송금 세부 정보 (모달)</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-modal">모달</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">23</td>
+                    <td><a href="RM_02_03.html" target="_blank">RM_02_03</a></td>
+                    <td>정기 송금 등록</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">24</td>
+                    <td><a href="RM_02_04.html" target="_blank">RM_02_04</a></td>
+                    <td>정기 송금 수정</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+
+
+                <!-- 조회 -->
+                <tr>
+                    <td></td>
+                    <td>조회</td>
+                    <td>송금 내역</td>
+                    <td class="center">25</td>
+                    <td><a href="HI_01_01.html" target="_blank">HI_01_01</a></td>
+                    <td>송금 내역 목록</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td>즉시 송금, 정기 송금 결과 목록 통합 조회</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">26</td>
+                    <td><span class="blue-text">HI_01_02(HI_01_01에 포함)</span></td>
+                    <td>송금 내역서 (모달)</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-modal">모달</span></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>거래 내역</td>
+                    <td class="center">27</td>
+                    <td><a href="HI_02_01.html" target="_blank">HI_02_01</a></td>
+                    <td>거래 내역 목록</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">28</td>
+                    <td><span class="blue-text">HI_02_02(HI_02_01에 포함)</span></td>
+                    <td>환급 계좌 등록 (모달)</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-modal">모달</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>수취 내역</td>
+                    <td class="center">29</td>
+                    <td><a href="HI_03_01.html" target="_blank">HI_03_01</a></td>
+                    <td>수취 내역 목록</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">30</td>
+                    <td><span class="blue-text">HI_03_02(HI_03_01에 포함)</span></td>
+                    <td>수취 내역서 (모달)</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-modal">모달</span></td>
+                    <td></td>
+                </tr>
+
+                <!-- 계좌 관리 -->
+                <tr>
+                    <td></td>
+                    <td>계좌 관리</td>
+                    <td>개인 계좌</td>
+                    <td class="center">31</td>
+                    <td><a href="AC_01_01.html" target="_blank">AC_01_01</a></td>
+                    <td>개인 계좌 목록</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">32</td>
+                    <td><span class="blue-text">AC_01_02(AC_01_01에 추가)</span></td>
+                    <td>개인 계좌 등록 (모달)</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-modal">모달</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>출금 계좌</td>
+                    <td class="center">33</td>
+                    <td><a href="AC_02_01.html" target="_blank">AC_02_01</a></td>
+                    <td>출금 계좌 목록</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td>오픈뱅킹 계좌 등록, 조회, 출금 동의</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">34</td>
+                    <td><a href="AC_02_02.html" target="_blank">AC_02_02</a></td>
+                    <td>조회/출금 동의</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td>동의 후 PASS 인증</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">35</td>
+                    <td><a href="AC_02_03.html" target="_blank">AC_02_03</a></td>
+                    <td>출금 계좌 조회 목록</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td>출금 계좌로 등록할 계좌 선택 후 등록</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">36</td>
+                    <td><a href="AC_02_04.html" target="_blank">AC_02_04</a></td>
+                    <td>출금 계좌 등록 완료</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td>등록한 출금 계좌 목록 확인 후 종료</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>자주 쓰는 계좌</td>
+                    <td class="center">37</td>
+                    <td><a href="AC_03_01.html" target="_blank">AC_03_01</a></td>
+                    <td>자주 쓰는 계좌 목록</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td>송금 버튼 클릭하여 해외 송금 신청 이동</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">38</td>
+                    <td><a href="AC_03_02.html" target="_blank">AC_03_02</a></td>
+                    <td>자주 쓰는 계좌 등록</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td>최근 입금 계좌 중 선택하거나 직접 등록</td>
+                </tr>
+
+                <!-- 서비스 안내 -->
+                <tr>
+                    <td></td>
+                    <td>서비스 안내</td>
+                    <td>송금 서비스 안내</td>
+                    <td class="center">39</td>
+                    <td><a href="GU_01_01.html" target="_blank">GU_01_01</a></td>
+                    <td>송금 서비스 안내</td>
+                    <td class="center">O</td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>가입 안내</td>
+                    <td class="center">40</td>
+                    <td><a href="GU_02_01.html" target="_blank">GU_02_01</a></td>
+                    <td>회원 가입 안내</td>
+                    <td class="center">O</td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+
+                <!-- 고객센터 -->
+                <tr>
+                    <td></td>
+                    <td>고객센터</td>
+                    <td>공지사항</td>
+                    <td class="center">41</td>
+                    <td><a href="CS_01_01.html" target="_blank">CS_01_01</a></td>
+                    <td>공지사항 목록</td>
+                    <td class="center">O</td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">42</td>
+                    <td><a href="CS_01_02.html" target="_blank">CS_01_02</a></td>
+                    <td>공지사항 열람</td>
+                    <td class="center">O</td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>자주 묻는 질문</td>
+                    <td class="center">43</td>
+                    <td><a href="CS_02_01.html" target="_blank">CS_02_01</a></td>
+                    <td>자주 묻는 질문</td>
+                    <td class="center">O</td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>1:1 문의</td>
+                    <td class="center">44</td>
+                    <td><a href="CS_03_01.html" target="_blank">CS_03_01</a></td>
+                    <td>1:1 문의 등록</td>
+                    <td class="center">O</td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">45</td>
+                    <td><a href="CS_03_02.html" target="_blank">CS_03_02</a></td>
+                    <td>1:1 문의 목록</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">46</td>
+                    <td><a href="CS_03_03.html" target="_blank">CS_03_03</a></td>
+                    <td>1:1 문의 열람</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+
+                <!-- 보조 기능 -->
+                <tr>
+                    <td>보조 기능</td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">47</td>
+                    <td><a href="UT_01_01.html" target="_blank">UT_01_01</a></td>
+                    <td>개인 회원 정보 수정</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">48</td>
+                    <td><a href="UT_01_02.html" target="_blank">UT_01_02</a></td>
+                    <td>기업 회원 정보 수정</td>
+                    <td class="center"></td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">49</td>
+                    <td><a href="UT_02_01.html" target="_blank">UT_02_01</a></td>
+                    <td>회사 소개</td>
+                    <td class="center">O</td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">50</td>
+                    <td><a href="UT_02_02.html" target="_blank">UT_02_02</a></td>
+                    <td>개인정보 처리방침</td>
+                    <td class="center">O</td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">51</td>
+                    <td><a href="UT_02_03.html" target="_blank">UT_02_03</a></td>
+                    <td>서비스 이용약관</td>
+                    <td class="center">O</td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">52</td>
+                    <td><a href="UT_02_04.html" target="_blank">UT_02_04</a></td>
+                    <td>반사회적 세력에 대한 방침</td>
+                    <td class="center">O</td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center">53</td>
+                    <td><a href="UT_02_05.html" target="_blank">UT_02_05</a></td>
+                    <td>사기 피해 주의</td>
+                    <td class="center">O</td>
+                    <td class="center">O</td>
+                    <td class="center"><span class="badge badge-normal">일반</span></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

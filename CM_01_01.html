@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WithRemit - Modal Guide</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background: #f8fafa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+        }
+
+        .guide-logo {
+            height: 50px;
+            margin-bottom: 20px;
+        }
+
+        .guide-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1B5E9E;
+            margin-bottom: 40px;
+        }
+
+        .demo-section {
+            margin-bottom: 50px;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .section-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #7A8E96;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .btn-flex {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+</head>
+
+<body>
+    <img src="images/logo-withremit.png" alt="withremit" class="guide-logo">
+    <h1 class="guide-title">Modal Guide</h1>
+
+    <div class="demo-section">
+        <div class="section-name">System Notifications</div>
+        <div class="btn-flex">
+            <button class="demo-btn btn-success" onclick="openModal('successModal')">Success Modal</button>
+            <button class="demo-btn btn-warning" onclick="openModal('warningModal')">Warning Modal</button>
+            <button class="demo-btn btn-blue" onclick="openModal('confirmModal')">Confirm Modal</button>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <div class="section-name">Security Input</div>
+        <div style="position: relative; width: 320px; margin: 0 auto;">
+            <div class="input-box-group">
+                <div class="password-wrap" style="width: 100%;">
+                    <input type="password" id="userPassword" class="login-input" placeholder="비밀번호 입력" readonly
+                        onclick="toggleKeypad('userPassword')">
+                    <button type="button" class="keypad-btn" tabindex="-1">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
+                        </svg>
+                    </button>
+                    <div id="securityKeypad" class="security-keypad">
+                        <div class="keypad-header">
+                            <span>보안 키보드</span>
+                            <button type="button" class="close-keypad" onclick="toggleKeypad()">&times;</button>
+                        </div>
+                        <div id="keypadContainer" class="keypad-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="#00A0DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11"></polyline>
+                </svg>
+            </div>
+            <h3>회원가입 완료</h3>
+            <p>회원가입 신청이 성공적으로 접수되었습니다.<br>이메일 인증을 완료해 주세요.</p>
+            <button class="modal-btn-warning" style="background-color: #00A0DC;"
+                onclick="closeModal('successModal')">확인</button>
+        </div>
+    </div>
+
+    <div id="warningModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                    </path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+            </div>
+            <h3>송금 한도 초과</h3>
+            <p>외환거래법령에 따라 건당 최대 <b>$5,000(USD)</b>까지 송금이 가능합니다. 금액을 다시 확인해 주세요.</p>
+            <button class="modal-btn-warning" onclick="closeModal('warningModal')">확인</button>
+        </div>
+    </div>
+
+    <div id="confirmModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="#1B5E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+            </div>
+            <h3>진행하시겠습니까?</h3>
+            <p>입력하신 정보로 송금 신청을 진행하시겠습니까?<br>진행 후에는 정보 수정이 어려울 수 있습니다.</p>
+            <div class="modal-btn-group">
+                <button class="btn-cancel" onclick="closeModal('confirmModal')">취소</button>
+                <button class="btn-confirm-action" onclick="closeModal('confirmModal')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

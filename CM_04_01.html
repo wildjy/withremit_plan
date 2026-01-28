@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="withremit 회원가입 - 가입 방법 선택">
+    <title>회원가입 - WithMoney</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+    <style>
+        .login-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Ensure buttons look correct when using anchor tags */
+        a.btn-main-login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            width: 100%;
+            height: 52px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        a.btn-sns {
+            text-decoration: none;
+            display: flex;
+            /* Ensure flex layout works if defined on button */
+            justify-content: center;
+            /* Center content if needed */
+            align-items: center;
+        }
+
+        /* Override specifically for this page if needed */
+        .login-form {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body class="login-page">
+
+    <!-- Login Container -->
+    <main class="login-container">
+        <div class="login-logo">
+            <a href="CM_02_01.html"><img src="images/logo-withremit.png" alt="withremit"></a>
+        </div>
+
+        <div class="login-card">
+            <h2 class="login-title">회원 가입</h2>
+            <p class="login-subtitle">가입 방법을 선택해 주세요.</p>
+
+            <form class="login-form" onsubmit="return false;">
+                <a href="CM_04_02.html" class="btn-main-login">아이디로 가입하기</a>
+            </form>
+
+            <div class="register-wrap">
+                <div class="sns-separator"></div>
+
+                <div class="sns-login-buttons">
+                    <!-- Line -->
+                    <a href="CM_04_02.html" class="btn-sns btn-line">
+                        <div class="sns-icon-wrap">
+                            <img src="images/icon-line.png" alt="LINE" class="sns-icon-img">
+                        </div>
+                        LINE으로 가입하기
+                    </a>
+
+                    <!-- Kakao -->
+                    <a href="CM_04_02.html" class="btn-sns btn-kakao">
+                        <div class="sns-icon-wrap">
+                            <img src="images/icon-kakao.png" alt="Kakao" class="sns-icon-img">
+                        </div>
+                        카카오로 가입하기
+                    </a>
+
+                    <!-- Facebook -->
+                    <a href="CM_04_02.html" class="btn-sns btn-facebook">
+                        <div class="sns-icon-wrap">
+                            <img src="images/icon-facebook.png" alt="Facebook" class="sns-icon-img">
+                        </div>
+                        페이스북으로 가입하기
+                    </a>
+
+                    <!-- Viber -->
+                    <a href="CM_04_02.html" class="btn-sns btn-viber">
+                        <div class="sns-icon-wrap">
+                            <img src="images/icon-viber.png" alt="Viber" class="sns-icon-img">
+                        </div>
+                        Viber로 가입하기
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="login-footer-wrap">
+            <footer class="footer-simple">
+                <div class="menu-text-list">
+                    <a href="#company">회사소개</a>
+                    <span class="v-bar"></span>
+                    <a href="#privacy" class="footer-link-important">개인정보처리방침</a>
+                    <span class="v-bar"></span>
+                    <a href="#terms">이용약관</a>
+                    <span class="v-bar"></span>
+                    <a href="#antisocial">반사회적세력방침</a>
+                    <span class="v-bar"></span>
+                    <a href="#fraud">사기피해주의</a>
+                </div>
+                <div class="info-text-list">
+                    <p>Copyright ⓒ 2026 withmoney Inc. All rights reserved.</p>
+                    <p>기획재정부 인가 소액해외송금업체 (등록번호: 2018-7)</p>
+                </div>
+            </footer>
+        </div>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

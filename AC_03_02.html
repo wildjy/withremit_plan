@@ -1,0 +1,394 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withremit - 자주 쓰는 계좌</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+</head>
+
+<body class="db-body">
+    <div id="headerContainer"></div>
+
+    <main class="db-main-container container">
+        <div class="db-layout-flex">
+            <div id="sidebarContainer"></div>
+
+            <div class="db-content">
+                <div class="db-page-header">
+                    <h1 class="db-page-title">자주 쓰는 계좌 등록</h1>
+                </div>
+
+                <div class="db-content-card">
+
+                    <!-- 수취 정보 입력 -->
+                    <div class="remit-form-section">
+                        <div class="form-sec-head-wrap">
+                            <h2 class="form-sec-head">계좌 정보 입력</h2>
+                            <div class="head-buttons">
+                                <button type="button" class="quick-btn small" onclick="openAccountModal('recent')">최근 입금
+                                    계좌</button>
+                            </div>
+                        </div>
+
+                        <div class="form-sec">
+                            <!-- 국가 (Full Width) -->
+                            <div class="field-item" style="margin-bottom: 24px;">
+                                <label class="field-label">국가</label>
+                                <select class="login-input select-styled" id="countrySelect">
+                                    <option value="" disabled selected>선택</option>
+                                    <option value="JP">일본 (JPY)</option>
+                                    <option value="PH">필리핀 (PHP)</option>
+                                    <option value="CN">중국 (CNY)</option>
+                                    <option value="NP">네팔 (NPR)</option>
+                                    <option value="AU">호주 (AUD)</option>
+                                    <option value="HK">홍콩 (HKD)</option>
+                                    <option value="MN">몽골 (MNT)</option>
+                                    <option value="VN">베트남 (VND)</option>
+                                    <option value="LK">스리랑카 (LKR)</option>
+                                    <option value="BD">방글라데시 (BDT)</option>
+                                </select>
+                                <span class="field-error" id="countrySelectError"></span>
+                            </div>
+
+                            <!-- 2 Columns Row 1 -->
+                            <div class="form-row-2">
+                                <!-- 수취인명 -->
+                                <div class="field-item">
+                                    <label class="field-label">수취인명</label>
+                                    <input type="text" placeholder="수취인명을 입력하세요" class="login-input" id="recipientName">
+                                    <span class="field-error" id="recipientNameError"></span>
+                                </div>
+                                <!-- 은행명 -->
+                                <div class="field-item">
+                                    <label class="field-label">은행명</label>
+                                    <select class="login-input select-styled" id="bankSelect">
+                                        <option value="" disabled selected>선택</option>
+                                        <option value="Mizuho Bank">Mizuho Bank</option>
+                                        <option value="BDO">BDO</option>
+                                        <option value="ICBC">ICBC</option>
+                                        <option value="Nabil Bank">Nabil Bank</option>
+                                        <option value="Commonwealth">Commonwealth</option>
+                                        <option value="HSBC">HSBC</option>
+                                        <option value="Khan Bank">Khan Bank</option>
+                                        <option value="Vietcombank">Vietcombank</option>
+                                        <option value="BOC">BOC</option>
+                                    </select>
+                                    <span class="field-error" id="bankSelectError"></span>
+                                </div>
+                            </div>
+
+                            <!-- 2 Columns Row 2 -->
+                            <div class="form-row-2">
+                                <!-- 계좌 번호 -->
+                                <div class="field-item">
+                                    <label class="field-label">계좌 번호</label>
+                                    <input type="text" placeholder="계좌 번호를 입력하세요" class="login-input"
+                                        id="accountNumber">
+                                    <span class="field-error" id="accountNumberError"></span>
+                                </div>
+                                <!-- 송금 목적 -->
+                                <div class="field-item">
+                                    <label class="field-label">송금 목적</label>
+                                    <select class="login-input select-styled" id="remitPurpose">
+                                        <option value="" disabled selected>선택</option>
+                                        <option value="family">가족 송금</option>
+                                        <option value="education">교육비</option>
+                                        <option value="living">생활비</option>
+                                        <option value="medical">의료비</option>
+                                        <option value="business">사업</option>
+                                        <option value="investment">투자</option>
+                                        <option value="gift">선물</option>
+                                        <option value="other">기타</option>
+                                    </select>
+                                    <span class="field-error" id="remitPurposeError"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- 하단 버튼 -->
+                    <div class="remit-action-btns">
+                        <button type="button" class="btn btn-outline btn-remit-cancel"
+                            onclick="location.href='AC_03_01.html'">취소</button>
+                        <button type="button" class="btn btn-primary" onclick="confirmRegister()">등록</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="contactContainer"></div>
+    <div id="footerContainer"></div>
+    <div class="db-overlay" id="dbOverlay"></div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="#00A0DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11"></polyline>
+                </svg>
+            </div>
+            <h3>등록 완료</h3>
+            <p>자주 쓰는 계좌가 등록되었습니다.</p>
+            <button class="modal-btn-success" onclick="closeSuccessModal()">확인</button>
+        </div>
+    </div>
+
+    <!-- 계좌 선택 모달 -->
+    <div id="accountSelectionModal" class="modal-overlay">
+        <div class="remit-modal-content account-modal-content">
+            <div class="remit-modal-header">
+                <h2 class="remit-modal-title" id="accountModalTitle">계좌 선택</h2>
+                <button class="remit-modal-close" onclick="closeAccountModal()">&times;</button>
+            </div>
+
+            <!-- 테이블 영역 (스크롤 가능) -->
+            <div class="db-table-container account-table-container">
+                <table class="db-notice-table hover-table" id="accountTable">
+                    <colgroup>
+                        <col class="account-col-num">
+                        <col class="account-col-country">
+                        <col class="account-col-name">
+                        <col class="account-col-bank">
+                        <col class="account-col-account">
+                        <col>
+                    </colgroup>
+                    <thead class="account-table-sticky-header">
+                        <tr>
+                            <th>번호</th>
+                            <th>국가</th>
+                            <th>수취인명</th>
+                            <th>은행명</th>
+                            <th>계좌 번호</th>
+                            <th>송금목적</th>
+                        </tr>
+                    </thead>
+                    <tbody id="accountTableBody">
+                        <!-- 자바스크립트로 데이터 로드 -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 모바일 카드 레이아웃 (768px 이하) -->
+            <div class="account-card-list" id="accountCardList">
+                <!-- JavaScript로 카드 렌더링 -->
+            </div>
+
+            <div class="remit-modal-footer">
+                <button class="btn-cancel" onclick="closeAccountModal()">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/includes.js"></script>
+    <script>
+        // 최근 입금 계좌 데이터
+        const recentAccounts = [
+            { id: 1, country: 'JP', countryName: '일본', name: 'Suzuki Ichiro', bank: 'Mizuho Bank', account: '987-6543-21', purpose: 'family', purposeName: '가족 송금' },
+            { id: 2, country: 'PH', countryName: '필리핀', name: 'Jose Rizal', bank: 'BDO', account: '5555-6666-77', purpose: 'living', purposeName: '생활비' },
+            { id: 3, country: 'CN', countryName: '중국', name: 'Li Na', bank: 'ICBC', account: '6222-0000-99', purpose: 'business', purposeName: '사업' },
+            { id: 4, country: 'NP', countryName: '네팔', name: 'Sita', bank: 'Nabil Bank', account: '0202-0987-65', purpose: 'saving', purposeName: '저축' },
+            { id: 5, country: 'AU', countryName: '호주', name: 'Emma Watson', bank: 'Commonwealth', account: '013-111-2222', purpose: 'education', purposeName: '교육비' },
+        ];
+
+        function openAccountModal(type) {
+            const modal = document.getElementById('accountSelectionModal');
+            const title = document.getElementById('accountModalTitle');
+            const tbody = document.getElementById('accountTableBody');
+
+            title.textContent = '최근 입금 계좌';
+            const data = recentAccounts;
+
+            // 테이블 데이터 렌더링
+            tbody.innerHTML = '';
+            const cardList = document.getElementById('accountCardList');
+            cardList.innerHTML = '';
+
+            data.forEach((item, index) => {
+                // 테이블 행 렌더링
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                        <td class='center'>${index + 1}</td>
+                        <td>${item.countryName}</td>
+                        <td>${item.name}</td>
+                        <td>${item.bank}</td>
+                        <td>${item.account}</td>
+                        <td>${item.purposeName}</td>
+                    `;
+                tr.style.cursor = 'pointer';
+                tr.onclick = () => selectAccount(item);
+                tbody.appendChild(tr);
+
+                // 모바일 카드 렌더링
+                const card = document.createElement('div');
+                card.className = 'account-card';
+                card.innerHTML = `
+                    <div class="account-card-header">
+                        <span class="account-card-number">#${index + 1}</span>
+                        <span class="account-card-country">${item.countryName}</span>
+                    </div>
+                    <div class="account-card-body">
+                        <div class="account-card-row">
+                            <span class="account-card-label">수취인명</span>
+                            <span class="account-card-value">${item.name}</span>
+                        </div>
+                        <div class="account-card-row">
+                            <span class="account-card-label">은행명</span>
+                            <span class="account-card-value">${item.bank}</span>
+                        </div>
+                        <div class="account-card-row">
+                            <span class="account-card-label">계좌 번호</span>
+                            <span class="account-card-value">${item.account}</span>
+                        </div>
+                        <div class="account-card-row">
+                            <span class="account-card-label">송금목적</span>
+                            <span class="account-card-value">${item.purposeName}</span>
+                        </div>
+                    </div>
+                `;
+                card.onclick = () => selectAccount(item);
+                cardList.appendChild(card);
+            });
+
+            modal.classList.add('active');
+        }
+
+        function closeAccountModal() {
+            document.getElementById('accountSelectionModal').classList.remove('active');
+        }
+
+        // 계좌 선택 처리
+        function selectAccount(item) {
+            // 국가 설정
+            const countrySelect = document.getElementById('countrySelect');
+            countrySelect.value = item.country;
+
+            // 수취인명
+            document.getElementById('recipientName').value = item.name;
+
+            // 은행명 (텍스트 매칭)
+            const bankSelect = document.getElementById('bankSelect');
+            for (let i = 0; i < bankSelect.options.length; i++) {
+                if (bankSelect.options[i].value === item.bank) {
+                    bankSelect.selectedIndex = i;
+                    break;
+                }
+            }
+
+            // 계좌 번호
+            document.getElementById('accountNumber').value = item.account;
+
+            // 송금 목적
+            const purposeSelect = document.getElementById('remitPurpose');
+            if (item.purpose) {
+                purposeSelect.value = item.purpose;
+            }
+
+            closeAccountModal();
+        }
+
+        document.getElementById('accountSelectionModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeAccountModal();
+            }
+        });
+
+        // 에러 표시 함수
+        function showFieldError(elementId, message) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+
+            // 부모 요소 찾기
+            const fieldItem = element.closest('.field-item');
+            if (!fieldItem) return;
+
+            // input-box-group에 에러 클래스 추가 (없는 경우도 있음)
+            const inputGroup = element.closest('.input-box-group');
+            if (inputGroup) {
+                inputGroup.classList.add('error');
+            }
+
+            // select, input, textarea인 경우 직접 에러 클래스 추가
+            if (element.tagName === 'SELECT' || element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.classList.add('error');
+            }
+
+            // 에러 메시지 span 찾기
+            const errorSpanId = `${elementId}Error`;
+            let errorSpan = document.getElementById(errorSpanId);
+            if (!errorSpan) {
+                errorSpan = fieldItem.querySelector('.field-error');
+            }
+            if (errorSpan) {
+                errorSpan.textContent = message;
+            }
+        }
+
+        // 모든 에러 초기화
+        function clearAllErrors() {
+            document.querySelectorAll('.input-box-group.error').forEach(el => el.classList.remove('error'));
+            document.querySelectorAll('.select-styled.error').forEach(el => el.classList.remove('error'));
+            document.querySelectorAll('input.error').forEach(el => el.classList.remove('error'));
+            document.querySelectorAll('.field-error').forEach(el => el.textContent = '');
+        }
+
+        function confirmRegister() {
+            // Validation
+            clearAllErrors();
+
+            let hasError = false;
+            let firstErrorElement = null;
+
+            const requiredFields = [
+                { id: 'countrySelect', message: '국가를 선택해 주세요.' },
+                { id: 'recipientName', message: '수취인명을 입력해 주세요.' },
+                { id: 'bankSelect', message: '은행을 선택해 주세요.' },
+                { id: 'accountNumber', message: '계좌 번호를 입력해 주세요.' },
+                { id: 'remitPurpose', message: '송금 목적을 선택해 주세요.' }
+            ];
+
+            for (const field of requiredFields) {
+                const element = document.getElementById(field.id);
+                if (!element || !element.value || element.value.trim() === '') {
+                    showFieldError(field.id, field.message);
+                    hasError = true;
+                    if (!firstErrorElement) {
+                        firstErrorElement = element;
+                    }
+                }
+            }
+
+            if (hasError) {
+                if (firstErrorElement) {
+                    firstErrorElement.focus();
+                }
+                return;
+            }
+
+            document.getElementById('successModal').classList.add('active');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.remove('active');
+            location.href = 'AC_03_01.html';
+        }
+    </script>
+</body>
+
+</html>

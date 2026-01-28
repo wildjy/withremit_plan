@@ -1,0 +1,82 @@
+@media (max-width: 480px) {
+    body .footer-simple .menu-text-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px 10px;
+        /* Reduced specific gap: 4px row, 10px col */
+        text-align: center;
+        /* Center text */
+        justify-items: center;
+        /* Center items in their cells */
+        width: 100%;
+        padding: 0 10px;
+        white-space: normal;
+        /* Ensure text wraps if needed */
+    }
+
+    body .footer-simple .menu-text-list a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        font-size: 13px;
+        /* Slightly smaller font */
+        padding: 4px 0;
+        /* Reduced padding */
+        color: #888;
+        /* Ensure visible color */
+    }
+
+    /* Highlight important links if needed, matching original style */
+    body .footer-simple .menu-text-list a.footer-link-important {
+        font-weight: bold;
+        color: #00A0DC;
+    }
+
+    /* Hide the vertical bars on mobile since we are using a grid */
+    body .footer-simple .menu-text-list .v-bar {
+        display: none;
+    }
+
+    /* Fix Security Keypad - convert to bottom sheet on mobile */
+    body .security-keypad {
+        display: none !important;
+        /* Force hidden by default */
+        position: fixed !important;
+        top: auto !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        border-radius: 20px 20px 0 0 !important;
+        border: 1px solid #d1d9e0;
+        border-bottom: none;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        margin: 0 !important;
+        z-index: 10001 !important;
+        padding: 15px !important;
+    }
+
+    body .security-keypad.active {
+        display: block !important;
+        /* Visible only when active */
+    }
+
+    /* Adjust keypad grid for mobile */
+    body .keypad-grid {
+        gap: 6px !important;
+    }
+
+    body .key-btn {
+        height: 48px !important;
+        /* Larger touch targets */
+    }
+
+    /* Adjust the container to handle the grid properly */
+    .login-footer-wrap {
+        padding: 15px 0;
+        /* Reduced container padding */
+    }
+}
