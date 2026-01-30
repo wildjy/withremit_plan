@@ -37,6 +37,18 @@ function loadIncludes() {
                     }
                 }
 
+                // includes.js에서 header.html을 동적으로 로드한 후, 언어 선택 이벤트 리스너를 등록하지 않고 있습니다.
+                // main.js:918-921의 DOMContentLoaded 이벤트는 header.html이 로드되기 전에 발생하므로, langSelect 요소를 찾을 수 없어 이벤트 리스너가 등록되지 않습니다.
+                // Initialize language selector
+                const langSelect = document.getElementById('langSelect');
+                if (langSelect && typeof handleLanguageChange === 'function') {
+                    langSelect.addEventListener('change', handleLanguageChange);
+                    // Set current language value if available
+                    if (typeof currentLang !== 'undefined') {
+                        langSelect.value = currentLang;
+                    }
+                }
+
                 tryInitSidebar();
             })
             .catch(error => console.error('Error loading header:', error));
