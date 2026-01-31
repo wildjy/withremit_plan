@@ -1,0 +1,23 @@
+
+.button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+
+    &.primary {
+        color: white;
+        background-color: var(--primary-blue);
+    }
+
+    &.secondary {
+        color: var(--text-dark);
+        background-color: var(--secondary-gray);
+        border: 1px solid var(--border-color);
+    }
+
+    &:hover {
+        opacity: 0.9;
+    }
+}

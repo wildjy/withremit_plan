@@ -1,5 +1,10 @@
 const translations = {
     ko: {
+        // Buttons
+        'button.confirm': '확인',
+        'button.register': '등록',
+        'button.cancel': '취소',
+
         // Navigation
         'nav.home': '홈',
         'nav.personal': '개인 송금',
@@ -121,6 +126,11 @@ const translations = {
         'banner.security.alt': '보안 안심 송금'
     },
     en: {
+        // Buttons
+        'button.confirm': 'Confirm',
+        'button.register': 'Register',
+        'button.cancel': 'Cancel',
+
         // Navigation
         'nav.home': 'Home',
         'nav.personal': 'Personal',
