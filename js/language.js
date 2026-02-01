@@ -2,8 +2,12 @@ const translations = {
     ko: {
         // Buttons
         'button.confirm': '확인',
+        'button.mypage': '마이페이지',
         'button.register': '등록',
         'button.cancel': '취소',
+        'button.delete': '삭제',
+        'button.stop': '정지',
+        'button.more': '자세히',
 
         // Navigation
         'nav.home': '홈',
@@ -128,8 +132,12 @@ const translations = {
     en: {
         // Buttons
         'button.confirm': 'Confirm',
+        'button.mypage': 'MY',
         'button.register': 'Register',
         'button.cancel': 'Cancel',
+        'button.delete': 'Delete',
+        'button.stop': 'Stop',
+        'button.more': 'More',
 
         // Navigation
         'nav.home': 'Home',

@@ -1,2 +1,42 @@
 @import "./root.scss";
-@import "./button.scss";
+// @import "./button.scss";
+
+// spacing helpers
+.m1 {
+    margin: var(--s4);
+}
+.mt1 {
+    margin-top: var(--s4);
+}
+.mb1 {
+    margin-bottom: var(--s4);
+}
+.ml1 {
+    margin-left: var(--s4);
+}
+.mr1 {
+    margin-right: var(--s4);
+}
+
+.flex {
+    display: flex;
+    &-center {
+        display: flex;
+        align-items: center;
+    }
+    &-center-start {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    &-center-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &-center-end {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}
