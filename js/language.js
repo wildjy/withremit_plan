@@ -1,3 +1,4 @@
+// ===== Language Translations =====
 const translations = {
     ko: {
         // Buttons
@@ -498,7 +499,166 @@ const translations = {
 };
 
 
+// ===== Exchange Rates (Sample Data) =====
+const exchangeRates = {
+    JPY: { rate: 0.1112, name: '일본', currency: '엔', symbol: '¥', flagImg: 'jp' },
+    PHP: { rate: 0.0421, name: '필리핀', currency: '페소', symbol: '₱', flagImg: 'ph' },
+    CNY: { rate: 0.0054, name: '중국', currency: '위안', symbol: '¥', flagImg: 'cn' },
+    NPR: { rate: 0.1004, name: '네팔', currency: '루피', symbol: 'रू', flagImg: 'np' },
+    AUD: { rate: 0.0011, name: '호주', currency: '달러', symbol: 'A$', flagImg: 'au' },
+    HKD: { rate: 0.0059, name: '홍콩', currency: '달러', symbol: 'HK$', flagImg: 'hk' },
+    MNT: { rate: 2.5830, name: '몽골', currency: '투그릭', symbol: '₮', flagImg: 'mn' },
+    VND: { rate: 18.5200, name: '베트남', currency: '동', symbol: '₫', flagImg: 'vn' },
+    LKR: { rate: 0.2450, name: '스리랑카', currency: '루피', symbol: '௹', flagImg: 'lk' },
+    BDT: { rate: 0.0815, name: '방글라데시', currency: '타카', symbol: '৳', flagImg: 'bd' }
+};
+
+const currencySymbols = {
+    'JPY': '¥', 'PHP': '₱', 'CNY': '¥', 'NPR': 'रू', 'AUD': 'A$', 'HKD': 'HK$', 'MNT': '₮', 'VND': '₫', 'LKR': '௹', 'BDT': '৳'
+};
+
+const withdrawalFees = {
+    'JPY': 660,
+    'PHP': 40129,
+    'CNY': 4713,
+    'NPR': 97607,
+    'AUD': 0,
+    'HKD': 0,
+    'MNT': 0,
+    'VND': 0,
+    'LKR': 0,
+    'BDT': 0
+};
+
+let selectedCurrency = 'JPY';
+let currentLang = 'ko';
+
+// Bank comparison rates
+const bankFeePercent = 3.5;
+
+// 송금 한도 설정을 위한 상수 (기준: USD)
+const KRW_PER_USD = 1350;
+const MAX_USD = 5000;
+const MAX_KRW_LIMIT = MAX_USD * KRW_PER_USD; // 6,750,000원
+
+
+// 모달 열기/닫기 함수
+function showLimitModal() {
+    const modal = document.getElementById('limitModal');
+    const msg = document.getElementById('modalMessage');
+    const key = msg.getAttribute('data-i18n');
+    const template = translations[currentLang][key];
+    msg.innerHTML = template.replace('{limit}', MAX_KRW_LIMIT.toLocaleString());
+    modal.classList.add('active');
+}
+
+function closeLimitModal() {
+    const modal = document.getElementById('limitModal');
+    modal.classList.remove('active');
+}
+
+// 환율 안내 문구 업데이트 함수
+function updateRateDisplay() {
+    const exchangeRateEl = document.getElementById('exchangeRate');
+    if (exchangeRateEl) {
+        const rate = exchangeRates[selectedCurrency].rate;
+        exchangeRateEl.textContent = `1 KRW = ${rate.toFixed(4)} ${selectedCurrency}`;
+    }
+}
+
+// 보낼 금액 입력 시 호출
+function handleSendAmountInput(e) {
+    let rawValue = e.target.value.replace(/[^\d]/g, '');
+    if (!rawValue) {
+        e.target.value = '';
+        if (document.getElementById('receiveAmount')) document.getElementById('receiveAmount').value = '';
+        return;
+    }
+
+    let numValue = parseInt(rawValue);
+
+    if (numValue > MAX_KRW_LIMIT) {
+        numValue = MAX_KRW_LIMIT;
+        e.target.value = numValue.toLocaleString('ko-KR');
+        showLimitModal();
+    } else {
+        e.target.value = numValue.toLocaleString('ko-KR');
+    }
+
+    const rate = exchangeRates[selectedCurrency].rate;
+    const convertedAmount = Math.floor(numValue * rate);
+
+    const receiveInput = document.getElementById('receiveAmount');
+    if (receiveInput) {
+        receiveInput.value = convertedAmount.toLocaleString('ko-KR');
+    }
+
+    updateFees(numValue, convertedAmount);
+    updateRateDisplay();
+}
+
+function updateFees(krw, foreignAmount) {
+    const transferFeeRate = selectedCurrency === 'NPR' ? 0.005 : 0.01;
+    const transferFee = Math.floor(krw * transferFeeRate);
+    const depositTotal = krw + transferFee;
+    const withdrawalFee = withdrawalFees[selectedCurrency] || 0;
+    const symbol = currencySymbols[selectedCurrency] || '¥';
+
+    document.getElementById('depositAmount').textContent = `₩${depositTotal.toLocaleString()}`;
+    document.getElementById('transferFee').textContent = `₩${transferFee.toLocaleString()}`;
+    document.getElementById('withdrawalFee').textContent = `${symbol}${withdrawalFee.toLocaleString()}`;
+
+    updateSavings(krw, foreignAmount);
+}
+
+function handleReceiveAmountInput(e) {
+    let rawValue = e.target.value.replace(/[^\d]/g, '');
+    if (!rawValue) {
+        e.target.value = '';
+        document.getElementById('sendAmount').value = '';
+        return;
+    }
+
+    let numValue = parseInt(rawValue);
+    const rate = exchangeRates[selectedCurrency].rate;
+    let krwAmount = Math.floor(numValue / rate);
+
+    if (krwAmount > MAX_KRW_LIMIT) {
+        krwAmount = MAX_KRW_LIMIT;
+        numValue = Math.floor(MAX_KRW_LIMIT * rate);
+        e.target.value = numValue.toLocaleString('ko-KR');
+        showLimitModal();
+    } else {
+        e.target.value = numValue.toLocaleString('ko-KR');
+    }
+
+    document.getElementById('sendAmount').value = krwAmount.toLocaleString('ko-KR');
+    updateFees(krwAmount, numValue);
+}
+
+function updateSavings(krw, foreignAmount) {
+    const savingsElement = document.getElementById('savings');
+    if (!savingsElement) return;
+
+    const currentRate = exchangeRates[selectedCurrency].rate;
+    const bankAmount = Math.floor(krw * (currentRate * 0.965));
+    const savings = foreignAmount - bankAmount;
+    const symbol = currencySymbols[selectedCurrency] || '¥';
+
+    // 현재 언어의 템플릿 가져오기
+    const template = translations[currentLang]['calc.savings'] || translations['ko']['calc.savings'];
+    const savingsText = template.replace('{amount}', `<strong>${symbol} ${savings.toLocaleString()}</strong>`);
+
+    savingsElement.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>${savingsText}</span>
+    `;
+}
+
 // ===== Translation Functions =====
+
 function t(key) {
     return translations[currentLang][key] || translations['ko'][key] || key;
 }
@@ -530,21 +690,28 @@ function applyTranslations() {
 
 function changeLanguage(lang) {
     currentLang = lang;
+
+    // 모든 언어 선택 요소 업데이트
     const langSelect = document.getElementById('langSelect');
     const mobileLangSelect = document.getElementById('mobileLangSelect');
     const guestSidebarLangSelect = document.getElementById('guestSidebarLangSelect');
+
     if (langSelect) langSelect.value = lang;
     if (mobileLangSelect) mobileLangSelect.value = lang;
     if (guestSidebarLangSelect) guestSidebarLangSelect.value = lang;
 
+    // 번역 적용
     applyTranslations();
 
+    // 계산기가 있으면 금액 다시 계산 (통화 기호 변경 등)
     const sendInput = document.getElementById('sendAmount');
     if (sendInput && sendInput.value) {
         handleSendAmountInput({ target: sendInput });
     }
 
+    // localStorage에 저장 (무조건 저장)
     localStorage.setItem('preferredLanguage', lang);
+    console.log('Language saved to localStorage:', lang);
 }
 
 // ===== Language Selection =====
@@ -552,3 +719,55 @@ function handleLanguageChange(e) {
     changeLanguage(e.target.value); // 체크용
     console.log('Language changed to:', e.target.value);
 }
+
+// ===== Auto-detect Language =====
+function detectLanguage() {
+    // 1단계: localStorage에서 저장된 언어 확인
+    const savedLang = localStorage.getItem('preferredLanguage');
+    if (savedLang && translations[savedLang]) {
+        console.log('Loaded from localStorage:', savedLang);
+        changeLanguage(savedLang);
+        return;
+    }
+
+    // 2단계: 브라우저 언어 설정 감지
+    const userLang = navigator.language || navigator.userLanguage;
+    const langMap = { 'ko': 'ko', 'ja': 'ja', 'zh': 'zh', 'en': 'en' };
+    const detectedLang = langMap[userLang.split('-')[0]] || 'ko';
+
+    console.log('Browser language detected:', userLang, '-> Using:', detectedLang);
+    changeLanguage(detectedLang);
+}
+
+// ===== Initialize =====
+// 페이지 로드 즉시 저장된 언어 감지 (DOMContentLoaded 전에 실행)
+detectLanguage();
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Language selection - header가 로드된 후 이벤트 리스너 등록
+    const langSelect = document.getElementById('langSelect');
+    if (langSelect) {
+        langSelect.addEventListener('change', handleLanguageChange);
+        // 현재 언어 설정 반영
+        if (typeof currentLang !== 'undefined') {
+            langSelect.value = currentLang;
+        }
+    }
+
+    const mobileLangSelect = document.getElementById('mobileLangSelect');
+    if (mobileLangSelect) {
+        mobileLangSelect.addEventListener('change', handleLanguageChange);
+        if (typeof currentLang !== 'undefined') {
+            mobileLangSelect.value = currentLang;
+        }
+    }
+
+    const guestSidebarLangSelect = document.getElementById('guestSidebarLangSelect');
+    if (guestSidebarLangSelect) {
+        guestSidebarLangSelect.addEventListener('change', handleLanguageChange);
+        if (typeof currentLang !== 'undefined') {
+            guestSidebarLangSelect.value = currentLang;
+        }
+    }
+});

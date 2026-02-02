@@ -1,0 +1,996 @@
+
+$viewport: 720;
+$viewportPx : $viewport * 1px;
+$minWidthTablet: 601px;
+
+@mixin colorStyle{
+  //bg
+	&.white,
+	.white{
+		color:#fff;
+	}
+	&.red,
+	.red{
+		color:#f21e4a;
+	}
+	&.blue,
+	.blue{
+		color:#1b73d4;
+	}
+	&.yellow,
+	.yellow{
+		color:#fcff07;
+	}
+	&.black27,
+	.black27{
+		color:#272727;
+	}
+	&.grey444,
+	.grey444{
+		color:#444;
+	}
+	&.grey555,
+	.grey555{
+		color:#555;
+	}
+	&.grey666,
+	.grey666{
+		color:#666;
+	}
+	&.grey777,
+	.grey777{
+		color:#777;
+	}
+	&.grey888,
+	.grey888{
+		color:#888;
+	}
+	&.grey999,
+	.grey999{
+		color:#999;
+	}
+	&.blue062b6e,
+	.blue062b6e{
+		color:#062b6e;
+	}
+  .bg_c2,
+  &.bg_c2{
+    background-color: #c2c2c2;
+  }
+  .bg_dd,
+  &.bg_dd{
+    background-color: #ddd;
+  }
+  .bg_ee,
+  &.bg_ee{
+    background-color: #eee;
+  }
+  .bg_fff,
+  &.bg_fff{
+    background-color: #fff;
+  }
+  .bg_f0,
+  &.bg_f0{
+    background-color: #f0f0f0;
+  }
+  .bg_f2,
+  &.bg_f2{
+    background-color: #f2f2f2;
+  }
+  .bg_f3,
+  &.bg_f3{
+    background-color: #f3f3f3;
+  }
+  .bg_f1f5f,
+  &.bg_f1f5f{
+    background-color: #f1f5f8;
+  }
+  .bg_f1f5f,
+  &.bg_f1f5f{
+    background-color: #f1f5f8;
+  }
+  .blue01,
+  &.blue01,
+  .blue01_Bg,
+  &.blue01_Bg {
+    background-color: #1B73D4;
+  }
+  //border
+  .line_00,
+  &.line_00{
+    border:1px solid #000;
+  }
+  .line_27,
+  &.line_27{
+    border:1px solid #272727;
+  }
+  .line_55,
+  &.line_55 {
+    border: 1px solid #555;
+  }
+  .line_77,
+  &.line_77{
+    border:1px solid #777;
+  }
+  .line_88,
+  &.line_88{
+    border:1px solid #888;
+  }
+  .line_cc,
+  &.line_cc{
+    border:1px solid #ccc;
+  }
+  .line_c2,
+  &.line_c2{
+    border:1px solid var(--color-gray-300);
+  }
+  .line_d9,
+  &.line_d9{
+    border:1px solid #d9d9d9;
+  }
+  .line_da,
+  &.line_da{
+    border:1px solid #dadada;
+  }
+  .line_dd,
+  &.line_dd{
+    border:1px solid #ddd;
+  }
+  .line_f0,
+  &.line_f0{
+    border:1px solid #f0f0f0;
+  }
+  .line_f3,
+  &.line_f3{
+    border:1px solid #f3f3f3;
+  }
+  .line_red,
+  &.line_red{
+    border:1px solid #f21e4a;
+  }
+  .line_blue,
+  &.line_blue{
+    border:1px solid #1b73d4;
+  }
+}
+
+@mixin btnColor {
+  .black01,
+  &.black01 {
+    color: #000;
+    background-color: #c2c2c2;
+    border: 1px solid #c2c2c2;
+  }
+
+  .black01-line,
+  &.black01-line {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+  }
+
+  .black02,
+  &.black02 {
+    color: #0a2f75;
+    background-color: #eee;
+    border: 1px solid #0a2f75;
+  }
+
+  .black02-line,
+  &.black02-line {
+    color: #101010;
+    background-color: #fff;
+    border: 1px solid #1A1A1A;
+  }
+
+  .grey01,
+  &.grey01 {
+    color: #fff;
+    background-color: #c2c2c2;
+    border: 1px solid #c2c2c2;
+  }
+
+  .grey01-line,
+  &.grey01-line {
+    color: #818181;
+    background-color: #fff;
+    border: 1px solid #c2c2c2;
+  }
+
+  .grey02,
+  &.grey02 {
+    color: #000;
+    background-color: #F2F2F2;
+    border: 1px solid #646464;
+  }
+
+  .grey02-line,
+  &.grey02-line {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+  }
+
+  .grey03,
+  &.grey03 {
+    color: #0a2f75;
+    background-color: #eee;
+    border: 1px solid #0a2f75;
+  }
+
+  .grey03-line,
+  &.grey03-line {
+    color: #272727;
+    background-color: #fff;
+    border: 1px solid #646464;
+  }
+
+  .grey04,
+  &.grey04 {
+    color: #888;
+    background-color: #ebebeb;
+    border: 1px solid #c2c2c2;
+  }
+
+  .grey04-line,
+  &.grey04-line {
+    color: #888;
+    background-color: #fff;
+    border: 1px solid #D9D9D9;
+  }
+
+  .grey05-line,
+  &.grey05-line {
+    color: #888;
+    background-color: #fff;
+    border: 1px solid #888;
+  }
+
+  .grey06-line,
+  &.grey06-line {
+    color: #a6a6a6;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }
+
+  .blue01,
+  &.blue01 {
+    color: #fff;
+    background-color: #1B73D4;
+    border: 1px solid #1B73D4;
+  }
+
+  .blue01-line,
+  &.blue01-line {
+    color: #1B73D4;
+    background-color: #fff;
+    border: 1px solid #1B73D4;
+  }
+
+  .blue02,
+  &.blue02 {
+    color: #fff;
+    background-color: #1B73D4;
+    border: 1px solid #1B73D4;
+  }
+
+  .blue02-line,
+  &.blue02-line {
+    color: #1B73D4;
+    background-color: #fff;
+    border: 1px solid #1B73D4;
+  }
+
+  .blue03-line,
+  &.blue03-line {
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #fff;
+  }
+
+  .white01-line,
+  &.white01-line {
+    color: #fff;
+    border: 1px solid #fff;
+  }
+
+  .red01,
+  &.red01 {
+    color: #fff;
+    background-color: #ff0049;
+    border: 1px solid #ff0049;
+  }
+
+  .red01-line,
+  &.red01-line {
+    color: #ff0049;
+    border: 1px solid #ff0049;
+  }
+}
+
+@mixin borderSize {
+  @for $i from 1 through 10 {
+    .bSize_#{$i},
+    &.bSize_#{$i} {
+      border-width:#{$i}px !important;
+    }
+  }
+}
+
+@function roundNum($num){
+  @return floor($num * 10000) * 0.0001;
+}
+
+/* em-calc */
+@function remove-unit($value) {
+  @return calc($value / ($value * 0 + 1));
+}
+
+@function calc-em($base: $base-rem-size, $px) {
+  @return roundNum(calc(remove-unit(calc($px / $base)))) * 1em;
+}
+
+/*  vw-calc */
+$vw-context: calc($viewport * 0.01) * 1px;
+
+@function calc-vw($vw) {
+  $size: roundNum(calc($vw / $vw-context)) * 1vw;
+	@return $size;
+}
+
+@function calc-m($vw){
+  @return min($vw,calc-vw($vw));
+}
+
+@mixin calc-vw-2($vw, $vw1, $type) {
+  $a: calc-vw($vw);
+  $b: calc-vw($vw1);
+  @if $type == auto {
+    margin: #{$a} auto #{$b};
+  }@else {
+    #{$type}: #{$a} #{$b};
+  }
+}
+
+@mixin calc-vw-4($vw, $vw1, $vw2, $vw3, $type) {
+	$a: calc-vw($vw);
+  $b: calc-vw($vw1);
+  $c: calc-vw($vw2);
+  $d: calc-vw($vw3);
+  @if $type == radius {
+		border-radius: #{$a} #{$b} #{$c} #{$d};
+	}@else{
+    #{$type}: #{$a} #{$b} #{$c} #{$d};
+  }
+}
+
+@mixin calc-calc($vw, $type){
+	$a:calc($vw / $vw-context) * 1vw;
+	@if $type == width {
+			width:calc(100% - #{$a});
+	} @else if $type == width2 {
+			width:calc(100%/2 - #{$a});
+	} @else if $type == calc2 {
+			height:calc(100%/2 - #{$a});
+	}
+}
+
+@mixin flex($jalign:space-between, $align:stretch) {
+  display: flex;
+  justify-content: $jalign; //default : space-between, flex-start
+  //flex-direction: $align; //default : row, column
+  align-items: $align;
+}
+
+//padding, margin, border
+@mixin paddingMargin{
+  @for $i from 1 through 20 {
+    .p__#{$i * 5} {
+      padding:#{$i * 5}px !important;
+      .align{
+        &.top{
+          top:#{$i * 5}px;
+        }
+        &.bottom{
+          bottom:#{$i * 5}px;
+        }
+        &.left{
+          left:#{$i * 5}px;
+        }
+        &.right{
+          right:#{$i * 5}px;
+        }
+      }
+		}
+    .pt#{$i * 5}{
+      padding-top:#{$i * 5}px !important;
+    }
+    .pl#{$i * 5}{
+      padding-left:#{$i * 5}px !important;
+    }
+    .pr#{$i * 5}{
+      padding-right:#{$i * 5}px !important;
+    }
+    .pb#{$i * 5}{
+      padding-bottom:#{$i * 5}px !important;
+    }
+    .mt#{$i * 5}{
+      margin-top:#{$i * 5}px !important;
+    }
+    .ml#{$i * 5}{
+      margin-left:#{$i * 5}px !important;
+    }
+    .mr#{$i * 5}{
+      margin-right:#{$i * 5}px !important;
+    }
+    .mb#{$i * 5}{
+      margin-bottom:#{$i * 5}px !important;
+		}
+	}
+}
+
+@mixin marginStyle($type){
+	@for $i from 1 through 20 {
+		@if $type == li {
+			.mt__#{$i*5},
+			&.mt__#{$i*5}{
+				>li{
+					margin-top: #{$i * 5}px;
+          @media screen and (max-width:$viewportPx) {
+            // $size : #{$i * 5}px;
+					  // margin-top: calc-vw($size);
+          }
+					&:first-of-type{
+						margin-top:0;
+					}
+				}
+			}
+			.mb__#{$i*5},
+			&.mb__#{$i*5}{
+				>li{
+					margin-bottom: #{$i * 5}px;
+					&:last-of-type{
+						margin-bottom:0;
+					}
+				}
+			}
+		} @else if $type == dd {
+			.mt__#{$i*5},
+			&.mt__#{$i*5}{
+				>dd{
+					margin-top:#{$i*5}px;
+					&:first-of-type{
+						margin-top:0;
+					}
+				}
+			}
+			.mb__#{$i*5},
+			&.mb__#{$i*5}{
+				>dd{
+					margin-bottom:#{$i*5}px;
+					&:last-of-type{
+						margin-bottom:0;
+					}
+				}
+			}
+		}
+	}
+}
+
+//paddingSize
+@mixin paddingSize{
+  @for $i from 1 through 10 {
+    &.p#{$i * 5}{
+      padding:40px #{$i * 5}px !important;
+    }
+  }
+}
+
+//radius size
+@mixin radiusSize($type:default){
+  @for $i from 1 through 10 {
+    &.r#{$i * 5},
+    .r#{$i * 5} {
+      @if $type == default {
+        border-radius:#{$i * 5}px !important;
+      } @else if $type == box {
+
+        border-radius:#{$i * 5}px !important;
+        >div, >li, >p, >span{
+          border-radius:#{$i * 5}px !important;
+        }
+      }
+    }
+	}
+}
+
+// transform
+@mixin transform($transforms) {
+	-webkit-transform: $transforms;
+	-moz-transform: $transforms;
+	-ms-transform: $transforms;
+	transform: $transforms;
+}
+
+// Rotate
+@mixin rotate($deg) {
+	@include transform(rotate(#{$deg}deg));
+}
+
+// Scale
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+
+// Translate
+@mixin translate($x, $y) {
+	@include transform(translate($x, $y));
+}
+
+// Skew
+@mixin skew ($x, $y) {
+	@include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+@mixin transition($s, $t, $e) {
+  -webkit-transition: $s $t $e;
+  -moz-transition: $s $t $e;
+  -o-transition: $s $t $e;
+  transition: $s $t $e;
+}
+
+/*
+  font(px, lineheight, type)
+  1. 'px' 필수로 붙임,
+  2. line-heigh = 'px' or '배수' or 'null' = inherit
+  3. $type : 'm' = mobile
+*/
+@mixin font($size: auto, $line: 'inherit', $type: null) {
+  // font-size
+  @if ($type == "m") {
+    font-size: min(calc-vw($size), $size);
+  }
+  // mobile fs_ 우선순위 - 추후 걷어낼 예정
+  @else if ($type == "important") {
+    font-size: min(calc-vw($size), $size) !important;
+  }
+  @else {
+    font-size: $size;
+  }
+
+  // line-height
+  @if (type-of($line) == number) {
+    @if (unitless($line)) {
+      line-height: $line;
+    }
+    @else if($line == null) {}
+    @else {
+      line-height: roundNum(calc($line / $size))
+    }
+  }
+}
+
+@mixin fontSize($size) {
+	$lineHeight : $size + 10;
+	font-size:$size !important;
+	line-height:$lineHeight !important;
+	@media screen and (max-width:$viewportPx){
+		font-size: calc-vw($size * 2) !important;
+		line-height: calc-vw($size * 2 + 10) !important;
+	}
+}
+
+@mixin iconFont($size){
+  $line : $size + 10;
+	@include font($size, $line);
+	padding-left: $size + 3px;
+	position: relative;
+	&:before{
+		position: absolute;
+		top:0;
+		left:0;
+		display:block;
+	}
+}
+
+@mixin aticonFont($size){
+  $line : $size + 10;
+	@include font($size, $line);
+  &.decimal,
+  &.decimal_zero,
+  &.lower,
+  &.upper {
+		padding-left: $size + 3px;
+  }
+	li,
+  dd{
+		padding-left:$size + 3px;
+		&:before{
+			position: absolute;
+			top:0;
+			left:0;
+			display:block;
+		}
+	}
+}
+
+@mixin aticonImgFont($size){
+  $line : $size + 10;
+  @include font($size, $line);
+	li,
+  dd{
+		padding-left:$size + 3px;
+		&:before{
+			display:inline-block;
+			top:calc($size/2) - 1px;
+			width:$size;
+			height:$size;
+			text-indent:-calc($size - 3px);
+		}
+	}
+}
+
+// font mixin
+// Mobile - _mText.scss 재선언
+$fontSizes:
+8 8px, 9 9px, 10 10px,
+11 11px, 12 12px, 13 13px, 14 14px, 15 15px,
+16 16px, 17 17px, 18 18px, 19 19px, 20 20px,
+21 21px, 22 22px, 23 23px, 24 24px, 25 25px,
+26 26px, 27 27px, 28 28px, 29 29px, 30 30px,
+31 31px, 32 32px, 33 33px, 34 34px, 35 35px,
+36 36px, 37 37px, 38 38px, 39 39px, 40 40px,
+41 41px, 42 42px, 43 43px, 44 44px, 45 45px,
+50 50px, 55 55px, 60 60px;
+
+@mixin fontSizeZip {
+  @each $name, $size in $fontSizes {
+    $line : $size + 10;
+    &.fs_#{$name}{@include font($size, $line)};
+    .fs_#{$name}{@include font($size, $line)};
+  }
+}
+
+@mixin iconFontZip {
+  @each $name, $size in $fontSizes {
+    &.fs#{$name}_icon{@include iconFont($size)}
+  }
+}
+
+@mixin atIconFont {
+  @each $name, $size in $fontSizes {
+    &.fs#{$name}_icon{@include aticonFont($size)}
+  }
+}
+
+@mixin atIconImgFont {
+  @each $name, $size in $fontSizes {
+    &.fs#{$name}_icon{@include aticonImgFont($size)}
+  }
+}
+
+// input
+@mixin labelSize{
+  @for $i from 1 through 30 {
+    &.w#{$i * 5}{
+      width:#{$i * 5}px !important;
+    }
+	}
+}
+@mixin inputSize{
+  @for $i from 1 through 100 {
+    &.w#{$i * 5}{
+      width:#{$i * 5}px !important;
+      input{
+        width:100%;
+      }
+    }
+	}
+}
+@mixin inputSizeP($type){
+  &.full{
+    width:100%;
+  }
+  @for $i from 1 through 20 {
+
+    $p : unquote("%");
+    @if $type == "input" {
+      &.full#{$i * 5}{
+        padding:5px 0px;
+        width:#{$i * 5} + '%';
+      }
+    } @else if $type == "select"{
+      &.full#{$i * 5}{
+        padding:5px 10px;
+        width:#{$i * 5} + '%';
+      }
+    }
+	}
+}
+
+// button
+@mixin btnBox($display, $width, $height, $fontSize, $type: null){
+  display: $display;
+
+  @if ($type == m) {
+    @if $width=="auto"{
+      width: auto;
+    }@else if unit($width)=="%" {
+      width: $width;
+    }@else{
+      width: calc-vw($width);
+    }
+    @if $height=="auto"{
+      height: auto;
+    }@else if unit($height)=="%" {
+      height: $height;
+      line-height: $height;
+    }@else {
+      height: calc-em($fontSize, $height);
+      line-height: calc-em($fontSize, $height);
+    }
+    @if($fontSize) {
+      font-size: min(calc-vw($fontSize), $fontSize);
+			@media screen and (min-width:$minWidthTablet) {
+				.optimization & {
+					font-size: $fontSize * 0.667;
+				}
+			}
+    }
+  }@else if ($type == p) {
+    padding: calc-em($fontSize, $height) calc-em($fontSize, $width);
+    line-height: initial;
+    @if($fontSize) {
+      font-size: $fontSize;
+    }
+  }@else if($type == mp){
+    padding: calc-em($fontSize, $height) calc-em($fontSize, $width);
+    line-height: inherit;
+    @if($fontSize) {
+      font-size:  min(calc-vw($fontSize), $fontSize);
+    }
+  }
+
+  @else {
+    width: $width;
+    height: $height;
+    line-height: $height;
+    @if($fontSize) {
+      font-size: $fontSize;
+    }
+  }
+
+  text-align: center;
+  vertical-align: middle;
+  @include disabled;
+};
+
+@mixin disabled($type : null){
+  $color : #d8d8d8;
+  $bgColor : #eee;
+  &.disabled{
+    color:$color;
+    background-color: $bgColor;
+    border: 1px solid $color;
+    @if($type == btn){
+      color:$color;
+      background-color: $bgColor;
+      border: 1px solid $bgColor;
+    }
+  }
+}
+
+@mixin colorsSystem($fontColor, $bg, $borderColor){
+  @if($fontColor == null){
+    color: inherit;
+  } @else {
+    color: $fontColor;
+  }
+
+  @if ($bg == null and $borderColor == null){
+    background-color: #fff;
+    border: 1px solid transparent;
+  } @else {
+    @if $bg == null {
+      background-color: #fff;
+    } @else {
+      background-color: $bg;
+    }
+
+    @if $borderColor == null {
+      border: 1px solid $bg;
+    } @else {
+      border: 1px solid $borderColor;
+    }
+  }
+};
+
+@mixin optSystem($radius, $shadow, $type: null){
+  @if($radius == null){
+    border-radius: 0px;
+  } @else {
+    @if ($type == m or $type == mp) {
+      border-radius: calc-em(24px, $radius);
+    } @else {
+      border-radius: $radius;
+    }
+  }
+
+  @if($shadow == null) {
+  } @else {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, $shadow);
+  }
+};
+
+@mixin btnDefault($display, $width, $height, $fontSize, $radius, $type: null) {
+  @include btnBox($display, $width, $height, $fontSize, $type);
+  @include colorsSystem(#888, #fff,#c2c2c2);
+  @include optSystem($radius, null, $type);
+  @include btnDisabled;
+}
+
+@mixin btnPrimary($display, $width, $height, $fontSize, $radius, $type: null) {
+  @include btnBox($display, $width, $height, $fontSize, $type);
+  @include colorsSystem(#fff, #1B73D4, null);
+  @include optSystem($radius, null, $type);
+  @include btnDisabled;
+}
+
+@mixin btnSecondary($display, $width, $height, $fontSize, $radius, $type: null) {
+  @include btnBox($display, $width, $height, $fontSize, $type);
+  @include colorsSystem(#fff, #c2c2c2, null);
+  @include optSystem($radius, null, $type);
+  @include btnDisabled;
+}
+
+@mixin btnTertiary($display, $width, $height, $fontSize, $radius, $type: null) {
+  @include btnBox($display, $width, $height, $fontSize, $type);
+  @include colorsSystem(#1B73D4, #fff,#1B73D4);
+  @include optSystem($radius, null, $type);
+  @include btnDisabled;
+}
+
+@mixin btnQuarternary($display, $width, $height, $fontSize, $radius, $type: null) {
+  @include btnBox($display, $width, $height, $fontSize, $type);
+  @include colorsSystem(null, #fff, #646464);
+  @include optSystem(3px, null);
+  @include btnDisabled;
+}
+
+@mixin btnSize{
+  @for $i from 10 through 100 {
+    &.w#{$i * 5} {
+      padding-left: 0;
+      padding-right: 0;
+      width:#{$i * 5}px;
+    }
+	}
+}
+@mixin btnSizeP{
+  @for $i from 10 through 20 {
+    $p : unquote("%");
+    &.full#{$i * 5}{
+      padding-left:0 !important;
+      padding-right:0 !important;
+      width:#{$i * 5} + '%';
+    }
+	}
+}
+@mixin btnHeight {
+  @for $i from 4 through 20 {
+    &.h-#{$i * 5} {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      height:#{$i * 5}px;
+      font-size:#{$i + 6}px;
+      line-height:#{$i * 5}px !important;
+    }
+  }
+}
+@mixin btnDisabled {
+  &.disable,
+  &.disabled{
+    color:#D8D8D8;
+    background-color: #fff;
+    border:1px solid #D8D8D8;
+    cursor:default;
+    &:before,
+    &:after{
+      opacity:.1;
+    }
+  }
+}
+
+// box
+@mixin widthCenter{
+  @for $i from 20 through 100 {
+    &.w#{$i * 10}{
+      margin:0 auto;
+      width:#{$i * 10}px;
+    }
+  }
+}
+
+// layer
+@mixin layerSize{
+  @for $i from 20 through 240 {
+    &.w#{$i * 5}{
+      .inWrap{
+        width:#{$i * 5}px !important;
+      }
+    }
+	}
+}
+@mixin layerfixedSize{
+  @for $i from 20 through 240 {
+    &.w#{$i * 5}{
+      .inWrap{
+        right:auto;
+        width:#{$i * 5}px !important;
+        @media screen and (max-width:768px){
+          @include calc-vw-4(50px, 30px, 50px, 30px, padding);
+        }
+      }
+    }
+	}
+}
+
+@mixin scrollSystem($scrollSize, $scrollColor, $scrollBg) {
+  overflow: hidden;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: $scrollSize;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollColor;
+    border-radius: $scrollSize;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $scrollBg;
+    border-radius: $scrollSize;
+  }
+}
+
+// start : icon
+// start : icon
+// start : icon
+@mixin arrow($align, $w, $h, $color, $ml, $mr:null, $d:null){
+  @include flex($align, center);
+  align-items: center;
+  &:before, &:after{
+    margin-left:$ml;
+    @if ($mr) {
+      margin-left:$ml;
+      margin-right: $mr;
+    } @else {
+      margin-right: $mr;
+    }
+    width:$w;
+    height:$h;
+    border:1px solid $color;
+    border-top:0;
+    border-right:0;
+    transform: rotate(45deg);
+  }
+  &:before{
+    content:"";
+  }
+  @if $d == right{
+    &:before{
+      display:none;
+    }
+    &:after{
+      content:"";
+      border-top:1px solid $color;
+      border-right:1px solid $color;
+      border-left:0;
+      border-bottom:0;
+    }
+  }
+}
+// end : icon
+// end : icon
+// end : icon

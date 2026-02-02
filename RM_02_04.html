@@ -604,6 +604,7 @@
         </div>
     </div>
 
+    <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
     <script src="js/sidebar.js"></script>
     <script src="js/includes.js"></script>
     <script>
@@ -1454,7 +1455,7 @@
                 accountInput.value = bankInfos[bank].account;
                 holderInput.value = bankInfos[bank].holder;
 
-                // 값이 자동으로 채워졌음을 시각적으로 알리기 위해 readonly 처리 고려 가능하나, 
+                // 값이 자동으로 채워졌음을 시각적으로 알리기 위해 readonly 처리 고려 가능하나,
                 // 사용자 요청에 명시되지 않았으므로 값 설정만 수행함.
             } else {
                 accountInput.value = '';

@@ -181,6 +181,7 @@
         <div id="keypadContainer" class="keypad-grid"></div>
     </div>
 
+    <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
     <script src="js/main.js"></script>
     <script>
         function openModal(id) { document.getElementById(id).classList.add('active'); }
@@ -194,7 +195,7 @@
         window.onclick = (e) => {
             if (e.target.classList.contains('modal-overlay')) closeModal(e.target.id);
             // Also close keypad if clicking outside
-            /* Logic handled in auth.js or needs to be added here? 
+            /* Logic handled in auth.js or needs to be added here?
                auth.js handles keypad toggle. We just need basic modal close. */
         }
     </script>

@@ -10,6 +10,33 @@ function loadIncludes() {
                 initSidebar();
             }
         }
+
+        // Initialize language selector
+        const langSelect = document.getElementById('langSelect');
+        if (langSelect && typeof handleLanguageChange === 'function') {
+            langSelect.addEventListener('change', handleLanguageChange);
+            // Set current language value if available
+            if (typeof currentLang !== 'undefined') {
+                langSelect.value = currentLang;
+            }
+        }
+
+        // Also set mobile and guest language selectors
+        const mobileLangSelect = document.getElementById('mobileLangSelect');
+        if (mobileLangSelect && typeof handleLanguageChange === 'function') {
+            mobileLangSelect.addEventListener('change', handleLanguageChange);
+            if (typeof currentLang !== 'undefined') {
+                mobileLangSelect.value = currentLang;
+            }
+        }
+
+        const guestSidebarLangSelect = document.getElementById('guestSidebarLangSelect');
+        if (guestSidebarLangSelect && typeof handleLanguageChange === 'function') {
+            guestSidebarLangSelect.addEventListener('change', handleLanguageChange);
+            if (typeof currentLang !== 'undefined') {
+                guestSidebarLangSelect.value = currentLang;
+            }
+        }
     }
 
     // Check for guest mode
@@ -39,15 +66,7 @@ function loadIncludes() {
 
                 // includes.js에서 header.html을 동적으로 로드한 후, 언어 선택 이벤트 리스너를 등록하지 않고 있습니다.
                 // main.js:918-921의 DOMContentLoaded 이벤트는 header.html이 로드되기 전에 발생하므로, langSelect 요소를 찾을 수 없어 이벤트 리스너가 등록되지 않습니다.
-                // Initialize language selector
-                const langSelect = document.getElementById('langSelect');
-                if (langSelect && typeof handleLanguageChange === 'function') {
-                    langSelect.addEventListener('change', handleLanguageChange);
-                    // Set current language value if available
-                    if (typeof currentLang !== 'undefined') {
-                        langSelect.value = currentLang;
-                    }
-                }
+
 
                 tryInitSidebar();
             })
@@ -202,11 +221,33 @@ function loadIncludes() {
                     });
                 }
 
+                // Load support into sidebar after sidebar is loaded
+                const nav = sidebarContainer.querySelector('.db-side-nav');
+                if (nav) {
+                    fetch('includes/support.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            nav.innerHTML += data;
+                        })
+                        .catch(error => console.error('Error loading support into sidebar:', error));
+                }
+
                 tryInitSidebar();
             })
             .catch(error => console.error('Error loading sidebar:', error));
     } else {
         sidebarLoaded = true;
+    }
+
+    // Load support (if supportContainer exists separately)
+    const supportContainer = document.getElementById('supportContainer');
+    if (supportContainer) {
+        fetch('includes/support.html')
+            .then(response => response.text())
+            .then(data => {
+                supportContainer.innerHTML = data;
+            })
+            .catch(error => console.error('Error loading support:', error));
     }
 
     // Load contact
