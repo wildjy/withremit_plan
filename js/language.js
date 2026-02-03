@@ -726,8 +726,8 @@ function detectLanguage() {
     const savedLang = localStorage.getItem('preferredLanguage');
     if (savedLang && translations[savedLang]) {
         console.log('Loaded from localStorage:', savedLang);
-        changeLanguage(savedLang);
-        return;
+        currentLang = savedLang;
+        return savedLang;
     }
 
     // 2단계: 브라우저 언어 설정 감지
@@ -736,38 +736,34 @@ function detectLanguage() {
     const detectedLang = langMap[userLang.split('-')[0]] || 'ko';
 
     console.log('Browser language detected:', userLang, '-> Using:', detectedLang);
-    changeLanguage(detectedLang);
+    currentLang = detectedLang;
+    return detectedLang;
 }
 
 // ===== Initialize =====
-// 페이지 로드 즉시 저장된 언어 감지 (DOMContentLoaded 전에 실행)
+// 페이지 로드 즉시 저장된 언어 감지 (변수만 설정, 번역은 DOM 로드 후)
 detectLanguage();
 
 document.addEventListener('DOMContentLoaded', () => {
+    // DOM이 준비되면 감지된 언어로 번역 적용
+    applyTranslations();
 
     // Language selection - header가 로드된 후 이벤트 리스너 등록
     const langSelect = document.getElementById('langSelect');
     if (langSelect) {
         langSelect.addEventListener('change', handleLanguageChange);
-        // 현재 언어 설정 반영
-        if (typeof currentLang !== 'undefined') {
-            langSelect.value = currentLang;
-        }
+        langSelect.value = currentLang;
     }
 
     const mobileLangSelect = document.getElementById('mobileLangSelect');
     if (mobileLangSelect) {
         mobileLangSelect.addEventListener('change', handleLanguageChange);
-        if (typeof currentLang !== 'undefined') {
-            mobileLangSelect.value = currentLang;
-        }
+        mobileLangSelect.value = currentLang;
     }
 
     const guestSidebarLangSelect = document.getElementById('guestSidebarLangSelect');
     if (guestSidebarLangSelect) {
         guestSidebarLangSelect.addEventListener('change', handleLanguageChange);
-        if (typeof currentLang !== 'undefined') {
-            guestSidebarLangSelect.value = currentLang;
-        }
+        guestSidebarLangSelect.value = currentLang;
     }
 });

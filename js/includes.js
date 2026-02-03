@@ -3,38 +3,25 @@ function loadIncludes() {
     let headerLoaded = false;
     let sidebarLoaded = false;
 
+    function callWhenAvailable(fnName, callback, retries = 20, delay = 100) {
+        if (typeof window[fnName] === 'function') {
+            callback();
+            return;
+        }
+
+        if (retries <= 0) return;
+        setTimeout(() => callWhenAvailable(fnName, callback, retries - 1, delay), delay);
+    }
+
+    function applyTranslationsDeferred() {
+        callWhenAvailable('applyTranslations', () => window.applyTranslations());
+    }
+
     // Function to initialize sidebar when both header and sidebar are loaded
     function tryInitSidebar() {
-        if (headerLoaded && (sidebarLoaded || !document.getElementById('sidebarContainer'))) {
-            if (typeof initSidebar === 'function') {
-                initSidebar();
-            }
-        }
-
-        // Initialize language selector
-        const langSelect = document.getElementById('langSelect');
-        if (langSelect && typeof handleLanguageChange === 'function') {
-            langSelect.addEventListener('change', handleLanguageChange);
-            // Set current language value if available
-            if (typeof currentLang !== 'undefined') {
-                langSelect.value = currentLang;
-            }
-        }
-
-        // Also set mobile and guest language selectors
-        const mobileLangSelect = document.getElementById('mobileLangSelect');
-        if (mobileLangSelect && typeof handleLanguageChange === 'function') {
-            mobileLangSelect.addEventListener('change', handleLanguageChange);
-            if (typeof currentLang !== 'undefined') {
-                mobileLangSelect.value = currentLang;
-            }
-        }
-
-        const guestSidebarLangSelect = document.getElementById('guestSidebarLangSelect');
-        if (guestSidebarLangSelect && typeof handleLanguageChange === 'function') {
-            guestSidebarLangSelect.addEventListener('change', handleLanguageChange);
-            if (typeof currentLang !== 'undefined') {
-                guestSidebarLangSelect.value = currentLang;
+        if (!isGuest && headerLoaded && (sidebarLoaded || !document.getElementById('sidebarContainer'))) {
+            if (typeof initDashboardSidebar === 'function') {
+                initDashboardSidebar();
             }
         }
     }
@@ -53,20 +40,35 @@ function loadIncludes() {
                 headerContainer.innerHTML = data;
                 headerLoaded = true;
 
-                // Initialize mobile menu toggle
-                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-                if (mobileMenuBtn) {
-                    // Check if toggleMobileMenu is defined globally (from main.js)
-                    if (typeof toggleMobileMenu === 'function') {
-                        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-                    } else {
-                        console.error('toggleMobileMenu function not found');
+                // Initialize mobile menu toggle after guest sidebar is loaded
+
+                // Initialize language selector after header is loaded
+                const langSelect = document.getElementById('langSelect');
+                if (langSelect && typeof handleLanguageChange === 'function') {
+                    langSelect.addEventListener('change', handleLanguageChange);
+                    if (typeof currentLang !== 'undefined') {
+                        langSelect.value = currentLang;
                     }
                 }
 
-                // includes.js에서 header.html을 동적으로 로드한 후, 언어 선택 이벤트 리스너를 등록하지 않고 있습니다.
-                // main.js:918-921의 DOMContentLoaded 이벤트는 header.html이 로드되기 전에 발생하므로, langSelect 요소를 찾을 수 없어 이벤트 리스너가 등록되지 않습니다.
+                const mobileLangSelect = document.getElementById('mobileLangSelect');
+                if (mobileLangSelect && typeof handleLanguageChange === 'function') {
+                    mobileLangSelect.addEventListener('change', handleLanguageChange);
+                    if (typeof currentLang !== 'undefined') {
+                        mobileLangSelect.value = currentLang;
+                    }
+                }
 
+                const guestSidebarLangSelect = document.getElementById('guestSidebarLangSelect');
+                if (guestSidebarLangSelect && typeof handleLanguageChange === 'function') {
+                    guestSidebarLangSelect.addEventListener('change', handleLanguageChange);
+                    if (typeof currentLang !== 'undefined') {
+                        guestSidebarLangSelect.value = currentLang;
+                    }
+                }
+
+                // Apply translations to newly loaded header
+                applyTranslationsDeferred();
 
                 tryInitSidebar();
             })
@@ -221,6 +223,10 @@ function loadIncludes() {
                     });
                 }
 
+                if (isGuest) {
+                    callWhenAvailable('initGuestSidebar', () => window.initGuestSidebar());
+                }
+
                 // Load support into sidebar after sidebar is loaded
                 const nav = sidebarContainer.querySelector('.db-side-nav');
                 if (nav) {
@@ -228,9 +234,15 @@ function loadIncludes() {
                         .then(response => response.text())
                         .then(data => {
                             nav.innerHTML += data;
+
+                            // Apply translations to newly loaded support section
+                            applyTranslationsDeferred();
                         })
                         .catch(error => console.error('Error loading support into sidebar:', error));
                 }
+
+                // Apply translations to newly loaded sidebar
+                applyTranslationsDeferred();
 
                 tryInitSidebar();
             })
