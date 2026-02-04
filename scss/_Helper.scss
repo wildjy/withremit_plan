@@ -1,168 +1,224 @@
-// main color
-$jinhak_main_color : #1b73d4;
+// MIXINS
+$viewport: 720;
+$viewportPx : $viewport * 1px;
+$minWidthTablet: 601px;
 
-// 변수
-$gnb_height: 66px;
-$gnb_fix_height: 80px;
-$basic_width_wrap: 1160px; // 진학닷컴 기본 width
-$basic_color_jinhak: #0a2b6d; // 진학닷컴 주 color
-$basic_color_text: #272727; // 진학닷컴 기본 font color
-$basic_color_red: #f00234;
-$basic_color_blue: var(--color-blue-700);
-$t_tag_color: #005fc1;
-$t_standby_color: #999;
-$detail_darkbd_color: #37404e; // 글 상세 진한 선
-$detail_lightbd_color: #e3e3e4; // 글 상세 흐린 선
-$f21e4a : #f21e4a;
-
-$img-path: 'https://image.jinhak.com/renewal2019/';
-
-// MIXIN
-@mixin alpha_bg { // layer 반투명 bg
-	background: url("https://image.jinhak.com/renewal2019/common/layer_alpha.png");
+@mixin borderSize {
+  @for $i from 1 through 10 {
+    .bSize_#{$i},
+    &.bSize_#{$i} {
+      border-width:#{$i}px !important;
+    }
+  }
 }
 
-@mixin ani_imgzoom { // img hover시 zoom
-	img {
-		width: 100%;
-		&:hover {
-			-webkit-transform:scale(1.1);
-			-moz-transform:scale(1.1);
-			-o-transform:scale(1.1);
-			transform:scale(1.1);
-			transition: transform .2s;
-			-o-transition: transform .2s;
-			-moz-transition: transform .2s;
-			-webkit-transition: transform .2s;
+@mixin flex($jalign:space-between, $align:stretch) {
+  display: flex;
+  justify-content: $jalign; //default : space-between, flex-start
+  //flex-direction: $align; //default : row, column
+  align-items: $align;
+}
+
+/*  vw-calc */
+$vw-context: calc($viewport * 0.01) * 1px;
+
+@function calc-vw($vw) {
+  $size: roundNum(calc($vw / $vw-context)) * 1vw;
+	@return $size;
+}
+
+@function calc-m($vw){
+  @return min($vw,calc-vw($vw));
+}
+
+@mixin calc-vw-2($vw, $vw1, $type) {
+  $a: calc-vw($vw);
+  $b: calc-vw($vw1);
+  @if $type == auto {
+    margin: #{$a} auto #{$b};
+  }@else {
+    #{$type}: #{$a} #{$b};
+  }
+}
+
+@mixin calc-vw-4($vw, $vw1, $vw2, $vw3, $type) {
+	$a: calc-vw($vw);
+  $b: calc-vw($vw1);
+  $c: calc-vw($vw2);
+  $d: calc-vw($vw3);
+  @if $type == radius {
+		border-radius: #{$a} #{$b} #{$c} #{$d};
+	}@else{
+    #{$type}: #{$a} #{$b} #{$c} #{$d};
+  }
+}
+
+@mixin calc-calc($vw, $type){
+	$a:calc($vw / $vw-context) * 1vw;
+	@if $type == width {
+			width:calc(100% - #{$a});
+	} @else if $type == width2 {
+			width:calc(100%/2 - #{$a});
+	} @else if $type == calc2 {
+			height:calc(100%/2 - #{$a});
+	}
+}
+
+//padding, margin, border
+@mixin paddingMargin{
+  @for $i from 1 through 20 {
+    .p__#{$i * 5} {
+      padding:#{$i * 5}px !important;
+      .align{
+        &.top{
+          top:#{$i * 5}px;
+        }
+        &.bottom{
+          bottom:#{$i * 5}px;
+        }
+        &.left{
+          left:#{$i * 5}px;
+        }
+        &.right{
+          right:#{$i * 5}px;
+        }
+      }
+		}
+    .pt#{$i * 5}{
+      padding-top:#{$i * 5}px !important;
+    }
+    .pl#{$i * 5}{
+      padding-left:#{$i * 5}px !important;
+    }
+    .pr#{$i * 5}{
+      padding-right:#{$i * 5}px !important;
+    }
+    .pb#{$i * 5}{
+      padding-bottom:#{$i * 5}px !important;
+    }
+    .mt#{$i * 5}{
+      margin-top:#{$i * 5}px !important;
+    }
+    .ml#{$i * 5}{
+      margin-left:#{$i * 5}px !important;
+    }
+    .mr#{$i * 5}{
+      margin-right:#{$i * 5}px !important;
+    }
+    .mb#{$i * 5}{
+      margin-bottom:#{$i * 5}px !important;
 		}
 	}
 }
 
-@mixin base_btn { // btn style의 공통
-	display: inline-block;
-	vertical-align: middle;
-	border: solid 1px transparent;
-	box-sizing: border-box;
-	text-align: center;
-	overflow: hidden;
-	line-height: normal;
-	&:hover {
-		text-decoration: none;
-	}
-}
-
-@mixin base_ck { // input[type=checkbox], input[type=radio] style의 공통
-	position: relative;
-	display: inline-block;
-	cursor: pointer;
-	& > input {
-		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		opacity: 0;
-	}
-	label {
-		position: relative;
-		vertical-align: middle;
-	}
-}
-
-@mixin base_input { // input[type=text] style의 공통
-	border: solid 1px transparent;
-	padding-left: 10px;
-	line-height: normal;
-	overflow: hidden;
-}
-
-@mixin base_layer { // layer 기본 wrap
-	position: absolute;
-	background-color: #FFF;
-	border: solid 1px transparent;
-	.close {
-		position: absolute;
-		width: 30px;
-		height: 30px;
-		span, a {
-			display: block;
-			width: 100%;
-			height: 100%;
-			text-indent: -9999em;
-			background-repeat: no-repeat;
-			background-position: center center;
+@mixin marginStyle($type){
+	@for $i from 1 through 10 {
+		@if $type == li {
+			.mt__#{$i*5},
+			&.mt__#{$i*5}{
+				>li{
+					margin-top: #{$i * 5}px;
+          @media screen and (max-width:$viewportPx) {
+            // $size : #{$i * 5}px;
+					  // margin-top: calc-vw($size);
+          }
+					&:first-of-type{
+						margin-top:0;
+					}
+				}
+			}
+			.mb__#{$i*5},
+			&.mb__#{$i*5}{
+				>li{
+					margin-bottom: #{$i * 5}px;
+					&:last-of-type{
+						margin-bottom:0;
+					}
+				}
+			}
+		} @else if $type == dd {
+			.mt__#{$i*5},
+			&.mt__#{$i*5}{
+				>dd{
+					margin-top:#{$i*5}px;
+					&:first-of-type{
+						margin-top:0;
+					}
+				}
+			}
+			.mb__#{$i*5},
+			&.mb__#{$i*5}{
+				>dd{
+					margin-bottom:#{$i*5}px;
+					&:last-of-type{
+						margin-bottom:0;
+					}
+				}
+			}
 		}
 	}
 }
 
-@mixin base_select { // select style의 공통
-	padding-right: 24px;
-	padding-left: 10px;
-	line-height: normal;
-	border: solid 1px transparent;
-	background: url("https://image.jinhak.com/renewal2019/common/arr8_down.png") no-repeat right center #FFF;
-	-webkit-appearance: none;
-	&::-ms-expand {
-		display: none;
+//paddingSize
+@mixin paddingSize{
+  @for $i from 1 through 10 {
+    &.p#{$i * 5}{
+      padding:40px #{$i * 5}px !important;
+    }
+  }
+}
+
+//radius size
+@mixin radiusSize($type:default){
+  @for $i from 1 through 10 {
+    &.r#{$i * 5},
+    .r#{$i * 5} {
+      @if $type == default {
+        border-radius:#{$i * 5}px !important;
+      } @else if $type == box {
+
+        border-radius:#{$i * 5}px !important;
+        >div, >li, >p, >span{
+          border-radius:#{$i * 5}px !important;
+        }
+      }
+    }
 	}
 }
 
-@mixin base_txt_list { // ul.list_bar와 같은 style의 공통
-	position: relative;
-	line-height: 1.4;
-	margin-top: 5px;
-	&:first-child {
-		margin-top: 0;
-	}
-	&:after {
-		display: block;
-		position: absolute;
-		left: 0;
-	}
+// transform
+@mixin transform($transforms) {
+	-webkit-transform: $transforms;
+	-moz-transform: $transforms;
+	-ms-transform: $transforms;
+	transform: $transforms;
 }
 
-@mixin before_vmid { // 가상 선택자로 세로 가운데 정렬
-	&:before {
-		content: "";
-		display: inline-block;
-		height: 100%;
-		vertical-align: middle;
-	}
+// Rotate
+@mixin rotate($deg) {
+	@include transform(rotate(#{$deg}deg));
 }
 
-@mixin btn_close_bold { // layer close btn - bold
-	display: inline-block;
-	width: 22px;
-	height: 22px;
-	text-indent: -9999em;
-	background:url("https://image.jinhak.com/renewal2019/common/layer_close.png") no-repeat center top;
+// Scale
+@mixin scale($scale) {
+  @include transform(scale($scale));
 }
 
-@mixin btn_close_thin { // layer close btn - thin
-	display: inline-block;
-	width: 25px;
-	height: 25px;
-	background: url("https://image.jinhak.com/renewal2019/common/layer_close2.gif") no-repeat center center;
-	text-indent: -9999em;
+// Translate
+@mixin translate($x, $y) {
+	@include transform(translate($x, $y));
 }
 
-@mixin btn_close_sm { // layer close btn - sm
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	background: url("https://image.jinhak.com/renewal2019/common/btn_close2.gif") no-repeat center center;
-	text-indent: -9999em;
+// Skew
+@mixin skew ($x, $y) {
+	@include transform(skew(#{$x}deg, #{$y}deg));
 }
 
-@mixin clearfix { // float 해제
-	zoom: 1;
-	&:after {
-		content: "";
-		display: table;
-		clear: both;
-		table-layout: fixed;
-	}
+@mixin transition($s, $t, $e) {
+  -webkit-transition: $s $t $e;
+  -moz-transition: $s $t $e;
+  -o-transition: $s $t $e;
+  transition: $s $t $e;
 }
 
 @mixin after{
@@ -183,75 +239,6 @@ $img-path: 'https://image.jinhak.com/renewal2019/';
 		word-wrap: break-word;
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: $line;
-	}
-}
-
-@mixin ff_malgun { // font-family: 맑은 고딕
-	font-family: malgun Gothic, "맑은 고딕", sans-serif;
-}
-
-@mixin ff_arial { // font-family: Arial
-	font-family: Arial, sans-serif;
-	letter-spacing: 0;
-}
-
-@mixin ff_nanum { // font-family:
-	font-family: "NanumBarunGothic", sans-serif;
-}
-
-@mixin ff_nanum_bold { // font-family:
-	font-family: "NanumBarunGothicBold", sans-serif;
-}
-
-@mixin ff_noto { // font-family: Noto Sans KR
-	font-family: "Noto Sans KR", sans-serif;
-}
-
-@mixin ff_spoqa { // font-family: Spoqa Han Sans
-	font-family: "Spoqa Han Sans", sans-serif;
-}
-
-@mixin ff_pretendard { // font-family: ff_pretendard
-	font-family: "Pretendard", sans-serif;
-}
-
-@mixin list_file { // 글상세> 첨부파일 목록
-	border-top: solid 1px $detail_lightbd_color;
-	dl {
-		position: relative;
-		padding-left: 95px;
-		text-align: left;
-		dt, dd a {
-			font-size: 13px;
-			color: #8f8f8f;
-		}
-		dt {
-			position: absolute;
-			margin-top: 9px;
-			left: 17px;
-			&:after {
-				content: "";
-				display: inline-block;
-				width: 1px;
-				height: 12px;
-				background-color: #959595;
-				vertical-align: middle;
-				margin: -2px 0 0 14px;
-			}
-		}
-		dd {
-			padding: 5px 0 8px 0;
-			a {
-				display: inline-block;
-				white-space: nowrap;
-				text-decoration: underline;
-				padding: 3px 0;
-				margin-right: 14px;
-				img {
-					margin-right: 4px;
-				}
-			}
-		}
 	}
 }
 
@@ -287,83 +274,9 @@ $img-path: 'https://image.jinhak.com/renewal2019/';
 	font-size:0;
 	line-height:0;
 }
-@mixin t_date { // 작성일 (목록형, 상세에서는 size, color overwrite 하기)
-	display: inline-block;
-	font-size: 14px;
-	color: #c4c4c4;
-	letter-spacing: 0;
-	&:before {
-		content: "";
-		display: inline-block;
-		vertical-align: middle;
-	}
-}
-
-@mixin t_hit { // 조회수 (목록형, 상세에서는 size, color overwrite 하기)
-	display: inline-block;
-	font-size: 14px;
-	color: #c4c4c4;
-	letter-spacing: 0;
-	&:before {
-		content: "";
-		display: inline-block;
-		vertical-align: middle;
-		width: 15px;
-		height: 11px;
-		background: url("https://image.jinhak.com/jinhakImages/icon/icon_count.jpg") center no-repeat;
-		margin: -2px 4px 0 0;
-	}
-}
-
-@mixin t_tag { // tag (글 목록 용)
-	span {
-		//display: inline-block;
-		padding: 3px 5px 3px 0;
-		font-size: 14px;
-		color: $t_tag_color;
-		&.black{
-			font-size: 14px;
-			color: #272727;
-			&:after{
-				display:inline-block;
-				content:",";
-			}
-			&:last-of-type{
-				&:after{
-					display:none;
-				}
-			}
-		}
-		&.sch_word {
-			background-color: #ebf6fc;
-		}
-	}
-}
-
-@mixin t_tag2 { // tag (글 상세 용)
-	line-height: 1.4;
-	.HashTag { // 2019 이전 스타일 유지
-		display: inline-block;
-		font-size: 14px;
-		color: $t_tag_color;
-		margin-right: 13px;
-	}
-}
 
 @function lth-size($lth: 1){
 	@return $fullSize / $lth;
-}
-
-@mixin flexAlign($align:stretch, $jalign:space-between) {
-	display:flex;
-	align-items:$align;
-	justify-content:$jalign;
-}
-
-@mixin flexCenter {
-	display:flex;
-	justify-content:center;
-	align-items:center;
 }
 
 @mixin columnBox($space, $count) {
@@ -376,58 +289,6 @@ $img-path: 'https://image.jinhak.com/renewal2019/';
 	}
 	&:after{
 			display:none !important;
-	}
-}
-
-@mixin base_vod_txt { // vod 목록에서 .txt style의 공통
-	position: relative;
-	.subj {
-		color: $basic_color_text;
-	}
-	.tag {
-		margin-top: 3px;
-		a {
-			display: inline-block;
-			font-size: 13px;
-			color: #005fc1;
-			white-space: nowrap;
-			margin-right: 5px;
-		}
-	}
-	.etc {
-		margin-top: 3px;
-		p {
-			display: inline-block;
-			font-size: 13px;
-			color: #666;
-			letter-spacing: 0;
-			margin-right: 5px;
-			&:before {
-				content: "";
-				display: inline-block;
-				vertical-align: middle;
-				margin-top: -2px;
-			}
-			&.hit:before {
-				width: 7px;
-				height: 10px;
-				background: url("https://image.jinhak.com/renewal2019/common/bl_play3.png") no-repeat left center;
-				margin-right: 2px;
-			}
-			&.date:before {
-				width: 3px;
-				height: 2px;
-				background-color: #666;
-				border-radius: 50%;
-				margin-right: 2px;
-			}
-			&.ad:before {
-				width: 32px;
-				height: 16px;
-				background: url("https://image.jinhak.com/renewal2019/common/btn_ad.png") no-repeat left top;
-				margin-right: 4px;
-			}
-		}
 	}
 }
 
@@ -452,48 +313,6 @@ $img-path: 'https://image.jinhak.com/renewal2019/';
 			height:1px;
 			background-color: $basic_color_blue;
 			@include transition(all, .2s, ease-out);
-		}
-	}
-}
-
-// 사이드 fix 바
-@mixin asideFix($v,$bg-color){
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	width: 0;
-	z-index: 145;
-	background-color: $bg-color;
-	@media all and (max-width:1551px) {
-		display: none;
-	}
-	@if $v == "left"{
-		left: 0;
-		border-right: 1px solid #6d6d6d;
-		.btn_close_side{
-			right: -16px;
-			transform: rotateY(180deg);
-		}
-	}@else if $v == "right"{
-		right: 0;
-		border-left: 1px solid #6d6d6d;
-		.btn_close_side{
-			left: -16px;
-		}
-	}
-	.btn_close_side{
-		position: absolute;
-    top: 377px;
-    font-size: 0;
-    line-height: 0;
-    width: 16px;
-    height: 76px;
-    background: url("https://image.jinhak.com/renewal2009/virtualapply/arr14_open.gif") left center no-repeat $bg-color;
-    cursor: pointer;
-	}
-	&.open{
-		.btn_close_side{
-			background-image: url("https://image.jinhak.com/renewal2009/virtualapply/arr14_close.gif");
 		}
 	}
 }

@@ -18,6 +18,7 @@ const translations = {
         'nav.login': '로그인',
         'nav.logout': '로그아웃',
         'nav.register': '회원가입',
+        'nav.mypage': '마이페이지',
         'nav.language': '언어',
         'nav.remitGuide': '송금 서비스 안내',
         'nav.signupGuide': '가입 안내',
@@ -133,7 +134,7 @@ const translations = {
     en: {
         // Buttons
         'button.confirm': 'Confirm',
-        'button.mypage': 'MY',
+        'button.mypage': 'MY Page',
         'button.register': 'Register',
         'button.cancel': 'Cancel',
         'button.delete': 'Delete',
@@ -148,6 +149,7 @@ const translations = {
         'nav.login': 'Login',
         'nav.logout': 'Logout',
         'nav.register': 'Sign Up',
+        'nav.mypage': 'MY Page',
         'nav.language': 'Language',
         'nav.remitGuide': 'Remittance Service Guide',
         'nav.signupGuide': 'Registration Guide',
@@ -497,7 +499,6 @@ const translations = {
         'banner.security.alt': '安全可靠汇款'
     }
 };
-
 
 // ===== Exchange Rates (Sample Data) =====
 const exchangeRates = {

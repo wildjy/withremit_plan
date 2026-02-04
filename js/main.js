@@ -171,7 +171,6 @@ function toggleSidebar({
 function initGuestSidebar() {
   const sidebar = document.getElementById('guestSidebar');
   const overlay = document.getElementById('guestSidebarOverlay');
-//   const toggleBtn = document.querySelector('.mobile-menu-btn');
   const toggleBtn = document.getElementById('sidebarToggle');
   const closeBtn = document.getElementById('sidebarClose');
 //   const closeBtn = document.getElementById('guestSidebarClose');
@@ -249,56 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initMyMenu();
 });
 
-
-// function toggleMobileMenu() {
-//     // Desktop Dashboard: Toggle Sidebar Collapse
-//     // Only applies if body has 'db-body' class (Dashboard pages)
-//     if (window.innerWidth > 1024 && document.body.classList.contains('db-body')) {
-//         document.body.classList.toggle('db-collapsed');
-//         return;
-//     }
-
-//     // Mobile/Tablet OR Landing Page: Toggle Drawer
-//     const sidebar = document.getElementById('guestSidebar');
-//     const overlay = document.getElementById('guestSidebarOverlay');
-//     const menuBtn = document.querySelector('.mobile-menu-btn');
-
-//     if (sidebar && overlay) {
-//         sidebar.classList.toggle('active');
-//         overlay.classList.toggle('active');
-
-//         // Prevent body scroll when sidebar is open
-//         if (sidebar.classList.contains('active')) {
-//             document.body.style.overflow = 'hidden';
-//         } else {
-//             document.body.style.overflow = '';
-//         }
-//     }
-// }
-
-// Close sidebar event listeners
-// document.addEventListener('DOMContentLoaded', () => {
-//     const sidebar = document.getElementById('guestSidebar');
-//     const overlay = document.getElementById('guestSidebarOverlay');
-//     const closeBtn = document.getElementById('guestSidebarClose');
-
-//     if (closeBtn) {
-//         closeBtn.addEventListener('click', () => {
-//             sidebar.classList.remove('active');
-//             overlay.classList.remove('active');
-//             document.body.style.overflow = '';
-//         });
-//     }
-
-//     if (overlay) {
-//         overlay.addEventListener('click', () => {
-//             sidebar.classList.remove('active');
-//             overlay.classList.remove('active');
-//             document.body.style.overflow = '';
-//         });
-//     }
-// });
-
 // ===== Intersection Observer for Animations =====
 function initAnimations() {
     const observerOptions = {
@@ -365,12 +314,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Header scroll
     window.addEventListener('scroll', handleScroll);
 
-    // Mobile menu
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    if (mobileMenuBtn) {
-        // mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-        initGuestSidebar();
-    }
 
     // Initialize
     initAnimations();

@@ -1,11 +1,41 @@
 :root {
   // color palette
-  // --primary-blue: #1B5E9E;
-  // --primary-blue-dark: #154A7C;
-  // --primary-blue-light: #E8F1F8;
+  // old colors
+  // --primary-blue: #1b5e9e;
+  // --primary-blue-dark: #154a7c;
+  // --primary-blue-light: #e8f1f8;
+  // --accent-teal: #00c9b7;
+  // --bg-light: #f8fafa;
+  // --bg-section: #f2f6f5;
+  // --bg-dark: #1a2e35;
+  // --bg-dark-alt: #243b44;
+  // --text-dark: #1a2e35;
+  // --text-body: #4a5c64;
+  // --text-muted: #7a8e96;
+  // --text-light: #ffffff;
+  // --border-color: #dde4e6;
+  // --shadow-sm: 0 2px 8px rgba(26, 46, 53, 0.06);
+  // --shadow: 0 4px 20px rgba(26, 46, 53, 0.08);
+  // --shadow-lg: 0 12px 40px rgba(26, 46, 53, 0.12);
+  // --radius: 12px;
+  // --radius-lg: 20px;
+  // --transition: all 0.3s ease;
+
+  // base font size: 16px (1rem)
+
+  // layout sizes
+  --full: 100%;
+  --max-w: 1200px;
+  --header-h: 4.5rem;
+
+  // new colors
   --primary-blue: #00A0DC;
   --primary-blue-dark: #0088BE;
   --primary-blue-light: #E5F6FC;
+
+  --primary-green: #00a0dc;
+  --primary-green-dark: #0088be;
+  --primary-green-light: #e5f6fc;
 
   --secondary-gray: #F3F4F6;
   --secondary-gray-dark: #5A6268;
@@ -26,6 +56,7 @@
   --text-body: #4A5C64;
   --text-dark: #1A2E35;
   --text-muted: #7A8E96;
+  --text-light: #ffffff;
 
   --white: #FFFFFF;
   --black: #000000;
@@ -33,26 +64,37 @@
 
   --border-color: #DDE4E6;
 
-  --shadow-sm: 0 2px 8px rgba(26, 46, 53, 0.06);
-  --shadow: 0 4px 20px rgba(26, 46, 53, 0.08);
-  --shadow-lg: 0 12px 40px rgba(26, 46, 53, 0.12);
+  --shadow-sm: 0 0.125rem 0.5rem rgba(26, 46, 53, 0.06);
+  --shadow: 0 0.25rem 1.25rem rgba(26, 46, 53, 0.08);
+  --shadow-lg: 0 0.75rem 2.5rem rgba(26, 46, 53, 0.12);
 
   // sizes & spacing
-  --s1 : 4px;
-  --s2 : 8px;
-  --s3 : 12px;
-  --s4 : 16px;
-  --s5 : 20px;
-  --s6 : 24px;
-  --s8 : 32px;
-  --s10: 40px;
-  --s11: 44px;
-  --s12: 48px;
-  --s16: 64px;
+  --s1 : 0.25rem;  // 4px
+  --s2 : 0.5rem;   // 8px
+  --s3 : 0.75rem;  // 12px
+  --s4 : 1rem;     // 16px
+  --s5 : 1.25rem;  // 20px
+  --s6 : 1.5rem;   // 24px
+  --s7 : 1.75rem;  // 28px
+  --s8 : 2rem;     // 32px
+  --s10: 2.5rem;   // 40px
+  --s11: 2.75rem;  // 44px
+  --s12: 3rem;     // 48px
+  --s16: 4rem;     // 64px
 
-  --radius: 8px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  // font sizes
+  --2xs: 0.625rem; // 10px
+  --xs: 0.75rem;   // 12px
+  --sm: 0.875rem;  // 14px
+  --md: 1rem;      // 16px
+  --lg: 1.125rem;  // 18px
+  --xl: 1.25rem;   // 20px
+  --2xl: 1.5rem;   // 24px
+  --3xl: 1.875rem; // 30px
+
+  --radius: 0.5rem;  // 8px
+  --radius-md: 0.75rem;  // 12px
+  --radius-lg: 1.25rem;  // 20px
 
   --transition: all 0.3s ease;
 }
