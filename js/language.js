@@ -605,9 +605,20 @@ function updateFees(krw, foreignAmount) {
     const withdrawalFee = withdrawalFees[selectedCurrency] || 0;
     const symbol = currencySymbols[selectedCurrency] || '¥';
 
-    document.getElementById('depositAmount').textContent = `₩${depositTotal.toLocaleString()}`;
-    document.getElementById('transferFee').textContent = `₩${transferFee.toLocaleString()}`;
-    document.getElementById('withdrawalFee').textContent = `${symbol}${withdrawalFee.toLocaleString()}`;
+    const depositAmountEl = document.getElementById('depositAmount');
+    if (depositAmountEl) {
+        depositAmountEl.textContent = `₩${depositTotal.toLocaleString()}`;
+    }
+
+    const transferFeeEl = document.getElementById('transferFee');
+    if (transferFeeEl) {
+        transferFeeEl.textContent = `₩${transferFee.toLocaleString()}`;
+    }
+
+    const withdrawalFeeEl = document.getElementById('withdrawalFee');
+    if (withdrawalFeeEl) {
+        withdrawalFeeEl.textContent = `${symbol}${withdrawalFee.toLocaleString()}`;
+    }
 
     updateSavings(krw, foreignAmount);
 }
@@ -616,7 +627,10 @@ function handleReceiveAmountInput(e) {
     let rawValue = e.target.value.replace(/[^\d]/g, '');
     if (!rawValue) {
         e.target.value = '';
-        document.getElementById('sendAmount').value = '';
+        const sendAmountEl = document.getElementById('sendAmount');
+        if (sendAmountEl) {
+            sendAmountEl.value = '';
+        }
         return;
     }
 
@@ -633,7 +647,10 @@ function handleReceiveAmountInput(e) {
         e.target.value = numValue.toLocaleString('ko-KR');
     }
 
-    document.getElementById('sendAmount').value = krwAmount.toLocaleString('ko-KR');
+    const sendAmountEl = document.getElementById('sendAmount');
+    if (sendAmountEl) {
+        sendAmountEl.value = krwAmount.toLocaleString('ko-KR');
+    }
     updateFees(krwAmount, numValue);
 }
 
@@ -684,7 +701,8 @@ function applyTranslations() {
     document.documentElement.lang = currentLang;
 
     const sendInput = document.getElementById('sendAmount');
-    if (sendInput && sendInput.value) {
+    // selectedCurrency와 exchangeRates가 정의되어 있고, 필요한 요소들이 존재할 때만 실행
+    if (sendInput && sendInput.value && typeof selectedCurrency !== 'undefined' && typeof exchangeRates !== 'undefined') {
         handleSendAmountInput({ target: sendInput });
     }
 }
@@ -706,7 +724,8 @@ function changeLanguage(lang) {
 
     // 계산기가 있으면 금액 다시 계산 (통화 기호 변경 등)
     const sendInput = document.getElementById('sendAmount');
-    if (sendInput && sendInput.value) {
+    // selectedCurrency와 exchangeRates가 정의되어 있고, 필요한 요소들이 존재할 때만 실행
+    if (sendInput && sendInput.value && typeof selectedCurrency !== 'undefined' && typeof exchangeRates !== 'undefined') {
         handleSendAmountInput({ target: sendInput });
     }
 

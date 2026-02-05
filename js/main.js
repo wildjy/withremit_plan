@@ -168,37 +168,37 @@ function toggleSidebar({
   }
 }
 
-function initGuestSidebar() {
-  const sidebar = document.getElementById('guestSidebar');
-  const overlay = document.getElementById('guestSidebarOverlay');
-  const toggleBtn = document.getElementById('sidebarToggle');
-  const closeBtn = document.getElementById('sidebarClose');
-//   const closeBtn = document.getElementById('guestSidebarClose');
+// function initGuestSidebar() {
+//   const sidebar = document.getElementById('guestSidebar');
+//   const overlay = document.getElementById('guestSidebarOverlay');
+//   const toggleBtn = document.getElementById('sidebarToggle');
+//   const closeBtn = document.getElementById('sidebarClose');
+// //   const closeBtn = document.getElementById('guestSidebarClose');
 
-  if (!sidebar || !overlay || !toggleBtn) return;
+//   if (!sidebar || !overlay || !toggleBtn) return;
 
-  toggleBtn.addEventListener('click', () =>
-    toggleSidebar({
-      sidebar,
-      overlay,
-      desktopBodyClass: document.body.classList.contains('db-body')
-        ? 'db-collapsed'
-        : null,
-    })
-  );
+//   toggleBtn.addEventListener('click', () =>
+//     toggleSidebar({
+//       sidebar,
+//       overlay,
+//       desktopBodyClass: document.body.classList.contains('db-body')
+//         ? 'db-collapsed'
+//         : null,
+//     })
+//   );
 
-  [overlay, closeBtn].forEach((el) => {
-    if (!el) return;
-    el.addEventListener('click', () => {
-      sidebar.classList.remove('active');
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
-      overlay.style.display = 'none';
-    });
-  });
-}
+//   [overlay, closeBtn].forEach((el) => {
+//     if (!el) return;
+//     el.addEventListener('click', () => {
+//       sidebar.classList.remove('active');
+//       overlay.classList.remove('active');
+//       document.body.style.overflow = '';
+//       overlay.style.display = 'none';
+//     });
+//   });
+// }
 
-function initDashboardSidebar() {
+function initSidebar() {
   const sidebar = document.getElementById('dbSidebar');
   const overlay = document.getElementById('dbOverlay');
   const toggleBtn = document.getElementById('sidebarToggle');
@@ -210,7 +210,9 @@ function initDashboardSidebar() {
     toggleSidebar({
       sidebar,
       overlay,
-      desktopBodyClass: 'db-collapsed',
+      desktopBodyClass: document.body.classList.contains('db-body')
+        ? 'db-collapsed'
+        : null,
       mobileSidebarClass: 'mobile-open',
     })
   );
@@ -219,6 +221,7 @@ function initDashboardSidebar() {
     if (!el) return;
     el.addEventListener('click', () => {
       sidebar.classList.remove('mobile-open');
+      sidebar.classList.remove('active');
       overlay.classList.remove('active');
       document.body.style.overflow = '';
       overlay.style.display = 'none';
@@ -243,8 +246,8 @@ function initMyMenu() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  initGuestSidebar();
-  initDashboardSidebar();
+//   initGuestSidebar();
+  initSidebar();
   initMyMenu();
 });
 
@@ -323,17 +326,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ===== Smooth Scroll =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
-        // Close mobile menu if open
-        document.querySelector('.mobile-nav')?.classList.remove('active');
-    });
-});
+// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+//     anchor.addEventListener('click', function (e) {
+//         e.preventDefault();
+//         const target = document.querySelector(this.getAttribute('href'));
+//         if (target) {
+//             target.scrollIntoView({ behavior: 'smooth' });
+//         }
+//         // Close mobile menu if open
+//         document.querySelector('.mobile-nav')?.classList.remove('active');
+//     });
+// });
 
 let keypadMode = 'abc';
 let isShift = false;

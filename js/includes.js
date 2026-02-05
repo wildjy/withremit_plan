@@ -19,9 +19,9 @@ function loadIncludes() {
 
     // Function to initialize sidebar when both header and sidebar are loaded
     function tryInitSidebar() {
-        if (!isGuest && headerLoaded && (sidebarLoaded || !document.getElementById('sidebarContainer'))) {
-            if (typeof initDashboardSidebar === 'function') {
-                initDashboardSidebar();
+        if (headerLoaded && (sidebarLoaded || !document.getElementById('sidebarContainer'))) { // !isGuest &&
+            if (typeof initSidebar === 'function') {
+                initSidebar();
             }
         }
     }
@@ -203,29 +203,29 @@ function loadIncludes() {
                 sidebarLoaded = true;
 
                 // Init Guest Sidebar Close Event
-                const closeBtn = document.getElementById('guestSidebarClose');
-                const overlay = document.getElementById('guestSidebarOverlay');
-                const sidebar = document.getElementById('guestSidebar');
+                // const closeBtn = document.getElementById('guestSidebarClose');
+                // const overlay = document.getElementById('guestSidebarOverlay');
+                // const sidebar = document.getElementById('guestSidebar');
 
-                if (closeBtn && sidebar) {
-                    closeBtn.addEventListener('click', () => {
-                        sidebar.classList.remove('active');
-                        if (overlay) overlay.classList.remove('active');
-                        document.body.style.overflow = '';
-                    });
-                }
+                // if (closeBtn && sidebar) {
+                //     closeBtn.addEventListener('click', () => {
+                //         sidebar.classList.remove('active');
+                //         if (overlay) overlay.classList.remove('active');
+                //         document.body.style.overflow = '';
+                //     });
+                // }
 
-                if (overlay && sidebar) {
-                    overlay.addEventListener('click', () => {
-                        sidebar.classList.remove('active');
-                        overlay.classList.remove('active');
-                        document.body.style.overflow = '';
-                    });
-                }
+                // if (overlay && sidebar) {
+                //     overlay.addEventListener('click', () => {
+                //         sidebar.classList.remove('active');
+                //         overlay.classList.remove('active');
+                //         document.body.style.overflow = '';
+                //     });
+                // }
 
-                if (isGuest) {
-                    callWhenAvailable('initGuestSidebar', () => window.initGuestSidebar());
-                }
+                // if (isGuest) {
+                //     callWhenAvailable('initGuestSidebar', () => window.initGuestSidebar());
+                // }
 
                 // Load support into sidebar after sidebar is loaded
                 const nav = sidebarContainer.querySelector('.db-side-nav');

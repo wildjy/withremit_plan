@@ -316,3 +316,153 @@ $vw-context: calc($viewport * 0.01) * 1px;
 		}
 	}
 }
+
+
+// button
+@mixin btnBox($display, $width, $height, $fontSize, $type: null){
+  display: $display;
+
+  @if ($type == m) {
+    @if $width=="auto"{
+      width: auto;
+    }@else if unit($width)=="%" {
+      width: $width;
+    }@else{
+      width: calc-vw($width);
+    }
+    @if $height=="auto"{
+      height: auto;
+    }@else if unit($height)=="%" {
+      height: $height;
+      line-height: $height;
+    }@else {
+      height: calc-em($fontSize, $height);
+      line-height: calc-em($fontSize, $height);
+    }
+    @if($fontSize) {
+      font-size: min(calc-vw($fontSize), $fontSize);
+			@media screen and (min-width:$minWidthTablet) {
+				.optimization & {
+					font-size: $fontSize * 0.667;
+				}
+			}
+    }
+  }@else if ($type == p) {
+    padding: calc-em($fontSize, $height) calc-em($fontSize, $width);
+    line-height: initial;
+    @if($fontSize) {
+      font-size: $fontSize;
+    }
+  }@else if($type == mp){
+    padding: calc-em($fontSize, $height) calc-em($fontSize, $width);
+    line-height: inherit;
+    @if($fontSize) {
+      font-size:  min(calc-vw($fontSize), $fontSize);
+    }
+  }
+
+  @else {
+    width: $width;
+    height: $height;
+    line-height: $height;
+    @if($fontSize) {
+      font-size: $fontSize;
+    }
+  }
+
+  text-align: center;
+  vertical-align: middle;
+  @include disabled;
+};
+
+@mixin disabled($type : null){
+  $color : #d8d8d8;
+  $bgColor : #eee;
+  &.disabled{
+    color:$color;
+    background-color: $bgColor;
+    border: 1px solid $color;
+    @if($type == btn){
+      color:$color;
+      background-color: $bgColor;
+      border: 1px solid $bgColor;
+    }
+  }
+}
+
+@mixin colorsSystem($fontColor, $bg, $borderColor){
+  @if($fontColor == null){
+    color: inherit;
+  } @else {
+    color: $fontColor;
+  }
+
+  @if ($bg == null and $borderColor == null){
+    background-color: #fff;
+    border: 1px solid transparent;
+  } @else {
+    @if $bg == null {
+      background-color: #fff;
+    } @else {
+      background-color: $bg;
+    }
+
+    @if $borderColor == null {
+      border: 1px solid $bg;
+    } @else {
+      border: 1px solid $borderColor;
+    }
+  }
+};
+
+@mixin optSystem($radius, $shadow, $type: null){
+  @if($radius == null){
+    border-radius: 0px;
+  } @else {
+    @if ($type == m or $type == mp) {
+      border-radius: calc-em(24px, $radius);
+    } @else {
+      border-radius: $radius;
+    }
+  }
+
+  @if($shadow == null) {
+  } @else {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, $shadow);
+  }
+};
+
+@mixin btnDefault($display, $width, $height, $fontSize, $radius, $type: null) {
+  @include btnBox($display, $width, $height, $fontSize, $type);
+  @include colorsSystem(#888, #fff,#c2c2c2);
+  @include optSystem($radius, null, $type);
+  @include btnDisabled;
+}
+
+@mixin btnPrimary($display, $width, $height, $fontSize, $radius, $type: null) {
+  @include btnBox($display, $width, $height, $fontSize, $type);
+  @include colorsSystem(#fff, #1B73D4, null);
+  @include optSystem($radius, null, $type);
+  @include btnDisabled;
+}
+
+@mixin btnSecondary($display, $width, $height, $fontSize, $radius, $type: null) {
+  @include btnBox($display, $width, $height, $fontSize, $type);
+  @include colorsSystem(#fff, #c2c2c2, null);
+  @include optSystem($radius, null, $type);
+  @include btnDisabled;
+}
+
+@mixin btnTertiary($display, $width, $height, $fontSize, $radius, $type: null) {
+  @include btnBox($display, $width, $height, $fontSize, $type);
+  @include colorsSystem(#1B73D4, #fff,#1B73D4);
+  @include optSystem($radius, null, $type);
+  @include btnDisabled;
+}
+
+@mixin btnQuarternary($display, $width, $height, $fontSize, $radius, $type: null) {
+  @include btnBox($display, $width, $height, $fontSize, $type);
+  @include colorsSystem(null, #fff, #646464);
+  @include optSystem(3px, null);
+  @include btnDisabled;
+}
