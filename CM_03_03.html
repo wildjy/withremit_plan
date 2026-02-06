@@ -7,178 +7,84 @@
     <title>WithRemit - 비밀번호 재설정</title>
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel='stylesheet' href='css/auth.css'>
-    <style>
-        body {
-            font-family: 'Pretendard', sans-serif;
-            background: #f8fafa;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 60px 20px;
-        }
-
-        .guide-logo {
-            height: 50px;
-            margin-bottom: 20px;
-        }
-
-        .guide-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #1B5E9E;
-            margin-bottom: 40px;
-        }
-
-        .demo-section {
-            margin-bottom: 50px;
-            text-align: center;
-            width: 100%;
-            max-width: 600px;
-        }
-
-        /* Info Box Style */
-        .info-box {
-            background-color: #E8F1F8;
-            color: #1B5E9E;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: left;
-            margin-bottom: 24px;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .info-box i {
-            font-style: normal;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .modal-content {
-            text-align: left;
-            /* Override center alignment */
-            padding: 30px;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .modal-header h3 {
-            font-size: 20px;
-            font-weight: 800;
-            margin: 0;
-            color: #111;
-        }
-
-        .btn-close-modal {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #111;
-            padding: 0;
-            line-height: 1;
-        }
-
-        .input-label {
-            display: block;
-            font-weight: 700;
-            color: #7A8E96;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-
-        .field-group {
-            margin-bottom: 20px;
-        }
-
-        /* Ensure modal buttons container aligns */
-        .modal-btn-group {
-            margin-top: 30px;
-        }
-    </style>
     <script src='js/auth.js'></script>
 </head>
 
 <body>
-    <img src="images/logo-withremit.png" alt="withremit" class="guide-logo">
-    <h1 class="guide-title">비밀번호 재설정</h1>
+    <div class="login-wh-full">
+        <img src="images/logo-withremit.png" alt="withremit" class="guide-logo">
+        <h1 class="guide-title">비밀번호 재설정</h1>
 
-    <div class="demo-section">
-        <button class="demo-btn btn-success" onclick="openModal('resetPasswordModal')">비밀번호 재설정</button>
-    </div>
+        <div class="demo-section">
+            <button class="demo-btn btn-success" onclick="openModal('resetPasswordModal')">비밀번호 재설정</button>
+        </div>
 
-    <!-- Password Reset Modal -->
-    <div id="resetPasswordModal" class="modal-overlay">
-        <div class="modal-content" style="max-width: 480px; width: 100%;">
-            <div class="modal-header">
-                <h3>비밀번호 재설정</h3>
-                <button type="button" class="btn-close-modal"
-                    onclick="closeModal('resetPasswordModal')">&times;</button>
-            </div>
+        <!-- Password Reset Modal -->
+        <div id="resetPasswordModal" class="modal-overlay">
+            <div class="modal-content" style="max-width: 480px; width: 100%; padding: 30px; text-align: left;">
+                <div class="modal-header">
+                    <h3>비밀번호 재설정</h3>
+                    <button type="button" class="btn-close-modal"
+                        onclick="closeModal('resetPasswordModal')">&times;</button>
+                </div>
 
-            <div class="info-box">
-                <i>ⓘ</i> 새롭게 사용할 비밀번호를 입력해 주세요.
-            </div>
+                <div class="info-box">
+                    <i>ⓘ</i> 새롭게 사용할 비밀번호를 입력해 주세요.
+                </div>
 
-            <div class="field-group">
-                <label class="input-label">비밀번호</label>
-                <div class="input-box-group">
-                    <div class="password-wrap" style="width: 100%;">
-                        <input type="text" id="newPassword" class="login-input" placeholder="비밀번호를 입력하세요" readonly
-                            onclick="toggleKeypad('newPassword')">
-                        <button type="button" class="keypad-btn" tabindex="-1" onclick="toggleKeypad('newPassword')">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path
-                                    d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
-                            </svg>
-                        </button>
+                <div class="field-group">
+                    <label class="input-label">비밀번호</label>
+                    <div class="input-box-group">
+                        <div class="password-wrap" style="width: 100%;">
+                            <input type="text" id="newPassword" class="login-input" placeholder="비밀번호를 입력하세요" readonly
+                                onclick="toggleKeypad('newPassword')">
+                            <button type="button" class="keypad-btn" tabindex="-1" onclick="toggleKeypad('newPassword')">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="field-group">
-                <label class="input-label">비밀번호 확인</label>
-                <div class="input-box-group">
-                    <div class="password-wrap" style="width: 100%;">
-                        <input type="text" id="confirmPassword" class="login-input" placeholder="비밀번호를 다시 입력하세요"
-                            readonly onclick="toggleKeypad('confirmPassword')">
-                        <button type="button" class="keypad-btn" tabindex="-1"
-                            onclick="toggleKeypad('confirmPassword')">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path
-                                    d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
-                            </svg>
-                        </button>
+                <div class="field-group">
+                    <label class="input-label">비밀번호 확인</label>
+                    <div class="input-box-group">
+                        <div class="password-wrap" style="width: 100%;">
+                            <input type="text" id="confirmPassword" class="login-input" placeholder="비밀번호를 다시 입력하세요"
+                                readonly onclick="toggleKeypad('confirmPassword')">
+                            <button type="button" class="keypad-btn" tabindex="-1"
+                                onclick="toggleKeypad('confirmPassword')">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="modal-btn-group">
-                <button class="btn-cancel" onclick="closeModal('resetPasswordModal')">취소</button>
-                <button class="btn-confirm-action" style="background-color: #00A0DC; flex: 1.5 !important;"
-                    onclick="alert('비밀번호가 변경되었습니다.')">비밀번호 변경</button>
+                <div class="modal-btn-group" style="margin-top: 30px;">
+                    <button class="btn-cancel" onclick="closeModal('resetPasswordModal')">취소</button>
+                    <button class="btn-confirm-action" style="background-color: #00A0DC; flex: 1.5 !important;"
+                        onclick="alert('비밀번호가 변경되었습니다.')">비밀번호 변경</button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Security Keypad Container (Moved to body for correct positioning) -->
-    <div id="securityKeypad" class="security-keypad">
-        <div class="keypad-header">
-            <span>보안 키보드</span>
-            <button type="button" class="close-keypad" onclick="toggleKeypad(null)">&times;</button>
+        <!-- Security Keypad Container (Moved to body for correct positioning) -->
+        <div id="securityKeypad" class="security-keypad">
+            <div class="keypad-header">
+                <span>보안 키보드</span>
+                <button type="button" class="close-keypad" onclick="toggleKeypad(null)">&times;</button>
+            </div>
+            <div id="keypadContainer" class="keypad-grid"></div>
         </div>
-        <div id="keypadContainer" class="keypad-grid"></div>
     </div>
 
     <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
