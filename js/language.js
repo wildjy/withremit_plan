@@ -527,7 +527,7 @@ const exchangeRates = {
 // };
 
 const currencySymbols = {
-    'JPY': '¥', 'PHP': '₱', 'CNY': '¥', 'NPR': 'रू', 'AUD': 'A$', 'HKD': 'HK$', 'MNT': '₮', 'VND': '₫', 'LKR': '௹', 'BDT': '৳'
+    'JP': '¥', 'PH': '₱', 'CN': '¥', 'NP': 'रू', 'AU': 'A$', 'HK': 'HK$', 'MN': '₮', 'VN': '₫', 'LK': '௹', 'BD': '৳'
 };
 
 const withdrawalFees = {
@@ -597,7 +597,7 @@ function handleSendAmountInput(e) {
     } else {
         e.target.value = numValue.toLocaleString('ko-KR');
     }
-
+    console.log('Selected Currency:', selectedCurrency);
     const rate = exchangeRates[selectedCurrency].rate;
     const convertedAmount = Math.floor(numValue * rate);
 
