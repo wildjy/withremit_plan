@@ -534,28 +534,29 @@
     </div>
 
     <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
+    <script src="js/main.js"></script>
     <script src="js/includes.js"></script>
     <script>
         // 환율 데이터
-        const exchangeRates = {
-            JP: { rate: 0.1112, name: '일본', currency: '엔', symbol: '¥', withdrawalFee: 660 },
-            PH: { rate: 0.0421, name: '필리핀', currency: '페소', symbol: '₱', withdrawalFee: 40129 },
-            CN: { rate: 0.0054, name: '중국', currency: '위안', symbol: '¥', withdrawalFee: 4713 },
-            NP: { rate: 0.1004, name: '네팔', currency: '루피', symbol: 'रू', withdrawalFee: 97607 },
-            AU: { rate: 0.0011, name: '호주', currency: '달러', symbol: 'A$', withdrawalFee: 0 },
-            HK: { rate: 0.0059, name: '홍콩', currency: '달러', symbol: 'HK$', withdrawalFee: 0 },
-            MN: { rate: 2.5830, name: '몽골', currency: '투그릭', symbol: '₮', withdrawalFee: 0 },
-            VN: { rate: 18.5200, name: '베트남', currency: '동', symbol: '₫', withdrawalFee: 0 },
-            LK: { rate: 0.2450, name: '스리랑카', currency: '루피', symbol: '௹', withdrawalFee: 0 },
-            BD: { rate: 0.0815, name: '방글라데시', currency: '타카', symbol: '৳', withdrawalFee: 0 }
-        };
+        // const exchangeRates = {
+        //     JP: { rate: 0.1112, name: '일본', currency: '엔', symbol: '¥', withdrawalFee: 660 },
+        //     PH: { rate: 0.0421, name: '필리핀', currency: '페소', symbol: '₱', withdrawalFee: 40129 },
+        //     CN: { rate: 0.0054, name: '중국', currency: '위안', symbol: '¥', withdrawalFee: 4713 },
+        //     NP: { rate: 0.1004, name: '네팔', currency: '루피', symbol: 'रू', withdrawalFee: 97607 },
+        //     AU: { rate: 0.0011, name: '호주', currency: '달러', symbol: 'A$', withdrawalFee: 0 },
+        //     HK: { rate: 0.0059, name: '홍콩', currency: '달러', symbol: 'HK$', withdrawalFee: 0 },
+        //     MN: { rate: 2.5830, name: '몽골', currency: '투그릭', symbol: '₮', withdrawalFee: 0 },
+        //     VN: { rate: 18.5200, name: '베트남', currency: '동', symbol: '₫', withdrawalFee: 0 },
+        //     LK: { rate: 0.2450, name: '스리랑카', currency: '루피', symbol: '௹', withdrawalFee: 0 },
+        //     BD: { rate: 0.0815, name: '방글라데시', currency: '타카', symbol: '৳', withdrawalFee: 0 }
+        // };
 
         // window 객체에 등록하여 전역 접근 가능하게
         window.exchangeRates = exchangeRates;
 
         // 송금 한도 상수 정의 (전역)
-        const MAX_LIMIT = 5000; // USD
-        const KRW_PER_USD = 1350;
+        // const MAX_LIMIT = 5000; // USD
+        // const KRW_PER_USD = 1350;
 
         // 날짜 초기화 함수
         function initializeDates() {
@@ -631,7 +632,7 @@
 
         // 페이지 로드 시 날짜 초기화
         initializeDates();
-        const MAX_KRW_LIMIT = MAX_LIMIT * KRW_PER_USD; // 6,750,000원
+        // const MAX_KRW_LIMIT = MAX_LIMIT * KRW_PER_USD; // 6,750,000원
 
         // 국가별 서비스 옵션 (서비스명과 변경가능 여부)
         const servicesByCountry = {

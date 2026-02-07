@@ -502,16 +502,16 @@ const translations = {
 
 // ===== Exchange Rates (Sample Data) =====
 const exchangeRates = {
-    JPY: { rate: 0.1112, name: '일본', currency: '엔', symbol: '¥', flagImg: 'jp', withdrawalFee: 660},
-    PHP: { rate: 0.0421, name: '필리핀', currency: '페소', symbol: '₱', flagImg: 'ph', withdrawalFee: 40129 },
-    CNY: { rate: 0.0054, name: '중국', currency: '위안', symbol: '¥', flagImg: 'cn', withdrawalFee: 40129 },
-    NPR: { rate: 0.1004, name: '네팔', currency: '루피', symbol: 'रू', flagImg: 'np', withdrawalFee: 97607  },
-    AUD: { rate: 0.0011, name: '호주', currency: '달러', symbol: 'A$', flagImg: 'au', withdrawalFee: 0 },
-    HKD: { rate: 0.0059, name: '홍콩', currency: '달러', symbol: 'HK$', flagImg: 'hk', withdrawalFee: 0 },
-    MNT: { rate: 2.5830, name: '몽골', currency: '투그릭', symbol: '₮', flagImg: 'mn', withdrawalFee: 0 },
-    VND: { rate: 18.5200, name: '베트남', currency: '동', symbol: '₫', flagImg: 'vn', withdrawalFee: 0 },
-    LKR: { rate: 0.2450, name: '스리랑카', currency: '루피', symbol: '௹', flagImg: 'lk', withdrawalFee: 0 },
-    BDT: { rate: 0.0815, name: '방글라데시', currency: '타카', symbol: '৳', flagImg: 'bd', withdrawalFee: 0 }
+    JP: { rate: 0.1112, name: '일본', currency: '엔', symbol: '¥', flagImg: 'jp', withdrawalFee: 660},
+    PH: { rate: 0.0421, name: '필리핀', currency: '페소', symbol: '₱', flagImg: 'ph', withdrawalFee: 40129 },
+    CN: { rate: 0.0054, name: '중국', currency: '위안', symbol: '¥', flagImg: 'cn', withdrawalFee: 40129 },
+    NP: { rate: 0.1004, name: '네팔', currency: '루피', symbol: 'रू', flagImg: 'np', withdrawalFee: 97607  },
+    AU: { rate: 0.0011, name: '호주', currency: '달러', symbol: 'A$', flagImg: 'au', withdrawalFee: 0 },
+    HK: { rate: 0.0059, name: '홍콩', currency: '달러', symbol: 'HK$', flagImg: 'hk', withdrawalFee: 0 },
+    MN: { rate: 2.5830, name: '몽골', currency: '투그릭', symbol: '₮', flagImg: 'mn', withdrawalFee: 0 },
+    VN: { rate: 18.5200, name: '베트남', currency: '동', symbol: '₫', flagImg: 'vn', withdrawalFee: 0 },
+    LK: { rate: 0.2450, name: '스리랑카', currency: '루피', symbol: '௹', flagImg: 'lk', withdrawalFee: 0 },
+    BD: { rate: 0.0815, name: '방글라데시', currency: '타카', symbol: '৳', flagImg: 'bd', withdrawalFee: 0 }
 };
 // const exchangeRates = {
 //     JP: { rate: 0.1112, name: '일본', currency: '엔', symbol: '¥', withdrawalFee: 660 },
@@ -531,19 +531,19 @@ const currencySymbols = {
 };
 
 const withdrawalFees = {
-    'JPY': 660,
-    'PHP': 40129,
-    'CNY': 4713,
-    'NPR': 97607,
-    'AUD': 0,
-    'HKD': 0,
-    'MNT': 0,
-    'VND': 0,
-    'LKR': 0,
-    'BDT': 0
-};
+    'JP': 660,
+    'PH': 40129,
+    'CN': 4713,
+    'NP': 97607,
+    'AU': 0,
+    'HK': 0,
+    'MN': 0,
+    'VN': 0,
+    'LK': 0,
+    'BD': 0
+};  
 
-let selectedCurrency = 'JPY';
+let selectedCurrency = 'JP';
 let currentLang = 'ko';
 
 // Bank comparison rates

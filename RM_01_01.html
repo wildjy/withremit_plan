@@ -60,16 +60,16 @@
                                     <label class="field-label">국가</label>
                                     <select class="login-input select-styled" id="remitCountry">
                                         <option value="" disabled selected>선택</option>
-                                        <option value="JPY">일본 (JPY)</option>
-                                        <option value="PHP">필리핀 (PHP)</option>
-                                        <option value="CNY">중국 (CNY)</option>
-                                        <option value="NPR">네팔 (NPR)</option>
-                                        <option value="AUD">호주 (AUD)</option>
-                                        <option value="HKD">홍콩 (HKD)</option>
-                                        <option value="MNT">몽골 (MNT)</option>
-                                        <option value="VND">베트남 (VND)</option>
-                                        <option value="LKR">스리랑카 (LKR)</option>
-                                        <option value="BDT">방글라데시 (BDT)</option>
+                                        <option value="JP">일본 (JPY)</option>
+                                        <option value="PH">필리핀 (PHP)</option>
+                                        <option value="CN">중국 (CNY)</option>
+                                        <option value="NP">네팔 (NPR)</option>
+                                        <option value="AU">호주 (AUD)</option>
+                                        <option value="HK">홍콩 (HKD)</option>
+                                        <option value="MN">몽골 (MNT)</option>
+                                        <option value="VN">베트남 (VND)</option>
+                                        <option value="LK">스리랑카 (LKR)</option>
+                                        <option value="BD">방글라데시 (BDT)</option>
                                     </select>
                                     <span class="field-error" id="remitCountryError"></span>
                                 </div>
@@ -469,19 +469,19 @@
 
         // 국가별 서비스 옵션 (서비스명과 변경가능 여부)
         const servicesByCountry = {
-            JPY: [{ value: 'JP_REMIT', text: '일본 송금', locked: true }],
-            PHP: [
+            JP: [{ value: 'JP_REMIT', text: '일본 송금', locked: true }],
+            PH: [
                 { value: 'PH_BANK', text: '필리핀은행 송금', locked: false },
                 { value: 'PH_PICKUP', text: '필리핀 Pickup', locked: false }
             ],
-            CNY: [{ value: 'CN_REMIT', text: '중국 송금', locked: true }],
-            NPR: [{ value: 'NP_REMIT', text: '네팔 송금', locked: true }],
-            AUD: [{ value: 'AU_REMIT', text: '호주 송금', locked: true }],
-            HKD: [{ value: 'HK_REMIT', text: '홍콩 송금', locked: true }],
-            MNT: [{ value: 'MN_REMIT', text: '몽고 송금', locked: true }],
-            VND: [{ value: 'VN_REMIT', text: '베트남 송금', locked: true }],
-            LKR: [{ value: 'LK_REMIT', text: '스리랑카 송금', locked: true }],
-            BDT: [{ value: 'BD_REMIT', text: '방글라데시 송금', locked: true }]
+            CN: [{ value: 'CN_REMIT', text: '중국 송금', locked: true }],
+            NP: [{ value: 'NP_REMIT', text: '네팔 송금', locked: true }],
+            AU: [{ value: 'AU_REMIT', text: '호주 송금', locked: true }],
+            HK: [{ value: 'HK_REMIT', text: '홍콩 송금', locked: true }],
+            MN: [{ value: 'MN_REMIT', text: '몽고 송금', locked: true }],
+            VN: [{ value: 'VN_REMIT', text: '베트남 송금', locked: true }],
+            LK: [{ value: 'LK_REMIT', text: '스리랑카 송금', locked: true }],
+            BD: [{ value: 'BD_REMIT', text: '방글라데시 송금', locked: true }]
         };
 
         // 국가별 은행 목록 (일본은 전체 목록)
