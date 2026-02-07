@@ -502,17 +502,29 @@ const translations = {
 
 // ===== Exchange Rates (Sample Data) =====
 const exchangeRates = {
-    JPY: { rate: 0.1112, name: '일본', currency: '엔', symbol: '¥', flagImg: 'jp' },
-    PHP: { rate: 0.0421, name: '필리핀', currency: '페소', symbol: '₱', flagImg: 'ph' },
-    CNY: { rate: 0.0054, name: '중국', currency: '위안', symbol: '¥', flagImg: 'cn' },
-    NPR: { rate: 0.1004, name: '네팔', currency: '루피', symbol: 'रू', flagImg: 'np' },
-    AUD: { rate: 0.0011, name: '호주', currency: '달러', symbol: 'A$', flagImg: 'au' },
-    HKD: { rate: 0.0059, name: '홍콩', currency: '달러', symbol: 'HK$', flagImg: 'hk' },
-    MNT: { rate: 2.5830, name: '몽골', currency: '투그릭', symbol: '₮', flagImg: 'mn' },
-    VND: { rate: 18.5200, name: '베트남', currency: '동', symbol: '₫', flagImg: 'vn' },
-    LKR: { rate: 0.2450, name: '스리랑카', currency: '루피', symbol: '௹', flagImg: 'lk' },
-    BDT: { rate: 0.0815, name: '방글라데시', currency: '타카', symbol: '৳', flagImg: 'bd' }
+    JPY: { rate: 0.1112, name: '일본', currency: '엔', symbol: '¥', flagImg: 'jp', withdrawalFee: 660},
+    PHP: { rate: 0.0421, name: '필리핀', currency: '페소', symbol: '₱', flagImg: 'ph', withdrawalFee: 40129 },
+    CNY: { rate: 0.0054, name: '중국', currency: '위안', symbol: '¥', flagImg: 'cn', withdrawalFee: 40129 },
+    NPR: { rate: 0.1004, name: '네팔', currency: '루피', symbol: 'रू', flagImg: 'np', withdrawalFee: 97607  },
+    AUD: { rate: 0.0011, name: '호주', currency: '달러', symbol: 'A$', flagImg: 'au', withdrawalFee: 0 },
+    HKD: { rate: 0.0059, name: '홍콩', currency: '달러', symbol: 'HK$', flagImg: 'hk', withdrawalFee: 0 },
+    MNT: { rate: 2.5830, name: '몽골', currency: '투그릭', symbol: '₮', flagImg: 'mn', withdrawalFee: 0 },
+    VND: { rate: 18.5200, name: '베트남', currency: '동', symbol: '₫', flagImg: 'vn', withdrawalFee: 0 },
+    LKR: { rate: 0.2450, name: '스리랑카', currency: '루피', symbol: '௹', flagImg: 'lk', withdrawalFee: 0 },
+    BDT: { rate: 0.0815, name: '방글라데시', currency: '타카', symbol: '৳', flagImg: 'bd', withdrawalFee: 0 }
 };
+// const exchangeRates = {
+//     JP: { rate: 0.1112, name: '일본', currency: '엔', symbol: '¥', withdrawalFee: 660 },
+//     PH: { rate: 0.0421, name: '필리핀', currency: '페소', symbol: '₱', withdrawalFee: 40129 },
+//     CN: { rate: 0.0054, name: '중국', currency: '위안', symbol: '¥', withdrawalFee: 40129 },
+//     NP: { rate: 0.1004, name: '네팔', currency: '루피', symbol: 'रू', withdrawalFee: 97607 },
+//     AU: { rate: 0.0011, name: '호주', currency: '달러', symbol: 'A$', withdrawalFee: 0 },
+//     HK: { rate: 0.0059, name: '홍콩', currency: '달러', symbol: 'HK$', withdrawalFee: 0 },
+//     MN: { rate: 2.5830, name: '몽골', currency: '투그릭', symbol: '₮', withdrawalFee: 0 },
+//     VN: { rate: 18.5200, name: '베트남', currency: '동', symbol: '₫', withdrawalFee: 0 },
+//     LK: { rate: 0.2450, name: '스리랑카', currency: '루피', symbol: '௹', withdrawalFee: 0 },
+//     BD: { rate: 0.0815, name: '방글라데시', currency: '타카', symbol: '৳', withdrawalFee: 0 }
+// };
 
 const currencySymbols = {
     'JPY': '¥', 'PHP': '₱', 'CNY': '¥', 'NPR': 'रू', 'AUD': 'A$', 'HKD': 'HK$', 'MNT': '₮', 'VND': '₫', 'LKR': '௹', 'BDT': '৳'

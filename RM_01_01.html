@@ -57,19 +57,19 @@
                         <div class="form-sec">
                             <div class="form-row-2">
                                 <div class="field-item">
-                                    <label class="field-label" data-i18n="countries.countries">국가</label>
+                                    <label class="field-label">국가</label>
                                     <select class="login-input select-styled" id="remitCountry">
                                         <option value="" disabled selected>선택</option>
-                                        <option value="JP">일본 (JPY)</option>
-                                        <option value="PH">필리핀 (PHP)</option>
-                                        <option value="CN">중국 (CNY)</option>
-                                        <option value="NP">네팔 (NPR)</option>
-                                        <option value="AU">호주 (AUD)</option>
-                                        <option value="HK">홍콩 (HKD)</option>
-                                        <option value="MN">몽골 (MNT)</option>
-                                        <option value="VN">베트남 (VND)</option>
-                                        <option value="LK">스리랑카 (LKR)</option>
-                                        <option value="BD">방글라데시 (BDT)</option>
+                                        <option value="JPY">일본 (JPY)</option>
+                                        <option value="PHP">필리핀 (PHP)</option>
+                                        <option value="CNY">중국 (CNY)</option>
+                                        <option value="NPR">네팔 (NPR)</option>
+                                        <option value="AUD">호주 (AUD)</option>
+                                        <option value="HKD">홍콩 (HKD)</option>
+                                        <option value="MNT">몽골 (MNT)</option>
+                                        <option value="VND">베트남 (VND)</option>
+                                        <option value="LKR">스리랑카 (LKR)</option>
+                                        <option value="BDT">방글라데시 (BDT)</option>
                                     </select>
                                     <span class="field-error" id="remitCountryError"></span>
                                 </div>
@@ -441,47 +441,47 @@
         </div>
     </div>
 
-    <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
+    <script src="js/language.js"></script>
     <script src="js/main.js"></script>
     <script src="js/includes.js"></script>
     <script>
         // 환율 데이터
-        const exchangeRates = {
-            JP: { rate: 0.1112, name: '일본', currency: '엔', symbol: '¥', withdrawalFee: 660 },
-            PH: { rate: 0.0421, name: '필리핀', currency: '페소', symbol: '₱', withdrawalFee: 40129 },
-            CN: { rate: 0.0054, name: '중국', currency: '위안', symbol: '¥', withdrawalFee: 4713 },
-            NP: { rate: 0.1004, name: '네팔', currency: '루피', symbol: 'रू', withdrawalFee: 97607 },
-            AU: { rate: 0.0011, name: '호주', currency: '달러', symbol: 'A$', withdrawalFee: 0 },
-            HK: { rate: 0.0059, name: '홍콩', currency: '달러', symbol: 'HK$', withdrawalFee: 0 },
-            MN: { rate: 2.5830, name: '몽골', currency: '투그릭', symbol: '₮', withdrawalFee: 0 },
-            VN: { rate: 18.5200, name: '베트남', currency: '동', symbol: '₫', withdrawalFee: 0 },
-            LK: { rate: 0.2450, name: '스리랑카', currency: '루피', symbol: '௹', withdrawalFee: 0 },
-            BD: { rate: 0.0815, name: '방글라데시', currency: '타카', symbol: '৳', withdrawalFee: 0 }
-        };
+        // const exchangeRates = {
+        //     JP: { rate: 0.1112, name: '일본', currency: '엔', symbol: '¥', withdrawalFee: 660 },
+        //     PH: { rate: 0.0421, name: '필리핀', currency: '페소', symbol: '₱', withdrawalFee: 40129 },
+        //     CN: { rate: 0.0054, name: '중국', currency: '위안', symbol: '¥', withdrawalFee: 4713 },
+        //     NP: { rate: 0.1004, name: '네팔', currency: '루피', symbol: 'रू', withdrawalFee: 97607 },
+        //     AU: { rate: 0.0011, name: '호주', currency: '달러', symbol: 'A$', withdrawalFee: 0 },
+        //     HK: { rate: 0.0059, name: '홍콩', currency: '달러', symbol: 'HK$', withdrawalFee: 0 },
+        //     MN: { rate: 2.5830, name: '몽골', currency: '투그릭', symbol: '₮', withdrawalFee: 0 },
+        //     VN: { rate: 18.5200, name: '베트남', currency: '동', symbol: '₫', withdrawalFee: 0 },
+        //     LK: { rate: 0.2450, name: '스리랑카', currency: '루피', symbol: '௹', withdrawalFee: 0 },
+        //     BD: { rate: 0.0815, name: '방글라데시', currency: '타카', symbol: '৳', withdrawalFee: 0 }
+        // };
 
         // window 객체에 등록하여 전역 접근 가능하게
-        window.exchangeRates = exchangeRates;
+        // window.exchangeRates = exchangeRates;
 
         // 송금 한도 상수 정의 (전역)
-        const MAX_LIMIT = 5000; // USD
-        const KRW_PER_USD = 1350;
-        const MAX_KRW_LIMIT = MAX_LIMIT * KRW_PER_USD; // 6,750,000원
+        // const MAX_LIMIT = 5000; // USD
+        // const KRW_PER_USD = 1350;
+        // const MAX_KRW_LIMIT = MAX_LIMIT * KRW_PER_USD; // 6,750,000원
 
         // 국가별 서비스 옵션 (서비스명과 변경가능 여부)
         const servicesByCountry = {
-            JP: [{ value: 'JP_REMIT', text: '일본 송금', locked: true }],
-            PH: [
+            JPY: [{ value: 'JP_REMIT', text: '일본 송금', locked: true }],
+            PHP: [
                 { value: 'PH_BANK', text: '필리핀은행 송금', locked: false },
                 { value: 'PH_PICKUP', text: '필리핀 Pickup', locked: false }
             ],
-            CN: [{ value: 'CN_REMIT', text: '중국 송금', locked: true }],
-            NP: [{ value: 'NP_REMIT', text: '네팔 송금', locked: true }],
-            AU: [{ value: 'AU_REMIT', text: '호주 송금', locked: true }],
-            HK: [{ value: 'HK_REMIT', text: '홍콩 송금', locked: true }],
-            MN: [{ value: 'MN_REMIT', text: '몽고 송금', locked: true }],
-            VN: [{ value: 'VN_REMIT', text: '베트남 송금', locked: true }],
-            LK: [{ value: 'LK_REMIT', text: '스리랑카 송금', locked: true }],
-            BD: [{ value: 'BD_REMIT', text: '방글라데시 송금', locked: true }]
+            CNY: [{ value: 'CN_REMIT', text: '중국 송금', locked: true }],
+            NPR: [{ value: 'NP_REMIT', text: '네팔 송금', locked: true }],
+            AUD: [{ value: 'AU_REMIT', text: '호주 송금', locked: true }],
+            HKD: [{ value: 'HK_REMIT', text: '홍콩 송금', locked: true }],
+            MNT: [{ value: 'MN_REMIT', text: '몽고 송금', locked: true }],
+            VND: [{ value: 'VN_REMIT', text: '베트남 송금', locked: true }],
+            LKR: [{ value: 'LK_REMIT', text: '스리랑카 송금', locked: true }],
+            BDT: [{ value: 'BD_REMIT', text: '방글라데시 송금', locked: true }]
         };
 
         // 국가별 은행 목록 (일본은 전체 목록)
@@ -720,14 +720,17 @@
                 });
             }
 
-            // 송금액 설정 영역 표시
+            // 송금액 설정 영역 표시`
             const amountSectionWrapper = document.getElementById('amountSectionWrapper');
             if (country) {
                 amountSectionWrapper.style.display = 'block';
             } else {
                 amountSectionWrapper.style.display = 'none';
             }
-
+            
+            console.log('exchangeRates:', exchangeRates);
+            console.log('exchangeRates country:', country);
+            console.log('exchangeRates[country] country:', exchangeRates[country]);
             // 환율 표시 업데이트
             const exchangeRateDisplay = document.getElementById('exchangeRateDisplay');
             if (exchangeRates[country]) {
@@ -1188,7 +1191,7 @@
                 accountInput.value = bankInfos[bank].account;
                 holderInput.value = bankInfos[bank].holder;
 
-                // 값이 자동으로 채워졌음을 시각적으로 알리기 위해 readonly 처리 고려 가능하나,
+                // 값이 자동으로 채워졌음을 시각적으로 알리기 위해 readonly 처리 고려 가능하나, 
                 // 사용자 요청에 명시되지 않았으므로 값 설정만 수행함.
             } else {
                 accountInput.value = '';
@@ -1196,166 +1199,165 @@
             }
         });
     </script>
-
-    <script>
-        // --- 계좌 선택 모달 로직 (Appended Script Block) ---
-
-        // 예시 데이터: 자주 쓰는 계좌 (10개)
-        const frequentAccounts = [
-            { id: 1, country: 'JP', countryName: '일본', name: 'Tanaka Hiro', bank: 'Mizuho Bank', account: '123-4567-89', purpose: 'family', purposeName: '가족 송금' },
-            { id: 2, country: 'PH', countryName: '필리핀', name: 'Maria Cruz', bank: 'BDO', account: '0011-2233-44', purpose: 'living', purposeName: '생활비' },
-            { id: 3, country: 'CN', countryName: '중국', name: 'Wang Wei', bank: 'ICBC', account: '6222-0210-01', purpose: 'business', purposeName: '사업' },
-            { id: 4, country: 'NP', countryName: '네팔', name: 'Ram Thapa', bank: 'Nabil Bank', account: '0101-0123-45', purpose: 'saving', purposeName: '저축' },
-            { id: 5, country: 'AU', countryName: '호주', name: 'John Smith', bank: 'Commonwealth', account: '062-000-1234', purpose: 'education', purposeName: '교육비' },
-            { id: 6, country: 'HK', countryName: '홍콩', name: 'Li Lei', bank: 'HSBC', account: '123-456-789', purpose: 'investment', purposeName: '투자' },
-            { id: 7, country: 'MN', countryName: '몽골', name: 'Bold Bat', bank: 'Khan Bank', account: '5000-1234-56', purpose: 'gift', purposeName: '선물' },
-            { id: 8, country: 'VN', countryName: '베트남', name: 'Nguyen Van A', bank: 'Vietcombank', account: '0011-0022-33', purpose: 'medical', purposeName: '의료비' },
-            { id: 9, country: 'LK', countryName: '스리랑카', name: 'Perera', bank: 'BOC', account: '8888-7777-66', purpose: 'other', purposeName: '기타' },
-            { id: 10, country: 'BD', countryName: '방글라데시', name: 'Rahman', bank: 'DBBL', account: '101.101.123', purpose: 'family', purposeName: '가족 송금' }
-        ];
-
-        // 예시 데이터: 최근 입금 계좌 (10개 - 유사하지만 다른 데이터)
-        const recentAccounts = [
-            { id: 1, country: 'JP', countryName: '일본', name: 'Suzuki Ichiro', bank: 'SMBC', account: '987-6543-21', purpose: 'travel', purposeName: '여행 경비' },
-            { id: 2, country: 'PH', countryName: '필리핀', name: 'Jose Rizal', bank: 'BPI', account: '5555-6666-77', purpose: 'family', purposeName: '가족 송금' },
-            { id: 3, country: 'CN', countryName: '중국', name: 'Li Na', bank: 'China Bank', account: '6222-0000-99', purpose: 'business', purposeName: '물품 대금' },
-            { id: 4, country: 'NP', countryName: '네팔', name: 'Sita', bank: 'Himalayan Bank', account: '0202-0987-65', purpose: 'living', purposeName: '생활비' },
-            { id: 5, country: 'AU', countryName: '호주', name: 'Emma Watson', bank: 'ANZ', account: '013-111-2222', purpose: 'education', purposeName: '학비' },
-            { id: 6, country: 'HK', countryName: '홍콩', name: 'Chan Tai Man', bank: 'Standard Chartered', account: '321-654-987', purpose: 'investment', purposeName: '부동산 투자' },
-            { id: 7, country: 'MN', countryName: '몽골', name: 'Sarnai', bank: 'Golomt Bank', account: '1100-2200-33', purpose: 'gift', purposeName: '축의금' },
-            { id: 8, country: 'VN', countryName: '베트남', name: 'Tran Thi B', bank: 'BIDV', account: '1234-5678-90', purpose: 'medical', purposeName: '병원비' },
-            { id: 9, country: 'LK', countryName: '스리랑카', name: 'Silva', bank: 'People\'s Bank', account: '1111-2222-33', purpose: 'other', purposeName: '기부' },
-            { id: 10, country: 'BD', countryName: '방글라데시', name: 'Ahmed', bank: 'BRAC Bank', account: '202.202.456', purpose: 'family', purposeName: '생활비 지원' }
-        ];
-
-        // 모달 열기 함수
-        function openAccountModal(type) {
-            const modal = document.getElementById('accountSelectionModal');
-            const title = document.getElementById('accountModalTitle');
-            const tbody = document.getElementById('accountTableBody');
-            let data = [];
-
-            if (type === 'frequent') {
-                title.textContent = '자주 쓰는 계좌';
-                data = frequentAccounts;
-            } else {
-                title.textContent = '최근 입금 계좌';
-                data = recentAccounts;
-            }
-
-            // 테이블 데이터 렌더링
-            tbody.innerHTML = '';
-            const cardList = document.getElementById('accountCardList');
-            cardList.innerHTML = '';
-
-            data.forEach((item, index) => {
-                // 테이블 행 렌더링
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                        <td class='center'>${index + 1}</td>
-                        <td>${item.countryName}</td>
-                        <td>${item.name}</td>
-                        <td>${item.bank}</td>
-                        <td>${item.account}</td>
-                        <td>${item.purposeName}</td>
-                    `;
-                tr.style.cursor = 'pointer';
-                tr.onclick = () => selectAccount(item);
-                tbody.appendChild(tr);
-
-                // 모바일 카드 렌더링
-                const card = document.createElement('div');
-                card.className = 'account-card';
-                card.innerHTML = `
-                    <div class="account-card-header">
-                        <span class="account-card-number">#${index + 1}</span>
-                        <span class="account-card-country">${item.countryName}</span>
-                    </div>
-                    <div class="account-card-body">
-                        <div class="account-card-row">
-                            <span class="account-card-label">수취인명</span>
-                            <span class="account-card-value">${item.name}</span>
-                        </div>
-                        <div class="account-card-row">
-                            <span class="account-card-label">은행명</span>
-                            <span class="account-card-value">${item.bank}</span>
-                        </div>
-                        <div class="account-card-row">
-                            <span class="account-card-label">계좌 번호</span>
-                            <span class="account-card-value">${item.account}</span>
-                        </div>
-                        <div class="account-card-row">
-                            <span class="account-card-label">송금 목적</span>
-                            <span class="account-card-value">${item.purposeName}</span>
-                        </div>
-                    </div>
-                `;
-                card.onclick = () => selectAccount(item);
-                cardList.appendChild(card);
-            });
-
-            modal.classList.add('active');
-        }
-
-        // 모달 닫기
-        function closeAccountModal() {
-            document.getElementById('accountSelectionModal').classList.remove('active');
-        }
-
-        // 모달 외부 클릭 시 닫기
-        document.getElementById('accountSelectionModal').addEventListener('click', function (e) {
-            if (e.target === this) {
-                closeAccountModal();
-            }
-        });
-
-        // 계좌 선택 처리 (자동 입력)
-        function selectAccount(item) {
-            // 1. 국가 설정 및 이벤트 트리거
-            const countrySelect = document.getElementById('remitCountry');
-            countrySelect.value = item.country;
-            countrySelect.dispatchEvent(new Event('change'));
-
-            // 2. 약간의 지연 후 나머지 필드 채우기 (동적 UI 업데이트 대기)
-            setTimeout(() => {
-                // 수취인명
-                document.getElementById('beneficiaryName').value = item.name;
-
-                // 수취 계좌 번호
-                document.getElementById('beneficiaryAccount').value = item.account;
-
-                // 수취 은행 (옵션 매칭 시도)
-                const bankSelect = document.getElementById('beneficiaryBank');
-                if (bankSelect.options.length > 1) {
-                    for (let i = 0; i < bankSelect.options.length; i++) {
-                        // 텍스트나 값에 포함되어 있으면 선택
-                        if (bankSelect.options[i].text.toLowerCase().includes(item.bank.toLowerCase()) ||
-                            bankSelect.options[i].value.toLowerCase().includes(item.bank.toLowerCase())) {
-                            bankSelect.selectedIndex = i;
-                            break;
-                        }
-                    }
-                }
-
-                // 송금 목적
-                const purposeSelect = document.getElementById('remitPurpose');
-                if (item.purpose) {
-                    purposeSelect.value = item.purpose;
-                }
-
-                closeAccountModal();
-            }, 100);
-        }
-
-        // 버튼 이벤트 연결
-        document.addEventListener('DOMContentLoaded', () => {
-            const btns = document.querySelectorAll('.quick-btn.small');
-            if (btns.length >= 2) {
-                btns[0].addEventListener('click', () => openAccountModal('frequent'));
-                btns[1].addEventListener('click', () => openAccountModal('recent'));
-            }
-        });
-    </script>
 </body>
 
 </html>
+<script>
+    // --- 계좌 선택 모달 로직 (Appended Script Block) ---
+
+    // 예시 데이터: 자주 쓰는 계좌 (10개)
+    const frequentAccounts = [
+        { id: 1, country: 'JP', countryName: '일본', name: 'Tanaka Hiro', bank: 'Mizuho Bank', account: '123-4567-89', purpose: 'family', purposeName: '가족 송금' },
+        { id: 2, country: 'PH', countryName: '필리핀', name: 'Maria Cruz', bank: 'BDO', account: '0011-2233-44', purpose: 'living', purposeName: '생활비' },
+        { id: 3, country: 'CN', countryName: '중국', name: 'Wang Wei', bank: 'ICBC', account: '6222-0210-01', purpose: 'business', purposeName: '사업' },
+        { id: 4, country: 'NP', countryName: '네팔', name: 'Ram Thapa', bank: 'Nabil Bank', account: '0101-0123-45', purpose: 'saving', purposeName: '저축' },
+        { id: 5, country: 'AU', countryName: '호주', name: 'John Smith', bank: 'Commonwealth', account: '062-000-1234', purpose: 'education', purposeName: '교육비' },
+        { id: 6, country: 'HK', countryName: '홍콩', name: 'Li Lei', bank: 'HSBC', account: '123-456-789', purpose: 'investment', purposeName: '투자' },
+        { id: 7, country: 'MN', countryName: '몽골', name: 'Bold Bat', bank: 'Khan Bank', account: '5000-1234-56', purpose: 'gift', purposeName: '선물' },
+        { id: 8, country: 'VN', countryName: '베트남', name: 'Nguyen Van A', bank: 'Vietcombank', account: '0011-0022-33', purpose: 'medical', purposeName: '의료비' },
+        { id: 9, country: 'LK', countryName: '스리랑카', name: 'Perera', bank: 'BOC', account: '8888-7777-66', purpose: 'other', purposeName: '기타' },
+        { id: 10, country: 'BD', countryName: '방글라데시', name: 'Rahman', bank: 'DBBL', account: '101.101.123', purpose: 'family', purposeName: '가족 송금' }
+    ];
+
+    // 예시 데이터: 최근 입금 계좌 (10개 - 유사하지만 다른 데이터)
+    const recentAccounts = [
+        { id: 1, country: 'JP', countryName: '일본', name: 'Suzuki Ichiro', bank: 'SMBC', account: '987-6543-21', purpose: 'travel', purposeName: '여행 경비' },
+        { id: 2, country: 'PH', countryName: '필리핀', name: 'Jose Rizal', bank: 'BPI', account: '5555-6666-77', purpose: 'family', purposeName: '가족 송금' },
+        { id: 3, country: 'CN', countryName: '중국', name: 'Li Na', bank: 'China Bank', account: '6222-0000-99', purpose: 'business', purposeName: '물품 대금' },
+        { id: 4, country: 'NP', countryName: '네팔', name: 'Sita', bank: 'Himalayan Bank', account: '0202-0987-65', purpose: 'living', purposeName: '생활비' },
+        { id: 5, country: 'AU', countryName: '호주', name: 'Emma Watson', bank: 'ANZ', account: '013-111-2222', purpose: 'education', purposeName: '학비' },
+        { id: 6, country: 'HK', countryName: '홍콩', name: 'Chan Tai Man', bank: 'Standard Chartered', account: '321-654-987', purpose: 'investment', purposeName: '부동산 투자' },
+        { id: 7, country: 'MN', countryName: '몽골', name: 'Sarnai', bank: 'Golomt Bank', account: '1100-2200-33', purpose: 'gift', purposeName: '축의금' },
+        { id: 8, country: 'VN', countryName: '베트남', name: 'Tran Thi B', bank: 'BIDV', account: '1234-5678-90', purpose: 'medical', purposeName: '병원비' },
+        { id: 9, country: 'LK', countryName: '스리랑카', name: 'Silva', bank: 'People\'s Bank', account: '1111-2222-33', purpose: 'other', purposeName: '기부' },
+        { id: 10, country: 'BD', countryName: '방글라데시', name: 'Ahmed', bank: 'BRAC Bank', account: '202.202.456', purpose: 'family', purposeName: '생활비 지원' }
+    ];
+
+    // 모달 열기 함수
+    function openAccountModal(type) {
+        const modal = document.getElementById('accountSelectionModal');
+        const title = document.getElementById('accountModalTitle');
+        const tbody = document.getElementById('accountTableBody');
+        let data = [];
+
+        if (type === 'frequent') {
+            title.textContent = '자주 쓰는 계좌';
+            data = frequentAccounts;
+        } else {
+            title.textContent = '최근 입금 계좌';
+            data = recentAccounts;
+        }
+
+        // 테이블 데이터 렌더링
+        tbody.innerHTML = '';
+        const cardList = document.getElementById('accountCardList');
+        cardList.innerHTML = '';
+
+        data.forEach((item, index) => {
+            // 테이블 행 렌더링
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                    <td class='center'>${index + 1}</td>
+                    <td>${item.countryName}</td>
+                    <td>${item.name}</td>
+                    <td>${item.bank}</td>
+                    <td>${item.account}</td>
+                    <td>${item.purposeName}</td>
+                `;
+            tr.style.cursor = 'pointer';
+            tr.onclick = () => selectAccount(item);
+            tbody.appendChild(tr);
+
+            // 모바일 카드 렌더링
+            const card = document.createElement('div');
+            card.className = 'account-card';
+            card.innerHTML = `
+                <div class="account-card-header">
+                    <span class="account-card-number">#${index + 1}</span>
+                    <span class="account-card-country">${item.countryName}</span>
+                </div>
+                <div class="account-card-body">
+                    <div class="account-card-row">
+                        <span class="account-card-label">수취인명</span>
+                        <span class="account-card-value">${item.name}</span>
+                    </div>
+                    <div class="account-card-row">
+                        <span class="account-card-label">은행명</span>
+                        <span class="account-card-value">${item.bank}</span>
+                    </div>
+                    <div class="account-card-row">
+                        <span class="account-card-label">계좌 번호</span>
+                        <span class="account-card-value">${item.account}</span>
+                    </div>
+                    <div class="account-card-row">
+                        <span class="account-card-label">송금 목적</span>
+                        <span class="account-card-value">${item.purposeName}</span>
+                    </div>
+                </div>
+            `;
+            card.onclick = () => selectAccount(item);
+            cardList.appendChild(card);
+        });
+
+        modal.classList.add('active');
+    }
+
+    // 모달 닫기
+    function closeAccountModal() {
+        document.getElementById('accountSelectionModal').classList.remove('active');
+    }
+
+    // 모달 외부 클릭 시 닫기
+    document.getElementById('accountSelectionModal').addEventListener('click', function (e) {
+        if (e.target === this) {
+            closeAccountModal();
+        }
+    });
+
+    // 계좌 선택 처리 (자동 입력)
+    function selectAccount(item) {
+        // 1. 국가 설정 및 이벤트 트리거
+        const countrySelect = document.getElementById('remitCountry');
+        countrySelect.value = item.country;
+        countrySelect.dispatchEvent(new Event('change'));
+
+        // 2. 약간의 지연 후 나머지 필드 채우기 (동적 UI 업데이트 대기)
+        setTimeout(() => {
+            // 수취인명
+            document.getElementById('beneficiaryName').value = item.name;
+
+            // 수취 계좌 번호
+            document.getElementById('beneficiaryAccount').value = item.account;
+
+            // 수취 은행 (옵션 매칭 시도)
+            const bankSelect = document.getElementById('beneficiaryBank');
+            if (bankSelect.options.length > 1) {
+                for (let i = 0; i < bankSelect.options.length; i++) {
+                    // 텍스트나 값에 포함되어 있으면 선택
+                    if (bankSelect.options[i].text.toLowerCase().includes(item.bank.toLowerCase()) ||
+                        bankSelect.options[i].value.toLowerCase().includes(item.bank.toLowerCase())) {
+                        bankSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            // 송금 목적
+            const purposeSelect = document.getElementById('remitPurpose');
+            if (item.purpose) {
+                purposeSelect.value = item.purpose;
+            }
+
+            closeAccountModal();
+        }, 100);
+    }
+
+    // 버튼 이벤트 연결
+    document.addEventListener('DOMContentLoaded', () => {
+        const btns = document.querySelectorAll('.quick-btn.small');
+        if (btns.length >= 2) {
+            btns[0].addEventListener('click', () => openAccountModal('frequent'));
+            btns[1].addEventListener('click', () => openAccountModal('recent'));
+        }
+    });
+</script>
