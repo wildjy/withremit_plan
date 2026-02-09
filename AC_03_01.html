@@ -197,47 +197,8 @@
     </div>
 
     <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
+    <script src="js/main.js"></script>
     <script src="js/includes.js"></script>
-    <script>
-        let currentDeleteButton = null;
-
-        function removeRow(button) {
-            currentDeleteButton = button;
-            document.getElementById('deleteConfirmModal').classList.add('active');
-        }
-
-        function confirmDelete() {
-            if (currentDeleteButton) {
-                currentDeleteButton.closest('tr').remove();
-
-                const tbody = document.getElementById('accountTableBody');
-                const rows = tbody.querySelectorAll('tr');
-                rows.forEach((row, index) => {
-                    row.querySelector('td:first-child').textContent = rows.length - index;
-                });
-                currentDeleteButton = null;
-                updateTotalCount();
-            }
-            closeDeleteModal();
-        }
-
-        function closeDeleteModal() {
-            document.getElementById('deleteConfirmModal').classList.remove('active');
-            currentDeleteButton = null;
-        }
-
-        function updateTotalCount() {
-            const tbody = document.getElementById('accountTableBody');
-            const count = tbody ? tbody.querySelectorAll('tr').length : 0;
-            const countElement = document.getElementById('totalCount');
-            if (countElement) {
-                countElement.textContent = count;
-            }
-        }
-
-        // Initialize count on load
-        document.addEventListener('DOMContentLoaded', updateTotalCount);
-    </script>
 </body>
 
 </html>

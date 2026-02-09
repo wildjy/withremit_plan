@@ -200,22 +200,6 @@
         </div>
     </div>
 
-    <!-- Validation Modal -->
-    <div id="validationModal" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                    stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="8" x2="12" y2="12"></line>
-                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                </svg>
-            </div>
-            <h3>입력 오류</h3>
-            <p>모든 항목을 입력해주세요.</p>
-            <button class="modal-btn-warning" onclick="closeValidationModal()">확인</button>
-        </div>
-    </div>
 
     <!-- Bank Account Registration Modal -->
     <div class="remit-modal" id="accountModal">
@@ -265,6 +249,23 @@
         </div>
     </div>
 
+    <!-- Validation Modal -->
+    <div id="validationModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+            </div>
+            <h3>입력 오류</h3>
+            <p>모든 항목을 입력해주세요.</p>
+            <button class="modal-btn-warning" onclick="closeValidationModal()">확인</button>
+        </div>
+    </div>
+
     <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
     <script src="js/main.js"></script>
     <script src="js/includes.js"></script>
@@ -282,8 +283,6 @@
             document.getElementById('accountNumber').value = '';
             document.getElementById('accountHolder').value = '';
         }
-
-        let currentDeleteButton = null;
 
         function registerAccount() {
             const bank = document.getElementById('bankSelect').value;
@@ -339,46 +338,6 @@
             updateTotalCount();
         }
 
-        function removeRow(button) {
-            currentDeleteButton = button;
-            document.getElementById('deleteConfirmModal').classList.add('active');
-        }
-
-        function confirmDelete() {
-            if (currentDeleteButton) {
-                currentDeleteButton.closest('tr').remove();
-                // Re-number rows
-                const tbody = document.getElementById('accountTableBody');
-                const rows = tbody.querySelectorAll('tr');
-                rows.forEach((row, index) => {
-                    row.querySelector('td:first-child').textContent = rows.length - index;
-                });
-                currentDeleteButton = null;
-                updateTotalCount();
-            }
-            closeDeleteModal();
-        }
-
-        function closeDeleteModal() {
-            document.getElementById('deleteConfirmModal').classList.remove('active');
-            currentDeleteButton = null;
-        }
-
-        function closeValidationModal() {
-            document.getElementById('validationModal').classList.remove('active');
-        }
-
-        function updateTotalCount() {
-            const tbody = document.getElementById('accountTableBody');
-            const count = tbody ? tbody.querySelectorAll('tr').length : 0;
-            const countElement = document.getElementById('totalCount');
-            if (countElement) {
-                countElement.textContent = count;
-            }
-        }
-
-        // Initialize count on load
-        document.addEventListener('DOMContentLoaded', updateTotalCount);
     </script>
 </body>
 

@@ -1,6 +1,6 @@
 /**
  * WithRemit Static Site Password Protection
- * 
+ *
  * Logic:
  * 1. Check localStorage for 'auth_session'.
  * 2. If present, valid, and not expired (1 hour), allow access.

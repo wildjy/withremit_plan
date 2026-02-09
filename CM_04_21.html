@@ -365,39 +365,7 @@
     </main>
 
     <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
-
-    <script>
-        const agreeAll = document.getElementById('agreeAll');
-        const items = document.querySelectorAll('.agree-item');
-        const nextBtn = document.getElementById('nextBtn');
-
-        // 다음 버튼 활성화/비활성화 체크
-        function checkAllRequired() {
-            const allChecked = Array.from(items).every(item => item.checked);
-            if (allChecked) {
-                nextBtn.style.pointerEvents = 'auto';
-                nextBtn.style.opacity = '1';
-            } else {
-                nextBtn.style.pointerEvents = 'none';
-                nextBtn.style.opacity = '0.5';
-            }
-        }
-
-        // 전체 동의 클릭 시
-        agreeAll.addEventListener('change', () => {
-            items.forEach(item => item.checked = agreeAll.checked);
-            checkAllRequired();
-        });
-
-        // 개별 동의 클릭 시
-        items.forEach(item => {
-            item.addEventListener('change', () => {
-                const checkedCount = document.querySelectorAll('.agree-item:checked').length;
-                agreeAll.checked = (checkedCount === items.length);
-                checkAllRequired();
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

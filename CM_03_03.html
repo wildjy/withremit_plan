@@ -90,9 +90,8 @@
     <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
     <script src="js/main.js"></script>
     <script>
-        function openModal(id) { document.getElementById(id).classList.add('active'); }
         function closeModal(id) {
-            document.getElementById(id).classList.remove('active');
+            // document.getElementById(id).classList.remove('active');
             // Close keypad if open
             if (typeof toggleKeypad === 'function') {
                 toggleKeypad(null);

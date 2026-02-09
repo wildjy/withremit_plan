@@ -102,7 +102,7 @@
                     <div class="remit-action-btns">
                         <button type="button" class="btn btn-outline btn-remit-cancel"
                             onclick="location.href='AC_02_01.html'">취소</button>
-                        <button type="button" class="btn btn-primary" id="btnNext" onclick="goToLoadAccount()" disabled
+                        <button type="button" class="btn btn-primary" id="nextBtn" onclick="goToLoadAccount()" disabled
                             style="opacity: 0.5; cursor: not-allowed;">내 계좌 불러 오기</button>
                     </div>
                 </div>
@@ -133,46 +133,14 @@
     </div>
 
     <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
+    <script src="js/main.js"></script><!-- 언어변경 스크립트 -->
     <script src="js/includes.js"></script>
     <script>
-        const agreeAll = document.getElementById('agreeAll');
-        const items = document.querySelectorAll('.agree-item');
-        const nextBtn = document.getElementById('btnNext');
-
-        function checkAllRequired() {
-            const allChecked = Array.from(items).every(item => item.checked);
-            if (allChecked) {
-                nextBtn.disabled = false;
-                nextBtn.style.opacity = '1';
-                nextBtn.style.cursor = 'pointer';
-            } else {
-                nextBtn.disabled = true;
-                nextBtn.style.opacity = '0.5';
-                nextBtn.style.cursor = 'not-allowed';
-            }
-        }
-
-        agreeAll.addEventListener('change', () => {
-            items.forEach(item => item.checked = agreeAll.checked);
-            checkAllRequired();
-        });
-
-        items.forEach(item => {
-            item.addEventListener('change', () => {
-                const checkedCount = document.querySelectorAll('.agree-item:checked').length;
-                agreeAll.checked = (checkedCount === items.length);
-                checkAllRequired();
-            });
-        });
 
         function goToLoadAccount() {
             if (!nextBtn.disabled) {
                 location.href = 'AC_02_03.html';
             }
-        }
-
-        function closeValidationModal() {
-            document.getElementById('validationModal').classList.remove('active');
         }
     </script>
 </body>

@@ -650,3 +650,82 @@ function toggleKeypad(targetId) {
     keypad.classList.add('active');
     renderKeypad();
 }
+
+// ===== Agree Terms Checkboxes : AC_02_02, CM_04_11, CM_04_21 =====
+const agreeAll = document.getElementById('agreeAll');
+const items = document.querySelectorAll('.agree-item');
+const nextBtn = document.getElementById('nextBtn');
+
+if(agreeAll && items ) {
+    function checkAllRequired() {
+        const allChecked = Array.from(items).every(item => item.checked);
+        if (allChecked) {
+            nextBtn.disabled = false;
+            nextBtn.style.opacity = '1';
+            nextBtn.style.cursor = 'pointer';
+        } else {
+            nextBtn.disabled = true;
+            nextBtn.style.opacity = '0.5';
+            nextBtn.style.cursor = 'not-allowed';
+        }
+    }
+
+    agreeAll.addEventListener('change', () => {
+        items.forEach(item => item.checked = agreeAll.checked);
+        checkAllRequired();
+    });
+
+    items.forEach(item => {
+        item.addEventListener('change', () => {
+            const checkedCount = document.querySelectorAll('.agree-item:checked').length;
+            agreeAll.checked = (checkedCount === items.length);
+            checkAllRequired();
+        });
+    });
+}
+
+
+// ===== Remove Table Row : AC_01_01, AC_02_01 =====
+let currentDeleteButton = null;
+
+function removeRow(button) {
+    currentDeleteButton = button;
+    document.getElementById('deleteConfirmModal').classList.add('active');
+}
+
+function confirmDelete() {
+    if (currentDeleteButton) {
+        currentDeleteButton.closest('tr').remove();
+        // Re-number rows
+        const tbody = document.getElementById('accountTableBody');
+        const rows = tbody.querySelectorAll('tr');
+        rows.forEach((row, index) => {
+            row.querySelector('td:first-child').textContent = rows.length - index;
+        });
+        currentDeleteButton = null;
+        updateTotalCount();
+    }
+    closeDeleteModal();
+}
+
+function closeDeleteModal() {
+    document.getElementById('deleteConfirmModal').classList.remove('active');
+    currentDeleteButton = null;
+}
+
+// ===== ValidationModal : AC_01_01, AC_02_02 =====
+function closeValidationModal() {
+    document.getElementById('validationModal').classList.remove('active');
+}
+
+function updateTotalCount() {
+    const tbody = document.getElementById('accountTableBody');
+    const count = tbody ? tbody.querySelectorAll('tr').length : 0;
+    const countElement = document.getElementById('totalCount');
+    if (countElement) {
+        countElement.textContent = count;
+    }
+}
+
+// Initialize count on load
+document.addEventListener('DOMContentLoaded', updateTotalCount);
