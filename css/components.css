@@ -83,6 +83,7 @@
 }
 
 /* ===== Button Style ===== */
+/* ===== Button Style ===== */
 .btn {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -299,6 +300,8 @@
 }
 
 /* ===== end Button Style ===== */
+/* ===== end Button Style ===== */
+/* ===== findTabs ===== */
 /* ===== findTabs ===== */
 .find-tabs {
   display: -webkit-box;

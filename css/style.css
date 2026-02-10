@@ -1906,6 +1906,7 @@ a.db-banner-slide {
 }
 
 /* ===== Button Style ===== */
+/* ===== Button Style ===== */
 .btn {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -2122,6 +2123,8 @@ a.db-banner-slide {
 }
 
 /* ===== end Button Style ===== */
+/* ===== end Button Style ===== */
+/* ===== findTabs ===== */
 /* ===== findTabs ===== */
 .find-tabs {
   display: -webkit-box;
@@ -8776,9 +8779,6 @@ textarea.error:focus {
     font-size: 0.8rem;
     padding: 6px 28px 6px 10px;
   }
-  .db-notice-table {
-    border: 1px solid var(--border-color);
-  }
   .db-notice-table th,
   .db-notice-table td {
     padding: 10px 8px;
@@ -10428,6 +10428,16 @@ textarea.error:focus {
   width: 80px;
 }
 
+@media (max-width: 480px) {
+  .col-select {
+    width: 15%;
+  }
+}
+@media (max-width: 768px) {
+  .col-select {
+    width: 60px;
+  }
+}
 .col-quarter {
   width: 25%;
 }

@@ -2615,7 +2615,7 @@
 	}
 
 	.db-notice-table th,
-  .db-notice-table td {
+  	.db-notice-table td {
 		padding: 12px 8px;
 		font-size: 0.875rem;
 	}
@@ -3050,12 +3050,8 @@
 		padding: 6px 28px 6px 10px;
 	}
 
-	.db-notice-table {
-		border: 1px solid var(--border-color);
-	}
-
 	.db-notice-table th,
-  .db-notice-table td {
+  	.db-notice-table td {
 		padding: 10px 8px;
 		font-size: 0.85rem;
 	}
@@ -4576,7 +4572,16 @@
 .col-select {
 	width: 80px;
 }
-
+@media (max-width: 480px) {
+	.col-select {
+		width: 15%;
+	}
+}
+@media (max-width: 768px) {
+	.col-select {
+		width: 60px;
+	}
+}
 .col-quarter {
 	width: 25%;
 }
