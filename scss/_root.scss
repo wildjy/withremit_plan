@@ -25,6 +25,8 @@
 
   // layout sizes
   --full: 100%;
+  --full-vw: 100vw;
+  --full-vh: 100vh;
   --max-w: 1200px;
   --header-h: 3.5625rem; // max-width: 768px
   --header-h-md: 4.5625rem; // min-width: 769px
@@ -91,7 +93,8 @@
   --lg: 1.125rem;  // 18px
   --xl: 1.25rem;   // 20px
   --2xl: 1.5rem;   // 24px
-  --3xl: 1.875rem; // 30px
+  --3xl: 1.75rem; // 28px
+  --4xl: 2rem; // 32px
 
   --radius: 0.5rem;  // 8px
   --radius-md: 0.75rem;  // 12px

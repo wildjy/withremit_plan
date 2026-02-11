@@ -1069,27 +1069,6 @@
 }
 
 /* Notice List Page */
-.db-content-card {
-	background: #fff;
-	border-radius: var(--radius-lg);
-	padding: 32px;
-	box-shadow: var(--shadow-sm);
-	border: 1px solid var(--border-color);
-}
-
-.db-page-header {
-	margin-bottom: 24px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.db-page-title {
-	font-size: 1.75rem;
-	font-weight: 700;
-	color: var(--text-dark);
-	margin: 0;
-}
 
 .db-search-box {
 	display: flex;
@@ -2310,10 +2289,6 @@
 		margin-left: 0 !important;
 	}
 
-	.db-main-container {
-		padding: 20px 15px 40px;
-	}
-
 	.db-balance-badge {
 		display: none !important;
 	}
@@ -2589,14 +2564,6 @@
 		min-width: auto;
 	}
 
-	.db-main-container {
-		padding: 20px 15px;
-		max-width: 100%;
-		width: 100%;
-		box-sizing: border-box;
-		overflow-x: hidden;
-	}
-
 	.db-col-calc {
 		width: 100%;
 	}
@@ -2631,9 +2598,6 @@
 		height: 36px;
 	}
 
-	.db-content-card {
-		padding: 24px 20px;
-	}
 
 	.db-notice-table th,
   .db-notice-table td {
@@ -2679,22 +2643,6 @@
     /* Hide text on tablet too */;
 	}
   /* Universal overflow prevention for tablet */
-	// .db-main-container *,
-  // .db-content *,
-  // .db-layout-flex *,
-  // .db-grid *,
-  // .db-card * {
-	// 	max-width: 100%;
-	// 	box-sizing: border-box;
-	// }
-
-	// .db-content,
-  // .db-layout-flex {
-	// 	max-width: 100%;
-	// 	width: 100%;
-	// 	box-sizing: border-box;
-	// 	overflow-x: hidden;
-	// }
 }
 
 @media (max-width: 768px) {
@@ -2925,10 +2873,6 @@
 		width: 100%;
 	}
 
-	.db-main-container {
-		padding: 20px 10px;
-	}
-
 	.db-info-card {
 		padding: 20px;
 	}
@@ -2995,13 +2939,6 @@
 		font-size: 0.8rem;
 	}
 
-	.db-content-card {
-		padding: 20px 16px;
-	}
-
-	.db-page-title {
-		font-size: 1.3rem;
-	}
   /* Mobile Search Box Logic for Tablet (< 768px) */
 	.db-search-box {
 		display: none;
@@ -3071,6 +3008,12 @@
 		padding: 6px 28px 6px 10px;
 	}
 
+	.col-num,
+	.th-num,
+	.td-num {
+		display: none !important;
+	}
+	
 	.db-notice-table th,
   	.db-notice-table td {
 		padding: 10px 8px;
