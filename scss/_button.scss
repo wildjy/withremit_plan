@@ -1,0 +1,229 @@
+
+/* ===== Button Style ===== */
+/* ===== Button Style ===== */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 16px;
+	border-radius: 8px;
+	font-weight: 500;
+	font-size: 0.9rem;
+	transition: var(--transition);
+	height: 40px;
+	border: none;
+	cursor: pointer;
+}
+
+.btn-text {
+	border: none;
+	background: transparent;
+	color: var(--text-dark);
+}
+
+.btn-text:hover {
+	background: rgba(27, 94, 158, 0.08);
+	color: var(--primary-blue);
+}
+
+.btn-outline {
+	border: 1px solid var(--border-color);
+	color: var(--text-dark);
+	background: #fff;
+}
+
+.btn-outline:hover {
+	border-color: var(--text-muted);
+	background: var(--bg-light);
+}
+
+.btn-primary {
+	background: var(--primary-green);
+	color: #fff;
+	font-weight: 600;
+	padding: 0 20px;
+}
+
+.btn-primary:hover {
+	background: var(--primary-green-dark);
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(0, 160, 220, 0.3);
+}
+
+.btn-primary .btn-text {
+	color: #fff;
+}
+
+.btn-login-mobile {
+	display: none;
+}
+
+
+.btn-success {
+	background: #00a0dc;
+}
+
+.btn-blue {
+	background-color: #1b5e9e;
+}
+
+.btn-success:hover {
+	background: #0088be;
+	transform: translateY(-1px);
+}
+
+.btn-delete {
+    background: #fef2f2;
+    color: #ef4444;
+    border: 1px solid #fca5a5;
+}
+
+.btn-delete:hover {
+    background: #fee2e2;
+}
+
+.btn-warning {
+	background: #f59e0b;
+}
+
+.btn-warning:hover {
+	background: #d97706;
+	transform: translateY(-1px);
+}
+
+.btn-cancel {
+	flex: 1;
+	padding: 14px;
+    color: #4b5563;
+	font-weight: 600;
+    background-color: #f3f4f6;
+	border: 1.5px solid #dde4e6;
+	border-radius: 12px;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.btn-cancel:hover {
+	background: #f8fafa;
+	color: #1b5e9e;
+	border-color: #1b5e9e;
+}
+
+// 더 보기 버튼
+.db-more-link {
+	display: inline-block;
+	padding: 6px 16px;
+	background: #f3f4f6;
+	color: var(--text-body);
+	text-decoration: none;
+	font-size: 0.85rem;
+	font-weight: 600;
+	border-radius: 6px;
+	transition: all 0.2s;
+}
+
+.db-more-link:hover {
+	background: #e5e7eb;
+	color: var(--text-dark);
+}
+
+.quick-btn {
+	padding: 6px 12px;
+	font-size: 0.85rem;
+	font-weight: 500;
+	color: var(--text-dark);
+	background: var(--bg-light);
+	border: 1px solid var(--border-color);
+	border-radius: 6px;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.quick-btn.small {
+	padding: 6px 12px;
+	font-size: 13px;
+	min-width: auto;
+	height: 32px;
+}
+
+.quick-btn.re-upload {
+  padding: 4px 8px;
+  font-size: 13px;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.quick-btn:hover {
+	background: var(--primary-blue);
+	color: #fff;
+	border-color: var(--primary-blue);
+}
+
+.quick-btn:active {
+	transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+	.quick-btn {
+		font-size: 0.75rem;
+		padding: 5px 10px;
+	}
+}
+
+@media (max-width: 480px) {
+	.quick-btn.small {
+		flex: 1;
+		min-width: 0;
+	}
+}
+
+// .btn-confirm-action {
+// 	background-color: #1b5e9e;
+// 	color: #ffffff;
+// 	flex: 1.2;
+// }
+
+// .btn-confirm-action:hover {
+// 	background-color: #154a7c;
+// }
+
+.btn-confirm {
+	background: #1b5e9e;
+}
+
+.btn-confirm:hover {
+	background: #154a7c;
+	transform: translateY(-1px);
+}
+
+.btn-confirm-action {
+	flex: 1.5;
+	background: #1b5e9e;
+	color: #fff;
+	padding: 14px;
+	border-radius: 12px;
+	font-weight: 600;
+	border: none;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.btn-confirm-action:hover {
+	background: #154a7c;
+	transform: translateY(-1px);
+}
+
+.btn-close-modal {
+	background: none;
+	border: none;
+	font-size: 24px;
+	cursor: pointer;
+	color: #111;
+	padding: 0;
+	line-height: 1;
+}
+/* ===== end Button Style ===== */
+/* ===== end Button Style ===== */

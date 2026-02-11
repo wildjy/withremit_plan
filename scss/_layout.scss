@@ -19,6 +19,16 @@ body{
   }
 }
 
+/* ===== Header ===== */
+@import  "./header";
+
+/* ===== Footer ===== */
+@import  "./footer";
+
+/* ===== SideBar ===== */
+@import  "./sidebar";
+
+
 .db-body {
 	padding-top: var(--header-h-md);
 	min-height: 100vh;
@@ -40,6 +50,34 @@ body{
 // main layout
 .section {
 	padding: 6.25rem 0;
+}
+
+.db-content {
+	flex: 1;
+	width: 100%;
+}
+
+.db-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	align-items: stretch;
+}
+
+.db-grid-3col {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 20px;
+	align-items: stretch;
+	margin-top: 20px;
+}
+
+.db-grid-2col {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	align-items: stretch;
+	margin-top: 20px;
 }
 
 // sub layout
@@ -85,12 +123,3 @@ body{
 		display: none !important;
 	}
 }
-
-/* ===== Header ===== */
-@import  "./header";
-
-/* ===== Footer ===== */
-@import  "./footer";
-
-/* ===== SideBar ===== */
-@import  "./sidebar";

@@ -154,70 +154,6 @@ body.wh-full {
   min-height: 100vh;
 }
 
-.db-body {
-  padding-top: var(--header-h-md);
-  min-height: 100vh;
-  background-color: var(--bg-section);
-}
-
-@media (max-width: 768px) {
-  .db-body {
-    padding-top: var(--header-h);
-  }
-}
-.container {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-.section {
-  padding: 6.25rem 0;
-}
-
-@media (min-width: 1025px) {
-  #sidebarContainer {
-    width: 200px;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
-    position: relative;
-  }
-  /* Collapse Container - Completely Hide */
-  body.db-collapsed #sidebarContainer {
-    width: 0;
-    overflow: hidden;
-    -webkit-transition: width 0.3s ease;
-    transition: width 0.3s ease;
-  }
-}
-.container {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 0 var(--s6);
-}
-
-.db-main-container {
-  padding: var(--s5) var(--s5) var(--s10);
-}
-
-.db-layout-flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  position: relative;
-}
-
-/* Notice Table Mobile Styles */
-@media screen and (max-width: 480px) {
-  .col-num,
-  .th-num,
-  .td-num {
-    display: none !important;
-  }
-}
 /* ===== Header ===== */
 /* ===== Header ===== */
 .header {
@@ -1063,6 +999,106 @@ body.db-body .db-sidebar {
   height: 44px;
 }
 
+.db-body {
+  padding-top: var(--header-h-md);
+  min-height: 100vh;
+  background-color: var(--bg-section);
+}
+
+@media (max-width: 768px) {
+  .db-body {
+    padding-top: var(--header-h);
+  }
+}
+.container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.section {
+  padding: 6.25rem 0;
+}
+
+.db-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+}
+
+.db-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.db-grid-3col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  margin-top: 20px;
+}
+
+.db-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  margin-top: 20px;
+}
+
+@media (min-width: 1025px) {
+  #sidebarContainer {
+    width: 200px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    position: relative;
+  }
+  /* Collapse Container - Completely Hide */
+  body.db-collapsed #sidebarContainer {
+    width: 0;
+    overflow: hidden;
+    -webkit-transition: width 0.3s ease;
+    transition: width 0.3s ease;
+  }
+}
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--s6);
+}
+
+.db-main-container {
+  padding: var(--s5) var(--s5) var(--s10);
+}
+
+.db-layout-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  position: relative;
+}
+
+/* Notice Table Mobile Styles */
+@media screen and (max-width: 480px) {
+  .col-num,
+  .th-num,
+  .td-num {
+    display: none !important;
+  }
+}
 /* ===== Banner Slider ===== */
 .banner-slider {
   position: relative;
@@ -1841,68 +1877,23 @@ a.db-banner-slide {
   margin-right: var(--s4);
 }
 
-.w-full {
-  width: 100%;
+.text-red {
+  color: #dc3545;
 }
 
-.flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-.flex-center {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.flex-center-start {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-.flex-center-center {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.flex-center-end {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+.text-left,
+.text-left {
+  text-align: left;
 }
 
-/* Demo Guide Buttons */
-.demo-btn {
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 14px;
-  color: white;
-  cursor: pointer;
-  -webkit-transition: opacity 0.2s;
-  transition: opacity 0.2s;
-  border: none;
+.text-center,
+.text-center {
+  text-align: center;
+}
+
+.text-right,
+.text-right {
+  text-align: right;
 }
 
 /* ===== Button Style ===== */
@@ -1987,6 +1978,16 @@ a.db-banner-slide {
           transform: translateY(-1px);
 }
 
+.btn-delete {
+  background: #fef2f2;
+  color: #ef4444;
+  border: 1px solid #fca5a5;
+}
+
+.btn-delete:hover {
+  background: #fee2e2;
+}
+
 .btn-warning {
   background: #f59e0b;
 }
@@ -2054,6 +2055,16 @@ a.db-banner-slide {
   font-size: 13px;
   min-width: auto;
   height: 32px;
+}
+
+.quick-btn.re-upload {
+  padding: 4px 8px;
+  font-size: 13px;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }
 
 .quick-btn:hover {
@@ -2124,47 +2135,6 @@ a.db-banner-slide {
 
 /* ===== end Button Style ===== */
 /* ===== end Button Style ===== */
-/* ===== findTabs ===== */
-/* ===== findTabs ===== */
-.find-tabs {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  border-bottom: 2px solid #E5E7EB;
-  margin-bottom: 30px;
-}
-
-.find-tab-btn {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  padding: 15px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #9CA3AF;
-  background: none;
-  border: none;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.find-tab-btn.active {
-  color: var(--primary-green);
-  border-bottom-color: var(--primary-green);
-}
-
-.find-tab-content {
-  display: none;
-}
-
-.find-tab-content.active {
-  display: block;
-}
-
-/* ===== end findTabs ===== */
 /* ===== remit-modal ===== */
 /* Remittance Detail Modal */
 .remit-modal {
@@ -2815,6 +2785,174 @@ a.db-banner-slide {
   }
 }
 /* ===== end modal-overlay ===== */
+.w-full {
+  width: 100%;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.flex-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.flex-center-start {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.flex-center-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.flex-center-end {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+/* 상태 뱃지 가시성 개선 */
+.badge {
+  color: #333;
+  /* 기본 글자색 어둡게 */
+}
+
+.badge-normal {
+  color: #1976D2;
+  /* 파란색 텍스트 복원 */
+}
+
+.badge-modal {
+  color: #7B1FA2;
+}
+
+/* Demo Guide Buttons */
+.demo-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  border: none;
+}
+
+/* ===== findTabs ===== */
+/* ===== findTabs ===== */
+.find-tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 2px solid #E5E7EB;
+  margin-bottom: 30px;
+}
+
+.find-tab-btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #9CA3AF;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.find-tab-btn.active {
+  color: var(--primary-green);
+  border-bottom-color: var(--primary-green);
+}
+
+.find-tab-content {
+  display: none;
+}
+
+.find-tab-content.active {
+  display: block;
+}
+
+/* CM_04_12 국적 선택 탭 스타일 */
+.nationality-selector {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.nationality-btn-label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  cursor: pointer;
+}
+
+.nationality-btn-label input {
+  display: none;
+}
+
+.nationality-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 52px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.nationality-btn-label input:checked + .nationality-btn {
+  border-color: #00A0DC;
+  background: #00A0DC;
+  color: #fff;
+}
+
+/* ===== end findTabs ===== */
 /* ===== Loading Overlay & Component Styles ===== */
 /* Loading Page (CM_01_02.html) Body Reset */
 .loading-body {
@@ -3262,6 +3400,29 @@ a.db-banner-slide {
 .login-logo img {
   height: 50pt;
   width: auto;
+}
+
+.password-confirm-container {
+  max-width: 400px;
+  margin: 120px auto;
+  text-align: center;
+}
+
+.password-wrap {
+  width: 100%;
+}
+
+.password-confirm-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 12px;
+}
+
+.password-confirm-desc {
+  color: #333;
+  font-size: 15px;
+  margin-bottom: 40px;
 }
 
 .guide-logo {
@@ -5276,42 +5437,6 @@ textarea.error:focus {
   background: #f0f9ff;
 }
 
-.db-content {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  width: 100%;
-}
-
-.db-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-}
-
-.db-grid-3col {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  margin-top: 20px;
-}
-
-.db-grid-2col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  margin-top: 20px;
-}
-
 .db-grid > .calculator-card {
   max-width: 100% !important;
   -webkit-box-flex: 0 !important;
@@ -6887,6 +7012,57 @@ textarea.error:focus {
   font-size: 0.9rem;
   color: var(--text-body);
   text-align: center;
+}
+
+.db-notice-table .faq-title {
+  font-size: 15px;
+  font-weight: 500;
+  vertical-align: middle;
+  text-align: left !important;
+}
+
+.db-notice-table .faq-content {
+  padding: 24px 40px 24px 48px;
+  line-height: 1.6;
+  color: #555;
+  text-align: left !important;
+}
+
+.faq-row {
+  cursor: pointer;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.faq-row:hover {
+  background-color: #f8fafa;
+}
+
+.faq-icon {
+  width: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  color: #ccc;
+  margin-right: 8px;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.faq-row.active .faq-icon {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  color: #1B5E9E;
+}
+
+.faq-content-row {
+  display: none;
+  background-color: #fafafa;
+}
+
+.faq-content-row.active {
+  display: table-row;
 }
 
 .db-notice-table td.notice-title {
@@ -8971,7 +9147,7 @@ textarea.error:focus {
     text-align: left !important;
     padding-left: 0;
   }
-  .db-notice-table.faq-table td.faq-content {
+  .faq-table td.faq-content {
     text-align: left !important;
     padding: 16px;
   }
@@ -9592,12 +9768,6 @@ textarea.error:focus {
   }
   .calc-col-item:last-child {
     border-bottom: none;
-  }
-  .calc-col-label {
-    font-size: 0.65rem;
-  }
-  .calc-col-value {
-    font-size: 0.8rem;
   }
   .calc-col-item.highlight .calc-col-value {
     font-size: 0.9rem;
@@ -11081,5 +11251,358 @@ td.center {
   100% {
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
+  }
+}
+.remit-edit-page {
+  /* 그리드 컬럼 너비 조정 (RM_02_01 전용) */
+  /* Truncation on the value specifically */
+  /* 상태 값 우측 정렬 */
+  /* 라벨 스타일 (데스크탑) - 인라인 배치 */
+  /* 값 스타일 미세 조정 - 글자 크기 축소 */
+  /* Responsive Mobile Card View (< 480px) */
+  /* Ensure 2-column layout on Tablet/Mobile (< 768px) */
+  /* Adjustments for Small Mobile (< 480px) */
+}
+.remit-edit-page .remit-card-col-bank {
+  min-width: 200px;
+  -webkit-box-flex: 1.5;
+      -ms-flex: 1.5;
+          flex: 1.5;
+  /* 은행명 길면 말 줄임 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block !important;
+  /* Force block for truncation logic inside flex item if needed, but flex items usually truncate with min-width:0. Let's try flexible approach first, but user asked for truncation. */
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  /* Restore flex for label placement */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.remit-edit-page .remit-card-col-bank .remit-card-detail-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 140px;
+  /* Adjust as needed */
+  vertical-align: middle;
+}
+.remit-edit-page .remit-card-col-type {
+  min-width: 160px;
+  /* Slight increase */
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.remit-edit-page .remit-card-col-amount {
+  min-width: 180px;
+  -webkit-box-flex: 1.2;
+      -ms-flex: 1.2;
+          flex: 1.2;
+}
+.remit-edit-page .remit-card-col-cycle {
+  min-width: 120px;
+  /* Slight decrease */
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.remit-edit-page .remit-card-status-wrapper {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.remit-edit-page .remit-card-label {
+  display: inline-block;
+  color: #888;
+  font-size: 13px;
+  margin-right: 8px;
+  font-weight: 500;
+}
+.remit-edit-page .remit-card-detail-value,
+.remit-edit-page .remit-card-amount-value {
+  display: inline-block;
+  font-size: 15px;
+  /* 조금 줄임 (기존 16px 추정 or default) */
+}
+@media (max-width: 480px) {
+  .remit-edit-page {
+    /* Hide Table */
+    /* Show Card List */
+  }
+  .remit-edit-page .db-table-container {
+    display: none;
+  }
+  .remit-edit-page .account-card-list.mobile-only {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 12px;
+  }
+  .remit-edit-page .account-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  .remit-edit-page .account-card.selected {
+    border-color: #00A0DC;
+    background-color: #f0f9ff;
+    -webkit-box-shadow: 0 0 0 1px #00A0DC;
+            box-shadow: 0 0 0 1px #00A0DC;
+  }
+  .remit-edit-page .account-card-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .remit-edit-page .account-card-radio {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #1f2937;
+  }
+  .remit-edit-page .account-card-body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 8px;
+  }
+  .remit-edit-page .account-card-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 14px;
+  }
+  .remit-edit-page .account-card-label {
+    color: #6b7280;
+  }
+  .remit-edit-page .account-card-value {
+    color: #111827;
+    font-weight: 500;
+  }
+}
+@media (max-width: 768px) {
+  .remit-edit-page .form-row-2 {
+    display: grid;
+    /* Ensure it uses grid */
+    grid-template-columns: 1fr 1fr !important;
+    /* Force 2 columns */
+    gap: 12px;
+  }
+}
+@media (max-width: 480px) {
+  .remit-edit-page {
+    /* Smaller font sizes for compact 2-column layout */
+    /* Inputs adjustments if needed */
+  }
+  .remit-edit-page .field-label {
+    font-size: 13px !important;
+    margin-bottom: 4px;
+  }
+  .remit-edit-page .field-value-text {
+    font-size: 14px !important;
+    padding: 10px 0;
+  }
+  .remit-edit-page .login-input {
+    font-size: 14px !important;
+    padding: 10px;
+  }
+  .remit-edit-page .select-styled {
+    font-size: 14px !important;
+  }
+}
+
+#scheduleDetailModal .receipt-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 12px;
+  padding: 10px 0;
+}
+#scheduleDetailModal .receipt-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 15px;
+  border-bottom: 1px dashed #eee;
+  padding-bottom: 12px;
+}
+#scheduleDetailModal .receipt-row:last-child {
+  border-bottom: none;
+}
+#scheduleDetailModal .receipt-label {
+  color: #666;
+  font-weight: 500;
+}
+#scheduleDetailModal .receipt-value {
+  color: #333;
+  font-weight: 600;
+}
+#scheduleDetailModal .receipt-value.highlight {
+  color: #00A0DC;
+}
+
+@media (max-width: 768px) {
+  #scheduleDetailModal {
+    /* 상태 라벨 표시 (모바일) */
+    /* Ensure pseudo-elements are removed since we use real labels now */
+  }
+  #scheduleDetailModal .remit-card-col-bank,
+  #scheduleDetailModal .remit-card-col-type,
+  #scheduleDetailModal .remit-card-col-amount,
+  #scheduleDetailModal .remit-card-col-cycle,
+  #scheduleDetailModal .remit-card-status-wrapper {
+    min-width: auto;
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 100%;
+    margin-bottom: 4px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #scheduleDetailModal .remit-card-status-label {
+    display: inline-block !important;
+    color: #888;
+    font-size: 13px;
+    margin-right: 8px;
+    font-weight: 500;
+  }
+  #scheduleDetailModal .remit-card-col-bank::before,
+  #scheduleDetailModal .remit-card-col-type::before,
+  #scheduleDetailModal .remit-card-col-amount::before,
+  #scheduleDetailModal .remit-card-col-cycle::before {
+    content: none !important;
+  }
+  #scheduleDetailModal .remit-card-label {
+    font-size: 13px;
+    margin-right: 0;
+  }
+}
+/* 모달 480px 이하에서도 좌우 배치 강제 */
+@media (max-width: 480px) {
+  #scheduleDetailModal {
+    /* 출금 계좌 정보만 세로 배치 */
+  }
+  #scheduleDetailModal .receipt-row {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    -webkit-box-pack: justify !important;
+        -ms-flex-pack: justify !important;
+            justify-content: space-between !important;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #scheduleDetailModal .receipt-row.account-modal-row {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    -webkit-box-align: start !important;
+        -ms-flex-align: start !important;
+            align-items: flex-start !important;
+    gap: 6px;
+    padding-bottom: 12px;
+  }
+  #scheduleDetailModal .receipt-row.account-modal-row .account-info-box {
+    text-align: left;
+    width: 100%;
+  }
+  #scheduleDetailModal .receipt-label {
+    margin-bottom: 0 !important;
+    /* 혹시 모를 마진 제거 */
+  }
+  #scheduleDetailModal .receipt-value {
+    text-align: right;
+  }
+}
+/* 출금 계좌 정보 박스 */
+/* 출금 계좌 정보 텍스트 */
+.account-info-box {
+  color: #333;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: right;
+  /* 모바일 아닌 경우 우측 정렬 유지 */
+}
+
+/* 모달 상태 아이콘 정렬 */
+#modalStatus {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 6px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  /* 우측 정렬 */
+}
+
+/* 모달 480px 이하에서 상태 값 정렬 */
+@media (max-width: 480px) {
+  #modalStatus {
+    width: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    /* 모바일에서도 값은 우측 정렬 */
   }
 }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .m1 {
   margin: var(--s4);
 }
@@ -18,68 +19,23 @@
   margin-right: var(--s4);
 }
 
-.w-full {
-  width: 100%;
+.text-red {
+  color: #dc3545;
 }
 
-.flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-.flex-center {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.flex-center-start {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-.flex-center-center {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.flex-center-end {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+.text-left,
+.text-left {
+  text-align: left;
 }
 
-/* Demo Guide Buttons */
-.demo-btn {
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 14px;
-  color: white;
-  cursor: pointer;
-  -webkit-transition: opacity 0.2s;
-  transition: opacity 0.2s;
-  border: none;
+.text-center,
+.text-center {
+  text-align: center;
+}
+
+.text-right,
+.text-right {
+  text-align: right;
 }
 
 /* ===== Button Style ===== */
@@ -164,6 +120,16 @@
           transform: translateY(-1px);
 }
 
+.btn-delete {
+  background: #fef2f2;
+  color: #ef4444;
+  border: 1px solid #fca5a5;
+}
+
+.btn-delete:hover {
+  background: #fee2e2;
+}
+
 .btn-warning {
   background: #f59e0b;
 }
@@ -231,6 +197,16 @@
   font-size: 13px;
   min-width: auto;
   height: 32px;
+}
+
+.quick-btn.re-upload {
+  padding: 4px 8px;
+  font-size: 13px;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }
 
 .quick-btn:hover {
@@ -301,47 +277,6 @@
 
 /* ===== end Button Style ===== */
 /* ===== end Button Style ===== */
-/* ===== findTabs ===== */
-/* ===== findTabs ===== */
-.find-tabs {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  border-bottom: 2px solid #E5E7EB;
-  margin-bottom: 30px;
-}
-
-.find-tab-btn {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  padding: 15px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #9CA3AF;
-  background: none;
-  border: none;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.find-tab-btn.active {
-  color: var(--primary-green);
-  border-bottom-color: var(--primary-green);
-}
-
-.find-tab-content {
-  display: none;
-}
-
-.find-tab-content.active {
-  display: block;
-}
-
-/* ===== end findTabs ===== */
 /* ===== remit-modal ===== */
 /* Remittance Detail Modal */
 .remit-modal {
@@ -992,6 +927,174 @@
   }
 }
 /* ===== end modal-overlay ===== */
+.w-full {
+  width: 100%;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.flex-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.flex-center-start {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.flex-center-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.flex-center-end {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+/* 상태 뱃지 가시성 개선 */
+.badge {
+  color: #333;
+  /* 기본 글자색 어둡게 */
+}
+
+.badge-normal {
+  color: #1976D2;
+  /* 파란색 텍스트 복원 */
+}
+
+.badge-modal {
+  color: #7B1FA2;
+}
+
+/* Demo Guide Buttons */
+.demo-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  border: none;
+}
+
+/* ===== findTabs ===== */
+/* ===== findTabs ===== */
+.find-tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 2px solid #E5E7EB;
+  margin-bottom: 30px;
+}
+
+.find-tab-btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #9CA3AF;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.find-tab-btn.active {
+  color: var(--primary-green);
+  border-bottom-color: var(--primary-green);
+}
+
+.find-tab-content {
+  display: none;
+}
+
+.find-tab-content.active {
+  display: block;
+}
+
+/* CM_04_12 국적 선택 탭 스타일 */
+.nationality-selector {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.nationality-btn-label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  cursor: pointer;
+}
+
+.nationality-btn-label input {
+  display: none;
+}
+
+.nationality-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 52px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.nationality-btn-label input:checked + .nationality-btn {
+  border-color: #00A0DC;
+  background: #00A0DC;
+  color: #fff;
+}
+
+/* ===== end findTabs ===== */
 /* ===== Loading Overlay & Component Styles ===== */
 /* Loading Page (CM_01_02.html) Body Reset */
 .loading-body {

@@ -1,0 +1,81 @@
+.button {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0px var(--s5);
+  height: var(--s10);
+  font-size: 1rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.button.primary {
+  color: var(--white);
+  background-color: var(--primary-blue);
+}
+.button.secondary {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+}
+.button.tertiary {
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+}
+.button.text {
+  background-color: var(--transparent);
+  border: none;
+}
+.button.text:hover {
+  color: var(--primary-blue);
+  background: rgba(27, 94, 158, 0.08);
+}
+.button.delete {
+  color: var(--accent-red-light);
+  background-color: var(--bg-delete);
+  border: 1px solid var(--accent-red-dark);
+}
+.button.delete:hover {
+  color: var(--accent-red-dark);
+  background-color: #fee2e2;
+}
+.button.icon {
+  gap: var(--s2);
+}
+.button.full {
+  width: 100%;
+}
+.button.sm {
+  padding: 0 var(--s3);
+  height: var(--s8);
+  font-size: 0.9rem;
+}
+.button.md {
+  height: var(--s10);
+}
+.button.lg {
+  height: var(--s12);
+}
+.button.xl {
+  height: var(--s16);
+}
+.button:hover {
+  opacity: 0.9;
+}
+
+.button-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: var(--s2);
+}

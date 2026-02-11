@@ -1,0 +1,550 @@
+
+/* ===== remit-modal ===== */
+/* Remittance Detail Modal */
+.remit-modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 2000;
+	align-items: center;
+	justify-content: center;
+}
+
+.remit-modal.show {
+	display: flex;
+}
+
+.remit-modal-content {
+	background: #fff;
+	border-radius: 16px;
+	max-width: 600px;
+	width: 90%;
+	max-height: 90vh;
+	overflow-y: auto;
+	position: relative;
+}
+
+.remit-modal-header {
+	padding: 24px 24px 16px;
+	border-bottom: 1px solid var(--border-color);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.remit-modal-title {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--text-dark);
+	margin: 0;
+}
+
+.remit-modal-close {
+	background: none;
+	border: none;
+	font-size: 1.5rem;
+	color: var(--text-muted);
+	cursor: pointer;
+	padding: 4px 8px;
+	transition: all 0.2s;
+}
+
+.remit-modal-close:hover {
+	color: var(--text-dark);
+	transform: rotate(90deg);
+}
+
+.remit-modal-body {
+	padding: 24px;
+}
+
+.remit-detail-section {
+	margin-bottom: 24px;
+}
+
+.remit-detail-section-title {
+	font-size: 0.9rem;
+	font-weight: 700;
+	color: var(--text-muted);
+	text-transform: uppercase;
+	margin-bottom: 12px;
+}
+
+.remit-detail-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 16px;
+}
+
+.remit-detail-field {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.remit-detail-field-label {
+	font-size: 0.75rem;
+	color: var(--text-muted);
+}
+
+.remit-detail-field-value {
+	font-size: 0.95rem;
+	font-weight: 600;
+	color: var(--text-dark);
+}
+
+.remit-detail-field.full-width {
+	grid-column: 1 / -1;
+}
+
+.remit-modal-footer {
+	padding: 16px 24px;
+	border-top: 1px solid var(--border-color);
+	display: flex;
+	justify-content: flex-end;
+	gap: 12px;
+}
+
+.remit-modal-footer button {
+	flex: 1;
+	width: auto !important;
+  /* Override global 100% width on mobile */
+	min-width: 0 !important;
+  /* Prevent overflow */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	margin: 0 !important;
+  /* Reset margins */;
+}
+
+@media (max-width: 768px) {
+  /* Mobile Search Toggle */
+	.db-mobile-search-toggle {
+		display: flex;
+	}
+
+	.remit-search-wrapper {
+		display: none;
+	}
+
+	.remit-search-wrapper.mobile-active {
+		display: block;
+	}
+  /* Search Form Mobile Layout */
+	.remit-search-row {
+		flex-direction: column;
+	}
+
+	.remit-search-right {
+		width: 100%;
+		align-items: flex-start;
+	}
+
+	.remit-search-buttons {
+		width: 100%;
+	}
+
+	.db-search-btn {
+		flex: 1;
+		justify-content: center;
+	}
+  /* Quick Buttons - 1 row, 5 buttons */
+	.remit-quick-btns-inline {
+		display: flex;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		gap: 2px;
+		margin-left: 0;
+		justify-content: flex-end;
+	}
+
+	.remit-quick-btn-small {
+		flex: 1;
+		min-width: auto;
+		font-size: 0.7rem;
+		padding: 6px 8px;
+	}
+  /* Search section mobile layout */
+	.remit-search-section {
+		gap: 2px;
+		width: 100%;
+	}
+
+	.search-label {
+		width: 100%;
+	}
+  /* Always show detail search on mobile - each field on separate line */
+	.remit-search-detail {
+		display: flex !important;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.remit-search-detail .search-label {
+		width: 100%;
+	}
+
+	.remit-search-detail .db-search-type {
+		width: 100%;
+	}
+
+	.remit-search-detail .db-search-input {
+		width: 100%;
+	}
+  /* Hide detail toggle button on mobile */
+	.remit-detail-toggle-btn {
+		display: none;
+	}
+  /* Card Mobile Layout - Keep amounts in one row */
+	.remit-card-body {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.remit-card-kr-amounts {
+		min-width: auto;
+		gap: 8px;
+	}
+
+	.remit-card-kr-amounts .remit-card-flag {
+		width: 24px;
+		height: 24px;
+	}
+
+	.remit-card-amounts-krw {
+		gap: 2px;
+	}
+
+	.remit-card-amount-label {
+		font-size: 0.65rem;
+		min-width: 28px;
+	}
+
+	.remit-card-amount-value {
+		font-size: 0.8rem;
+	}
+
+	.remit-card-arrow {
+		margin: 0 4px;
+	}
+
+	.remit-card-arrow svg {
+		width: 18px;
+		height: 18px;
+	}
+
+	.remit-card-receive-amount {
+		min-width: auto;
+		gap: 6px;
+	}
+
+	.remit-card-receive-amount .remit-card-flag {
+		width: 24px;
+		height: 24px;
+	}
+
+	.remit-card-receive-amount .remit-card-amount-value {
+		font-size: 0.9rem;
+	}
+
+	.remit-card-details {
+		width: 100%;
+		min-width: 100%;
+		margin-top: 8px;
+	}
+
+	.remit-card-detail-value {
+		max-width: 250px;
+	}
+
+	.remit-card-status-wrapper {
+		width: 100%;
+		margin-left: 0;
+		margin-top: 8px;
+	}
+
+	.remit-card-status-wrapper .remit-status {
+		padding: 0;
+	}
+
+	.remit-detail-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 480px) {
+  /* Search Form 480px Layout */
+	.remit-search-row {
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.remit-search-left {
+		width: 100%;
+	}
+
+	.remit-search-section {
+		flex-direction: column;
+		align-items: flex-start;
+		width: 100%;
+		gap: 2px;
+	}
+
+	.search-label {
+		width: 100%;
+	}
+  /* Period section in one line */
+	.remit-search-section > .search-label,
+  .remit-search-section > .db-search-input {
+		display: inline-block;
+	}
+
+	.remit-search-section > .date-separator {
+		display: none;
+	}
+  /* Quick buttons full width on next line */
+	.remit-quick-btns-inline {
+		width: 100%;
+		margin-left: 0;
+		display: flex;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+	}
+  /* Detail search - status and receipt number each on own line */
+  /* Always show detail search on mobile */
+	.remit-search-detail {
+		display: flex !important;
+		flex-direction: column;
+		align-items: flex-start;
+		width: 100%;
+		gap: 12px;
+	}
+
+	.remit-search-detail .search-label {
+		width: 100%;
+		margin-bottom: 4px;
+	}
+
+	.db-search-type {
+		width: 100%;
+	}
+
+	.db-search-input {
+		width: 100%;
+	}
+  /* Search buttons - one per line with icons */
+	.remit-search-right {
+		width: 100%;
+	}
+
+	.remit-search-buttons {
+		flex-direction: column;
+		width: 100%;
+		gap: 8px;
+	}
+
+	.db-search-btn {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+	}
+
+	.db-search-btn .search-btn-icon {
+		display: block;
+	}
+
+	.db-reset-btn {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		border-radius: 8px;
+		padding: 10px;
+	}
+
+	.db-reset-btn .reset-text {
+		display: inline;
+	}
+
+	.db-reset-btn .reset-btn-text {
+		display: inline;
+	}
+  /* Hide detail toggle button */
+	.remit-detail-toggle-btn {
+		display: none;
+	}
+  /* Card status padding 0 */
+	.remit-card-status-wrapper .remit-status {
+		padding: 0;
+	}
+}
+/* ===== end remit-modal ===== */
+
+/* ===== modal-overlay ===== */
+.db-overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1040;
+}
+
+.db-overlay.show {
+	display: block;
+}
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 2000;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease,
+ visibility 0.3s ease;
+	backdrop-filter: blur(4px);
+}
+
+.modal-overlay.active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.modal-content {
+	background: #ffffff;
+	padding: 2.5rem;
+	border-radius: 20px;
+	max-width: 400px;
+	width: 90%;
+	text-align: center;
+	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+	border: none;
+	transform: scale(0.8);
+	transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-overlay.active .modal-content {
+	transform: scale(1);
+}
+
+.modal-icon {
+	margin-bottom: 1.25rem;
+	display: flex;
+	justify-content: center;
+}
+
+.modal-content h3 {
+	font-size: 1.3rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	color: #111827;
+}
+
+.modal-content p {
+	font-size: 0.95rem;
+	line-height: 1.7;
+	color: #4b5563;
+	margin-bottom: 2rem;
+	word-break: keep-all;
+}
+
+/* Confirm Modal Buttons */
+.modal-btn-group {
+	display: flex;
+	gap: 12px;
+	margin-top: 24px;
+	width: 100%;
+}
+
+/* Specificity Override for Modal Buttons */
+.modal-btn-group .btn-cancel {
+	flex: 1 !important;
+}
+
+.modal-btn-group .btn-confirm-action {
+	flex: 1.5 !important;
+}
+
+
+.modal-btn-group button {
+	flex: 1;
+	height: 48px;
+	border-radius: 8px;
+	font-size: 16px;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modal-btn-warning {
+	background-color: #f59e0b;
+	border: none;
+	color: #ffffff;
+	width: 100%;
+	padding: 0.875rem;
+	border-radius: 12px;
+	font-weight: 600;
+	font-size: 1rem;
+	transition: all 0.2s;
+	cursor: pointer;
+}
+
+.modal-btn-warning:hover {
+	background-color: #d97706;
+	transform: translateY(-1px);
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.modal-btn-success {
+	background-color: var(--primary-green);
+	border: none;
+	color: #ffffff;
+	width: 100%;
+	padding: 0.875rem;
+	border-radius: 12px;
+	font-weight: 600;
+	font-size: 1rem;
+	transition: all 0.2s;
+	cursor: pointer;
+}
+
+.modal-btn-success:hover {
+	background-color: #0088be;
+	transform: translateY(-1px);
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes modalFadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* ===== end modal-overlay ===== */

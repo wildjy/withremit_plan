@@ -80,33 +80,6 @@
 @import "./login";
 
 
-.db-content {
-	flex: 1;
-	width: 100%;
-}
-
-.db-grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 20px;
-	align-items: stretch;
-}
-
-.db-grid-3col {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: 20px;
-	align-items: stretch;
-	margin-top: 20px;
-}
-
-.db-grid-2col {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 20px;
-	align-items: stretch;
-	margin-top: 20px;
-}
 
 .db-grid > .calculator-card {
 	max-width: 100% !important;
@@ -1374,6 +1347,54 @@
 	text-align: center;
 }
 
+.db-notice-table .faq-title {
+		font-size: 15px;
+		font-weight: 500;
+		vertical-align: middle;
+		text-align: left !important;
+}
+
+.db-notice-table .faq-content {
+		padding: 24px 40px 24px 48px;
+		line-height: 1.6;
+		color: #555;
+		// white-space: pre-line;
+		text-align: left !important;
+}
+
+.faq-row {
+		cursor: pointer;
+		transition: background-color 0.2s;
+}
+
+.faq-row:hover {
+		background-color: #f8fafa;
+}
+
+.faq-icon {
+		width: 24px;
+		display: inline-block;
+		vertical-align: middle;
+		color: #ccc;
+		margin-right: 8px;
+		transition: transform 0.3s;
+}
+
+.faq-row.active .faq-icon {
+		transform: rotate(90deg);
+		color: #1B5E9E;
+}
+
+
+.faq-content-row {
+		display: none;
+		background-color: #fafafa;
+}
+
+.faq-content-row.active {
+		display: table-row;
+}
+
 .db-notice-table td.notice-title {
 	text-align: left;
 	padding-left: 16px;
@@ -2615,7 +2636,7 @@
 	}
 
 	.db-notice-table th,
-  	.db-notice-table td {
+  .db-notice-table td {
 		padding: 12px 8px;
 		font-size: 0.875rem;
 	}
@@ -3235,7 +3256,7 @@
 		padding-left: 0;
 	}
 
-	.db-notice-table.faq-table td.faq-content {
+	.faq-table td.faq-content {
 		text-align: left !important;
 		padding: 16px;
 	}
@@ -3840,13 +3861,13 @@
 		border-bottom: none;
 	}
 
-	.calc-col-label {
-		font-size: 0.65rem;
-	}
+	// .calc-col-label {
+	// 	font-size: 0.65rem;
+	// }
 
-	.calc-col-value {
-		font-size: 0.8rem;
-	}
+	// .calc-col-value {
+	// 	font-size: 0.8rem;
+	// }
 
 	.calc-col-item.highlight .calc-col-value {
 		font-size: 0.9rem;
@@ -5122,3 +5143,313 @@ td.center {
     transform: translateX(-50%);
   }
 }
+
+.remit-edit-page {
+	/* 그리드 컬럼 너비 조정 (RM_02_01 전용) */
+	.remit-card-col-bank {
+			min-width: 200px;
+			flex: 1.5;
+			/* 은행명 길면 말 줄임 */
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			display: block !important;
+			/* Force block for truncation logic inside flex item if needed, but flex items usually truncate with min-width:0. Let's try flexible approach first, but user asked for truncation. */
+			display: flex !important;
+			/* Restore flex for label placement */
+			align-items: center;
+	}
+
+	/* Truncation on the value specifically */
+	.remit-card-col-bank .remit-card-detail-value {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			max-width: 140px;
+			/* Adjust as needed */
+			vertical-align: middle;
+	}
+
+	.remit-card-col-type {
+			min-width: 160px;
+			/* Slight increase */
+			flex: 1;
+	}
+
+	.remit-card-col-amount {
+			min-width: 180px;
+			flex: 1.2;
+	}
+
+	.remit-card-col-cycle {
+			min-width: 120px;
+			/* Slight decrease */
+			flex: 1;
+	}
+
+	/* 상태 값 우측 정렬 */
+	.remit-card-status-wrapper {
+			justify-content: flex-end;
+	}
+
+	/* 라벨 스타일 (데스크탑) - 인라인 배치 */
+	.remit-card-label {
+			display: inline-block;
+			color: #888;
+			font-size: 13px;
+			margin-right: 8px;
+			font-weight: 500;
+	}
+
+	/* 값 스타일 미세 조정 - 글자 크기 축소 */
+	.remit-card-detail-value,
+	.remit-card-amount-value {
+			display: inline-block;
+			font-size: 15px;
+			/* 조금 줄임 (기존 16px 추정 or default) */
+	}
+
+
+	/* Responsive Mobile Card View (< 480px) */
+	@media (max-width: 480px) {
+		/* Hide Table */
+		.db-table-container {
+				display: none;
+		}
+
+		/* Show Card List */
+		.account-card-list.mobile-only {
+				display: flex;
+				flex-direction: column;
+				gap: 12px;
+		}
+
+		.account-card {
+				background: #fff;
+				border: 1px solid #e5e7eb;
+				border-radius: 12px;
+				padding: 16px;
+				cursor: pointer;
+				transition: all 0.2s ease;
+		}
+
+		.account-card.selected {
+				border-color: #00A0DC;
+				background-color: #f0f9ff;
+				box-shadow: 0 0 0 1px #00A0DC;
+		}
+
+		.account-card-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 12px;
+				padding-bottom: 12px;
+				border-bottom: 1px solid #f3f4f6;
+		}
+
+		.account-card-radio {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				font-weight: 600;
+				color: #1f2937;
+		}
+
+		.account-card-body {
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+		}
+
+		.account-card-row {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 14px;
+		}
+
+		.account-card-label {
+				color: #6b7280;
+		}
+
+		.account-card-value {
+				color: #111827;
+				font-weight: 500;
+		}
+	}
+
+	/* Ensure 2-column layout on Tablet/Mobile (< 768px) */
+	@media (max-width: 768px) {
+		.form-row-2 {
+				display: grid;
+				/* Ensure it uses grid */
+				grid-template-columns: 1fr 1fr !important;
+				/* Force 2 columns */
+				gap: 12px;
+		}
+	}
+
+	/* Adjustments for Small Mobile (< 480px) */
+	@media (max-width: 480px) {
+		/* Smaller font sizes for compact 2-column layout */
+		.field-label {
+				font-size: 13px !important;
+				margin-bottom: 4px;
+		}
+
+		.field-value-text {
+				font-size: 14px !important;
+				padding: 10px 0;
+		}
+
+		/* Inputs adjustments if needed */
+		.login-input {
+				font-size: 14px !important;
+				padding: 10px;
+		}
+
+		.select-styled {
+				font-size: 14px !important;
+		}
+	}
+}
+
+
+// RM_02_01 모달 영수증 스타일
+#scheduleDetailModal {
+	.receipt-section {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+			padding: 10px 0;
+	}
+
+	.receipt-row {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 15px;
+			border-bottom: 1px dashed #eee;
+			padding-bottom: 12px;
+	}
+
+	.receipt-row:last-child {
+			border-bottom: none;
+	}
+
+	.receipt-label {
+			color: #666;
+			font-weight: 500;
+	}
+
+	.receipt-value {
+			color: #333;
+			font-weight: 600;
+	}
+
+	.receipt-value.highlight {
+			color: #00A0DC;
+	}
+}
+
+@media (max-width: 768px) {
+	#scheduleDetailModal {
+		.remit-card-col-bank,
+		.remit-card-col-type,
+		.remit-card-col-amount,
+		.remit-card-col-cycle,
+		.remit-card-status-wrapper {
+				min-width: auto;
+				flex: none;
+				width: 100%;
+				margin-bottom: 4px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+		}
+
+		/* 상태 라벨 표시 (모바일) */
+		.remit-card-status-label {
+				display: inline-block !important;
+				color: #888;
+				font-size: 13px;
+				margin-right: 8px;
+				font-weight: 500;
+		}
+
+		/* Ensure pseudo-elements are removed since we use real labels now */
+		.remit-card-col-bank::before,
+		.remit-card-col-type::before,
+		.remit-card-col-amount::before,
+		.remit-card-col-cycle::before {
+				content: none !important;
+		}
+
+		.remit-card-label {
+				font-size: 13px;
+				margin-right: 0;
+		}
+	}
+}
+
+/* 모달 480px 이하에서도 좌우 배치 강제 */
+@media (max-width: 480px) {
+	#scheduleDetailModal {
+		.receipt-row {
+				flex-direction: row !important;
+				justify-content: space-between !important;
+				align-items: center;
+		}
+
+		/* 출금 계좌 정보만 세로 배치 */
+		.receipt-row.account-modal-row {
+				flex-direction: column !important;
+				align-items: flex-start !important;
+				gap: 6px;
+				padding-bottom: 12px;
+		}
+
+		.receipt-row.account-modal-row .account-info-box {
+				text-align: left;
+				width: 100%;
+		}
+
+		.receipt-label {
+				margin-bottom: 0 !important;
+				/* 혹시 모를 마진 제거 */
+		}
+
+		.receipt-value {
+				text-align: right;
+		}
+	}
+}
+
+		/* 출금 계좌 정보 박스 */
+		/* 출금 계좌 정보 텍스트 */
+		.account-info-box {
+				color: #333;
+				font-size: 15px;
+				font-weight: 500;
+				text-align: right;
+				/* 모바일 아닌 경우 우측 정렬 유지 */
+		}
+
+		/* 모달 상태 아이콘 정렬 */
+		#modalStatus {
+				display: inline-flex;
+				align-items: center;
+				gap: 6px;
+				justify-content: flex-end;
+				/* 우측 정렬 */
+		}
+
+		/* 모달 480px 이하에서 상태 값 정렬 */
+		@media (max-width: 480px) {
+				#modalStatus {
+						width: 100%;
+						justify-content: flex-end;
+						/* 모바일에서도 값은 우측 정렬 */
+				}
+		}

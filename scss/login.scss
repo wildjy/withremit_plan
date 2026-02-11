@@ -39,6 +39,29 @@
 	width: auto;
 }
 
+.password-confirm-container {
+		max-width: 400px;
+		margin: 120px auto;
+		text-align: center;
+}
+
+.password-wrap {
+		width: 100%;
+}
+
+.password-confirm-title {
+		font-size: 28px;
+		font-weight: 700;
+		color: #111;
+		margin-bottom: 12px;
+}
+
+.password-confirm-desc {
+		color: #333;
+		font-size: 15px;
+		margin-bottom: 40px;
+}
+
 // 비밀번호 재설정 가이드 스타일
 .guide-logo {
 	height: 50px;

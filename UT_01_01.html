@@ -312,17 +312,19 @@
 
     <div class="db-overlay" id="dbOverlay"></div>
 
+    <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
     <script src="js/includes.js"></script>
+    <script src="js/main.js"></script>
     <script>
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+        // function openModal(modalId) {
+        //     document.getElementById(modalId).classList.add('active');
+        //     document.body.style.overflow = 'hidden';
+        // }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('active');
-            document.body.style.overflow = '';
-        }
+        // function closeModal(modalId) {
+        //     document.getElementById(modalId).classList.remove('active');
+        //     document.body.style.overflow = '';
+        // }
 
         function openPostcodeModal() {
             document.getElementById('postcodeModal').classList.add('show');
