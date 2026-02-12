@@ -1046,7 +1046,89 @@
   display: block;
 }
 
-/* CM_04_12 국적 선택 탭 스타일 */
+.guide-tab-container {
+  margin-bottom: 30px;
+}
+
+.guide-tab {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 14px 20px;
+  text-align: center;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background: transparent;
+  border: none;
+  position: relative;
+}
+
+.guide-tabs {
+  background: #f8fafc;
+  padding: 6px;
+  border-radius: 16px;
+  margin-bottom: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 6px;
+  border: 1px solid #e2e8f0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  overflow-x: auto;
+}
+
+.guide-tab:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.5);
+  color: #475569;
+}
+
+.guide-tab.active {
+  background: #fff;
+  color: #00A0DC !important;
+  /* Force override */
+  -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-weight: 700;
+  border-bottom: none;
+  /* Ensure no border */
+}
+
+.tab-content {
+  display: none;
+  -webkit-animation: fadeIn 0.3s ease-in-out;
+          animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .guide-tabs {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 8px;
+  }
+  .guide-tab {
+    min-width: 45%;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    font-size: 14px;
+    padding: 12px 10px;
+  }
+}
+/* CM_04_12 회원가입 내국인/외국인 탭 스타일 */
 .nationality-selector {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1094,6 +1176,7 @@
   color: #fff;
 }
 
+/* ===== end findTabs ===== */
 /* ===== end findTabs ===== */
 /* ===== Loading Overlay & Component Styles ===== */
 /* Loading Page (CM_01_02.html) Body Reset */

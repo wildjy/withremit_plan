@@ -661,10 +661,12 @@ if(agreeAll && items ) {
         const allChecked = Array.from(items).every(item => item.checked);
         if (allChecked) {
             nextBtn.disabled = false;
+            nextBtn.style.pointerEvents = 'auto';
             nextBtn.style.opacity = '1';
             nextBtn.style.cursor = 'pointer';
         } else {
             nextBtn.disabled = true;
+            nextBtn.style.pointerEvents = 'none';
             nextBtn.style.opacity = '0.5';
             nextBtn.style.cursor = 'not-allowed';
         }

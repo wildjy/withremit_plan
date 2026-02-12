@@ -1,0 +1,879 @@
+.guide-tab-container {
+    margin-bottom: 30px;
+}
+
+
+.guide-tabs {
+    background: #f8fafc;
+    padding: 6px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    display: flex;
+    gap: 6px;
+    border: 1px solid #e2e8f0;
+    box-shadow: none;
+    /* Removed old shadow */
+    overflow-x: auto;
+    /* Keep checking overflow */
+}
+
+.guide-tab {
+    flex: 1;
+    padding: 14px 20px;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: transparent;
+    border: none;
+    /* Removed border-bottom */
+    position: relative;
+    /* Keep relative if needed */
+}
+
+.guide-tab:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.5);
+    color: #475569;
+}
+
+.guide-tab.active {
+    background: #fff;
+    color: #00A0DC !important;
+    /* Force override */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    font-weight: 700;
+    border-bottom: none;
+    /* Ensure no border */
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.guide-section {
+    margin-bottom: 40px;
+}
+
+.guide-section-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.title-icon {
+    width: 24px;
+    height: 24px;
+    color: #4A90E2;
+}
+
+.guide-text {
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.guide-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.guide-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.guide-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #4A90E2;
+    font-weight: bold;
+}
+
+
+
+.guide-table-wrapper {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.guide-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.guide-table th {
+    background-color: #f8faff;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.guide-table td {
+    padding: 15px;
+    font-size: 14px;
+    color: #555;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.guide-table tr:last-child td {
+    border-bottom: none;
+}
+
+.guide-note {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #888;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.guide-highlight {
+    color: #4A90E2;
+    font-weight: 600;
+}
+
+.empty-content {
+    padding: 100px 0;
+    text-align: center;
+    color: #999;
+}
+
+.service-intro {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 60px 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.service-slogan {
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    letter-spacing: -1.2px;
+}
+
+.service-description {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.service-description strong {
+    color: #4A90E2;
+    position: relative;
+}
+
+.service-description strong::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(74, 144, 226, 0.15);
+    z-index: -1;
+}
+
+/* Premium Background Decorations Removed */
+
+/* Feature Grid & Glassmorphism */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-grid.three-col {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Responsive adjustment for three-col */
+/* 768px 이상은 3개 배열 유지 (별도 설정 불필요, 기본이 3개) */
+/* @media (max-width: 992px) Rule Removed based on user request */
+
+.feature-card {
+    background: #ffffff;
+    border: 1px solid #edf2f7;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border-radius: 20px;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    animation: fadeInUp 0.6s ease backwards;
+}
+
+.feature-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.feature-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.feature-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: #4A90E2;
+    box-shadow: 0 12px 30px rgba(74, 144, 226, 0.08);
+}
+
+.feature-image-container {
+    width: 100%;
+    /* removed fixed height to let image scaling determine height, or keep it if needed but let's make it flexible */
+    padding: 30px 0 0;
+    /* Added whitespace at top */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    /* Ensure white background */
+}
+
+.feature-image {
+    width: 50%;
+    /* Reduced width */
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.feature-card:hover .feature-image {
+    transform: scale(1.05);
+}
+
+.feature-content {
+    padding: 20px 25px 30px;
+    width: 100%;
+    text-align: left;
+}
+
+.feature-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.feature-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666;
+    text-align: left;
+}
+
+.feature-desc p {
+    margin-bottom: 8px;
+}
+
+.feature-desc p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .service-slogan {
+        font-size: 28px;
+    }
+
+    .feature-grid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-grid.three-col {
+        grid-template-columns: 1fr;
+    }
+
+    .service-slogan {
+        font-size: 24px;
+    }
+
+    /* 모바일에서 카드 가로 배치 (이미지 좌측, 텍스트 우측) */
+    .feature-card {
+        flex-direction: row;
+        align-items: center;
+        padding: 10px !important;
+        min-height: auto;
+    }
+
+    .feature-image-container {
+        width: 100px;
+        min-width: 100px;
+        padding: 0;
+        margin-right: 15px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .feature-image {
+        width: 80%;
+        max-height: 80px;
+    }
+
+    .feature-content {
+        padding: 10px 0;
+        width: auto;
+        flex: 1;
+    }
+
+    .feature-title {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .feature-desc {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .feature-desc ul {
+        margin-top: 5px;
+    }
+
+    .feature-desc li {
+        margin-bottom: 3px;
+    }
+
+    .blob {
+        opacity: 0.1;
+    }
+}
+
+@media (max-width: 768px) {
+    .guide-tabs {
+        flex-wrap: wrap;
+        height: auto;
+        display: flex;
+        /* Ensure it overrides any potential grid setting */
+        gap: 8px;
+        /* Slightly larger gap for touch */
+    }
+
+    .guide-tab {
+        min-width: 45%;
+        flex-grow: 1;
+        /* Allow growing to fill row */
+        font-size: 14px;
+        padding: 12px 10px;
+        /* Adjust padding */
+    }
+}
+
+@media (max-width: 600px) {
+    /* Optional: Ensure 2 items per row look good or just rely on wrap logic above */
+    /* If we rely on min-width 45%, it naturally becomes 2 per row */
+}
+
+
+/* Guide Countries Grid Overrides */
+.guide-countries-grid {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.guide-countries-grid .country-card {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+    gap: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.guide-countries-grid .country-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(74, 144, 226, 0.12);
+}
+
+.guide-countries-grid .country-flag {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 5px;
+}
+
+.guide-countries-grid .country-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.guide-countries-grid .country-info span {
+    font-size: 0.9rem;
+}
+
+/* Responsive for Countries Grid */
+@media (max-width: 1024px) {
+    .guide-countries-grid.countries-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .guide-countries-grid.countries-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .guide-countries-grid.countries-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .guide-countries-grid .country-card {
+        padding: 20px 15px;
+    }
+
+
+}
+
+/* ===== Premium Guide Styles (Migrated from HTML) ===== */
+:root {
+    --company-gradient: linear-gradient(135deg, #00A0DC 0%, #2563eb 100%);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.guide-hero {
+    position: relative;
+    background: var(--company-gradient);
+    border-radius: 24px;
+    padding: 60px 40px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 40px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 160, 220, 0.2);
+}
+
+.guide-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -10%;
+    width: 50%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(30deg);
+    pointer-events: none;
+}
+
+.hero-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-desc {
+    font-size: 18px;
+    color: #ffffff;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+}
+
+/* Tabs Styling Override */
+.guide-tab-container {
+    margin-top: 0;
+}
+
+.guide-tabs {
+    background: #f8fafc;
+    padding: 6px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.guide-tab {
+    flex: 1;
+    padding: 14px 20px;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: transparent;
+    border: none;
+}
+
+.guide-tab.active {
+    background: #fff;
+    color: #00A0DC !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    font-weight: 700;
+}
+
+.guide-tab:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.5);
+    color: #475569;
+}
+
+/* Feature Cards */
+.feature-grid-new {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.feature-grid-new.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Unified Feature Card Style */
+.feature-card-new {
+    background: #fff;
+    padding: 35px;
+    border-radius: 24px;
+    border: 1px solid #f1f5f9;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.feature-card-new:hover {
+    transform: translateY(-8px);
+    border-color: #00A0DC;
+    box-shadow: 0 20px 40px rgba(0, 160, 220, 0.1);
+}
+
+.feature-icon-box {
+    width: 60px;
+    height: 60px;
+    background: #f0f9ff;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: #00A0DC;
+    transition: all 0.3s;
+}
+
+.feature-card-new:hover .feature-icon-box {
+    background: #00A0DC;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.feature-title-new {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.feature-desc-new {
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.feature-desc-new ul {
+    padding-left: 20px;
+    margin: 0;
+    list-style-type: disc;
+}
+
+.feature-desc-new li {
+    margin-bottom: 6px;
+}
+
+/* Content Box */
+.content-box-premium {
+    background: #fff;
+    border-radius: 24px;
+    border: 1px solid #f1f5f9;
+    padding: 40px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 30px;
+}
+
+.section-header {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.section-header h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    text-align: center;
+}
+
+.section-icon {
+    color: #00A0DC;
+}
+
+/* Country Grid */
+.guide-countries-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.country-card {
+    background: #fff;
+    border: 1px solid #f1f5f9;
+    box-shadow: var(--card-shadow);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.2s;
+}
+
+.country-card:hover {
+    transform: translateY(-4px);
+    border-color: #00A0DC;
+}
+
+.country-flag {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #f1f5f9;
+}
+
+.country-info h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.country-info span {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* Premium Table */
+.premium-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.premium-table th {
+    background: #f8fafc;
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+    color: #475569;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.premium-table td {
+    padding: 16px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #333;
+    font-size: 15px;
+}
+
+.premium-table tr:last-child td {
+    border-bottom: none;
+}
+
+.premium-table tr:hover td {
+    background: #f8fafc;
+}
+
+/* Responsiveness */
+/* Default for > 767px is 3 columns for .cols-3 (defined in base styles) */
+
+/* Mobile Styles (Max-width 767px - strictly below 768px) */
+@media (max-width: 767px) {
+
+    .feature-grid-new,
+    .feature-grid-new.cols-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .guide-countries-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Mobile Horizontal Layout for Feature Cards */
+    .feature-card-new {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 20px;
+        padding: 24px;
+        align-items: start;
+    }
+
+    .feature-icon-box {
+        grid-row: 1 / span 2;
+        margin-bottom: 0;
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+    }
+
+    .feature-icon-box svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .feature-title-new {
+        grid-column: 2;
+        margin-bottom: 6px;
+        font-size: 17px;
+        align-self: center;
+        margin-top: 0;
+    }
+
+    .feature-desc-new {
+        grid-column: 2;
+        font-size: 14px;
+    }
+
+    .guide-tabs {
+        flex-wrap: wrap;
+    }
+
+    .guide-tab {
+        min-width: 45%;
+        font-size: 14px;
+    }
+
+    .hero-title {
+        font-size: 24px;
+    }
+
+    .hero-desc {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .guide-countries-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .country-card {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .country-flag {
+        width: 36px;
+        height: 36px;
+    }
+
+    .country-info h4 {
+        font-size: 14px;
+    }
+
+    .country-info span {
+        font-size: 12px;
+    }
+}
+
+/* Override styles for cards inside content-box-premium (no icons, subtle design) */
+.content-box-premium .feature-card-new {
+    box-shadow: none;
+    border: none;
+    background-color: #f8fafc;
+}
+
+.content-box-premium .feature-card-new:hover {
+    transform: translateY(-2px);
+    box-shadow: none;
+    background-color: #f1f5f9;
+    border: none;
+}

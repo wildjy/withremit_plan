@@ -1,22 +1,15 @@
-@charset "UTF-8";
 /* Account Management Page Styles */
+
 /* Page Header Layout */
 .db-page-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 24px;
 }
 
 .db-page-actions {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 /* Modal Field Spacing */
@@ -27,23 +20,15 @@
 /* Status Styles */
 .status-verified {
   color: #059669;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   gap: 4px;
 }
 
 .status-unverified {
   color: #dc2626;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   gap: 4px;
 }
 
@@ -76,21 +61,18 @@
     display: none !important;
   }
 }
+
 /* Terms Box Styles */
 /* .terms-wrapper removed in favor of db-content-card */
+
 /* Terms Styles matching CM_04_11 */
 /* Using global styles from style.css */
+
 /* AC_02_03 Page Specific Styles */
 .load-account-top {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 16px;
 }
 
@@ -101,19 +83,14 @@
 }
 
 .select-all-wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .bank-group {
   background: transparent;
   border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   margin-bottom: 32px;
 }
 
@@ -184,15 +161,9 @@
 
 /* AC_02_03 Page Specific Styles */
 .load-account-top {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 16px;
 }
 
@@ -203,19 +174,14 @@
 }
 
 .select-all-wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .bank-group {
   background: transparent;
   border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   margin-bottom: 32px;
 }
 
@@ -275,9 +241,11 @@
     display: block;
     width: 100%;
   }
+
   .db-notice-table thead {
     display: none;
   }
+
   .db-notice-table tbody tr {
     display: block;
     background: #fff;
@@ -287,26 +255,20 @@
     margin-bottom: 0;
     padding: 20px 20px;
     /* Added horizontal padding */
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
     position: relative;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     /* Ensure padding doesn't overflow width */
   }
+
   .db-notice-table tbody tr:last-child {
     border-bottom: none;
   }
+
   .db-notice-table td {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    justify-content: space-between;
+    align-items: center;
     padding: 8px 0;
     /* Slightly reduced vertical padding inside the item */
     border-bottom: none;
@@ -315,12 +277,13 @@
     font-size: 0.95rem;
     width: 100%;
     /* Ensure cell takes full width */
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
   }
+
   .db-notice-table td:last-child {
     border-bottom: none;
   }
+
   /* Labels */
   .db-notice-table td::before {
     content: attr(data-label);
@@ -332,45 +295,43 @@
     text-align: left;
     white-space: nowrap;
   }
+
   /* Value styling on right side */
   .db-notice-table td > * {
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
+    flex-shrink: 0;
   }
+
   /* Adjust checkbox row for mobile - Make it look like a header for the item */
   .db-notice-table .col-check {
     padding-bottom: 12px;
     margin-bottom: 8px;
     border-bottom: 1px dashed #e5e7eb;
   }
+
   .db-notice-table .col-check::before {
     font-size: 1.1rem;
     color: #111;
   }
+
   /* Status alignment wrapper - Icon Left */
   .status-available,
   .status-unavailable {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center !important;
-        -ms-flex-align: center !important;
-            align-items: center !important;
+    align-items: center !important;
     /* Vertically center */
-    -webkit-box-orient: horizontal !important;
-    -webkit-box-direction: normal !important;
-        -ms-flex-direction: row !important;
-            flex-direction: row !important;
+    flex-direction: row !important;
     /* Icon left of text */
     gap: 6px;
     margin-left: auto;
     /* Right align the whole status block */
   }
+
   .status-available svg,
   .status-unavailable svg {
     margin: 0;
     /* Remove potential default margins */
   }
+
   /* Remove generic card wrapper style in mobile to let rows be cards */
   .bank-table-card {
     background: transparent;
@@ -378,16 +339,19 @@
     border-radius: 0;
     padding: 0;
   }
+
   .db-table-responsive {
     overflow: visible;
     padding: 1px;
     /* Prevent shadow clipping */
   }
+
   /* Unset dashed separation for dotted-line-row on mobile since card layout handles it */
   .dotted-line-row td {
     border-top: none !important;
   }
 }
+
 .account-info-cell {
   text-align: left;
 }
@@ -416,20 +380,11 @@
   color: #2563eb;
   font-weight: 600;
   font-size: 14px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   /* Icon left of text */
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   /* Center the group */
   gap: 4px;
 }
@@ -438,20 +393,11 @@
   color: #9ca3af;
   font-weight: 500;
   font-size: 14px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   /* Icon left of text */
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   /* Center the group */
   gap: 4px;
 }

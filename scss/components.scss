@@ -60,6 +60,7 @@
 
 /* ===== findTabs ===== */
 /* ===== findTabs ===== */
+//  CM_03_02
 .find-tabs {
     display: flex;
     border-bottom: 2px solid #E5E7EB;
@@ -93,7 +94,79 @@
     display: block;
 }
 
-/* CM_04_12 국적 선택 탭 스타일 */
+
+.guide-tab-container {
+	margin-bottom: 30px;
+}
+
+.guide-tab {
+	flex: 1;
+	padding: 14px 20px;
+	text-align: center;
+	border-radius: 12px;
+	font-size: 15px;
+	font-weight: 600;
+	color: #64748b;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	background: transparent;
+	border: none;
+	position: relative;
+}
+
+.guide-tabs {
+	background: #f8fafc;
+	padding: 6px;
+	border-radius: 16px;
+	margin-bottom: 25px;
+	display: flex;
+	gap: 6px;
+	border: 1px solid #e2e8f0;
+	box-shadow: none;
+	overflow-x: auto;
+}
+
+.guide-tab:hover:not(.active) {
+	background: rgba(255, 255, 255, 0.5);
+	color: #475569;
+}
+
+.guide-tab.active {
+	background: #fff;
+	color: #00A0DC !important;
+  /* Force override */
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+	font-weight: 700;
+	border-bottom: none;
+  /* Ensure no border */;
+}
+
+.tab-content {
+	display: none;
+	animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-content.active {
+	display: block;
+}
+
+// GU_01_01 송금 서비스 안내
+@media (max-width: 768px) {
+  .guide-tabs {
+    flex-wrap: wrap;
+    height: auto;
+    display: flex;
+    gap: 8px;
+  }
+  .guide-tab {
+    min-width: 45%;
+    flex-grow: 1;
+    font-size: 14px;
+    padding: 12px 10px;
+  }
+}
+
+/* CM_04_12 회원가입 내국인/외국인 탭 스타일 */
 .nationality-selector {
 		display: flex;
 		gap: 10px;
@@ -129,6 +202,7 @@
 		background: #00A0DC;
 		color: #fff;
 }
+/* ===== end findTabs ===== */
 /* ===== end findTabs ===== */
 
 
