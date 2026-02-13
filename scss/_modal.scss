@@ -52,11 +52,15 @@
 }
 
 .modal-header {
+	position: sticky;
+	top: 0;
 	padding: 24px 24px 16px;
-	border-bottom: 1px solid var(--border-color);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	border-bottom: 1px solid var(--border-color);
+	background-color: var(--bg-white);
+	z-index: 10;
 }
 
 @media (max-width: 768px) {
@@ -65,13 +69,13 @@
 		flex-direction: column;
 	}
 
-	.modal-header {
-		position: sticky;
-		top: 0;
-		z-index: 10;
-		background: #fff;
-		border-radius: 12px 12px 0 0;
-	}
+	// .modal-header {
+	// 	position: sticky;
+	// 	top: 0;
+	// 	z-index: 10;
+	// 	background: #fff;
+	// 	border-radius: 12px 12px 0 0;
+	// }
 }
 
 .modal-title {
