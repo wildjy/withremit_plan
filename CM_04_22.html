@@ -332,7 +332,7 @@
 
                 <div class="reg-action-btns">
                     <button type="button" class="btn-step-prev" onclick="location.href='CM_02_01.html'">취소</button>
-                    <button type="button" class="btn-main-login" onclick="showRegModal()">회원가입 신청 완료</button>
+                    <button type="button" class="btn-main-login" onclick="openModal('regCompleteModal')">회원가입 신청 완료</button>
                 </div>
             </form>
         </div>
@@ -365,18 +365,18 @@
                 </div>
                 <h3 id="warningTitle">안내</h3>
                 <p id="warningMessage">최소 한 명의 주주 정보는 필요합니다.</p>
-                <button class="modal-btn-warning" onclick="closeWarningModal()">확인</button>
+                <button class="modal-btn-warning" onclick="closeModal('warningModal')">확인</button>
             </div>
         </div>
 
         <!-- Postcode Search Modal -->
-        <div class="remit-modal" id="postcodeModal">
-            <div class="remit-modal-content" style="max-width: 500px;">
-                <div class="remit-modal-header">
-                    <h2 class="remit-modal-title">우편번호 찾기</h2>
-                    <button type="button" class="remit-modal-close" onclick="closePostcodeModal()">&times;</button>
+        <div class="modal-overlay" id="postcodeModal">
+            <div class="modal-content modal-layout">
+                <div class="modal-header">
+                    <h2 class="modal-title">우편번호 찾기</h2>
+                    <button type="button" class="modal-close" onclick="closeModal('postcodeModal')">&times;</button>
                 </div>
-                <div class="remit-modal-body">
+                <div class="modal-body">
                     <div class="postcode-search-desc" style="text-align: center; margin-bottom: 20px;">
                         <p style="color: #00A0DC; font-weight: 700; margin-bottom: 8px;">찾으시려는 동 혹은 도로의 이름을 입력해 주세요.</p>
                         <p style="color: #666; font-size: 13px; line-height: 1.5;">지번주소 : 동/읍/면/리 이름을 입력하세요.
@@ -430,40 +430,18 @@
                         </ul>
                     </div>
                 </div>
-                <div class="remit-modal-footer"
+                <div class="modal-footer"
                     style="padding: 20px 24px; border-top: 1px solid #eee; text-align: right;">
-                    <button type="button" class="btn btn-outline" onclick="closePostcodeModal()">닫기</button>
+                    <button type="button" class="btn btn-outline" onclick="closeModal('postcodeModal')">닫기</button>
                 </div>
             </div>
         </div>
     </main>
 
     <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
+    <script src="js/main.js"></script>
 
     <script>
-        function openPostcodeModal() {
-            document.getElementById('postcodeModal').classList.add('show');
-            document.getElementById('postcodeSearchInput').value = '';
-        }
-
-        function closePostcodeModal() {
-            document.getElementById('postcodeModal').classList.remove('show');
-        }
-
-        function searchPostcode() {
-            const query = document.getElementById('postcodeSearchInput').value;
-            if (!query) {
-                alert('검색어를 입력해주세요.');
-                return;
-            }
-            document.getElementById('postcodeResultList').style.display = 'block';
-        }
-
-        function selectAddress(postcode, address) {
-            document.getElementById('postcodeInput').value = postcode;
-            document.getElementById('addressBasicInput').value = address;
-            closePostcodeModal();
-        }
         // 1. 파일명 표시
         document.addEventListener('change', function (e) {
             if (e.target.classList.contains('hidden-file-input')) {
@@ -497,14 +475,6 @@
             }
         }
 
-        // 3. 모달 표시 로직
-        function showRegModal() {
-            const modal = document.getElementById('regCompleteModal');
-            if (modal) {
-                modal.classList.add('active');
-            }
-        }
-
         function showWarningModal(msg) {
             const modal = document.getElementById('warningModal');
             const msgElement = document.getElementById('warningMessage');
@@ -514,12 +484,6 @@
             }
         }
 
-        function closeWarningModal() {
-            const modal = document.getElementById('warningModal');
-            if (modal) {
-                modal.classList.remove('active');
-            }
-        }
     </script>
 </body>
 

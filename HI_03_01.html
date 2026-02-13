@@ -223,19 +223,17 @@
     <!-- Footer -->
     <div id="footerContainer"></div>
 
-    <div class="db-overlay-mask" id="dbOverlay"></div>
-
     <!-- Remittance Detail Modal -->
-    <div class="remit-modal" id="remitModal">
-        <div class="remit-modal-content">
-            <div class="remit-modal-header">
-                <h3 class="remit-modal-title">해외 수취 내역서</h3>
-                <button class="remit-modal-close" id="modalClose">&times;</button>
+    <div class="modal-overlay" id="remitModal"> <!-- modal-overlay -->
+        <div class="modal-content modal-layout">
+            <div class="modal-header">
+                <h3 class="modal-title">해외 수취 내역서</h3>
+                <button class="modal-close" onclick="closeModal('remitModal')">&times;</button>
             </div>
-            <div class="remit-modal-body" id="modalBody">
+            <div class="modal-body" id="modalBody">
                 <!-- Modal content will be dynamically inserted here -->
             </div>
-            <div class="remit-modal-footer">
+            <div class="modal-footer">
                 <button class="btn-receipt-print" onclick="window.print()">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="6 9 6 2 18 2 18 9"></polyline>
@@ -244,7 +242,7 @@
                     </svg>
                     인쇄
                 </button>
-                <button class="btn-receipt-close" id="modalCloseBtn">닫기</button>
+                <button class="btn-receipt-close" onclick="closeModal('remitModal')">닫기</button>
             </div>
         </div>
     </div>
@@ -253,159 +251,6 @@
     <script src="js/main.js"></script>
     <script src="js/includes.js"></script>
     <script>
-        // Sample remittance data (10 items) - Receive History
-        const remittanceData = [
-            {
-                receiptNum: '123456',
-                date: '2026.01.12',
-                sendAmount: '¥111,200',
-                depositAmount: '¥111,200',
-                receiveAmount: '₩1,000,000',
-                receiveCurrency: '₩1,000,000',
-                flag: 'images/jp.png',
-                name: 'Kim Minho',
-                bank: '신한은행',
-                receiveDate: '2026.01.12',
-                status: 'cancel',
-                statusText: '거래 취소',
-                country: '일본'
-            },
-            {
-                receiptNum: '123457',
-                date: '2026.01.11',
-                sendAmount: '¥5,400',
-                depositAmount: '¥5,400',
-                receiveAmount: '₩1,000,000',
-                receiveCurrency: '₩1,000,000',
-                flag: 'images/cn.png',
-                name: 'Lee Jisoo',
-                bank: '우리은행',
-                receiveDate: '2026.01.11',
-                status: 'approved',
-                statusText: '접수 완료',
-                country: '중국'
-            },
-            {
-                receiptNum: '123458',
-                date: '2026.01.10',
-                sendAmount: 'A$1,089',
-                depositAmount: 'A$1,089',
-                receiveAmount: '₩1,000,000',
-                receiveCurrency: '₩1,000,000',
-                flag: 'images/au.png',
-                name: 'Park Jiwon',
-                bank: 'KB국민은행',
-                receiveDate: '2026.01.10',
-                status: 'success',
-                statusText: '거래 성공',
-                country: '호주'
-            },
-            {
-                receiptNum: '123459',
-                date: '2026.01.09',
-                sendAmount: '₱21,000',
-                depositAmount: '₱21,000',
-                receiveAmount: '₩500,000',
-                receiveCurrency: '₩500,000',
-                flag: 'images/ph.png',
-                name: 'Choi Seohyun',
-                bank: '하나은행',
-                receiveDate: '2026.01.09',
-                status: 'complete',
-                statusText: '입금 완료',
-                country: '필리핀'
-            },
-            {
-                receiptNum: '123460',
-                date: '2026.01.08',
-                sendAmount: '₫13,900,000',
-                depositAmount: '₫13,900,000',
-                receiveAmount: '₩800,000',
-                receiveCurrency: '₩800,000',
-                flag: 'images/vn.png',
-                name: 'Jung Hana',
-                bank: 'IBK기업은행',
-                receiveDate: '2026.01.08',
-                status: 'success',
-                statusText: '거래 성공',
-                country: '베트남'
-            },
-            {
-                receiptNum: '123461',
-                date: '2026.01.07',
-                sendAmount: '৳57,600',
-                depositAmount: '৳57,600',
-                receiveAmount: '₩650,000',
-                receiveCurrency: '₩650,000',
-                flag: 'images/bd.png',
-                name: 'Kang Subin',
-                bank: 'NH농협은행',
-                receiveDate: '2026.01.07',
-                status: 'approved',
-                statusText: '접수 완료',
-                country: '방글라데시'
-            },
-            {
-                receiptNum: '123462',
-                date: '2026.01.06',
-                sendAmount: 'HK$6,900',
-                depositAmount: 'HK$6,900',
-                receiveAmount: '₩1,200,000',
-                receiveCurrency: '₩1,200,000',
-                flag: 'images/hk.png',
-                name: 'Song Minji',
-                bank: '카카오뱅크',
-                receiveDate: '2026.01.06',
-                status: 'success',
-                statusText: '거래 성공',
-                country: '홍콩'
-            },
-            {
-                receiptNum: '123463',
-                date: '2026.01.05',
-                sendAmount: '₨44,000',
-                depositAmount: '₨44,000',
-                receiveAmount: '₩450,000',
-                receiveCurrency: '₩450,000',
-                flag: 'images/np.png',
-                name: 'Yoon Jihoon',
-                bank: '토스뱅크',
-                receiveDate: '2026.01.05',
-                status: 'pending',
-                statusText: '거래 보류',
-                country: '네팔'
-            },
-            {
-                receiptNum: '123464',
-                date: '2026.01.04',
-                sendAmount: '₮1,880,000',
-                depositAmount: '₮1,880,000',
-                receiveAmount: '₩750,000',
-                receiveCurrency: '₩750,000',
-                flag: 'images/mn.png',
-                name: 'Han Yoona',
-                bank: 'SC제일은행',
-                receiveDate: '2026.01.04',
-                status: 'success',
-                statusText: '거래 성공',
-                country: '몽골'
-            },
-            {
-                receiptNum: '123465',
-                date: '2026.01.03',
-                sendAmount: '₨123,000',
-                depositAmount: '₨123,000',
-                receiveAmount: '₩550,000',
-                receiveCurrency: '₩550,000',
-                flag: 'images/lk.png',
-                name: 'Seo Hyunwoo',
-                bank: '케이뱅크',
-                receiveDate: '2026.01.03',
-                status: 'complete',
-                statusText: '입금 완료',
-                country: '스리랑카'
-            }
-        ];
 
         // Generate status SVG
         function getStatusSVG(status) {
@@ -596,13 +441,7 @@
                 </div>
             `;
 
-            modal.classList.add('show');
-        }
-
-        // Close modal
-        function closeModal() {
-            const modal = document.getElementById('remitModal');
-            modal.classList.remove('show');
+            modal.classList.add('active');
         }
 
         // Auto-setup table for responsive and expandable features
@@ -743,17 +582,6 @@
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             renderCards();
-
-            // Modal close handlers
-            document.getElementById('modalClose').addEventListener('click', closeModal);
-            document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
-
-            // Close modal on outside click
-            document.getElementById('remitModal').addEventListener('click', (e) => {
-                if (e.target.id === 'remitModal') {
-                    closeModal();
-                }
-            });
         });
     </script>
 </body>

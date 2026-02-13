@@ -1,3 +1,156 @@
+// Sample remittance data (10 items) - Receive History
+const remittanceData = [
+    {
+        receiptNum: '123456',
+        date: '2026.01.12',
+        sendAmount: '¥111,200',
+        depositAmount: '¥111,200',
+        receiveAmount: '₩1,000,000',
+        receiveCurrency: '₩1,000,000',
+        flag: 'images/jp.png',
+        name: 'Kim Minho',
+        bank: '신한은행',
+        receiveDate: '2026.01.12',
+        status: 'cancel',
+        statusText: '거래 취소',
+        country: '일본'
+    },
+    {
+        receiptNum: '123457',
+        date: '2026.01.11',
+        sendAmount: '¥5,400',
+        depositAmount: '¥5,400',
+        receiveAmount: '₩1,000,000',
+        receiveCurrency: '₩1,000,000',
+        flag: 'images/cn.png',
+        name: 'Lee Jisoo',
+        bank: '우리은행',
+        receiveDate: '2026.01.11',
+        status: 'approved',
+        statusText: '접수 완료',
+        country: '중국'
+    },
+    {
+        receiptNum: '123458',
+        date: '2026.01.10',
+        sendAmount: 'A$1,089',
+        depositAmount: 'A$1,089',
+        receiveAmount: '₩1,000,000',
+        receiveCurrency: '₩1,000,000',
+        flag: 'images/au.png',
+        name: 'Park Jiwon',
+        bank: 'KB국민은행',
+        receiveDate: '2026.01.10',
+        status: 'success',
+        statusText: '거래 성공',
+        country: '호주'
+    },
+    {
+        receiptNum: '123459',
+        date: '2026.01.09',
+        sendAmount: '₱21,000',
+        depositAmount: '₱21,000',
+        receiveAmount: '₩500,000',
+        receiveCurrency: '₩500,000',
+        flag: 'images/ph.png',
+        name: 'Choi Seohyun',
+        bank: '하나은행',
+        receiveDate: '2026.01.09',
+        status: 'complete',
+        statusText: '입금 완료',
+        country: '필리핀'
+    },
+    {
+        receiptNum: '123460',
+        date: '2026.01.08',
+        sendAmount: '₫13,900,000',
+        depositAmount: '₫13,900,000',
+        receiveAmount: '₩800,000',
+        receiveCurrency: '₩800,000',
+        flag: 'images/vn.png',
+        name: 'Jung Hana',
+        bank: 'IBK기업은행',
+        receiveDate: '2026.01.08',
+        status: 'success',
+        statusText: '거래 성공',
+        country: '베트남'
+    },
+    {
+        receiptNum: '123461',
+        date: '2026.01.07',
+        sendAmount: '৳57,600',
+        depositAmount: '৳57,600',
+        receiveAmount: '₩650,000',
+        receiveCurrency: '₩650,000',
+        flag: 'images/bd.png',
+        name: 'Kang Subin',
+        bank: 'NH농협은행',
+        receiveDate: '2026.01.07',
+        status: 'approved',
+        statusText: '접수 완료',
+        country: '방글라데시'
+    },
+    {
+        receiptNum: '123462',
+        date: '2026.01.06',
+        sendAmount: 'HK$6,900',
+        depositAmount: 'HK$6,900',
+        receiveAmount: '₩1,200,000',
+        receiveCurrency: '₩1,200,000',
+        flag: 'images/hk.png',
+        name: 'Song Minji',
+        bank: '카카오뱅크',
+        receiveDate: '2026.01.06',
+        status: 'success',
+        statusText: '거래 성공',
+        country: '홍콩'
+    },
+    {
+        receiptNum: '123463',
+        date: '2026.01.05',
+        sendAmount: '₨44,000',
+        depositAmount: '₨44,000',
+        receiveAmount: '₩450,000',
+        receiveCurrency: '₩450,000',
+        flag: 'images/np.png',
+        name: 'Yoon Jihoon',
+        bank: '토스뱅크',
+        receiveDate: '2026.01.05',
+        status: 'pending',
+        statusText: '거래 보류',
+        country: '네팔'
+    },
+    {
+        receiptNum: '123464',
+        date: '2026.01.04',
+        sendAmount: '₮1,880,000',
+        depositAmount: '₮1,880,000',
+        receiveAmount: '₩750,000',
+        receiveCurrency: '₩750,000',
+        flag: 'images/mn.png',
+        name: 'Han Yoona',
+        bank: 'SC제일은행',
+        receiveDate: '2026.01.04',
+        status: 'success',
+        statusText: '거래 성공',
+        country: '몽골'
+    },
+    {
+        receiptNum: '123465',
+        date: '2026.01.03',
+        sendAmount: '₨123,000',
+        depositAmount: '₨123,000',
+        receiveAmount: '₩550,000',
+        receiveCurrency: '₩550,000',
+        flag: 'images/lk.png',
+        name: 'Seo Hyunwoo',
+        bank: '케이뱅크',
+        receiveDate: '2026.01.03',
+        status: 'complete',
+        statusText: '입금 완료',
+        country: '스리랑카'
+    }
+];
 
 // ===== DOM Elements =====
 const sendAmountInput = document.getElementById('sendAmount');
@@ -567,6 +720,27 @@ window.addEventListener('click', (e) => {
         closeModal(e.target.id);
     }
 });
+
+// ===== open post Modal Functions =====
+function openPostcodeModal() {
+    openModal('postcodeModal');
+    document.getElementById('postcodeSearchInput').value = '';
+}
+
+function searchPostcode() {
+    const query = document.getElementById('postcodeSearchInput').value;
+    if (!query) {
+        alert('검색어를 입력해주세요.');
+        return;
+    }
+    document.getElementById('postcodeResultList').style.display = 'block';
+}
+
+function selectAddress(postcode, address) {
+    document.getElementById('postcodeInput').value = postcode;
+    document.getElementById('addressBasicInput').value = address;
+    closeModal('postcodeModal');
+}
 
 // ===== Security Keypad Helper Functions =====
 function switchMode(mode) {

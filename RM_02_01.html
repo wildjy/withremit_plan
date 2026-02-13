@@ -28,8 +28,7 @@
                 <div class="db-page-header">
                     <h1 class="db-page-title">정기 해외 송금</h1>
                     <div class="db-page-actions">
-                        <button type="button" class="btn btn-primary"
-                            onclick="location.href='RM_02_03.html'">등록</button>
+                        <button type="button" class="btn btn-primary" onclick="location.href='RM_02_03.html'">등록</button>
                     </div>
                 </div>
 
@@ -93,16 +92,14 @@
     <div id="contactContainer"></div>
     <div id="footerContainer"></div>
 
-    <div class="db-overlay" id="dbOverlay"></div>
-
     <!-- 정기 송금 상세 모달 (Mock) -->
-    <div id="scheduleDetailModal" class="remit-modal">
-        <div class="remit-modal-content">
-            <div class="remit-modal-header">
-                <h2 class="remit-modal-title">정기 송금 정보</h2>
-                <button type="button" class="remit-modal-close" onclick="closeDetailModal()">&times;</button>
+    <div id="scheduleDetailModal" class="modal-overlay">
+        <div class="modal-content modal-layout">
+            <div class="modal-header">
+                <h2 class="modal-title">정기 송금 정보</h2>
+                <button type="button" class="modal-close" onclick="closeModal('scheduleDetailModal')">&times;</button>
             </div>
-            <div class="remit-modal-body">
+            <div class="modal-body">
                 <div class="receipt-section">
                     <div class="receipt-row">
                         <span class="receipt-label">수취인 명</span>
@@ -134,8 +131,8 @@
                     </div>
                 </div>
             </div>
-            <div class="remit-modal-footer">
-                <button type="button" class="btn btn-delete" onclick="confirmStop()">정지</button>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-delete" onclick="openModal('stopConfirmModal')">정지</button>
                 <button type="button" class="btn btn-primary" onclick="location.href='RM_02_04.html'">수정</button>
             </div>
         </div>
@@ -172,8 +169,9 @@
                 </div>
                 <h3>정지 완료</h3>
                 <p>정기 해외 송금이 정지되었습니다.</p>
-                <button class="modal-btn-warning" style="background-color: #00A0DC;"
-                    onclick="closeStopSuccess()">확인</button>
+                <div class="modal-btn-group">
+                    <button class="btn btn-primary" onclick="closeStopSuccess()">확인</button>
+                </div>
             </div>
         </div>
     </div>
@@ -182,6 +180,7 @@
     <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
     <script src="js/main.js"></script>
     <script src="js/includes.js"></script>
+
     <script>
         // 사이드바 활성화 (정기 해외 송금)
         window.addEventListener('DOMContentLoaded', () => {
@@ -419,18 +418,8 @@
                     statusSpan.style.color = '#6b7280'; // gray
                 }
 
-                const modal = document.getElementById('scheduleDetailModal');
-                modal.classList.add('show');
+                openModal('scheduleDetailModal')
             }
-        }
-
-        // CM_01_01 Modal Helpers
-        function openCommonModal(id) { document.getElementById(id).classList.add('active'); }
-        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
-
-        // Stop Flow
-        function confirmStop() {
-            openCommonModal('stopConfirmModal');
         }
 
         function executeStop() {
@@ -450,18 +439,14 @@
                 document.getElementById('modalStatus').style.color = '#6b7280';
             }
 
-            openCommonModal('stopSuccessModal');
+            openModal('stopSuccessModal');
         }
 
         function closeStopSuccess() {
             closeModal('stopSuccessModal');
-            closeDetailModal(); // Close the main detail modal too
+            closeModal('scheduleDetailModal'); // Close the main detail modal too
         }
 
-        function closeDetailModal() {
-            const modal = document.getElementById('scheduleDetailModal');
-            modal.classList.remove('show');
-        }
     </script>
 </body>
 

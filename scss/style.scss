@@ -1876,6 +1876,267 @@
 	margin-bottom: 20px;
 }
 
+@media (max-width: 768px) {
+	.remit-search-wrapper {
+		display: none;
+	}
+
+	.remit-search-wrapper.mobile-active {
+		display: block;
+	}
+  /* Search Form Mobile Layout */
+	.remit-search-row {
+		flex-direction: column;
+	}
+
+	.remit-search-right {
+		width: 100%;
+		align-items: flex-start;
+	}
+
+	.remit-search-buttons {
+		width: 100%;
+	}
+
+	.db-search-btn {
+		flex: 1;
+		justify-content: center;
+	}
+  /* Quick Buttons - 1 row, 5 buttons */
+	.remit-quick-btns-inline {
+		display: flex;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		gap: 2px;
+		margin-left: 0;
+		justify-content: flex-end;
+	}
+
+	.remit-quick-btn-small {
+		flex: 1;
+		min-width: auto;
+		font-size: 0.7rem;
+		padding: 6px 8px;
+	}
+  /* Search section mobile layout */
+	.remit-search-section {
+		gap: 2px;
+		width: 100%;
+	}
+
+	.search-label {
+		width: 100%;
+	}
+  /* Always show detail search on mobile - each field on separate line */
+	.remit-search-detail {
+		display: flex !important;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.remit-search-detail .search-label {
+		width: 100%;
+	}
+
+	.remit-search-detail .db-search-type {
+		width: 100%;
+	}
+
+	.remit-search-detail .db-search-input {
+		width: 100%;
+	}
+  /* Hide detail toggle button on mobile */
+	.remit-detail-toggle-btn {
+		display: none;
+	}
+  /* Card Mobile Layout - Keep amounts in one row */
+	.remit-card-body {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.remit-card-kr-amounts {
+		min-width: auto;
+		gap: 8px;
+	}
+
+	.remit-card-kr-amounts .remit-card-flag {
+		width: 24px;
+		height: 24px;
+	}
+
+	.remit-card-amounts-krw {
+		gap: 2px;
+	}
+
+	.remit-card-amount-label {
+		font-size: 0.65rem;
+		min-width: 28px;
+	}
+
+	.remit-card-amount-value {
+		font-size: 0.8rem;
+	}
+
+	.remit-card-arrow {
+		margin: 0 4px;
+	}
+
+	.remit-card-arrow svg {
+		width: 18px;
+		height: 18px;
+	}
+
+	.remit-card-receive-amount {
+		min-width: auto;
+		gap: 6px;
+	}
+
+	.remit-card-receive-amount .remit-card-flag {
+		width: 24px;
+		height: 24px;
+	}
+
+	.remit-card-receive-amount .remit-card-amount-value {
+		font-size: 0.9rem;
+	}
+
+	.remit-card-details {
+		width: 100%;
+		min-width: 100%;
+		margin-top: 8px;
+	}
+
+	.remit-card-detail-value {
+		max-width: 250px;
+	}
+
+	.remit-card-status-wrapper {
+		width: 100%;
+		margin-left: 0;
+		margin-top: 8px;
+	}
+
+	.remit-card-status-wrapper .remit-status {
+		padding: 0;
+	}
+
+	.remit-detail-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 480px) {
+  /* Search Form 480px Layout */
+	.remit-search-row {
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.remit-search-left {
+		width: 100%;
+	}
+
+	.remit-search-section {
+		flex-direction: column;
+		align-items: flex-start;
+		width: 100%;
+		gap: 2px;
+	}
+
+	.search-label {
+		width: 100%;
+	}
+  /* Period section in one line */
+	.remit-search-section > .search-label,
+  .remit-search-section > .db-search-input {
+		display: inline-block;
+	}
+
+	.remit-search-section > .date-separator {
+		display: none;
+	}
+  /* Quick buttons full width on next line */
+	.remit-quick-btns-inline {
+		width: 100%;
+		margin-left: 0;
+		display: flex;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+	}
+  /* Detail search - status and receipt number each on own line */
+  /* Always show detail search on mobile */
+	.remit-search-detail {
+		display: flex !important;
+		flex-direction: column;
+		align-items: flex-start;
+		width: 100%;
+		gap: 12px;
+	}
+
+	.remit-search-detail .search-label {
+		width: 100%;
+		margin-bottom: 4px;
+	}
+
+	.db-search-type {
+		width: 100%;
+	}
+
+	.db-search-input {
+		width: 100%;
+	}
+  /* Search buttons - one per line with icons */
+	.remit-search-right {
+		width: 100%;
+	}
+
+	.remit-search-buttons {
+		flex-direction: column;
+		width: 100%;
+		gap: 8px;
+	}
+
+	.db-search-btn {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+	}
+
+	.db-search-btn .search-btn-icon {
+		display: block;
+	}
+
+	.db-reset-btn {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		border-radius: 8px;
+		padding: 10px;
+	}
+
+	.db-reset-btn .reset-text {
+		display: inline;
+	}
+
+	.db-reset-btn .reset-btn-text {
+		display: inline;
+	}
+  /* Hide detail toggle button */
+	.remit-detail-toggle-btn {
+		display: none;
+	}
+  /* Card status padding 0 */
+	.remit-card-status-wrapper .remit-status {
+		padding: 0;
+	}
+}
+
 /* SNS Login Buttons */
 .sns-separator {
 	border-top: 1px dashed #ddd;
@@ -4181,13 +4442,13 @@
 		padding: 0 !important;
 	}
 
-	.remit-modal-header,
-  .remit-modal-footer,
-  .remit-modal-close {
+	.modal-header,
+  .modal-footer,
+  .modal-close {
 		display: none !important;
 	}
 
-	.remit-modal-body {
+	.modal-body {
 		padding: 20px !important;
 		max-height: none !important;
 		overflow: visible !important;
@@ -4287,7 +4548,7 @@
 		width: 100%;
 	}
 
-	.remit-modal-body {
+	.modal-body {
 		padding: 20px 15px !important;
 	}
 
@@ -4315,10 +4576,6 @@
 }
 
 /* Account Selection Modal Styles */
-.account-modal-content {
-	max-width: 900px;
-	width: 90%;
-}
 
 .account-table-container {
 	max-height: 500px;
@@ -4360,9 +4617,9 @@
 
 /* Account Modal Responsive Styles */
 @media (max-width: 1024px) {
-	.account-modal-content {
-		max-width: 95%;
-	}
+	// .account-modal-content {
+	// 	max-width: 95%;
+	// }
 
 	.account-table-container {
 		padding: 15px;
@@ -4399,23 +4656,18 @@
 }
 
 @media (max-width: 768px) {
-	.account-modal-content {
-		max-width: 90%;
-		width: 90%;
-		height: auto;
-		max-height: 90vh;
-		border-radius: 12px;
-		display: flex;
-		flex-direction: column;
-	}
+	// .account-modal-content {
+	// 	display: flex;
+	// 	flex-direction: column;
+	// }
 
-	.remit-modal-header {
-		position: sticky;
-		top: 0;
-		z-index: 10;
-		background: #fff;
-		border-radius: 12px 12px 0 0;
-	}
+	// .modal-header {
+	// 	position: sticky;
+	// 	top: 0;
+	// 	z-index: 10;
+	// 	background: #fff;
+	// 	border-radius: 12px 12px 0 0;
+	// }
 
 	.account-table-container {
 		padding: 10px;

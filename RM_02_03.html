@@ -412,8 +412,6 @@
     <div id="contactContainer"></div>
     <div id="footerContainer"></div>
 
-    <div class="db-overlay" id="dbOverlay"></div>
-
     <!-- 정기 송금 신청 완료 모달 -->
     <div id="remitCompleteModal" class="modal-overlay">
         <div class="modal-content">
@@ -444,7 +442,7 @@
             </div>
             <h3 id="warningTitle">안내</h3>
             <p id="warningMessage"></p>
-            <button class="modal-btn-warning" onclick="closeWarningModal()">확인</button>
+            <button class="modal-btn-warning" onclick="closeModal('warningModal');">확인</button>
         </div>
     </div>
 
@@ -462,16 +460,16 @@
             </div>
             <h3>송금 한도 초과</h3>
             <p id="limitModalMessage"></p>
-            <button class="modal-btn-warning" onclick="closeLimitModal()">확인</button>
+            <button class="modal-btn-warning" onclick="closeModal('limitModal')">확인</button>
         </div>
     </div>
 
     <!-- 계좌 선택 모달 (자주 쓰는 계좌 / 최근 입금 계좌 공용) -->
     <div id="accountSelectionModal" class="modal-overlay">
-        <div class="remit-modal-content account-modal-content">
-            <div class="remit-modal-header">
-                <h2 class="remit-modal-title" id="accountModalTitle">계좌 선택</h2>
-                <button class="remit-modal-close" onclick="closeAccountModal()">&times;</button>
+        <div class="modal-content modal-layout lg account-modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="accountModalTitle">계좌 선택</h2>
+                <button class="modal-close" onclick="closeModal('accountSelectionModal')">&times;</button>
             </div>
 
             <!-- 테이블 영역 (스크롤 가능) -->
@@ -506,8 +504,8 @@
                 <!-- JavaScript로 카드 렌더링 -->
             </div>
 
-            <div class="remit-modal-footer">
-                <button class="btn-cancel" onclick="closeAccountModal()">확인</button>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal('accountSelectionModal')">확인</button>
             </div>
         </div>
     </div>
@@ -1139,33 +1137,31 @@
             }
 
             // 송금 신청 완료 모달 표시
-            document.getElementById('remitCompleteModal').classList.add('active');
+            // document.getElementById('remitCompleteModal').classList.add('active');
+            openModal('remitCompleteModal');
         }
 
         // 모달 닫기
         function closeRemitModal() {
-            document.getElementById('remitCompleteModal').classList.remove('active');
+            closeModal('remitCompleteModal');
             location.href = 'RM_02_01.html';
         }
 
         // 한도 초과 모달
         function showLimitModal(message) {
             document.getElementById('limitModalMessage').innerHTML = message;
-            document.getElementById('limitModal').classList.add('active');
+            openModal('limitModal');
         }
 
-        function closeLimitModal() {
-            document.getElementById('limitModal').classList.remove('active');
-        }
 
         // 경고 모달
         function showWarning(message) {
             document.getElementById('warningMessage').textContent = message;
-            document.getElementById('warningModal').classList.add('active');
+            openModal('warningModal');
         }
 
         function closeWarningModal() {
-            document.getElementById('warningModal').classList.remove('active');
+            closeModal('warningModal');
         }
 
         // 송금액 입력 포맷팅 및 검증
@@ -1471,20 +1467,8 @@
             cardList.appendChild(card);
         });
 
-        modal.classList.add('active');
+        openModal('accountSelectionModal');
     }
-
-    // 모달 닫기
-    function closeAccountModal() {
-        document.getElementById('accountSelectionModal').classList.remove('active');
-    }
-
-    // 모달 외부 클릭 시 닫기
-    document.getElementById('accountSelectionModal').addEventListener('click', function (e) {
-        if (e.target === this) {
-            closeAccountModal();
-        }
-    });
 
     // 계좌 선택 처리 (자동 입력)
     function selectAccount(item) {
@@ -1520,7 +1504,7 @@
                 purposeSelect.value = item.purpose;
             }
 
-            closeAccountModal();
+            closeModal('accountSelectionModal');
         }, 100);
     }
 

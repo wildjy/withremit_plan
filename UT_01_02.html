@@ -332,13 +332,13 @@
     </div>
 
     <!-- Postcode Search Modal -->
-    <div class="remit-modal" id="postcodeModal">
-        <div class="remit-modal-content" style="max-width: 500px;">
-            <div class="remit-modal-header">
-                <h2 class="remit-modal-title">우편번호 찾기</h2>
-                <button type="button" class="remit-modal-close" onclick="closePostcodeModal()">&times;</button>
+    <div class="modal-overlay" id="postcodeModal">
+        <div class="modal-content modal-layout">
+            <div class="modal-header">
+                <h2 class="modal-title">우편번호 찾기</h2>
+                <button type="button" class="modal-close" onclick="closeModal('postcodeModal')">&times;</button>
             </div>
-            <div class="remit-modal-body">
+            <div class="modal-body">
                 <div class="postcode-search-desc" style="text-align: center; margin-bottom: 20px;">
                     <p style="color: #00A0DC; font-weight: 700; margin-bottom: 8px;">찾으시려는 동 혹은 도로의 이름을 입력해 주세요.</p>
                     <p style="color: #666; font-size: 13px; line-height: 1.5;">지번주소 : 동/읍/면/리 이름을 입력하세요.
@@ -374,13 +374,11 @@
                     </ul>
                 </div>
             </div>
-            <div class="remit-modal-footer" style="padding: 20px 24px; border-top: 1px solid #eee; text-align: right;">
-                <button type="button" class="btn btn-outline" onclick="closePostcodeModal()">닫기</button>
+            <div class="modal-footer" style="padding: 20px 24px; border-top: 1px solid #eee; text-align: right;">
+                <button type="button" class="btn btn-outline" onclick="closeModal('postcodeModal')">닫기</button>
             </div>
         </div>
     </div>
-
-    <div class="db-overlay" id="dbOverlay"></div>
 
     <div id="warningModal" class="modal-overlay">
         <div class="modal-content">
@@ -399,44 +397,11 @@
         </div>
     </div>
 
+    <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
     <script src="js/includes.js"></script>
+    <script src="js/main.js"></script>
+
     <script>
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function openPostcodeModal() {
-            document.getElementById('postcodeModal').classList.add('show');
-            document.getElementById('dbOverlay').classList.add('show');
-            document.getElementById('postcodeSearchInput').value = '';
-        }
-
-        function closePostcodeModal() {
-            document.getElementById('postcodeModal').classList.remove('show');
-            document.getElementById('dbOverlay').classList.remove('show');
-        }
-
-        function searchPostcode() {
-            const query = document.getElementById('postcodeSearchInput').value;
-            if (!query) {
-                alert('검색어를 입력해주세요.');
-                return;
-            }
-            document.getElementById('postcodeResultList').style.display = 'block';
-        }
-
-        function selectAddress(postcode, address) {
-            document.getElementById('postcodeInput').value = postcode;
-            document.getElementById('addressBasicInput').value = address;
-            closePostcodeModal();
-        }
-
         function addShareholder() {
             const container = document.getElementById('shareholderContainer');
             const newRow = document.createElement('div');

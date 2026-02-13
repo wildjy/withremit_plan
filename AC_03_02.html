@@ -131,7 +131,6 @@
 
     <div id="contactContainer"></div>
     <div id="footerContainer"></div>
-    <div class="db-overlay" id="dbOverlay"></div>
 
     <!-- Success Modal -->
     <div id="successModal" class="modal-overlay">
@@ -151,10 +150,10 @@
 
     <!-- 계좌 선택 모달 -->
     <div id="accountSelectionModal" class="modal-overlay">
-        <div class="remit-modal-content account-modal-content">
-            <div class="remit-modal-header">
-                <h2 class="remit-modal-title" id="accountModalTitle">계좌 선택</h2>
-                <button class="remit-modal-close" onclick="closeAccountModal()">&times;</button>
+        <div class="modal-content modal-layout lg">
+            <div class="modal-header">
+                <h2 class="modal-title" id="accountModalTitle">최근 입금 계좌</h2>
+                <button class="modal-close" onclick="closeModal('accountSelectionModal')">&times;</button>
             </div>
 
             <!-- 테이블 영역 (스크롤 가능) -->
@@ -189,8 +188,8 @@
                 <!-- JavaScript로 카드 렌더링 -->
             </div>
 
-            <div class="remit-modal-footer">
-                <button class="btn-cancel" onclick="closeAccountModal()">확인</button>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal('accountSelectionModal')">확인</button>
             </div>
         </div>
     </div>
@@ -270,10 +269,6 @@
             modal.classList.add('active');
         }
 
-        function closeAccountModal() {
-            document.getElementById('accountSelectionModal').classList.remove('active');
-        }
-
         // 계좌 선택 처리
         function selectAccount(item) {
             // 국가 설정
@@ -301,12 +296,12 @@
                 purposeSelect.value = item.purpose;
             }
 
-            closeAccountModal();
+            closeModal('accountSelectionModal');
         }
 
         document.getElementById('accountSelectionModal').addEventListener('click', function (e) {
             if (e.target === this) {
-                closeAccountModal();
+                closeModal('accountSelectionModal');
             }
         });
 
@@ -382,11 +377,11 @@
                 return;
             }
 
-            document.getElementById('successModal').classList.add('active');
+            openModal('successModal');
         }
 
         function closeSuccessModal() {
-            document.getElementById('successModal').classList.remove('active');
+            closeModal('successModal');
             location.href = 'AC_03_01.html';
         }
     </script>

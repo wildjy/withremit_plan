@@ -31,7 +31,7 @@
                             <span class="label">송금 가능 금액</span>
                             <span class="value">1,250,000원</span>
                         </div>
-                        <button type="button" class="btn-refund-account" onclick="openRefundModal()">환급 계좌 등록</button>
+                        <button type="button" class="btn-refund-account" onclick="openModal('refundAccountModal')">환급 계좌 등록</button>
                     </div>
 
                     <!-- Mobile Search Filter Toggle -->
@@ -264,16 +264,15 @@
 
     <div id="contactContainer"></div>
     <div id="footerContainer"></div>
-    <div class="db-overlay" id="dbOverlay"></div>
 
     <!-- Refund Account Registration Modal -->
-    <div class="remit-modal" id="refundAccountModal">
-        <div class="remit-modal-content">
-            <div class="remit-modal-header">
-                <h2 class="remit-modal-title">환급 계좌 등록</h2>
-                <button class="remit-modal-close" onclick="closeRefundModal()">&times;</button>
+    <div class="modal-overlay" id="refundAccountModal">
+        <div class="modal-content modal-layout">
+            <div class="modal-header">
+                <h2 class="modal-title">환급 계좌 등록</h2>
+                <button class="modal-close" onclick="closeModal('refundAccountModal')">&times;</button>
             </div>
-            <div class="remit-modal-body">
+            <div class="modal-body">
                 <!-- Tabs (Standardized) -->
                 <div class="guide-tabs">
                     <button class="guide-tab active" data-tab="agreed">출금 동의 계좌</button>
@@ -365,9 +364,9 @@
                     </div>
                 </div>
             </div>
-            <div class="remit-modal-footer">
-                <button class="btn btn-outline" onclick="closeRefundModal()">취소</button>
-                <button class="btn btn-primary" onclick="closeRefundModal()">확인</button>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('refundAccountModal')">취소</button>
+                <button class="btn btn-primary" onclick="closeModal('refundAccountModal')">확인</button>
             </div>
         </div>
     </div>
@@ -437,16 +436,6 @@
                 });
             });
         });
-
-        // Refund Modal Open/Close
-        function openRefundModal() {
-            document.getElementById('refundAccountModal').classList.add('show');
-            document.getElementById('dbOverlay').classList.add('show');
-        }
-        function closeRefundModal() {
-            document.getElementById('refundAccountModal').classList.remove('show');
-            document.getElementById('dbOverlay').classList.remove('show');
-        }
     </script>
 </body>
 

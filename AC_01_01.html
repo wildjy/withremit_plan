@@ -31,7 +31,7 @@
                 <div class="db-page-header">
                     <h1 class="db-page-title">개인 계좌</h1>
                     <div class="db-page-actions">
-                        <button type="button" class="btn btn-primary" onclick="openAccountModal()">등록</button>
+                        <button type="button" class="btn btn-primary" onclick="openModal('accountModal')">등록</button>
                     </div>
                 </div>
 
@@ -162,7 +162,6 @@
 
     <div id="contactContainer"></div>
     <div id="footerContainer"></div>
-    <div class="db-overlay" id="dbOverlay"></div>
 
     <!-- Success Modal -->
     <div id="successModal" class="modal-overlay">
@@ -194,21 +193,20 @@
             <h3>계좌 삭제</h3>
             <p>정말 삭제하시겠습니까?</p>
             <div class="modal-btn-group">
-                <button class="btn-cancel" onclick="closeDeleteModal()">취소</button>
+                <button class="btn-cancel" onclick="closeModal('deleteConfirmModal')">취소</button>
                 <button class="btn-confirm-action" onclick="confirmDelete()">삭제</button>
             </div>
         </div>
     </div>
 
-
     <!-- Bank Account Registration Modal -->
-    <div class="remit-modal" id="accountModal">
-        <div class="remit-modal-content">
-            <div class="remit-modal-header">
-                <h2 class="remit-modal-title">은행 계좌 등록</h2>
-                <button class="remit-modal-close" onclick="closeAccountModal()">&times;</button>
+    <div class="modal-overlay" id="accountModal">
+        <div class="modal-content modal-layout">
+            <div class="modal-header">
+                <h2 class="modal-title">은행 계좌 등록</h2>
+                <button class="modal-close" onclick="closeModal('accountModal')">&times;</button>
             </div>
-            <div class="remit-modal-body">
+            <div class="modal-body">
                 <div class="modal-body-form">
                     <div class="field-item" style="margin-bottom: 20px;">
                         <label class="field-label"
@@ -242,8 +240,8 @@
                     </div>
                 </div>
             </div>
-            <div class="remit-modal-footer">
-                <button type="button" class="btn btn-outline" onclick="closeAccountModal()">취소</button>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeModal('accountModal')">취소</button>
                 <button type="button" class="btn btn-primary" onclick="registerAccount()">확인</button>
             </div>
         </div>
@@ -272,12 +270,10 @@
     <script>
         function openAccountModal() {
             document.getElementById('accountModal').classList.add('show');
-            document.getElementById('dbOverlay').classList.add('show');
         }
 
         function closeAccountModal() {
-            document.getElementById('accountModal').classList.remove('show');
-            document.getElementById('dbOverlay').classList.remove('show');
+            closeModal('accountModal')
             // Reset form
             document.getElementById('bankSelect').value = '';
             document.getElementById('accountNumber').value = '';
@@ -334,7 +330,7 @@
 
 
             tbody.insertBefore(newRow, tbody.firstChild);
-            closeAccountModal();
+            closeModal('accountModal')
             updateTotalCount();
         }
 
