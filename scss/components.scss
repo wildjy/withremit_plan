@@ -1,4 +1,4 @@
-@import "./spacing", "./text", "./button", "./modal";
+@import "./spacing", "./text", "./button", "./tab", "./modal";
 
 // width helpers
 .w-full {
@@ -57,157 +57,6 @@
 	border: none;
 }
 
-
-/* ===== findTabs ===== */
-/* ===== findTabs ===== */
-//  CM_03_02
-.find-tabs {
-    display: flex;
-    border-bottom: 2px solid #E5E7EB;
-    margin-bottom: 30px;
-}
-
-.find-tab-btn {
-    flex: 1;
-    padding: 15px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #9CA3AF;
-    background: none;
-    border: none;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
-    transition: all 0.2s;
-}
-
-.find-tab-btn.active {
-    color: var(--primary-green);
-    border-bottom-color: var(--primary-green);
-}
-
-.find-tab-content {
-    display: none;
-}
-
-.find-tab-content.active {
-    display: block;
-}
-
-
-.guide-tab-container {
-	margin-bottom: 30px;
-}
-
-.guide-tab {
-	flex: 1;
-	padding: 14px 20px;
-	text-align: center;
-	border-radius: 12px;
-	font-size: 15px;
-	font-weight: 600;
-	color: #64748b;
-	cursor: pointer;
-	transition: all 0.2s ease;
-	background: transparent;
-	border: none;
-	position: relative;
-}
-
-.guide-tabs {
-	background: #f8fafc;
-	padding: 6px;
-	border-radius: 16px;
-	margin-bottom: 25px;
-	display: flex;
-	gap: 6px;
-	border: 1px solid #e2e8f0;
-	box-shadow: none;
-	overflow-x: auto;
-}
-
-.guide-tab:hover:not(.active) {
-	background: rgba(255, 255, 255, 0.5);
-	color: #475569;
-}
-
-.guide-tab.active {
-	background: #fff;
-	color: #00A0DC !important;
-  /* Force override */
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-	font-weight: 700;
-	border-bottom: none;
-  /* Ensure no border */;
-}
-
-.tab-content {
-	display: none;
-	animation: fadeIn 0.3s ease-in-out;
-}
-
-.tab-content.active {
-	display: block;
-}
-
-// GU_01_01 송금 서비스 안내
-@media (max-width: 768px) {
-  .guide-tabs {
-    flex-wrap: wrap;
-    height: auto;
-    display: flex;
-    gap: 8px;
-  }
-  .guide-tab {
-    min-width: 45%;
-    flex-grow: 1;
-    font-size: 14px;
-    padding: 12px 10px;
-  }
-}
-
-/* CM_04_12 회원가입 내국인/외국인 탭 스타일 */
-.nationality-selector {
-		display: flex;
-		gap: 10px;
-		width: 100%;
-}
-
-.nationality-btn-label {
-		flex: 1;
-		cursor: pointer;
-}
-
-.nationality-btn-label input {
-		display: none;
-}
-
-.nationality-btn {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 52px;
-		border: 1px solid #ddd;
-		border-radius: 8px;
-		background: #fff;
-		font-size: 16px;
-		font-weight: 500;
-		color: #666;
-		transition: all 0.2s;
-}
-
-.nationality-btn-label input:checked+.nationality-btn {
-		border-color: #00A0DC;
-		background: #00A0DC;
-		color: #fff;
-}
-/* ===== end findTabs ===== */
-/* ===== end findTabs ===== */
-
-
-
-
 /* ===== Loading Overlay & Component Styles ===== */
 /* Loading Page (CM_01_02.html) Body Reset */
 .loading-body {
@@ -216,7 +65,7 @@
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	background: transparent;
+	background-color: transparent;
 }
 
 .loading-overlay {
@@ -225,7 +74,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(255, 255, 255, 0.6);
+	background-color: rgba(255, 255, 255, 0.6);
 	backdrop-filter: blur(8px);
 	z-index: 9999;
 	display: flex;
@@ -342,14 +191,14 @@
 	width: 32px;
 	height: 32px;
 	border: 1px solid var(--border-color);
-	background: #fff;
+	background-color: #fff;
 	border-radius: 6px;
 	cursor: pointer;
 	transition: all 0.2s;
 }
 
 .db-page-btn:hover {
-	background: var(--bg-light);
+	background-color: var(--bg-light);
 	border-color: var(--primary-blue);
 }
 
@@ -362,7 +211,7 @@
 	height: 32px;
 	padding: 0 8px;
 	border: 1px solid var(--border-color);
-	background: #fff;
+	background-color: #fff;
 	border-radius: 6px;
 	font-size: 0.9rem;
 	font-weight: 500;
@@ -372,13 +221,13 @@
 }
 
 .db-page-num:hover {
-	background: var(--bg-light);
+	background-color: var(--bg-light);
 	border-color: var(--primary-blue);
 	color: var(--primary-blue);
 }
 
 .db-page-num.active {
-	background: var(--primary-green);
+	background-color: var(--primary-green);
 	border-color: var(--primary-green);
 	color: #fff;
 	font-weight: 600;
@@ -391,7 +240,7 @@
 	font-size: 0.85rem;
 	font-weight: 500;
 	color: var(--text-dark);
-	background: #fff;
+	background-color: #fff;
 	cursor: pointer;
 	appearance: none;
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237A8E96' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");

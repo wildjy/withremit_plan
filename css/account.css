@@ -49,7 +49,7 @@
 
 /* Delete Button */
 .btn-sh-del {
-  background: #fef2f2;
+  background-color: #fef2f2;
   color: #ef4444;
   border: 1px solid #fca5a5;
   padding: 6px 16px;
@@ -60,7 +60,7 @@
 }
 
 .btn-sh-del:hover {
-  background: #fee2e2;
+  background-color: #fee2e2;
 }
 
 /* Column Widths */
@@ -110,7 +110,7 @@
 }
 
 .bank-group {
-  background: transparent;
+  background-color: transparent;
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -118,7 +118,7 @@
 }
 
 .bank-table-card {
-  background: #fff;
+  background-color: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   overflow: hidden;
@@ -129,7 +129,7 @@
   margin-top: 15px;
   font-size: 13px;
   color: #888;
-  background: #f9f9f9;
+  background-color: #f9f9f9;
   padding: 15px;
   border-radius: 8px;
 }
@@ -212,7 +212,7 @@
 }
 
 .bank-group {
-  background: transparent;
+  background-color: transparent;
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -220,7 +220,7 @@
 }
 
 .bank-table-card {
-  background: #fff;
+  background-color: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   overflow: hidden;
@@ -280,7 +280,7 @@
   }
   .db-notice-table tbody tr {
     display: block;
-    background: #fff;
+    background-color: #fff;
     border: none;
     border-bottom: 1px solid #e5e7eb;
     border-radius: 0;
@@ -373,7 +373,7 @@
   }
   /* Remove generic card wrapper style in mobile to let rows be cards */
   .bank-table-card {
-    background: transparent;
+    background-color: transparent;
     border: none;
     border-radius: 0;
     padding: 0;

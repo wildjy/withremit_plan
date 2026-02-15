@@ -78,16 +78,27 @@
 
                 <section class="form-sec border-none" id="nationalitySection">
                     <div class="field-item">
-                        <div class="nationality-selector">
-                            <label class="nationality-btn-label">
+                        <div class="guide-tabs">
+                            <label class="guide-label">
                                 <input type="radio" name="nationality" value="domestic" id="domesticRadio">
-                                <div class="nationality-btn">내국인 회원가입</div>
+                                <div class="guide-tab">내국인 회원가입</div>
                             </label>
-                            <label class="nationality-btn-label">
+                            <label class="guide-label">
                                 <input type="radio" name="nationality" value="foreign" id="foreignRadio">
-                                <div class="nationality-btn">외국인 회원가입</div>
+                                <div class="guide-tab">외국인 회원가입</div>
                             </label>
                         </div>
+                    </div>
+
+                    <div class="nationality-selector">
+                        <label class="nationality-btn-label">
+                            <input type="radio" name="a" value="a" id="a" checked>
+                            <div class="nationality-btn">내국인 회원가입</div>
+                        </label>
+                        <label class="nationality-btn-label">
+                            <input type="radio" name="b" value="b" id="b">
+                            <div class="nationality-btn">외국인 회원가입</div>
+                        </label>
                     </div>
                 </section>
 
@@ -694,7 +705,8 @@
                 const radios = document.querySelectorAll('input[type="radio"]:not([name="nationality"])');
                 radios.forEach(radio => radio.checked = false);
             }
-
+            
+            // handleNationalityChange(); // 초기 로드 시 상태 설정
             domesticRadio.addEventListener('change', handleNationalityChange);
             foreignRadio.addEventListener('change', handleNationalityChange);
 

@@ -6,7 +6,7 @@
 /* ===== Hero Section ===== */
 .hero {
   padding: 140px 0 100px;
-  background: var(--bg-dark);
+  background-color: var(--bg-dark);
   position: relative;
   overflow: hidden;
 }
@@ -83,7 +83,7 @@
           align-items: center;
   gap: 8px;
   padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 10px;
   font-size: 0.85rem;
@@ -100,7 +100,7 @@
 
 /* ===== Features Section ===== */
 .features {
-  background: #fff;
+  background-color: #fff;
   position: relative;
 }
 
@@ -126,7 +126,7 @@
 
 .feature-card {
   padding: 36px 28px;
-  background: var(--bg-light);
+  background-color: var(--bg-light);
   border-radius: var(--radius-lg);
   text-align: center;
   -webkit-transition: var(--transition);
@@ -140,7 +140,7 @@
   -webkit-box-shadow: var(--shadow);
           box-shadow: var(--shadow);
   border-color: var(--border-color);
-  background: #fff;
+  background-color: #fff;
 }
 
 .feature-icon {
@@ -212,7 +212,7 @@
           align-items: center;
   gap: 14px;
   padding: 20px;
-  background: #fff;
+  background-color: #fff;
   border-radius: var(--radius);
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -236,7 +236,7 @@
      object-fit: cover;
   -webkit-box-shadow: var(--shadow-sm);
           box-shadow: var(--shadow-sm);
-  background: var(--bg-light);
+  background-color: var(--bg-light);
 }
 
 .country-info h4 {
@@ -310,7 +310,7 @@
   width: 64px;
   height: 64px;
   margin: 0 auto 20px;
-  background: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 16px;
   display: -webkit-box;
@@ -358,7 +358,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M20 20h20v20H20zM0 0h20v20H0z'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M20 20h20v20H20zM0 0h20v20H0z'/%3E%3C/g%3E%3C/svg%3E");
   pointer-events: none;
 }
 
@@ -382,14 +382,14 @@
 }
 
 .cta .btn-primary {
-  background: #fff;
+  background-color: #fff;
   color: var(--primary-blue);
   padding: 15px 36px;
   font-size: 1rem;
 }
 
 .cta .btn-primary:hover {
-  background: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.95);
   -webkit-transform: translateY(-2px);
           transform: translateY(-2px);
   -webkit-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
@@ -433,7 +433,7 @@
 .contact-item-icon {
   width: 44px;
   height: 44px;
-  background: var(--primary-blue-light);
+  background-color: var(--primary-blue-light);
   border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -478,7 +478,7 @@
 
 .contact-hours {
   padding: 24px;
-  background: #fff;
+  background-color: #fff;
   border-radius: var(--radius);
   border: 1px solid var(--border-color);
   -webkit-box-shadow: var(--shadow-sm);
@@ -511,7 +511,7 @@
 
 .contact-sns {
   padding: 24px 24px 6px 24px;
-  background: #fff;
+  background-color: #fff;
   border-radius: var(--radius);
   border: 1px solid var(--border-color);
   -webkit-box-shadow: var(--shadow-sm);
@@ -540,7 +540,7 @@
   width: 120px;
   height: 120px;
   border-radius: var(--radius);
-  background: #fff;
+  background-color: #fff;
 }
 
 /* ===== Animations ===== */

@@ -63,35 +63,35 @@
 
 .btn-text {
   border: none;
-  background: transparent;
+  background-color: transparent;
   color: var(--text-dark);
 }
 
 .btn-text:hover {
-  background: rgba(27, 94, 158, 0.08);
+  background-color: rgba(27, 94, 158, 0.08);
   color: var(--primary-blue);
 }
 
 .btn-outline {
   border: 1px solid var(--border-color);
   color: var(--text-dark);
-  background: #fff;
+  background-color: #fff;
 }
 
 .btn-outline:hover {
   border-color: var(--text-muted);
-  background: var(--bg-light);
+  background-color: var(--bg-light);
 }
 
 .btn-primary {
-  background: var(--primary-green);
+  background-color: var(--primary-green);
   color: #fff;
   font-weight: 600;
   padding: 0 20px;
 }
 
 .btn-primary:hover {
-  background: var(--primary-green-dark);
+  background-color: var(--primary-green-dark);
   -webkit-transform: translateY(-1px);
           transform: translateY(-1px);
   -webkit-box-shadow: 0 4px 12px rgba(0, 160, 220, 0.3);
@@ -107,7 +107,7 @@
 }
 
 .btn-success {
-  background: #00a0dc;
+  background-color: #00a0dc;
 }
 
 .btn-blue {
@@ -115,27 +115,27 @@
 }
 
 .btn-success:hover {
-  background: #0088be;
+  background-color: #0088be;
   -webkit-transform: translateY(-1px);
           transform: translateY(-1px);
 }
 
 .btn-delete {
-  background: #fef2f2;
+  background-color: #fef2f2;
   color: #ef4444;
   border: 1px solid #fca5a5;
 }
 
 .btn-delete:hover {
-  background: #fee2e2;
+  background-color: #fee2e2;
 }
 
 .btn-warning {
-  background: #f59e0b;
+  background-color: #f59e0b;
 }
 
 .btn-warning:hover {
-  background: #d97706;
+  background-color: #d97706;
   -webkit-transform: translateY(-1px);
           transform: translateY(-1px);
 }
@@ -156,7 +156,7 @@
 }
 
 .btn-cancel:hover {
-  background: #f8fafa;
+  background-color: #f8fafa;
   color: #1b5e9e;
   border-color: #1b5e9e;
 }
@@ -164,7 +164,7 @@
 .db-more-link {
   display: inline-block;
   padding: 6px 16px;
-  background: #f3f4f6;
+  background-color: #f3f4f6;
   color: var(--text-body);
   text-decoration: none;
   font-size: 0.85rem;
@@ -175,7 +175,7 @@
 }
 
 .db-more-link:hover {
-  background: #e5e7eb;
+  background-color: #e5e7eb;
   color: var(--text-dark);
 }
 
@@ -184,7 +184,7 @@
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--text-dark);
-  background: var(--bg-light);
+  background-color: var(--bg-light);
   border: 1px solid var(--border-color);
   border-radius: 6px;
   cursor: pointer;
@@ -210,7 +210,7 @@
 }
 
 .quick-btn:hover {
-  background: var(--primary-blue);
+  background-color: var(--primary-blue);
   color: #fff;
   border-color: var(--primary-blue);
 }
@@ -235,11 +235,11 @@
   }
 }
 .btn-confirm {
-  background: #1b5e9e;
+  background-color: #1b5e9e;
 }
 
 .btn-confirm:hover {
-  background: #154a7c;
+  background-color: #154a7c;
   -webkit-transform: translateY(-1px);
           transform: translateY(-1px);
 }
@@ -248,7 +248,7 @@
   -webkit-box-flex: 1.5;
       -ms-flex: 1.5;
           flex: 1.5;
-  background: #1b5e9e;
+  background-color: #1b5e9e;
   color: #fff;
   padding: 14px;
   border-radius: 12px;
@@ -260,7 +260,7 @@
 }
 
 .btn-confirm-action:hover {
-  background: #154a7c;
+  background-color: #154a7c;
   -webkit-transform: translateY(-1px);
           transform: translateY(-1px);
 }
@@ -277,6 +277,189 @@
 
 /* ===== end Button Style ===== */
 /* ===== end Button Style ===== */
+/* ===== findTabs ===== */
+/* ===== findTabs ===== */
+.find-tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 2px solid #E5E7EB;
+  margin-bottom: 30px;
+}
+
+.find-tab-btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #9CA3AF;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.find-tab-btn.active {
+  color: var(--primary-green);
+  border-bottom-color: var(--primary-green);
+}
+
+.find-tab-content {
+  display: none;
+}
+
+.find-tab-content.active {
+  display: block;
+}
+
+.guide-tab-container {
+  margin-bottom: 30px;
+}
+
+.guide-tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 6px;
+  border-radius: 16px;
+  margin-bottom: 25px;
+  gap: 6px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  overflow-x: auto;
+}
+
+.guide-tab {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 14px 20px;
+  text-align: center;
+  border-radius: 12px;
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background-color: transparent;
+  border: none;
+  position: relative;
+}
+
+.guide-label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  cursor: pointer;
+}
+.guide-label input {
+  display: none;
+}
+
+.guide-label input + .guide-tab:hover:not(.active),
+.guide-tab:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #475569;
+}
+
+.guide-label input:checked + .guide-tab,
+.guide-tab.active {
+  color: #00A0DC !important;
+  font-weight: 700;
+  background-color: var(--white);
+  border-bottom: none;
+  -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.tab-content {
+  display: none;
+  -webkit-animation: fadeIn 0.3s ease-in-out;
+          animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .guide-tabs {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 8px;
+  }
+  .guide-tab {
+    min-width: 45%;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    font-size: 14px;
+    padding: 12px 10px;
+  }
+}
+/* CM_04_12 회원가입 내국인/외국인 탭 스타일 */
+.nationality-selector {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.nationality-btn-label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  cursor: pointer;
+}
+
+.nationality-btn-label input {
+  display: none;
+}
+
+.nationality-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 52px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.nationality-btn-label input:checked + .nationality-btn {
+  border-color: #00A0DC;
+  background-color: #00A0DC;
+  color: #fff;
+}
+
+/* ===== end findTabs ===== */
+/* ===== end findTabs ===== */
 /* ===== modal-overlay ===== */
 .modal-overlay {
   position: fixed;
@@ -354,7 +537,7 @@
       -ms-flex-align: center;
           align-items: center;
   border-bottom: 1px solid var(--border-color);
-  background-color: var(--bg-white);
+  background-color: var(--white);
   z-index: 10;
 }
 
@@ -646,178 +829,6 @@
   border: none;
 }
 
-/* ===== findTabs ===== */
-/* ===== findTabs ===== */
-.find-tabs {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  border-bottom: 2px solid #E5E7EB;
-  margin-bottom: 30px;
-}
-
-.find-tab-btn {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  padding: 15px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #9CA3AF;
-  background: none;
-  border: none;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.find-tab-btn.active {
-  color: var(--primary-green);
-  border-bottom-color: var(--primary-green);
-}
-
-.find-tab-content {
-  display: none;
-}
-
-.find-tab-content.active {
-  display: block;
-}
-
-.guide-tab-container {
-  margin-bottom: 30px;
-}
-
-.guide-tab {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  padding: 14px 20px;
-  text-align: center;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #64748b;
-  cursor: pointer;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-  background: transparent;
-  border: none;
-  position: relative;
-}
-
-.guide-tabs {
-  background: #f8fafc;
-  padding: 6px;
-  border-radius: 16px;
-  margin-bottom: 25px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 6px;
-  border: 1px solid #e2e8f0;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  overflow-x: auto;
-}
-
-.guide-tab:hover:not(.active) {
-  background: rgba(255, 255, 255, 0.5);
-  color: #475569;
-}
-
-.guide-tab.active {
-  background: #fff;
-  color: #00A0DC !important;
-  /* Force override */
-  -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  font-weight: 700;
-  border-bottom: none;
-  /* Ensure no border */
-}
-
-.tab-content {
-  display: none;
-  -webkit-animation: fadeIn 0.3s ease-in-out;
-          animation: fadeIn 0.3s ease-in-out;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-@media (max-width: 768px) {
-  .guide-tabs {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    height: auto;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    gap: 8px;
-  }
-  .guide-tab {
-    min-width: 45%;
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    font-size: 14px;
-    padding: 12px 10px;
-  }
-}
-/* CM_04_12 회원가입 내국인/외국인 탭 스타일 */
-.nationality-selector {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 10px;
-  width: 100%;
-}
-
-.nationality-btn-label {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  cursor: pointer;
-}
-
-.nationality-btn-label input {
-  display: none;
-}
-
-.nationality-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
-  height: 52px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fff;
-  font-size: 16px;
-  font-weight: 500;
-  color: #666;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.nationality-btn-label input:checked + .nationality-btn {
-  border-color: #00A0DC;
-  background: #00A0DC;
-  color: #fff;
-}
-
-/* ===== end findTabs ===== */
-/* ===== end findTabs ===== */
 /* ===== Loading Overlay & Component Styles ===== */
 /* Loading Page (CM_01_02.html) Body Reset */
 .loading-body {
@@ -826,7 +837,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: transparent;
+  background-color: transparent;
 }
 
 .loading-overlay {
@@ -835,7 +846,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(8px);
   z-index: 9999;
   display: -webkit-box;
@@ -997,7 +1008,7 @@
   width: 32px;
   height: 32px;
   border: 1px solid var(--border-color);
-  background: #fff;
+  background-color: #fff;
   border-radius: 6px;
   cursor: pointer;
   -webkit-transition: all 0.2s;
@@ -1005,7 +1016,7 @@
 }
 
 .db-page-btn:hover {
-  background: var(--bg-light);
+  background-color: var(--bg-light);
   border-color: var(--primary-blue);
 }
 
@@ -1018,7 +1029,7 @@
   height: 32px;
   padding: 0 8px;
   border: 1px solid var(--border-color);
-  background: #fff;
+  background-color: #fff;
   border-radius: 6px;
   font-size: 0.9rem;
   font-weight: 500;
@@ -1029,13 +1040,13 @@
 }
 
 .db-page-num:hover {
-  background: var(--bg-light);
+  background-color: var(--bg-light);
   border-color: var(--primary-blue);
   color: var(--primary-blue);
 }
 
 .db-page-num.active {
-  background: var(--primary-green);
+  background-color: var(--primary-green);
   border-color: var(--primary-green);
   color: #fff;
   font-weight: 600;
@@ -1048,7 +1059,7 @@
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--text-dark);
-  background: #fff;
+  background-color: #fff;
   cursor: pointer;
   -webkit-appearance: none;
      -moz-appearance: none;

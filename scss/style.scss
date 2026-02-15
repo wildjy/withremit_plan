@@ -34,7 +34,7 @@
 	border-radius: 12px;
 	outline: none;
 	transition: 0.3s;
-	background: #fff;
+	background-color: #fff;
 	color: #1a2e35;
 	cursor: pointer;
 }
@@ -52,7 +52,7 @@
 	transform: translate(-50%, 0);
 	z-index: 1000;
 	width: 480px;
-	background: #f1f4f6;
+	background-color: #f1f4f6;
 	border: 1px solid #d1d9e0;
 	border-radius: 16px;
 	padding: 12px;
@@ -100,7 +100,7 @@
 }
 
 .db-info-card {
-	background: #fff;
+	background-color: #fff;
 	padding: 35px;
 	border-radius: var(--radius);
 	border: 1px solid var(--border-color);
@@ -108,7 +108,7 @@
 }
 
 .db-inquiry-card {
-	background: #eff6ff !important;
+	background-color: #eff6ff !important;
 }
 
 .db-main-wallet {
@@ -144,7 +144,7 @@
 	display: flex;
 	align-items: center;
 	gap: 8px;
-	background: #7a8e96;
+	background-color: #7a8e96;
 	color: #fff;
 	padding: 8px 16px;
 	border-radius: 50px;
@@ -156,7 +156,7 @@
 }
 
 .db-balance-badge:hover {
-	background: #6b7d85;
+	background-color: #6b7d85;
 }
 
 .db-balance-badge .badge-label {
@@ -172,7 +172,7 @@
 
 /* Dashboard Banner Card Styles */
 .db-banner-card {
-	background: #fff;
+	background-color: #fff;
 	border-radius: var(--radius);
 	border: 1px solid var(--border-color);
 	box-shadow: var(--shadow);
@@ -259,7 +259,7 @@
 }
 
 .db-banner-control-btn {
-	background: rgba(255, 255, 255, 0.9);
+	background-color: rgba(255, 255, 255, 0.9);
 	border: none;
 	border-radius: 50%;
 	width: 24px;
@@ -273,7 +273,7 @@
 }
 
 .db-banner-control-btn:hover {
-	background: #fff;
+	background-color: #fff;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -294,7 +294,7 @@
 	width: 10px;
 	height: 10px;
 	border-radius: 50%;
-	background: rgba(255, 255, 255, 0.5);
+	background-color: rgba(255, 255, 255, 0.5);
 	border: none;
 	cursor: pointer;
 	transition: var(--transition);
@@ -302,11 +302,11 @@
 }
 
 .db-banner-indicator:hover {
-	background: rgba(255, 255, 255, 0.8);
+	background-color: rgba(255, 255, 255, 0.8);
 }
 
 .db-banner-indicator.active {
-	background: #fff;
+	background-color: #fff;
 	width: 24px;
 	border-radius: 5px;
 }
@@ -371,7 +371,7 @@
 
 /* White Button Styles for Blue Card */
 .btn-white {
-	background: #fff;
+	background-color: #fff;
 	color: var(--primary-blue);
 	border: none;
 	font-weight: 600;
@@ -379,12 +379,12 @@
 }
 
 .btn-white:hover {
-	background: #f8f9fa;
+	background-color: #f8f9fa;
 	transform: translateY(-1px);
 }
 
 .btn-white-outline {
-	background: transparent;
+	background-color: transparent;
 	color: #fff;
 	border: 2px solid #fff;
 	font-weight: 600;
@@ -392,7 +392,7 @@
 }
 
 .btn-white-outline:hover {
-	background: rgba(255, 255, 255, 0.1);
+	background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Balance Card */
@@ -443,7 +443,7 @@
 	width: 32px;
 	height: 32px;
 	border-radius: 8px;
-	background: rgba(255, 255, 255, 0.1);
+	background-color: rgba(255, 255, 255, 0.1);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -490,13 +490,13 @@
 	align-items: center;
 	gap: 12px;
 	padding: 12px;
-	background: #f8fafc;
+	background-color: #f8fafc;
 	border-radius: 8px;
 	transition: background 0.2s;
 }
 
 .db-account-item:hover {
-	background: #f1f5f9;
+	background-color: #f1f5f9;
 }
 
 .db-account-flag {
@@ -574,7 +574,7 @@
 }
 
 .db-trans-icon.deposit {
-	background: #e3f2fd;
+	background-color: #e3f2fd;
 }
 
 .db-trans-icon.deposit svg {
@@ -582,7 +582,7 @@
 }
 
 .db-trans-icon.withdraw {
-	background: #f5f5f5;
+	background-color: #f5f5f5;
 }
 
 .db-trans-icon.withdraw svg {
@@ -645,13 +645,13 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 14px 16px;
-	background: #f8fafc;
+	background-color: #f8fafc;
 	border-radius: 8px;
 	transition: background 0.2s;
 }
 
 .db-transaction-item:hover {
-	background: #f1f5f9;
+	background-color: #f1f5f9;
 }
 
 .db-trans-left {
@@ -676,12 +676,12 @@
 }
 
 .db-trans-type.deposit {
-	background: #d1fae5;
+	background-color: #d1fae5;
 	color: #065f46;
 }
 
 .db-trans-type.withdraw {
-	background: #fee2e2;
+	background-color: #fee2e2;
 	color: #991b1b;
 }
 
@@ -724,13 +724,13 @@
 	align-items: center;
 	gap: 12px;
 	padding: 10px 12px;
-	background: var(--bg-light);
+	background-color: var(--bg-light);
 	border-radius: 8px;
 	transition: background 0.2s;
 }
 
 .db-account-item:hover {
-	background: #f0f4f8;
+	background-color: #f0f4f8;
 }
 
 .db-account-flag {
@@ -835,7 +835,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: var(--primary-blue);
+	background-color: var(--primary-blue);
 	flex-shrink: 0;
 }
 
@@ -850,7 +850,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: var(--primary-blue);
+	background-color: var(--primary-blue);
 	flex-shrink: 0;
 }
 
@@ -860,7 +860,7 @@
 
 .db-ongoing-notice {
 	padding: 12px;
-	background: #eff6ff;
+	background-color: #eff6ff;
 	border-radius: 8px;
 	font-size: 0.9rem;
 	color: #1e40af;
@@ -901,7 +901,7 @@
 }
 
 .db-notice-item:hover {
-	background: #f8fafc;
+	background-color: #f8fafc;
 }
 
 .db-notice-item:hover .db-notice-title {
@@ -961,12 +961,12 @@
 	cursor: pointer;
 	transition: all 0.2s;
 	min-height: 60px;
-	background: #f8f9fa;
+	background-color: #f8f9fa;
 	color: var(--text-dark);
 }
 
 .db-help-btn-new:hover {
-	background: #e9ecef;
+	background-color: #e9ecef;
 	transform: translateY(-2px);
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
@@ -1018,7 +1018,7 @@
 	max-width: 120px;
 	height: auto;
 	border-radius: var(--radius);
-	background: #fff;
+	background-color: #fff;
 	border: 1px solid var(--border-color);
 }
 
@@ -1113,7 +1113,7 @@
 	font-size: 0.9rem;
 	font-weight: 500;
 	color: var(--text-dark);
-	background: #fff;
+	background-color: #fff;
 	cursor: pointer;
 	appearance: none;
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237A8E96' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
@@ -1148,7 +1148,7 @@
 	align-items: center;
 	gap: 6px;
 	padding: 10px 20px;
-	background: #7a8e96;
+	background-color: #7a8e96;
 	color: #fff;
 	border: none;
 	border-radius: 8px;
@@ -1160,7 +1160,7 @@
 }
 
 .db-search-btn:hover {
-	background: #6a7e86;
+	background-color: #6a7e86;
 	transform: translateY(-1px);
 	box-shadow: 0 4px 12px rgba(122, 142, 150, 0.3);
 }
@@ -1179,7 +1179,7 @@
 	justify-content: center;
 	gap: 6px;
 	padding: 10px;
-	background: #fff;
+	background-color: #fff;
 	color: var(--text-muted);
 	border: 1.5px solid var(--border-color);
 	border-radius: 8px;
@@ -1193,7 +1193,7 @@
 .db-reset-btn:hover {
 	border-color: var(--text-muted);
 	color: var(--text-dark);
-	background: var(--bg-light);
+	background-color: var(--bg-light);
 }
 
 .db-reset-btn svg {
@@ -1221,7 +1221,7 @@
 	justify-content: center;
 	gap: 6px;
 	padding: 12px 16px;
-	background: #fff;
+	background-color: #fff;
 	color: var(--text-dark);
 	border: 1.5px solid var(--border-color);
 	border-radius: 8px;
@@ -1235,7 +1235,7 @@
 }
 
 .db-mobile-search-toggle:hover {
-	background: #f9f9f9;
+	background-color: #f9f9f9;
 }
 
 .db-mobile-search-toggle .close-icon,
@@ -1244,13 +1244,13 @@
 }
 
 .db-mobile-search-toggle.active {
-	background: #fff;
+	background-color: #fff;
 	color: var(--text-dark);
 	border-color: var(--border-color);
 }
 
 .db-mobile-search-toggle.active:hover {
-	background: #f9f9f9;
+	background-color: #f9f9f9;
 }
 
 .db-mobile-search-toggle.active .search-icon,
@@ -1278,7 +1278,7 @@
 }
 
 .db-notice-list-page {
-	background: transparent;
+	background-color: transparent;
 	border-radius: 0;
 	padding: 0;
 }
@@ -1292,7 +1292,7 @@
 }
 
 .db-notice-table thead {
-	background: #f8fafa;
+	background-color: #f8fafa;
 	border-bottom: 1.5px solid var(--border-color);
 }
 
@@ -1307,12 +1307,12 @@
 .db-notice-table tbody tr {
 	border-bottom: 1px solid #eee;
 	transition: background-color 0.2s;
-	background: #fff;
+	background-color: #fff;
 	cursor: pointer;
 }
 
 .db-notice-table tbody tr:hover {
-	background: #f8fafa;
+	background-color: #f8fafa;
 }
 
 .db-notice-table tbody tr:last-child {
@@ -1420,7 +1420,7 @@
 	align-items: center;
 	gap: 6px;
 	padding: 10px 16px;
-	background: #fff;
+	background-color: #fff;
 	border: 1.5px solid var(--border-color);
 	border-radius: 8px;
 	font-size: 0.85rem;
@@ -1436,7 +1436,7 @@
 }
 
 .remit-detail-toggle.active {
-	background: var(--primary-blue);
+	background-color: var(--primary-blue);
 	border-color: var(--primary-blue);
 	color: #fff;
 }
@@ -1468,7 +1468,7 @@
 .remit-quick-btn {
 	padding: 8px 14px;
 	border: 1.5px solid var(--border-color);
-	background: #fff;
+	background-color: #fff;
 	border-radius: 6px;
 	font-size: 0.85rem;
 	font-weight: 500;
@@ -1481,11 +1481,11 @@
 .remit-quick-btn:hover {
 	border-color: var(--primary-blue);
 	color: var(--primary-blue);
-	background: var(--bg-light);
+	background-color: var(--bg-light);
 }
 
 .remit-quick-btn.active {
-	background: var(--primary-green);
+	background-color: var(--primary-green);
 	border-color: var(--primary-green);
 	color: #fff;
 	font-weight: 600;
@@ -1502,7 +1502,7 @@
 	font-size: 0.75rem;
 	font-weight: 500;
 	color: var(--text-dark);
-	background: var(--bg-light);
+	background-color: var(--bg-light);
 	border: 1px solid var(--border-color);
 	border-radius: 5px;
 	cursor: pointer;
@@ -1511,7 +1511,7 @@
 }
 
 .remit-quick-btn-small:hover {
-	background: var(--primary-blue);
+	background-color: var(--primary-blue);
 	color: #fff;
 	border-color: var(--primary-blue);
 }
@@ -1529,7 +1529,7 @@
 	font-size: 0.85rem;
 	font-weight: 500;
 	color: var(--text-dark);
-	background: #fff;
+	background-color: #fff;
 	cursor: pointer;
 	appearance: none;
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237A8E96' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
@@ -1557,7 +1557,7 @@
 
 .remit-action-btn {
 	padding: 6px 16px;
-	background: var(--primary-green);
+	background-color: var(--primary-green);
 	color: #fff;
 	border: none;
 	border-radius: 6px;
@@ -1569,7 +1569,7 @@
 }
 
 .remit-action-btn:hover {
-	background: var(--primary-green-dark);
+	background-color: var(--primary-green-dark);
 	transform: translateY(-1px);
 	box-shadow: 0 2px 8px rgba(0, 160, 220, 0.3);
 }
@@ -1751,7 +1751,7 @@
 	gap: 6px;
 	padding: 8px 14px;
 	height: 36px;
-	background: #fff;
+	background-color: #fff;
 	border: 1.5px solid var(--border-color);
 	border-radius: 8px;
 	font-size: 0.85rem;
@@ -1790,7 +1790,7 @@
 .search-buttons-wrapper .db-search-btn {
 	padding: 8px 20px;
 	height: 36px;
-	background: #7a8e96;
+	background-color: #7a8e96;
 	color: #fff;
 	border: none;
 	border-radius: 8px;
@@ -1805,7 +1805,7 @@
 }
 
 .search-buttons-wrapper .db-search-btn:hover {
-	background: #6a7e86;
+	background-color: #6a7e86;
 }
 
 .search-buttons-wrapper .db-reset-btn {
@@ -1816,7 +1816,7 @@
 	padding: 8px;
 	width: 36px;
 	height: 36px;
-	background: transparent;
+	background-color: transparent;
 	color: var(--text-muted);
 	border: 1.5px solid var(--border-color);
 	border-radius: 8px;
@@ -2265,7 +2265,7 @@
 
 .remit-quick-btn-small {
 	padding: 8px 10px;
-	background: #fff;
+	background-color: #fff;
 	border: 1.5px solid var(--border-color);
 	border-radius: 6px;
 	font-size: 0.8rem;
@@ -2279,7 +2279,7 @@
 .remit-quick-btn-small:hover {
 	border-color: var(--primary-blue);
 	color: var(--primary-blue);
-	background: var(--primary-blue-light);
+	background-color: var(--primary-blue-light);
 }
 
 /* Right Side: Buttons */
@@ -2302,7 +2302,7 @@
 	align-items: center;
 	gap: 6px;
 	padding: 2px 0;
-	background: transparent;
+	background-color: transparent;
 	border: none;
 	font-size: 0.85rem;
 	font-weight: 500;
@@ -2392,7 +2392,7 @@
 
 .remit-detail-content {
 	padding: 20px;
-	background: #f8fafb;
+	background-color: #f8fafb;
 	border: none;
 	display: flex;
 	gap: 32px;
@@ -2487,7 +2487,7 @@
 
 /* Contact Info Bar */
 .contact-info-bar {
-	background: #f8fafc;
+	background-color: #f8fafc;
 	border-top: 1px solid var(--border-color);
 	padding: 14px 0;
 }
@@ -2594,17 +2594,17 @@
 		border: 1px solid var(--border-color);
 		border-radius: 8px;
 		margin-bottom: 12px;
-		background: #fff;
+		background-color: #fff;
 		cursor: pointer;
 	}
 
 	.remit-table tbody tr.remit-row:hover {
-		background: var(--bg-light);
+		background-color: var(--bg-light);
 		box-shadow: var(--shadow-sm);
 	}
 
 	.remit-table tbody tr.remit-row.expanded {
-		background: #e8f4f8;
+		background-color: #e8f4f8;
 	}
 
 	.remit-table tbody tr.remit-row td {
@@ -2649,7 +2649,7 @@
 		border-radius: 0 0 8px 8px;
 		margin-top: -12px;
 		margin-bottom: 12px;
-		background: #f8fafb;
+		background-color: #f8fafb;
 	}
 
 	.remit-table tbody tr.remit-detail-row.show {
@@ -2666,7 +2666,7 @@
 		align-items: flex-start;
 		gap: 16px;
 		padding: 0;
-		background: transparent;
+		background-color: transparent;
 		border: none;
 	}
 
@@ -3491,7 +3491,7 @@
 
 /* Notice Detail Page */
 .notice-detail-card {
-	background: #fff;
+	background-color: #fff;
 	border-radius: 12px;
 	padding: 32px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -3538,7 +3538,7 @@
 
 .notice-detail-divider {
 	height: 1px;
-	background: var(--border-color);
+	background-color: var(--border-color);
 	margin: 24px 0;
 }
 
@@ -3572,7 +3572,7 @@
 }
 
 .notice-nav-item:hover {
-	background: var(--bg-light);
+	background-color: var(--bg-light);
 	border-color: var(--primary-blue);
 }
 
@@ -3719,7 +3719,7 @@
 }
 
 .limit-info-item.highlight {
-	background: var(--primary-green);
+	background-color: var(--primary-green);
 }
 
 .limit-info-item .limit-label {
@@ -3746,7 +3746,7 @@
 
 .remit-calc-result {
 	display: none !important;
-	background: var(--bg-light);
+	background-color: var(--bg-light);
 	border-radius: 10px;
 	padding: 20px;
 	margin-top: 20px;
@@ -3813,7 +3813,7 @@
 .exchange-rate-box {
 	display: flex;
 	align-items: center;
-	background: var(--bg-light);
+	background-color: var(--bg-light);
 	border-color: transparent;
 	font-weight: 600;
 	color: var(--text-dark);
@@ -4116,7 +4116,7 @@
 }
 
 .remit-card {
-	background: #fff;
+	background-color: #fff;
 	border: 1.5px solid var(--border-color);
 	border-radius: 8px;
 	padding: 16px 20px;
@@ -4155,7 +4155,7 @@
 .remit-card-view-btn {
 	margin-left: auto;
 	padding: 0;
-	background: transparent;
+	background-color: transparent;
 	color: var(--primary-blue);
 	border: none;
 	font-size: 0.85rem;
@@ -4427,7 +4427,7 @@
 		left: 0 !important;
 		width: 100% !important;
 		height: auto !important;
-		background: white !important;
+		background-color: white !important;
 		z-index: 9999 !important;
 		opacity: 1 !important;
 		visibility: visible !important;
@@ -4462,7 +4462,7 @@
 
 /* New Receipt Button Styles */
 .btn-receipt-print {
-	background: var(--primary-green);
+	background-color: var(--primary-green);
 	color: white;
 	border: none;
 	border-radius: 8px;
@@ -4473,11 +4473,11 @@
 }
 
 .btn-receipt-print:hover {
-	background: var(--primary-green-dark);
+	background-color: var(--primary-green-dark);
 }
 
 .btn-receipt-close {
-	background: #f1f3f5;
+	background-color: #f1f3f5;
 	color: var(--text-dark);
 	border: 1px solid var(--border-color);
 	border-radius: 8px;
@@ -4488,7 +4488,7 @@
 }
 
 .btn-receipt-close:hover {
-	background: #e9ecef;
+	background-color: #e9ecef;
 }
 
 /* Receipt Mobile Typography & Layout Fixes */
@@ -4665,7 +4665,7 @@
 	// 	position: sticky;
 	// 	top: 0;
 	// 	z-index: 10;
-	// 	background: #fff;
+	// 	background-color: #fff;
 	// 	border-radius: 12px 12px 0 0;
 	// }
 
@@ -4684,7 +4684,7 @@
 	}
 
 	.account-card {
-		background: #fff;
+		background-color: #fff;
 		border: 1px solid #e0e0e0;
 		border-radius: 8px;
 		padding: 16px;
@@ -4815,7 +4815,7 @@
 	font-size: 1rem;
 	color: #333;
 	padding: 12px 0;
-	background: transparent;
+	background-color: transparent;
 	border: none;
 }
 
@@ -4842,7 +4842,7 @@ td.center {
 		display: block;
 		width: 100%;
 		border: none;
-		background: transparent;
+		background-color: transparent;
 		border-collapse: separate;
 	}
 
@@ -4857,7 +4857,7 @@ td.center {
 		display: grid;
 		grid-template-columns: auto 1fr;
 		width: 100%;
-		background: #fff;
+		background-color: #fff;
 		border: 1.5px solid #e5e7eb;
     /* remit-card border style */
 		border-radius: 12px !important;
@@ -5078,7 +5078,7 @@ td.center {
 }
 
 .db-modal-close {
-	background: none;
+	background-color: none;
 	border: none;
 	cursor: pointer;
 	color: #9ca3af;
@@ -5196,7 +5196,7 @@ td.center {
 
 /* Inquiry Bottom Info Box (CS_03_01) */
 .inquiry-bottom-info {
-	background: #f9fafb;
+	background-color: #f9fafb;
 	border-radius: 12px;
 	padding: 24px;
 	margin-top: 32px;
@@ -5243,7 +5243,7 @@ td.center {
 /* Common Divider */
 .divider-thin {
 	height: 1px;
-	background: #eee;
+	background-color: #eee;
 	margin: 24px 0;
 	border: none;
 }
@@ -5420,7 +5420,7 @@ td.center {
 		}
 
 		.account-card {
-				background: #fff;
+				background-color: #fff;
 				border: 1px solid #e5e7eb;
 				border-radius: 12px;
 				padding: 16px;

@@ -60,7 +60,7 @@
 }
 
 .guide-table-wrapper {
-	background: white;
+	background-color: white;
 	border-radius: 12px;
 	border: 1px solid #eee;
 	overflow: hidden;
@@ -98,7 +98,7 @@
 	margin-top: 15px;
 	font-size: 13px;
 	color: #888;
-	background: #f9f9f9;
+	background-color: #f9f9f9;
 	padding: 15px;
 	border-radius: 8px;
 }
@@ -149,7 +149,7 @@
 	left: 0;
 	width: 100%;
 	height: 4px;
-	background: rgba(74, 144, 226, 0.15);
+	background-color: rgba(74, 144, 226, 0.15);
 	z-index: -1;
 }
 
@@ -172,7 +172,7 @@
 /* 768px 이상은 3개 배열 유지 (별도 설정 불필요, 기본이 3개) */
 /* @media (max-width: 992px) Rule Removed based on user request */
 .feature-card {
-	background: #ffffff;
+	background-color: #ffffff;
 	border: 1px solid #edf2f7;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 	border-radius: 20px;
@@ -379,7 +379,7 @@
   left: -10%;
   width: 50%;
   height: 200%;
-  background: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   transform: rotate(30deg);
   pointer-events: none; }
 
@@ -415,7 +415,7 @@
 
 /* Unified Feature Card Style */
 .feature-card-new {
-  background: #fff;
+  background-color: #fff;
   padding: 35px;
   border-radius: 24px;
   border: 1px solid #f1f5f9;
@@ -434,7 +434,7 @@
 .feature-icon-box {
   width: 60px;
   height: 60px;
-  background: #f0f9ff;
+  background-color: #f0f9ff;
   border-radius: 18px;
   display: flex;
   align-items: center;
@@ -444,7 +444,7 @@
   transition: all 0.3s; }
 
 .feature-card-new:hover .feature-icon-box {
-  background: #00A0DC;
+  background-color: #00A0DC;
   color: #fff;
   transform: scale(1.1); }
 
@@ -469,7 +469,7 @@
 
 /* Content Box */
 .content-box-premium {
-  background: #fff;
+  background-color: #fff;
   border-radius: 24px;
   border: 1px solid #f1f5f9;
   padding: 40px;
@@ -502,7 +502,7 @@
   gap: 20px; }
 
 .country-card {
-  background: #fff;
+  background-color: #fff;
   border: 1px solid #f1f5f9;
   box-shadow: var(--card-shadow);
   border-radius: 16px;
@@ -544,7 +544,7 @@
   border: 1px solid #e2e8f0; }
 
 .premium-table th {
-  background: #f8fafc;
+  background-color: #f8fafc;
   padding: 16px;
   text-align: left;
   font-weight: 600;
@@ -561,7 +561,7 @@
   border-bottom: none; }
 
 .premium-table tr:hover td {
-  background: #f8fafc; }
+  background-color: #f8fafc; }
 
 /* Responsiveness */
 /* Default for > 767px is 3 columns for .cols-3 (defined in base styles) */

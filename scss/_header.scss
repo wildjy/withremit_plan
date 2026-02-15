@@ -5,7 +5,7 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	background: rgba(255, 255, 255, 0.97);
+	background-color: rgba(255, 255, 255, 0.97);
 	backdrop-filter: blur(12px);
 	border-bottom: 1px solid transparent;
 	transition: var(--transition);
@@ -71,7 +71,7 @@
 }
 
 .nav-link:hover {
-	background: var(--bg-light);
+	background-color: var(--bg-light);
 	color: var(--primary-blue);
 }
 
@@ -94,7 +94,7 @@
 	border: none;
 	border-radius: 8px;
 	font-size: 0.875rem;
-	background: transparent;
+	background-color: transparent;
 	cursor: pointer;
 	color: var(--text-dark);
 	font-weight: 500;
@@ -130,7 +130,7 @@
 /* Mobile Login Button Base Style */
 .btn-login-mobile {
 	display: none;
-	background: var(--primary-green);
+	background-color: var(--primary-green);
 	color: #fff;
 	font-weight: 500;
 	padding: 0 16px;
@@ -140,7 +140,7 @@
 }
 
 .btn-login-mobile:hover {
-	background: var(--primary-green-dark);
+	background-color: var(--primary-green-dark);
 }
 
 // My Page Dropdown
@@ -153,7 +153,7 @@
   top: 50px;
   right: 0;
   width: 140px;
-  background: #fff;
+  background-color: #fff;
   border: 1px solid var(--border-color);
   border-radius: 12px;
   box-shadow: var(--shadow-lg);
@@ -230,7 +230,7 @@
       padding: 0 14px;
       height: 34px;
       font-size: 0.85rem;
-      background: var(--primary-green);
+      background-color: var(--primary-green);
       color: #fff;
       border-radius: 6px;
       font-weight: 600;
@@ -339,7 +339,7 @@
 	top: 56px;
 	left: 0;
 	right: 0;
-	background: #fff;
+	background-color: #fff;
 	padding: 16px 20px 20px;
 	box-shadow: var(--shadow-lg);
 	transform: translateY(-100%);
@@ -368,12 +368,12 @@
 }
 
 .mobile-nav > a:active {
-	background: var(--bg-light);
+	background-color: var(--bg-light);
 }
 
 .mobile-nav-divider {
 	height: 1px;
-	background: var(--border-color);
+	background-color: var(--border-color);
 	margin: 8px 0;
 }
 
@@ -394,7 +394,7 @@
 	border: 1px solid var(--border-color);
 	border-radius: 6px;
 	font-size: 0.9rem;
-	background: #fff;
+	background-color: #fff;
 	appearance: none;
 	-webkit-appearance: none;
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237A8E96' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
@@ -408,7 +408,7 @@
 	display: block;
 	margin-top: 12px;
 	padding: 14px !important;
-	background: var(--primary-green);
+	background-color: var(--primary-green);
 	color: #fff !important;
 	text-align: center;
 	border-radius: 8px;
@@ -417,6 +417,6 @@
 }
 
 .mobile-nav-register:active {
-	background: var(--primary-green-dark);
+	background-color: var(--primary-green-dark);
 }
 

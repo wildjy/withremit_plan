@@ -167,7 +167,7 @@ a.db-banner-slide {
 }
 
 .banner-control-btn {
-	background: rgba(255, 255, 255, 0.9);
+	background-color: rgba(255, 255, 255, 0.9);
 	border: none;
 	border-radius: 50%;
 	width: 40px;
@@ -181,7 +181,7 @@ a.db-banner-slide {
 }
 
 .banner-control-btn:hover {
-	background: #fff;
+	background-color: #fff;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -202,7 +202,7 @@ a.db-banner-slide {
 	width: 12px;
 	height: 12px;
 	border-radius: 50%;
-	background: rgba(255, 255, 255, 0.5);
+	background-color: rgba(255, 255, 255, 0.5);
 	border: none;
 	cursor: pointer;
 	transition: var(--transition);
@@ -210,11 +210,11 @@ a.db-banner-slide {
 }
 
 .banner-indicator:hover {
-	background: rgba(255, 255, 255, 0.8);
+	background-color: rgba(255, 255, 255, 0.8);
 }
 
 .banner-indicator.active {
-	background: #fff;
+	background-color: #fff;
 	width: 30px;
 	border-radius: 6px;
 }
@@ -223,7 +223,7 @@ a.db-banner-slide {
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
 .calculator-card {
-	background: #fff;
+	background-color: #fff;
 	border-radius: var(--radius-lg);
 	padding: 32px;
 	box-shadow: var(--shadow-lg);
@@ -246,7 +246,7 @@ a.db-banner-slide {
 	content: "";
 	width: 4px;
 	height: 20px;
-	background: var(--primary-green);
+	background-color: var(--primary-green);
 	border-radius: 2px;
 }
 
@@ -284,7 +284,7 @@ a.db-banner-slide {
 	border: 1.5px solid var(--border-color);
 	border-radius: var(--radius);
 	transition: var(--transition);
-	background: #fff;
+	background-color: #fff;
 	overflow: visible;
 }
 
@@ -301,7 +301,7 @@ a.db-banner-slide {
 	border: none;
 	outline: none;
 	color: var(--text-dark);
-	background: transparent;
+	background-color: transparent;
 	min-width: 0;
 }
 
@@ -321,7 +321,7 @@ a.db-banner-slide {
 	flex: 1;
 	font-size: 24px;
 	font-weight: 700;
-	background: transparent;
+	background-color: transparent;
 }
 
 .calc-amount-input.receive {
@@ -396,7 +396,7 @@ a.db-banner-slide {
 	font-size: 0.9rem;
 	font-weight: 600;
 	color: var(--text-dark);
-	background: transparent;
+	background-color: transparent;
 	border: none;
 	cursor: pointer;
 	padding: 0 28px 0 0;
@@ -431,7 +431,7 @@ a.db-banner-slide {
 }
 
 .calc-currency-btn:hover {
-	background: #eef2f1;
+	background-color: #eef2f1;
 }
 
 .calc-currency-btn .calc-currency-flag {
@@ -461,7 +461,7 @@ a.db-banner-slide {
 	position: absolute;
 	top: calc(100% + 4px);
 	right: 0;
-	background: #fff;
+	background-color: #fff;
 	border: 1px solid var(--border-color);
 	border-radius: 10px;
 	box-shadow: var(--shadow-lg);
@@ -492,11 +492,11 @@ a.db-banner-slide {
 }
 
 .calc-currency-option:hover {
-	background: var(--bg-light);
+	background-color: var(--bg-light);
 }
 
 .calc-currency-option.selected {
-	background: var(--primary-green-light);
+	background-color: var(--primary-green-light);
 }
 
 .calc-currency-option img {
@@ -543,7 +543,7 @@ a.db-banner-slide {
 	justify-content: center;
 	width: 36px;
 	height: 36px;
-	background: var(--primary-blue-light);
+	background-color: var(--primary-blue-light);
 	border-radius: 50%;
 	margin: 0 16px;
 }
@@ -580,7 +580,7 @@ a.db-banner-slide {
 	align-items: center;
 	gap: 10px;
 	padding: 12px 14px;
-	background: var(--primary-blue-light);
+	background-color: var(--primary-blue-light);
 	border-radius: 8px;
 	margin-bottom: 18px;
 	border: 1px solid rgba(27, 94, 158, 0.1);
@@ -605,7 +605,7 @@ a.db-banner-slide {
 .calc-btn {
 	width: 100%;
 	padding: 15px;
-	background: var(--primary-green);
+	background-color: var(--primary-green);
 	color: #fff;
 	font-size: 1rem;
 	font-weight: 600;
@@ -614,7 +614,7 @@ a.db-banner-slide {
 }
 
 .calc-btn:hover {
-	background: var(--primary-green-dark);
+	background-color: var(--primary-green-dark);
 	transform: translateY(-1px);
 	box-shadow: 0 6px 16px rgba(0, 160, 220, 0.25);
 }

@@ -29,13 +29,18 @@
         <div class="login-card">
             <h2 class="login-title">아이디/비밀번호 찾기</h2>
 
-            <div class="find-tabs">
+            <!-- <div class="find-tabs">
                 <button type="button" class="find-tab-btn active" onclick="switchTab('findId')">아이디 찾기</button>
                 <button type="button" class="find-tab-btn" onclick="switchTab('findPw')">비밀번호 찾기</button>
+            </div> -->
+
+            <div class="guide-tabs">
+                <button type="button" class="guide-tab active" data-tab="findId" onclick="resetForm()">아이디 찾기</button>
+                <button type="button" class="guide-tab" data-tab="findPw" onclick="resetForm()">비밀번호 찾기</button>
             </div>
 
             <!-- 아이디 찾기 폼 -->
-            <div id="findIdContent" class="find-tab-content active">
+            <div id="tab-findId" class="tab-content active">
                 <form class="login-form">
                     <div class="field-group">
                         <label class="field-label" for="userNameId">영문 이름</label>
@@ -62,7 +67,7 @@
             </div>
 
             <!-- 비밀번호 찾기 폼 -->
-            <div id="findPwContent" class="find-tab-content">
+            <div id="tab-findPw" class="tab-content">
                 <form class="login-form">
                     <div class="field-group">
                         <label class="field-label" for="userIdPw">아이디</label>
@@ -114,6 +119,7 @@
 
     <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
     <script src="js/main.js"></script>
+    <script src="js/guide.js"></script>
     <script>
         function switchTab(tabId) {
             // 버튼 상태 변경
@@ -129,6 +135,10 @@
             document.getElementById(tabId + 'Content').classList.add('active');
 
             // 에러 초기화
+            clearErrors();
+        }
+        function resetForm() {
+            document.querySelectorAll('.login-form input').forEach(input => input.value = '');
             clearErrors();
         }
 

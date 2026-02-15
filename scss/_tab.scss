@@ -1,0 +1,157 @@
+
+/* ===== findTabs ===== */
+/* ===== findTabs ===== */
+//  CM_03_02
+.find-tabs {
+    display: flex;
+    border-bottom: 2px solid #E5E7EB;
+    margin-bottom: 30px;
+}
+
+.find-tab-btn {
+    flex: 1;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #9CA3AF;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s;
+}
+
+.find-tab-btn.active {
+    color: var(--primary-green);
+    border-bottom-color: var(--primary-green);
+}
+
+.find-tab-content {
+    display: none;
+}
+
+.find-tab-content.active {
+    display: block;
+}
+
+
+.guide-tab-container {
+	margin-bottom: 30px;
+}
+
+.guide-tabs {
+	display: flex;
+	padding: 6px;
+	border-radius: 16px;
+	margin-bottom: 25px;
+	gap: 6px;
+	background-color: #f8fafc;
+	border: 1px solid #e2e8f0;
+	box-shadow: none;
+	overflow-x: auto;
+
+}
+
+.guide-tab {
+	flex: 1;
+	padding: 14px 20px;
+	text-align: center;
+	border-radius: 12px;
+	font-size: 15px;
+	line-height: 1;
+	font-weight: 600;
+	color: #64748b;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	background-color: transparent;
+	border: none;
+	position: relative;
+}
+
+.guide-label {
+	flex: 1;
+	cursor: pointer;
+	input {
+		display: none;
+	}
+}
+
+.guide-label input + .guide-tab:hover:not(.active),
+.guide-tab:hover:not(.active) {
+	background-color: rgba(255, 255, 255, 0.5);
+	color: #475569;
+}
+
+.guide-label input:checked + .guide-tab,
+.guide-tab.active {
+	color: #00A0DC !important;
+	font-weight: 700;
+	background-color: var(--white);
+	border-bottom: none;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.tab-content {
+	display: none;
+	animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-content.active {
+	display: block;
+}
+
+// GU_01_01 송금 서비스 안내
+@media (max-width: 768px) {
+  .guide-tabs {
+    flex-wrap: wrap;
+    height: auto;
+    display: flex;
+    gap: 8px;
+  }
+  .guide-tab {
+    min-width: 45%;
+    flex-grow: 1;
+    font-size: 14px;
+    padding: 12px 10px;
+  }
+}
+
+/* CM_04_12 회원가입 내국인/외국인 탭 스타일 */
+.nationality-selector {
+	display: flex;
+	gap: 10px;
+	width: 100%;
+}
+
+.nationality-btn-label {
+	flex: 1;
+	cursor: pointer;
+}
+
+.nationality-btn-label input {
+	display: none;
+}
+
+.nationality-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 52px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	background-color: #fff;
+	font-size: 16px;
+	font-weight: 500;
+	color: #666;
+	transition: all 0.2s;
+}
+
+.nationality-btn-label input:checked+.nationality-btn {
+	border-color: #00A0DC;
+	background-color: #00A0DC;
+	color: #fff;
+}
+/* ===== end findTabs ===== */
+/* ===== end findTabs ===== */

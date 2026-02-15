@@ -33,13 +33,13 @@
       -ms-flex-pack: center;
           justify-content: center;
   min-height: 100vh;
-  background: var(--bg-light);
+  background-color: var(--bg-light);
   padding: 40px 20px;
 }
 
 .login-container {
   width: 100%;
-  max-width: 420px;
+  max-width: 500px;
   /* Changed from min-width to max-width to allow shrinking on mobile */
   display: -webkit-box;
   display: -ms-flexbox;
@@ -106,10 +106,9 @@
 
 .login-card {
   width: 100%;
-  max-width: 420px;
-  background: #fff;
+  background-color: #fff;
   border-radius: var(--radius-lg);
-  padding: 32px;
+  padding: 50px 60px;
   -webkit-box-shadow: var(--shadow);
           box-shadow: var(--shadow);
   border: 1px solid var(--border-color);
@@ -194,7 +193,7 @@
   border-radius: var(--radius);
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  background: #fff;
+  background-color: #fff;
 }
 
 .input-box-group:focus-within {
@@ -231,7 +230,7 @@
   border: none;
   outline: none;
   color: var(--text-dark);
-  background: transparent;
+  background-color: transparent;
 }
 
 .login-input.error {
@@ -352,7 +351,7 @@ textarea.error:focus {
   height: 18px;
   border: 1.5px solid var(--border-color);
   border-radius: 3px;
-  background: #fff;
+  background-color: #fff;
   -webkit-transition: var(--transition);
   transition: var(--transition);
   display: -webkit-box;
@@ -369,7 +368,7 @@ textarea.error:focus {
 }
 
 .keep-login-wrap input[type=checkbox]:checked + .custom-check {
-  background: var(--primary-green);
+  background-color: var(--primary-green);
   border-color: var(--primary-green);
 }
 
@@ -456,7 +455,7 @@ textarea.error:focus {
 }
 
 .btn-main-login:hover {
-  background: var(--primary-green-dark);
+  background-color: var(--primary-green-dark);
   -webkit-transform: translateY(-1px);
           transform: translateY(-1px);
 }
@@ -476,7 +475,7 @@ textarea.error:focus {
 }
 
 .btn-back-cancel:hover {
-  background: var(--bg-light);
+  background-color: var(--bg-light);
   border-color: var(--text-muted);
   color: var(--text-dark);
   opacity: 0.9;
@@ -520,7 +519,7 @@ textarea.error:focus {
 .v-bar {
   width: 1px;
   height: 12px;
-  background: #dde4e6;
+  background-color: #dde4e6;
   margin: 0 10px;
   display: inline-block;
   -ms-flex-negative: 0;
@@ -607,7 +606,7 @@ textarea.error:focus {
   z-index: 1000;
   width: 480px;
   min-width: 480px;
-  background: #f1f4f6;
+  background-color: #f1f4f6;
   border: 1px solid #d1d9e0;
   border-radius: 16px;
   padding: 12px;
@@ -668,7 +667,7 @@ textarea.error:focus {
 }
 
 .close-keypad {
-  background: none;
+  background-color: none;
   border: none;
   font-size: 20px;
   color: var(--text-muted);
@@ -695,7 +694,7 @@ textarea.error:focus {
       -ms-flex: 1;
           flex: 1;
   height: 44px;
-  background: #ffffff;
+  background-color: #ffffff;
   border: 1px solid #ced4da;
   border-bottom: 2px solid #adb5bd;
   border-radius: 6px;
@@ -720,11 +719,11 @@ textarea.error:focus {
   -webkit-transform: translateY(2px);
           transform: translateY(2px);
   border-bottom: none;
-  background: #e9ecef;
+  background-color: #e9ecef;
 }
 
 .key-btn.func-key {
-  background: #e2e8f0;
+  background-color: #e2e8f0;
   color: #475569;
   font-size: 12px;
 }
@@ -737,13 +736,13 @@ textarea.error:focus {
 }
 
 .key-btn.shift-btn.active {
-  background: var(--primary-blue);
+  background-color: var(--primary-blue);
   color: #fff;
   border-bottom-color: var(--primary-blue-dark);
 }
 
 .key-btn.confirm-btn {
-  background: var(--primary-green);
+  background-color: var(--primary-green);
   color: #fff;
   border-bottom-color: var(--primary-green-dark);
   -webkit-box-flex: 1.5;
@@ -855,7 +854,7 @@ textarea.error:focus {
     border-radius: var(--radius);
     -webkit-transition: var(--transition);
     transition: var(--transition);
-    background: #fff;
+    background-color: #fff;
   }
   .input-box-group:focus-within {
     border-color: var(--primary-blue);
@@ -872,7 +871,7 @@ textarea.error:focus {
     border: none;
     outline: none;
     color: var(--text-dark);
-    background: transparent;
+    background-color: transparent;
   }
   .password-wrap {
     -webkit-box-flex: 1;
@@ -896,7 +895,7 @@ textarea.error:focus {
   .btn-main-login {
     width: 100%;
     padding: 15px;
-    background: var(--primary-green);
+    background-color: var(--primary-green);
     color: #fff;
     font-size: 1.1rem;
     font-weight: 600;
@@ -904,7 +903,7 @@ textarea.error:focus {
     margin-bottom: 12px;
   }
   .btn-main-login:hover {
-    background: var(--primary-green-dark);
+    background-color: var(--primary-green-dark);
     -webkit-transform: translateY(-1px);
             transform: translateY(-1px);
     -webkit-box-shadow: 0 6px 16px rgba(0, 160, 220, 0.25);
@@ -959,7 +958,7 @@ textarea.error:focus {
     content: "";
     width: 1px;
     height: 10px;
-    background: var(--border-color);
+    background-color: var(--border-color);
     display: inline-block;
     margin: 0 5px;
   }
@@ -1059,7 +1058,7 @@ textarea.error:focus {
 }
 
 .reg-subsection {
-  background: #fff;
+  background-color: #fff;
   border-radius: 12px;
 }
 
@@ -1091,7 +1090,7 @@ textarea.error:focus {
 }
 
 .reg-id-card {
-  background: #fff;
+  background-color: #fff;
   border: 1.5px solid var(--border-color);
   border-radius: 16px;
   padding: 10px 12px;
@@ -1231,7 +1230,7 @@ textarea.error:focus {
 }
 
 .agree-all-box {
-  background: var(--bg-light);
+  background-color: var(--bg-light);
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 24px;
@@ -1262,7 +1261,7 @@ textarea.error:focus {
   height: 20px;
   border: 1.5px solid var(--border-color);
   border-radius: 4px;
-  background: #fff;
+  background-color: #fff;
   position: relative;
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -1271,7 +1270,7 @@ textarea.error:focus {
 }
 
 .check-label-group input:checked + .custom-check {
-  background: var(--primary-green);
+  background-color: var(--primary-green);
   border-color: var(--primary-green);
 }
 
@@ -1312,7 +1311,7 @@ textarea.error:focus {
 .terms-content-box {
   height: 180px;
   overflow-y: auto;
-  background: #fff;
+  background-color: #fff;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 15px;
@@ -1349,7 +1348,7 @@ textarea.error:focus {
   min-width: 120px;
   height: 50px;
   padding: 0 24px;
-  background: #fff;
+  background-color: #fff;
   border: 1px solid var(--border-color);
   border-radius: 10px;
   color: var(--text-muted);
@@ -1360,7 +1359,7 @@ textarea.error:focus {
 }
 
 .btn-step-prev:hover {
-  background: var(--bg-light);
+  background-color: var(--bg-light);
   color: var(--text-dark);
 }
 
@@ -1409,12 +1408,12 @@ textarea.error:focus {
 }
 
 .badge-required {
-  background: #f3b9cf;
+  background-color: #f3b9cf;
   color: #fff;
 }
 
 .badge-optional {
-  background: #e5e7eb;
+  background-color: #e5e7eb;
   color: #6b7280;
 }
 
@@ -1428,7 +1427,7 @@ textarea.error:focus {
   outline: none;
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  background: #fff;
+  background-color: #fff;
   color: var(--text-dark);
   font-family: "Pretendard", sans-serif !important;
 }
@@ -1443,7 +1442,7 @@ textarea.error:focus {
   outline: none;
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  background: #fff;
+  background-color: #fff;
   color: var(--text-dark);
   font-family: "Pretendard", sans-serif !important;
   cursor: pointer;
@@ -1501,7 +1500,7 @@ textarea.error:focus {
   -moz-appearance: none;
        appearance: none;
   -webkit-appearance: none;
-  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237A8E96' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 16px center;
+  background-image: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237A8E96' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 16px center;
   background-size: 12px;
   padding-right: 40px !important;
 }
@@ -1535,7 +1534,7 @@ textarea.error:focus {
   height: 18px;
   border: 1.5px solid var(--border-color);
   border-radius: 50%;
-  background: #fff;
+  background-color: #fff;
   position: relative;
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -1546,7 +1545,7 @@ textarea.error:focus {
 
 .radio-wrap input:checked + .custom-radio {
   border-color: var(--primary-green);
-  background: var(--primary-green);
+  background-color: var(--primary-green);
 }
 
 .radio-wrap input:checked + .custom-radio::after {
@@ -1554,7 +1553,7 @@ textarea.error:focus {
   position: absolute;
   width: 6px;
   height: 6px;
-  background: #fff;
+  background-color: #fff;
   border-radius: 50%;
   left: 50%;
   top: 50%;
@@ -1575,14 +1574,14 @@ textarea.error:focus {
   border-radius: var(--radius);
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  background: #fff;
+  background-color: #fff;
 }
 
 .input-box-group .login-input {
   border: none !important;
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
-  background: transparent;
+  background-color: transparent;
 }
 
 .keypad-btn {
@@ -1652,7 +1651,7 @@ textarea.error:focus {
 
 .btn-sub-action {
   padding: 0 16px;
-  background: #7a8e96;
+  background-color: #7a8e96;
   color: #fff;
   border-radius: 8px;
   font-size: 13px;
@@ -1669,7 +1668,7 @@ textarea.error:focus {
 }
 
 .btn-sub-action:hover {
-  background: #6a7e86;
+  background-color: #6a7e86;
   -webkit-transform: translateY(-1px);
           transform: translateY(-1px);
 }
@@ -1686,7 +1685,7 @@ textarea.error:focus {
           justify-content: space-between !important;
   border: 1.5px solid var(--border-color) !important;
   border-radius: var(--radius) !important;
-  background: #fff !important;
+  background-color: #fff !important;
   height: 52px !important;
   overflow: hidden !important;
   width: 100% !important;
@@ -1710,7 +1709,7 @@ textarea.error:focus {
 .btn-file-trigger {
   height: 100% !important;
   padding: 0 20px !important;
-  background: #7a8e96 !important;
+  background-color: #7a8e96 !important;
   color: #fff !important;
   font-size: 13px !important;
   font-weight: 600 !important;
@@ -1739,7 +1738,7 @@ textarea.error:focus {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px 16px;
-  background: var(--bg-light);
+  background-color: var(--bg-light);
   padding: 24px;
   border-radius: 12px;
   border-top: none !important;
@@ -1760,7 +1759,7 @@ textarea.error:focus {
 .btn-step-prev {
   min-width: 120px;
   height: 50px;
-  background: #fff;
+  background-color: #fff;
   border: 1px solid var(--border-color);
   border-radius: 10px;
   color: var(--text-muted);
@@ -1804,7 +1803,7 @@ textarea.error:focus {
 
 .btn-add-row {
   padding: 8px 16px;
-  background: #7a8e96;
+  background-color: #7a8e96;
   color: #fff;
   border-radius: 6px;
   font-size: 13px;
@@ -1815,7 +1814,7 @@ textarea.error:focus {
 
 .shareholder-table {
   width: 100%;
-  background: #fff;
+  background-color: #fff;
   border-radius: 12px;
   border: 1.5px solid var(--border-color);
   overflow: hidden;
@@ -1825,7 +1824,7 @@ textarea.error:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: #f8fafa;
+  background-color: #f8fafa;
   padding: 12px;
   border-bottom: 1.5px solid var(--border-color);
   font-size: 12px;
@@ -1871,7 +1870,7 @@ textarea.error:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #fff;
+  background-color: #fff;
 }
 
 .sh-row:last-child {
@@ -1898,7 +1897,7 @@ textarea.error:focus {
   border-radius: 6px;
   font-size: 13px;
   outline: none;
-  background: #fff !important;
+  background-color: #fff !important;
 }
 
 .sh-input:focus {
@@ -1912,7 +1911,7 @@ textarea.error:focus {
 .btn-sh-del {
   width: 100%;
   height: 34px;
-  background: #fef2f2;
+  background-color: #fef2f2;
   color: #ef4444;
   border: 1px solid #fca5a5;
   border-radius: 6px;
@@ -1922,7 +1921,7 @@ textarea.error:focus {
 }
 
 .btn-sh-del:hover {
-  background: #fee2e2;
+  background-color: #fee2e2;
 }
 
 .business-purpose-grid {
@@ -1937,7 +1936,7 @@ textarea.error:focus {
   }
   .shareholder-table {
     border: none !important;
-    background: transparent !important;
+    background-color: transparent !important;
   }
   .sh-header {
     display: none !important;
@@ -1980,7 +1979,7 @@ textarea.error:focus {
   .sh-input {
     height: 44px !important;
     font-size: 14px !important;
-    background: #fff !important;
+    background-color: #fff !important;
     border-color: var(--border-color) !important;
   }
   .sh-action {
@@ -1992,7 +1991,7 @@ textarea.error:focus {
   }
   .btn-sh-del {
     height: 44px !important;
-    background: #fff5f5 !important;
+    background-color: #fff5f5 !important;
     border-color: #ffe3e3 !important;
   }
   .purpose-grid-full {
@@ -2009,7 +2008,7 @@ textarea.error:focus {
 @media (max-width: 480px) {
   .shareholder-table {
     border: none !important;
-    background: transparent !important;
+    background-color: transparent !important;
   }
   .sh-header {
     display: none !important;
@@ -2052,7 +2051,7 @@ textarea.error:focus {
   .sh-input {
     height: 44px !important;
     font-size: 14px !important;
-    background: #fff !important;
+    background-color: #fff !important;
     border-color: var(--border-color) !important;
   }
   .sh-action {
@@ -2064,7 +2063,7 @@ textarea.error:focus {
   }
   .btn-sh-del {
     height: 44px !important;
-    background: #fff5f5 !important;
+    background-color: #fff5f5 !important;
     border-color: #ffe3e3 !important;
   }
   .purpose-grid-full {
@@ -2084,7 +2083,7 @@ textarea.error:focus {
   border-radius: 8px;
   padding: 40px;
   text-align: center;
-  background: #f9f9f9;
+  background-color: #f9f9f9;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   cursor: pointer;
@@ -2095,7 +2094,7 @@ textarea.error:focus {
   border-radius: 8px;
   padding: 40px;
   text-align: center;
-  background: #f9f9f9;
+  background-color: #f9f9f9;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   cursor: pointer;
@@ -2107,5 +2106,5 @@ textarea.error:focus {
 
 .ocr-upload-area.drag-over {
   border-color: #00A0DC;
-  background: #f0f9ff;
+  background-color: #f0f9ff;
 }
