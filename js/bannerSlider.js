@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const slides = document.querySelectorAll('.db-banner-slide');
-    const indicators = document.querySelectorAll('.db-banner-indicator');
-    const playPauseBtn = document.getElementById('dbBannerPlayPause');
+    const slides = document.querySelectorAll('.banner-slide');
+    const indicators = document.querySelectorAll('.banner-indicator');
+    const playPauseBtn = document.getElementById('bannerPlayPause');
 
     if (!playPauseBtn) return; // 배너가 없는 경우 종료
 

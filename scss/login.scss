@@ -24,7 +24,6 @@
 .login-container {
 	width: 100%;
 	max-width: 500px;
-  /* Changed from min-width to max-width to allow shrinking on mobile */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -39,27 +38,28 @@
 	width: auto;
 }
 
+// CM_01_04 로그인 페이지 스타일
 .password-confirm-container {
-		max-width: 400px;
-		margin: 120px auto;
-		text-align: center;
+	max-width: 400px;
+	margin: 120px auto;
+	text-align: center;
 }
 
 .password-wrap {
-		width: 100%;
+	width: 100%;
 }
 
 .password-confirm-title {
-		font-size: 28px;
-		font-weight: 700;
-		color: #111;
-		margin-bottom: 12px;
+	font-size: 28px;
+	font-weight: 700;
+	color: #111;
+	margin-bottom: 12px;
 }
 
 .password-confirm-desc {
-		color: #333;
-		font-size: 15px;
-		margin-bottom: 40px;
+	color: #333;
+	font-size: 15px;
+	margin-bottom: 40px;
 }
 
 // 비밀번호 재설정 가이드 스타일
@@ -1268,7 +1268,7 @@ textarea.error:focus {
 	cursor: pointer;
 	appearance: none;
 	-webkit-appearance: none;
-	background-image: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237A8E96' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 16px center;
+	background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237A8E96' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 16px center;
 	background-size: 12px;
 	padding-right: 40px !important;
 }
