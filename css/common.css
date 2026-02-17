@@ -266,7 +266,7 @@ a.banner-slide {
     height: 160px;
   }
   .db-banner-slider .banner-content {
-    padding: 0 0 30px 0;
+    padding: 0 20px 30px 20px;
   }
   .db-banner-slider .banner-image-group {
     -webkit-box-flex: 0;
@@ -578,7 +578,7 @@ a.banner-slide {
   border: none;
   border-left: 1px solid var(--border-color);
   cursor: pointer;
-  height: 52px;
+  height: var(--input-h);
   font-family: inherit;
   -webkit-transition: var(--transition);
   transition: var(--transition);

@@ -395,34 +395,42 @@ function toggleSidebar({
 // }
 
 function initSidebar() {
-  const sidebar = document.getElementById('dbSidebar');
-  const overlay = document.getElementById('dbOverlay');
-  const toggleBtn = document.getElementById('sidebarToggle');
-  const closeBtn = document.getElementById('sidebarClose');
+    const sidebar = document.getElementById('dbSidebar');
+    const toggleBtn = document.getElementById('sidebarToggle');
+    const closeBtn = document.getElementById('sidebarClose');
 
-  if (!sidebar || !overlay || !toggleBtn) return;
+    if (sidebar && !document.getElementById('dbOverlay')) {
+        document.body.insertAdjacentHTML(
+            'beforeend',
+            `<div id="dbOverlay"></div>`
+        );
+    }
 
-  toggleBtn.addEventListener('click', () =>
-    toggleSidebar({
-      sidebar,
-      overlay,
-      desktopBodyClass: document.body.classList.contains('db-body')
-        ? 'db-collapsed'
-        : null,
-      mobileSidebarClass: 'mobile-open',
-    })
-  );
+    const overlay = document.getElementById('dbOverlay');
 
-  [overlay, closeBtn].forEach((el) => {
-    if (!el) return;
-    el.addEventListener('click', () => {
-      sidebar.classList.remove('mobile-open');
-      sidebar.classList.remove('active');
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
-      overlay.style.display = 'none';
+    if (!sidebar || !overlay || !toggleBtn) return;
+
+    toggleBtn.addEventListener('click', () =>
+        toggleSidebar({
+            sidebar,
+            overlay,
+            desktopBodyClass: document.body.classList.contains('db-body')
+            ? 'db-collapsed'
+            : null,
+            mobileSidebarClass: 'mobile-open',
+        })
+    );
+
+    [overlay, closeBtn].forEach((el) => {
+        if (!el) return;
+        el.addEventListener('click', () => {
+            sidebar.classList.remove('mobile-open');
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            overlay.style.display = 'none';
+        });
     });
-  });
 }
 
 function initMyMenu() {

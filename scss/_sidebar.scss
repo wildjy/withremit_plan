@@ -4,6 +4,21 @@
 // 	display: none;
 // }
 
+// Sidebar Styles
+@media (min-width: 1025px) {
+  #sidebarContainer {
+    width: 200px;
+    flex-shrink: 0;
+    position: relative;
+  }
+  /* Collapse Container - Completely Hide */
+  body.db-collapsed #sidebarContainer {
+    width: 0;
+    overflow: hidden;
+    transition: width 0.3s ease;
+  }
+}
+
 #dbOverlay {
 	opacity: 0;
 	display: none;

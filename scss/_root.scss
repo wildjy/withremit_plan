@@ -30,6 +30,7 @@
   --max-w: 1200px;
   --header-h: 3.5625rem; // max-width: 768px
   --header-h-md: 4.5625rem; // min-width: 769px
+  --input-h: 3.25rem; // 52px
 
   // new colors
   --primary-blue: #00A0DC;
@@ -49,6 +50,12 @@
   --accent-red-dark: #ef4444;
   --accent-yellow: #FFC107;
   --accent-teal: #00C9B7;
+
+  --confirm-color: #22C55E;
+  --cancel-color: #F87171;
+  --utility-color: #7A8E96;
+  --waring-color: #F87171;
+  --delete-color: #EF4444;
 
   --bg-delete: #fef2f2;
   --bg-light: #F8FAFA;

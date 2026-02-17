@@ -125,42 +125,110 @@ body{
 }
 
 .db-grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: var(--s5);
-	align-items: stretch;
-}
-
-.db-grid-3col {
 	margin-top: var(--s5);
 	display: grid;
+	grid-template-columns: repeat(2, 1fr);
 	align-items: stretch;
-	grid-template-columns: 1fr 1fr 1fr;
 	gap: var(--s5);
+	&.col2 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	&.col3 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	>.calculator-card {
+		max-width: 100% !important;
+		flex: 0 1 auto !important;
+	}
 }
 
-.db-grid-2col {
+@media (max-width: 1024px) {
+	.db-grid {
+		margin-top: var(--s4);
+		grid-template-columns: repeat(1, 1fr);
+		gap: var(--s4);
+		&.col2 {
+			grid-template-columns: repeat(1, 1fr);
+		}
+		&.col3 {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+}	
+
+/* ===== form Layout ===== */
+.form-sec {
+	margin-bottom: 30px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid var(--border-color);
+}
+
+.form-sec-head {
+	margin-bottom: 20px;
+	padding-left: 12px;
+	font-size: 18px;
+	font-weight: 700;
+	color: var(--text-dark);
+	text-align: left;
+	border-left: 4px solid var(--primary-green);
+}
+
+.form-row-full,
+.form-row-2,
+.form-row-3,
+.field-item.top-level {
+	width: 100%;
+	margin-bottom: 24px;
+}
+
+.form-row-2,
+.form-row-3 {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: var(--s5);
-	align-items: stretch;
-	margin-top: var(--s5);
 }
 
+.form-row-2 {
+	grid-template-columns: repeat(2, 1fr);
+	gap: var(--s5);
+}
 
-// Sidebar Styles
-@media (min-width: 1025px) {
-  #sidebarContainer {
-    width: 200px;
-    flex-shrink: 0;
-    position: relative;
-  }
-  /* Collapse Container - Completely Hide */
-  body.db-collapsed #sidebarContainer {
-    width: 0;
-    overflow: hidden;
-    transition: width 0.3s ease;
-  }
+.form-row-3 {
+	grid-template-columns: repeat(3, 1fr);
+	gap: var(--s4);
+}
+
+.field-item {
+	display: flex;
+	flex-direction: column;
+}
+
+.field-item.flex-2 {
+	grid-column: span 2;
+}
+
+.field-flex {
+	display: flex;
+	align-items: center;
+	gap: var(--s2);
+	width: 100%;
+	height: var(--input-h);
+}
+
+.field-flex.full-width .login-input {
+	flex: 1;
+	min-width: 0;
+	width: 100%;
+}
+
+@media (max-width: 860px) {
+	.form-row-3,
+	.form-row-2,
+	.purpose-grid-full {
+		grid-template-columns: 1fr;
+	}
+
+	.field-item.flex-2 {
+		grid-column: auto;
+	}
 }
 
 /* ===== Header ===== */

@@ -183,11 +183,10 @@ a.banner-slide {
 	border-radius: 5px;
 }
 
-
+// DB_01_01 Sidebar
 .db-banner-slider {
 	margin-top: 0;
 	height: 200px;
-
 	.banner-content {
 		padding: 20px 0 20px 50px;
 	}
@@ -206,32 +205,7 @@ a.banner-slide {
 		flex: 0 0 280px;
 		height: 150px;
 	}
-
-	// .banner-controls {
-	// 	bottom: 20px;
-	// 	gap: 16px;
-	// }
-
-	// .banner-control-btn {
-	// 	width: 24px;
-	// 	height: 24px;
-	// }
-
-	// .banner-indicators {
-	// 	gap: 8px;
-	// }
-
-	// .banner-indicator {
-	// 	width: 10px;
-	// 	height: 10px;
-	// }
-
-	// .banner-indicator.active {
-	// 	width: 24px;
-	// 	border-radius: 5px;
-	// }
 }
-
 
 /* Mobile Responsive for Banner */
 @media (max-width: 1024px) {
@@ -254,7 +228,7 @@ a.banner-slide {
 
 	.db-banner-slider {
 		.banner-content {
-			padding: 0 0 30px 0;
+			padding: 0 20px 30px 20px;
 		}
 		.banner-image-group {
 			flex: 0 0 auto;
@@ -517,7 +491,7 @@ a.banner-slide {
 	border: none;
 	border-left: 1px solid var(--border-color);
 	cursor: pointer;
-	height: 52px;
+	height: var(--input-h);
 	font-family: inherit;
 	transition: var(--transition);
 	border-radius: 0 var(--radius) var(--radius) 0;
