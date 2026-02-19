@@ -367,7 +367,9 @@
                     <div class="receipt-section">
                         <div class="receipt-row">
                             <span class="receipt-label">송금 상태 (Status)</span>
-                            <span class="receipt-value highlight">${data.statusText}</span>
+                            <span class="receipt-value remit-status status-${data.status}">
+                                ${data.statusText}
+                            </span>
                         </div>
                         <div class="receipt-row">
                             <span class="receipt-label">접수 번호 (Ref No.)</span>

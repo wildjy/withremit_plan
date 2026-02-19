@@ -45,17 +45,25 @@
   --secondary-gray-dark: #5A6268;
   --secondary-gray-light: #F1F3F5;
 
-  --accent-red: #fca5a5;
-  --accent-red-light: #fca5a5;
-  --accent-red-dark: #ef4444;
-  --accent-yellow: #FFC107;
-  --accent-teal: #00C9B7;
-
   --confirm-color: #22C55E;
   --cancel-color: #F87171;
   --utility-color: #7A8E96;
   --waring-color: #F87171;
   --delete-color: #EF4444;
+
+  --status-review: #d97706;
+  --status-processing: #d97706;
+  --status-approved: #059669;
+  --status-complete: #2563eb;
+  --status-failed: #dc2626;
+  --status-cancel: #6b7280;
+
+
+  --accent-red: #fca5a5;
+  --accent-red-light: #fca5a5;
+  --accent-red-dark: #ef4444;
+  --accent-yellow: #FFC107;
+  --accent-teal: #00C9B7;
 
   --bg-delete: #fef2f2;
   --bg-light: #F8FAFA;

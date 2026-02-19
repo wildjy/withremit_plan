@@ -778,6 +778,12 @@ textarea.error:focus {
   }
 }
 /* Login Page Responsive */
+@media (max-width: 1024px) {
+  .login-card {
+    padding: 24px 20px;
+    border-radius: var(--radius);
+  }
+}
 @media (max-width: 480px) {
   .contact-text-row {
     -webkit-box-orient: vertical;
@@ -798,10 +804,6 @@ textarea.error:focus {
   }
   .login-logo img {
     height: 50px;
-  }
-  .login-card {
-    padding: 24px 20px;
-    border-radius: var(--radius);
   }
   .form-label {
     width: 70px;
@@ -996,6 +998,14 @@ textarea.error:focus {
     font-size: 13px;
   }
 }
+/* ===== end Login Page Styles ===== */
+/* ===== SNS Login Buttons ===== */
+.sns-separator {
+  border-top: 1px dashed #ddd;
+  margin: 20px 0;
+  width: 100%;
+}
+
 /* join step Styles */
 .register-max-wrap {
   max-width: 960px;
@@ -1004,7 +1014,6 @@ textarea.error:focus {
 
 .login-card.register-card-wide {
   max-width: 960px;
-  padding: 50px 60px;
 }
 
 .reg-section {
@@ -1182,9 +1191,6 @@ textarea.error:focus {
     width: 100%;
     padding: 10px;
     min-width: 320px;
-  }
-  .login-card.register-card-wide {
-    padding: 30px 20px;
   }
   .reg-id-grid {
     grid-template-columns: 1fr;
@@ -1421,14 +1427,12 @@ textarea.error:focus {
   padding: 14px 16px;
   font-size: 1.05rem;
   font-weight: 500;
-  border: 1.5px solid var(--border-color);
-  border-radius: var(--radius);
-  outline: none;
   -webkit-transition: var(--transition);
   transition: var(--transition);
   background-color: #fff;
-  color: var(--text-dark);
-  font-family: "Pretendard", sans-serif !important;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius);
+  outline: none;
 }
 
 .date-picker-custom {

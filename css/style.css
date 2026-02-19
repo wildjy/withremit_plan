@@ -16,16 +16,22 @@
   --secondary-gray: #F3F4F6;
   --secondary-gray-dark: #5A6268;
   --secondary-gray-light: #F1F3F5;
-  --accent-red: #fca5a5;
-  --accent-red-light: #fca5a5;
-  --accent-red-dark: #ef4444;
-  --accent-yellow: #FFC107;
-  --accent-teal: #00C9B7;
   --confirm-color: #22C55E;
   --cancel-color: #F87171;
   --utility-color: #7A8E96;
   --waring-color: #F87171;
   --delete-color: #EF4444;
+  --status-review: #d97706;
+  --status-processing: #d97706;
+  --status-approved: #059669;
+  --status-complete: #2563eb;
+  --status-failed: #dc2626;
+  --status-cancel: #6b7280;
+  --accent-red: #fca5a5;
+  --accent-red-light: #fca5a5;
+  --accent-red-dark: #ef4444;
+  --accent-yellow: #FFC107;
+  --accent-teal: #00C9B7;
   --bg-delete: #fef2f2;
   --bg-light: #F8FAFA;
   --bg-section: #F2F6F5;
@@ -1587,6 +1593,11 @@ a.banner-slide {
   max-width: 420px;
   margin-left: auto;
 }
+.calculator-card.db {
+  padding: 35px;
+  max-width: 100%;
+  width: 100%;
+}
 
 .calculator-title {
   font-size: 1rem;
@@ -2343,8 +2354,219 @@ a.banner-slide {
   line-height: 1;
 }
 
+/* ===== SNS Login Buttons ===== */
+.sns-login-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.btn-sns {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 48px;
+  border-radius: 24px;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: -webkit-filter 0.2s;
+  transition: -webkit-filter 0.2s;
+  transition: filter 0.2s;
+  transition: filter 0.2s, -webkit-filter 0.2s;
+  text-decoration: none;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-sns:hover {
+  -webkit-filter: brightness(0.95);
+          filter: brightness(0.95);
+}
+
+.sns-icon-wrap {
+  position: absolute;
+  left: 20px;
+  width: 24px;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sns-icon-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
+  /* Converts black/dark icons to white */
+}
+
+.btn-line {
+  background-color: #06c755;
+}
+
+.btn-kakao {
+  background-color: #fee500;
+  color: #fff;
+}
+
+.btn-kakao {
+  color: #fff;
+}
+
+.btn-facebook {
+  background-color: #1877f2;
+}
+
+.btn-viber {
+  background-color: #7360f2;
+}
+
 /* ===== end Button Style ===== */
 /* ===== end Button Style ===== */
+.remit-card-status-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: auto;
+  min-width: 100px;
+}
+
+.remit-card-status-wrapper .remit-status {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 6px;
+}
+
+.remit-status {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .remit-card-status-wrapper {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 8px;
+  }
+  .remit-card-status-wrapper .remit-status {
+    padding: 0;
+  }
+}
+@media (max-width: 480px) {
+  /* Card status padding 0 */
+  .remit-card-status-wrapper .remit-status {
+    padding: 0;
+  }
+  .remit-status {
+    font-size: 0.7rem;
+  }
+}
+.remit-status svg {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+/* Improved Status Colors - Less Fluorescent */
+.remit-status.status-review {
+  color: var(--status-review);
+}
+.remit-status.status-review svg {
+  stroke: var(--status-review);
+}
+
+.remit-status.status-processing {
+  color: var(--status-processing);
+}
+.remit-status.status-processing svg {
+  stroke: var(--status-processing);
+}
+
+.remit-status.status-approved {
+  color: var(--status-approved);
+}
+.remit-status.status-approved svg {
+  stroke: var(--status-approved);
+}
+
+.remit-status.status-complete {
+  color: var(--status-complete);
+}
+.remit-status.status-complete svg {
+  stroke: var(--status-complete);
+}
+
+.remit-status.status-success {
+  color: var(--status-approved);
+}
+.remit-status.status-success svg {
+  stroke: var(--status-approved);
+}
+
+.remit-status.status-failed {
+  color: var(--status-failed);
+}
+.remit-status.status-failed svg {
+  stroke: var(--status-failed);
+}
+
+.remit-status.status-pending {
+  color: var(--status-cancel);
+}
+.remit-status.status-pending svg {
+  stroke: var(--status-cancel);
+}
+
+.remit-status.status-cancel {
+  color: var(--status-cancel);
+}
+.remit-status.status-cancel svg {
+  stroke: var(--status-cancel);
+}
+
 /* ===== findTabs ===== */
 /* ===== findTabs ===== */
 .find-tabs {
@@ -3199,16 +3421,6 @@ a.banner-slide {
   margin-bottom: 24px !important;
 }
 
-#inquiryContent {
-  height: 300px !important;
-  min-height: 300px !important;
-  display: block !important;
-  width: 100% !important;
-  -webkit-box-sizing: border-box !important;
-          box-sizing: border-box !important;
-  resize: none !important;
-}
-
 .h-52 {
   height: var(--input-h);
 }
@@ -4049,6 +4261,12 @@ textarea.error:focus {
   }
 }
 /* Login Page Responsive */
+@media (max-width: 1024px) {
+  .login-card {
+    padding: 24px 20px;
+    border-radius: var(--radius);
+  }
+}
 @media (max-width: 480px) {
   .contact-text-row {
     -webkit-box-orient: vertical;
@@ -4069,10 +4287,6 @@ textarea.error:focus {
   }
   .login-logo img {
     height: 50px;
-  }
-  .login-card {
-    padding: 24px 20px;
-    border-radius: var(--radius);
   }
   .form-label {
     width: 70px;
@@ -4267,6 +4481,14 @@ textarea.error:focus {
     font-size: 13px;
   }
 }
+/* ===== end Login Page Styles ===== */
+/* ===== SNS Login Buttons ===== */
+.sns-separator {
+  border-top: 1px dashed #ddd;
+  margin: 20px 0;
+  width: 100%;
+}
+
 /* join step Styles */
 .register-max-wrap {
   max-width: 960px;
@@ -4275,7 +4497,6 @@ textarea.error:focus {
 
 .login-card.register-card-wide {
   max-width: 960px;
-  padding: 50px 60px;
 }
 
 .reg-section {
@@ -4453,9 +4674,6 @@ textarea.error:focus {
     width: 100%;
     padding: 10px;
     min-width: 320px;
-  }
-  .login-card.register-card-wide {
-    padding: 30px 20px;
   }
   .reg-id-grid {
     grid-template-columns: 1fr;
@@ -4692,14 +4910,12 @@ textarea.error:focus {
   padding: 14px 16px;
   font-size: 1.05rem;
   font-weight: 500;
-  border: 1.5px solid var(--border-color);
-  border-radius: var(--radius);
-  outline: none;
   -webkit-transition: var(--transition);
   transition: var(--transition);
   background-color: #fff;
-  color: var(--text-dark);
-  font-family: "Pretendard", sans-serif !important;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius);
+  outline: none;
 }
 
 .date-picker-custom {
@@ -5301,6 +5517,7 @@ textarea.error:focus {
   background-color: #f0f9ff;
 }
 
+/* ===== Dashboard Styles ===== */
 .db-col-info,
 .db-col-calc {
   min-width: 0;
@@ -5328,10 +5545,6 @@ textarea.error:focus {
   border: 1px solid var(--border-color);
   -webkit-box-shadow: var(--shadow);
           box-shadow: var(--shadow);
-}
-
-.db-inquiry-card {
-  background-color: #eff6ff !important;
 }
 
 .db-main-wallet {
@@ -5418,24 +5631,7 @@ textarea.error:focus {
   margin-bottom: 20px;
 }
 
-/* Dashboard Calculator Card Styles */
-.db-calculator-card {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  margin-left: 0;
-  padding: 20px 16px;
-  max-width: 100%;
-  min-width: 0;
-  background-color: var(--white);
-  border-radius: var(--radius);
-}
-
 /* Dashboard Footer */
-.db-body .footer {
-  padding: 20px 0;
-}
-
 /* Dashboard Card Components */
 /* Dashboard Card Components - Moved and consolidated above */
 .db-card-title {
@@ -5545,7 +5741,6 @@ textarea.error:focus {
 .db-limit-card {
   background: linear-gradient(135deg, #37474f 0%, #263238 100%);
   border: none;
-  padding: 24px 30px;
   /* Reduced padding */
 }
 
@@ -6168,7 +6363,6 @@ textarea.error:focus {
       -ms-flex-align: center;
           align-items: center;
   padding: 14px 12px;
-  margin: 0 -12px;
   border-bottom: 1px solid var(--border-color);
   text-decoration: none;
   -webkit-transition: background 0.2s;
@@ -6835,10 +7029,6 @@ textarea.error:focus {
   display: none;
 }
 
-.remit-status-select {
-  min-width: 140px;
-}
-
 .date-separator {
   font-size: 0.9rem;
   color: var(--text-muted);
@@ -6977,87 +7167,6 @@ textarea.error:focus {
           box-shadow: 0 2px 8px rgba(0, 160, 220, 0.3);
 }
 
-.remit-status {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 4px;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.remit-status svg {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-}
-
-.remit-status.status-review {
-  color: #f59e0b;
-}
-
-.remit-status.status-review svg {
-  stroke: #f59e0b;
-}
-
-.remit-status.status-processing {
-  color: #f59e0b;
-}
-
-.remit-status.status-processing svg {
-  stroke: #f59e0b;
-}
-
-.remit-status.status-approved {
-  color: #10b981;
-}
-
-.remit-status.status-approved svg {
-  stroke: #10b981;
-}
-
-.remit-status.status-complete {
-  color: #3b82f6;
-}
-
-.remit-status.status-complete svg {
-  stroke: #3b82f6;
-}
-
-.remit-status.status-success {
-  color: #10b981;
-}
-
-.remit-status.status-success svg {
-  stroke: #10b981;
-}
-
-.remit-status.status-failed {
-  color: #ef4444;
-}
-
-.remit-status.status-failed svg {
-  stroke: #ef4444;
-}
-
-.remit-status.status-pending {
-  color: #9ca3af;
-}
-
-.remit-status.status-pending svg {
-  stroke: #9ca3af;
-}
-
-.remit-status.status-cancel {
-  color: #9ca3af;
-}
-
-.remit-status.status-cancel svg {
-  stroke: #9ca3af;
-}
-
 /* Improved Search Box Layout */
 .remit-search-box {
   display: -webkit-box;
@@ -7105,226 +7214,6 @@ textarea.error:focus {
   font-weight: 600;
   color: var(--text-dark);
   min-width: 50px;
-}
-
-.search-conditions-main .db-search-input {
-  width: 150px;
-  height: 36px;
-  padding: 8px 12px;
-  border: 1.5px solid var(--border-color);
-  border-radius: 8px;
-  font-size: 0.9rem;
-}
-
-.search-conditions-main .date-separator {
-  color: var(--text-muted);
-  margin: 0 4px;
-}
-
-/* Collapsible Detail Section */
-.search-conditions-detail {
-  display: none;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 12px;
-  padding-top: 8px;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.search-conditions-detail.show {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.search-field-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 8px;
-}
-
-.search-field-wrapper .search-label {
-  font-size: 0.85rem;
-  min-width: 70px;
-}
-
-.search-field-wrapper .db-search-type {
-  width: 140px;
-  height: 36px;
-  padding: 8px 12px;
-  border: 1.5px solid var(--border-color);
-  border-radius: 8px;
-  font-size: 0.9rem;
-}
-
-.search-field-wrapper .db-search-input {
-  width: 400px;
-  height: 36px;
-  padding: 8px 12px;
-  border: 1.5px solid var(--border-color);
-  border-radius: 8px;
-  font-size: 0.9rem;
-}
-
-/* Action Buttons Wrapper - Right Side */
-.search-buttons-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 8px;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-
-.db-detail-toggle-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 6px;
-  padding: 8px 14px;
-  height: 36px;
-  background-color: #fff;
-  border: 1.5px solid var(--border-color);
-  border-radius: 8px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text-dark);
-  cursor: pointer;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-
-.db-detail-toggle-btn:hover {
-  color: var(--primary-blue);
-}
-
-.db-detail-toggle-btn .plus-icon {
-  display: block;
-}
-
-.db-detail-toggle-btn .minus-icon {
-  display: none;
-}
-
-.db-detail-toggle-btn.active .plus-icon {
-  display: none;
-}
-
-.db-detail-toggle-btn.active .minus-icon {
-  display: block;
-}
-
-.db-detail-toggle-btn.active {
-  color: var(--primary-blue);
-}
-
-/* Search and Reset Buttons */
-.search-buttons-wrapper .db-search-btn {
-  padding: 8px 20px;
-  height: 36px;
-  background-color: #7a8e96;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-  white-space: nowrap;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 6px;
-}
-
-.search-buttons-wrapper .db-search-btn:hover {
-  background-color: #6a7e86;
-}
-
-.search-buttons-wrapper .db-reset-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 6px;
-  padding: 8px;
-  width: 36px;
-  height: 36px;
-  background-color: transparent;
-  color: var(--text-muted);
-  border: 1.5px solid var(--border-color);
-  border-radius: 8px;
-  cursor: pointer;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.search-buttons-wrapper .db-reset-btn svg {
-  width: 18px;
-  height: 18px;
-}
-
-.search-buttons-wrapper .db-reset-btn:hover {
-  border-color: var(--text-dark);
-  color: var(--text-dark);
-}
-
-.search-buttons-wrapper .db-reset-btn .reset-text {
-  display: none;
-}
-
-/* Search Detail Section (Collapsible) */
-.db-search-detail {
-  display: none;
-  margin-bottom: 16px;
-  padding: 2px 0;
-}
-
-.db-search-detail.show {
-  display: block;
-}
-
-.search-date-section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 8px;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.search-date-section .db-search-input {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 150px;
-          flex: 0 1 150px;
-  height: 36px;
-}
-
-.search-date-section .date-separator {
-  margin: 0 4px;
 }
 
 .remit-quick-btns-inline {
@@ -7480,14 +7369,6 @@ textarea.error:focus {
   .remit-card-detail-value {
     max-width: 250px;
   }
-  .remit-card-status-wrapper {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 8px;
-  }
-  .remit-card-status-wrapper .remit-status {
-    padding: 0;
-  }
   .remit-detail-grid {
     grid-template-columns: 1fr;
   }
@@ -7616,118 +7497,7 @@ textarea.error:focus {
   .remit-detail-toggle-btn {
     display: none;
   }
-  /* Card status padding 0 */
-  .remit-card-status-wrapper .remit-status {
-    padding: 0;
-  }
 }
-/* SNS Login Buttons */
-.sns-separator {
-  border-top: 1px dashed #ddd;
-  margin: 20px 0;
-  width: 100%;
-}
-
-.sns-login-buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 12px;
-  width: 100%;
-}
-
-.btn-sns {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
-  height: 48px;
-  border-radius: 24px;
-  border: none;
-  font-size: 15px;
-  font-weight: 700;
-  color: #fff;
-  cursor: pointer;
-  -webkit-transition: -webkit-filter 0.2s;
-  transition: -webkit-filter 0.2s;
-  transition: filter 0.2s;
-  transition: filter 0.2s, -webkit-filter 0.2s;
-  text-decoration: none;
-  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.btn-sns:hover {
-  -webkit-filter: brightness(0.95);
-          filter: brightness(0.95);
-}
-
-.sns-icon-wrap {
-  position: absolute;
-  left: 20px;
-  width: 24px;
-  height: 24px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.sns-icon-img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -webkit-filter: brightness(0) invert(1);
-          filter: brightness(0) invert(1);
-  /* Converts black/dark icons to white */
-}
-
-.btn-line {
-  background-color: #06c755;
-}
-
-.btn-kakao {
-  background-color: #fee500;
-  color: #fff;
-}
-
-/* Request asked for white text on Kakao too? Usually it's black/brown, but following prompt/image. Image shows white? No, image usually shows brown text on yellow, but user said 'Line, Kakao, Facebook, Viber' image. Let's check the image provided if possible. Actually, standard Kakao is yellow bg, brown text. But prompt image looks like white text on yellow button? Wait, standard is brown. The provided image shows WHITE text on LINE, and WHITE text on FACEBOOK. Kakao button in the image: Yellow BG, and WHITE text "카카오로 로그인". Okay, I will use white. */
-.btn-kakao {
-  color: #fff;
-}
-
-/* Wait, looking at the image in the prompt... The image shows:
-   Line: Green BG, White Text
-   Kakao: Yellow BG, White Text
-   Facebook: Blue BG, White Text
-   Viber: Purple BG, White Text
-   So color: #fff is correct for all.
-*/
-.btn-facebook {
-  background-color: #1877f2;
-}
-
-.btn-viber {
-  background-color: #7360f2;
-}
-
 /* Customizing Kakao Icon inner parts if needed via CSS? SVG fill handles it. */
 .remit-search-row {
   display: -webkit-box;
@@ -7988,71 +7758,6 @@ textarea.error:focus {
   font-weight: 600;
 }
 
-/* Improved Status Colors - Less Fluorescent */
-.remit-status.status-review {
-  color: #d97706;
-}
-
-.remit-status.status-review svg {
-  stroke: #d97706;
-}
-
-.remit-status.status-processing {
-  color: #d97706;
-}
-
-.remit-status.status-processing svg {
-  stroke: #d97706;
-}
-
-.remit-status.status-approved {
-  color: #059669;
-}
-
-.remit-status.status-approved svg {
-  stroke: #059669;
-}
-
-.remit-status.status-complete {
-  color: #2563eb;
-}
-
-.remit-status.status-complete svg {
-  stroke: #2563eb;
-}
-
-.remit-status.status-success {
-  color: #059669;
-}
-
-.remit-status.status-success svg {
-  stroke: #059669;
-}
-
-.remit-status.status-failed {
-  color: #dc2626;
-}
-
-.remit-status.status-failed svg {
-  stroke: #dc2626;
-}
-
-.remit-status.status-pending {
-  color: #6b7280;
-}
-
-.remit-status.status-pending svg {
-  stroke: #6b7280;
-}
-
-.remit-status.status-cancel {
-  color: #6b7280;
-}
-
-.remit-status.status-cancel svg {
-  stroke: #6b7280;
-}
-
 /* Contact Info Bar */
 .contact-info-bar {
   background-color: #f8fafc;
@@ -8246,24 +7951,6 @@ textarea.error:focus {
     min-width: unset;
     display: contents;
   }
-  .db-calculator-card {
-    width: 100%;
-    max-width: 100%;
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 auto;
-            flex: 0 1 auto;
-    margin: 0;
-    padding: 24px 20px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    min-width: unset;
-  }
-  .db-calculator-card {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-    width: 100%;
-  }
   .db-limit-card {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
@@ -8367,25 +8054,6 @@ textarea.error:focus {
   }
 }
 @media (max-width: 1024px) {
-  .db-calculator-card .calc-label {
-    text-align: left;
-  }
-  .db-calculator-card .calculator-title {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-  }
-  .db-calculator-card .calc-input-group {
-    width: 100%;
-  }
-  .db-calculator-card .calc-currency {
-    min-width: auto;
-  }
-  .db-calculator-card .calc-currency-btn {
-    height: 46px;
-    padding: 0 10px;
-    min-width: auto;
-  }
   .db-col-calc {
     width: 100%;
   }
@@ -8544,12 +8212,6 @@ textarea.error:focus {
     min-width: unset;
     display: contents;
   }
-  .db-calculator-card {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-    width: 100%;
-  }
   .db-balance-card {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
@@ -8597,85 +8259,6 @@ textarea.error:focus {
         -ms-flex-order: 9;
             order: 9;
     width: 100%;
-  }
-  .db-calculator-card .calculator-title {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    margin-bottom: 20px;
-  }
-  .db-calculator-card .calc-row-header {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    gap: 4px;
-  }
-  .db-calculator-card .calc-label {
-    text-align: left;
-    display: block;
-    width: 100%;
-    margin-bottom: 0;
-  }
-  .db-calculator-card .calc-max-amount {
-    font-size: 0.75rem;
-  }
-  .db-calculator-card .calc-input-group {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .db-calculator-card .calc-amount-input {
-    font-size: 1.1rem;
-    width: 100%;
-    padding: 10px 8px;
-  }
-  .db-calculator-card .calc-currency {
-    padding: 0 8px;
-    gap: 4px;
-    min-width: 85px;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
-  }
-  .db-calculator-card .calc-currency-btn {
-    height: 46px;
-    padding: 0 8px;
-    gap: 4px;
-    min-width: 85px;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
-  }
-  .db-calculator-card .calc-currency-code {
-    font-size: 0.85rem;
-  }
-  .db-calculator-card .calc-currency-flag {
-    width: 20px;
-    height: 20px;
-  }
-  .db-calculator-card .calc-currency-symbol-fixed {
-    font-size: 1.1rem;
-    margin-right: 4px;
-  }
-  .db-calculator-card .calc-fee-box {
-    padding: 12px;
-    margin-bottom: 16px;
-    text-align: left;
-  }
-  .db-calculator-card .calc-fee-total {
-    font-size: 1rem;
-  }
-  .db-calculator-card .calc-compare {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    text-align: left;
   }
   .db-col-info {
     width: 100%;
@@ -9002,9 +8585,6 @@ textarea.error:focus {
   .remit-action-btn {
     padding: 4px 10px;
     font-size: 0.75rem;
-  }
-  .remit-status {
-    font-size: 0.7rem;
   }
   /* FAQ Mobile - Hide Header & Left Align */
   .db-notice-table.faq-table thead {
@@ -9348,8 +8928,6 @@ textarea.error:focus {
 .textarea-input {
   min-height: 100px;
   resize: vertical;
-  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  line-height: 1.6;
 }
 
 .remit-action-btns {
@@ -9912,31 +9490,6 @@ textarea.error:focus {
 }
 
 /* Column 4: Status */
-.remit-card-status-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-left: auto;
-  min-width: 100px;
-}
-
-.remit-card-status-wrapper .remit-status {
-  padding: 6px 14px;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 6px;
-}
-
 /* ===== Receipt Modal Styles (Bank Statement / toss style) ===== */
 .receipt-layout {
   padding: 10px 10px 0;
@@ -9997,15 +9550,13 @@ textarea.error:focus {
   color: var(--text-dark);
   font-weight: 600;
   text-align: right;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
   word-break: break-all;
-}
-
-.receipt-value.highlight {
-  color: var(--primary-blue);
-  font-weight: 700;
 }
 
 .receipt-sub-text {
@@ -10067,23 +9618,24 @@ textarea.error:focus {
 }
 
 /* Print Styles */
+/* Print Styles */
 @media print {
   body > * {
     display: none !important;
   }
-  .remit-modal {
+  #remitModal {
     display: block !important;
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
     height: auto !important;
-    background-color: white !important;
+    background: white !important;
     z-index: 9999 !important;
     opacity: 1 !important;
     visibility: visible !important;
   }
-  .remit-modal-content {
+  #remitModal .modal-content {
     -webkit-box-shadow: none !important;
             box-shadow: none !important;
     border: none !important;
@@ -10092,12 +9644,12 @@ textarea.error:focus {
     margin: 0 !important;
     padding: 0 !important;
   }
-  .modal-header,
-  .modal-footer,
-  .modal-close {
+  #remitModal .modal-header,
+  #remitModal .modal-footer,
+  #remitModal .modal-close {
     display: none !important;
   }
-  .modal-body {
+  #remitModal .modal-body {
     padding: 20px !important;
     max-height: none !important;
     overflow: visible !important;
@@ -10175,12 +9727,12 @@ textarea.error:focus {
   .receipt-value {
     width: 100%;
     text-align: left;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     padding-left: 0;
     font-size: 0.95rem;
     word-break: break-all;
-  }
-  .receipt-value.highlight {
-    font-size: 1.1rem;
   }
   /* Total Section Layout */
   .receipt-total-row {
@@ -10977,7 +10529,6 @@ td.center {
 /* Country Slider Card */
 .db-country-card {
   overflow: hidden;
-  padding-bottom: 30px;
   max-width: 100%;
   /* Ensure card doesn't overflow */
 }
@@ -11266,15 +10817,6 @@ td.center {
 }
 .remit-edit-page {
   /* Ensure 2-column layout on Tablet/Mobile (< 768px) */
-}
-@media (max-width: 768px) {
-  .remit-edit-page .form-row-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 12px;
-  }
-}
-.remit-edit-page {
   /* Adjustments for Small Mobile (< 480px) */
 }
 @media (max-width: 480px) {
@@ -11336,9 +10878,6 @@ td.center {
 #scheduleDetailModal .receipt-value {
   color: #333;
   font-weight: 600;
-}
-#scheduleDetailModal .receipt-value.highlight {
-  color: #00A0DC;
 }
 
 @media (max-width: 768px) {

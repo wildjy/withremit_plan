@@ -6,14 +6,6 @@
 	margin-bottom: 24px !important;
 }
 
-#inquiryContent {
-	height: 300px !important;
-	min-height: 300px !important;
-	display: block !important;
-	width: 100% !important;
-	box-sizing: border-box !important;
-	resize: none !important;
-}
 
 // .field-flex {
 // 	display: flex;
@@ -79,11 +71,7 @@
 /* ===== Login Page Styles ===== */
 @import "./login";
 
-// .db-grid > .calculator-card {
-// 	max-width: 100% !important;
-// 	flex: 0 1 auto !important;
-// }
-
+/* ===== Dashboard Styles ===== */
 .db-col-info,
 .db-col-calc {
 	min-width: 0;
@@ -103,10 +91,6 @@
 	border-radius: var(--radius);
 	border: 1px solid var(--border-color);
 	box-shadow: var(--shadow);
-}
-
-.db-inquiry-card {
-	background-color: #eff6ff !important;
 }
 
 .db-main-wallet {
@@ -178,152 +162,10 @@
 	margin-bottom: 20px;
 }
 
-// .db-banner-slider {
-// 	position: relative;
-// 	width: 100%;
-// 	height: 200px;
-// 	overflow: hidden;
-// }
-
-// .db-banner-slides {
-// 	position: relative;
-// 	width: 100%;
-// 	height: 100%;
-// }
-
-// .db-banner-slide {
-// 	position: absolute;
-// 	top: 0;
-// 	left: 0;
-// 	width: 100%;
-// 	height: 100%;
-// 	display: flex;
-// 	align-items: center;
-// 	justify-content: center;
-// 	opacity: 0;
-// 	visibility: hidden;
-// 	transition: opacity 0.8s ease-in-out,
-//  visibility 0.8s ease-in-out;
-// }
-
-// .db-banner-slide.active {
-// 	opacity: 1;
-// 	visibility: visible;
-// 	z-index: 1;
-// }
-
-// .db-banner-slide-1 {
-// 	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-// }
-
-// .db-banner-slide-2 {
-// 	background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-// }
-
-// .db-banner-slide-3 {
-// 	background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-// }
-
-// .db-banner-content {
-// 	text-align: center;
-// 	color: #fff;
-// 	padding: 20px;
-// }
-
-// .db-banner-content h2 {
-// 	font-size: 1.5rem;
-// 	font-weight: 700;
-// 	margin-bottom: 6px;
-// 	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-// 	line-height: 1.3;
-// }
-
-// .db-banner-content p {
-// 	font-size: 0.95rem;
-// 	font-weight: 400;
-// 	text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-// 	line-height: 1.4;
-// }
-
-// .db-banner-controls {
-// 	position: absolute;
-// 	bottom: 20px;
-// 	left: 50%;
-// 	transform: translateX(-50%);
-// 	display: flex;
-// 	align-items: center;
-// 	gap: 16px;
-// 	z-index: 10;
-// }
-
-// .db-banner-control-btn {
-// 	background-color: rgba(255, 255, 255, 0.9);
-// 	border: none;
-// 	border-radius: 50%;
-// 	width: 24px;
-// 	height: 24px;
-// 	display: flex;
-// 	align-items: center;
-// 	justify-content: center;
-// 	cursor: pointer;
-// 	transition: var(--transition);
-// 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-// }
-
-// .db-banner-control-btn:hover {
-// 	background-color: #fff;
-// 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-// }
-
-// .db-banner-control-btn svg {
-// 	color: var(--text-dark);
-// }
-
-// .db-banner-control-btn .hidden {
-// 	display: none;
-// }
-
-// .db-banner-indicators {
-// 	display: flex;
-// 	gap: 8px;
-// }
-
-// .db-banner-indicator {
-// 	width: 10px;
-// 	height: 10px;
-// 	border-radius: 50%;
-// 	background-color: rgba(255, 255, 255, 0.5);
-// 	border: none;
-// 	cursor: pointer;
-// 	transition: var(--transition);
-// 	padding: 0;
-// }
-
-// .db-banner-indicator:hover {
-// 	background-color: rgba(255, 255, 255, 0.8);
-// }
-
-// .db-banner-indicator.active {
-// 	background-color: #fff;
-// 	width: 24px;
-// 	border-radius: 5px;
-// }
-
-/* Dashboard Calculator Card Styles */
-.db-calculator-card {
-	flex: 1;
-	margin-left: 0;
-	padding: 20px 16px;
-	max-width: 100%;
-	min-width: 0;
-	background-color: var(--white);
-	border-radius: var(--radius);
-}
-
 /* Dashboard Footer */
-.db-body .footer {
-	padding: 20px 0;
-}
+// .db-body .footer {
+// 	padding: 20px 0;
+// }
 
 /* Dashboard Card Components */
 /* Dashboard Card Components - Moved and consolidated above */
@@ -421,7 +263,6 @@
 .db-limit-card {
 	background: linear-gradient(135deg, #37474f 0%, #263238 100%);
 	border: none;
-	padding: 24px 30px;
   /* Reduced padding */;
 }
 
@@ -891,7 +732,7 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 14px 12px;
-	margin: 0 -12px;
+	// margin: 0 -12px;
 	border-bottom: 1px solid var(--border-color);
 	text-decoration: none;
 	transition: background 0.2s;
@@ -1070,7 +911,6 @@
 }
 
 /* Notice List Page */
-
 .db-search-box {
 	display: flex;
 	gap: 8px;
@@ -1101,8 +941,8 @@
 	}
 
 	.db-search-type,
-  .db-search-input,
-  .db-search-btn {
+	.db-search-input,
+	.db-search-btn {
 		width: 100%;
 	}
 }
@@ -1328,51 +1168,51 @@
 }
 
 .db-notice-table .faq-title {
-		font-size: 15px;
-		font-weight: 500;
-		vertical-align: middle;
-		text-align: left !important;
+	font-size: 15px;
+	font-weight: 500;
+	vertical-align: middle;
+	text-align: left !important;
 }
 
 .db-notice-table .faq-content {
-		padding: 24px 40px 24px 48px;
-		line-height: 1.6;
-		color: #555;
-		// white-space: pre-line;
-		text-align: left !important;
+	padding: 24px 40px 24px 48px;
+	line-height: 1.6;
+	color: #555;
+	// white-space: pre-line;
+	text-align: left !important;
 }
 
 .faq-row {
-		cursor: pointer;
-		transition: background-color 0.2s;
+	cursor: pointer;
+	transition: background-color 0.2s;
 }
 
 .faq-row:hover {
-		background-color: #f8fafa;
+	background-color: #f8fafa;
 }
 
 .faq-icon {
-		width: 24px;
-		display: inline-block;
-		vertical-align: middle;
-		color: #ccc;
-		margin-right: 8px;
-		transition: transform 0.3s;
+	width: 24px;
+	display: inline-block;
+	vertical-align: middle;
+	color: #ccc;
+	margin-right: 8px;
+	transition: transform 0.3s;
 }
 
 .faq-row.active .faq-icon {
-		transform: rotate(90deg);
-		color: #1B5E9E;
+	transform: rotate(90deg);
+	color: #1B5E9E;
 }
 
 
 .faq-content-row {
-		display: none;
-		background-color: #fafafa;
+	display: none;
+	background-color: #fafafa;
 }
 
 .faq-content-row.active {
-		display: table-row;
+	display: table-row;
 }
 
 .db-notice-table td.notice-title {
@@ -1448,10 +1288,6 @@
 
 .remit-detail-toggle .hidden {
 	display: none;
-}
-
-.remit-status-select {
-	min-width: 140px;
 }
 
 .date-separator {
@@ -1575,82 +1411,6 @@
 	box-shadow: 0 2px 8px rgba(0, 160, 220, 0.3);
 }
 
-.remit-status {
-	display: inline-flex;
-	align-items: center;
-	gap: 4px;
-	font-size: 0.85rem;
-	font-weight: 600;
-}
-
-.remit-status svg {
-	flex-shrink: 0;
-}
-
-.remit-status.status-review {
-	color: #f59e0b;
-}
-
-.remit-status.status-review svg {
-	stroke: #f59e0b;
-}
-
-.remit-status.status-processing {
-	color: #f59e0b;
-}
-
-.remit-status.status-processing svg {
-	stroke: #f59e0b;
-}
-
-.remit-status.status-approved {
-	color: #10b981;
-}
-
-.remit-status.status-approved svg {
-	stroke: #10b981;
-}
-
-.remit-status.status-complete {
-	color: #3b82f6;
-}
-
-.remit-status.status-complete svg {
-	stroke: #3b82f6;
-}
-
-.remit-status.status-success {
-	color: #10b981;
-}
-
-.remit-status.status-success svg {
-	stroke: #10b981;
-}
-
-.remit-status.status-failed {
-	color: #ef4444;
-}
-
-.remit-status.status-failed svg {
-	stroke: #ef4444;
-}
-
-.remit-status.status-pending {
-	color: #9ca3af;
-}
-
-.remit-status.status-pending svg {
-	stroke: #9ca3af;
-}
-
-.remit-status.status-cancel {
-	color: #9ca3af;
-}
-
-.remit-status.status-cancel svg {
-	stroke: #9ca3af;
-}
-
 /* Improved Search Box Layout */
 .remit-search-box {
 	display: flex;
@@ -1683,188 +1443,7 @@
 	min-width: 50px;
 }
 
-.search-conditions-main .db-search-input {
-	width: 150px;
-	height: 36px;
-	padding: 8px 12px;
-	border: 1.5px solid var(--border-color);
-	border-radius: 8px;
-	font-size: 0.9rem;
-}
 
-.search-conditions-main .date-separator {
-	color: var(--text-muted);
-	margin: 0 4px;
-}
-
-/* Collapsible Detail Section */
-.search-conditions-detail {
-	display: none;
-	align-items: center;
-	gap: 12px;
-	padding-top: 8px;
-	flex-wrap: wrap;
-}
-
-.search-conditions-detail.show {
-	display: flex;
-}
-
-.search-field-wrapper {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-}
-
-.search-field-wrapper .search-label {
-	font-size: 0.85rem;
-	min-width: 70px;
-}
-
-.search-field-wrapper .db-search-type {
-	width: 140px;
-	height: 36px;
-	padding: 8px 12px;
-	border: 1.5px solid var(--border-color);
-	border-radius: 8px;
-	font-size: 0.9rem;
-}
-
-.search-field-wrapper .db-search-input {
-	width: 400px;
-	height: 36px;
-	padding: 8px 12px;
-	border: 1.5px solid var(--border-color);
-	border-radius: 8px;
-	font-size: 0.9rem;
-}
-
-/* Action Buttons Wrapper - Right Side */
-.search-buttons-wrapper {
-	display: flex;
-	gap: 8px;
-	align-items: flex-start;
-}
-
-.db-detail-toggle-btn {
-	display: flex;
-	align-items: center;
-	gap: 6px;
-	padding: 8px 14px;
-	height: 36px;
-	background-color: #fff;
-	border: 1.5px solid var(--border-color);
-	border-radius: 8px;
-	font-size: 0.85rem;
-	font-weight: 500;
-	color: var(--text-dark);
-	cursor: pointer;
-	transition: all 0.2s;
-	white-space: nowrap;
-}
-
-.db-detail-toggle-btn:hover {
-	color: var(--primary-blue);
-}
-
-.db-detail-toggle-btn .plus-icon {
-	display: block;
-}
-
-.db-detail-toggle-btn .minus-icon {
-	display: none;
-}
-
-.db-detail-toggle-btn.active .plus-icon {
-	display: none;
-}
-
-.db-detail-toggle-btn.active .minus-icon {
-	display: block;
-}
-
-.db-detail-toggle-btn.active {
-	color: var(--primary-blue);
-}
-
-/* Search and Reset Buttons */
-.search-buttons-wrapper .db-search-btn {
-	padding: 8px 20px;
-	height: 36px;
-	background-color: #7a8e96;
-	color: #fff;
-	border: none;
-	border-radius: 8px;
-	font-size: 0.9rem;
-	font-weight: 600;
-	cursor: pointer;
-	transition: all 0.2s;
-	white-space: nowrap;
-	display: flex;
-	align-items: center;
-	gap: 6px;
-}
-
-.search-buttons-wrapper .db-search-btn:hover {
-	background-color: #6a7e86;
-}
-
-.search-buttons-wrapper .db-reset-btn {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 6px;
-	padding: 8px;
-	width: 36px;
-	height: 36px;
-	background-color: transparent;
-	color: var(--text-muted);
-	border: 1.5px solid var(--border-color);
-	border-radius: 8px;
-	cursor: pointer;
-	transition: all 0.2s;
-}
-
-.search-buttons-wrapper .db-reset-btn svg {
-	width: 18px;
-	height: 18px;
-}
-
-.search-buttons-wrapper .db-reset-btn:hover {
-	border-color: var(--text-dark);
-	color: var(--text-dark);
-}
-
-.search-buttons-wrapper .db-reset-btn .reset-text {
-	display: none;
-}
-
-/* Search Detail Section (Collapsible) */
-.db-search-detail {
-	display: none;
-	margin-bottom: 16px;
-	padding: 2px 0;
-}
-
-.db-search-detail.show {
-	display: block;
-}
-
-.search-date-section {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	flex-wrap: wrap;
-}
-
-.search-date-section .db-search-input {
-	flex: 0 1 150px;
-	height: 36px;
-}
-
-.search-date-section .date-separator {
-	margin: 0 4px;
-}
 
 .remit-quick-btns-inline {
 	display: flex;
@@ -2013,16 +1592,6 @@
 		max-width: 250px;
 	}
 
-	.remit-card-status-wrapper {
-		width: 100%;
-		margin-left: 0;
-		margin-top: 8px;
-	}
-
-	.remit-card-status-wrapper .remit-status {
-		padding: 0;
-	}
-
 	.remit-detail-grid {
 		grid-template-columns: 1fr;
 	}
@@ -2051,7 +1620,7 @@
 	}
   /* Period section in one line */
 	.remit-search-section > .search-label,
-  .remit-search-section > .db-search-input {
+  	.remit-search-section > .db-search-input {
 		display: inline-block;
 	}
 
@@ -2132,94 +1701,8 @@
 	.remit-detail-toggle-btn {
 		display: none;
 	}
-  /* Card status padding 0 */
-	.remit-card-status-wrapper .remit-status {
-		padding: 0;
-	}
 }
 
-/* SNS Login Buttons */
-.sns-separator {
-	border-top: 1px dashed #ddd;
-	margin: 20px 0;
-	width: 100%;
-}
-
-.sns-login-buttons {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
-	width: 100%;
-}
-
-.btn-sns {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 48px;
-	border-radius: 24px;
-	border: none;
-	font-size: 15px;
-	font-weight: 700;
-	color: #fff;
-	cursor: pointer;
-	transition: filter 0.2s;
-	text-decoration: none;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.btn-sns:hover {
-	filter: brightness(0.95);
-}
-
-.sns-icon-wrap {
-	position: absolute;
-	left: 20px;
-	width: 24px;
-	height: 24px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.sns-icon-img {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
-	filter: brightness(0) invert(1);
-  /* Converts black/dark icons to white */;
-}
-
-.btn-line {
-	background-color: #06c755;
-}
-
-.btn-kakao {
-	background-color: #fee500;
-	color: #fff;
-}
-
-/* Request asked for white text on Kakao too? Usually it's black/brown, but following prompt/image. Image shows white? No, image usually shows brown text on yellow, but user said 'Line, Kakao, Facebook, Viber' image. Let's check the image provided if possible. Actually, standard Kakao is yellow bg, brown text. But prompt image looks like white text on yellow button? Wait, standard is brown. The provided image shows WHITE text on LINE, and WHITE text on FACEBOOK. Kakao button in the image: Yellow BG, and WHITE text "카카오로 로그인". Okay, I will use white. */
-.btn-kakao {
-	color: #fff;
-}
-
-/* Wait, looking at the image in the prompt... The image shows:
-   Line: Green BG, White Text
-   Kakao: Yellow BG, White Text
-   Facebook: Blue BG, White Text
-   Viber: Purple BG, White Text
-   So color: #fff is correct for all.
-*/
-.btn-facebook {
-	background-color: #1877f2;
-}
-
-.btn-viber {
-	background-color: #7360f2;
-}
 
 /* Customizing Kakao Icon inner parts if needed via CSS? SVG fill handles it. */
 .remit-search-row {
@@ -2421,71 +1904,6 @@
 	font-weight: 600;
 }
 
-/* Improved Status Colors - Less Fluorescent */
-.remit-status.status-review {
-	color: #d97706;
-}
-
-.remit-status.status-review svg {
-	stroke: #d97706;
-}
-
-.remit-status.status-processing {
-	color: #d97706;
-}
-
-.remit-status.status-processing svg {
-	stroke: #d97706;
-}
-
-.remit-status.status-approved {
-	color: #059669;
-}
-
-.remit-status.status-approved svg {
-	stroke: #059669;
-}
-
-.remit-status.status-complete {
-	color: #2563eb;
-}
-
-.remit-status.status-complete svg {
-	stroke: #2563eb;
-}
-
-.remit-status.status-success {
-	color: #059669;
-}
-
-.remit-status.status-success svg {
-	stroke: #059669;
-}
-
-.remit-status.status-failed {
-	color: #dc2626;
-}
-
-.remit-status.status-failed svg {
-	stroke: #dc2626;
-}
-
-.remit-status.status-pending {
-	color: #6b7280;
-}
-
-.remit-status.status-pending svg {
-	stroke: #6b7280;
-}
-
-.remit-status.status-cancel {
-	color: #6b7280;
-}
-
-.remit-status.status-cancel svg {
-	stroke: #6b7280;
-}
-
 /* Contact Info Bar */
 .contact-info-bar {
 	background-color: #f8fafc;
@@ -2673,21 +2091,6 @@
 		display: contents;
 	}
 
-	.db-calculator-card {
-		width: 100%;
-		max-width: 100%;
-		flex: 0 1 auto;
-		margin: 0;
-		padding: 24px 20px;
-		box-sizing: border-box;
-		min-width: unset;
-	}
-
-	.db-calculator-card {
-		order: 1;
-		width: 100%;
-	}
-
 	.db-limit-card {
 		order: 2;
 		width: 100%;
@@ -2770,28 +2173,6 @@
 }
 
 @media (max-width: 1024px) {
-	.db-calculator-card .calc-label {
-		text-align: left;
-	}
-
-	.db-calculator-card .calculator-title {
-		justify-content: flex-start;
-	}
-
-	.db-calculator-card .calc-input-group {
-		width: 100%;
-	}
-
-	.db-calculator-card .calc-currency {
-		min-width: auto;
-	}
-
-	.db-calculator-card .calc-currency-btn {
-		height: 46px;
-		padding: 0 10px;
-		min-width: auto;
-	}
-
 	.db-col-calc {
 		width: 100%;
 	}
@@ -2801,7 +2182,7 @@
 	}
 
 	.db-transaction-table th,
-  .db-transaction-table td {
+  	.db-transaction-table td {
 		padding: 10px 6px;
 	}
 
@@ -2828,7 +2209,7 @@
 
 
 	.db-notice-table th,
-  .db-notice-table td {
+  	.db-notice-table td {
 		padding: 12px 8px;
 		font-size: 0.875rem;
 	}
@@ -2861,7 +2242,7 @@
 	}
 
 	.db-help-btns,
-  .db-help-btns-new {
+  	.db-help-btns-new {
 		grid-template-columns: 1fr !important;
     /* Force single column */;
 	}
@@ -2952,11 +2333,6 @@
 		display: contents;
 	}
 
-	.db-calculator-card {
-		order: 1;
-		width: 100%;
-	}
-
 	.db-balance-card {
 		order: 3;
 		width: 100%;
@@ -2995,101 +2371,6 @@
 	.db-help-card {
 		order: 9;
 		width: 100%;
-	}
-
-	// .db-grid > .calculator-card {
-	// 	width: 100% !important;
-	// 	max-width: 100% !important;
-	// 	flex: 0 1 auto !important;
-	// 	margin: 0 !important;
-	// 	padding: 20px 16px;
-	// 	box-sizing: border-box;
-	// 	min-width: unset;
-	// }
-
-	// .db-calculator-card {
-	// 	width: 100% !important;
-	// 	max-width: 100% !important;
-	// 	padding: 20px 16px !important;
-	// 	min-width: unset;
-	// }
-
-	.db-calculator-card .calculator-title {
-		justify-content: flex-start;
-		margin-bottom: 20px;
-	}
-
-	.db-calculator-card .calc-row-header {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 4px;
-	}
-
-	.db-calculator-card .calc-label {
-		text-align: left;
-		display: block;
-		width: 100%;
-		margin-bottom: 0;
-	}
-
-	.db-calculator-card .calc-max-amount {
-		font-size: 0.75rem;
-	}
-
-	.db-calculator-card .calc-input-group {
-		width: 100%;
-		display: flex;
-		align-items: center;
-	}
-
-	.db-calculator-card .calc-amount-input {
-		font-size: 1.1rem;
-		width: 100%;
-		padding: 10px 8px;
-	}
-
-	.db-calculator-card .calc-currency {
-		padding: 0 8px;
-		gap: 4px;
-		min-width: 85px;
-		flex-shrink: 0;
-	}
-
-	.db-calculator-card .calc-currency-btn {
-		height: 46px;
-		padding: 0 8px;
-		gap: 4px;
-		min-width: 85px;
-		flex-shrink: 0;
-	}
-
-	.db-calculator-card .calc-currency-code {
-		font-size: 0.85rem;
-	}
-
-	.db-calculator-card .calc-currency-flag {
-		width: 20px;
-		height: 20px;
-	}
-
-	.db-calculator-card .calc-currency-symbol-fixed {
-		font-size: 1.1rem;
-		margin-right: 4px;
-	}
-
-	.db-calculator-card .calc-fee-box {
-		padding: 12px;
-		margin-bottom: 16px;
-		text-align: left;
-	}
-
-	.db-calculator-card .calc-fee-total {
-		font-size: 1rem;
-	}
-
-	.db-calculator-card .calc-compare {
-		justify-content: flex-start;
-		text-align: left;
 	}
 
 	.db-col-info {
@@ -3414,9 +2695,6 @@
 		font-size: 0.75rem;
 	}
 
-	.remit-status {
-		font-size: 0.7rem;
-	}
   /* FAQ Mobile - Hide Header & Left Align */
 	.db-notice-table.faq-table thead {
 		display: none !important;
@@ -3750,12 +3028,6 @@
 .textarea-input {
 	min-height: 100px;
 	resize: vertical;
-	font-family: "Pretendard Variable",
- -apple-system,
- BlinkMacSystemFont,
- system-ui,
- sans-serif;
-	line-height: 1.6;
 }
 
 .remit-action-btns {
@@ -4251,22 +3523,6 @@
 }
 
 /* Column 4: Status */
-.remit-card-status-wrapper {
-	display: flex;
-	align-items: center;
-	margin-left: auto;
-	min-width: 100px;
-}
-
-.remit-card-status-wrapper .remit-status {
-	padding: 6px 14px;
-	border-radius: 6px;
-	font-size: 0.85rem;
-	font-weight: 600;
-	display: flex;
-	align-items: center;
-	gap: 6px;
-}
 
 /* ===== Receipt Modal Styles (Bank Statement / toss style) ===== */
 .receipt-layout {
@@ -4320,14 +3576,15 @@
 	color: var(--text-dark);
 	font-weight: 600;
 	text-align: right;
+	justify-content: flex-end;
 	flex: 2;
 	word-break: break-all;
 }
 
-.receipt-value.highlight {
-	color: var(--primary-blue);
-	font-weight: 700;
-}
+// .receipt-value.highlight {
+// 	color: var(--primary-blue);
+// 	font-weight: 700;
+// }
 
 .receipt-sub-text {
 	display: block;
@@ -4382,49 +3639,52 @@
 }
 
 /* Print Styles */
+
+/* Print Styles */
 @media print {
-	body > * {
-		display: none !important;
-	}
+  body>* {
+    display: none !important;
+  }
 
-	.remit-modal {
-		display: block !important;
-		position: absolute !important;
-		top: 0 !important;
-		left: 0 !important;
-		width: 100% !important;
-		height: auto !important;
-		background-color: white !important;
-		z-index: 9999 !important;
-		opacity: 1 !important;
-		visibility: visible !important;
-	}
+  #remitModal {
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    background: white !important;
+    z-index: 9999 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
 
-	.remit-modal-content {
-		box-shadow: none !important;
-		border: none !important;
-		width: 100% !important;
-		max-width: 100% !important;
-		margin: 0 !important;
-		padding: 0 !important;
-	}
+  #remitModal .modal-content {
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
-	.modal-header,
-	.modal-footer,
-	.modal-close {
-		display: none !important;
-	}
+  #remitModal .modal-header,
+  #remitModal .modal-footer,
+  #remitModal .modal-close {
+    display: none !important;
+  }
 
-	.modal-body {
-		padding: 20px !important;
-		max-height: none !important;
-		overflow: visible !important;
-	}
+  #remitModal .modal-body {
+    padding: 20px !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
   /* Force background graphics for logos/colors if needed */
-	* {
-		-webkit-print-color-adjust: exact !important;
-		print-color-adjust: exact !important;
-	}
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }
 
 /* New Receipt Button Styles */
@@ -4490,14 +3750,16 @@
 	.receipt-value {
 		width: 100%;
 		text-align: left;
+		justify-content: flex-start;
 		padding-left: 0;
 		font-size: 0.95rem;
 		word-break: break-all;
 	}
 
-	.receipt-value.highlight {
-		font-size: 1.1rem;
-	}
+	// .receipt-value.highlight {
+	// 	font-size: 1.1rem;
+	// }
+
   /* Total Section Layout */
 	.receipt-total-row {
 		flex-direction: column;
@@ -4623,19 +3885,6 @@
 }
 
 @media (max-width: 768px) {
-	// .account-modal-content {
-	// 	display: flex;
-	// 	flex-direction: column;
-	// }
-
-	// .modal-header {
-	// 	position: sticky;
-	// 	top: 0;
-	// 	z-index: 10;
-	// 	background-color: #fff;
-	// 	border-radius: 12px 12px 0 0;
-	// }
-
 	.account-table-container {
 		padding: 10px;
 		max-height: calc(100vh - 150px);
@@ -5218,7 +4467,6 @@ td.center {
 /* Country Slider Card */
 .db-country-card {
 	overflow: hidden;
-	padding-bottom: 30px;
 	max-width: 100%;
   /* Ensure card doesn't overflow */
 }
@@ -5442,13 +4690,13 @@ td.center {
 	}
 
 	/* Ensure 2-column layout on Tablet/Mobile (< 768px) */
-	@media (max-width: 768px) {
-		.form-row-2 {
-			display: grid;
-			grid-template-columns: 1fr 1fr !important;
-			gap: 12px;
-		}
-	}
+	// @media (max-width: 768px) {
+	// 	.form-row-2 {
+	// 		display: grid;
+	// 		grid-template-columns: 1fr 1fr;
+	// 		gap: 12px;
+	// 	}
+	// }
 
 	/* Adjustments for Small Mobile (< 480px) */
 	@media (max-width: 480px) {
@@ -5508,9 +4756,9 @@ td.center {
 			font-weight: 600;
 	}
 
-	.receipt-value.highlight {
-			color: #00A0DC;
-	}
+	// .receipt-value.highlight {
+	// 		color: #00A0DC;
+	// }
 }
 
 @media (max-width: 768px) {

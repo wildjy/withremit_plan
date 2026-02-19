@@ -1,0 +1,110 @@
+
+.remit-card-status-wrapper {
+	display: flex;
+	align-items: center;
+	margin-left: auto;
+	min-width: 100px;
+}
+
+.remit-card-status-wrapper .remit-status {
+	padding: 6px 14px;
+	border-radius: 6px;
+	font-size: 0.85rem;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.remit-status {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 0.85rem;
+	font-weight: 600;
+}
+
+@media (max-width: 768px) {
+	.remit-card-status-wrapper {
+		width: 100%;
+		margin-left: 0;
+		margin-top: 8px;
+	}
+
+	.remit-card-status-wrapper .remit-status {
+		padding: 0;
+	}
+}
+
+@media (max-width: 480px) {
+    /* Card status padding 0 */
+	.remit-card-status-wrapper .remit-status {
+		padding: 0;
+	}
+    .remit-status {
+        font-size: 0.7rem;
+    }
+}
+
+.remit-status svg {
+	flex-shrink: 0;
+}
+
+/* Improved Status Colors - Less Fluorescent */
+.remit-status.status-review {
+	color: var(--status-review);
+    svg {
+        stroke: var(--status-review);
+    }
+}
+
+.remit-status.status-processing {
+	color: var(--status-processing);
+    svg {
+        stroke: var(--status-processing);
+    }
+}
+
+
+.remit-status.status-approved {
+	color: var(--status-approved);
+    svg {
+        stroke: var(--status-approved);
+    }
+}
+
+.remit-status.status-complete {
+	color: var(--status-complete);
+    svg {
+        stroke: var(--status-complete);
+    }
+}
+
+.remit-status.status-success {
+	color: var(--status-approved);
+    svg {
+        stroke: var(--status-approved);
+    }
+}
+
+
+.remit-status.status-failed {
+	color: var(--status-failed);
+    svg {
+        stroke: var(--status-failed);
+    }
+}
+
+.remit-status.status-pending {
+	color: var(--status-cancel);
+    svg {
+        stroke: var(--status-cancel);
+    }
+}
+
+.remit-status.status-cancel {
+	color: var(--status-cancel);
+    svg { 
+        stroke: var(--status-cancel);
+    }
+}

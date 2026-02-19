@@ -335,6 +335,11 @@ a.banner-slide {
   max-width: 420px;
   margin-left: auto;
 }
+.calculator-card.db {
+  padding: 35px;
+  max-width: 100%;
+  width: 100%;
+}
 
 .calculator-title {
   font-size: 1rem;

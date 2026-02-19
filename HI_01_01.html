@@ -11,6 +11,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/guide.css">
 
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel='stylesheet' href='css/auth.css'>
@@ -367,7 +368,9 @@
                     <div class="receipt-section">
                         <div class="receipt-row">
                             <span class="receipt-label">송금 상태 (Status)</span>
-                            <span class="receipt-value highlight">${data.statusText}</span>
+                            <span class="receipt-value remit-status status-${data.status}">
+                                ${data.statusText}
+                            </span>
                         </div>
                         <div class="receipt-row">
                             <span class="receipt-label">접수 번호 (Ref No.)</span>

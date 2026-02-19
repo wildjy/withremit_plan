@@ -275,8 +275,219 @@
   line-height: 1;
 }
 
+/* ===== SNS Login Buttons ===== */
+.sns-login-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.btn-sns {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 48px;
+  border-radius: 24px;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: -webkit-filter 0.2s;
+  transition: -webkit-filter 0.2s;
+  transition: filter 0.2s;
+  transition: filter 0.2s, -webkit-filter 0.2s;
+  text-decoration: none;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-sns:hover {
+  -webkit-filter: brightness(0.95);
+          filter: brightness(0.95);
+}
+
+.sns-icon-wrap {
+  position: absolute;
+  left: 20px;
+  width: 24px;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sns-icon-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
+  /* Converts black/dark icons to white */
+}
+
+.btn-line {
+  background-color: #06c755;
+}
+
+.btn-kakao {
+  background-color: #fee500;
+  color: #fff;
+}
+
+.btn-kakao {
+  color: #fff;
+}
+
+.btn-facebook {
+  background-color: #1877f2;
+}
+
+.btn-viber {
+  background-color: #7360f2;
+}
+
 /* ===== end Button Style ===== */
 /* ===== end Button Style ===== */
+.remit-card-status-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: auto;
+  min-width: 100px;
+}
+
+.remit-card-status-wrapper .remit-status {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 6px;
+}
+
+.remit-status {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .remit-card-status-wrapper {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 8px;
+  }
+  .remit-card-status-wrapper .remit-status {
+    padding: 0;
+  }
+}
+@media (max-width: 480px) {
+  /* Card status padding 0 */
+  .remit-card-status-wrapper .remit-status {
+    padding: 0;
+  }
+  .remit-status {
+    font-size: 0.7rem;
+  }
+}
+.remit-status svg {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+/* Improved Status Colors - Less Fluorescent */
+.remit-status.status-review {
+  color: var(--status-review);
+}
+.remit-status.status-review svg {
+  stroke: var(--status-review);
+}
+
+.remit-status.status-processing {
+  color: var(--status-processing);
+}
+.remit-status.status-processing svg {
+  stroke: var(--status-processing);
+}
+
+.remit-status.status-approved {
+  color: var(--status-approved);
+}
+.remit-status.status-approved svg {
+  stroke: var(--status-approved);
+}
+
+.remit-status.status-complete {
+  color: var(--status-complete);
+}
+.remit-status.status-complete svg {
+  stroke: var(--status-complete);
+}
+
+.remit-status.status-success {
+  color: var(--status-approved);
+}
+.remit-status.status-success svg {
+  stroke: var(--status-approved);
+}
+
+.remit-status.status-failed {
+  color: var(--status-failed);
+}
+.remit-status.status-failed svg {
+  stroke: var(--status-failed);
+}
+
+.remit-status.status-pending {
+  color: var(--status-cancel);
+}
+.remit-status.status-pending svg {
+  stroke: var(--status-cancel);
+}
+
+.remit-status.status-cancel {
+  color: var(--status-cancel);
+}
+.remit-status.status-cancel svg {
+  stroke: var(--status-cancel);
+}
+
 /* ===== findTabs ===== */
 /* ===== findTabs ===== */
 .find-tabs {
