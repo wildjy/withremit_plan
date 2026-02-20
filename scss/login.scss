@@ -1,3 +1,4 @@
+@import  "./Helper";
 
 /* ===== Login Page Styles ===== */
 .login-wh-full {
@@ -164,74 +165,23 @@
 	border-radius: var(--radius);
 	transition: var(--transition);
 	background-color: #fff;
-}
-
-.input-box-group:focus-within {
-	border-color: var(--primary-green);
-	box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);
-}
-
-.input-box-group.error {
-	border-color: #ef4444;
-}
-
-.input-box-group.error:focus-within {
-	border-color: #ef4444;
-	box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+	&:focus-within {
+		border-color: var(--primary-green);
+		box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);
+	}
+	&.error {
+		@include input-error;
+	}
 }
 
 .field-error {
 	display: block;
-	color: #ef4444;
+	color: var(--error-color);
 	font-size: 0.85rem;
 	margin-top: 6px;
 	font-weight: 500;
 }
 
-.login-input {
-	flex: 1;
-	padding: 14px 16px;
-	font-size: 1.1rem;
-	font-weight: 600;
-	border: none;
-	outline: none;
-	color: var(--text-dark);
-	background-color: transparent;
-}
-
-.login-input.error {
-	border-color: #ef4444 !important;
-	border: 1.5px solid #ef4444;
-}
-
-.login-input.error:focus {
-	border-color: #ef4444 !important;
-	box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
-}
-
-textarea.error {
-	border-color: #ef4444 !important;
-}
-
-textarea.error:focus {
-	border-color: #ef4444 !important;
-	box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
-}
-
-.select-styled.error {
-	border-color: #ef4444;
-}
-
-.select-styled.error:focus {
-	border-color: #ef4444;
-	box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
-}
-
-.login-input::placeholder {
-	color: #aab4b8 !important;
-	font-weight: 400;
-	opacity: 1;
-}
 
 .password-wrap {
 	flex: 1;
@@ -467,17 +417,12 @@ textarea.error:focus {
 }
 
 .error-msg {
-	color: #ef4444;
+	color: var(--error-color);
 	font-size: 12px;
 	margin-top: 6px;
 	display: none;
 	text-align: left;
 	font-weight: 500;
-}
-
-.input-box-group.error {
-	border-color: #ef4444 !important;
-	box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
 }
 
 .security-keypad {
@@ -702,17 +647,6 @@ textarea.error:focus {
 	.input-box-group:focus-within {
 		border-color: var(--primary-blue);
 		box-shadow: 0 0 0 3px rgba(27, 94, 158, 0.1);
-	}
-
-	.login-input {
-		flex: 1;
-		padding: 14px 16px;
-		font-size: 1.1rem;
-		font-weight: 600;
-		border: none;
-		outline: none;
-		color: var(--text-dark);
-		background-color: transparent;
 	}
 
 	.password-wrap {
@@ -1206,18 +1140,6 @@ textarea.error:focus {
 	color: #6b7280;
 }
 
-.login-input {
-	width: 100%;
-	padding: 14px 16px;
-	font-size: 1.05rem;
-	font-weight: 500;
-	transition: var(--transition);
-	background-color: #fff;
-	border: 1.5px solid var(--border-color);
-	border-radius: var(--radius);
-	outline: none;
-}
-
 .date-picker-custom {
 	width: 100%;
 	padding: 14px 16px;
@@ -1255,12 +1177,7 @@ textarea.error:focus {
 }
 
 .select-styled {
-	cursor: pointer;
-	appearance: none;
-	-webkit-appearance: none;
-	background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237A8E96' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 16px center;
-	background-size: 12px;
-	padding-right: 40px !important;
+	padding-right: 40px;
 }
 
 .radio-wrap {
@@ -1321,8 +1238,8 @@ textarea.error:focus {
 }
 
 .input-box-group .login-input {
-	border: none !important;
-	box-shadow: none !important;
+	border: none;
+	box-shadow: none;
 	background-color: transparent;
 }
 

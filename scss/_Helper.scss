@@ -466,3 +466,12 @@ $vw-context: calc($viewport * 0.01) * 1px;
   @include optSystem(3px, null);
   @include btnDisabled;
 }
+
+@mixin input-error {
+	border-color: var(--error-color);
+	border: 1.5px solid var(--error-color);
+	&:focus {
+		border-color: var(--error-color);
+		box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+	}
+}

@@ -19,6 +19,9 @@ body {
 	line-height: 1.6;
 	background-color: var(--white);
 	overflow-x: hidden;
+	*{
+		font-family: inherit;
+	}
 }
 
 a {
@@ -65,6 +68,47 @@ h3 {
 p {
 	font-size: var(--md);
 	color: var(--text-body);
+}
+
+input, select, textarea {
+	width: 100%;
+    padding: 15px 16px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    -webkit-transition: var(--transition);
+    transition: var(--transition);
+    background-color: #fff;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius);
+    outline: none;
+	&::placeholder {
+		color: #aab4b8;
+		font-weight: 400;
+		opacity: 1;
+	}
+	&.error {
+		@include input-error;
+	}
+}
+select {
+	appearance: none;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237A8E96' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 10px center;
+	border: 1.5px solid var(--border-color);
+	cursor: pointer;
+}
+
+textarea{
+	&.error {
+		@include input-error;
+	}
+}
+
+select {
+	&.error {
+		@include input-error;
+	}
 }
 
 .hidden {

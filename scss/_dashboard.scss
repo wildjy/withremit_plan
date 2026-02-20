@@ -1,0 +1,1111 @@
+
+.db-col-info,
+.db-col-calc {
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.db-col-info > .db-info-card,
+.db-col-calc > .calculator-card {
+	flex: 1;
+}
+
+.db-info-card {
+	background-color: #fff;
+	padding: 35px;
+	border-radius: var(--radius);
+	border: 1px solid var(--border-color);
+	box-shadow: var(--shadow);
+}
+
+.db-main-wallet {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.wallet-val-white {
+	font-size: 2rem;
+	font-weight: 800;
+	color: #fff;
+	margin-bottom: 0;
+}
+
+.wallet-val {
+	font-size: 2.2rem;
+	font-weight: 800;
+	color: var(--primary-blue);
+	margin-bottom: 20px;
+}
+
+.wallet-btns {
+	display: flex;
+	gap: 12px;
+}
+
+
+/* Country Slider Card */
+.db-country-card {
+	overflow: hidden;
+	max-width: 100%;
+  /* Ensure card doesn't overflow */
+}
+
+.country-slider-container {
+  width: 100%;
+  max-width: 100%;
+  /* Constrain width */
+  overflow: hidden;
+  margin-top: 20px;
+  position: relative;
+  white-space: nowrap;
+}
+
+.country-slider-container::before,
+.country-slider-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  /* Prevent interference */
+}
+
+.country-slider-container::before {
+  left: 0;
+  background: linear-gradient(to right, #fff, transparent);
+}
+
+.country-slider-container::after {
+  right: 0;
+  background: linear-gradient(to left, #fff, transparent);
+}
+
+.country-slider {
+  display: inline-block;
+  animation: slide-countries 20s linear infinite;
+  white-space: nowrap;
+  min-width: 100%;
+  /* Ensure it takes full width initially */
+}
+
+.country-slider:hover {
+  animation-play-state: paused;
+}
+
+.country-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 15px;
+  width: 60px;
+  vertical-align: top;
+}
+
+.country-flag-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 8px;
+  border: 1px solid #f0f0f0;
+}
+
+.country-flag-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.country-name {
+  font-size: 0.8rem;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+@keyframes slide-countries {
+  0% {
+    transform: translateX(0); }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Dashbord Overlay Mask - consolidated above as #dbOverlay */
+.db-balance-badge {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	background-color: #7a8e96;
+	color: #fff;
+	padding: 8px 16px;
+	border-radius: 50px;
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+
+.db-balance-badge:hover {
+	background-color: #6b7d85;
+}
+
+.db-balance-badge .badge-label {
+	font-size: 12px;
+	font-weight: 500;
+	opacity: 0.9;
+}
+
+.db-balance-badge .badge-amount {
+	font-size: 14px;
+	font-weight: 700;
+}
+
+/* Dashboard Banner Card Styles */
+.db-banner-card {
+	background-color: #fff;
+	border-radius: var(--radius);
+	border: 1px solid var(--border-color);
+	box-shadow: var(--shadow);
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+/* Dashboard Card Components */
+/* Dashboard Card Components - Moved and consolidated above */
+.db-card-title {
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--text-dark);
+	margin-bottom: 20px;
+}
+
+/* Balance Card - Blue Style */
+.db-balance-card-blue {
+	background: linear-gradient(135deg, #1e88e5 0%, #0d3e76 100%);
+	border: none;
+}
+
+.db-card-title-white {
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: rgba(255, 255, 255, 0.9);
+	margin-bottom: 20px;
+}
+
+.wallet-val-white {
+	font-size: 2.2rem;
+	font-weight: 800;
+	color: #fff;
+	margin-bottom: 20px;
+}
+
+.db-linked-account-white {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
+	font-size: 0.9rem;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.db-linked-account-white svg {
+	flex-shrink: 0;
+	stroke: rgba(255, 255, 255, 0.9);
+}
+
+/* White Button Styles for Blue Card */
+.btn-white {
+	background-color: #fff;
+	color: var(--primary-blue);
+	border: none;
+	font-weight: 600;
+	transition: all 0.2s;
+}
+
+.btn-white:hover {
+	background-color: #f8f9fa;
+	transform: translateY(-1px);
+}
+
+.btn-white-outline {
+	background-color: transparent;
+	color: #fff;
+	border: 2px solid #fff;
+	font-weight: 600;
+	transition: all 0.2s;
+}
+
+.btn-white-outline:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Balance Card */
+.db-balance-card .db-main-wallet {
+	margin-top: 0;
+}
+
+.db-linked-account {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top: 1px solid var(--border-color);
+	font-size: 0.9rem;
+	color: var(--text-muted);
+}
+
+.db-linked-account svg {
+	flex-shrink: 0;
+	stroke: #10b981;
+}
+
+/* Limit Info Card */
+.db-limit-card {
+	background: linear-gradient(135deg, #37474f 0%, #263238 100%);
+	border: none;
+  /* Reduced padding */;
+}
+
+.db-limit-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 15px;
+  /* Adjusted gap */
+	margin-top: 15px;
+  /* Reduced margin */;
+}
+
+.db-limit-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+}
+
+.db-limit-icon {
+	width: 32px;
+	height: 32px;
+	border-radius: 8px;
+	background-color: rgba(255, 255, 255, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.db-limit-icon svg {
+	stroke: rgba(255, 255, 255, 0.9);
+}
+
+.db-limit-content {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	flex: 1;
+}
+
+.db-limit-label {
+	font-size: 0.85rem;
+	color: rgba(255, 255, 255, 0.7);
+	font-weight: 500;
+}
+
+.db-limit-value {
+	font-size: 1.1rem;
+	font-weight: 700;
+	color: #fff;
+	white-space: nowrap;
+}
+
+.db-limit-value.highlight {
+	color: #4fc3f7;
+}
+
+/* Frequent Accounts Card */
+.db-account-list {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.db-account-item {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 12px;
+	background-color: #f8fafc;
+	border-radius: 8px;
+	transition: background 0.2s;
+}
+
+.db-account-item:hover {
+	background-color: #f1f5f9;
+}
+
+.db-account-flag {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+.db-account-flag img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.db-account-info {
+	flex: 1;
+}
+
+.db-account-name {
+	font-size: 0.95rem;
+	font-weight: 600;
+	color: var(--text-dark);
+	margin-bottom: 4px;
+}
+
+.db-account-bank {
+	font-size: 0.85rem;
+	color: var(--text-muted);
+}
+
+.db-add-account {
+	display: inline-block;
+	margin-top: 12px;
+	color: var(--primary-blue);
+	font-size: 0.9rem;
+	font-weight: 600;
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+.db-add-account:hover {
+	color: var(--primary-blue-dark);
+}
+
+/* Transactions List - New Design */
+.db-transaction-list-new {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+.db-transaction-item-new {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 8px 0;
+	border-bottom: 1px solid #f0f0f0;
+	transition: background 0.2s;
+}
+
+.db-transaction-item-new:last-child {
+	border-bottom: none;
+}
+
+.db-trans-icon {
+	display: none !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+
+.db-trans-icon.deposit {
+	background-color: #e3f2fd;
+}
+
+.db-trans-icon.deposit svg {
+	stroke: #1976d2;
+}
+
+.db-trans-icon.withdraw {
+	background-color: #f5f5f5;
+}
+
+.db-trans-icon.withdraw svg {
+	stroke: #757575;
+}
+
+.db-trans-info {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	flex: 1;
+}
+
+.db-trans-date-new {
+	font-size: 0.9rem;
+	color: var(--text-dark);
+	font-weight: 500;
+}
+
+.db-trans-type-new {
+	font-size: 0.8rem;
+	color: var(--text-muted);
+	font-weight: 500;
+}
+
+.db-trans-amounts {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 4px;
+}
+
+.db-trans-amount-new {
+	font-size: 1.05rem;
+	font-weight: 700;
+}
+
+.db-trans-amount-new.deposit {
+	color: #1565c0;
+}
+
+.db-trans-amount-new.withdraw {
+	color: var(--error-color);
+}
+
+.db-trans-balance-new {
+	font-size: 0.85rem;
+	color: var(--text-muted);
+}
+
+/* Transactions List - Old */
+.db-transaction-list {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.db-transaction-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 14px 16px;
+	background-color: #f8fafc;
+	border-radius: 8px;
+	transition: background 0.2s;
+}
+
+.db-transaction-item:hover {
+	background-color: #f1f5f9;
+}
+
+.db-trans-left {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.db-trans-date {
+	font-size: 0.9rem;
+	color: var(--text-body);
+	font-weight: 500;
+	white-space: nowrap;
+}
+
+.db-trans-type {
+	font-size: 0.85rem;
+	padding: 4px 10px;
+	border-radius: 12px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.db-trans-type.deposit {
+	background-color: #d1fae5;
+	color: #065f46;
+}
+
+.db-trans-type.withdraw {
+	background-color: #fee2e2;
+	color: #991b1b;
+}
+
+.db-trans-right {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 4px;
+}
+
+.db-trans-amount {
+	font-size: 1rem;
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+.db-trans-amount.deposit {
+	color: #059669;
+}
+
+.db-trans-amount.withdraw {
+	color: #dc2626;
+}
+
+.db-trans-balance {
+	font-size: 0.85rem;
+	color: var(--text-muted);
+	white-space: nowrap;
+}
+
+/* Frequent Accounts Card */
+.db-account-list {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.db-account-item {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 10px 12px;
+	background-color: var(--bg-light);
+	border-radius: 8px;
+	transition: background 0.2s;
+}
+
+.db-account-item:hover {
+	background-color: #f0f4f8;
+}
+
+.db-account-flag {
+	flex-shrink: 0;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 1px solid var(--border-color);
+}
+
+.db-account-flag img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.db-account-info {
+	flex: 1;
+	min-width: 0;
+}
+
+.db-account-name {
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: var(--text-dark);
+	margin-bottom: 2px;
+}
+
+.db-account-bank {
+	font-size: 0.8rem;
+	color: var(--text-muted);
+}
+
+/* Receipt Number Inquiry Card */
+.db-inquiry-desc {
+	font-size: 0.9rem;
+	color: var(--text-muted);
+	line-height: 1.6;
+}
+
+.db-inquiry-inputs {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.db-inquiry-input {
+	width: 100%;
+	height: 44px;
+	padding: 0 16px;
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	font-size: 0.95rem;
+	transition: border-color 0.2s;
+}
+
+.db-inquiry-input:focus {
+	outline: none;
+	border-color: var(--primary-blue);
+}
+
+/* Ongoing Transfer Card */
+.db-ongoing-info {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-bottom: 16px;
+}
+
+.db-ongoing-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.db-ongoing-label {
+	font-size: 0.9rem;
+	color: var(--text-muted);
+}
+
+.db-ongoing-value {
+	font-size: 0.95rem;
+	font-weight: 600;
+	color: var(--text-dark);
+}
+
+.db-ongoing-value.status-complete {
+	color: var(--primary-blue);
+}
+
+.db-status-inline {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.db-status-icon-small {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--primary-blue);
+	flex-shrink: 0;
+}
+
+.db-status-icon-small svg {
+	stroke: #fff;
+}
+
+.db-status-icon-mini {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--primary-blue);
+	flex-shrink: 0;
+}
+
+.db-status-icon-mini svg {
+	stroke: #fff;
+}
+
+.db-ongoing-notice {
+	padding: 12px;
+	background-color: #eff6ff;
+	border-radius: 8px;
+	font-size: 0.9rem;
+	color: #1e40af;
+	text-align: center;
+}
+
+/* Notices Card */
+.db-card-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.db-card-header .db-card-title {
+	margin-bottom: 0;
+}
+
+.db-notice-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+.db-notice-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 14px 12px;
+	// margin: 0 -12px;
+	border-bottom: 1px solid var(--border-color);
+	text-decoration: none;
+	transition: background 0.2s;
+}
+
+.db-notice-item:last-child {
+	border-bottom: none;
+}
+
+.db-notice-item:hover {
+	background-color: #f8fafc;
+}
+
+.db-notice-item:hover .db-notice-title {
+	color: var(--primary-blue);
+}
+
+.db-notice-title {
+	font-size: 0.9rem;
+	color: var(--text-dark);
+	flex: 1;
+}
+
+.db-notice-date {
+	font-size: 0.85rem;
+	color: #9ca3af;
+	white-space: nowrap;
+	margin-left: 12px;
+}
+
+/* Help Card - Old */
+.db-help-btns {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 12px;
+}
+
+.db-help-btns .btn {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 20px 16px;
+}
+
+.db-help-btns .btn svg {
+	width: 32px;
+	height: 32px;
+}
+
+/* Help Card - New Design */
+.db-help-btns-new {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 12px;
+}
+
+.db-help-btn-new {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 16px 20px;
+	border-radius: var(--radius);
+	border: none;
+	cursor: pointer;
+	transition: all 0.2s;
+	min-height: 60px;
+	background-color: #f8f9fa;
+	color: var(--text-dark);
+}
+
+.db-help-btn-new:hover {
+	background-color: #e9ecef;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.db-help-icon {
+	width: 24px;
+	height: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.db-help-btn-new svg {
+	stroke: var(--text-muted);
+}
+
+.db-help-btn-new span {
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--text-dark);
+}
+
+/* Help Card QR Section */
+.db-help-qr-section {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	margin-top: 24px;
+	padding-top: 24px;
+	border-top: 1px solid var(--border-color);
+}
+
+.db-help-qr-item {
+	text-align: center;
+	flex: 1;
+	max-width: 150px;
+}
+
+.db-help-qr-item h4 {
+	font-size: 0.9rem;
+	font-weight: 600;
+	margin-bottom: 12px;
+	color: var(--text-dark);
+}
+
+.db-help-qr-code {
+	width: 100%;
+	max-width: 120px;
+	height: auto;
+	border-radius: var(--radius);
+	background-color: #fff;
+	border: 1px solid var(--border-color);
+}
+
+
+@media (max-width: 1024px) {
+	.db-col-info,
+  	.db-col-calc {
+		width: 100%;
+		max-width: 100%;
+		min-width: unset;
+		display: contents;
+	}
+
+	.wallet-btns {
+		flex-direction: column;
+	}
+
+	.wallet-btns .btn {
+		width: 100%;
+	}
+
+	.db-limit-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.db-limit-item {
+		gap: 10px;
+	}
+
+	.db-limit-card {
+		order: 2;
+		width: 100%;
+	}
+
+	.db-balance-card {
+		order: 3;
+		width: 100%;
+	}
+
+	.db-country-card {
+		order: 4;
+		width: 100%;
+	}
+
+	.db-ongoing-card {
+		order: 5;
+		width: 100%;
+	}
+
+	.db-transactions-card {
+		order: 6;
+		width: 100%;
+	}
+
+	.db-accounts-card {
+		order: 7;
+		width: 100%;
+	}
+
+	.db-inquiry-card {
+		order: 8;
+		width: 100%;
+	}
+
+	.db-notices-card {
+		order: 9;
+		width: 100%;
+	}
+
+	.db-help-card {
+		order: 10;
+		width: 100%;
+	}
+  /* Help section tablet layout (769-1024px) */;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+	.db-help-content-wrapper {
+		display: flex;
+		gap: 20px;
+		align-items: flex-start;
+	}
+
+	.db-help-btns-new {
+		flex: 0 0 auto;
+		width: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.db-help-qr-section {
+		flex: 1;
+		display: flex;
+		gap: 15px;
+		margin-top: 0 !important;
+		padding-top: 0 !important;
+		border-top: none !important;
+	}
+
+	.db-help-qr-item {
+		flex: 1;
+	}
+
+	.db-help-qr-code {
+		max-width: 80px !important;
+    /* Reduced size */;
+	}
+}
+
+@media (max-width: 480px) {
+	.db-limit-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.db-limit-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.db-limit-item {
+		gap: 10px;
+	}
+
+	.db-help-btns {
+		grid-template-columns: 1fr;
+	}
+
+	.db-help-btns-new {
+		grid-template-columns: 1fr;
+	}
+
+	.db-help-qr-section {
+		gap: 16px;
+		margin-top: 20px;
+		padding-top: 20px;
+	}
+
+	.db-help-qr-item {
+		max-width: 120px;
+	}
+
+	.db-help-qr-item h4 {
+		font-size: 0.85rem;
+		margin-bottom: 10px;
+	}
+
+	.db-help-qr-code {
+		max-width: 100px;
+	}
+
+	.db-col-info,
+  	.db-col-calc {
+		width: 100%;
+		min-width: unset;
+		display: contents;
+	}
+
+	.db-balance-card {
+		order: 3;
+		width: 100%;
+	}
+
+	.db-limit-card {
+		order: 2;
+		width: 100%;
+	}
+
+	.db-ongoing-card {
+		order: 4;
+		width: 100%;
+	}
+
+	.db-transactions-card {
+		order: 5;
+		width: 100%;
+	}
+
+	.db-accounts-card {
+		order: 6;
+		width: 100%;
+	}
+
+	.db-inquiry-card {
+		order: 7;
+		width: 100%;
+	}
+
+	.db-notices-card {
+		order: 8;
+		width: 100%;
+	}
+
+	.db-help-card {
+		order: 9;
+		width: 100%;
+	}
+
+	.db-info-card {
+		padding: 20px;
+	}
+
+	.db-card-title {
+		font-size: 1.1rem;
+	}
+
+	.wallet-val {
+		font-size: 1.8rem;
+	}
+
+	.wallet-btns {
+		flex-direction: column;
+	}
+
+	.wallet-btns .btn {
+		width: 100%;
+	}
+
+	.db-account-item {
+		padding: 10px;
+	}
+
+	.db-account-flag {
+		width: 28px;
+		height: 28px;
+	}
+
+	.db-notice-title {
+		font-size: 0.85rem;
+	}
+
+	.db-notice-date {
+		font-size: 0.8rem;
+	}
+}

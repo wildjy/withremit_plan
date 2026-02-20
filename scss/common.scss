@@ -290,17 +290,18 @@ a.banner-slide {
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
 .calculator-card {
-	background-color: #fff;
-	border-radius: var(--radius-lg);
 	padding: 32px;
-	box-shadow: var(--shadow-lg);
-	border: 1px solid var(--border-color);
 	max-width: 420px;
 	margin-left: auto;
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-lg);
+	background-color: #fff;
+	box-shadow: var(--shadow-lg);
 	&.db {
 		padding: 35px;
 		max-width: 100%;
 		width: 100%;
+		border-radius: var(--radius);
 		// .calculator-title {
 		// 	margin-bottom: 20px;
 		// 	font-size: 1.25rem;
@@ -376,7 +377,7 @@ a.banner-slide {
 
 .calc-input {
 	flex: 1;
-	padding: 14px 16px;
+	padding: 12px 16px;
 	font-size: 1.375rem;
 	font-weight: 600;
 	border: none;
@@ -384,6 +385,24 @@ a.banner-slide {
 	color: var(--text-dark);
 	background-color: transparent;
 	min-width: 0;
+	input {
+		padding: 0;
+	}
+}
+
+@media (max-width: 768px) {
+  	/* Calculator */
+	.calc-input {
+		font-size: 1.2rem;
+		padding: 12px 14px;
+	}
+}
+
+@media (max-width: 480px) {
+  	/* Calculator */
+	.calc-input {
+		padding: 10px 8px;
+	}
 }
 
 .calc-input-with-symbol {

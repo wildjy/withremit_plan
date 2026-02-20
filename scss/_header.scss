@@ -80,9 +80,13 @@
 	align-items: center;
 	gap: 6px;
 
-  .btn-text,
-  .btn-primary {
+	.btn-text,
+	.btn-primary {
 		display: flex;
+	}
+
+	select {
+		width: auto;
 	}
 }
 
@@ -212,8 +216,8 @@
 	}
   /* Hide language and standard buttons */
 	.nav-right .lang-select,
-  .nav-right .btn-text,
-  .nav-right .btn-primary {
+	.nav-right .btn-text,
+	.nav-right .btn-primary {
 		display: none;
 	}
   /* Show Mobile Login Button */
@@ -263,8 +267,8 @@
 	}
 
 	.nav-right .lang-select,
-  .nav-right .btn-text,
-  .nav-right .btn-primary {
+	.nav-right .btn-text,
+	.nav-right .btn-primary {
 		display: none;
 	}
 
@@ -331,7 +335,30 @@
 	}
 }
 
+/* Header Balance Display */
+.db-balance-display {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--text-dark);
+}
 
+@media (max-width: 480px) {
+	.db-balance-display {
+		display: none;
+	}
+}
+.balance-label {
+	color: var(--text-muted);
+	font-weight: 500;
+}
+
+.balance-amount {
+	color: var(--primary-blue);
+	font-weight: 700;
+}
 
 /* ===== 사용안함 : Mobile Menu ===== */
 .mobile-nav {
