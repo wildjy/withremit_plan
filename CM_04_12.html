@@ -22,27 +22,27 @@
             </a>
         </div>
         <div class="login-card register-card-wide">
-            <h2 class="login-title">개인회원 가입</h2>
+            <h2 class="login-title" data-i18n="join.personal">개인회원 가입</h2>
             <form action="register_complete.html" method="POST" class="info-form-body">
                 <section class="form-sec">
-                    <div class="form-sec-head">계정 정보</div>
+                    <div class="form-sec-head" data-i18n="join.account">계정 정보</div>
                     <div class="form-row-full">
                         <div class="field-item">
-                            <label class="field-label">
-                                아이디
-                                <span class="badge-required">필수</span>
+                            <label class="field-label" >
+                                <span data-i18n="join.request.id">아이디</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <div class="field-flex">
                                 <input type="text" placeholder="예: gdhong123" class="login-input">
-                                <button type="button" class="btn-sub-action">중복 확인</button>
+                                <button type="button" class="btn-sub-action" data-i18n="join.checkId">중복 확인</button>
                             </div>
                         </div>
                     </div>
                     <div class="form-row-2">
                         <div class="field-item">
                             <label class="field-label">
-                                비밀번호
-                                <span class="badge-required">필수</span>
+                                <span data-i18n="join.request.password">비밀번호</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <div class="input-box-group">
                                 <input type="password" placeholder="8자 이상 조합" class="login-input">
@@ -58,8 +58,8 @@
                         </div>
                         <div class="field-item">
                             <label class="field-label">
-                                비밀번호 확인
-                                <span class="badge-required">필수</span>
+                                <span data-i18n="join.request.confirmPassword">비밀번호 확인</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <div class="input-box-group">
                                 <input type="password" placeholder="비밀번호 재입력" class="login-input">
@@ -81,11 +81,11 @@
                         <div class="guide-tabs">
                             <label class="guide-label">
                                 <input type="radio" name="nationality" value="domestic" id="domesticRadio">
-                                <div class="guide-tab">내국인 회원가입</div>
+                                <div class="guide-tab" data-i18n="join.national">내국인 회원가입</div>
                             </label>
                             <label class="guide-label">
                                 <input type="radio" name="nationality" value="foreign" id="foreignRadio">
-                                <div class="guide-tab">외국인 회원가입</div>
+                                <div class="guide-tab" data-i18n="join.foreign">외국인 회원가입</div>
                             </label>
                         </div>
                     </div>
@@ -93,53 +93,53 @@
                     <div class="nationality-selector">
                         <label class="nationality-btn-label">
                             <input type="radio" name="a" value="a" id="a" checked>
-                            <div class="nationality-btn">내국인 회원가입</div>
+                            <div class="nationality-btn" data-i18n="join.national">내국인 회원가입</div>
                         </label>
                         <label class="nationality-btn-label">
                             <input type="radio" name="b" value="b" id="b">
-                            <div class="nationality-btn">외국인 회원가입</div>
+                            <div class="nationality-btn" data-i18n="join.foreign">외국인 회원가입</div>
                         </label>
                     </div>
                 </section>
 
                 <!-- 내국인 서류 업로드 -->
                 <section class="form-sec" id="domesticDocSection" style="display: none;">
-                    <div class="form-sec-head">서류 업로드</div>
+                    <div class="form-sec-head" data-i18n="join.upload">서류 업로드</div>
                     <div class="form-row-2">
                         <div class="field-item">
                             <label class="field-label">
-                                본인확인서류 앞면
-                                <span class="badge-required">필수</span>
+                                <span data-i18n="join.upload.front">본인확인서류 앞면</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <button type="button" class="file-upload-wrap upload-btn"
                                 onclick="openOCRModal('domestic-front', '본인확인서류 앞면 업로드')">
-                                <span class="file-name-display" id="domestic-front-display">파일을 선택해 주세요</span>
-                                <span class="btn-file-trigger">찾아보기</span>
+                                <span class="file-name-display" id="domestic-front-display" data-i18n="join.fileSelect">파일을 선택해 주세요</span>
+                                <span class="btn-file-trigger" data-i18n="join.browse">찾아보기</span>
                             </button>
                         </div>
                         <div class="field-item">
                             <label class="field-label">
-                                본인확인서류 뒷면
-                                <span class="badge-required">필수</span>
+                                <span data-i18n="join.upload.back">본인확인서류 뒷면</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <button type="button" class="file-upload-wrap upload-btn"
                                 onclick="openOCRModal('domestic-back', '본인확인서류 뒷면 업로드')">
-                                <span class="file-name-display" id="domestic-back-display">파일을 선택해 주세요</span>
-                                <span class="btn-file-trigger">찾아보기</span>
+                                <span class="file-name-display" id="domestic-back-display" data-i18n="join.fileSelect">파일을 선택해 주세요</span>
+                                <span class="btn-file-trigger" data-i18n="join.browse">찾아보기</span>
                             </button>
                         </div>
                     </div>
-                    <p class="field-desc accent-red">* 주민등록증 또는 운전면허증 중 한 가지만 양면 올려주세요.</p>
+                    <p class="field-desc accent-red" data-i18n="join.upload.guide">* 주민등록증 또는 운전면허증 중 한 가지만 양면 올려주세요.</p>
                 </section>
 
                 <!-- 외국인 서류 업로드 -->
                 <section class="form-sec" id="foreignDocSection" style="display: none;">
-                    <div class="form-sec-head">서류 업로드</div>
+                    <div class="form-sec-head" data-i18n="join.upload">서류 업로드</div>
                     <div class="form-row-2">
                         <div class="field-item">
-                            <label class="field-label">
+                            <label class="field-label" data-i18n="join.upload.front">
                                 여권 앞면
-                                <span class="badge-required">필수</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <button type="button" class="file-upload-wrap upload-btn"
                                 onclick="openOCRModal('passport-front', '여권 앞면 업로드')">
@@ -148,58 +148,58 @@
                             </button>
                         </div>
                         <div class="field-item">
-                            <label class="field-label">
-                                여권 뒷면
-                                <span class="badge-required">필수</span>
+                            <label class="field-label" data-i18n="join.upload.back">
+                                <span data-i18n="join.upload.back">여권 뒷면</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <button type="button" class="file-upload-wrap upload-btn"
                                 onclick="openOCRModal('passport-back', '여권 뒷면 업로드')">
-                                <span class="file-name-display" id="passport-back-display">파일을 선택해 주세요</span>
-                                <span class="btn-file-trigger">찾아보기</span>
+                                <span class="file-name-display" id="passport-back-display" data-i18n="join.fileSelect">파일을 선택해 주세요</span>
+                                <span class="btn-file-trigger" data-i18n="join.browse">찾아보기</span>
                             </button>
                         </div>
                     </div>
                     <div class="form-row-2">
                         <div class="field-item">
-                            <label class="field-label">
-                                외국인등록증 앞면
-                                <span class="badge-required">필수</span>
+                            <label class="field-label" data-i18n="join.upload.front">
+                                <span data-i18n="join.upload.front">외국인등록증 앞면</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <button type="button" class="file-upload-wrap upload-btn"
                                 onclick="openOCRModal('alien-front', '외국인등록증 앞면 업로드')">
-                                <span class="file-name-display" id="alien-front-display">파일을 선택해 주세요</span>
-                                <span class="btn-file-trigger">찾아보기</span>
+                                <span class="file-name-display" id="alien-front-display" data-i18n="join.fileSelect">파일을 선택해 주세요</span>
+                                <span class="btn-file-trigger" data-i18n="join.browse">찾아보기</span>
                             </button>
                         </div>
                         <div class="field-item">
-                            <label class="field-label">
-                                외국인등록증 뒷면
-                                <span class="badge-required">필수</span>
+                            <label class="field-label" data-i18n="join.upload.back">
+                                <span data-i18n="join.upload.back">외국인등록증 뒷면</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <button type="button" class="file-upload-wrap upload-btn"
                                 onclick="openOCRModal('alien-back', '외국인등록증 뒷면 업로드')">
-                                <span class="file-name-display" id="alien-back-display">파일을 선택해 주세요</span>
-                                <span class="btn-file-trigger">찾아보기</span>
+                                <span class="file-name-display" id="alien-back-display" data-i18n="join.fileSelect">파일을 선택해 주세요</span>
+                                <span class="btn-file-trigger" data-i18n="join.browse">찾아보기</span>
                             </button>
                         </div>
                     </div>
-                    <p class="field-desc accent-red">* 여권과 외국인등록증 양면을 모두 올려주세요.</p>
+                    <p class="field-desc accent-red" data-i18n="join.upload.guide2"></p>
                 </section>
 
                 <section class="form-sec" id="personalInfoSection" style="display: none;">
-                    <div class="form-sec-head">개인 정보</div>
+                    <div class="form-sec-head" data-i18n="join.personalInfo">개인 정보</div>
                     <div class="form-row-2">
                         <div class="field-item">
                             <label class="field-label">
-                                성 (한글)
-                                <span class="badge-required">필수</span>
+                                <span data-i18n="join.request.lastName">성 (한글)</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <input type="text" placeholder="예: 홍" class="login-input" id="lastNameKo">
                         </div>
                         <div class="field-item">
                             <label class="field-label">
-                                이름 (한글)
-                                <span class="badge-required">필수</span>
+                                <span data-i18n="join.request.firstName">이름 (한글)</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <input type="text" placeholder="예: 길동" class="login-input" id="firstNameKo">
                         </div>
@@ -207,15 +207,15 @@
                     <div class="form-row-2">
                         <div class="field-item">
                             <label class="field-label">
-                                이름 (영문)
-                                <span class="badge-required">필수</span>
+                                <span data-i18n="join.request.firstNameEn">이름 (영문)</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <input type="text" placeholder="예: GILDONG" class="login-input" id="firstNameEn">
                         </div>
                         <div class="field-item">
                             <label class="field-label">
-                                성 (영문)
-                                <span class="badge-required">필수</span>
+                                <span data-i18n="join.request.lastNameEn">성 (영문)</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <input type="text" placeholder="예: HONG" class="login-input" id="lastNameEn">
                         </div>
@@ -223,78 +223,78 @@
                     <div class="form-row-3">
                         <div class="field-item">
                             <label class="field-label">
-                                생년월일
-                                <span class="badge-required">필수</span>
+                                <span data-i18n="join.request.birthdate">생년월일</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <input type="date" class="login-input date-picker-custom" id="birthDate">
                         </div>
                         <div class="field-item">
                             <label class="field-label">
-                                국적
-                                <span class="badge-required">필수</span>
+                                <span data-i18n="join.request.nationality">국적</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <select class="login-input select-styled" id="nationalitySelect">
-                                <option value="" disabled selected>국적 선택</option>
-                                <option value="KR">대한민국</option>
-                                <option value="JP">일본</option>
-                                <option value="CN">중국</option>
-                                <option value="VN">베트남</option>
-                                <option value="PH">필리핀</option>
-                                <option value="TH">태국</option>
-                                <option value="ID">인도네시아</option>
-                                <option value="MY">말레이시아</option>
+                                <option value="" disabled selected data-i18n="join.selectNationality">국적 선택</option>
+                                <option value="KR" data-i18n="country.korea">대한민국</option>
+                                <option value="JP" data-i18n="country.japan">일본</option>
+                                <option value="CN" data-i18n="country.china">중국</option>
+                                <option value="VN" data-i18n="country.vietnam">베트남</option>
+                                <option value="PH" data-i18n="country.philippines">필리핀</option>
+                                <option value="TH" data-i18n="country.thailand">태국</option>
+                                <option value="ID" data-i18n="country.indonesia">인도네시아</option>
+                                <option value="MY" data-i18n="country.malaysia">말레이시아</option>
                             </select>
                         </div>
                         <div class="field-item">
                             <label class="field-label">
-                                성별
-                                <span class="badge-required">필수</span>
+                                <span data-i18n="join.request.gender">성별</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <div class="field-flex h-52">
                                 <label class="radio-wrap">
                                     <input type="radio" name="g" id="genderMale">
                                     <span class="custom-radio"></span>
-                                    <span>남성</span>
+                                    <span data-i18n="join.request.male">남성</span>
                                 </label>
                                 <label class="radio-wrap">
                                     <input type="radio" name="g" id="genderFemale">
                                     <span class="custom-radio"></span>
-                                    <span>여성</span>
+                                    <span data-i18n="join.request.female">여성</span>
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="form-row-3">
                         <div class="field-item">
-                            <label class="field-label">
+                            <label class="field-label" data-i18n="join.request.phoneNumber">
                                 전화번호
-                                <span class="badge-required">필수</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <input type="text" placeholder="예: 01012345678" class="login-input">
                         </div>
                         <div class="field-item flex-2">
-                            <label class="field-label">
+                            <label class="field-label" data-i18n="join.request.email">
                                 이메일 주소
-                                <span class="badge-required">필수</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <div class="field-flex full-width">
                                 <input type="email" placeholder="example@email.com" class="login-input">
-                                <button type="button" class="btn-sub-action">이메일 중복 확인</button>
+                                <button type="button" class="btn-sub-action" data-i18n="join.checkEmail">이메일 중복 확인</button>
                             </div>
                         </div>
                     </div>
                     <div class="field-item top-level">
-                        <label class="field-label">
+                        <label class="field-label" data-i18n="join.request.address">
                             주소
-                            <span class="badge-required">필수</span>
+                            <span class="badge-required" data-i18n="join.required">필수</span>
                         </label>
                         <div class="field-flex mb-12">
                             <input type="text" placeholder="우편번호" class="login-input" readonly id="postcodeInput">
-                            <button type="button" class="btn-sub-action" onclick="openPostcodeModal()">우편번호 검색</button>
+                            <button type="button" class="btn-sub-action" onclick="openPostcodeModal()" data-i18n="join.searchPostcode">우편번호 검색</button>
                         </div>
                         <input type="text" placeholder="기본 주소" class="login-input mb-12" readonly
                             id="addressBasicInput">
-                        <input type="text" placeholder="상세 주소를 입력해 주세요" class="login-input">
+                        <input type="text" placeholder="상세 주소를 입력해 주세요" class="login-input" data-i18n="join.request.addressDetail">
                     </div>
                 </section>
 
@@ -448,15 +448,14 @@
                                 stroke-width="2" style="margin: 0 auto 12px;">
                                 <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" />
                             </svg>
-                            <p style="color: #666; margin: 0; font-weight: 500;">클릭 또는 이미지를 여기로 끌어오세요</p>
+                            <p class="ocr-upload-text">클릭 또는 이미지를 여기로 끌어오세요</p>
+                            <p class="ocr-upload-text isMobile">직접 촬영하거나 휴대폰 보관함에서 이미지를 선택해 주세요</p>
                         </div>
-                        <div id="ocrImagePreview" class="ocr-upload-area has-image"
-                            style="display: none; margin-top: 16px; text-align: center; cursor: default;">
-                            <img id="ocrPreviewImg" style="max-width: 100%; max-height: 250px; border-radius: 8px;">
-                            <p id="previewText" style="margin-top: 10px; color: #666; font-size: 14px;">이미지 확인 중...</p>
-                            <div style="display: flex; gap: 12px; justify-content: center; margin-top: 16px;">
-                                <button type="button" class="quick-btn re-upload" onclick="resetOCRModal()">이미지 다시
-                                    등록</button>
+                        <div id="ocrImagePreview" class="ocr-upload-area has-image">
+                            <img id="ocrPreviewImg" alt="업로드 이미지" />
+                            <p id="previewText">이미지 확인 중...</p>
+                            <div class="ocrBtn-box">
+                                <button type="button" class="quick-btn re-upload" onclick="resetOCRModal()">이미지 다시등록</button>
                             </div>
                         </div>
                     </div>
@@ -736,9 +735,9 @@
         function resetOCRModal() {
             document.getElementById('ocrImagePreview').style.display = 'none';
             document.getElementById('ocrResultSection').style.display = 'none';
-            document.getElementById('ocrUploadArea').style.display = 'block';
+            document.getElementById('ocrUploadArea').style.display = 'flex';
             document.getElementById('ocrFileInput').value = '';
-            document.getElementById('ocrUploadArea').style.display = 'block';
+            document.getElementById('ocrUploadArea').style.display = 'flex';
             document.getElementById('ocrFileInput').value = '';
             document.getElementById('previewText').textContent = '이미지 확인 중...';
             currentFileName = '';
