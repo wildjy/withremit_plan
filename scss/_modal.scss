@@ -58,7 +58,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	border-bottom: 1px solid var(--border-color);
+	border-bottom: 1px solid var(--border-default);
 	background-color: var(--white);
 	z-index: 10;
 }
@@ -105,7 +105,7 @@
 
 .modal-footer {
 	padding: 16px 24px;
-	border-top: 1px solid var(--border-color);
+	border-top: 1px solid var(--border-default);
 	display: flex;
 	justify-content: flex-end;
 	gap: 12px;
@@ -193,7 +193,7 @@
 }
 
 .modal-btn-success {
-	background-color: var(--primary-green);
+	background-color: var(--primary-default);
 	border: none;
 	color: #ffffff;
 	width: 100%;

@@ -1,76 +1,12 @@
 :root {
-  // color palette
-  // old colors
-  // --primary-blue: #1b5e9e;
-  // --primary-blue-dark: #154a7c;
-  // --primary-blue-light: #e8f1f8;
-  // --accent-teal: #00c9b7;
-  // --bg-light: #f8fafa;
-  // --bg-section: #f2f6f5;
-  // --bg-dark: #1a2e35;
-  // --bg-dark-alt: #243b44;
-  // --text-dark: #1a2e35;
-  // --text-body: #4a5c64;
-  // --text-muted: #7a8e96;
-  // --text-light: #ffffff;
-  // --border-color: #dde4e6;
-  // --shadow-sm: 0 2px 8px rgba(26, 46, 53, 0.06);
-  // --shadow: 0 4px 20px rgba(26, 46, 53, 0.08);
-  // --shadow-lg: 0 12px 40px rgba(26, 46, 53, 0.12);
-  // --radius: 12px;
-  // --radius-lg: 20px;
-  // --transition: all 0.3s ease;
-
-  // base font size: 16px (1rem)
-
   // layout sizes
   --full: 100%;
   --full-vw: 100vw;
   --full-vh: 100vh;
   --max-w: 1200px;
-  --header-h: 3.5625rem; // max-width: 768px
+  --header-h: 3.5625rem; //  max-width: 768px
   --header-h-md: 4.5625rem; // min-width: 769px
   --input-h: 3.25rem; // 52px
-
-  // new colors
-  --primary-blue: #00A0DC;
-  --primary-blue-dark: #0088BE;
-  --primary-blue-light: #E5F6FC;
-
-  --primary-green: #00a0dc;
-  --primary-green-dark: #0088be;
-  --primary-green-light: #e5f6fc;
-
-  --secondary-gray: #F3F4F6;
-  --secondary-gray-dark: #5A6268;
-  --secondary-gray-light: #F1F3F5;
-
-  --error-color: #EF4444;
-  --confirm-color: #22C55E;
-  --cancel-color: #F87171;
-  --utility-color: #7A8E96;
-  --waring-color: #F87171;
-  --delete-color: #EF4444;
-
-  --status-review: #d97706;
-  --status-processing: #d97706;
-  --status-approved: #059669;
-  --status-complete: #2563eb;
-  --status-failed: #dc2626;
-  --status-cancel: #6b7280;
-
-
-  --accent-red: #fca5a5;
-  --accent-red-light: #fca5a5;
-  --accent-red-dark: #ef4444;
-  --accent-yellow: #FFC107;
-  --accent-teal: #00C9B7;
-
-  --bg-delete: #fef2f2;
-  --bg-light: #F8FAFA;
-  --bg-section: #F2F6F5;
-  --bg-dark: #1A2E35;
-  --bg-dark-alt: #243B44;
 
   --text-body: #4A5C64;
   --text-dark: #1A2E35;
@@ -81,11 +17,63 @@
   --black: #000000;
   --transparent: transparent;
 
-  --border-color: #DDE4E6;
+  // new colors
+  --primary-default: #00A0DC;
+  --primary-strong: #3F87B9;
+  --primary-heavy: #1B5E9E;
+
+  --neutral-light: #C8D5DA;
+  --neutral-soft: #A4B7C0;
+  --neutral-default: #7A8E96;
+  --neutral-strong: #4A5C64;
+  --neutral-heavy: #1A2E35;
+
+  --secondary-gray: #F3F4F6;
+  --secondary-gray-dark: #5A6268;
+  --secondary-gray-light: #F1F3F5;
+
+  --negative: #EF4444;
+  --positive: #059669;
+  --cautionary: #F59E0B;
+
+  // status colors
+  --status-verified: #059669; // 인증
+  --status-unverified: #EF4444; // 미인증
+  --status-received: #059669; // 접수
+  --status-processing: #059669; // 신청중
+  --status-approved: #059669; // 접수완료
+  --status-complete: #1B5E9E; // 입금완료
+  --status-success: #1B5E9E; // 거래성공
+  --status-failed: #EF4444; // 거래실패
+  --status-pending: #4A5C64; // 거래보류
+  --status-cancel: #4A5C64; // 거래취소
+
+  --accent-teal: #00C9B7;
+
+  --bg-default: #F5F8FC;
+  --bg-soft: #F8FBFD;
+  --bg-positive: #D9F3EB;
+  --bg-negative: #FDE9E9;
+  --bg-success: #DDE9F4;
+
+  // main bg colors
+  --bg-light: #F8FAFA;
+  --bg-section: #F2F6F5;
+  --bg-dark: #1A2E35;
+  --bg-dark-alt: #243B44;
+
+  --border-soft: #EDEFF0;
+  --border-default: #DFE4E6;
 
   --shadow-sm: 0 0.125rem 0.5rem rgba(26, 46, 53, 0.06);
   --shadow: 0 0.25rem 1.25rem rgba(26, 46, 53, 0.08);
   --shadow-lg: 0 0.75rem 2.5rem rgba(26, 46, 53, 0.12);
+
+  // button test
+  --accent-red: #fca5a5;
+  --accent-red-light: #fca5a5;
+  --accent-red-dark: #ef4444;
+  --bg-delete: #fef2f2;
 
   // sizes & spacing
   --s1 : 0.25rem;  // 4px

@@ -1,156 +1,176 @@
 // Sample remittance data (10 items) - Receive History
 const remittanceData = [
-    {
-        receiptNum: '123456',
-        date: '2026.01.12',
-        sendAmount: '¥111,200',
-        depositAmount: '¥111,200',
-        receiveAmount: '₩1,000,000',
-        receiveCurrency: '₩1,000,000',
-        flag: 'images/jp.png',
-        name: 'Kim Minho',
-        bank: '신한은행',
-        receiveDate: '2026.01.12',
-        status: 'cancel',
-        statusText: '거래 취소',
-        country: '일본'
-    },
-    {
-        receiptNum: '123457',
-        date: '2026.01.11',
-        sendAmount: '¥5,400',
-        depositAmount: '¥5,400',
-        receiveAmount: '₩1,000,000',
-        receiveCurrency: '₩1,000,000',
-        flag: 'images/cn.png',
-        name: 'Lee Jisoo',
-        bank: '우리은행',
-        receiveDate: '2026.01.11',
-        status: 'approved',
-        statusText: '접수 완료',
-        country: '중국'
-    },
-    {
-        receiptNum: '123458',
-        date: '2026.01.10',
-        sendAmount: 'A$1,089',
-        depositAmount: 'A$1,089',
-        receiveAmount: '₩1,000,000',
-        receiveCurrency: '₩1,000,000',
-        flag: 'images/au.png',
-        name: 'Park Jiwon',
-        bank: 'KB국민은행',
-        receiveDate: '2026.01.10',
-        status: 'success',
-        statusText: '거래 성공',
-        country: '호주'
-    },
-    {
-        receiptNum: '123459',
-        date: '2026.01.09',
-        sendAmount: '₱21,000',
-        depositAmount: '₱21,000',
-        receiveAmount: '₩500,000',
-        receiveCurrency: '₩500,000',
-        flag: 'images/ph.png',
-        name: 'Choi Seohyun',
-        bank: '하나은행',
-        receiveDate: '2026.01.09',
-        status: 'complete',
-        statusText: '입금 완료',
-        country: '필리핀'
-    },
-    {
-        receiptNum: '123460',
-        date: '2026.01.08',
-        sendAmount: '₫13,900,000',
-        depositAmount: '₫13,900,000',
-        receiveAmount: '₩800,000',
-        receiveCurrency: '₩800,000',
-        flag: 'images/vn.png',
-        name: 'Jung Hana',
-        bank: 'IBK기업은행',
-        receiveDate: '2026.01.08',
-        status: 'success',
-        statusText: '거래 성공',
-        country: '베트남'
-    },
-    {
-        receiptNum: '123461',
-        date: '2026.01.07',
-        sendAmount: '৳57,600',
-        depositAmount: '৳57,600',
-        receiveAmount: '₩650,000',
-        receiveCurrency: '₩650,000',
-        flag: 'images/bd.png',
-        name: 'Kang Subin',
-        bank: 'NH농협은행',
-        receiveDate: '2026.01.07',
-        status: 'approved',
-        statusText: '접수 완료',
-        country: '방글라데시'
-    },
-    {
-        receiptNum: '123462',
-        date: '2026.01.06',
-        sendAmount: 'HK$6,900',
-        depositAmount: 'HK$6,900',
-        receiveAmount: '₩1,200,000',
-        receiveCurrency: '₩1,200,000',
-        flag: 'images/hk.png',
-        name: 'Song Minji',
-        bank: '카카오뱅크',
-        receiveDate: '2026.01.06',
-        status: 'success',
-        statusText: '거래 성공',
-        country: '홍콩'
-    },
-    {
-        receiptNum: '123463',
-        date: '2026.01.05',
-        sendAmount: '₨44,000',
-        depositAmount: '₨44,000',
-        receiveAmount: '₩450,000',
-        receiveCurrency: '₩450,000',
-        flag: 'images/np.png',
-        name: 'Yoon Jihoon',
-        bank: '토스뱅크',
-        receiveDate: '2026.01.05',
-        status: 'pending',
-        statusText: '거래 보류',
-        country: '네팔'
-    },
-    {
-        receiptNum: '123464',
-        date: '2026.01.04',
-        sendAmount: '₮1,880,000',
-        depositAmount: '₮1,880,000',
-        receiveAmount: '₩750,000',
-        receiveCurrency: '₩750,000',
-        flag: 'images/mn.png',
-        name: 'Han Yoona',
-        bank: 'SC제일은행',
-        receiveDate: '2026.01.04',
-        status: 'success',
-        statusText: '거래 성공',
-        country: '몽골'
-    },
-    {
-        receiptNum: '123465',
-        date: '2026.01.03',
-        sendAmount: '₨123,000',
-        depositAmount: '₨123,000',
-        receiveAmount: '₩550,000',
-        receiveCurrency: '₩550,000',
-        flag: 'images/lk.png',
-        name: 'Seo Hyunwoo',
-        bank: '케이뱅크',
-        receiveDate: '2026.01.03',
-        status: 'complete',
-        statusText: '입금 완료',
-        country: '스리랑카'
-    }
+  // 1️⃣ verified - 인증
+  {
+    receiptNum: '123456',
+    date: '2026.01.12',
+    sendAmount: '¥111,200',
+    depositAmount: '¥111,200',
+    receiveAmount: '₩1,000,000',
+    receiveCurrency: '₩1,000,000',
+    flag: 'images/jp.png',
+    name: 'Kim Minho',
+    bank: '신한은행',
+    receiveDate: '2026.01.12',
+    status: 'verified',
+    statusText: '인증',
+    country: '일본'
+  },
+
+  // 2️⃣ unverified - 미인증
+  {
+    receiptNum: '123457',
+    date: '2026.01.11',
+    sendAmount: '¥5,400',
+    depositAmount: '¥5,400',
+    receiveAmount: '₩1,000,000',
+    receiveCurrency: '₩1,000,000',
+    flag: 'images/cn.png',
+    name: 'Lee Jisoo',
+    bank: '우리은행',
+    receiveDate: '2026.01.11',
+    status: 'unverified',
+    statusText: '미인증',
+    country: '중국'
+  },
+
+  // 3️⃣ received - 접수
+  {
+    receiptNum: '123458',
+    date: '2026.01.10',
+    sendAmount: 'A$1,089',
+    depositAmount: 'A$1,089',
+    receiveAmount: '₩1,000,000',
+    receiveCurrency: '₩1,000,000',
+    flag: 'images/au.png',
+    name: 'Park Jiwon',
+    bank: 'KB국민은행',
+    receiveDate: '2026.01.10',
+    status: 'received',
+    statusText: '접수',
+    country: '호주'
+  },
+
+  // 4️⃣ processing - 신청중
+  {
+    receiptNum: '123459',
+    date: '2026.01.09',
+    sendAmount: '₱21,000',
+    depositAmount: '₱21,000',
+    receiveAmount: '₩500,000',
+    receiveCurrency: '₩500,000',
+    flag: 'images/ph.png',
+    name: 'Choi Seohyun',
+    bank: '하나은행',
+    receiveDate: '2026.01.09',
+    status: 'processing',
+    statusText: '신청중',
+    country: '필리핀'
+  },
+
+  // 5️⃣ approved - 접수 완료
+  {
+    receiptNum: '123460',
+    date: '2026.01.08',
+    sendAmount: '₫13,900,000',
+    depositAmount: '₫13,900,000',
+    receiveAmount: '₩800,000',
+    receiveCurrency: '₩800,000',
+    flag: 'images/vn.png',
+    name: 'Jung Hana',
+    bank: 'IBK기업은행',
+    receiveDate: '2026.01.08',
+    status: 'approved',
+    statusText: '접수 완료',
+    country: '베트남'
+  },
+
+  // 6️⃣ complete - 입금 완료
+  {
+    receiptNum: '123461',
+    date: '2026.01.07',
+    sendAmount: '৳57,600',
+    depositAmount: '৳57,600',
+    receiveAmount: '₩650,000',
+    receiveCurrency: '₩650,000',
+    flag: 'images/bd.png',
+    name: 'Kang Subin',
+    bank: 'NH농협은행',
+    receiveDate: '2026.01.07',
+    status: 'complete',
+    statusText: '입금 완료',
+    country: '방글라데시'
+  },
+
+  // 7️⃣ success - 거래 성공
+  {
+    receiptNum: '123462',
+    date: '2026.01.06',
+    sendAmount: 'HK$6,900',
+    depositAmount: 'HK$6,900',
+    receiveAmount: '₩1,200,000',
+    receiveCurrency: '₩1,200,000',
+    flag: 'images/hk.png',
+    name: 'Song Minji',
+    bank: '카카오뱅크',
+    receiveDate: '2026.01.06',
+    status: 'success',
+    statusText: '거래 성공',
+    country: '홍콩'
+  },
+
+  // 8️⃣ failed - 거래 실패
+  {
+    receiptNum: '123463',
+    date: '2026.01.05',
+    sendAmount: '₨44,000',
+    depositAmount: '₨44,000',
+    receiveAmount: '₩450,000',
+    receiveCurrency: '₩450,000',
+    flag: 'images/np.png',
+    name: 'Yoon Jihoon',
+    bank: '토스뱅크',
+    receiveDate: '2026.01.05',
+    status: 'failed',
+    statusText: '거래 실패',
+    country: '네팔'
+  },
+
+  // 9️⃣ pending - 거래 보류
+  {
+    receiptNum: '123464',
+    date: '2026.01.04',
+    sendAmount: '₮1,880,000',
+    depositAmount: '₮1,880,000',
+    receiveAmount: '₩750,000',
+    receiveCurrency: '₩750,000',
+    flag: 'images/mn.png',
+    name: 'Han Yoona',
+    bank: 'SC제일은행',
+    receiveDate: '2026.01.04',
+    status: 'pending',
+    statusText: '거래 보류',
+    country: '몽골'
+  },
+
+  // 🔟 cancel - 거래취소
+  {
+    receiptNum: '123465',
+    date: '2026.01.03',
+    sendAmount: '₨123,000',
+    depositAmount: '₨123,000',
+    receiveAmount: '₩550,000',
+    receiveCurrency: '₩550,000',
+    flag: 'images/lk.png',
+    name: 'Seo Hyunwoo',
+    bank: '케이뱅크',
+    receiveDate: '2026.01.03',
+    status: 'cancel',
+    statusText: '거래 취소',
+    country: '스리랑카'
+  }
 ];
+
 
 // ===== DOM Elements =====
 const sendAmountInput = document.getElementById('sendAmount');
@@ -170,6 +190,39 @@ const currencyCode = document.getElementById('receiveCurrencyCode');
 // common Tabs
 const tabs = document.querySelectorAll('.guide-tab');
 const contents = document.querySelectorAll('.tab-content');
+
+// Generate status SVG
+// verified - 인증,
+// unverified - 미인증,
+// received - 접수,
+// processing - 신청중,
+// approved- 접수 완료, 
+// complete - 입금 완료, 
+// success - 거래 성공, 
+// failed - 거래 실패,
+// pending - 거래 보류
+// cancel - 거래취소
+function getStatusSVG(status) {
+    const svgs = {
+        // HI_01_01, HI_01_03
+        verified: '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.66667 0C2.99333 0 0 2.99333 0 6.66667C0 10.34 2.99333 13.3333 6.66667 13.3333C10.34 13.3333 13.3333 10.34 13.3333 6.66667C13.3333 2.99333 10.34 0 6.66667 0ZM9.85333 5.13333L6.07333 8.91333C5.98 9.00667 5.85333 9.06 5.72 9.06C5.58667 9.06 5.46 9.00667 5.36667 8.91333L3.48 7.02667C3.28667 6.83333 3.28667 6.51333 3.48 6.32C3.67333 6.12667 3.99333 6.12667 4.18667 6.32L5.72 7.85333L9.14667 4.42667C9.34 4.23333 9.66 4.23333 9.85333 4.42667C10.0467 4.62 10.0467 4.93333 9.85333 5.13333Z" fill="#059669"/></svg>',
+        unverified: '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.66667 0C2.99333 0 0 2.99333 0 6.66667C0 10.34 2.99333 13.3333 6.66667 13.3333C10.34 13.3333 13.3333 10.34 13.3333 6.66667C13.3333 2.99333 10.34 0 6.66667 0ZM8.90667 8.2C9.1 8.39333 9.1 8.71333 8.90667 8.90667C8.80667 9.00667 8.68 9.05333 8.55333 9.05333C8.42667 9.05333 8.3 9.00667 8.2 8.90667L6.66667 7.37333L5.13333 8.90667C5.03333 9.00667 4.90667 9.05333 4.78 9.05333C4.65333 9.05333 4.52667 9.00667 4.42667 8.90667C4.23333 8.71333 4.23333 8.39333 4.42667 8.2L5.96 6.66667L4.42667 5.13333C4.23333 4.94 4.23333 4.62 4.42667 4.42667C4.62 4.23333 4.94 4.23333 5.13333 4.42667L6.66667 5.96L8.2 4.42667C8.39333 4.23333 8.71333 4.23333 8.90667 4.42667C9.1 4.62 9.1 4.94 8.90667 5.13333L7.37333 6.66667L8.90667 8.2Z" fill="#EF4444"/></svg>',
+        received: '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.4395 2.06641C10.8927 2.06641 11.4591 2.38005 11.6992 2.7666L14.4863 7.21973C14.753 7.65306 14.7266 8.33357 14.4199 8.74023L10.9668 13.3398C10.7201 13.6665 10.186 13.9336 9.7793 13.9336H2.81348C1.64691 13.9336 0.939674 12.6535 1.55273 11.6602L3.39941 8.70703C3.64606 8.31372 3.64603 7.67361 3.39941 7.28027L1.55273 4.32715C0.939401 3.34715 1.65348 2.06641 2.81348 2.06641H10.4395ZM7.41602 4.72266C7.26285 4.49291 6.95241 4.43086 6.72266 4.58398C6.49289 4.73716 6.43081 5.04758 6.58398 5.27734L8.39844 8L6.58398 10.7227C6.43081 10.9524 6.49289 11.2628 6.72266 11.416C6.95241 11.5691 7.26285 11.5071 7.41602 11.2773L9.41602 8.27734C9.52795 8.10941 9.52795 7.89059 9.41602 7.72266L7.41602 4.72266Z" fill="#059669"/></svg>',
+        processing: '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.00016 1.33333C4.32683 1.33333 1.3335 4.32666 1.3335 7.99999C1.3335 11.6733 4.32683 14.6667 8.00016 14.6667C11.6735 14.6667 14.6668 11.6733 14.6668 7.99999C14.6668 4.32666 11.6735 1.33333 8.00016 1.33333ZM11.1868 6.46666L7.40683 10.2467C7.3135 10.34 7.18683 10.3933 7.0535 10.3933C6.92016 10.3933 6.7935 10.34 6.70016 10.2467L4.8135 8.35999C4.62016 8.16666 4.62016 7.84666 4.8135 7.65333C5.00683 7.45999 5.32683 7.45999 5.52016 7.65333L7.0535 9.18666L10.4802 5.75999C10.6735 5.56666 10.9935 5.56666 11.1868 5.75999C11.3802 5.95333 11.3802 6.26666 11.1868 6.46666Z" fill="#059669"/></svg>',
+        approved: '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.00016 1.33333C4.32683 1.33333 1.3335 4.32666 1.3335 7.99999C1.3335 11.6733 4.32683 14.6667 8.00016 14.6667C11.6735 14.6667 14.6668 11.6733 14.6668 7.99999C14.6668 4.32666 11.6735 1.33333 8.00016 1.33333ZM11.1868 6.46666L7.40683 10.2467C7.3135 10.34 7.18683 10.3933 7.0535 10.3933C6.92016 10.3933 6.7935 10.34 6.70016 10.2467L4.8135 8.35999C4.62016 8.16666 4.62016 7.84666 4.8135 7.65333C5.00683 7.45999 5.32683 7.45999 5.52016 7.65333L7.0535 9.18666L10.4802 5.75999C10.6735 5.56666 10.9935 5.56666 11.1868 5.75999C11.3802 5.95333 11.3802 6.26666 11.1868 6.46666Z" fill="#059669"/></svg>',
+        complete: '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.00016 1.33333C4.32683 1.33333 1.3335 4.32666 1.3335 7.99999C1.3335 11.6733 4.32683 14.6667 8.00016 14.6667C11.6735 14.6667 14.6668 11.6733 14.6668 7.99999C14.6668 4.32666 11.6735 1.33333 8.00016 1.33333ZM10.9002 10.38C10.8068 10.54 10.6402 10.6267 10.4668 10.6267C10.3802 10.6267 10.2935 10.6067 10.2135 10.5533L8.14683 9.31999C7.6335 9.01333 7.2535 8.33999 7.2535 7.74666V5.01333C7.2535 4.73999 7.48016 4.51333 7.7535 4.51333C8.02683 4.51333 8.2535 4.73999 8.2535 5.01333V7.74666C8.2535 7.98666 8.4535 8.33999 8.66016 8.45999L10.7268 9.69333C10.9668 9.83333 11.0468 10.14 10.9002 10.38Z" fill="#1B5E9E"/></svg>',
+        success: '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.7601 1.97333L4.74008 3.97333C0.693412 5.32666 0.693412 7.53333 4.74008 8.88L6.52674 9.47333L7.12008 11.26C8.46674 15.3067 10.6801 15.3067 12.0267 11.26L14.0334 5.24666C14.9267 2.54666 13.4601 1.07333 10.7601 1.97333ZM10.9734 5.56L8.44008 8.10666C8.34008 8.20667 8.21341 8.25333 8.08674 8.25333C7.96008 8.25333 7.83341 8.20667 7.73341 8.10666C7.54008 7.91333 7.54008 7.59333 7.73341 7.4L10.2667 4.85333C10.4601 4.66 10.7801 4.66 10.9734 4.85333C11.1667 5.04666 11.1667 5.36666 10.9734 5.56Z" fill="#1B5E9E"/></svg>',
+        failed: '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.00065 1.33333C4.32732 1.33333 1.33398 4.32666 1.33398 7.99999C1.33398 11.6733 4.32732 14.6667 8.00065 14.6667C11.674 14.6667 14.6673 11.6733 14.6673 7.99999C14.6673 4.32666 11.674 1.33333 8.00065 1.33333ZM10.2407 9.53333C10.434 9.72666 10.434 10.0467 10.2407 10.24C10.1407 10.34 10.014 10.3867 9.88732 10.3867C9.76065 10.3867 9.63398 10.34 9.53398 10.24L8.00065 8.70666L6.46732 10.24C6.36732 10.34 6.24065 10.3867 6.11398 10.3867C5.98732 10.3867 5.86065 10.34 5.76065 10.24C5.56732 10.0467 5.56732 9.72666 5.76065 9.53333L7.29398 7.99999L5.76065 6.46666C5.56732 6.27333 5.56732 5.95333 5.76065 5.75999C5.95398 5.56666 6.27398 5.56666 6.46732 5.75999L8.00065 7.29333L9.53398 5.75999C9.72732 5.56666 10.0473 5.56666 10.2407 5.75999C10.434 5.95333 10.434 6.27333 10.2407 6.46666L8.70732 7.99999L10.2407 9.53333Z" fill="#EF4444"/></svg>',
+        pending: '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5936 10.4467L8.90031 8H7.09364L4.40031 10.4467C3.64698 11.1267 3.40031 12.1733 3.76698 13.12C4.13364 14.06 5.02698 14.6667 6.03364 14.6667H9.96031C10.9736 14.6667 11.8603 14.06 12.227 13.12C12.5936 12.1733 12.347 11.1267 11.5936 10.4467ZM9.21364 12.0933H6.78698C6.53364 12.0933 6.33364 11.8867 6.33364 11.64C6.33364 11.3933 6.54031 11.1867 6.78698 11.1867H9.21364C9.46698 11.1867 9.66698 11.3933 9.66698 11.64C9.66698 11.8867 9.46031 12.0933 9.21364 12.0933Z" fill="#4A5C64"/><path d="M12.2336 2.87998C11.8669 1.93998 10.9736 1.33331 9.96694 1.33331H6.0336C5.02694 1.33331 4.1336 1.93998 3.76694 2.87998C3.40694 3.82665 3.6536 4.87331 4.40694 5.55331L7.10027 7.99998H8.90694L11.6003 5.55331C12.3469 4.87331 12.5936 3.82665 12.2336 2.87998ZM9.2136 4.81998H6.78694C6.5336 4.81998 6.3336 4.61331 6.3336 4.36665C6.3336 4.11998 6.54027 3.91331 6.78694 3.91331H9.2136C9.46694 3.91331 9.66694 4.11998 9.66694 4.36665C9.66694 4.61331 9.46027 4.81998 9.2136 4.81998Z" fill="#4A5C64"/></svg>',
+        cancel: '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.66667 0C2.99333 0 0 2.99333 0 6.66667C0 10.34 2.99333 13.3333 6.66667 13.3333C10.34 13.3333 13.3333 10.34 13.3333 6.66667C13.3333 2.99333 10.34 0 6.66667 0ZM8.90667 8.2C9.1 8.39333 9.1 8.71333 8.90667 8.90667C8.80667 9.00667 8.68 9.05333 8.55333 9.05333C8.42667 9.05333 8.3 9.00667 8.2 8.90667L6.66667 7.37333L5.13333 8.90667C5.03333 9.00667 4.90667 9.05333 4.78 9.05333C4.65333 9.05333 4.52667 9.00667 4.42667 8.90667C4.23333 8.71333 4.23333 8.39333 4.42667 8.2L5.96 6.66667L4.42667 5.13333C4.23333 4.94 4.23333 4.62 4.42667 4.42667C4.62 4.23333 4.94 4.23333 5.13333 4.42667L6.66667 5.96L8.2 4.42667C8.39333 4.23333 8.71333 4.23333 8.90667 4.42667C9.1 4.62 9.1 4.94 8.90667 5.13333L7.37333 6.66667L8.90667 8.2Z" fill="#4A5C64"/></svg>',
+        // RM_02_01 status icons
+        // running: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
+        paused: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
+        active: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
+        // stop: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>'
+    };
+    return svgs[status] || '';
+}
 
 // Function to activate a specific tab
 if(tabs.length > 0 && contents.length > 0) {

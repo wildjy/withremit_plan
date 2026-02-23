@@ -23,11 +23,11 @@
 
 .btn-text:hover {
 	background-color: rgba(27, 94, 158, 0.08);
-	color: var(--primary-blue);
+	color: var(--primary-default);
 }
 
 .btn-outline {
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--border-default);
 	color: var(--text-dark);
 	background-color: #fff;
 }
@@ -38,14 +38,14 @@
 }
 
 .btn-primary {
-	background-color: var(--primary-green);
+	background-color: var(--primary-default);
 	color: #fff;
 	font-weight: 600;
 	padding: 0 20px;
 }
 
 .btn-primary:hover {
-	background-color: var(--primary-green-dark);
+	background-color: var(--primary-strong);
 	transform: translateY(-1px);
 	box-shadow: 0 4px 12px rgba(0, 160, 220, 0.3);
 }
@@ -133,7 +133,7 @@
 	font-weight: 500;
 	color: var(--text-dark);
 	background-color: var(--bg-light);
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--border-default);
 	border-radius: 6px;
 	cursor: pointer;
 	transition: all 0.2s;
@@ -157,9 +157,9 @@
 }
 
 .quick-btn:hover {
-	background-color: var(--primary-blue);
+	background-color: var(--primary-default);
 	color: #fff;
-	border-color: var(--primary-blue);
+	border-color: var(--primary-default);
 }
 
 .quick-btn:active {

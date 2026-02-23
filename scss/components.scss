@@ -190,7 +190,7 @@
 	justify-content: center;
 	width: 32px;
 	height: 32px;
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--border-default);
 	background-color: #fff;
 	border-radius: 6px;
 	cursor: pointer;
@@ -199,7 +199,7 @@
 
 .db-page-btn:hover {
 	background-color: var(--bg-light);
-	border-color: var(--primary-blue);
+	border-color: var(--primary-default);
 }
 
 .db-page-btn svg {
@@ -210,7 +210,7 @@
 	min-width: 32px;
 	height: 32px;
 	padding: 0 8px;
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--border-default);
 	background-color: #fff;
 	border-radius: 6px;
 	font-size: 0.9rem;
@@ -222,13 +222,13 @@
 
 .db-page-num:hover {
 	background-color: var(--bg-light);
-	border-color: var(--primary-blue);
-	color: var(--primary-blue);
+	border-color: var(--primary-default);
+	color: var(--primary-default);
 }
 
 .db-page-num.active {
-	background-color: var(--primary-green);
-	border-color: var(--primary-green);
+	background-color: var(--primary-default);
+	border-color: var(--primary-default);
 	color: #fff;
 	font-weight: 600;
 }
@@ -240,12 +240,12 @@
 }
 
 .db-rows-select:hover {
-	border-color: var(--primary-blue);
+	border-color: var(--primary-default);
 }
 
 .db-rows-select:focus {
 	outline: none;
-	border-color: var(--primary-blue);
+	border-color: var(--primary-default);
 }
 
 @media (max-width: 1024px) {

@@ -16,7 +16,7 @@
 	background-color: #fff;
 	padding: 35px;
 	border-radius: var(--radius);
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--border-default);
 	box-shadow: var(--shadow);
 }
 
@@ -39,7 +39,7 @@
 .wallet-val {
 	font-size: 2.2rem;
 	font-weight: 800;
-	color: var(--primary-blue);
+	color: var(--primary-default);
 	margin-bottom: 20px;
 }
 
@@ -174,7 +174,7 @@
 .db-banner-card {
 	background-color: #fff;
 	border-radius: var(--radius);
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--border-default);
 	box-shadow: var(--shadow);
 	overflow: hidden;
 	margin-bottom: 20px;
@@ -228,7 +228,7 @@
 /* White Button Styles for Blue Card */
 .btn-white {
 	background-color: #fff;
-	color: var(--primary-blue);
+	color: var(--primary-default);
 	border: none;
 	font-weight: 600;
 	transition: all 0.2s;
@@ -262,7 +262,7 @@
 	gap: 8px;
 	margin-top: 20px;
 	padding-top: 20px;
-	border-top: 1px solid var(--border-color);
+	border-top: 1px solid var(--border-default);
 	font-size: 0.9rem;
 	color: var(--text-muted);
 }
@@ -387,7 +387,7 @@
 .db-add-account {
 	display: inline-block;
 	margin-top: 12px;
-	color: var(--primary-blue);
+	color: var(--primary-default);
 	font-size: 0.9rem;
 	font-weight: 600;
 	text-decoration: none;
@@ -395,7 +395,7 @@
 }
 
 .db-add-account:hover {
-	color: var(--primary-blue-dark);
+	color: var(--primary-strong);
 }
 
 /* Transactions List - New Design */
@@ -481,7 +481,7 @@
 }
 
 .db-trans-amount-new.withdraw {
-	color: var(--error-color);
+	color: var(--negative);
 }
 
 .db-trans-balance-new {
@@ -595,7 +595,7 @@
 	height: 32px;
 	border-radius: 50%;
 	overflow: hidden;
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--border-default);
 }
 
 .db-account-flag img {
@@ -638,7 +638,7 @@
 	width: 100%;
 	height: 44px;
 	padding: 0 16px;
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--border-default);
 	border-radius: 8px;
 	font-size: 0.95rem;
 	transition: border-color 0.2s;
@@ -646,7 +646,7 @@
 
 .db-inquiry-input:focus {
 	outline: none;
-	border-color: var(--primary-blue);
+	border-color: var(--primary-default);
 }
 
 /* Ongoing Transfer Card */
@@ -675,7 +675,7 @@
 }
 
 .db-ongoing-value.status-complete {
-	color: var(--primary-blue);
+	color: var(--primary-default);
 }
 
 .db-status-inline {
@@ -691,7 +691,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--primary-blue);
+	background-color: var(--primary-default);
 	flex-shrink: 0;
 }
 
@@ -706,7 +706,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--primary-blue);
+	background-color: var(--primary-default);
 	flex-shrink: 0;
 }
 
@@ -747,7 +747,7 @@
 	align-items: center;
 	padding: 14px 12px;
 	// margin: 0 -12px;
-	border-bottom: 1px solid var(--border-color);
+	border-bottom: 1px solid var(--border-default);
 	text-decoration: none;
 	transition: background 0.2s;
 }
@@ -761,7 +761,7 @@
 }
 
 .db-notice-item:hover .db-notice-title {
-	color: var(--primary-blue);
+	color: var(--primary-default);
 }
 
 .db-notice-title {
@@ -853,7 +853,7 @@
 	justify-content: center;
 	margin-top: 24px;
 	padding-top: 24px;
-	border-top: 1px solid var(--border-color);
+	border-top: 1px solid var(--border-default);
 }
 
 .db-help-qr-item {
@@ -875,7 +875,7 @@
 	height: auto;
 	border-radius: var(--radius);
 	background-color: #fff;
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--border-default);
 }
 
 

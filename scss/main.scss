@@ -127,7 +127,7 @@
 .feature-card:hover {
 	transform: translateY(-6px);
 	box-shadow: var(--shadow);
-	border-color: var(--border-color);
+	border-color: var(--border-default);
 	background-color: #fff;
 }
 
@@ -135,7 +135,7 @@
 	width: 72px;
 	height: 72px;
 	margin: 0 auto 22px;
-	background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-teal) 100%);
+	background: linear-gradient(135deg, var(--primary-default) 0%, var(--accent-teal) 100%);
 	border-radius: 18px;
 	display: flex;
 	align-items: center;
@@ -173,7 +173,7 @@
 	left: 0;
 	right: 0;
 	height: 1px;
-	background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+	background: linear-gradient(90deg, transparent, var(--border-default), transparent);
 }
 
 .countries-grid {
@@ -192,13 +192,13 @@
 	border-radius: var(--radius);
 	transition: var(--transition);
 	cursor: pointer;
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--border-default);
 }
 
 .country-card:hover {
 	transform: translateY(-3px);
 	box-shadow: var(--shadow);
-	border-color: var(--primary-blue);
+	border-color: var(--primary-default);
 }
 
 .country-flag {
@@ -310,7 +310,7 @@
 
 /* ===== CTA Section ===== */
 .cta {
-	background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-teal) 100%);
+	background: linear-gradient(135deg, var(--primary-default) 0%, var(--accent-teal) 100%);
 	text-align: center;
 	position: relative;
 	overflow: hidden;
@@ -348,7 +348,7 @@
 
 .cta .btn-primary {
 	background-color: #fff;
-	color: var(--primary-blue);
+	color: var(--primary-default);
 	padding: 15px 36px;
 	font-size: 1rem;
 }
@@ -391,7 +391,7 @@
 .contact-item-icon {
 	width: 44px;
 	height: 44px;
-	background-color: var(--primary-blue-light);
+	background-color: var(--primary-default-light);
 	border-radius: 10px;
 	display: flex;
 	align-items: center;
@@ -402,7 +402,7 @@
 .contact-item-icon svg {
 	width: 20px;
 	height: 20px;
-	color: var(--primary-blue);
+	color: var(--primary-default);
 }
 
 .contact-item-content h4 {
@@ -420,7 +420,7 @@
 }
 
 .contact-item-content a {
-	color: var(--primary-blue);
+	color: var(--primary-default);
 }
 
 .contact-item-content a:hover {
@@ -431,7 +431,7 @@
 	padding: 24px;
 	background-color: #fff;
 	border-radius: var(--radius);
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--border-default);
 	box-shadow: var(--shadow-sm);
 }
 
@@ -459,7 +459,7 @@
 	padding: 24px 24px 6px 24px;
 	background-color: #fff;
 	border-radius: var(--radius);
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--border-default);
 	box-shadow: var(--shadow-sm);
 	display: flex;
 	gap: 24px;

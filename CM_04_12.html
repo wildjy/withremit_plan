@@ -33,7 +33,7 @@
                                 <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <div class="field-flex">
-                                <input type="text" placeholder="예: gdhong123" class="login-input">
+                                <input type="text" id="userId" placeholder="예: gdhong123" class="login-input" data-i18n="join.userIdPlaceholder" >
                                 <button type="button" class="btn-sub-action" data-i18n="join.checkId">중복 확인</button>
                             </div>
                         </div>
@@ -266,15 +266,15 @@
                     </div>
                     <div class="form-row-3">
                         <div class="field-item">
-                            <label class="field-label" data-i18n="join.request.phoneNumber">
-                                전화번호
+                            <label class="field-label">
+                                <span data-i18n="join.request.phone">전화번호</span>
                                 <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <input type="text" placeholder="예: 01012345678" class="login-input">
                         </div>
                         <div class="field-item flex-2">
-                            <label class="field-label" data-i18n="join.request.email">
-                                이메일 주소
+                            <label class="field-label">
+                                <span data-i18n="join.request.email">이메일 주소</span>
                                 <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <div class="field-flex full-width">
@@ -284,8 +284,8 @@
                         </div>
                     </div>
                     <div class="field-item top-level">
-                        <label class="field-label" data-i18n="join.request.address">
-                            주소
+                        <label class="field-label">
+                            <span data-i18n="join.request.address">주소</span>
                             <span class="badge-required" data-i18n="join.required">필수</span>
                         </label>
                         <div class="field-flex mb-12">
@@ -299,15 +299,15 @@
                 </section>
 
                 <section class="form-sec" id="bankInfoSection" style="display: none;">
-                    <div class="form-sec-head">은행 정보</div>
+                    <div class="form-sec-head" data-i18n="join.request.bankInfo">은행 정보</div>
                     <div class="form-row-3">
                         <div class="field-item">
                             <label class="field-label">
-                                은행명
-                                <span class="badge-required">필수</span>
+                                <span data-i18n="join.request.bankName">은행명</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <select class="login-input select-styled">
-                                <option value="" disabled selected>은행 선택</option>
+                                <option value="" disabled selected data-i18n="join.request.selectBank">은행 선택</option>
                                 <option>국민은행</option>
                                 <option>신한은행</option>
                                 <option>우리은행</option>

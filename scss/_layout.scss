@@ -83,7 +83,7 @@ body{
 .db-content-card {
 	padding: var(--s6);
 	background-color: #fff;
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--border-default);
 	border-radius: var(--radius-lg);
 	box-shadow: var(--shadow-sm);
 }
@@ -184,7 +184,7 @@ body{
 .form-sec {
 	margin-bottom: 30px;
 	padding-bottom: 10px;
-	border-bottom: 1px solid var(--border-color);
+	border-bottom: 1px solid var(--border-default);
 }
 
 .form-sec-head {
@@ -194,7 +194,7 @@ body{
 	font-weight: 700;
 	color: var(--text-dark);
 	text-align: left;
-	border-left: 4px solid var(--primary-green);
+	border-left: 4px solid var(--primary-default);
 }
 
 .form-row-full,

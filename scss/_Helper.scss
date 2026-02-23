@@ -468,10 +468,10 @@ $vw-context: calc($viewport * 0.01) * 1px;
 }
 
 @mixin input-error {
-	border-color: var(--error-color);
-	border: 1.5px solid var(--error-color);
+	border-color: var(--negative);
+	border: 1.5px solid var(--negative);
 	&:focus {
-		border-color: var(--error-color);
+		border-color: var(--negative);
 		box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 	}
 }

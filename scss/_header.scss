@@ -17,7 +17,7 @@
 }
 
 .header.scrolled {
-	border-bottom-color: var(--border-color);
+	border-bottom-color: var(--border-default);
 	box-shadow: var(--shadow-sm);
 }
 
@@ -72,7 +72,7 @@
 
 .nav-link:hover {
 	background-color: var(--bg-light);
-	color: var(--primary-blue);
+	color: var(--primary-default);
 }
 
 .nav-right {
@@ -134,7 +134,7 @@
 /* Mobile Login Button Base Style */
 .btn-login-mobile {
 	display: none;
-	background-color: var(--primary-green);
+	background-color: var(--primary-default);
 	color: #fff;
 	font-weight: 500;
 	padding: 0 16px;
@@ -144,7 +144,7 @@
 }
 
 .btn-login-mobile:hover {
-	background-color: var(--primary-green-dark);
+	background-color: var(--primary-strong);
 }
 
 // My Page Dropdown
@@ -158,7 +158,7 @@
   right: 0;
   width: 140px;
   background-color: #fff;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-default);
   border-radius: 12px;
   box-shadow: var(--shadow-lg);
   display: none;
@@ -234,7 +234,7 @@
       padding: 0 14px;
       height: 34px;
       font-size: 0.85rem;
-      background-color: var(--primary-green);
+      background-color: var(--primary-default);
       color: #fff;
       border-radius: 6px;
       font-weight: 600;
@@ -356,7 +356,7 @@
 }
 
 .balance-amount {
-	color: var(--primary-blue);
+	color: var(--primary-default);
 	font-weight: 700;
 }
 
@@ -374,7 +374,7 @@
 	visibility: hidden;
 	transition: var(--transition);
 	z-index: 999;
-	border-top: 1px solid var(--border-color);
+	border-top: 1px solid var(--border-default);
 	max-height: calc(100vh - 56px);
 	overflow-y: auto;
 }
@@ -391,7 +391,7 @@
 	font-size: 1rem;
 	font-weight: 500;
 	color: var(--text-dark);
-	border-bottom: 1px solid var(--border-color);
+	border-bottom: 1px solid var(--border-default);
 }
 
 .mobile-nav > a:active {
@@ -400,7 +400,7 @@
 
 .mobile-nav-divider {
 	height: 1px;
-	background-color: var(--border-color);
+	background-color: var(--border-default);
 	margin: 8px 0;
 }
 
@@ -418,7 +418,7 @@
 
 .mobile-lang-select {
 	padding: 8px 32px 8px 12px;
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--border-default);
 	border-radius: 6px;
 	font-size: 0.9rem;
 	background-color: #fff;
@@ -435,7 +435,7 @@
 	display: block;
 	margin-top: 12px;
 	padding: 14px !important;
-	background-color: var(--primary-green);
+	background-color: var(--primary-default);
 	color: #fff !important;
 	text-align: center;
 	border-radius: 8px;
@@ -444,6 +444,6 @@
 }
 
 .mobile-nav-register:active {
-	background-color: var(--primary-green-dark);
+	background-color: var(--primary-strong);
 }
 

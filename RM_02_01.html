@@ -182,6 +182,90 @@
     <script src="js/includes.js"></script>
 
     <script>
+
+        // 모달 데이터 (Mock)
+        const mockData = {
+            1: {
+                id: 1,
+                no: 3,
+                recipient: 'MARIA SANTOS',
+                bank: 'BDO Unibank',
+                type: '수취 금액 기준',
+                sendAmount: '₩ 500,000',
+                receiveAmount: '₱ 21,000',
+                cycle: '매월 25일',
+                status: 'processing',
+                statusText: '진행중',
+                withdrawalAccount: { bankName: '기업은행', accountNumber: '064-146189-04-024', holderName: '홍길동' }
+            },
+            2: {
+                id: 2,
+                no: 2,
+                recipient: 'KIM CHULSU',
+                bank: 'Mizuho Bank',
+                type: '송금액 기준',
+                sendAmount: '₩ 500,000',
+                receiveAmount: '¥ 50,000',
+                cycle: '매월 10일',
+                status: 'processing',
+                statusText: '진행중',
+                withdrawalAccount: { bankName: '농협은행', accountNumber: '301-0313-2544-01', holderName: '홍길동' }
+            },
+            3: {
+                id: 3,
+                no: 1,
+                recipient: 'LEE YOUNGHEE',
+                bank: 'Vietcombank',
+                type: '송금액 기준',
+                sendAmount: '₩ 100,000',
+                receiveAmount: '₫ 1,852,000',
+                cycle: '매주 월요일',
+                status: 'paused',
+                statusText: '정지',
+                withdrawalAccount: { bankName: '신한은행', accountNumber: '110-456-789012', holderName: '홍길동' }
+            },
+            4: {
+                id: 4,
+                no: 4,
+                recipient: 'RAJESH KUMAR',
+                bank: 'Nepal Bank',
+                type: '수취 금액 기준',
+                sendAmount: '₩ 300,000',
+                receiveAmount: '₨ 29,500',
+                cycle: '매월 1일',
+                status: 'processing',
+                statusText: '진행중',
+                withdrawalAccount: { bankName: '기업은행', accountNumber: '064-146189-04-024', holderName: '홍길동' }
+            },
+            5: {
+                id: 5,
+                no: 5,
+                recipient: 'ZHANG WEI',
+                bank: 'ICBC',
+                type: '송금액 기준',
+                sendAmount: '₩ 2,000,000',
+                receiveAmount: '¥ 10,800',
+                cycle: '매주 금요일',
+                status: 'paused',
+                statusText: '정지',
+                withdrawalAccount: { bankName: '농협은행', accountNumber: '301-0313-2544-01', holderName: '홍길동' }
+            }
+        };
+
+        const dataArray = Object.values(mockData).sort((a, b) => b.no - a.no);
+
+        // SVG Helper from HI_01_01
+        // function getStatusSVG(status) {
+        //     const svgs = {
+        //         running: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
+        //         paused: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
+        //         active: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
+        //         stop: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>'
+        //     };
+        //     return svgs[status] || svgs['running'];
+        // }
+
+        
         // 사이드바 활성화 (정기 해외 송금)
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
@@ -197,7 +281,6 @@
             renderCards();
         });
 
-
         // 카드 리스트 렌더링 함수 (통합)
         function renderCards() {
             // Target the grid container
@@ -210,23 +293,6 @@
                 card.onclick = (e) => {
                     if (!e.target.closest('button')) openDetailModal(item.id);
                 };
-
-                // Status Logic
-                let statusClass = '';
-                let statusSvg = '';
-
-                switch (item.status) {
-                    case 'active':
-                        statusClass = 'status-success'; // Green
-                        statusSvg = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-                        break;
-                    case 'paused':
-                        statusClass = 'status-pending'; // Gray
-                        statusSvg = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>'; // Alert icon
-                        break;
-                    default:
-                        statusClass = 'status-pending';
-                }
 
                 // Amount Display Logic
                 let amountDisplay = '';
@@ -283,8 +349,8 @@
                         <!-- Col 5: Status (Right Aligned, No Label -> Mobile: Label + Value) -->
                         <div class="remit-card-col remit-card-status-wrapper">
                             <span class="remit-card-label remit-card-status-label" style="display: none;">상태</span>
-                            <span class="remit-status ${statusClass}">
-                                ${statusSvg}
+                            <span class="remit-status status-${item.status}">
+                                ${getStatusSVG(item.status)}
                                 ${item.statusText}
                             </span>
                         </div>
@@ -295,88 +361,6 @@
             });
 
             document.getElementById('totalCount').innerText = dataArray.length;
-        }
-
-        // 모달 데이터 (Mock)
-        const mockData = {
-            1: {
-                id: 1,
-                no: 3,
-                recipient: 'MARIA SANTOS',
-                bank: 'BDO Unibank',
-                type: '수취 금액 기준',
-                sendAmount: '₩ 500,000',
-                receiveAmount: '₱ 21,000',
-                cycle: '매월 25일',
-                status: 'active',
-                statusText: '진행중',
-                withdrawalAccount: { bankName: '기업은행', accountNumber: '064-146189-04-024', holderName: '홍길동' }
-            },
-            2: {
-                id: 2,
-                no: 2,
-                recipient: 'KIM CHULSU',
-                bank: 'Mizuho Bank',
-                type: '송금액 기준',
-                sendAmount: '₩ 500,000',
-                receiveAmount: '¥ 50,000',
-                cycle: '매월 10일',
-                status: 'active',
-                statusText: '진행중',
-                withdrawalAccount: { bankName: '농협은행', accountNumber: '301-0313-2544-01', holderName: '홍길동' }
-            },
-            3: {
-                id: 3,
-                no: 1,
-                recipient: 'LEE YOUNGHEE',
-                bank: 'Vietcombank',
-                type: '송금액 기준',
-                sendAmount: '₩ 100,000',
-                receiveAmount: '₫ 1,852,000',
-                cycle: '매주 월요일',
-                status: 'paused',
-                statusText: '정지',
-                withdrawalAccount: { bankName: '신한은행', accountNumber: '110-456-789012', holderName: '홍길동' }
-            },
-            4: {
-                id: 4,
-                no: 4,
-                recipient: 'RAJESH KUMAR',
-                bank: 'Nepal Bank',
-                type: '수취 금액 기준',
-                sendAmount: '₩ 300,000',
-                receiveAmount: '₨ 29,500',
-                cycle: '매월 1일',
-                status: 'active',
-                statusText: '진행중',
-                withdrawalAccount: { bankName: '기업은행', accountNumber: '064-146189-04-024', holderName: '홍길동' }
-            },
-            5: {
-                id: 5,
-                no: 5,
-                recipient: 'ZHANG WEI',
-                bank: 'ICBC',
-                type: '송금액 기준',
-                sendAmount: '₩ 2,000,000',
-                receiveAmount: '¥ 10,800',
-                cycle: '매주 금요일',
-                status: 'paused',
-                statusText: '정지',
-                withdrawalAccount: { bankName: '농협은행', accountNumber: '301-0313-2544-01', holderName: '홍길동' }
-            }
-        };
-
-        const dataArray = Object.values(mockData).sort((a, b) => b.no - a.no);
-
-        // SVG Helper from HI_01_01
-        function getStatusSVG(status) {
-            const svgs = {
-                running: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
-                paused: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
-                active: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
-                stop: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>'
-            };
-            return svgs[status] || svgs['running'];
         }
 
         let currentDetailId = null;
