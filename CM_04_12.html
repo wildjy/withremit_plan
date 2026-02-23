@@ -709,9 +709,14 @@
             domesticRadio.addEventListener('change', handleNationalityChange);
             foreignRadio.addEventListener('change', handleNationalityChange);
 
-            // 날짜 직접 입력 및 유효성 검사
+            // 날짜 기본값 설정 및 유효성 검사 (모바일 기본 표시 대응)
             const dateInput = document.querySelector('.date-picker-custom');
             if (dateInput) {
+                if (!dateInput.value) {
+                    const today = new Date().toISOString().split('T')[0];
+                    dateInput.value = today;
+                }
+
                 dateInput.addEventListener('change', function () {
                     if (!this.value || this.validity.badInput) {
                         const today = new Date().toISOString().split('T')[0];
