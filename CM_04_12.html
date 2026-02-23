@@ -217,10 +217,7 @@
                                 <span data-i18n="join.request.lastNameEn">성 (영문)</span>
                                 <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
-                            <div class="field-flex full-width">
-                                <input type="text" class="login-input date-picker-custom" id="birthDateDisplay" placeholder="연도.월.일" readonly>
-                                <input type="date" class="login-input" id="birthDate" aria-label="생년월일" style="position:absolute;opacity:0;pointer-events:none;width:0;height:0;">
-                            </div>
+                            <input type="text" placeholder="예: HONG" class="login-input" id="lastNameEn">
                         </div>
                     </div>
                     <div class="form-row-3">
@@ -229,7 +226,11 @@
                                 <span data-i18n="join.request.birthdate">생년월일</span>
                                 <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
-                            <input type="text" class="login-input date-picker-custom" id="birthDateDisplay" placeholder="연도.월.일" readonly />
+                            <input type="date" class="login-input date-picker-custom" id="birthDate" placeholder="연도.월.일">
+                            <!-- <div class="field-flex full-width">
+                                <input type="text" class="login-input date-picker-custom" id="birthDateDisplay" placeholder="연도.월.일" readonly>
+                                <input type="date" class="login-input" id="birthDate" aria-label="생년월일" style="position:absolute;opacity:0;pointer-events:none;width:0;height:0;">
+                            </div> -->
                         </div>
                         <div class="field-item">
                             <label class="field-label">
@@ -694,9 +695,6 @@
                 const inputs = document.querySelectorAll('input[type="text"], input[type="date"], select, input[type="password"]');
                 inputs.forEach(input => input.value = '');
 
-                const birthDisplay = document.getElementById('birthDateDisplay');
-                if (birthDisplay) birthDisplay.value = '';
-
                 // 2. 파일 업로드 텍스트 및 상태 초기화
                 const fileDisplays = document.querySelectorAll('.file-upload-name');
                 fileDisplays.forEach(display => {
@@ -715,23 +713,18 @@
             domesticRadio.addEventListener('change', handleNationalityChange);
             foreignRadio.addEventListener('change', handleNationalityChange);
 
-            // 날짜 선택: 기본 텍스트 표시 + 터치 시 날짜 선택
-            const dateInput = document.getElementById('birthDate');
-            const dateDisplay = document.getElementById('birthDateDisplay');
-
-            if (dateDisplay && dateInput) {
-                dateDisplay.addEventListener('click', function () {
-                    if (typeof dateInput.showPicker === 'function') {
-                        dateInput.showPicker();
-                    } else {
-                        dateInput.focus();
-                        dateInput.click();
-                    }
-                });
+            // 날짜 기본값 설정 및 유효성 검사 (모바일 기본 표시 대응)
+            const dateInput = document.querySelector('.date-picker-custom');
+            if (dateInput) {
+                if (!dateInput.value) {
+                    const today = new Date().toISOString().split('T')[0];
+                    dateInput.value = today;
+                }
 
                 dateInput.addEventListener('change', function () {
-                    if (this.value) {
-                        dateDisplay.value = this.value.replaceAll('-', '.');
+                    if (!this.value || this.validity.badInput) {
+                        const today = new Date().toISOString().split('T')[0];
+                        this.value = today;
                     }
                 });
             }
@@ -904,12 +897,7 @@
                     document.getElementById('firstNameKo').value = document.getElementById('ocrFirstNameKo').value;
                     document.getElementById('firstNameEn').value = document.getElementById('ocrFirstNameEn').value;
                     document.getElementById('lastNameEn').value = document.getElementById('ocrLastNameEn').value;
-                    const ocrBirth = document.getElementById('ocrBirthDate').value;
-                    document.getElementById('birthDate').value = ocrBirth;
-                    const birthDisplay = document.getElementById('birthDateDisplay');
-                    if (birthDisplay && ocrBirth) {
-                        birthDisplay.value = ocrBirth.replaceAll('-', '.');
-                    }
+                    document.getElementById('birthDate').value = document.getElementById('ocrBirthDate').value;
                     document.getElementById('nationalitySelect').value = document.getElementById('ocrNationality').value;
 
                     const ocrGender = document.querySelector('input[name="ocrGender"]:checked');
