@@ -130,7 +130,7 @@ body.db-body .db-sidebar {
 	.db-sidebar {
 		width: 240px;
 		left: -100%;
-		height: calc(100vh - 55px);
+		height: 100dvh;
 		top: 55px;
 		z-index: 1100;
 		background-color: #fff;
@@ -143,8 +143,8 @@ body.db-body .db-sidebar {
 	.db-sidebar.mobile-open {
 		left: 0;
 		top: 0;
-		width: 100%;
-		height: 100vh;
+		width: 80%;
+		height: 100dvh;
 	}
 
 	.db-sidebar-close {
