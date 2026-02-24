@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import  "./Helper", "./root", "./reset", "./layout", "./common", "./components"; // "./Helper", 
+@import  "./Helper", "./root", "./reset", "./layout", "./common", "./components"; // "./Helper",
 
 /* Inquiry Form Utility Classes */
 .mb-0 {
@@ -134,6 +134,7 @@
 .db-search-input {
 	flex: 1;
 	padding: 10px 16px;
+	min-height: auto;
 	border: 1.5px solid var(--border-default);
 	border-radius: 8px;
 	font-size: 0.9rem;
@@ -650,7 +651,7 @@
 	}
   /* Period section in one line */
 	.remit-search-section > .search-label,
-  	.remit-search-section > .db-search-input {
+  .remit-search-section > .db-search-input {
 		display: inline-block;
 	}
 
@@ -1100,7 +1101,7 @@
 		padding: 12px 8px;
 		font-size: 0.875rem;
 	}
-	
+
 	.db-search-box {
 		display: none;
 		gap: 8px;
@@ -1150,7 +1151,7 @@
 	}
 
 	.db-search-input {
-		width: calc(70% - 8px);
+		// width: calc(70% - 8px);
     /* Remaining width minus gap */
 		padding: 10px;
 		font-size: 0.9rem;

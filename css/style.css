@@ -2951,7 +2951,7 @@ a.banner-slide {
   padding: 2.5rem;
   max-width: 400px;
   width: 90%;
-  max-height: 90vh;
+  max-height: 90dvh;
   text-align: center;
   background-color: #ffffff;
   -webkit-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
@@ -7051,6 +7051,7 @@ a.banner-slide {
       -ms-flex: 1;
           flex: 1;
   padding: 10px 16px;
+  min-height: auto;
   border: 1.5px solid var(--border-default);
   border-radius: 8px;
   font-size: 0.9rem;
@@ -8262,7 +8263,6 @@ a.banner-slide {
     font-size: 0.9rem;
   }
   .db-search-input {
-    width: calc(70% - 8px);
     /* Remaining width minus gap */
     padding: 10px;
     font-size: 0.9rem;
