@@ -166,15 +166,25 @@ const translations = {
         'join.request.lastNameEn': '성 (영문)',
         'join.request.firstNameEn': '이름 (영문)',
         'join.request.birthdate': '생년월일',
+        'join.request.birthdatePlaceholder': '연도.월.일',
         'join.request.phone': '전화번호',
+        'join.request.phonePlaceholder': '예: 01012345678',
         'join.request.email': '이메일',
         'join.checkEmail': '이메일 중복 확인',
+        'join.emailLocalPlaceholder': '예: user',
+        'join.emailDomainPlaceholder': '직접 입력',
         'join.request.address': '주소',
         'join.searchPostcode': '우편번호 검색',
         'join.request.nationality': '국적',
         'join.request.gender': '성별',
         'join.request.male': '남성',
         'join.request.female': '여성',
+
+
+        // Modal
+        'modal.emailDup.title': '이메일 중복 확인',
+        'modal.emailDup.ok': '사용 가능한 이메일입니다.',
+        'modal.emailDup.fail': '이미 사용 중인 이메일입니다.',
     },
     en: {
         // Buttons
@@ -338,18 +348,26 @@ const translations = {
         'join.request.password': 'Password',
         'join.request.confirmPassword': 'Confirm Password',
         'join.request.email': 'Email',
+        'join.checkEmail': 'Check Email',
+        'join.emailLocalPlaceholder': 'e.g. user',
+        'join.emailDomainPlaceholder': 'Direct Input',
         'join.request.lastName': 'Last Name (Korean)',
         'join.request.firstName': 'First Name (Korean)',
         'join.request.lastNameEn': 'Last Name (English)',
         'join.request.firstNameEn': 'First Name (English)',
         'join.request.birthdate': 'Date of Birth',
+        'join.request.birthdatePlaceholder': 'YYYY.MM.DD',
         'join.request.phone': 'Mobile Number',
+        'join.request.phonePlaceholder': 'e.g. 01012345678',
         'join.request.nationality': 'Nationality',
         'join.request.gender': 'Gender',
         'join.request.male': 'Male',
         'join.request.female': 'Female',
 
-
+        // Modal
+        'modal.emailDup.title': 'Email Duplication Check',
+        'modal.emailDup.ok': 'This email is available.',
+        'modal.emailDup.fail': 'This email is already in use.',
     },
     ja: {
         // Navigation
@@ -500,18 +518,26 @@ const translations = {
         'join.request.password': 'パスワード',
         'join.request.confirmPassword': 'パスワード確認',
         'join.request.email': 'メールアドレス',
+        'join.checkEmail': 'メールアドレス重複確認',
+        'join.emailLocalPlaceholder': '例: user',
+        'join.emailDomainPlaceholder': '直接入力',
         'join.request.lastName': '姓（韓国語）',
         'join.request.firstName': '名（韓国語）',
         'join.request.lastNameEn': '姓（英語）',
         'join.request.firstNameEn': '名（英語）',
         'join.request.birthdate': '生年月日',
+        'join.request.birthdatePlaceholder': '年.月.日',
         'join.request.phone': '携帯電話番号',
+        'join.request.phonePlaceholder': '例: 01012345678',
         'join.request.nationality': '国籍',
         'join.request.gender': '性別',
         'join.request.male': '男性',
         'join.request.female': '女性',
 
-
+        // Modal
+        'modal.emailDup.title': 'メールアドレス重複確認',
+        'modal.emailDup.ok': 'ご利用可能なメールアドレスです。',
+        'modal.emailDup.fail': 'すでに使用されているメールアドレスです。',
     },
     hi: {        
         // Navigation
@@ -662,18 +688,26 @@ const translations = {
         'join.request.password': 'पासवर्ड',
         'join.request.confirmPassword': 'पासवर्ड की पुष्टि करें',
         'join.request.email': 'ईमेल',
+        'join.checkEmail': 'ईमेल जाँचें',
+        'join.emailLocalPlaceholder': 'उदाहरण: user',
+        'join.emailDomainPlaceholder': 'सीधे इनपुट',
         'join.request.lastName': 'अंतिम नाम (कोरियाई)',
         'join.request.firstName': 'पहला नाम (कोरियाई)',
         'join.request.lastNameEn': 'अंतिम नाम (अंग्रेज़ी)',
         'join.request.firstNameEn': 'पहला नाम (अंग्रेज़ी)',
         'join.request.birthdate': 'जन्म तिथि',
+        'join.request.birthdatePlaceholder': 'YYYY.MM.DD',
         'join.request.phone': 'मोबाइल नंबर',
+        'join.request.phonePlaceholder': 'उदाहरण: 01012345678',
         'join.request.nationality': 'राष्ट्रीयता',
         'join.request.gender': 'लिंग',
         'join.request.male': 'पुरुष',
         'join.request.female': 'महिला',
 
-
+        // Modal
+        'modal.emailDup.title': 'ईमेल डुप्लिकेशन जांच',
+        'modal.emailDup.ok': 'यह ईमेल उपलब्ध है।',
+        'modal.emailDup.fail': 'यह ईमेल पहले से उपयोग में है।',
     }
 };
 

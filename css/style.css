@@ -456,6 +456,7 @@ body.wh-full {
 }
 
 .form-row-full,
+.form-row,
 .form-row-2,
 .form-row-3,
 .field-item.top-level {
@@ -463,9 +464,15 @@ body.wh-full {
   margin-bottom: 24px;
 }
 
+.form-row,
 .form-row-2,
 .form-row-3 {
   display: grid;
+}
+
+.form-row {
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--s5);
 }
 
 .form-row-2 {
@@ -482,6 +489,9 @@ body.wh-full {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -513,10 +523,17 @@ body.wh-full {
 }
 
 @media (max-width: 860px) {
+  .form-row,
   .form-row-3,
   .form-row-2,
   .purpose-grid-full {
     grid-template-columns: 1fr;
+  }
+  .form-row.no-mb,
+  .form-row-3.no-mb,
+  .form-row-2.no-mb,
+  .purpose-grid-full.no-mb {
+    margin-bottom: 0;
   }
   .field-item.flex-2 {
     grid-column: auto;
@@ -3086,6 +3103,10 @@ a.banner-slide {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+.modal-icon svg {
+  width: 48px;
+  height: 48px;
 }
 
 .modal-content h3 {

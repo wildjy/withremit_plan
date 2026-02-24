@@ -823,6 +823,10 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
+.modal-icon svg {
+  width: 48px;
+  height: 48px;
+}
 
 .modal-content h3 {
   font-size: 1.3rem;

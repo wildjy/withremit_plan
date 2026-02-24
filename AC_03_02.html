@@ -305,37 +305,6 @@
             }
         });
 
-        // 에러 표시 함수
-        function showFieldError(elementId, message) {
-            const element = document.getElementById(elementId);
-            if (!element) return;
-
-            // 부모 요소 찾기
-            const fieldItem = element.closest('.field-item');
-            if (!fieldItem) return;
-
-            // input-box-group에 에러 클래스 추가 (없는 경우도 있음)
-            const inputGroup = element.closest('.input-box-group');
-            if (inputGroup) {
-                inputGroup.classList.add('error');
-            }
-
-            // select, input, textarea인 경우 직접 에러 클래스 추가
-            if (element.tagName === 'SELECT' || element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                element.classList.add('error');
-            }
-
-            // 에러 메시지 span 찾기
-            const errorSpanId = `${elementId}Error`;
-            let errorSpan = document.getElementById(errorSpanId);
-            if (!errorSpan) {
-                errorSpan = fieldItem.querySelector('.field-error');
-            }
-            if (errorSpan) {
-                errorSpan.textContent = message;
-            }
-        }
-
         // 모든 에러 초기화
         function clearAllErrors() {
             document.querySelectorAll('.input-box-group.error').forEach(el => el.classList.remove('error'));

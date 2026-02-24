@@ -615,6 +615,158 @@ const keyboardLayouts = {
 // Actually handleKeyInput was fine, except I verified logic is correct.
 // So I just need to remove the first toggleKeypad.
 
+// 이메일 입력 관련 이벤트 핸들러
+function emailDomainEventHandler(options = {}) {
+  const {
+    localId = 'emailLocal',
+    domainId = 'emailDomain',
+    selectId = 'domainMode',
+    fullId = 'emailFull',
+    helpId = 'emailHelp',
+  } = options;
+
+  const localEl = document.getElementById(localId);
+  const domainEl = document.getElementById(domainId);
+  const selectEl = document.getElementById(selectId);
+  const fullEl = document.getElementById(fullId);
+  const helpEl = helpId ? document.getElementById(helpId) : null;
+
+  // ✅ 해당 UI 없는 페이지면 아무것도 안 하고 종료
+  if (!localEl || !domainEl || !selectEl || !fullEl) return;
+
+  // ✅ 중복 등록 방지(페이지 내 스크립트가 여러 번 호출되는 경우 대비)
+  if (selectEl.dataset.bound === '1') return;
+  selectEl.dataset.bound = '1';
+
+  window.emailVerified = false;
+
+  const resetVerified = () => {
+    window.emailVerified = false;
+    if (helpEl) helpEl.textContent = '이메일 중복 확인을 진행해 주세요.';
+  };
+
+  const syncFullEmail = () => {
+    const local = localEl.value.trim();
+    const domain = domainEl.value.trim();
+    fullEl.value = (local && domain) ? `${local}@${domain}` : '';
+  };
+
+  let prevMode = 'direct';
+
+  const applyDomainMode = () => {
+    if (!selectEl.value) selectEl.value = 'direct';
+    const v = selectEl.value;
+
+    if (v === 'direct') {
+      domainEl.readOnly = false;
+    //   domainEl.placeholder = '직접 입력';
+      if (prevMode !== 'direct') domainEl.value = ''; // ✅ 선택→직접입력 시 초기화
+    } else {
+      domainEl.value = v;
+      domainEl.readOnly = true;
+    }
+
+    prevMode = v;
+    syncFullEmail();
+    resetVerified();
+  };
+
+  // init
+  if (!selectEl.value) selectEl.value = 'direct';
+  applyDomainMode();
+
+  // events
+  selectEl.addEventListener('change', applyDomainMode);
+  localEl.addEventListener('input', () => { syncFullEmail(); resetVerified(); });
+  domainEl.addEventListener('input', () => { syncFullEmail(); resetVerified(); });
+}
+
+function openDupCheckModal({
+    type = 'email',      // 'email' | 'id'
+    status = 'success',  // 'success' | 'fail'
+}) {
+    const titleEl = document.getElementById('dupCheckTitle');
+    const msgEl = document.getElementById('dupCheckMessage');
+    const iconEl = document.getElementById('dupCheckIcon');
+    const btnEl = document.getElementById('dupCheckBtn');
+
+    const isEmail = type === 'email';
+
+    if (status === 'success') {
+        titleEl.textContent = isEmail ? '이메일 중복 확인' : '아이디 중복 확인';
+        msgEl.textContent = isEmail
+        ? '사용 가능한 이메일입니다.'
+        : '사용 가능한 아이디입니다.';
+
+        iconEl.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00A0DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11"></polyline>
+        </svg>
+        `;
+
+        btnEl.style.backgroundColor = '#00A0DC';
+    } else {
+        titleEl.textContent = isEmail ? '이메일 중복 확인' : '아이디 중복 확인';
+        msgEl.textContent = isEmail
+        ? '이미 사용 중인 이메일입니다.'
+        : '이미 사용 중인 아이디입니다.';
+
+        iconEl.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+            </path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+        `;
+
+        btnEl.style.backgroundColor = '#f59e0b';
+    }
+
+    openModal('dupCheckModal');
+}
+
+// 에러 표시 함수
+function showFieldError(elementId, message) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+
+    // 부모 요소 찾기
+    const fieldItem = element.closest('.field-item');
+    if (!fieldItem) return;
+
+    // input-box-group에 에러 클래스 추가 (없는 경우도 있음)
+    const inputGroup = element.closest('.input-box-group');
+    if (inputGroup) {
+        inputGroup.classList.add('error');
+    }
+
+    // select, input, textarea인 경우 직접 에러 클래스 추가
+    if (element.tagName === 'SELECT' || element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+        element.classList.add('error');
+    }
+
+    // 에러 메시지 span 찾기
+    const errorSpanId = `${elementId}Error`;
+    let errorSpan = document.getElementById(errorSpanId);
+    if (!errorSpan) {
+        errorSpan = fieldItem.querySelector('.field-error');
+    }
+    if (errorSpan) {
+        errorSpan.textContent = message;
+    }
+}
+
+// 모든 에러 초기화
+function clearAllErrors() {
+    document.querySelectorAll('.input-box-group.error').forEach(el => el.classList.remove('error'));
+    document.querySelectorAll('.select-styled.error').forEach(el => el.classList.remove('error'));
+    document.querySelectorAll('input.error').forEach(el => el.classList.remove('error'));
+    document.querySelectorAll('textarea.error').forEach(el => el.classList.remove('error'));
+    document.querySelectorAll('.field-error').forEach(el => el.textContent = '');
+}
+
 function handleDelete() {
     if (!activeInputId) return;
     const input = document.getElementById(activeInputId);

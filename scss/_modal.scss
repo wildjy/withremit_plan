@@ -126,6 +126,10 @@
 	margin-bottom: 1.25rem;
 	display: flex;
 	justify-content: center;
+	svg {
+		width: 48px;
+		height: 48px;
+	}
 }
 
 .modal-content h3 {
