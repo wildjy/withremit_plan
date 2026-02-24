@@ -226,7 +226,8 @@
                                 <span data-i18n="join.request.birthdate">생년월일</span>
                                 <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
-                            <input type="date" class="login-input date-picker-custom" id="birthDate" placeholder="연도.월.일">
+                            <input type="text" class="login-input date-picker-custom" id="birthDate" placeholder="연도.월.일" onfocus="this.type='date'"
+                            onblur="if(!this.value){this.type='text'}">
                             <!-- <div class="field-flex full-width">
                                 <input type="text" class="login-input date-picker-custom" id="birthDateDisplay" placeholder="연도.월.일" readonly>
                                 <input type="date" class="login-input" id="birthDate" aria-label="생년월일" style="position:absolute;opacity:0;pointer-events:none;width:0;height:0;">
@@ -708,7 +709,7 @@
                 const radios = document.querySelectorAll('input[type="radio"]:not([name="nationality"])');
                 radios.forEach(radio => radio.checked = false);
             }
-            
+
             // handleNationalityChange(); // 초기 로드 시 상태 설정
             domesticRadio.addEventListener('change', handleNationalityChange);
             foreignRadio.addEventListener('change', handleNationalityChange);

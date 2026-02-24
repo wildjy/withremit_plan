@@ -7051,6 +7051,7 @@ a.banner-slide {
       -ms-flex: 1;
           flex: 1;
   padding: 10px 16px;
+  min-width: 148px;
   min-height: auto;
   border: 1.5px solid var(--border-default);
   border-radius: 8px;
