@@ -226,12 +226,8 @@
                                 <span data-i18n="join.request.birthdate">생년월일</span>
                                 <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
-                            <input type="text" class="login-input date-picker-custom" id="birthDate" placeholder="연도.월.일" onfocus="this.type='date'"
-                            onblur="if(!this.value){this.type='text'}">
-                            <!-- <div class="field-flex full-width">
-                                <input type="text" class="login-input date-picker-custom" id="birthDateDisplay" placeholder="연도.월.일" readonly>
-                                <input type="date" class="login-input" id="birthDate" aria-label="생년월일" style="position:absolute;opacity:0;pointer-events:none;width:0;height:0;">
-                            </div> -->
+                            <input type="text" class="login-input date-picker-custom" id="birthDate" placeholder="연도.월.일"
+                                onfocus="this.type='date'; if (this.showPicker) this.showPicker();" onblur="if(!this.value){this.type='text'}">
                         </div>
                         <div class="field-item">
                             <label class="field-label">

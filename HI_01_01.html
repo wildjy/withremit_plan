@@ -56,12 +56,10 @@
                                 <div class="remit-search-section">
                                     <div class="search-label">기간</div>
                                     <input type="text" class="db-search-input date-picker-custom" id="startDate"
-                                        placeholder="연도.월.일" onfocus="this.type='date'"
-                                        onblur="if(!this.value){this.type='text'}">
+                                           placeholder="연도.월.일" onfocus="this.type='date'; if (this.showPicker) this.showPicker();" onblur="if(!this.value){this.type='text'}">
                                     <span class="date-separator">-</span>
                                     <input type="text" class="db-search-input date-picker-custom" id="endDate"
-                                        placeholder="연도.월.일" onfocus="this.type='date'"
-                                        onblur="if(!this.value){this.type='text'}">
+                                           placeholder="연도.월.일" onfocus="this.type='date'; if (this.showPicker) this.showPicker();" onblur="if(!this.value){this.type='text'}">
                                     <div class="remit-quick-btns-inline">
                                         <button type="button" class="remit-quick-btn-small" data-days="0">당일</button>
                                         <button type="button" class="remit-quick-btn-small" data-days="7">1주일</button>

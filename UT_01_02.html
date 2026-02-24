@@ -156,7 +156,8 @@
                                 </div>
                                 <div class="field-item">
                                     <label class="field-label">생년월일</label>
-                                    <input type="date" value="1985-05-20" class="login-input date-picker-custom">
+                                    <input type="text" value="1985-05-20" class="login-input date-picker-custom" id="birthDate" placeholder="연도.월.일"
+                                        onfocus="this.type='date'; if (this.showPicker) this.showPicker();" onblur="if(!this.value){this.type='text'}">
                                 </div>
                                 <div class="field-item">
                                     <label class="field-label">성별</label>

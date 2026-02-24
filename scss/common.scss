@@ -1,5 +1,11 @@
 // Main(CM_02_01), DB_01_01, Common Styles
 
+/* Date Picker Custom Style */
+.date-picker-custom {
+	padding: 8px 8px 8px 16px !important;
+	text-align: left;
+}
+
 /* ===== Banner Slider ===== */
 .banner-slider {
 	position: relative;
@@ -281,7 +287,7 @@ a.banner-slide {
 		flex: 0 0 auto;
 		height: 120px;
 	}
-	
+
 	.banner-controls {
 		bottom: 20px;
 	}
@@ -290,7 +296,7 @@ a.banner-slide {
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
 .calculator-card {
-	padding: 32px;
+	padding: 35px;
 	max-width: 420px;
 	margin-left: auto;
 	border: 1px solid var(--border-default);
@@ -298,7 +304,6 @@ a.banner-slide {
 	background-color: #fff;
 	box-shadow: var(--shadow-lg);
 	&.db {
-		padding: 35px;
 		max-width: 100%;
 		width: 100%;
 		border-radius: var(--radius);
@@ -311,6 +316,12 @@ a.banner-slide {
 		// 		display: none;
 		// 	}
 		// }
+	}
+}
+
+@media (max-width: 1024px) {
+	.calculator-card {
+		padding: 24px 20px;
 	}
 }
 
