@@ -4999,6 +4999,16 @@ a.banner-slide {
   pointer-events: none;
 }
 
+.date-picker-custom::-webkit-datetime-edit,
+.date-picker-custom::-webkit-datetime-edit-fields-wrapper {
+  text-align: left;
+}
+
+.date-picker-custom::-webkit-datetime-edit-fields-wrapper {
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+}
+
 .date-picker-custom:focus {
   border-color: var(--primary-default) !important;
   -webkit-box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);

@@ -1172,6 +1172,15 @@
 	pointer-events: none;
 }
 
+.date-picker-custom::-webkit-datetime-edit,
+.date-picker-custom::-webkit-datetime-edit-fields-wrapper {
+	text-align: left;
+}
+
+.date-picker-custom::-webkit-datetime-edit-fields-wrapper {
+	justify-content: flex-start;
+}
+
 .date-picker-custom:focus {
 	border-color: var(--primary-default) !important;
 	box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);
