@@ -511,6 +511,7 @@
     </div>
 
     <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
+    <script src="js/calculator.js"></script><!-- 계산 로직 스크립트 -->
     <script src="js/main.js"></script>
     <script src="js/includes.js"></script>
     <script>
@@ -1245,11 +1246,16 @@
         window.addEventListener('DOMContentLoaded', function () {
             const urlParams = new URLSearchParams(window.location.search);
             const amount = urlParams.get('amount');
-            const country = urlParams.get('country');
+            const countryParam = urlParams.get('country');
+
+            const country = typeof window.normalizeCountryCode === 'function'
+                ? window.normalizeCountryCode(countryParam)
+                : (countryParam ? countryParam.trim().toUpperCase() : '');
 
             if (amount && country) {
                 // 국가 선택
                 const countrySelect = document.getElementById('remitCountry');
+                if (!countrySelect || !exchangeRates[country]) return;
                 countrySelect.value = country;
 
                 // 국가 선택 이벤트 트리거 (서비스, 은행, 환율 업데이트)

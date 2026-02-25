@@ -666,6 +666,7 @@
     <div id="footerContainer"></div>
 
     <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
+    <script src="js/calculator.js"></script><!-- 계산 로직 스크립트 -->
     <script src="js/main.js"></script>
     <script src="js/includes.js"></script>
     <script src="js/bannerSlider.js"></script>
@@ -693,29 +694,19 @@
 
     <script>
         function goToRemittance() {
-            // 통화 코드를 국가 코드로 매핑
-            // const currencyToCountry = {
-            //     'JPY': 'JP',
-            //     'PHP': 'PH',
-            //     'CNY': 'CN',
-            //     'NPR': 'NP',
-            //     'AUD': 'AU',
-            //     'HKD': 'HK',
-            //     'MNT': 'MN',
-            //     'VND': 'VN',
-            //     'LKR': 'LK',
-            //     'BDT': 'BD'
-            // };
-
             const sendAmountInput = document.getElementById('sendAmount');
             const receiveCurrencyInput = document.getElementById('receiveCurrency');
 
+            if (!sendAmountInput || !receiveCurrencyInput) return;
+
             const amount = sendAmountInput.value.replace(/,/g, '');
             const currency = receiveCurrencyInput.value;
-            const country = exchangeRates[currency] || 'JP';
+            const country = (typeof exchangeRates !== 'undefined' && exchangeRates[currency])
+                ? currency
+                : 'JP';
 
             // URL 파라미터로 전달
-            window.location.href = `RM_01_01.html?amount=${amount}&country=${country}`;
+            window.location.href = `RM_01_01.html?amount=${encodeURIComponent(amount)}&country=${encodeURIComponent(country)}`;
         }
     </script>
 </body>

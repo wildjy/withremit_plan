@@ -1,6 +1,6 @@
 // Sample remittance data (10 items) - Receive History
 const remittanceData = [
-  // 1️⃣ verified - 인증
+  // verified - 인증
   {
     receiptNum: '123456',
     date: '2026.01.12',
@@ -17,7 +17,7 @@ const remittanceData = [
     country: '일본'
   },
 
-  // 2️⃣ unverified - 미인증
+  // unverified - 미인증
   {
     receiptNum: '123457',
     date: '2026.01.11',
@@ -34,7 +34,7 @@ const remittanceData = [
     country: '중국'
   },
 
-  // 3️⃣ received - 접수
+  // received - 접수
   {
     receiptNum: '123458',
     date: '2026.01.10',
@@ -51,7 +51,7 @@ const remittanceData = [
     country: '호주'
   },
 
-  // 4️⃣ processing - 신청중
+  // processing - 신청중
   {
     receiptNum: '123459',
     date: '2026.01.09',
@@ -68,7 +68,7 @@ const remittanceData = [
     country: '필리핀'
   },
 
-  // 5️⃣ approved - 접수 완료
+  // approved - 접수 완료
   {
     receiptNum: '123460',
     date: '2026.01.08',
@@ -85,7 +85,7 @@ const remittanceData = [
     country: '베트남'
   },
 
-  // 6️⃣ complete - 입금 완료
+  // complete - 입금 완료
   {
     receiptNum: '123461',
     date: '2026.01.07',
@@ -102,7 +102,7 @@ const remittanceData = [
     country: '방글라데시'
   },
 
-  // 7️⃣ success - 거래 성공
+  // success - 거래 성공
   {
     receiptNum: '123462',
     date: '2026.01.06',
@@ -119,7 +119,7 @@ const remittanceData = [
     country: '홍콩'
   },
 
-  // 8️⃣ failed - 거래 실패
+  // failed - 거래 실패
   {
     receiptNum: '123463',
     date: '2026.01.05',
@@ -136,7 +136,7 @@ const remittanceData = [
     country: '네팔'
   },
 
-  // 9️⃣ pending - 거래 보류
+  // pending - 거래 보류
   {
     receiptNum: '123464',
     date: '2026.01.04',
@@ -153,7 +153,7 @@ const remittanceData = [
     country: '몽골'
   },
 
-  // 🔟 cancel - 거래취소
+  // cancel - 거래취소
   {
     receiptNum: '123465',
     date: '2026.01.03',
@@ -171,21 +171,12 @@ const remittanceData = [
   }
 ];
 
-
 // ===== DOM Elements =====
-const sendAmountInput = document.getElementById('sendAmount');
-const receiveCurrencySelect = document.getElementById('receiveCurrency');
-const receiveAmountEl = document.getElementById('receiveAmount');
-const exchangeRateEl = document.getElementById('exchangeRate');
-const savingsEl = document.getElementById('savings');
 const countryCards = document.querySelectorAll('.country-card');
 
 // Custom Dropdown Elements
 const currencyDropdown = document.getElementById('currencyDropdown');
 const currencyBtn = document.getElementById('currencyBtn');
-const currencyOptions = document.getElementById('currencyOptions');
-const currencyFlag = document.getElementById('receiveCurrencyFlag');
-const currencyCode = document.getElementById('receiveCurrencyCode');
 
 // common Tabs
 const tabs = document.querySelectorAll('.guide-tab');
@@ -196,9 +187,9 @@ const contents = document.querySelectorAll('.tab-content');
 // unverified - 미인증,
 // received - 접수,
 // processing - 신청중,
-// approved- 접수 완료, 
-// complete - 입금 완료, 
-// success - 거래 성공, 
+// approved- 접수 완료,
+// complete - 입금 완료,
+// success - 거래 성공,
 // failed - 거래 실패,
 // pending - 거래 보류
 // cancel - 거래취소
@@ -261,61 +252,6 @@ if(tabs.length > 0 && contents.length > 0) {
             history.replaceState(null, null, `#${target}`);
         });
     });
-}
-
-// ===== Calculator Functions =====
-function formatNumber(num, decimals = 0) {
-    return new Intl.NumberFormat('ko-KR', {
-        minimumFractionDigits: decimals,
-        maximumFractionDigits: decimals
-    }).format(num);
-}
-
-function calculateTransfer() {
-    const sendAmount = parseFloat(sendAmountInput?.value.replace(/,/g, '')) || 0;
-    const selectedCurrency = receiveCurrencySelect?.value || 'JPY';
-    const rateInfo = exchangeRates[selectedCurrency];
-
-    if (!rateInfo || sendAmount <= 0) {
-        if (receiveAmountEl) receiveAmountEl.textContent = `${rateInfo ? rateInfo.symbol : '¥'} 0`;
-        return;
-    }
-
-    // Calculate receive amount
-    const receiveAmount = sendAmount / rateInfo.rate;
-
-    // Calculate bank comparison
-    const bankReceiveAmount = receiveAmount * (1 - bankFeePercent / 100);
-    const savings = receiveAmount - bankReceiveAmount;
-
-    // Update display
-    if (receiveAmountEl) {
-        receiveAmountEl.textContent = `${rateInfo.symbol} ${formatNumber(receiveAmount)}`;
-    }
-    if (exchangeRateEl) {
-        exchangeRateEl.textContent = `1 KRW = ${rateInfo.rate.toFixed(6)} ${selectedCurrency}`;
-    }
-    if (savingsEl) {
-        const compareText = t('calc.compare')
-            .replace('{amount}', formatNumber(savings))
-            .replace('{currency}', selectedCurrency);
-        savingsEl.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>${compareText}</span>`;
-    }
-
-    // Update 상대방이 받는 금액
-    const receiveAmountDisplay = document.getElementById('receiveAmountDisplay');
-    if (receiveAmountDisplay) {
-        receiveAmountDisplay.textContent = `${rateInfo.symbol} ${formatNumber(receiveAmount)}`;
-    }
-}
-
-function handleAmountInput(e) {
-    let value = e.target.value.replace(/[^\d]/g, '');
-    if (value) {
-        value = formatNumber(parseInt(value));
-    }
-    e.target.value = value;
-    calculateTransfer();
 }
 
 function handleCurrencyChange(currency, flagUrl) {
@@ -531,40 +467,46 @@ function initAnimations() {
 
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', () => {
-    // Calculator event listeners
-    const sendAmountInput = document.getElementById('sendAmount');
-    const receiveAmountInput = document.getElementById('receiveAmount');
+    // Calculator event listeners (계산기 카드가 있는 페이지에서만 실행)
+    const isCalculatorPage = !!document.getElementById('receiveCurrency') && !!currencyDropdown;
+    if (isCalculatorPage) {
+        const sendAmountInput = document.getElementById('sendAmount');
+        const receiveAmountInput = document.getElementById('receiveAmount');
 
-    if (sendAmountInput) {
-        sendAmountInput.addEventListener('input', handleSendAmountInput);
-        sendAmountInput.value = '1,000,000';
-        // 초기 계산 실행
-        setTimeout(() => {
-            handleSendAmountInput({ target: sendAmountInput });
-        }, 100);
-    }
+        if (sendAmountInput) {
+            sendAmountInput.addEventListener('input', handleSendAmountInput);
+            sendAmountInput.value = '1,000,000';
+            // 초기 계산 실행
+            setTimeout(() => {
+                handleSendAmountInput({ target: sendAmountInput });
+            }, 100);
+        }
 
-    if (receiveAmountInput) {
-        receiveAmountInput.addEventListener('input', handleReceiveAmountInput);
-    }
+        if (receiveAmountInput && receiveAmountInput.tagName === 'INPUT') {
+            receiveAmountInput.addEventListener('input', handleReceiveAmountInput);
+        }
 
-    // Custom currency dropdown
-    if (currencyBtn) {
-        currencyBtn.addEventListener('click', toggleCurrencyDropdown);
-    }
+        // Custom currency dropdown
+        if (currencyBtn) {
+            currencyBtn.addEventListener('click', toggleCurrencyDropdown);
+        }
 
-    // Currency options click
-    document.querySelectorAll('.calc-currency-option').forEach(option => {
-        option.addEventListener('click', () => {
-            const currency = option.dataset.value;
-            const flagUrl = option.querySelector('img').src; // 이미지 경로 추출
-            handleCurrencyChange(currency, flagUrl); // 두 값을 모두 보냄
-            document.getElementById('currencyDropdown').classList.remove('open');
+        // Currency options click
+        document.querySelectorAll('.calc-currency-option').forEach(option => {
+            option.addEventListener('click', () => {
+                const currency = option.dataset.value;
+                const flagUrl = option.querySelector('img').src; // 이미지 경로 추출
+                handleCurrencyChange(currency, flagUrl); // 두 값을 모두 보냄
+                document.getElementById('currencyDropdown').classList.remove('open');
+            });
         });
-    });
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', closeCurrencyDropdown);
+        // Close dropdown when clicking outside
+        document.addEventListener('click', closeCurrencyDropdown);
+
+        // Set initial selected state
+        document.querySelector('.calc-currency-option[data-value="JP"]')?.classList.add('selected');
+    }
 
     // Country cards click
     countryCards.forEach(card => {
@@ -578,8 +520,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize
     initAnimations();
 
-    // Set initial selected state
-    document.querySelector('.calc-currency-option[data-value="JPY"]')?.classList.add('selected');
 });
 
 // ===== Smooth Scroll =====
@@ -606,14 +546,6 @@ const keyboardLayouts = {
     abc: [['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'], ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'], ['Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm']],
     spec: [['-', '/', ':', ';', '(', ')', '$', '&', '@', '"'], ['.', '?', '!', "'", ',', '_', '\\', '|', '~', '<'], ['>', '`', '[', ']', '{', '}', '#', '%', '^', '*']]
 };
-
-// function toggleKeypad moved to end of file
-// function handleKeyInput kept here as it is helper logic
-// But wait, the previous tool call ADDED the new toggleKeypad at the END.
-// So now I have TWO toggleKeypad functions.
-// I should remove the first one (lines 966-1010) AND likely correct the handleKeyInput since I claimed I would update it but I didn't in the previous block.
-// Actually handleKeyInput was fine, except I verified logic is correct.
-// So I just need to remove the first toggleKeypad.
 
 // 이메일 입력 관련 이벤트 핸들러
 function emailDomainEventHandler(options = {}) {
@@ -681,6 +613,7 @@ function emailDomainEventHandler(options = {}) {
   domainEl.addEventListener('input', () => { syncFullEmail(); resetVerified(); });
 }
 
+// 중복 확인 모달 열기
 function openDupCheckModal({
     type = 'email',      // 'email' | 'id'
     status = 'success',  // 'success' | 'fail'
