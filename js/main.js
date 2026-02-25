@@ -903,12 +903,40 @@ function closeModal(id) {
     }
 }
 
-// Close modal when clicking outside
-window.addEventListener('click', (e) => {
+// Close modal when clicking/touching outside
+document.addEventListener('click', (e) => {
+    if (!e.target.classList) return;
+    
+    // 직접 클릭한 요소가 modal-overlay인지 확인
     if (e.target.classList.contains('modal-overlay')) {
         closeModal(e.target.id);
+        return;
     }
-});
+    
+    // 또는 closest로도 확인 (form 내부 모달도 대응)
+    const modalOverlay = e.target.closest('.modal-overlay');
+    if (modalOverlay) {
+        // 클릭한 요소가 정확히 modal-overlay인지 확인
+        if (e.target === modalOverlay) {
+            closeModal(modalOverlay.id);
+        }
+    }
+}, false); // 버블 단계에서 동작
+
+// 터치 기기 지원
+document.addEventListener('touchend', (e) => {
+    if (!e.target.classList) return;
+    
+    if (e.target.classList.contains('modal-overlay')) {
+        closeModal(e.target.id);
+        return;
+    }
+    
+    const modalOverlay = e.target.closest('.modal-overlay');
+    if (modalOverlay && e.target === modalOverlay) {
+        closeModal(modalOverlay.id);
+    }
+}, false);
 
 // ===== open post Modal Functions =====
 function openPostcodeModal() {
