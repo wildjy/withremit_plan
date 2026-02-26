@@ -16,6 +16,39 @@ const currencySymbols = {
     JP: '¥', PH: '₱', CN: '¥', NP: 'रू', AU: 'A$', HK: 'HK$', MN: '₮', VN: '₫', LK: '௹', BD: '৳'
 };
 
+const currencyCodes = {
+    JP: 'JPY',
+    PH: 'PHP',
+    CN: 'CNY',
+    NP: 'NPR',
+    AU: 'AUD',
+    HK: 'HKD',
+    MN: 'MNT',
+    VN: 'VND',
+    LK: 'LKR',
+    BD: 'BDT'
+};
+
+function normalizeCountryCode(code) {
+    if (!code) return '';
+    const normalized = code.trim().toUpperCase();
+    const map = {
+        JPY: 'JPY',
+        PHP: 'PHP',
+        CNY: 'CNY',
+        NPR: 'NPR',
+        AUD: 'AUD',
+        HKD: 'HKD',
+        MNT: 'MNT',
+        VND: 'VND',
+        LKR: 'LKR',
+        BDT: 'BDT'
+    };
+    return map[normalized] || normalized;
+}
+
+window.normalizeCountryCode = normalizeCountryCode;
+
 const withdrawalFees = {
     JP: 660,
     PH: 40129,
@@ -28,26 +61,6 @@ const withdrawalFees = {
     LK: 0,
     BD: 0
 };
-
-function normalizeCountryCode(code) {
-    if (!code) return '';
-    const normalized = code.trim().toUpperCase();
-    const map = {
-        JPY: 'JP',
-        PHP: 'PH',
-        CNY: 'CN',
-        NPR: 'NP',
-        AUD: 'AU',
-        HKD: 'HK',
-        MNT: 'MN',
-        VND: 'VN',
-        LKR: 'LK',
-        BDT: 'BD'
-    };
-    return map[normalized] || normalized;
-}
-
-window.normalizeCountryCode = normalizeCountryCode;
 
 let selectedCurrency = 'JP';
 
@@ -98,7 +111,8 @@ function updateRateDisplay() {
     const exchangeRateEl = document.getElementById('exchangeRate');
     if (exchangeRateEl && exchangeRates[selectedCurrency]) {
         const rate = exchangeRates[selectedCurrency].rate;
-        exchangeRateEl.textContent = `1 KRW = ${rate.toFixed(4)} ${selectedCurrency}`;
+        const displayCode = currencyCodes[selectedCurrency] || selectedCurrency;
+        exchangeRateEl.textContent = `1 KRW = ${rate.toFixed(4)} ${displayCode}`;
     }
 }
 

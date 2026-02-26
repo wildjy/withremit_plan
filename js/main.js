@@ -263,7 +263,12 @@ function handleCurrencyChange(currency, flagUrl) {
     const receiveCurrencyInput = document.getElementById('receiveCurrency');
 
     if (receiveCurrencyFlag && flagUrl) receiveCurrencyFlag.src = flagUrl;
-    if (receiveCurrencyCode) receiveCurrencyCode.textContent = currency;
+    if (receiveCurrencyCode) {
+        const displayCode = (typeof currencyCodes !== 'undefined' && currencyCodes[currency])
+            ? currencyCodes[currency]
+            : currency;
+        receiveCurrencyCode.textContent = displayCode;
+    }
     if (receiveCurrencySymbol) {
         receiveCurrencySymbol.textContent = currencySymbols[currency] || '¥';
     }
