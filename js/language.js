@@ -19,6 +19,7 @@ const translations = {
         'nav.logout': '로그아웃',
         'nav.register': '회원가입',
         'nav.mypage': '마이페이지',
+        'nav.coupon': '쿠폰',
         'nav.language': '언어',
         'nav.remitGuide': '송금 서비스 안내',
         'nav.signupGuide': '가입 안내',
@@ -46,9 +47,6 @@ const translations = {
         'calc.deposit': '입금할 금액',
         'calc.transferFee': '송금 수수료',
         'calc.withdrawalFee': '수취 수수료',
-        'modal.limit.title': '송금 한도 초과',
-        'modal.limit.memo': '외환거래법령에 따라 건당 최대 <b>$5,000(USD)</b>까지 송금이 가능합니다. 현재 환율 기준 송금 가능액인 <b>{limit}원</b>으로 조정되었습니다.',
-        'modal.ok': '확인',
 
         // Features
         'features.title': '왜 withremit인가요?',
@@ -185,6 +183,11 @@ const translations = {
         'modal.emailDup.title': '이메일 중복 확인',
         'modal.emailDup.ok': '사용 가능한 이메일입니다.',
         'modal.emailDup.fail': '이미 사용 중인 이메일입니다.',
+        'modal.limit.title': '송금 한도 초과',
+        'modal.limit.memo': '외환거래법령에 따라 건당 최대 <b>$5,000(USD)</b>까지 송금이 가능합니다. 현재 환율 기준 송금 가능액인 <b>{limit}원</b>으로 조정되었습니다.',
+        'modal.ok': '확인',
+        'modal.notice.title': '약관확인',
+        'modal.terms.scrollRequired': '약관 내용을 끝까지 읽고 동의해 주세요.',
     },
     en: {
         // Buttons
@@ -205,6 +208,7 @@ const translations = {
         'nav.logout': 'Logout',
         'nav.register': 'Sign Up',
         'nav.mypage': 'MY Page',
+        'nav.coupon': 'Coupons',
         'nav.language': 'Language',
         'nav.remitGuide': 'Remittance Service Guide',
         'nav.signupGuide': 'Registration Guide',
@@ -232,9 +236,6 @@ const translations = {
         'calc.deposit': 'Deposit Amount',
         'calc.transferFee': 'Transfer Fee',
         'calc.withdrawalFee': 'Withdrawal Fee',
-        'modal.limit.title': 'Transfer Limit Exceeded',
-        'modal.limit.memo': 'Under the Foreign Exchange Transactions Act, you can transfer up to <b>$5,000(USD)</b> per transaction. The amount has been adjusted to <b>{limit} KRW</b> based on the current exchange rate.',
-        'modal.ok': 'Confirm',
 
         // Features
         'features.title': 'Why withremit?',
@@ -368,6 +369,11 @@ const translations = {
         'modal.emailDup.title': 'Email Duplication Check',
         'modal.emailDup.ok': 'This email is available.',
         'modal.emailDup.fail': 'This email is already in use.',
+        'modal.limit.title': 'Transfer Limit Exceeded',
+        'modal.limit.memo': 'Under the Foreign Exchange Transactions Act, you can transfer up to <b>$5,000(USD)</b> per transaction. The amount has been adjusted to <b>{limit} KRW</b> based on the current exchange rate.',
+        'modal.ok': 'Confirm',
+        'modal.notice.title': 'Notice',
+        'modal.terms.scrollRequired': 'Please read the terms and conditions to the end and agree.',
     },
     ja: {
         // Navigation
@@ -375,6 +381,9 @@ const translations = {
         'nav.business': '法人送金',
         'nav.service': 'サービス案内',
         'nav.login': 'ログイン',
+        'nav.logout': 'ログアウト',
+        'nav.mypage': 'マイページ',
+        'nav.coupon': 'クーポン',
         'nav.register': '会員登録',
         'nav.language': '言語',
         'nav.remitGuide': '送金サービス案内',
@@ -403,9 +412,6 @@ const translations = {
         'calc.deposit': '入金額',
         'calc.transferFee': '送金手数料',
         'calc.withdrawalFee': '出金手数料',
-        'modal.limit.title': '送金限度額超過',
-        'modal.limit.memo': '外国為替取引法に基づき、1回につき最大<b>5,000米ドル(USD)</b>까지 送金可能です。現在の為替レートに基づく送金可能額の <b>{limit}ウォン</b>に調整されました。',
-        'modal.ok': '確認',
 
         // Features
         'features.title': 'なぜwithremit？',
@@ -538,6 +544,11 @@ const translations = {
         'modal.emailDup.title': 'メールアドレス重複確認',
         'modal.emailDup.ok': 'ご利用可能なメールアドレスです。',
         'modal.emailDup.fail': 'すでに使用されているメールアドレスです。',
+        'modal.limit.title': '送金限度額超過',
+        'modal.limit.memo': '外国為替取引法に基づき、1回につき最大<b>5,000米ドル(USD)</b>까지 送金可能です。現在の為替レートに基づく送金可能額の <b>{limit}ウォン</b>に調整されました。',
+        'modal.ok': '確認',
+        'modal.notice.title': '案内',
+        'modal.terms.scrollRequired': '利用規約の内容を最後まで読んで同意してください。',
     },
     hi: {
         // Navigation
@@ -545,6 +556,9 @@ const translations = {
         'nav.business': 'व्यवसायिक धन प्रेषण',
         'nav.service': 'सेवा परिचय',
         'nav.login': 'लॉग इन',
+        'nav.logout': 'लॉग आउट',
+        'nav.mypage': 'माई पेज',
+        'nav.coupon': 'कूपन',
         'nav.register': 'साइन अप',
         'nav.language': 'भाषा',
         'nav.remitGuide': 'धन प्रेषण सेवा परिचय',
@@ -573,9 +587,6 @@ const translations = {
         'calc.deposit': 'जमा राशि',
         'calc.transferFee': 'ट्रांसफर शुल्क',
         'calc.withdrawalFee': 'निकासी शुल्क',
-        'modal.limit.title': 'धन प्रेषण सीमा से अधिक',
-        'modal.limit.memo': 'विदेशी विनिमय कानून के अनुसार, एक बार में अधिकतम <b>5,000 USD</b> भेजे जा सकते हैं। वर्तमान विनिमय दर के अनुसार अधिकतम राशि <b>{limit} KRW</b> निर्धारित की गई है।',
-        'modal.ok': 'पुष्टि करें',
 
         // Features
         'features.title': 'withremit क्यों चुनें?',
@@ -708,6 +719,12 @@ const translations = {
         'modal.emailDup.title': 'ईमेल डुप्लिकेशन जांच',
         'modal.emailDup.ok': 'यह ईमेल उपलब्ध है।',
         'modal.emailDup.fail': 'यह ईमेल पहले से उपयोग में है।',
+        'modal.limit.title': 'धन प्रेषण सीमा से अधिक',
+        'modal.limit.memo': 'विदेशी विनिमय कानून के अनुसार, एक बार में अधिकतम <b>5,000 USD</b> भेजे जा सकते हैं। वर्तमान विनिमय दर के अनुसार अधिकतम राशि <b>{limit} KRW</b> निर्धारित की गई है।',
+        'modal.ok': 'पुष्टि करें',
+        'modal.notice.title': 'सूचना',
+        'modal.terms.scrollRequired': 'कृपया सेवा की शर्तों को अंत तक पढ़ें और सहमत हों।',
+
     }
 };
 

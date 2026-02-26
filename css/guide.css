@@ -73,7 +73,7 @@
   font-weight: bold;
 }
 
-.guide-table-wrapper {
+.common-table-wrapper {
   background-color: white;
   border-radius: 12px;
   border: 1px solid #eee;
@@ -81,12 +81,12 @@
   margin-top: 15px;
 }
 
-.guide-table {
+.common-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.guide-table th {
+.common-table th {
   background-color: #f8faff;
   padding: 15px;
   font-weight: 600;
@@ -96,7 +96,7 @@
   text-align: center;
 }
 
-.guide-table td {
+.common-table td {
   padding: 15px;
   font-size: 14px;
   color: #555;
@@ -104,7 +104,7 @@
   text-align: center;
 }
 
-.guide-table tr:last-child td {
+.common-table tr:last-child td {
   border-bottom: none;
 }
 

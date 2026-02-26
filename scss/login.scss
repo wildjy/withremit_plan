@@ -148,6 +148,9 @@
 	font-weight: 500;
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
+	&.no-uppercase {
+		text-transform: none;
+	}
 }
 
 .input-label {

@@ -78,14 +78,14 @@
 
                 <section class="form-sec border-none" id="nationalitySection">
                     <div class="field-item">
-                        <div class="guide-tabs">
+                        <div class="common-tabs">
                             <label class="guide-label">
                                 <input type="radio" name="nationality" value="domestic" id="domesticRadio">
-                                <div class="guide-tab" data-i18n="join.national">내국인 회원가입</div>
+                                <div class="common-tab" data-i18n="join.national">내국인 회원가입</div>
                             </label>
                             <label class="guide-label">
                                 <input type="radio" name="nationality" value="foreign" id="foreignRadio">
-                                <div class="guide-tab" data-i18n="join.foreign">외국인 회원가입</div>
+                                <div class="common-tab" data-i18n="join.foreign">외국인 회원가입</div>
                             </label>
                         </div>
                     </div>
@@ -298,7 +298,7 @@
                                     data-i18n="join.emailLocalPlaceholder"
                                 />
                             </div>
-                            <div class="field-item">
+                            <div class="field-item align-end">
                                 <input
                                     type="text"
                                     id="emailDomain"
@@ -309,9 +309,9 @@
                                     data-i18n="join.emailDomainPlaceholder"
                                 />
                             </div>
-                        </div>  
-                        <div class="form-row">
-                            <div class="field-item">
+                        </div>
+                        <div class="form-row no-mb">
+                            <div class="field-item align-end">
                                 <div class="field-flex full-width">
                                     <select id="domainMode" class="login-input select-styled" aria-label="도메인 입력 방식">
                                         <option value="direct" selected data-i18n="join.emailDomainPlaceholder">직접 입력</option>
@@ -321,9 +321,9 @@
                                         <option value="hotmail.com">hotmail.com</option>
                                         <option value="nate.com">nate.com</option>
                                     </select>
-                                    <button 
-                                        type="button" 
-                                        class="btn-sub-action" 
+                                    <button
+                                        type="button"
+                                        class="btn-sub-action"
                                         id="btnCheckEmail"
                                         onclick="openModal('emailDupOkModal') // emailDupOkModal & emailDupUsedModal"
                                         data-i18n="join.checkEmail"
@@ -334,7 +334,7 @@
                                     <input type="hidden" id="emailFull" name="email" value="" />
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
 
                     <div class="field-item top-level">
@@ -638,7 +638,7 @@
             </div>
         </div>
 
-        <!-- 
+        <!--
         openDupCheckModal({type: 'email', status: 'success'})// id & email || success & fail
 
         <div id="dupCheckModal" class="modal-overlay">
@@ -651,7 +651,7 @@
                 확인
                 </button>
             </div>
-        </div> 
+        </div>
         -->
 
         <!-- Registration Complete Modal -->

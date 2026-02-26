@@ -364,6 +364,22 @@
         </div>
     </main>
 
+    <div id="termsScrollModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+            </div>
+            <h3 id="termsScrollTitle" data-i18n="modal.notice.title">안내</h3>
+            <p id="termsScrollMessage" data-i18n="modal.terms.scrollRequired">약관 내용을 끝까지 읽어야 전체 동의할 수 있습니다.</p>
+            <button id="termsScrollConfirm" class="modal-btn-warning" onclick="closeModal('termsScrollModal')" data-i18n="button.confirm">확인</button>
+        </div>
+    </div>
+
     <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
     <script src="js/main.js"></script>
 </body>

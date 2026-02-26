@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.guide-tab');
+    const tabs = document.querySelectorAll('.common-tab');
     const contents = document.querySelectorAll('.tab-content');
 
     // Function to activate a specific tab
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         contents.forEach(c => c.classList.remove('active'));
 
         // Activate target
-        const targetTab = document.querySelector(`.guide-tab[data-tab="${tabId}"]`);
+        const targetTab = document.querySelector(`.common-tab[data-tab="${tabId}"]`);
         const targetContent = document.getElementById(`tab-${tabId}`);
 
         if (targetTab && targetContent) {

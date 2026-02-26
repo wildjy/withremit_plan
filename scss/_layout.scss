@@ -26,6 +26,11 @@ body{
 	background-color: var(--bg-section);
 }
 
+@media (max-width: 1152px) {
+  .hide-pc {
+    display: none;
+  }
+}
 @media (max-width: 768px) {
   .db-body {
     padding-top: var(--header-h);
@@ -204,6 +209,9 @@ body{
 .field-item.top-level {
 	width: 100%;
 	margin-bottom: 24px;
+	&.no-mb {
+		margin-bottom: 0;
+	}
 }
 
 .form-row,
@@ -228,8 +236,10 @@ body{
 
 .field-item {
 	display: flex;
-	justify-content: end;
 	flex-direction: column;
+	&.align-end {
+		justify-content: flex-end;
+	}
 }
 
 .field-item.flex-2 {
@@ -251,14 +261,15 @@ body{
 }
 
 @media (max-width: 860px) {
+	.hide-pc {
+    display: inline;
+  }
+
 	.form-row,
 	.form-row-3,
 	.form-row-2,
 	.purpose-grid-full {
 		grid-template-columns: 1fr;
-		&.no-mb {
-			margin-bottom: 0;
-		}
 	}
 
 	.field-item.flex-2 {

@@ -468,20 +468,6 @@
     <script src="js/main.js"></script><!-- 언어변경 스크립트 -->
     <script src="js/includes.js"></script>
     <script>
-        // 환율 데이터
-        // const exchangeRates = {
-        //     JP: { rate: 0.1112, name: '일본', currency: '엔', symbol: '¥', withdrawalFee: 660 },
-        //     PH: { rate: 0.0421, name: '필리핀', currency: '페소', symbol: '₱', withdrawalFee: 40129 },
-        //     CN: { rate: 0.0054, name: '중국', currency: '위안', symbol: '¥', withdrawalFee: 4713 },
-        //     NP: { rate: 0.1004, name: '네팔', currency: '루피', symbol: 'रू', withdrawalFee: 97607 },
-        //     AU: { rate: 0.0011, name: '호주', currency: '달러', symbol: 'A$', withdrawalFee: 0 },
-        //     HK: { rate: 0.0059, name: '홍콩', currency: '달러', symbol: 'HK$', withdrawalFee: 0 },
-        //     MN: { rate: 2.5830, name: '몽골', currency: '투그릭', symbol: '₮', withdrawalFee: 0 },
-        //     VN: { rate: 18.5200, name: '베트남', currency: '동', symbol: '₫', withdrawalFee: 0 },
-        //     LK: { rate: 0.2450, name: '스리랑카', currency: '루피', symbol: '௹', withdrawalFee: 0 },
-        //     BD: { rate: 0.0815, name: '방글라데시', currency: '타카', symbol: '৳', withdrawalFee: 0 }
-        // };
-
         // 수정 완료 함수
         function submitEdit() {
             // 종료일 검증
@@ -1313,321 +1299,50 @@
             });
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof window.initRemitAccountSelection === 'function') {
+                window.initRemitAccountSelection();
+            }
+
+            if (typeof window.initEnhancedRemitCycle === 'function') {
+                window.initEnhancedRemitCycle();
+            }
+        });
+    </script>
+    <script>
+        function selectCard(id) {
+            document.querySelectorAll('input[name="withdrawalAccountMobile"]').forEach(radio => {
+                radio.checked = (radio.value == id);
+            });
+
+            document.querySelectorAll('.account-card').forEach(card => {
+                const radio = card.querySelector('input[name="withdrawalAccountMobile"]');
+                if (radio && radio.value == id) {
+                    card.classList.add('selected');
+                } else {
+                    card.classList.remove('selected');
+                }
+            });
+
+            const desktopRadio = document.querySelector(`input[name="withdrawalAccount"][value="${id}"]`);
+            if (desktopRadio) desktopRadio.checked = true;
+        }
+
+        const desktopRadios = document.querySelectorAll('input[name="withdrawalAccount"]');
+        desktopRadios.forEach(radio => {
+            radio.addEventListener('change', function () {
+                selectCard(this.value);
+            });
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const checkedDesktop = document.querySelector('input[name="withdrawalAccount"]:checked');
+            if (checkedDesktop) {
+                selectCard(checkedDesktop.value);
+            }
+        });
+    </script>
 </body>
 
 </html>
-<script>
-    // --- 계좌 선택 모달 로직 (Appended Script Block) ---
-
-    // 예시 데이터: 자주 쓰는 계좌 (10개)
-    const frequentAccounts = [
-        { id: 1, country: 'JP', countryName: '일본', name: 'Tanaka Hiro', bank: 'Mizuho Bank', account: '123-4567-89', purpose: 'family', purposeName: '가족 송금' },
-        { id: 2, country: 'PH', countryName: '필리핀', name: 'Maria Cruz', bank: 'BDO', account: '0011-2233-44', purpose: 'living', purposeName: '생활비' },
-        { id: 3, country: 'CN', countryName: '중국', name: 'Wang Wei', bank: 'ICBC', account: '6222-0210-01', purpose: 'business', purposeName: '사업' },
-        { id: 4, country: 'NP', countryName: '네팔', name: 'Ram Thapa', bank: 'Nabil Bank', account: '0101-0123-45', purpose: 'saving', purposeName: '저축' },
-        { id: 5, country: 'AU', countryName: '호주', name: 'John Smith', bank: 'Commonwealth', account: '062-000-1234', purpose: 'education', purposeName: '교육비' },
-        { id: 6, country: 'HK', countryName: '홍콩', name: 'Li Lei', bank: 'HSBC', account: '123-456-789', purpose: 'investment', purposeName: '투자' },
-        { id: 7, country: 'MN', countryName: '몽골', name: 'Bold Bat', bank: 'Khan Bank', account: '5000-1234-56', purpose: 'gift', purposeName: '선물' },
-        { id: 8, country: 'VN', countryName: '베트남', name: 'Nguyen Van A', bank: 'Vietcombank', account: '0011-0022-33', purpose: 'medical', purposeName: '의료비' },
-        { id: 9, country: 'LK', countryName: '스리랑카', name: 'Perera', bank: 'BOC', account: '8888-7777-66', purpose: 'other', purposeName: '기타' },
-        { id: 10, country: 'BD', countryName: '방글라데시', name: 'Rahman', bank: 'DBBL', account: '101.101.123', purpose: 'family', purposeName: '가족 송금' }
-    ];
-
-    // 예시 데이터: 최근 입금 계좌 (10개 - 유사하지만 다른 데이터)
-    const recentAccounts = [
-        { id: 1, country: 'JP', countryName: '일본', name: 'Suzuki Ichiro', bank: 'SMBC', account: '987-6543-21', purpose: 'travel', purposeName: '여행 경비' },
-        { id: 2, country: 'PH', countryName: '필리핀', name: 'Jose Rizal', bank: 'BPI', account: '5555-6666-77', purpose: 'family', purposeName: '가족 송금' },
-        { id: 3, country: 'CN', countryName: '중국', name: 'Li Na', bank: 'China Bank', account: '6222-0000-99', purpose: 'business', purposeName: '물품 대금' },
-        { id: 4, country: 'NP', countryName: '네팔', name: 'Sita', bank: 'Himalayan Bank', account: '0202-0987-65', purpose: 'living', purposeName: '생활비' },
-        { id: 5, country: 'AU', countryName: '호주', name: 'Emma Watson', bank: 'ANZ', account: '013-111-2222', purpose: 'education', purposeName: '학비' },
-        { id: 6, country: 'HK', countryName: '홍콩', name: 'Chan Tai Man', bank: 'Standard Chartered', account: '321-654-987', purpose: 'investment', purposeName: '부동산 투자' },
-        { id: 7, country: 'MN', countryName: '몽골', name: 'Sarnai', bank: 'Golomt Bank', account: '1100-2200-33', purpose: 'gift', purposeName: '축의금' },
-        { id: 8, country: 'VN', countryName: '베트남', name: 'Tran Thi B', bank: 'BIDV', account: '1234-5678-90', purpose: 'medical', purposeName: '병원비' },
-        { id: 9, country: 'LK', countryName: '스리랑카', name: 'Silva', bank: 'People\'s Bank', account: '1111-2222-33', purpose: 'other', purposeName: '기부' },
-        { id: 10, country: 'BD', countryName: '방글라데시', name: 'Ahmed', bank: 'BRAC Bank', account: '202.202.456', purpose: 'family', purposeName: '생활비 지원' }
-    ];
-
-    // 모달 열기 함수
-    function openAccountModal(type) {
-        const modal = document.getElementById('accountSelectionModal');
-        const title = document.getElementById('accountModalTitle');
-        const tbody = document.getElementById('accountTableBody');
-        let data = [];
-
-        if (type === 'frequent') {
-            title.textContent = '자주 쓰는 계좌';
-            data = frequentAccounts;
-        } else {
-            title.textContent = '최근 입금 계좌';
-            data = recentAccounts;
-        }
-
-        // 테이블 데이터 렌더링
-        tbody.innerHTML = '';
-        const cardList = document.getElementById('accountCardList');
-        cardList.innerHTML = '';
-
-        data.forEach((item, index) => {
-            // 테이블 행 렌더링
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                    <td class='center'>${index + 1}</td>
-                    <td>${item.countryName}</td>
-                    <td>${item.name}</td>
-                    <td>${item.bank}</td>
-                    <td>${item.account}</td>
-                    <td>${item.purposeName}</td>
-                `;
-            tr.style.cursor = 'pointer';
-            tr.onclick = () => selectAccount(item);
-            tbody.appendChild(tr);
-
-            // 모바일 카드 렌더링
-            const card = document.createElement('div');
-            card.className = 'account-card';
-            card.innerHTML = `
-                <div class="account-card-header">
-                    <span class="account-card-number">#${index + 1}</span>
-                    <span class="account-card-country">${item.countryName}</span>
-                </div>
-                <div class="account-card-body">
-                    <div class="account-card-row">
-                        <span class="account-card-label">수취인명</span>
-                        <span class="account-card-value">${item.name}</span>
-                    </div>
-                    <div class="account-card-row">
-                        <span class="account-card-label">은행명</span>
-                        <span class="account-card-value">${item.bank}</span>
-                    </div>
-                    <div class="account-card-row">
-                        <span class="account-card-label">계좌 번호</span>
-                        <span class="account-card-value">${item.account}</span>
-                    </div>
-                    <div class="account-card-row">
-                        <span class="account-card-label">송금목적</span>
-                        <span class="account-card-value">${item.purposeName}</span>
-                    </div>
-                </div>
-            `;
-            card.onclick = () => selectAccount(item);
-            cardList.appendChild(card);
-        });
-
-        openModal('accountSelectionModal');
-    }
-
-    // 계좌 선택 처리 (자동 입력)
-    function selectAccount(item) {
-        // 1. 국가 설정 및 이벤트 트리거
-        const countrySelect = document.getElementById('remitCountry');
-        countrySelect.value = item.country;
-        countrySelect.dispatchEvent(new Event('change'));
-
-        // 2. 약간의 지연 후 나머지 필드 채우기 (동적 UI 업데이트 대기)
-        setTimeout(() => {
-            // 수취인명
-            document.getElementById('beneficiaryName').value = item.name;
-
-            // 수취 계좌 번호
-            document.getElementById('beneficiaryAccount').value = item.account;
-
-            // 수취 은행 (옵션 매칭 시도)
-            const bankSelect = document.getElementById('beneficiaryBank');
-            if (bankSelect.options.length > 1) {
-                for (let i = 0; i < bankSelect.options.length; i++) {
-                    // 텍스트나 값에 포함되어 있으면 선택
-                    if (bankSelect.options[i].text.toLowerCase().includes(item.bank.toLowerCase()) ||
-                        bankSelect.options[i].value.toLowerCase().includes(item.bank.toLowerCase())) {
-                        bankSelect.selectedIndex = i;
-                        break;
-                    }
-                }
-            }
-
-            // 송금 목적
-            const purposeSelect = document.getElementById('remitPurpose');
-            if (item.purpose) {
-                purposeSelect.value = item.purpose;
-            }
-
-            closeModal('accountSelectionModal');
-        }, 100);
-    }
-
-    // 버튼 이벤트 연결
-    document.addEventListener('DOMContentLoaded', () => {
-        const btns = document.querySelectorAll('.quick-btn.small');
-        if (btns.length >= 2) {
-            btns[0].addEventListener('click', () => openAccountModal('frequent'));
-            btns[1].addEventListener('click', () => openAccountModal('recent'));
-        }
-
-        // --- 송금 주기 변경에 따른 송금 일자 변경 로직 (Enhanced) ---
-        const remitCycle = document.getElementById('remitCycle');
-        const remitDate = document.getElementById('remitDate');
-        const remitDateInput = document.getElementById('remitDateInput');
-
-        // 이벤트 핸들러 참조 저장용 변수
-        let currentDateChangeHandler = null;
-
-        if (remitCycle && remitDate && remitDateInput) {
-            remitCycle.addEventListener('change', function () {
-                const cycle = this.value;
-                remitDate.innerHTML = ''; // 기존 옵션 초기화
-                remitDate.disabled = false;
-                remitDateInput.style.display = 'none'; // 직접 입력 필드 숨김
-                remitDateInput.value = ''; // 입력값 초기화
-
-                if (cycle === 'daily') {
-                    // 매일: 송금 일자 선택 불필요 (비활성화 또는 '매일' 표시)
-                    const option = document.createElement('option');
-                    option.value = 'everyday';
-                    option.text = '매일';
-                    option.selected = true;
-                    remitDate.appendChild(option);
-                    remitDate.disabled = true;
-                } else if (cycle === 'weekly') {
-                    // 매주: 요일 선택 (월~일)
-                    const days = [
-                        { val: 'mon', txt: '월요일' },
-                        { val: 'tue', txt: '화요일' },
-                        { val: 'wed', txt: '수요일' },
-                        { val: 'thu', txt: '목요일' },
-                        { val: 'fri', txt: '금요일' },
-                        { val: 'sat', txt: '토요일' },
-                        { val: 'sun', txt: '일요일' }
-                    ];
-                    // 기본 선택 안내
-                    const defaultOpt = document.createElement('option');
-                    defaultOpt.value = '';
-                    defaultOpt.text = '요일 선택';
-                    defaultOpt.disabled = true;
-                    defaultOpt.selected = true;
-                    remitDate.appendChild(defaultOpt);
-
-                    days.forEach(day => {
-                        const option = document.createElement('option');
-                        option.value = day.val;
-                        option.text = day.txt;
-                        remitDate.appendChild(option);
-                    });
-                } else if (cycle === 'monthly') {
-                    // 매월: 날짜 선택 (기존 옵션) + 직접 입력 옵션 추가
-                    const dates = [
-                        { val: '5', txt: '5일' },
-                        { val: '10', txt: '10일' },
-                        { val: '15', txt: '15일' },
-                        { val: '20', txt: '20일' },
-                        { val: '25', txt: '25일' },
-                        { val: 'end', txt: '말일' },
-                        { val: 'custom', txt: '직접 입력' }
-                    ];
-                    // 기본 선택 안내
-                    const defaultOpt = document.createElement('option');
-                    defaultOpt.value = '';
-                    defaultOpt.text = '일자 선택';
-                    defaultOpt.disabled = true;
-                    defaultOpt.selected = true;
-                    remitDate.appendChild(defaultOpt);
-
-                    dates.forEach(d => {
-                        const option = document.createElement('option');
-                        option.value = d.val;
-                        option.text = d.txt;
-                        remitDate.appendChild(option);
-                    });
-
-                    // 기존 이벤트 리스너 제거
-                    if (currentDateChangeHandler) {
-                        remitDate.removeEventListener('change', currentDateChangeHandler);
-                    }
-
-                    // 새 핸들러 생성 및 등록
-                    currentDateChangeHandler = function () {
-                        if (remitDate.value === 'custom') {
-                            remitDateInput.style.display = 'block';
-                            remitDateInput.focus();
-                        } else {
-                            // 다른 옵션 선택 시 직접 입력 필드 숨김
-                            remitDateInput.style.display = 'none';
-                            remitDateInput.value = '';
-                        }
-                    };
-
-                    remitDate.addEventListener('change', currentDateChangeHandler);
-                } else {
-                    // 미선택 시
-                    const defaultOpt = document.createElement('option');
-                    defaultOpt.value = '';
-                    defaultOpt.text = '선택';
-                    defaultOpt.disabled = true;
-                    defaultOpt.selected = true;
-                    remitDate.appendChild(defaultOpt);
-                }
-            });
-
-            // Input 필드에서 다시 선택으로 전환 (ESC 또는 빈 값)
-            remitDateInput.addEventListener('blur', function () {
-                if (!this.value) {
-                    this.style.display = 'none';
-                    remitDate.style.display = 'block';
-                    remitDate.value = '';
-                }
-            });
-        }
-    });
-</script>
-<script>
-    function selectCard(id) {
-        // Update Mobile Radios and Styling
-        document.querySelectorAll('input[name="withdrawalAccountMobile"]').forEach(radio => {
-            if (radio.value == id) radio.checked = true;
-        });
-        document.querySelectorAll('.account-card').forEach(card => card.classList.remove('selected'));
-        event.currentTarget.classList.add('selected');
-
-        // Sync with Desktop Table Radios
-        const desktopRadio = document.querySelector(`input[name="withdrawalAccount"][value="${id}"]`);
-        if (desktopRadio) desktopRadio.checked = true;
-    }
-
-    // Sync Desktop Table selection to Mobile Cards
-    const desktopRadios = document.querySelectorAll('input[name="withdrawalAccount"]');
-    desktopRadios.forEach(radio => {
-        radio.addEventListener('change', function () {
-            // Trigger click on corresponding mobile card to sync state
-            selectCard(this.value);
-
-            // Also update the UI manually if selectCard relies on event.currentTarget which might not exist here
-            // Re-selecting logic to be safe if called programmatically
-            document.querySelectorAll('input[name="withdrawalAccountMobile"]').forEach(mRadio => {
-                if (mRadio.value == this.value) mRadio.checked = true;
-            });
-            document.querySelectorAll('.account-card').forEach(card => {
-                const radio = card.querySelector('input');
-                if (radio && radio.value == this.value) {
-                    card.classList.add('selected');
-                } else {
-                    card.classList.remove('selected');
-                }
-            });
-        });
-    });
-
-    // Initialize sync (if needed, e.g. pre-selected)
-    window.addEventListener('DOMContentLoaded', () => {
-        const checkedDesktop = document.querySelector('input[name="withdrawalAccount"]:checked');
-        if (checkedDesktop) {
-            const cards = document.querySelectorAll('.account-card');
-            cards.forEach(card => {
-                const radio = card.querySelector('input');
-                if (radio && radio.value == checkedDesktop.value) {
-                    card.classList.add('selected');
-                    radio.checked = true;
-                } else {
-                    card.classList.remove('selected');
-                }
-            })
-        }
-    });
-</script>

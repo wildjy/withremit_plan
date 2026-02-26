@@ -36,11 +36,11 @@
 }
 
 
-.guide-tab-container {
+.common-tab-container {
 	margin-bottom: 30px;
 }
 
-.guide-tabs {
+.common-tabs {
 	display: flex;
 	padding: 6px;
 	border-radius: 16px;
@@ -53,7 +53,7 @@
 
 }
 
-.guide-tab {
+.common-tab {
 	flex: 1;
 	padding: 14px 20px;
 	text-align: center;
@@ -77,14 +77,14 @@
 	}
 }
 
-.guide-label input + .guide-tab:hover:not(.active),
-.guide-tab:hover:not(.active) {
+.guide-label input + .common-tab:hover:not(.active),
+.common-tab:hover:not(.active) {
 	background-color: rgba(255, 255, 255, 0.5);
 	color: #475569;
 }
 
-.guide-label input:checked + .guide-tab,
-.guide-tab.active {
+.guide-label input:checked + .common-tab,
+.common-tab.active {
 	color: #00A0DC !important;
 	font-weight: 700;
 	background-color: var(--white);
@@ -103,13 +103,13 @@
 
 // GU_01_01 송금 서비스 안내
 @media (max-width: 768px) {
-  .guide-tabs {
+  .common-tabs {
     flex-wrap: wrap;
     height: auto;
     display: flex;
     gap: 8px;
   }
-  .guide-tab {
+  .common-tab {
     min-width: 45%;
     flex-grow: 1;
     font-size: 14px;

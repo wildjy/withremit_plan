@@ -179,7 +179,7 @@ const currencyDropdown = document.getElementById('currencyDropdown');
 const currencyBtn = document.getElementById('currencyBtn');
 
 // common Tabs
-const tabs = document.querySelectorAll('.guide-tab');
+const tabs = document.querySelectorAll('.common-tab');
 const contents = document.querySelectorAll('.tab-content');
 
 // Generate status SVG
@@ -223,7 +223,7 @@ if(tabs.length > 0 && contents.length > 0) {
         contents.forEach(c => c.classList.remove('active'));
 
         // Activate target
-        const targetTab = document.querySelector(`.guide-tab[data-tab="${tabId}"]`);
+        const targetTab = document.querySelector(`.common-tab[data-tab="${tabId}"]`);
         const targetContent = document.getElementById(`tab-${tabId}`);
 
         if (targetTab && targetContent) {
@@ -906,13 +906,13 @@ function closeModal(id) {
 // Close modal when clicking/touching outside
 document.addEventListener('click', (e) => {
     if (!e.target.classList) return;
-    
+
     // 직접 클릭한 요소가 modal-overlay인지 확인
     if (e.target.classList.contains('modal-overlay')) {
         closeModal(e.target.id);
         return;
     }
-    
+
     // 또는 closest로도 확인 (form 내부 모달도 대응)
     const modalOverlay = e.target.closest('.modal-overlay');
     if (modalOverlay) {
@@ -926,12 +926,12 @@ document.addEventListener('click', (e) => {
 // 터치 기기 지원
 document.addEventListener('touchend', (e) => {
     if (!e.target.classList) return;
-    
+
     if (e.target.classList.contains('modal-overlay')) {
         closeModal(e.target.id);
         return;
     }
-    
+
     const modalOverlay = e.target.closest('.modal-overlay');
     if (modalOverlay && e.target === modalOverlay) {
         closeModal(modalOverlay.id);
@@ -1046,35 +1046,96 @@ function toggleKeypad(targetId) {
 const agreeAll = document.getElementById('agreeAll');
 const items = document.querySelectorAll('.agree-item');
 const nextBtn = document.getElementById('nextBtn');
+const termsBoxes = document.querySelectorAll('.terms-content-box');
 
-if(agreeAll && items ) {
+if (agreeAll && items.length > 0) {
+    const hasTermsBoxes = termsBoxes.length >= items.length;
+    const readState = Array.from({ length: items.length }, () => !hasTermsBoxes);
+
+    function syncMasterState() {
+        const checkedCount = document.querySelectorAll('.agree-item:checked').length;
+        agreeAll.checked = (checkedCount === items.length);
+    }
+
     function checkAllRequired() {
         const allChecked = Array.from(items).every(item => item.checked);
-        if (allChecked) {
-            nextBtn.disabled = false;
-            nextBtn.style.pointerEvents = 'auto';
-            nextBtn.style.opacity = '1';
-            nextBtn.style.cursor = 'pointer';
-        } else {
-            nextBtn.disabled = true;
-            nextBtn.style.pointerEvents = 'none';
-            nextBtn.style.opacity = '0.5';
-            nextBtn.style.cursor = 'not-allowed';
+        if (nextBtn) {
+            if (allChecked) {
+                nextBtn.disabled = false;
+                nextBtn.style.pointerEvents = 'auto';
+                nextBtn.style.opacity = '1';
+                nextBtn.style.cursor = 'pointer';
+            } else {
+                nextBtn.disabled = true;
+                nextBtn.style.pointerEvents = 'none';
+                nextBtn.style.opacity = '0.5';
+                nextBtn.style.cursor = 'not-allowed';
+            }
         }
     }
 
+    termsBoxes.forEach((box, index) => {
+        if (!items[index]) return;
+
+        const markAsRead = () => {
+            if (readState[index]) return;
+            readState[index] = true;
+            items[index].checked = true;
+            syncMasterState();
+            checkAllRequired();
+        };
+
+        if (box.scrollHeight <= box.clientHeight) {
+            markAsRead();
+            return;
+        }
+
+        box.addEventListener('scroll', () => {
+            const reachedBottom = box.scrollTop + box.clientHeight >= box.scrollHeight - 2;
+            if (reachedBottom) {
+                markAsRead();
+            }
+        });
+    });
+
     agreeAll.addEventListener('change', () => {
-        items.forEach(item => item.checked = agreeAll.checked);
+        if (agreeAll.checked) {
+            const allRead = readState.every(Boolean);
+            if (!allRead) {
+                agreeAll.checked = false;
+                // showTermsModal();
+                openModal('termsScrollModal');
+                return;
+            }
+            items.forEach(item => {
+                item.checked = true;
+            });
+            checkAllRequired();
+            return;
+        }
+
+        items.forEach(item => {
+            item.checked = false;
+        });
         checkAllRequired();
     });
 
-    items.forEach(item => {
+    items.forEach((item, index) => {
         item.addEventListener('change', () => {
-            const checkedCount = document.querySelectorAll('.agree-item:checked').length;
-            agreeAll.checked = (checkedCount === items.length);
+            if (item.checked && !readState[index]) {
+                item.checked = false;
+                // showTermsModal();
+                openModal('termsScrollModal');
+                return;
+            }
+
+            syncMasterState();
             checkAllRequired();
         });
     });
+
+    syncMasterState();
+    checkAllRequired();
 }
 
 
@@ -1122,3 +1183,450 @@ function updateTotalCount() {
 
 // Initialize count on load
 document.addEventListener('DOMContentLoaded', updateTotalCount);
+
+// ===== Remit Account Selection Common =====
+const remitFrequentAccounts = [
+    { id: 1, country: 'JP', countryName: '일본', name: 'Tanaka Hiro', bank: 'Mizuho Bank', account: '123-4567-89', purpose: 'family', purposeName: '가족 송금' },
+    { id: 2, country: 'PH', countryName: '필리핀', name: 'Maria Cruz', bank: 'BDO', account: '0011-2233-44', purpose: 'living', purposeName: '생활비' },
+    { id: 3, country: 'CN', countryName: '중국', name: 'Wang Wei', bank: 'ICBC', account: '6222-0210-01', purpose: 'business', purposeName: '사업' },
+    { id: 4, country: 'NP', countryName: '네팔', name: 'Ram Thapa', bank: 'Nabil Bank', account: '0101-0123-45', purpose: 'saving', purposeName: '저축' },
+    { id: 5, country: 'AU', countryName: '호주', name: 'John Smith', bank: 'Commonwealth', account: '062-000-1234', purpose: 'education', purposeName: '교육비' },
+    { id: 6, country: 'HK', countryName: '홍콩', name: 'Li Lei', bank: 'HSBC', account: '123-456-789', purpose: 'investment', purposeName: '투자' },
+    { id: 7, country: 'MN', countryName: '몽골', name: 'Bold Bat', bank: 'Khan Bank', account: '5000-1234-56', purpose: 'gift', purposeName: '선물' },
+    { id: 8, country: 'VN', countryName: '베트남', name: 'Nguyen Van A', bank: 'Vietcombank', account: '0011-0022-33', purpose: 'medical', purposeName: '의료비' },
+    { id: 9, country: 'LK', countryName: '스리랑카', name: 'Perera', bank: 'BOC', account: '8888-7777-66', purpose: 'other', purposeName: '기타' },
+    { id: 10, country: 'BD', countryName: '방글라데시', name: 'Rahman', bank: 'DBBL', account: '101.101.123', purpose: 'family', purposeName: '가족 송금' }
+];
+
+const remitRecentAccounts = [
+    { id: 1, country: 'JP', countryName: '일본', name: 'Suzuki Ichiro', bank: 'SMBC', account: '987-6543-21', purpose: 'travel', purposeName: '여행 경비' },
+    { id: 2, country: 'PH', countryName: '필리핀', name: 'Jose Rizal', bank: 'BPI', account: '5555-6666-77', purpose: 'family', purposeName: '가족 송금' },
+    { id: 3, country: 'CN', countryName: '중국', name: 'Li Na', bank: 'China Bank', account: '6222-0000-99', purpose: 'business', purposeName: '물품 대금' },
+    { id: 4, country: 'NP', countryName: '네팔', name: 'Sita', bank: 'Himalayan Bank', account: '0202-0987-65', purpose: 'living', purposeName: '생활비' },
+    { id: 5, country: 'AU', countryName: '호주', name: 'Emma Watson', bank: 'ANZ', account: '013-111-2222', purpose: 'education', purposeName: '학비' },
+    { id: 6, country: 'HK', countryName: '홍콩', name: 'Chan Tai Man', bank: 'Standard Chartered', account: '321-654-987', purpose: 'investment', purposeName: '부동산 투자' },
+    { id: 7, country: 'MN', countryName: '몽골', name: 'Sarnai', bank: 'Golomt Bank', account: '1100-2200-33', purpose: 'gift', purposeName: '축의금' },
+    { id: 8, country: 'VN', countryName: '베트남', name: 'Tran Thi B', bank: 'BIDV', account: '1234-5678-90', purpose: 'medical', purposeName: '병원비' },
+    { id: 9, country: 'LK', countryName: '스리랑카', name: 'Silva', bank: 'People\'s Bank', account: '1111-2222-33', purpose: 'other', purposeName: '기부' },
+    { id: 10, country: 'BD', countryName: '방글라데시', name: 'Ahmed', bank: 'BRAC Bank', account: '202.202.456', purpose: 'family', purposeName: '생활비 지원' }
+];
+
+function fillBeneficiaryName(name) {
+    const beneficiaryNameInput = document.getElementById('beneficiaryName');
+    if (beneficiaryNameInput) {
+        beneficiaryNameInput.value = name;
+        return;
+    }
+
+    const firstNameInput = document.getElementById('firstNameEn');
+    const lastNameInput = document.getElementById('lastNameEn');
+
+    if (firstNameInput && lastNameInput) {
+        const nameParts = String(name || '').trim().split(/\s+/);
+        if (nameParts.length >= 2) {
+            lastNameInput.value = nameParts[0];
+            firstNameInput.value = nameParts.slice(1).join(' ');
+        } else {
+            firstNameInput.value = name || '';
+            lastNameInput.value = '';
+        }
+    }
+}
+
+function renderRemitAccountModal(type) {
+    const title = document.getElementById('accountModalTitle');
+    const tbody = document.getElementById('accountTableBody');
+    const cardList = document.getElementById('accountCardList');
+    if (!title || !tbody || !cardList) return;
+
+    const data = type === 'frequent' ? remitFrequentAccounts : remitRecentAccounts;
+    title.textContent = type === 'frequent' ? '자주 쓰는 계좌' : '최근 입금 계좌';
+
+    tbody.innerHTML = '';
+    cardList.innerHTML = '';
+
+    data.forEach((item, index) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td class='center'>${index + 1}</td>
+            <td>${item.countryName}</td>
+            <td>${item.name}</td>
+            <td>${item.bank}</td>
+            <td>${item.account}</td>
+            <td>${item.purposeName}</td>
+        `;
+        tr.style.cursor = 'pointer';
+        tr.onclick = () => window.selectAccount(item);
+        tbody.appendChild(tr);
+
+        const card = document.createElement('div');
+        card.className = 'account-card';
+        card.innerHTML = `
+            <div class="account-card-header">
+                <span class="account-card-number">#${index + 1}</span>
+                <span class="account-card-country">${item.countryName}</span>
+            </div>
+            <div class="account-card-body">
+                <div class="account-card-row">
+                    <span class="account-card-label">수취인명</span>
+                    <span class="account-card-value">${item.name}</span>
+                </div>
+                <div class="account-card-row">
+                    <span class="account-card-label">은행명</span>
+                    <span class="account-card-value">${item.bank}</span>
+                </div>
+                <div class="account-card-row">
+                    <span class="account-card-label">계좌 번호</span>
+                    <span class="account-card-value">${item.account}</span>
+                </div>
+                <div class="account-card-row">
+                    <span class="account-card-label">송금 목적</span>
+                    <span class="account-card-value">${item.purposeName}</span>
+                </div>
+            </div>
+        `;
+        card.onclick = () => window.selectAccount(item);
+        cardList.appendChild(card);
+    });
+}
+
+window.openAccountModal = function (type) {
+    renderRemitAccountModal(type);
+    openModal('accountSelectionModal');
+};
+
+window.selectAccount = function (item) {
+    const countrySelect = document.getElementById('remitCountry');
+    if (countrySelect) {
+        countrySelect.value = item.country;
+        countrySelect.dispatchEvent(new Event('change'));
+    }
+
+    setTimeout(() => {
+        fillBeneficiaryName(item.name);
+
+        const beneficiaryAccountInput = document.getElementById('beneficiaryAccount');
+        if (beneficiaryAccountInput) {
+            beneficiaryAccountInput.value = item.account;
+        }
+
+        const bankSelect = document.getElementById('beneficiaryBank');
+        if (bankSelect && bankSelect.options.length > 1) {
+            for (let i = 0; i < bankSelect.options.length; i++) {
+                if (bankSelect.options[i].text.toLowerCase().includes(item.bank.toLowerCase()) ||
+                    bankSelect.options[i].value.toLowerCase().includes(item.bank.toLowerCase())) {
+                    bankSelect.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+
+        const purposeSelect = document.getElementById('remitPurpose');
+        if (purposeSelect && item.purpose) {
+            purposeSelect.value = item.purpose;
+        }
+
+        closeModal('accountSelectionModal');
+    }, 100);
+};
+
+window.initRemitAccountSelection = function () {
+    const btns = document.querySelectorAll('.quick-btn.small');
+    if (btns.length >= 2) {
+        btns[0].addEventListener('click', () => window.openAccountModal('frequent'));
+        btns[1].addEventListener('click', () => window.openAccountModal('recent'));
+    }
+};
+
+window.initEnhancedRemitCycle = function () {
+    const remitCycle = document.getElementById('remitCycle');
+    const remitDate = document.getElementById('remitDate');
+    const remitDateInput = document.getElementById('remitDateInput');
+
+    let currentDateChangeHandler = null;
+
+    if (remitCycle && remitDate && remitDateInput) {
+        remitCycle.addEventListener('change', function () {
+            const cycle = this.value;
+            remitDate.innerHTML = '';
+            remitDate.disabled = false;
+            remitDateInput.style.display = 'none';
+            remitDateInput.value = '';
+
+            if (cycle === 'daily') {
+                const option = document.createElement('option');
+                option.value = 'everyday';
+                option.text = '매일';
+                option.selected = true;
+                remitDate.appendChild(option);
+                remitDate.disabled = true;
+            } else if (cycle === 'weekly') {
+                const days = [
+                    { val: 'mon', txt: '월요일' },
+                    { val: 'tue', txt: '화요일' },
+                    { val: 'wed', txt: '수요일' },
+                    { val: 'thu', txt: '목요일' },
+                    { val: 'fri', txt: '금요일' },
+                    { val: 'sat', txt: '토요일' },
+                    { val: 'sun', txt: '일요일' }
+                ];
+
+                const defaultOpt = document.createElement('option');
+                defaultOpt.value = '';
+                defaultOpt.text = '요일 선택';
+                defaultOpt.disabled = true;
+                defaultOpt.selected = true;
+                remitDate.appendChild(defaultOpt);
+
+                days.forEach(day => {
+                    const option = document.createElement('option');
+                    option.value = day.val;
+                    option.text = day.txt;
+                    remitDate.appendChild(option);
+                });
+            } else if (cycle === 'monthly') {
+                const dates = [
+                    { val: '5', txt: '5일' },
+                    { val: '10', txt: '10일' },
+                    { val: '15', txt: '15일' },
+                    { val: '20', txt: '20일' },
+                    { val: '25', txt: '25일' },
+                    { val: 'end', txt: '말일' },
+                    { val: 'custom', txt: '직접 입력' }
+                ];
+
+                const defaultOpt = document.createElement('option');
+                defaultOpt.value = '';
+                defaultOpt.text = '일자 선택';
+                defaultOpt.disabled = true;
+                defaultOpt.selected = true;
+                remitDate.appendChild(defaultOpt);
+
+                dates.forEach(d => {
+                    const option = document.createElement('option');
+                    option.value = d.val;
+                    option.text = d.txt;
+                    remitDate.appendChild(option);
+                });
+
+                if (currentDateChangeHandler) {
+                    remitDate.removeEventListener('change', currentDateChangeHandler);
+                }
+
+                currentDateChangeHandler = function () {
+                    if (remitDate.value === 'custom') {
+                        remitDateInput.style.display = 'block';
+                        remitDateInput.focus();
+                    } else {
+                        remitDateInput.style.display = 'none';
+                        remitDateInput.value = '';
+                    }
+                };
+
+                remitDate.addEventListener('change', currentDateChangeHandler);
+            } else {
+                const defaultOpt = document.createElement('option');
+                defaultOpt.value = '';
+                defaultOpt.text = '선택';
+                defaultOpt.disabled = true;
+                defaultOpt.selected = true;
+                remitDate.appendChild(defaultOpt);
+            }
+        });
+
+        remitDateInput.addEventListener('blur', function () {
+            if (!this.value) {
+                this.style.display = 'none';
+                remitDate.style.display = 'block';
+                remitDate.value = '';
+            }
+        });
+    }
+};
+
+window.initRemitCountryChange = function (options = {}) {
+    const countrySelect = document.getElementById(options.countrySelectId || 'remitCountry');
+    if (!countrySelect) return;
+
+    const servicesByCountry = options.servicesByCountry || window.servicesByCountry || {};
+    const banksByCountry = options.banksByCountry || window.banksByCountry || {};
+
+    countrySelect.addEventListener('change', function () {
+        const country = this.value;
+        const serviceSelect = document.getElementById(options.serviceSelectId || 'remitService');
+        const bankSelect = document.getElementById(options.bankSelectId || 'beneficiaryBank');
+        const nameKanaSection = document.getElementById(options.nameKanaSectionId || 'NameKanaSection');
+        const bsbSection = document.getElementById(options.bsbSectionId || 'BsbSection');
+        const bsbField = document.getElementById(options.bsbFieldId || 'BsbField');
+
+        if (nameKanaSection) {
+            nameKanaSection.style.display = country === 'JP' ? 'grid' : 'none';
+        }
+
+        if (bsbSection) {
+            bsbSection.classList.toggle('form-row', country === 'AU');
+            bsbSection.classList.toggle('form-row-2', country !== 'AU');
+        }
+
+        if (bsbField) {
+            bsbField.style.display = country === 'AU' ? 'block' : 'none';
+        }
+
+        if (serviceSelect) {
+            serviceSelect.disabled = false;
+            serviceSelect.innerHTML = '';
+
+            if (servicesByCountry[country]) {
+                servicesByCountry[country].forEach((service, index) => {
+                    const option = document.createElement('option');
+                    option.value = service.value;
+                    option.textContent = service.text;
+                    if (index === 0) option.selected = true;
+                    serviceSelect.appendChild(option);
+                });
+
+                if (servicesByCountry[country][0].locked && servicesByCountry[country].length === 1) {
+                    serviceSelect.disabled = true;
+                }
+            }
+        }
+
+        if (bankSelect) {
+            bankSelect.innerHTML = '';
+            if (banksByCountry[country]) {
+                banksByCountry[country].forEach(bank => {
+                    const option = document.createElement('option');
+                    option.value = bank.value;
+                    option.textContent = bank.text;
+                    if (bank.value === '') {
+                        option.disabled = true;
+                        option.selected = true;
+                    }
+                    bankSelect.appendChild(option);
+                });
+            }
+        }
+
+        const amountSectionWrapper = document.getElementById(options.amountSectionWrapperId || 'amountSectionWrapper');
+        if (amountSectionWrapper) {
+            amountSectionWrapper.style.display = country ? 'block' : 'none';
+        }
+
+        const exchangeRateDisplay = document.getElementById(options.exchangeRateDisplayId || 'exchangeRateDisplay');
+        const exchangeRateText = document.getElementById(options.exchangeRateTextId || 'exchangeRate');
+        if (exchangeRateDisplay) {
+            if (window.exchangeRates && window.exchangeRates[country] && exchangeRateText) {
+                const rateInfo = window.exchangeRates[country];
+                const rateFor1000 = (rateInfo.rate * 1000).toLocaleString('ko-KR', {
+                    minimumFractionDigits: 3,
+                    maximumFractionDigits: 3
+                });
+                exchangeRateText.textContent = `₩ 1,000 = ${rateInfo.symbol} ${rateFor1000}`;
+                exchangeRateDisplay.style.display = 'block';
+            } else {
+                exchangeRateDisplay.style.display = 'none';
+            }
+        }
+
+        const amountType = document.querySelector('input[name="amountType"]:checked')?.value;
+        const currencySymbol = document.getElementById(options.currencySymbolId || 'currencySymbol');
+        if (amountType === 'receive' && currencySymbol && window.exchangeRates && window.exchangeRates[country]) {
+            currencySymbol.textContent = window.exchangeRates[country].symbol;
+        }
+
+        const sendAmountInput = document.getElementById(options.sendAmountId || 'sendAmount');
+        if (sendAmountInput) {
+            sendAmountInput.value = '';
+        }
+
+        const calcResult = document.getElementById(options.calcResultId || 'calcResult');
+        if (calcResult) {
+            calcResult.classList.remove('active');
+        }
+
+        if (typeof window.updateQuickAmountButtons === 'function') {
+            window.updateQuickAmountButtons();
+        }
+    });
+};
+
+window.initRemitAmountTypeChange = function (options = {}) {
+    const countrySelect = document.getElementById(options.countrySelectId || 'remitCountry');
+    const currencySymbol = document.getElementById(options.currencySymbolId || 'currencySymbol');
+    const amountLabel = document.getElementById(options.amountLabelId || 'amountLabel');
+    const sendAmountInput = document.getElementById(options.sendAmountId || 'sendAmount');
+
+    if (!sendAmountInput || !currencySymbol || !amountLabel) return;
+
+    document.querySelectorAll('input[name="amountType"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            const country = countrySelect ? countrySelect.value : '';
+            const currentAmount = sendAmountInput.value.replace(/,/g, '');
+            const numValue = parseInt(currentAmount);
+
+            if (this.value === 'send') {
+                currencySymbol.textContent = '₩';
+                amountLabel.textContent = '송금 금액';
+                sendAmountInput.placeholder = '송금 금액을 입력하세요';
+
+                if (country && window.exchangeRates && window.exchangeRates[country] && !isNaN(numValue) && numValue > 0) {
+                    const krwAmount = Math.floor(numValue / window.exchangeRates[country].rate);
+                    sendAmountInput.value = krwAmount.toLocaleString('ko-KR');
+                }
+            } else if (this.value === 'receive') {
+                if (country && window.exchangeRates && window.exchangeRates[country]) {
+                    currencySymbol.textContent = window.exchangeRates[country].symbol;
+                } else {
+                    currencySymbol.textContent = '₩';
+                }
+
+                amountLabel.textContent = '수취 금액';
+                sendAmountInput.placeholder = '수취 금액을 입력하세요';
+
+                if (country && window.exchangeRates && window.exchangeRates[country] && !isNaN(numValue) && numValue > 0) {
+                    const foreignAmount = Math.floor(numValue * window.exchangeRates[country].rate);
+                    sendAmountInput.value = foreignAmount.toLocaleString('ko-KR');
+                }
+            }
+
+            if (typeof window.updateQuickAmountButtons === 'function') {
+                window.updateQuickAmountButtons();
+            }
+        });
+    });
+};
+
+window.initRemitUrlPrefill = function (options = {}) {
+    const countrySelectId = options.countrySelectId || 'remitCountry';
+    const sendAmountId = options.sendAmountId || 'sendAmount';
+
+    window.addEventListener('DOMContentLoaded', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const amount = urlParams.get('amount');
+        const countryParam = urlParams.get('country');
+
+        const country = typeof window.normalizeCountryCode === 'function'
+            ? window.normalizeCountryCode(countryParam)
+            : (countryParam ? countryParam.trim().toUpperCase() : '');
+
+        if (amount && country) {
+            const countrySelect = document.getElementById(countrySelectId);
+            if (!countrySelect || !window.exchangeRates || !window.exchangeRates[country]) return;
+
+            countrySelect.value = country;
+            countrySelect.dispatchEvent(new Event('change'));
+
+            setTimeout(function () {
+                const sendAmountInput = document.getElementById(sendAmountId);
+                if (!sendAmountInput) return;
+                sendAmountInput.value = parseFloat(amount).toLocaleString('ko-KR');
+
+                setTimeout(function () {
+                    if (typeof window.calculateRemit === 'function') {
+                        window.calculateRemit();
+                    }
+                }, 100);
+            }, 100);
+        }
+    });
+};

@@ -173,6 +173,9 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+.field-label.no-uppercase {
+  text-transform: none;
+}
 
 .input-label {
   display: block;

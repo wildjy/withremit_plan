@@ -266,6 +266,11 @@ body.wh-full {
   background-color: var(--bg-section);
 }
 
+@media (max-width: 1152px) {
+  .hide-pc {
+    display: none;
+  }
+}
 @media (max-width: 768px) {
   .db-body {
     padding-top: var(--header-h);
@@ -463,6 +468,13 @@ body.wh-full {
   width: 100%;
   margin-bottom: 24px;
 }
+.form-row-full.no-mb,
+.form-row.no-mb,
+.form-row-2.no-mb,
+.form-row-3.no-mb,
+.field-item.top-level.no-mb {
+  margin-bottom: 0;
+}
 
 .form-row,
 .form-row-2,
@@ -489,13 +501,15 @@ body.wh-full {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+.field-item.align-end {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .field-item.flex-2 {
@@ -523,17 +537,14 @@ body.wh-full {
 }
 
 @media (max-width: 860px) {
+  .hide-pc {
+    display: inline;
+  }
   .form-row,
   .form-row-3,
   .form-row-2,
   .purpose-grid-full {
     grid-template-columns: 1fr;
-  }
-  .form-row.no-mb,
-  .form-row-3.no-mb,
-  .form-row-2.no-mb,
-  .purpose-grid-full.no-mb {
-    margin-bottom: 0;
   }
   .field-item.flex-2 {
     grid-column: auto;
@@ -2802,11 +2813,11 @@ a.banner-slide {
   display: block;
 }
 
-.guide-tab-container {
+.common-tab-container {
   margin-bottom: 30px;
 }
 
-.guide-tabs {
+.common-tabs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2821,7 +2832,7 @@ a.banner-slide {
   overflow-x: auto;
 }
 
-.guide-tab {
+.common-tab {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -2850,14 +2861,14 @@ a.banner-slide {
   display: none;
 }
 
-.guide-label input + .guide-tab:hover:not(.active),
-.guide-tab:hover:not(.active) {
+.guide-label input + .common-tab:hover:not(.active),
+.common-tab:hover:not(.active) {
   background-color: rgba(255, 255, 255, 0.5);
   color: #475569;
 }
 
-.guide-label input:checked + .guide-tab,
-.guide-tab.active {
+.guide-label input:checked + .common-tab,
+.common-tab.active {
   color: #00A0DC !important;
   font-weight: 700;
   background-color: var(--white);
@@ -2877,7 +2888,7 @@ a.banner-slide {
 }
 
 @media (max-width: 768px) {
-  .guide-tabs {
+  .common-tabs {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     height: auto;
@@ -2886,7 +2897,7 @@ a.banner-slide {
     display: flex;
     gap: 8px;
   }
-  .guide-tab {
+  .common-tab {
     min-width: 45%;
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
@@ -3841,6 +3852,9 @@ a.banner-slide {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+.field-label.no-uppercase {
+  text-transform: none;
 }
 
 .input-label {
@@ -10461,7 +10475,7 @@ td.center {
   max-width: 600px;
 }
 
-#refundAccountModal .guide-tabs {
+#refundAccountModal .common-tabs {
   margin-bottom: 20px;
 }
 
