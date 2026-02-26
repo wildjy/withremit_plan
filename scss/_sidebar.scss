@@ -7,7 +7,7 @@
 // Sidebar Styles
 @media (min-width: 1025px) {
   #sidebarContainer {
-    width: 200px;
+    width: 196px;
     flex-shrink: 0;
     position: relative;
   }
@@ -74,14 +74,14 @@
 }
 
 body.db-body .db-sidebar {
-  position: static;
-  top: var(--header-h-md);
-	width: 200px;
+	position: static;
+	top: var(--header-h-md);
+	width: 172px;
 	background-color: transparent;
 	border-radius: 0;
 	border: none;
 	box-shadow: none;
-  transform: translate3d(0, 0, 0);
+  	transform: translate3d(0, 0, 0);
 	flex-shrink: 0;
 	overflow: visible;
 }
@@ -176,16 +176,16 @@ body.db-body .db-sidebar {
 	height: 40px;
 }
 
-.db-side-nav {
-	padding: 20px;
-}
+// .db-side-nav {
+// 	padding: 20px;
+// }
 
 .db-nav-link {
 	display: flex;
 	align-items: center;
 	gap: 10px;
 	height: 36px;
-	padding: 0 0px;
+	padding: 0 16px;
 	color: var(--text-body);
 	font-size: 14px;
 	font-weight: 500;

@@ -1160,7 +1160,7 @@ body.wh-full {
 /* ===== SideBar ===== */
 @media (min-width: 1025px) {
   #sidebarContainer {
-    width: 200px;
+    width: 196px;
     -ms-flex-negative: 0;
         flex-shrink: 0;
     position: relative;
@@ -1230,7 +1230,7 @@ body.wh-full {
 body.db-body .db-sidebar {
   position: static;
   top: var(--header-h-md);
-  width: 200px;
+  width: 172px;
   background-color: transparent;
   border-radius: 0;
   border: none;
@@ -1331,10 +1331,6 @@ body.db-body .db-sidebar {
   height: 40px;
 }
 
-.db-side-nav {
-  padding: 20px;
-}
-
 .db-nav-link {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1344,7 +1340,7 @@ body.db-body .db-sidebar {
           align-items: center;
   gap: 10px;
   height: 36px;
-  padding: 0 0px;
+  padding: 0 16px;
   color: var(--text-body);
   font-size: 14px;
   font-weight: 500;
