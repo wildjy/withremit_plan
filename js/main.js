@@ -645,40 +645,58 @@ function emailDomainEventHandler(options = {}) {
   localEl.addEventListener('input', () => { syncFullEmail(); resetVerified(); });
   domainEl.addEventListener('input', () => { syncFullEmail(); resetVerified(); });
 }
+// ===== Half-width (전각 -> 반각) input 처리 =====
+function normalizeHalfWidth(value) {
+  return String(value || '')
+    .replace(/[！-～]/g, (ch) => String.fromCharCode(ch.charCodeAt(0) - 0xFEE0))
+    .replace(/　/g, ' ')
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '');
+}
 
-document.querySelectorAll('.half-KeyMode-only').forEach(input => {
-    input.setAttribute('inputmode', 'latin');
+function initHalfWidthInputs(selector = '.half-KeyMode-only') {
+  document.querySelectorAll(selector).forEach((input) => {
+    // 중복 바인딩 방지 (fetch로 DOM 재삽입되어도 안전)
+    if (input.dataset.halfwidthBound === '1') return;
+    input.dataset.halfwidthBound = '1';
+
+    // 키보드 힌트 + 자동 교정 OFF (iOS 대응: 완전 강제는 아니지만 UX 개선)
+    input.setAttribute('inputmode', 'latin'); // iOS에서 100% 보장 X (힌트)
     input.setAttribute('autocapitalize', 'off');
     input.setAttribute('autocorrect', 'off');
     input.setAttribute('spellcheck', 'false');
+    input.setAttribute('autocomplete', 'off');
 
-    const normalizeHalfWidth = (value) => value
-        .replace(/[！-～]/g, (char) => String.fromCharCode(char.charCodeAt(0) - 0xFEE0))
-        .replace(/　/g, ' ');
+    // IME 조합 입력 안전 처리
+    let composing = false;
 
-    input.addEventListener('input', function () {
-        this.value = normalizeHalfWidth(this.value);
+    input.addEventListener('compositionstart', () => {
+      composing = true;
     });
 
-    input.addEventListener('compositionend', function () {
-        this.value = normalizeHalfWidth(this.value);
+    input.addEventListener('compositionend', () => {
+      composing = false;
+      input.value = normalizeHalfWidth(input.value);
     });
-});
 
-document.querySelectorAll('.num-KeyMode-only').forEach(input => {
-    input.addEventListener('input', function(e) {
-        let val = e.target.value;
-
-        val = val.replace(/[０-９]/g, function(s) {
-            return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
-        });
-
-        // 2. 숫자(0-9) 이외의 모든 문자 제거
-        e.target.value = val.replace(/[^0-9]/g, '');
+    input.addEventListener('input', () => {
+      if (composing) return;
+      input.value = normalizeHalfWidth(input.value)
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g, '');
     });
-    input.addEventListener('compositionend', function(e) {
-        e.target.value = e.target.value.replace(/[^0-9]/g, '');
-    });
+  });
+}
+
+// ✅ 1) 최초 로드 시 1번 적용
+document.addEventListener('DOMContentLoaded', () => {
+  initHalfWidthInputs();
+
+  // ✅ 2) fetch로 header/sidebar/modal 등 DOM이 나중에 추가되는 경우 자동 적용
+  const obs = new MutationObserver(() => {
+    initHalfWidthInputs();
+  });
+  obs.observe(document.body, { childList: true, subtree: true });
 });
 
 // 중복 확인 모달 열기

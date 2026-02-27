@@ -33,7 +33,18 @@
                                 <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <div class="field-flex">
-                                <input type="text" id="userId" placeholder="예: gdhong123" class="login-input half-KeyMode-only" data-i18n="join.userIdPlaceholder" >
+                                <input
+                                    type="text"
+                                    id="userId"
+                                    placeholder="예: gdhong123"
+                                    class="login-input half-KeyMode-only"
+                                    inputmode="latin"
+                                    autocomplete="username"
+                                    autocapitalize="off"
+                                    autocorrect="off"
+                                    spellcheck="false"
+                                    data-i18n="join.userIdPlaceholder"
+                                />
                                 <button type="button" class="btn-sub-action" data-i18n="join.checkId">중복 확인</button>
                             </div>
                         </div>
@@ -78,7 +89,7 @@
 
                 <section class="form-sec border-none" id="nationalitySection">
                     <div class="field-item">
-                        <div class="common-tabs">
+                        <div class="common-tabs mb-0">
                             <label class="guide-label">
                                 <input type="radio" name="nationality" value="domestic" id="domesticRadio">
                                 <div class="common-tab" data-i18n="join.national">내국인 회원가입</div>
@@ -385,7 +396,15 @@
                                 계좌 번호
                                 <span class="badge-required">필수</span>
                             </label>
-                            <input type="text" placeholder="'-' 없이 숫자만 입력" class="login-input">
+                            <input
+                                type="text"
+                                class="login-input "
+                                inputmode="numeric"
+                                pattern="[0-9]*"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                                data-i18n="join.request.phonePlaceholder"
+                                placeholder="'-' 없이 숫자만 입력"
+                            />
                         </div>
                         <div class="field-item">
                             <label class="field-label">

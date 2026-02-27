@@ -292,8 +292,16 @@
                             <div class="form-row-2">
                                 <div class="field-item">
                                     <label class="field-label">수취 계좌 번호</label>
-                                    <input type="text" placeholder="계좌 번호를 입력하세요" class="login-input"
-                                        id="beneficiaryAccount">
+                                    <input
+                                        type="text"
+                                        class="login-input"
+                                        inputmode="numeric"
+                                        pattern="[0-9]*"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                                        data-i18n="join.request.phonePlaceholder"
+                                        id="beneficiaryAccount"
+                                        placeholder="계좌 번호를 입력하세요"
+                                    />
                                     <span class="field-error" id="beneficiaryAccountError"></span>
                                 </div>
                                 <div class="field-item">
@@ -343,7 +351,7 @@
                                     <label class="field-label">전화번호</label>
                                     <input
                                         type="text"
-                                        class="login-input num-KeyMode-only"
+                                        class="login-input"
                                         inputmode="numeric"
                                         pattern="[0-9]*"
                                         oninput="this.value = this.value.replace(/[^0-9]/g, '');"
@@ -351,16 +359,13 @@
                                         id="beneficiaryPhone"
                                         placeholder="예: 01012345678"
                                     />
-                                    <!-- <input type="text" placeholder="수취인 전화번호" class="login-input" id="beneficiaryPhone"> -->
                                     <span class="field-error" id="beneficiaryPhoneError"></span>
                                 </div>
                                 <div class="field-item">
                                     <label class="field-label">은행 지점 번호</label>
-                                    <!-- <input type="text" placeholder="은행 지점 번호를 입력하세요" class="login-input"
-                                        id="bankBranchNumber"> -->
                                     <input
                                         type="text"
-                                        class="login-input num-KeyMode-only"
+                                        class="login-input"
                                         inputmode="numeric"
                                         pattern="[0-9]*"
                                         oninput="this.value = this.value.replace(/[^0-9]/g, '');"
