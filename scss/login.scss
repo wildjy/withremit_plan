@@ -551,15 +551,15 @@
 	flex: 4;
 }
 
-@media (max-width: 480px) {
-	.security-keypad {
-		left: 50%;
-		transform: translate(-50%, 0);
-		min-width: 480px;
-		width: 480px;
-		overflow-x: auto;
-	}
-}
+// @media (max-width: 480px) {
+// 	.security-keypad {
+// 		left: 50%;
+// 		transform: translate(-50%, 0);
+// 		min-width: 320px;
+// 		width: 420px;
+// 		overflow-x: auto;
+// 	}
+// }
 
 @media (max-width: 900px) {
 	.menu-text-list {

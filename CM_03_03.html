@@ -23,7 +23,7 @@
 
         <!-- Password Reset Modal -->
         <div id="resetPasswordModal" class="modal-overlay">
-            <div class="modal-content" style="max-width: 480px; width: 100%; padding: 30px; text-align: left;">
+            <div class="modal-content">
                 <div class="modal-inner">
                     <div class="modal-header">
                         <h3>비밀번호 재설정</h3>
@@ -91,21 +91,6 @@
 
     <script src="js/language.js"></script><!-- 언어변경 스크립트 -->
     <script src="js/main.js"></script>
-    <script>
-        function closeModal(id) {
-            // document.getElementById(id).classList.remove('active');
-            // Close keypad if open
-            if (typeof toggleKeypad === 'function') {
-                toggleKeypad(null);
-            }
-        }
-        window.onclick = (e) => {
-            if (e.target.classList.contains('modal-overlay')) closeModal(e.target.id);
-            // Also close keypad if clicking outside
-            /* Logic handled in auth.js or needs to be added here?
-               auth.js handles keypad toggle. We just need basic modal close. */
-        }
-    </script>
 </body>
 
 </html>

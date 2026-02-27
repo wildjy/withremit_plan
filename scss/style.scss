@@ -33,25 +33,25 @@
 // 	box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);
 // }
 
-.security-keypad {
-	display: none;
-	position: absolute;
-	top: calc(100% + 12px);
-	left: 50%;
-	transform: translate(-50%, 0);
-	z-index: 1000;
-	width: 480px;
-	background-color: #f1f4f6;
-	border: 1px solid #d1d9e0;
-	border-radius: 16px;
-	padding: 12px;
-	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-}
+// .security-keypad {
+// 	display: none;
+// 	position: absolute;
+// 	top: calc(100% + 12px);
+// 	left: 50%;
+// 	transform: translate(-50%, 0);
+// 	z-index: 1000;
+// 	width: 480px;
+// 	background-color: #f1f4f6;
+// 	border: 1px solid #d1d9e0;
+// 	border-radius: 16px;
+// 	padding: 12px;
+// 	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+// }
 
-.security-keypad.active {
-	display: block;
-	animation: keypadPop 0.3s ease-out;
-}
+// .security-keypad.active {
+// 	display: block;
+// 	animation: keypadPop 0.3s ease-out;
+// }
 
 @keyframes keypadPop {
 	from {
