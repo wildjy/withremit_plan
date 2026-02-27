@@ -64,27 +64,39 @@
                             <!-- 2 Columns Row 1 -->
                             <div class="form-row-2">
                                 <!-- 수취인명 -->
-                                <div class="field-item">
-                                    <label class="field-label">수취인명</label>
-                                    <input type="text" placeholder="수취인명을 입력하세요" class="login-input" id="recipientName">
-                                    <span class="field-error" id="recipientNameError"></span>
+                                <div class="form-row-2 no-mb">
+                                    <div class="field-item">
+                                        <label class="field-label">
+                                            <span data-i18n="join.request.firstNameEn">이름 (영문)</span>
+                                        </label>
+                                        <input type="text" placeholder="영문으로 입력하세요" class="login-input" id="firstNameEn">
+                                    </div>
+                                    <div class="field-item">
+                                        <label class="field-label">
+                                            <span data-i18n="join.request.lastNameEn">성 (영문)</span>
+                                        </label>
+                                        <input type="text" placeholder="영문으로 입력하세요" class="login-input" id="lastNameEn">
+                                    </div>
                                 </div>
                                 <!-- 은행명 -->
-                                <div class="field-item">
-                                    <label class="field-label">은행명</label>
-                                    <select class="login-input select-styled" id="bankSelect">
-                                        <option value="" disabled selected>선택</option>
-                                        <option value="Mizuho Bank">Mizuho Bank</option>
-                                        <option value="BDO">BDO</option>
-                                        <option value="ICBC">ICBC</option>
-                                        <option value="Nabil Bank">Nabil Bank</option>
-                                        <option value="Commonwealth">Commonwealth</option>
-                                        <option value="HSBC">HSBC</option>
-                                        <option value="Khan Bank">Khan Bank</option>
-                                        <option value="Vietcombank">Vietcombank</option>
-                                        <option value="BOC">BOC</option>
-                                    </select>
-                                    <span class="field-error" id="bankSelectError"></span>
+
+                                <div class="form-row no-mb">
+                                    <div class="field-item">
+                                        <label class="field-label">은행명</label>
+                                        <select class="login-input select-styled" id="bankSelect">
+                                            <option value="" disabled selected>선택</option>
+                                            <option value="Mizuho Bank">Mizuho Bank</option>
+                                            <option value="BDO">BDO</option>
+                                            <option value="ICBC">ICBC</option>
+                                            <option value="Nabil Bank">Nabil Bank</option>
+                                            <option value="Commonwealth">Commonwealth</option>
+                                            <option value="HSBC">HSBC</option>
+                                            <option value="Khan Bank">Khan Bank</option>
+                                            <option value="Vietcombank">Vietcombank</option>
+                                            <option value="BOC">BOC</option>
+                                        </select>
+                                        <span class="field-error" id="bankSelectError"></span>
+                                    </div>
                                 </div>
                             </div>
 
@@ -93,8 +105,15 @@
                                 <!-- 계좌 번호 -->
                                 <div class="field-item">
                                     <label class="field-label">계좌 번호</label>
-                                    <input type="text" placeholder="계좌 번호를 입력하세요" class="login-input"
-                                        id="accountNumber">
+                                    <input
+                                        type="text"
+                                        class="login-input "
+                                        id="accountNumber"
+                                        inputmode="numeric"
+                                        pattern="[0-9]*"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                                        placeholder="계좌 번호 입력 (- 없이)"
+                                    />
                                     <span class="field-error" id="accountNumberError"></span>
                                 </div>
                                 <!-- 송금 목적 -->

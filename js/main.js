@@ -645,6 +645,7 @@ function emailDomainEventHandler(options = {}) {
   localEl.addEventListener('input', () => { syncFullEmail(); resetVerified(); });
   domainEl.addEventListener('input', () => { syncFullEmail(); resetVerified(); });
 }
+
 // ===== Half-width (전각 -> 반각) input 처리 =====
 function normalizeHalfWidth(value) {
   return String(value || '')
@@ -654,12 +655,11 @@ function normalizeHalfWidth(value) {
 
 function initHalfWidthInputs(selector = '.half-KeyMode-only') {
   document.querySelectorAll(selector).forEach((input) => {
-    // 중복 바인딩 방지 (fetch로 DOM 재삽입되어도 안전)
     if (input.dataset.halfwidthBound === '1') return;
     input.dataset.halfwidthBound = '1';
 
     // 키보드 힌트 + 자동 교정 OFF (iOS 대응: 완전 강제는 아니지만 UX 개선)
-    input.setAttribute('inputmode', 'latin'); // iOS에서 100% 보장 X (힌트)
+    input.setAttribute('inputmode', 'latin');
     input.setAttribute('autocapitalize', 'off');
     input.setAttribute('autocorrect', 'off');
     input.setAttribute('spellcheck', 'false');
@@ -691,11 +691,10 @@ function initHalfWidthInputs(selector = '.half-KeyMode-only') {
   });
 }
 
-// ✅ 1) 최초 로드 시 1번 적용
 document.addEventListener('DOMContentLoaded', () => {
   initHalfWidthInputs();
 
-  // ✅ 2) fetch로 header/sidebar/modal 등 DOM이 나중에 추가되는 경우 자동 적용
+  // 2) fetch로  DOM이 나중에 추가되는 경우 자동 적용
   const obs = new MutationObserver(() => {
     initHalfWidthInputs();
   });

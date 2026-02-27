@@ -215,10 +215,8 @@
                 <div class="modal-body">
                     <div class="modal-body-form">
                         <div class="field-item" style="margin-bottom: 20px;">
-                            <label class="field-label"
-                                style="display: block; font-weight: 600; margin-bottom: 8px;">은행</label>
-                            <select class="login-input select-styled" id="bankSelect"
-                                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                            <label class="field-label">은행</label>
+                            <select class="login-input select-styled" id="bankSelect">
                                 <option value="">은행 선택</option>
                                 <option value="신한은행">신한은행</option>
                                 <option value="우리은행">우리은행</option>
@@ -232,17 +230,21 @@
                                 <option value="케이뱅크">케이뱅크</option>
                             </select>
                         </div>
-                        <div class="field-item" style="margin-bottom: 20px;">
-                            <label class="field-label" style="display: block; font-weight: 600; margin-bottom: 8px;">계좌
-                                번호</label>
-                            <input type="text" class="login-input" id="accountNumber" placeholder="계좌 번호 입력 (- 없이)"
-                                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                        <div class="field-item">
+                            <label class="field-label">계좌 번호</label>
+                            <input
+                                type="text"
+                                class="login-input "
+                                id="accountNumber"
+                                inputmode="numeric"
+                                pattern="[0-9]*"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                                placeholder="계좌 번호 입력 (- 없이)"
+                            />
                         </div>
-                        <div class="field-item" style="margin-bottom: 20px;">
-                            <label class="field-label"
-                                style="display: block; font-weight: 600; margin-bottom: 8px;">예금주</label>
-                            <input type="text" class="login-input" id="accountHolder" placeholder="예금주 입력"
-                                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                        <div class="field-item">
+                            <label class="field-label">예금주</label>
+                            <input type="text" class="login-input" id="accountHolder" placeholder="예금주 입력" />
                         </div>
                     </div>
                 </div>

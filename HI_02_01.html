@@ -353,11 +353,19 @@
                         </div>
                         <div class="field-item">
                             <label for="branch" class="field-label">지점명</label>
-                            <input type="text" id="branch" class="login-input" placeholder="지점명 입력">
+                            <input type="text" id="branch" class="login-input" placeholder="지점명 입력" />
                         </div>
                         <div class="field-item">
                             <label for="accountNumber" class="field-label">계좌 번호</label>
-                            <input type="text" id="accountNumber" class="login-input" placeholder="계좌 번호 입력 (- 없이)">
+                            <input
+                                type="text"
+                                class="login-input "
+                                id="accountNumber"
+                                inputmode="numeric"
+                                pattern="[0-9]*"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                                placeholder="계좌 번호 입력 (- 없이)"
+                            />
                         </div>
                         <div class="field-item">
                             <label for="accountHolder" class="field-label">예금주</label>

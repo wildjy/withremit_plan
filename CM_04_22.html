@@ -104,7 +104,7 @@
                             <label class="field-label">전화번호</label>
                             <input
                                 type="text"
-                                class="login-input num-KeyMode-only"
+                                class="login-input "
                                 inputmode="numeric"
                                 pattern="[0-9]*"
                                 oninput="this.value = this.value.replace(/[^0-9]/g, '');"
@@ -116,7 +116,7 @@
                             <label class="field-label">팩스번호</label>
                             <input
                                 type="text"
-                                class="login-input num-KeyMode-only"
+                                class="login-input "
                                 inputmode="numeric"
                                 pattern="[0-9]*"
                                 oninput="this.value = this.value.replace(/[^0-9]/g, '');"
@@ -233,85 +233,116 @@
                 <section class="form-sec">
                     <div class="form-sec-head">법인 은행 정보</div>
                     <div class="form-row-3">
-                        <div class="field-item"><label class="field-label">은행명</label><select
+                        <div class="field-item">
+                            <label class="field-label">은행명</label>
+                            <select
                                 class="login-input select-styled">
                                 <option value="" disabled selected>은행 선택</option>
                                 <option>국민은행</option>
                                 <option>신한은행</option>
                                 <option>우리은행</option>
                                 <option>하나은행</option>
-                            </select></div>
-                        <div class="field-item"><label class="field-label">계좌 번호</label><input type="text"
-                                placeholder="법인 명의 계좌 번호" class="login-input"></div>
-                        <div class="field-item"><label class="field-label">계좌 소유주</label><input type="text"
-                                placeholder="법인명 자동 입력" class="login-input" readonly></div>
+                            </select>
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label">계좌 번호</label>
+                            <input
+                                type="text"
+                                class="login-input"
+                                inputmode="numeric"
+                                pattern="[0-9]*"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                                placeholder="계좌 번호 입력 (- 없이)"
+                            />
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label">계좌 소유주</label>
+                            <input type="text" placeholder="법인명 자동 입력" class="login-input" readonly>
+                        </div>
                     </div>
                 </section>
 
                 <section class="form-sec">
                     <div class="form-sec-head">법인 확인 서류</div>
                     <div class="form-row-2">
-                        <div class="field-item"><label class="field-label">사업자등록증 <span
-                                    class="badge-required">필수</span></label>
-                            <div class="file-upload-wrap"><span class="file-name-display">파일을 선택해 주세요</span><label
-                                    class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
+                        <div class="field-item">
+                            <label class="field-label">사업자등록증 <span class="badge-required">필수</span></label>
+                            <div class="file-upload-wrap">
+                                <span class="file-name-display">파일을 선택해 주세요</span>
+                                <label class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
                             </div>
                         </div>
-                        <div class="field-item"><label class="field-label">등기부등본 <span
-                                    class="badge-required">필수</span></label>
-                            <div class="file-upload-wrap"><span class="file-name-display">파일을 선택해 주세요</span><label
-                                    class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row-2">
-                        <div class="field-item"><label class="field-label">등기부등본</label>
-                            <div class="file-upload-wrap"><span class="file-name-display">파일을 선택해 주세요</span><label
-                                    class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
-                            </div>
-                        </div>
-                        <div class="field-item"><label class="field-label">등기부등본</label>
-                            <div class="file-upload-wrap"><span class="file-name-display">파일을 선택해 주세요</span><label
-                                    class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
+                        <div class="field-item">
+                            <label class="field-label">등기부등본 <span class="badge-required">필수</span></label>
+                            <div class="file-upload-wrap">
+                                <span class="file-name-display">파일을 선택해 주세요</span>
+                                <label class="btn-file-trigger">찾아보기
+                                    <input type="file" class="hidden-file-input" />
+                                </label>
                             </div>
                         </div>
                     </div>
                     <div class="form-row-2">
-                        <div class="field-item"><label class="field-label">주주명부 <span
-                                    class="badge-required">필수</span></label>
-                            <div class="file-upload-wrap"><span class="file-name-display">파일을 선택해 주세요</span><label
-                                    class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
+                        <div class="field-item">
+                            <label class="field-label">등기부등본</label>
+                            <div class="file-upload-wrap">
+                                <span class="file-name-display">파일을 선택해 주세요</span>
+                                <label class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
                             </div>
                         </div>
-                        <div class="field-item"><label class="field-label">주주명부</label>
-                            <div class="file-upload-wrap"><span class="file-name-display">파일을 선택해 주세요</span><label
-                                    class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row-2">
-                        <div class="field-item"><label class="field-label">신청자 본인확인서류 앞면 <span
-                                    class="badge-required">필수</span></label>
-                            <div class="file-upload-wrap"><span class="file-name-display">파일을 선택해 주세요</span><label
-                                    class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
-                            </div>
-                        </div>
-                        <div class="field-item"><label class="field-label">신청자 본인확인서류 뒷면 <span
-                                    class="badge-required">필수</span></label>
-                            <div class="file-upload-wrap"><span class="file-name-display">파일을 선택해 주세요</span><label
-                                    class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
+                        <div class="field-item">
+                            <label class="field-label">등기부등본</label>
+                            <div class="file-upload-wrap">
+                                <span class="file-name-display">파일을 선택해 주세요</span>
+                                <label class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
                             </div>
                         </div>
                     </div>
                     <div class="form-row-2">
-                        <div class="field-item"><label class="field-label">위임장 앞면</label>
-                            <div class="file-upload-wrap"><span class="file-name-display">파일을 선택해 주세요</span><label
-                                    class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
+                        <div class="field-item">
+                            <label class="field-label">주주명부 <span class="badge-required">필수</span></label>
+                            <div class="file-upload-wrap">
+                                <span class="file-name-display">파일을 선택해 주세요</span>
+                                <label class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
                             </div>
                         </div>
-                        <div class="field-item"><label class="field-label">위임장 뒷면</label>
-                            <div class="file-upload-wrap"><span class="file-name-display">파일을 선택해 주세요</span><label
-                                    class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
+                        <div class="field-item">
+                            <label class="field-label">주주명부</label>
+                            <div class="file-upload-wrap">
+                                <span class="file-name-display">파일을 선택해 주세요</span>
+                                <label class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row-2">
+                        <div class="field-item">
+                            <label class="field-label">신청자 본인확인서류 앞면 <span class="badge-required">필수</span></label>
+                            <div class="file-upload-wrap">
+                                <span class="file-name-display">파일을 선택해 주세요</span>
+                                <label class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
+                            </div>
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label">신청자 본인확인서류 뒷면 <span class="badge-required">필수</span></label>
+                            <div class="file-upload-wrap">
+                                <span class="file-name-display">파일을 선택해 주세요</span>
+                                <label class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row-2">
+                        <div class="field-item">
+                            <label class="field-label">위임장 앞면</label>
+                            <div class="file-upload-wrap">
+                                <span class="file-name-display">파일을 선택해 주세요</span>
+                                <label class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
+                            </div>
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label">위임장 뒷면</label>
+                            <div class="file-upload-wrap">
+                                <span class="file-name-display">파일을 선택해 주세요</span>
+                                <label class="btn-file-trigger">찾아보기<input type="file" class="hidden-file-input"></label>
                             </div>
                         </div>
                     </div>
@@ -344,11 +375,25 @@
                                 </div>
                                 <div class="sh-field">
                                     <span class="sh-mobile-label">생년월일</span>
-                                    <input type="text" placeholder="YYYYMMDD" class="sh-input">
+                                    <input
+                                        type="text"
+                                        class="sh-input "
+                                        inputmode="numeric"
+                                        pattern="[0-9]*"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                                        placeholder="YYYYMMDD"
+                                    />
                                 </div>
                                 <div class="sh-field">
                                     <span class="sh-mobile-label">지분율</span>
-                                    <input type="text" placeholder="00" class="sh-input">
+                                    <input
+                                        type="text"
+                                        class="sh-input "
+                                        inputmode="numeric"
+                                        pattern="[0-9]*"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                                        placeholder="100"
+                                    />
                                 </div>
                                 <div class="sh-field sh-addr">
                                     <span class="sh-mobile-label">주소</span>
@@ -577,14 +622,18 @@
             newRow.innerHTML = `
                 <div class="sh-field"><span class="sh-mobile-label">이름(한글)</span><input type="text" placeholder="이름(한글)" class="sh-input"></div>
                 <div class="sh-field"><span class="sh-mobile-label">이름(영문)</span><input type="text" placeholder="이름(영문)" class="sh-input"></div>
-                <div class="sh-field"><span class="sh-mobile-label">생년월일</span><input type="text" placeholder="YYYYMMDD" class="sh-input"></div>
-                <div class="sh-field"><span class="sh-mobile-label">지분율(%)</span><input type="text" placeholder="00" class="sh-input"></div>
+                <div class="sh-field">
+                    <span class="sh-mobile-label">생년월일</span>
+                    <input type="text" placeholder="YYYYMMDD" class="sh-input" inputmode="numeric" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                </div>
+                <div class="sh-field">
+                    <span class="sh-mobile-label">지분율(%)</span><input type="text" placeholder="00" class="sh-input" inputmode="numeric" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                </div>
                 <div class="sh-field sh-addr"><span class="sh-mobile-label">주소</span><input type="text" placeholder="주소" class="sh-input"></div>
                 <div class="sh-action"><button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button></div>
             `;
             container.appendChild(newRow);
         }
-
         function removeRow(btn) {
             const rows = document.querySelectorAll('.sh-row');
             if (rows.length > 1) {
