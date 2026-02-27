@@ -227,23 +227,25 @@
     <!-- Remittance Detail Modal -->
     <div class="modal-overlay" id="remitModal">
         <div class="modal-content modal-layout">
-            <div class="modal-header">
-                <h2 class="modal-title">송금 내역서</h2>
-                <button class="modal-close" onclick="closeModal('remitModal')">&times;</button>
-            </div>
-            <div class="modal-body" id="modalBody">
-                <!-- Modal content will be dynamically inserted here -->
-            </div>
-            <div class="modal-footer">
-                <button class="btn-receipt-print" onclick="window.print()">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
-                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-                        <rect x="6" y="14" width="12" height="8"></rect>
-                    </svg>
-                    인쇄
-                </button>
-                <button class="btn-receipt-close" onclick="closeModal('remitModal')">닫기</button>
+            <div class="modal-inner">
+                <div class="modal-header">
+                    <h2 class="modal-title">송금 내역서</h2>
+                    <button class="modal-close" onclick="closeModal('remitModal')">&times;</button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Modal content will be dynamically inserted here -->
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-receipt-print" onclick="window.print()">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                            <rect x="6" y="14" width="12" height="8"></rect>
+                        </svg>
+                        인쇄
+                    </button>
+                    <button class="btn-receipt-close" onclick="closeModal('remitModal')">닫기</button>
+                </div>
             </div>
         </div>
     </div>

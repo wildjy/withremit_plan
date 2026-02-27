@@ -95,64 +95,68 @@
     <!-- 정기 송금 상세 모달 (Mock) -->
     <div id="scheduleDetailModal" class="modal-overlay">
         <div class="modal-content modal-layout">
-            <div class="modal-header">
-                <h2 class="modal-title">정기 송금 정보</h2>
-                <button type="button" class="modal-close" onclick="closeModal('scheduleDetailModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="receipt-section">
-                    <div class="receipt-row">
-                        <span class="receipt-label">수취인 명</span>
-                        <span class="receipt-value" id="modalRecipient"></span>
-                    </div>
-                    <div class="receipt-row">
-                        <span class="receipt-label">수취 은행</span>
-                        <span class="receipt-value" id="modalBank"></span>
-                    </div>
-                    <div class="receipt-row">
-                        <span class="receipt-label">송금 구분</span>
-                        <span class="receipt-value" id="modalType"></span>
-                    </div>
-                    <div class="receipt-row" id="amountRow">
-                        <span class="receipt-label" id="modalAmountLabel">송금 금액</span>
-                        <span class="receipt-value highlight" id="modalAmount"></span>
-                    </div>
-                    <div class="receipt-row">
-                        <span class="receipt-label">송금 주기</span>
-                        <span class="receipt-value" id="modalCycle"></span>
-                    </div>
-                    <div class="receipt-row account-modal-row">
-                        <span class="receipt-label">출금 계좌</span>
-                        <div class="account-info-box" id="modalWithdrawalAccount"></div>
-                    </div>
-                    <div class="receipt-row">
-                        <span class="receipt-label">상태</span>
-                        <span class="receipt-value" id="modalStatus"></span>
+            <div class="modal-inner">
+                <div class="modal-header">
+                    <h2 class="modal-title">정기 송금 정보</h2>
+                    <button type="button" class="modal-close" onclick="closeModal('scheduleDetailModal')">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="receipt-section">
+                        <div class="receipt-row">
+                            <span class="receipt-label">수취인 명</span>
+                            <span class="receipt-value" id="modalRecipient"></span>
+                        </div>
+                        <div class="receipt-row">
+                            <span class="receipt-label">수취 은행</span>
+                            <span class="receipt-value" id="modalBank"></span>
+                        </div>
+                        <div class="receipt-row">
+                            <span class="receipt-label">송금 구분</span>
+                            <span class="receipt-value" id="modalType"></span>
+                        </div>
+                        <div class="receipt-row" id="amountRow">
+                            <span class="receipt-label" id="modalAmountLabel">송금 금액</span>
+                            <span class="receipt-value highlight" id="modalAmount"></span>
+                        </div>
+                        <div class="receipt-row">
+                            <span class="receipt-label">송금 주기</span>
+                            <span class="receipt-value" id="modalCycle"></span>
+                        </div>
+                        <div class="receipt-row account-modal-row">
+                            <span class="receipt-label">출금 계좌</span>
+                            <div class="account-info-box" id="modalWithdrawalAccount"></div>
+                        </div>
+                        <div class="receipt-row">
+                            <span class="receipt-label">상태</span>
+                            <span class="receipt-value" id="modalStatus"></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-delete" onclick="openModal('stopConfirmModal')">정지</button>
-                <button type="button" class="btn btn-primary" onclick="location.href='RM_02_04.html'">수정</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-delete" onclick="openModal('stopConfirmModal')">정지</button>
+                    <button type="button" class="btn btn-primary" onclick="location.href='RM_02_04.html'">수정</button>
+                </div>
             </div>
         </div>
 
         <!-- 정지 확인 모달 (CM_01_01 스타일 - Standard Confirm Blue) -->
         <div id="stopConfirmModal" class="modal-overlay">
             <div class="modal-content">
-                <div class="modal-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                        stroke="#1B5E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                    </svg>
-                </div>
-                <h3>정기 송금 정지</h3>
-                <p>정기 해외 송금 정지 후 재개할 수 없습니다.<br>정말 정지하시겠습니까?</p>
-                <div class="modal-btn-group">
-                    <button class="btn-cancel" onclick="closeModal('stopConfirmModal')">취소</button>
-                    <button class="btn-confirm-action" onclick="executeStop()">정지</button>
+                <div class="modal-inner">
+                    <div class="modal-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="#1B5E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </div>
+                    <h3>정기 송금 정지</h3>
+                    <p>정기 해외 송금 정지 후 재개할 수 없습니다.<br>정말 정지하시겠습니까?</p>
+                    <div class="modal-btn-group">
+                        <button class="btn-cancel" onclick="closeModal('stopConfirmModal')">취소</button>
+                        <button class="btn-confirm-action" onclick="executeStop()">정지</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -160,17 +164,19 @@
         <!-- 정지 성공 모달 (CM_01_01 스타일 - Standard Success Blue) -->
         <div id="stopSuccessModal" class="modal-overlay">
             <div class="modal-content">
-                <div class="modal-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                        stroke="#00A0DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <polyline points="22 4 12 14.01 9 11"></polyline>
-                    </svg>
-                </div>
-                <h3>정지 완료</h3>
-                <p>정기 해외 송금이 정지되었습니다.</p>
-                <div class="modal-btn-group">
-                    <button class="btn btn-primary" onclick="closeStopSuccess()">확인</button>
+                <div class="modal-inner">
+                    <div class="modal-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="#00A0DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11"></polyline>
+                        </svg>
+                    </div>
+                    <h3>정지 완료</h3>
+                    <p>정기 해외 송금이 정지되었습니다.</p>
+                    <div class="modal-btn-group">
+                        <button class="btn btn-primary" onclick="closeStopSuccess()">확인</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -265,7 +271,7 @@
         //     return svgs[status] || svgs['running'];
         // }
 
-        
+
         // 사이드바 활성화 (정기 해외 송금)
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {

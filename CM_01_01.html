@@ -99,52 +99,57 @@
 
     <div id="successModal" class="modal-overlay">
         <div class="modal-content">
-            <div class="modal-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                    stroke="#00A0DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11"></polyline>
-                </svg>
+            <div class="modal-inner">
+                <div class="modal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="#00A0DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11"></polyline>
+                    </svg>
+                </div>
+                <h3>회원가입 완료</h3>
+                <p>회원가입 신청이 성공적으로 접수되었습니다.<br>이메일 인증을 완료해 주세요.</p>
+                <button class="modal-btn-warning" style="background-color: #00A0DC;" onclick="closeModal('successModal')">확인</button>
             </div>
-            <h3>회원가입 완료</h3>
-            <p>회원가입 신청이 성공적으로 접수되었습니다.<br>이메일 인증을 완료해 주세요.</p>
-            <button class="modal-btn-warning" style="background-color: #00A0DC;"
-                onclick="closeModal('successModal')">확인</button>
         </div>
     </div>
 
     <div id="warningModal" class="modal-overlay">
         <div class="modal-content">
-            <div class="modal-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                    stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
-                    </path>
-                    <line x1="12" y1="9" x2="12" y2="13"></line>
-                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                </svg>
+            <div class="modal-inner">
+                <div class="modal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                        </path>
+                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                </div>
+                <h3>송금 한도 초과</h3>
+                <p>외환거래법령에 따라 건당 최대 <b>$5,000(USD)</b>까지 송금이 가능합니다. 금액을 다시 확인해 주세요.</p>
+                <button class="modal-btn-warning" onclick="closeModal('warningModal')">확인</button>
             </div>
-            <h3>송금 한도 초과</h3>
-            <p>외환거래법령에 따라 건당 최대 <b>$5,000(USD)</b>까지 송금이 가능합니다. 금액을 다시 확인해 주세요.</p>
-            <button class="modal-btn-warning" onclick="closeModal('warningModal')">확인</button>
         </div>
     </div>
 
     <div id="confirmModal" class="modal-overlay">
         <div class="modal-content">
-            <div class="modal-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                    stroke="#1B5E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <div class="modal-inner">
+                <div class="modal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="#1B5E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
                     <line x1="12" y1="17" x2="12.01" y2="17"></line>
                 </svg>
-            </div>
-            <h3>진행하시겠습니까?</h3>
-            <p>입력하신 정보로 송금 신청을 진행하시겠습니까?<br>진행 후에는 정보 수정이 어려울 수 있습니다.</p>
-            <div class="modal-btn-group">
-                <button class="btn-cancel" onclick="closeModal('confirmModal')">취소</button>
-                <button class="btn-confirm-action" onclick="closeModal('confirmModal')">확인</button>
+
+                <h3>진행하시겠습니까?</h3>
+                <p>입력하신 정보로 송금 신청을 진행하시겠습니까?<br>진행 후에는 정보 수정이 어려울 수 있습니다.</p>
+                <div class="modal-btn-group">
+                    <button class="btn-cancel" onclick="closeModal('confirmModal')">취소</button>
+                    <button class="btn-confirm-action" onclick="closeModal('confirmModal')">확인</button>
+                </div>
             </div>
         </div>
     </div>

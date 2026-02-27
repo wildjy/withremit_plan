@@ -48,11 +48,11 @@ body{
 
 @media (max-width: 1024px) {
 	.container {
-		padding: 0 var(--s5);
+		padding: 0 var(--s6);
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
 	.container {
 		padding: 0 var(--s4);
 	}
@@ -60,7 +60,7 @@ body{
 
 /* ===== .db-main-container.Container ===== */
 .db-main-container {
-	padding-top: var(--s5);
+	padding-top: var(--s10);
 	padding-bottom: var(--s5);
 }
 
@@ -71,7 +71,7 @@ body{
 }
 
 .db-page-header {
-	margin-bottom: var(--s5);
+	margin-bottom: var(--s6);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -86,10 +86,9 @@ body{
 
 /* ===== Inner White Content ===== */
 .db-content-card {
-	padding: var(--s6);
+	padding: var(--s8);
 	background-color: #fff;
-	border: 1px solid var(--border-default);
-	border-radius: var(--radius-lg);
+	border-radius: var(--radius-xl);
 	box-shadow: var(--shadow-sm);
 }
 
@@ -99,7 +98,7 @@ body{
 	}
 
 	.db-content-card {
-		padding: var(--s5);
+		padding: var(--s6);
 	}
 }
 
@@ -110,10 +109,6 @@ body{
 
 	.db-page-title {
 		font-size: var(--2xl);
-	}
-
-	.db-content-card {
-		padding: var(--s4);
 	}
 }
 

@@ -107,7 +107,7 @@
 .login-card {
   width: 100%;
   background-color: #fff;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   padding: 50px 60px;
   -webkit-box-shadow: var(--shadow);
           box-shadow: var(--shadow);

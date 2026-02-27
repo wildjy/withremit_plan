@@ -23,24 +23,29 @@
 
 .modal-content {
 	padding: 2.5rem;
+	padding-right: 2.6125rem;
 	max-width: 400px;
 	width: 90%;
-	max-height: 90dvh;
 	text-align: center;
 	background-color: #ffffff;
 	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 	border: none;
 	border-radius: 20px;
-	overflow-y: auto;
+	overflow: hidden;
 	transform: scale(0.8);
 	transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 	&.modal-layout { // max-width 600px for layout modals >> + header & footer padding adjustments
 		padding: 0;
+		padding-right: 2px;
 		max-width: 600px;
 		text-align: left;
 	}
 	&.lg {
 		max-width: 900px;
+	}
+	.modal-inner {
+		max-height: 90dvh;
+		overflow-y: auto;
 	}
 }
 

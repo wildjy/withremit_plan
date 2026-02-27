@@ -166,35 +166,40 @@
     <!-- Success Modal -->
     <div id="successModal" class="modal-overlay">
         <div class="modal-content">
-            <div class="modal-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                    stroke="#00A0DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11"></polyline>
-                </svg>
+            <div class="modal-inner">
+                <div class="modal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="#00A0DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11"></polyline>
+                    </svg>
+                </div>
+                <h3>계좌 등록 완료</h3>
+                <p>계좌가 성공적으로 등록되었습니다.</p>
+                <button class="modal-btn-success" onclick="closeSuccessModal()">확인</button>
+
             </div>
-            <h3>계좌 등록 완료</h3>
-            <p>계좌가 성공적으로 등록되었습니다.</p>
-            <button class="modal-btn-success" onclick="closeSuccessModal()">확인</button>
         </div>
     </div>
 
     <!-- Delete Confirm Modal -->
     <div id="deleteConfirmModal" class="modal-overlay">
         <div class="modal-content">
-            <div class="modal-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                    stroke="#1B5E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                </svg>
-            </div>
-            <h3>계좌 삭제</h3>
-            <p>정말 삭제하시겠습니까?</p>
-            <div class="modal-btn-group">
-                <button class="btn-cancel" onclick="closeModal('deleteConfirmModal')">취소</button>
-                <button class="btn-confirm-action" onclick="confirmDelete()">삭제</button>
+            <div class="modal-inner">
+                <div class="modal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="#1B5E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                </div>
+                <h3>계좌 삭제</h3>
+                <p>정말 삭제하시겠습니까?</p>
+                <div class="modal-btn-group">
+                    <button class="btn-cancel" onclick="closeModal('deleteConfirmModal')">취소</button>
+                    <button class="btn-confirm-action" onclick="confirmDelete()">삭제</button>
+                </div>
             </div>
         </div>
     </div>
@@ -202,47 +207,49 @@
     <!-- Bank Account Registration Modal -->
     <div class="modal-overlay" id="accountModal">
         <div class="modal-content modal-layout">
-            <div class="modal-header">
-                <h2 class="modal-title">은행 계좌 등록</h2>
-                <button class="modal-close" onclick="closeModal('accountModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-body-form">
-                    <div class="field-item" style="margin-bottom: 20px;">
-                        <label class="field-label"
-                            style="display: block; font-weight: 600; margin-bottom: 8px;">은행</label>
-                        <select class="login-input select-styled" id="bankSelect"
-                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
-                            <option value="">은행 선택</option>
-                            <option value="신한은행">신한은행</option>
-                            <option value="우리은행">우리은행</option>
-                            <option value="KB국민은행">KB국민은행</option>
-                            <option value="하나은행">하나은행</option>
-                            <option value="IBK기업은행">IBK기업은행</option>
-                            <option value="NH농협은행">NH농협은행</option>
-                            <option value="카카오뱅크">카카오뱅크</option>
-                            <option value="토스뱅크">토스뱅크</option>
-                            <option value="SC제일은행">SC제일은행</option>
-                            <option value="케이뱅크">케이뱅크</option>
-                        </select>
-                    </div>
-                    <div class="field-item" style="margin-bottom: 20px;">
-                        <label class="field-label" style="display: block; font-weight: 600; margin-bottom: 8px;">계좌
-                            번호</label>
-                        <input type="text" class="login-input" id="accountNumber" placeholder="계좌 번호 입력 (- 없이)"
-                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
-                    </div>
-                    <div class="field-item" style="margin-bottom: 20px;">
-                        <label class="field-label"
-                            style="display: block; font-weight: 600; margin-bottom: 8px;">예금주</label>
-                        <input type="text" class="login-input" id="accountHolder" placeholder="예금주 입력"
-                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+            <div class="modal-inner">
+                <div class="modal-header">
+                    <h2 class="modal-title">은행 계좌 등록</h2>
+                    <button class="modal-close" onclick="closeModal('accountModal')">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-form">
+                        <div class="field-item" style="margin-bottom: 20px;">
+                            <label class="field-label"
+                                style="display: block; font-weight: 600; margin-bottom: 8px;">은행</label>
+                            <select class="login-input select-styled" id="bankSelect"
+                                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                                <option value="">은행 선택</option>
+                                <option value="신한은행">신한은행</option>
+                                <option value="우리은행">우리은행</option>
+                                <option value="KB국민은행">KB국민은행</option>
+                                <option value="하나은행">하나은행</option>
+                                <option value="IBK기업은행">IBK기업은행</option>
+                                <option value="NH농협은행">NH농협은행</option>
+                                <option value="카카오뱅크">카카오뱅크</option>
+                                <option value="토스뱅크">토스뱅크</option>
+                                <option value="SC제일은행">SC제일은행</option>
+                                <option value="케이뱅크">케이뱅크</option>
+                            </select>
+                        </div>
+                        <div class="field-item" style="margin-bottom: 20px;">
+                            <label class="field-label" style="display: block; font-weight: 600; margin-bottom: 8px;">계좌
+                                번호</label>
+                            <input type="text" class="login-input" id="accountNumber" placeholder="계좌 번호 입력 (- 없이)"
+                                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                        </div>
+                        <div class="field-item" style="margin-bottom: 20px;">
+                            <label class="field-label"
+                                style="display: block; font-weight: 600; margin-bottom: 8px;">예금주</label>
+                            <input type="text" class="login-input" id="accountHolder" placeholder="예금주 입력"
+                                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline" onclick="closeModal('accountModal')">취소</button>
-                <button type="button" class="btn btn-primary" onclick="registerAccount()">확인</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('accountModal')">취소</button>
+                    <button type="button" class="btn btn-primary" onclick="registerAccount()">확인</button>
+                </div>
             </div>
         </div>
     </div>
@@ -250,17 +257,19 @@
     <!-- Validation Modal -->
     <div id="validationModal" class="modal-overlay">
         <div class="modal-content">
-            <div class="modal-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                    stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="8" x2="12" y2="12"></line>
-                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                </svg>
+            <div class="modal-inner">
+                <div class="modal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                </div>
+                <h3>입력 오류</h3>
+                <p>모든 항목을 입력해주세요.</p>
+                <button class="modal-btn-warning" onclick="closeValidationModal()">확인</button>
             </div>
-            <h3>입력 오류</h3>
-            <p>모든 항목을 입력해주세요.</p>
-            <button class="modal-btn-warning" onclick="closeValidationModal()">확인</button>
         </div>
     </div>
 
@@ -338,3 +347,4 @@
 </body>
 
 </html>
+

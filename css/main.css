@@ -127,7 +127,7 @@
 .feature-card {
   padding: 36px 28px;
   background-color: var(--bg-light);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   text-align: center;
   -webkit-transition: var(--transition);
   transition: var(--transition);

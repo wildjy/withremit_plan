@@ -268,105 +268,107 @@
     <!-- Refund Account Registration Modal -->
     <div class="modal-overlay" id="refundAccountModal">
         <div class="modal-content modal-layout">
-            <div class="modal-header">
-                <h2 class="modal-title">환급 계좌 등록</h2>
-                <button class="modal-close" onclick="closeModal('refundAccountModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <!-- Tabs (Standardized) -->
-                <div class="common-tabs">
-                    <button class="common-tab active" data-tab="agreed">출금 동의 계좌</button>
-                    <button class="common-tab" data-tab="direct">직접 입력</button>
+            <div class="modal-inner">
+                <div class="modal-header">
+                    <h2 class="modal-title">환급 계좌 등록</h2>
+                    <button class="modal-close" onclick="closeModal('refundAccountModal')">&times;</button>
                 </div>
+                <div class="modal-body">
+                    <!-- Tabs (Standardized) -->
+                    <div class="common-tabs">
+                        <button class="common-tab active" data-tab="agreed">출금 동의 계좌</button>
+                        <button class="common-tab" data-tab="direct">직접 입력</button>
+                    </div>
 
-                <!-- Tab Content: Withdrawal Agreed Accounts -->
-                <div class="tab-content active" id="tab-agreed">
-                    <p class="db-modal-desc">출금 동의한 계좌 목록에서
-                        선택해 주세요.</p>
-                    <div class="db-table-responsive-wrapper">
-                        <table class="db-notice-table"> <!-- Changed from db-basic-table -->
-                            <colgroup>
-                                <col style="width: 60px;">
-                                <col>
-                                <col>
-                                <col>
-                            </colgroup>
-                            <thead>
-                                <tr>
-                                    <th>선택</th>
-                                    <th>은행</th>
-                                    <th>계좌 번호</th>
-                                    <th>계좌 명의</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="center">
-                                        <label class="radio-wrap">
-                                            <input type="radio" name="refundAccount" checked>
-                                            <span class="custom-radio"></span>
-                                        </label>
-                                    </td>
-                                    <td>기업은행 (IBK)</td>
-                                    <td>064-146189-04-024</td>
-                                    <td>홍길동</td>
-                                </tr>
-                                <tr>
-                                    <td class="center">
-                                        <label class="radio-wrap">
-                                            <input type="radio" name="refundAccount">
-                                            <span class="custom-radio"></span>
-                                        </label>
-                                    </td>
-                                    <td>농협은행 (NH)</td>
-                                    <td>301-0313-2544-01</td>
-                                    <td>홍길동</td>
-                                </tr>
-                                <tr>
-                                    <td class="center">
-                                        <label class="radio-wrap">
-                                            <input type="radio" name="refundAccount">
-                                            <span class="custom-radio"></span>
-                                        </label>
-                                    </td>
-                                    <td>신한은행</td>
-                                    <td>110-456-789012</td>
-                                    <td>홍길동</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <!-- Tab Content: Withdrawal Agreed Accounts -->
+                    <div class="tab-content active" id="tab-agreed">
+                        <p class="db-modal-desc">출금 동의한 계좌 목록에서
+                            선택해 주세요.</p>
+                        <div class="db-table-responsive-wrapper">
+                            <table class="db-notice-table"> <!-- Changed from db-basic-table -->
+                                <colgroup>
+                                    <col style="width: 60px;">
+                                    <col>
+                                    <col>
+                                    <col>
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>선택</th>
+                                        <th>은행</th>
+                                        <th>계좌 번호</th>
+                                        <th>계좌 명의</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="center">
+                                            <label class="radio-wrap">
+                                                <input type="radio" name="refundAccount" checked>
+                                                <span class="custom-radio"></span>
+                                            </label>
+                                        </td>
+                                        <td>기업은행 (IBK)</td>
+                                        <td>064-146189-04-024</td>
+                                        <td>홍길동</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="center">
+                                            <label class="radio-wrap">
+                                                <input type="radio" name="refundAccount">
+                                                <span class="custom-radio"></span>
+                                            </label>
+                                        </td>
+                                        <td>농협은행 (NH)</td>
+                                        <td>301-0313-2544-01</td>
+                                        <td>홍길동</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="center">
+                                            <label class="radio-wrap">
+                                                <input type="radio" name="refundAccount">
+                                                <span class="custom-radio"></span>
+                                            </label>
+                                        </td>
+                                        <td>신한은행</td>
+                                        <td>110-456-789012</td>
+                                        <td>홍길동</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Tab Content: Direct Input -->
-                <div class="tab-content" id="tab-direct">
-                    <div class="field-item">
-                        <label for="bank" class="field-label">은행</label>
-                        <select id="bank" class="login-input select-styled">
-                            <option>은행 선택</option>
-                            <option>기업은행</option>
-                            <option>국민은행</option>
-                            <option>신한은행</option>
-                            <option>우리은행</option>
-                        </select>
-                    </div>
-                    <div class="field-item">
-                        <label for="branch" class="field-label">지점명</label>
-                        <input type="text" id="branch" class="login-input" placeholder="지점명 입력">
-                    </div>
-                    <div class="field-item">
-                        <label for="accountNumber" class="field-label">계좌 번호</label>
-                        <input type="text" id="accountNumber" class="login-input" placeholder="계좌 번호 입력 (- 없이)">
-                    </div>
-                    <div class="field-item">
-                        <label for="accountHolder" class="field-label">예금주</label>
-                        <input type="text" id="accountHolder" class="login-input" placeholder="예금주 입력">
+                    <!-- Tab Content: Direct Input -->
+                    <div class="tab-content" id="tab-direct">
+                        <div class="field-item">
+                            <label for="bank" class="field-label">은행</label>
+                            <select id="bank" class="login-input select-styled">
+                                <option>은행 선택</option>
+                                <option>기업은행</option>
+                                <option>국민은행</option>
+                                <option>신한은행</option>
+                                <option>우리은행</option>
+                            </select>
+                        </div>
+                        <div class="field-item">
+                            <label for="branch" class="field-label">지점명</label>
+                            <input type="text" id="branch" class="login-input" placeholder="지점명 입력">
+                        </div>
+                        <div class="field-item">
+                            <label for="accountNumber" class="field-label">계좌 번호</label>
+                            <input type="text" id="accountNumber" class="login-input" placeholder="계좌 번호 입력 (- 없이)">
+                        </div>
+                        <div class="field-item">
+                            <label for="accountHolder" class="field-label">예금주</label>
+                            <input type="text" id="accountHolder" class="login-input" placeholder="예금주 입력">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline" onclick="closeModal('refundAccountModal')">취소</button>
-                <button class="btn btn-primary" onclick="closeModal('refundAccountModal')">확인</button>
+                <div class="modal-footer">
+                    <button class="btn btn-outline" onclick="closeModal('refundAccountModal')">취소</button>
+                    <button class="btn btn-primary" onclick="closeModal('refundAccountModal')">확인</button>
+                </div>
             </div>
         </div>
     </div>

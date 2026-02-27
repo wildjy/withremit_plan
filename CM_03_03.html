@@ -24,55 +24,57 @@
         <!-- Password Reset Modal -->
         <div id="resetPasswordModal" class="modal-overlay">
             <div class="modal-content" style="max-width: 480px; width: 100%; padding: 30px; text-align: left;">
-                <div class="modal-header">
-                    <h3>비밀번호 재설정</h3>
-                    <button type="button" class="btn-close-modal"
-                        onclick="closeModal('resetPasswordModal')">&times;</button>
-                </div>
+                <div class="modal-inner">
+                    <div class="modal-header">
+                        <h3>비밀번호 재설정</h3>
+                        <button type="button" class="btn-close-modal"
+                            onclick="closeModal('resetPasswordModal')">&times;</button>
+                    </div>
 
-                <div class="info-box">
-                    <i>ⓘ</i> 새롭게 사용할 비밀번호를 입력해 주세요.
-                </div>
+                    <div class="info-box">
+                        <i>ⓘ</i> 새롭게 사용할 비밀번호를 입력해 주세요.
+                    </div>
 
-                <div class="field-group">
-                    <label class="input-label">비밀번호</label>
-                    <div class="input-box-group">
-                        <div class="password-wrap" style="width: 100%;">
-                            <input type="text" id="newPassword" class="login-input" placeholder="비밀번호를 입력하세요" readonly
-                                onclick="toggleKeypad('newPassword')">
-                            <button type="button" class="keypad-btn" tabindex="-1" onclick="toggleKeypad('newPassword')">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path
-                                        d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
-                                </svg>
-                            </button>
+                    <div class="field-group">
+                        <label class="input-label">비밀번호</label>
+                        <div class="input-box-group">
+                            <div class="password-wrap" style="width: 100%;">
+                                <input type="text" id="newPassword" class="login-input" placeholder="비밀번호를 입력하세요" readonly
+                                    onclick="toggleKeypad('newPassword')">
+                                <button type="button" class="keypad-btn" tabindex="-1" onclick="toggleKeypad('newPassword')">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="field-group">
-                    <label class="input-label">비밀번호 확인</label>
-                    <div class="input-box-group">
-                        <div class="password-wrap" style="width: 100%;">
-                            <input type="text" id="confirmPassword" class="login-input" placeholder="비밀번호를 다시 입력하세요"
-                                readonly onclick="toggleKeypad('confirmPassword')">
-                            <button type="button" class="keypad-btn" tabindex="-1"
-                                onclick="toggleKeypad('confirmPassword')">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path
-                                        d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
-                                </svg>
-                            </button>
+                    <div class="field-group">
+                        <label class="input-label">비밀번호 확인</label>
+                        <div class="input-box-group">
+                            <div class="password-wrap" style="width: 100%;">
+                                <input type="text" id="confirmPassword" class="login-input" placeholder="비밀번호를 다시 입력하세요"
+                                    readonly onclick="toggleKeypad('confirmPassword')">
+                                <button type="button" class="keypad-btn" tabindex="-1"
+                                    onclick="toggleKeypad('confirmPassword')">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="modal-btn-group" style="margin-top: 30px;">
-                    <button class="btn-cancel" onclick="closeModal('resetPasswordModal')">취소</button>
-                    <button class="btn-confirm-action" style="background-color: #00A0DC; flex: 1.5 !important;"
-                        onclick="alert('비밀번호가 변경되었습니다.')">비밀번호 변경</button>
+                    <div class="modal-btn-group" style="margin-top: 30px;">
+                        <button class="btn-cancel" onclick="closeModal('resetPasswordModal')">취소</button>
+                        <button class="btn-confirm-action" style="background-color: #00A0DC; flex: 1.5 !important;"
+                            onclick="alert('비밀번호가 변경되었습니다.')">비밀번호 변경</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -107,3 +109,4 @@
 </body>
 
 </html>
+
