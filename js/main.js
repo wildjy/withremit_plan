@@ -579,12 +579,25 @@ const keyboardLayouts = {
     spec: [['-', '/', ':', ';', '(', ')', '$', '&', '@', '"'], ['.', '?', '!', "'", ',', '_', '\\', '|', '~', '<'], ['>', '`', '[', ']', '{', '}', '#', '%', '^', '*']]
 };
 
-document.querySelectorAll('.half-width-only').forEach(input => {
+document.querySelectorAll('.half-KeyMode-only').forEach(input => {
     input.addEventListener('input', function() {
         // 전각 영숫자를 반각으로 변환하는 정규식 로직
         this.value = this.value.replace(/[!-~]/g, function(s) {
             return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
         }).replace(/ /g, ' '); // 전각 공백 처리
+    });
+});
+
+document.querySelectorAll('.num-KeyMode-only').forEach(input => {
+    input.addEventListener('input', function(e) {
+        let val = e.target.value;
+
+        val = val.replace(/[0-9]/g, function(s) {
+            return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+        });
+
+        // 2. 숫자(0-9) 이외의 모든 문자 제거
+        e.target.value = val.replace(/[^0-9]/g, '');
     });
 });
 
