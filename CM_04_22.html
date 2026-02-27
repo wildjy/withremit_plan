@@ -100,12 +100,34 @@
                                 placeholder="'-' 없이 숫자만 입력" class="login-input"></div>
                     </div>
                     <div class="form-row-3">
-                        <div class="field-item"><label class="field-label">전화번호</label><input type="text"
-                                placeholder="예: 02-123-4567" class="login-input"></div>
-                        <div class="field-item"><label class="field-label">팩스번호</label><input type="text"
-                                placeholder="예: 02-123-4568" class="login-input"></div>
-                        <div class="field-item"><label class="field-label">부서명</label><input type="text"
-                                placeholder="예: 재무팀" class="login-input"></div>
+                        <div class="field-item">
+                            <label class="field-label">전화번호</label>
+                            <input
+                                type="text"
+                                class="login-input num-KeyMode-only"
+                                inputmode="numeric"
+                                pattern="[0-9]*"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                                data-i18n="join.request.phonePlaceholder"
+                                placeholder="예: 01012345678"
+                            />
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label">팩스번호</label>
+                            <input
+                                type="text"
+                                class="login-input num-KeyMode-only"
+                                inputmode="numeric"
+                                pattern="[0-9]*"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                                data-i18n="join.request.faxPlaceholder"
+                                placeholder="예: 0212345678"
+                            />
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label">부서명</label>
+                            <input type="text" placeholder="예: 재무팀" class="login-input">
+                        </div>
                     </div>
                     <div class="field-item top-level">
                         <label class="field-label">법인 주소</label>

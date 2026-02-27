@@ -579,30 +579,6 @@ const keyboardLayouts = {
     spec: [['-', '/', ':', ';', '(', ')', '$', '&', '@', '"'], ['.', '?', '!', "'", ',', '_', '\\', '|', '~', '<'], ['>', '`', '[', ']', '{', '}', '#', '%', '^', '*']]
 };
 
-document.querySelectorAll('.half-KeyMode-only').forEach(input => {
-    input.addEventListener('input', function() {
-        // 전각 영숫자를 반각으로 변환하는 정규식 로직
-        this.value = this.value.replace(/[!-~]/g, function(s) {
-            return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
-        }).replace(/ /g, ' '); // 전각 공백 처리
-    });
-});
-
-document.querySelectorAll('.num-KeyMode-only').forEach(input => {
-    input.addEventListener('input', function(e) {
-        let val = e.target.value;
-
-        val = val.replace(/[０-９]/g, function(s) {
-            return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
-        });
-
-        // 2. 숫자(0-9) 이외의 모든 문자 제거
-        e.target.value = val.replace(/[^0-9]/g, '');
-    });
-    input.addEventListener('compositionend', function(e) {
-        e.target.value = e.target.value.replace(/[^0-9]/g, '');
-    });
-});
 
 // 이메일 입력 관련 이벤트 핸들러
 function emailDomainEventHandler(options = {}) {
@@ -669,6 +645,41 @@ function emailDomainEventHandler(options = {}) {
   localEl.addEventListener('input', () => { syncFullEmail(); resetVerified(); });
   domainEl.addEventListener('input', () => { syncFullEmail(); resetVerified(); });
 }
+
+document.querySelectorAll('.half-KeyMode-only').forEach(input => {
+    input.setAttribute('inputmode', 'latin');
+    input.setAttribute('autocapitalize', 'off');
+    input.setAttribute('autocorrect', 'off');
+    input.setAttribute('spellcheck', 'false');
+
+    const normalizeHalfWidth = (value) => value
+        .replace(/[！-～]/g, (char) => String.fromCharCode(char.charCodeAt(0) - 0xFEE0))
+        .replace(/　/g, ' ');
+
+    input.addEventListener('input', function () {
+        this.value = normalizeHalfWidth(this.value);
+    });
+
+    input.addEventListener('compositionend', function () {
+        this.value = normalizeHalfWidth(this.value);
+    });
+});
+
+document.querySelectorAll('.num-KeyMode-only').forEach(input => {
+    input.addEventListener('input', function(e) {
+        let val = e.target.value;
+
+        val = val.replace(/[０-９]/g, function(s) {
+            return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+        });
+
+        // 2. 숫자(0-9) 이외의 모든 문자 제거
+        e.target.value = val.replace(/[^0-9]/g, '');
+    });
+    input.addEventListener('compositionend', function(e) {
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    });
+});
 
 // 중복 확인 모달 열기
 function openDupCheckModal({
