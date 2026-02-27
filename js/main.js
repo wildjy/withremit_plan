@@ -649,9 +649,7 @@ function emailDomainEventHandler(options = {}) {
 function normalizeHalfWidth(value) {
   return String(value || '')
     .replace(/[！-～]/g, (ch) => String.fromCharCode(ch.charCodeAt(0) - 0xFEE0))
-    .replace(/　/g, ' ')
-    .toLowerCase()
-    .replace(/[^a-z0-9]/g, '');
+    .replace(/　/g, ' ');
 }
 
 function initHalfWidthInputs(selector = '.half-KeyMode-only') {
@@ -665,10 +663,15 @@ function initHalfWidthInputs(selector = '.half-KeyMode-only') {
     input.setAttribute('autocapitalize', 'off');
     input.setAttribute('autocorrect', 'off');
     input.setAttribute('spellcheck', 'false');
-    input.setAttribute('autocomplete', 'off');
+    input.setAttribute('autocomplete', 'username');
 
     // IME 조합 입력 안전 처리
     let composing = false;
+
+    const normalizeIdValue = (value) =>
+      normalizeHalfWidth(value)
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, '');
 
     input.addEventListener('compositionstart', () => {
       composing = true;
@@ -676,12 +679,12 @@ function initHalfWidthInputs(selector = '.half-KeyMode-only') {
 
     input.addEventListener('compositionend', () => {
       composing = false;
-      input.value = normalizeHalfWidth(input.value);
+      input.value = normalizeIdValue (input.value);
     });
 
     input.addEventListener('input', () => {
       if (composing) return;
-      input.value = normalizeHalfWidth(input.value)
+      input.value = normalizeIdValue (input.value)
       .toLowerCase()
       .replace(/[^a-z0-9]/g, '');
     });
