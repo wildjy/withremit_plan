@@ -579,6 +579,15 @@ const keyboardLayouts = {
     spec: [['-', '/', ':', ';', '(', ')', '$', '&', '@', '"'], ['.', '?', '!', "'", ',', '_', '\\', '|', '~', '<'], ['>', '`', '[', ']', '{', '}', '#', '%', '^', '*']]
 };
 
+document.querySelectorAll('.half-width-only').forEach(input => {
+    input.addEventListener('input', function() {
+        // 전각 영숫자를 반각으로 변환하는 정규식 로직
+        this.value = this.value.replace(/[!-~]/g, function(s) {
+            return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+        }).replace(/ /g, ' '); // 전각 공백 처리
+    });
+});
+
 // 이메일 입력 관련 이벤트 핸들러
 function emailDomainEventHandler(options = {}) {
   const {
