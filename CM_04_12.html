@@ -275,7 +275,15 @@
                                     <span data-i18n="join.request.phone">전화번호</span>
                                     <span class="badge-required" data-i18n="join.required">필수</span>
                                 </label>
-                                <input type="text" placeholder="예: 01012345678" class="login-input num-KeyMode-only" data-i18n="join.request.phonePlaceholder">
+                                <input
+                                    type="text"
+                                    class="login-input num-KeyMode-only"
+                                    inputmode="numeric"
+                                    pattern="[0-9]*"
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                                    data-i18n="join.request.phonePlaceholder"
+                                    placeholder="예: 01012345678"
+                                />
                             </div>
                         </div>
                     </div>

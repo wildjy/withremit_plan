@@ -592,12 +592,15 @@ document.querySelectorAll('.num-KeyMode-only').forEach(input => {
     input.addEventListener('input', function(e) {
         let val = e.target.value;
 
-        val = val.replace(/[0-9]/g, function(s) {
+        val = val.replace(/[０-９]/g, function(s) {
             return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
         });
 
         // 2. 숫자(0-9) 이외의 모든 문자 제거
         e.target.value = val.replace(/[^0-9]/g, '');
+    });
+    input.addEventListener('compositionend', function(e) {
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
     });
 });
 
