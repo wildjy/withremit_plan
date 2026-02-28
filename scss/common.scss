@@ -8,12 +8,29 @@
 
 /* ===== Banner Slider ===== */
 .banner-slider {
+	margin-top: var(--header-h);
 	position: relative;
 	width: 100%;
 	height: 300px;
-	overflow: hidden;
-	margin-top: var(--header-h);
+	// overflow: hidden;
 }
+
+@media (max-width: 1024px) {
+	.banner-slider {
+		height: 300px;
+	}
+}
+@media (max-width: 768px) {
+	.banner-slider {
+		height: 300px;
+	}
+}
+@media (max-width: 480px) {
+	.banner-slider {
+		height: 350px;
+	}
+}
+	
 
 .banner-slides {
 	position: relative;
@@ -22,18 +39,19 @@
 }
 
 .banner-slide {
-	position: absolute;
-	top: 0;
-	left: 0;
 	width: 100%;
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	opacity: 0;
-	visibility: hidden;
-	transition: opacity 0.8s ease-in-out,
- 	visibility 0.8s ease-in-out;
+	position: relative;
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+	}
 }
 
 .banner-slide-1 {
@@ -48,24 +66,14 @@
 	background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
-.banner-slide.active {
-	opacity: 1;
-	visibility: visible;
-	z-index: 1;
-}
-
 .banner-content {
-	display: flex !important;
-	justify-content: space-between !important;
-	align-items: center !important;
-	text-align: left;
-	color: #fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	width: 100%;
-	// height: 100%;
-	padding: 0 60px;
-	box-sizing: border-box;
 	max-width: 1280px;
 	margin: 0 auto;
+	text-align: left;
 }
 
 .banner-content h2 {
@@ -98,7 +106,7 @@
 }
 
 .banner-image-group {
-	flex: 0 0 380px;
+	// flex: 0 0 380px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -140,14 +148,19 @@ a.banner-slide {
 	background-color: rgba(255, 255, 255, 0.9);
 	border: none;
 	border-radius: 50%;
-	width: 24px;
-	height: 24px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
 	transition: var(--transition);
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	span {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 24px;
+		height: 24px;
+	}
 }
 
 .banner-control-btn:hover {
@@ -193,9 +206,6 @@ a.banner-slide {
 .db-banner-slider {
 	margin-top: 0;
 	height: 200px;
-	.banner-content {
-		padding: 20px 0 20px 50px;
-	}
 
 	.banner-content h2 {
 		font-size: 1.5rem;
@@ -208,17 +218,13 @@ a.banner-slide {
 	}
 
 	.banner-image-group {
-		flex: 0 0 280px;
+		// flex: 0 0 280px;
 		height: 150px;
 	}
 }
 
 /* Mobile Responsive for Banner */
 @media (max-width: 1024px) {
-	.banner-content {
-		padding: 0 30px;
-	}
-
 	.banner-content h2 {
 		font-size: 1.8rem;
 	}
@@ -228,27 +234,30 @@ a.banner-slide {
 	}
 
 	.banner-image-group {
-		flex: 0 0 230px;
+		// flex: 0 0 230px;
 		height: 160px;
 	}
 
-	.db-banner-slider {
-		.banner-content {
-			padding: 0 20px 30px 20px;
-		}
-		.banner-image-group {
-			flex: 0 0 auto;
-			padding-left: 0;
-			height: 130px;
-		}
-	}
+	// .db-banner-slider {
+	// 	.banner-image-group {
+	// 		flex: 0 0 auto;
+	// 		padding-left: 0;
+	// 		height: 130px;
+	// 	}
+	// }
 }
 
 @media (max-width: 768px) {
   /* Banner */
 	.banner-slider {
-		height: 300px;
 		margin-top: 56px;
+
+		.container {
+			// padding: 0 var(--s10);
+			width: 500px;
+			margin: 0 auto;
+		}
+		
 		&.db-banner-slider {
 			margin-top: 0;
 			height: 250px;
@@ -260,32 +269,34 @@ a.banner-slide {
 	}
 
 	.banner-content {
-		padding: 0 0 50px 0;
-		flex-direction: column;
-		justify-content: center;
-		text-align: center !important;
+		width: 100%;
+		flex-wrap: wrap;
+	}
+
+	.banner-text-group, 
+	.banner-image-group {
+		padding: 0;
+		flex: 1 1 100%;
 	}
 
 	.banner-text-group {
-		padding-right: 0;
 		margin-bottom: 10px;
+		text-align: left;
 	}
 
-	.banner-text-group {
-		padding-left: 0;
+	.banner-image-group {
+		flex: 0 0 100%;
+		height: 120px;
+		justify-content: flex-end;
+		text-align: right;
 	}
 
 	.banner-content h2{
-		font-size: 1.6rem;
+		font-size: var(--2xl);
 	}
 
 	.banner-content p {
 		font-size: 0.95rem;
-	}
-
-	.banner-image-group {
-		flex: 0 0 auto;
-		height: 120px;
 	}
 
 	.banner-controls {

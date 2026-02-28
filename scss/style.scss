@@ -1142,21 +1142,17 @@
   /* Row 1: Select + Input */
 	.db-search-type {
 		width: 30%;
-    /* Approx 1/3 */
 		padding: 10px;
 		font-size: 0.9rem;
 	}
 
 	.db-search-input {
-		// width: calc(70% - 8px);
-    /* Remaining width minus gap */
 		padding: 10px;
 		font-size: 0.9rem;
 	}
   /* Row 2: Search Btn + Reset Btn */
 	.db-search-btn {
 		flex: 1;
-    /* Share remaining space equally */
 		justify-content: center;
 		padding: 10px;
 		font-size: 0.9rem;
@@ -1164,7 +1160,6 @@
 
 	.db-reset-btn {
 		flex: 1;
-    /* Share remaining space equally */
 		min-width: 80px;
 		justify-content: center;
 		padding: 10px;

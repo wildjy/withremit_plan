@@ -1,72 +1,55 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const slides = document.querySelectorAll('.banner-slide');
-    const indicators = document.querySelectorAll('.banner-indicator');
+    const bannerSlider = document.querySelector('.banner-slider.swiper');
     const playPauseBtn = document.getElementById('bannerPlayPause');
 
-    if (!playPauseBtn) return; // 배너가 없는 경우 종료
+    if (!bannerSlider || typeof Swiper === 'undefined') return;
 
-    const playIcon = playPauseBtn.querySelector('.play-icon');
-    const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+    const playIcon = playPauseBtn?.querySelector('.play-icon');
+    const pauseIcon = playPauseBtn?.querySelector('.pause-icon');
+    const paginationEl = bannerSlider.querySelector('.banner-indicators');
 
-    let currentSlide = 0;
-    let isPlaying = true;
-    let slideInterval;
-
-    // 슬라이드 변경 함수
-    function goToSlide(index) {
-        // 모든 슬라이드와 인디케이터 비활성화
-        slides.forEach(slide => slide.classList.remove('active'));
-        indicators.forEach(indicator => indicator.classList.remove('active'));
-
-        // 현재 슬라이드와 인디케이터 활성화
-        slides[index].classList.add('active');
-        indicators[index].classList.add('active');
-        currentSlide = index;
-    }
-
-    // 다음 슬라이드로 이동
-    function nextSlide() {
-        const next = (currentSlide + 1) % slides.length;
-        goToSlide(next);
-    }
-
-    // 자동 슬라이드 시작
-    function startAutoSlide() {
-        slideInterval = setInterval(nextSlide, 5000);
-        isPlaying = true;
-        playIcon.classList.add('hidden');
-        pauseIcon.classList.remove('hidden');
-    }
-
-    // 자동 슬라이드 정지
-    function stopAutoSlide() {
-        clearInterval(slideInterval);
-        isPlaying = false;
-        playIcon.classList.remove('hidden');
-        pauseIcon.classList.add('hidden');
-    }
-
-    // 재생/정지 버튼 클릭
-    playPauseBtn.addEventListener('click', function () {
-        if (isPlaying) {
-            stopAutoSlide();
-        } else {
-            startAutoSlide();
-        }
+    const swiper = new Swiper(bannerSlider, {
+        effect: 'fade',
+        loop: true,
+        speed: 800,
+        // autoplay: {
+        //     delay: 5000,
+        //     disableOnInteraction: false,
+        // },
+        pagination: paginationEl
+            ? {
+                  el: paginationEl,
+                  clickable: true,
+                  bulletClass: 'banner-indicator',
+                  bulletActiveClass: 'active',
+                  renderBullet: function (index, className) {
+                      return `<button class="${className}" aria-label="배너 ${index + 1}"></button>`;
+                  },
+              }
+            : undefined,
     });
 
-    // 인디케이터 클릭
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', function () {
-            goToSlide(index);
-            // 인디케이터 클릭 시 자동 슬라이드 재시작
+    let isPlaying = true;
+
+    function updatePlayState(playing) {
+        isPlaying = playing;
+        if (playIcon && pauseIcon) {
+            playIcon.classList.toggle('hidden', playing);
+            pauseIcon.classList.toggle('hidden', !playing);
+        }
+    }
+
+    if (playPauseBtn) {
+        playPauseBtn.addEventListener('click', function () {
             if (isPlaying) {
-                clearInterval(slideInterval);
-                slideInterval = setInterval(nextSlide, 5000);
+                swiper.autoplay.stop();
+                updatePlayState(false);
+            } else {
+                swiper.autoplay.start();
+                updatePlayState(true);
             }
         });
-    });
+    }
 
-    // 초기 자동 슬라이드 시작
-    startAutoSlide();
+    updatePlayState(true);
 });

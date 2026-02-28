@@ -67,7 +67,7 @@ body{
 /* ===== Sub Inner Content ===== */
 .db-content {
 	flex: 1;
-	width: var(--full);
+	width: calc(var(--full) - var(--sidebarContainer-w));
 }
 
 .db-page-header {
@@ -122,6 +122,10 @@ body{
 	display: flex;
 	align-items: flex-start;
 	position: relative;
+	flex-wrap: wrap;
+	&.nowrap {
+		flex-wrap: nowrap;
+	}
 }
 
 .db-grid {
