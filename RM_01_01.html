@@ -222,12 +222,14 @@
                                             <span data-i18n="join.request.firstNameEn">이름 (영문)</span>
                                         </label>
                                         <input type="text" placeholder="영문으로 입력하세요" class="login-input" id="firstNameEn">
+                                        <span class="field-error" id="firstNameEnError"></span>
                                     </div>
                                     <div class="field-item">
                                         <label class="field-label">
                                             <span data-i18n="join.request.lastNameEn">성 (영문)</span>
                                         </label>
                                         <input type="text" placeholder="영문으로 입력하세요" class="login-input" id="lastNameEn">
+                                        <span class="field-error" id="lastNameEnError"></span>
                                     </div>
                                 </div>
                                 <div class="form-row no-mb">
@@ -983,7 +985,8 @@
                 { id: 'depositorName', message: '입금자 명을 입력해 주세요.' },
                 { id: 'depositAccount', message: '입금 계좌를 입력해 주세요.' },
                 { id: 'accountHolder', message: '입금 계좌 명의를 입력해 주세요.' },
-                { id: 'beneficiaryName', message: '수취인명을 입력해 주세요.' },
+                { id: 'firstNameEn', message: '수취인 이름을 입력해 주세요.' },
+                { id: 'lastNameEn', message: '수취인 성을 입력해 주세요.' },
                 { id: 'relationship', message: '수취인과의 관계를 선택해 주세요.' },
                 { id: 'beneficiaryBank', message: '수취 은행을 선택해 주세요.' },
                 { id: 'beneficiaryAccount', message: '수취 계좌 번호를 입력해 주세요.' },
@@ -995,11 +998,26 @@
 
             // 일본인 경우에만 계좌 타입 필수
             if (country === 'JP') {
-                requiredFields.push({ id: 'accountType', message: '수취 계좌 타입을 선택해 주세요.' });
+                requiredFields.push(
+                    { id: 'beneficiaryNameKana', message: '수취인 이름(카나명)을 입력해 주세요.' },
+                    { id: 'beneficiaryLastNameKana', message: '수취인 성(카나명)을 입력해 주세요.' },
+                    { id: 'accountType', message: '수취 계좌 타입을 선택해 주세요.' }
+                );
+            }
+            // 호주인 경우에만 계좌 타입 필수
+            if (country === 'AU') {
+                requiredFields.push(
+                    { id: 'bsbNumber', message: 'BSB 번호를 입력해 주세요.' },
+                    { id: 'branchNumber', message: '지점 번호를 입력해 주세요.' },
+                    { id: 'accountType', message: '수취 계좌 타입을 선택해 주세요.' }
+                );
             }
 
             for (const field of requiredFields) {
                 const element = document.getElementById(field.id);
+                if (!element) {
+                    continue;
+                }
                 if (!element.value || element.value.trim() === '') {
                     showFieldError(field.id, field.message);
                     hasError = true;
