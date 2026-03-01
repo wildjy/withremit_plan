@@ -1,10 +1,10 @@
 
 // ===== Sidebar Main Styles =====
-// .db-sidebar-close {
+// .sidebar-close {
 // 	display: none;
 // }
 
-#dbOverlay {
+#sidebarOverlay {
 	opacity: 0;
 	display: none;
 	inset: 0;
@@ -23,7 +23,7 @@
 
 // dbOverlay는 모바일에서 사이드바 열릴 때만 노출되고, 데스크탑에서는 사이드바가 항상 보이므로 dbOverlay는 항상 숨김 처리
 @media (min-width: 1024px) {
-  body.db-body #dbOverlay.active {
+  body.db-body #sidebarOverlay.active {
     opacity: 0;
     display: none;
   }
@@ -44,7 +44,7 @@
   }
 }
 
-.db-sidebar {
+.sidebar {
 	padding: 0;
 	position: fixed;
 	top: 0;
@@ -65,14 +65,14 @@
 	}
 }
 
-.db-collapsed .db-sidebar {
+.db-collapsed .sidebar {
 	margin-left: -200px;
 	opacity: 0;
 	pointer-events: none;
 }
 
 // dashboard main + guest sidebar 공통 스타일
-body.db-body .db-sidebar {
+body.db-body .sidebar {
 	position: static;
 	top: var(--header-h-md);
 	padding-right: var(--s6);
@@ -91,7 +91,7 @@ body.db-body .db-sidebar {
 }
 
 @media (max-width: 1024px) {
-	body.db-body .db-sidebar {
+	body.db-body .sidebar {
 		position: fixed;
 		top: 0;
 		width: var(--sidebar-w);
@@ -99,14 +99,14 @@ body.db-body .db-sidebar {
 		transform: translate3d(-100%, 0, 0);
 	}
 
-	.db-collapsed .db-sidebar {
+	.db-collapsed .sidebar {
 		margin-left: 0;
 		opacity: 1;
 		pointer-events: auto;
 	}
 
   // sidebar close button 스타일 들어간거.. 일단 주석
-	// .db-sidebar-close {
+	// .sidebar-close {
 	// 	display: flex !important;
 	// 	position: absolute;
 	// 	top: 12px;
@@ -119,12 +119,14 @@ body.db-body .db-sidebar {
 }
 
 @media (max-width: 480px) {
-  body.db-body .db-sidebar,
-	.db-sidebar.mobile-open {
-		width: 80%;
+	.sidebar,
+  	body.db-body .sidebar {
+		&.mobile-open {
+			width: 80%;
+		}
 	}
 
-	.db-sidebar-close {
+	.sidebar-close {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -132,7 +134,7 @@ body.db-body .db-sidebar {
 	}
 }
 
-.db-sidebar-header {
+.sidebar-header {
 	margin-bottom: 0;
 	padding: var(--s5);
 	display: flex;
@@ -140,57 +142,66 @@ body.db-body .db-sidebar {
 	justify-content: space-between;
 	border-bottom: 1px solid var(--border-default);
 
-	.db-sidebar-logo img {
+	.sidebar-logo img {
 		height: 40px;
 	}
 }
 
-.db-sidebar-container {
+.sidebar-container {
 	// padding: var(--s5);
-}
-
-@media (max-width: 1024px) {
-	.db-sidebar-container {
-		padding: var(--s5);
-	}
 }
 
 /* Hide on Desktop (Member Header already has logo) */
 @media (min-width: 1025px) {
-	body.db-body .db-sidebar-header {
+	body.db-body .sidebar-header {
 		display: none;
 	}
 }
 
-.db-nav-link {
+@media (max-width: 1024px) {
+	.sidebar-header {
+		position: sticky;
+		top: 0;
+		background-color: #fff;
+		z-index: 10;
+	}
+	.sidebar-container {
+		padding: var(--s5);
+	}
+}
+
+.nav-link {
 	display: flex;
 	align-items: center;
 	gap: 10px;
 	margin-bottom: 2px;
-	padding: 0 16px;
+	padding: 0 var(--s4);
 	height: 36px;
 	font-size: var(--sm);
 	color: var(--text-strong);
 	font-weight: 500;
-  /* white-space: nowrap; */
-	border-radius: 8px;
+	border-radius: var(--s2);
 	transition: 0.2s;
+  	/* white-space: nowrap; */
+	// &:first-of-type {
+	// 	margin-bottom: 20px;
+	// }
 }
 
-.db-nav-link:hover {
+.nav-link:hover {
 	background-color: #f8fafc;
 	color: var(--primary-default);
 }
 
-.db-nav-link.active {
+.nav-link.active {
 	color: var(--primary-heavy);
 	font-weight: 600;
 	background-color: #E3F2FD;
 	border-right: none;
 }
 
-.db-nav-label {
-	padding: 20px 16px 8px;
+.nav-label {
+	padding: var(--s5) var(--s4) var(--s2);
 	font-size: var(--2xs);
 	font-weight: 800;
 	color: var(--text-soft);
@@ -210,40 +221,28 @@ body.db-body .db-sidebar {
 }
 
 .guest-lang-group {
-	margin-bottom: 16px;
+	margin-bottom: var(--s4);
 }
 
 .guest-lang-label {
+	margin-bottom: var(--s2);
 	display: block;
-	font-size: 0.8rem;
-	color: var(--text-muted);
-	margin-bottom: 6px;
+	font-size: var(--sm);
+	color: var(--text-soft);
 	font-weight: 500;
 }
 
 .guest-lang-select {
+	padding: 0 var(--s4);
 	width: 100%;
 	height: 44px;
-	padding: 0 16px;
-	border: 1px solid var(--border-default);
-	border-radius: 8px;
-	font-size: 0.95rem;
-	font-weight: 500;
+	font-size: var(--sm);
 	color: var(--text-heavy);
-	appearance: none;
-	background: #fff url(var(--icon-select)) no-repeat right 16px center;
-}
-
-.guest-lang-group {
-	margin-bottom: 16px;
-}
-
-.guest-lang-label {
-	display: block;
-	font-size: 0.8rem;
-	color: var(--text-muted);
-	margin-bottom: 6px;
 	font-weight: 500;
+	appearance: none;
+	border: 1px solid var(--border-default);
+	border-radius: var(--s2);
+	background: #fff url(var(--icon-select)) no-repeat right 16px center;
 }
 
 .btn-full {

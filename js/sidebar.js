@@ -1,9 +1,9 @@
 // 사이드바 토글 로직 초기화 함수
 // function initSidebar() {
-//     const sidebar = document.getElementById('dbSidebar');
+//     const sidebar = document.getElementById('sidebar');
 //     const toggleBtn = document.getElementById('sidebarToggle');
 //     const closeBtn = document.getElementById('sidebarClose');
-//     const overlay = document.getElementById('dbOverlay');
+//     const overlay = document.getElementById('sidebarOverlay');
 
 //     if (toggleBtn && sidebar && overlay) {
 //         toggleBtn.addEventListener('click', () => {

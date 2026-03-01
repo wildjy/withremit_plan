@@ -416,18 +416,18 @@ function toggleSidebar({
 // }
 
 function initSidebar() {
-    const sidebar = document.getElementById('dbSidebar');
+    const sidebar = document.getElementById('sidebar');
     const toggleBtn = document.getElementById('sidebarToggle');
     const closeBtn = document.getElementById('sidebarClose');
 
-    if (sidebar && !document.getElementById('dbOverlay')) {
+    if (sidebar && !document.getElementById('sidebarOverlay')) {
         document.body.insertAdjacentHTML(
             'beforeend',
-            `<div id="dbOverlay"></div>`
+            `<div id="sidebarOverlay"></div>`
         );
     }
 
-    const overlay = document.getElementById('dbOverlay');
+    const overlay = document.getElementById('sidebarOverlay');
 
     if (!sidebar || !overlay || !toggleBtn) return;
 

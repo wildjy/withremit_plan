@@ -177,13 +177,13 @@
 .value-title {
   font-size: 20px;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--neutral-heavy);
   margin-bottom: 12px;
 }
 
 .value-text {
   font-size: 15px;
-  color: #64748b;
+  color: var(--text-strong);
   line-height: 1.6;
 }
 
@@ -240,7 +240,7 @@
 
 .info-content-box .value {
   font-size: 16px;
-  color: #1e293b;
+  color: var(--neutral-heavy);
   font-weight: 600;
   line-height: 1.5;
 }
@@ -274,13 +274,13 @@
 .location-info .title {
   font-size: 22px;
   font-weight: 800;
-  color: #1e293b;
+  color: var(--neutral-heavy);
   margin-bottom: 8px;
 }
 
 .location-info .addr {
   font-size: 15px;
-  color: #64748b;
+  color: var(--text-strong);
   line-height: 1.5;
 }
 
@@ -371,7 +371,7 @@
 
 .contact-details .label {
   font-size: 13px;
-  color: #64748b;
+  color: var(--text-strong);
   margin-bottom: 4px;
   font-weight: 500;
 }
@@ -379,7 +379,7 @@
 .contact-details .phone-num {
   font-size: 22px;
   font-weight: 800;
-  color: #1e293b;
+  color: var(--neutral-heavy);
   letter-spacing: -0.5px;
 }
 
@@ -495,7 +495,7 @@
 }
 
 .privacy-info-value {
-  color: #1e293b;
+  color: var(--neutral-heavy);
 }
 
 /* Terms Table */

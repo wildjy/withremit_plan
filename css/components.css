@@ -79,7 +79,7 @@
 }
 
 .btn-outline:hover {
-  border-color: var(--text-muted);
+  border-color: var(--text-soft);
   background-color: var(--bg-light);
 }
 
@@ -385,16 +385,19 @@
 }
 
 .remit-card-status-wrapper .remit-status {
-  padding: 6px 14px;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 600;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 30px;
 }
 
 .remit-status {
@@ -418,15 +421,9 @@
     margin-left: 0;
     margin-top: 8px;
   }
-  .remit-card-status-wrapper .remit-status {
-    padding: 0;
-  }
 }
 @media (max-width: 480px) {
   /* Card status padding 0 */
-  .remit-card-status-wrapper .remit-status {
-    padding: 0;
-  }
   .remit-status {
     font-size: 0.7rem;
   }
@@ -439,46 +436,61 @@
 /* Improved Status Colors - Less Fluorescent */
 .remit-status.status-verified {
   color: var(--status-verified);
+  background-color: var(--bg-positive);
 }
 
 .remit-status.status-unverified {
   color: var(--status-unverified);
+  background-color: var(--bg-negative);
 }
 
 .remit-status.status-received {
   color: var(--status-received);
+  background-color: var(--bg-positive);
 }
 
 .remit-status.status-processing {
   color: var(--status-processing);
+  background-color: var(--bg-positive);
 }
 
 .remit-status.status-approved {
   color: var(--status-approved);
+  background-color: var(--bg-positive);
 }
 
 .remit-status.status-complete {
   color: var(--status-complete);
+  background-color: var(--bg-success);
 }
 
 .remit-status.status-success {
   color: var(--status-success);
+  background-color: var(--bg-success);
 }
 
 .remit-status.status-failed {
   color: var(--status-failed);
+  background-color: var(--bg-negative);
 }
 
 .remit-status.status-pending {
   color: var(--status-cancel);
+  background-color: var(--bg-default);
 }
 
 .remit-status.status-cancel {
   color: var(--status-cancel);
+  background-color: var(--bg-default);
 }
 
 .remit-status.status-paused {
   color: var(--status-cancel);
+  background-color: var(--bg-default);
+}
+
+.modal-overlay .remit-status {
+  background-color: var(--transparent);
 }
 
 /* ===== findTabs ===== */
@@ -550,7 +562,7 @@
   font-size: 15px;
   line-height: 1;
   font-weight: 600;
-  color: #64748b;
+  color: var(--text-soft);
   cursor: pointer;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
@@ -772,7 +784,7 @@
   background: none;
   border: none;
   font-size: 1.5rem;
-  color: var(--text-muted);
+  color: var(--text-soft);
   cursor: pointer;
   padding: 4px 8px;
   -webkit-transition: all 0.2s;
@@ -1233,7 +1245,7 @@
 }
 
 .db-page-btn svg {
-  color: var(--text-muted);
+  color: var(--text-soft);
 }
 
 .db-page-num {

@@ -141,10 +141,10 @@
 }
 
 .field-label {
-	font-size: 13px;
-	color: var(--text-muted);
-	margin-bottom: 8px;
 	display: block;
+	margin-bottom: 8px;
+	font-size: 13px;
+	color: var(--text-body);
 	font-weight: 500;
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
@@ -164,17 +164,6 @@
 .input-box-group {
 	display: flex;
 	align-items: center;
-	border: 1.5px solid var(--border-default);
-	border-radius: var(--radius);
-	transition: var(--transition);
-	background-color: #fff;
-	&:focus-within {
-		border-color: var(--primary-default);
-		box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);
-	}
-	&.error {
-		@include input-error;
-	}
 }
 
 .field-error {
@@ -201,7 +190,7 @@
 .keypad-btn {
 	position: absolute;
 	right: 12px;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	cursor: pointer;
 	padding: 8px;
 }
@@ -283,7 +272,7 @@
 }
 
 .find-links a {
-	color: var(--text-muted);
+	color: var(--text-soft);
 	transition: var(--transition);
 	text-decoration: none !important;
 }
@@ -323,7 +312,7 @@
 	width: 100%;
 	padding: 10px;
 	border: 1px solid var(--border-default);
-	color: var(--text-muted);
+	color: var(--text-soft);
 	border-radius: var(--radius);
 	font-size: 13px;
 	text-align: center;
@@ -333,7 +322,7 @@
 
 .btn-back-cancel:hover {
 	background-color: var(--bg-light);
-	border-color: var(--text-muted);
+	border-color: var(--text-soft);
 	color: var(--text-heavy);
 	opacity: 0.9;
 }
@@ -353,7 +342,7 @@
 	color: var(--text-heavy);
 	margin-bottom: 10px;
 	font-weight: 600;
-	color: var(--text-muted);
+	color: var(--text-soft);
 }
 
 @media (min-width: 768px) {
@@ -379,14 +368,14 @@
 
 .time-text-list {
 	font-size: 12px;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	margin-bottom: 25px;
 	opacity: 0.8;
 }
 
 .time-text-list p {
 	font-size: 12px;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	font-weight: 400;
 }
 
@@ -403,7 +392,7 @@
 }
 
 .menu-text-list a {
-	color: var(--text-muted);
+	color: var(--text-soft);
 	transition: var(--transition);
 	text-decoration: none !important;
 }
@@ -419,7 +408,7 @@
 
 .info-text-list p {
 	font-size: 12px;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	line-height: 1.8;
 	opacity: 0.7;
 }
@@ -484,7 +473,7 @@
 	background-color: none;
 	border: none;
 	font-size: 20px;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	cursor: pointer;
 }
 
@@ -634,27 +623,8 @@
 	}
 
 	.field-label {
-		font-size: 0.8rem;
-		color: var(--text-muted);
-		margin-bottom: 8px;
-		display: block;
-		font-weight: 500;
-		text-transform: uppercase;
-		letter-spacing: 0.5px;
-	}
-
-	.input-box-group {
-		display: flex;
-		align-items: center;
-		border: 1.5px solid var(--border-default);
-		border-radius: var(--radius);
-		transition: var(--transition);
-		background-color: #fff;
-	}
-
-	.input-box-group:focus-within {
-		border-color: var(--primary-default);
-		box-shadow: 0 0 0 3px rgba(27, 94, 158, 0.1);
+		margin-bottom: var(--s1);
+		font-size: var(--xs);
 	}
 
 	.password-wrap {
@@ -667,7 +637,7 @@
 	.keypad-btn {
 		position: absolute;
 		right: 12px;
-		color: var(--text-muted);
+		color: var(--text-soft);
 		cursor: pointer;
 		padding: 8px;
 	}
@@ -694,7 +664,7 @@
 		width: 100%;
 		padding: 10px;
 		border: 1px solid var(--border-default);
-		color: var(--text-muted);
+		color: var(--text-soft);
 		border-radius: var(--radius);
 		font-size: 0.95rem;
 		text-align: center;
@@ -714,19 +684,19 @@
 		flex-wrap: wrap;
 		margin-bottom: 5px;
 		font-size: 12px;
-		color: var(--text-muted);
+		color: var(--text-soft);
 	}
 
 	.time-text-list {
 		font-size: 12px;
-		color: var(--text-muted);
+		color: var(--text-soft);
 		margin-bottom: 25px;
 		opacity: 0.8;
 	}
 
 	.info-text-list {
 		font-size: 12px;
-		color: var(--text-muted);
+		color: var(--text-soft);
 		line-height: 1.8;
 		opacity: 0.7;
 	}
@@ -812,7 +782,7 @@
 
 .reg-label p {
 	font-size: 14px;
-	color: var(--text-muted);
+	color: var(--text-soft);
 }
 
 .reg-id-grid {
@@ -858,7 +828,7 @@
 
 .subsection-desc {
 	font-size: 13px;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	margin-bottom: 20px;
 	text-align: center;
 	line-height: 1.5;
@@ -1064,7 +1034,7 @@
 	border-radius: 8px;
 	padding: 15px;
 	font-size: 13px;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	line-height: 1.7;
 	white-space: pre-line;
 	word-break: keep-all;
@@ -1089,7 +1059,7 @@
 	background-color: #fff;
 	border: 1px solid var(--border-default);
 	border-radius: 10px;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	font-size: 15px;
 	font-weight: 500;
 	transition: var(--transition);
@@ -1131,11 +1101,11 @@
 .badge-required,
 .badge-optional {
 	display: inline-block;
-	padding: 1px 8px;
-	border-radius: 10px;
-	font-size: 12px;
 	margin-left: 4px;
+	padding: 3px 8px;
+	font-size: 12px;
 	vertical-align: middle;
+	border-radius: 10px;
 }
 
 .badge-required {
@@ -1239,26 +1209,9 @@
 	transform: translate(-50%, -50%);
 }
 
-.input-box-group {
-	display: flex;
-	align-items: center;
-	position: relative;
-	width: 100%;
-	border: 1.5px solid var(--border-default);
-	border-radius: var(--radius);
-	transition: var(--transition);
-	background-color: #fff;
-}
-
-.input-box-group .login-input {
-	border: none;
-	box-shadow: none;
-	background-color: transparent;
-}
-
 .keypad-btn {
 	padding-right: 14px;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	cursor: pointer;
 	display: flex;
 	align-items: center;
@@ -1303,7 +1256,7 @@
 	width: 50px;
 	height: var(--input-h);
 	font-size: 14px;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	text-align: left;
 	white-space: nowrap;
 	overflow: hidden;
@@ -1358,7 +1311,7 @@
 	background-color: #fff;
 	border: 1px solid var(--border-default);
 	border-radius: 10px;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	cursor: pointer;
 	font-weight: 500;
 }

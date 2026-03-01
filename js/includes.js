@@ -228,7 +228,7 @@ function loadIncludes() {
                 // }
 
                 // Load support into sidebar after sidebar is loaded
-                const nav = sidebarContainer.querySelector('.db-side-nav');
+                const nav = sidebarContainer.querySelector('.side-nav');
                 if (nav) {
                     fetch('includes/support.html')
                         .then(response => response.text())
@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', loadIncludes);
  */
 function handleFooterAboutClick(e) {
     const urlParams = new URLSearchParams(window.location.search);
-    const isGuest = urlParams.get('guest') === 'true' || !document.getElementById('dbSidebar');
+    const isGuest = urlParams.get('guest') === 'true' || !document.getElementById('sidebar');
 
     if (isGuest) {
         e.preventDefault();
@@ -358,7 +358,7 @@ function handleGuestLinkClick(e) {
     const urlParams = new URLSearchParams(window.location.search);
     const isGuest = urlParams.get('guest') === 'true'
         || !!document.getElementById('guestSidebar')
-        || !document.getElementById('dbSidebar');
+        || !document.getElementById('sidebar');
 
     if (isGuest) {
         e.preventDefault();

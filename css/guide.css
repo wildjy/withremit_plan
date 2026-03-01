@@ -587,13 +587,13 @@
 .feature-title-new {
   font-size: 20px;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--neutral-heavy);
   margin-bottom: 12px;
 }
 
 .feature-desc-new {
   font-size: 15px;
-  color: #64748b;
+  color: var(--text-strong);
   line-height: 1.6;
 }
 
@@ -637,7 +637,7 @@
 .section-header h3 {
   font-size: 22px;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--neutral-heavy);
   margin: 0;
   text-align: center;
 }
@@ -689,13 +689,13 @@
 .country-info h4 {
   font-size: 16px;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--neutral-heavy);
   margin-bottom: 4px;
 }
 
 .country-info span {
   font-size: 13px;
-  color: #64748b;
+  color: var(--text-strong);
   font-weight: 500;
 }
 

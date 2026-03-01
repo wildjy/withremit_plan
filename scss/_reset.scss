@@ -16,7 +16,7 @@ body {
 	font-family: var(--font-family);
 	font-size: var(--md);
 	color: var(--text-heavy);
-	line-height: 1.6;
+	line-height: 1.42;
 	background-color: var(--white);
 	overflow-x: hidden;
 	*{
@@ -70,6 +70,7 @@ p {
 	color: var(--text-body);
 }
 
+
 input, select, textarea {
 	width: 100%;
     padding: 15px 16px;
@@ -77,10 +78,12 @@ input, select, textarea {
     font-weight: 500;
     -webkit-transition: var(--transition);
     transition: var(--transition);
-    background-color: #fff;
-    border: 1.5px solid var(--border-default);
     border-radius: var(--radius);
     outline: none;
+	&:focus-within {
+		border-color: var(--primary-default);
+		box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);
+	}
 	&::placeholder {
 		color: #aab4b8;
 		font-weight: 400;
@@ -89,43 +92,65 @@ input, select, textarea {
 	&.error {
 		@include input-error;
 	}
+	&:disabled {
+		background-color: var(--bg-default);
+		cursor: not-allowed;
+	}
 }
+
 select {
 	appearance: none;
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237A8E96' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
 	background-repeat: no-repeat;
 	background-position: right 10px center;
-	border: 1.5px solid var(--border-default);
 	cursor: pointer;
+	&:disabled {
+		background-color: var(--border-soft);
+		cursor: not-allowed;
+	}
 }
 
-textarea{
+input, select, textarea,
+.input-box-group {
+    background-color: #fff;
+    border: 1.5px solid var(--border-soft);
+	border-radius: var(--radius);
+	transition: var(--transition);
 	&.error {
 		@include input-error;
 	}
 }
 
-select {
-	&.error {
-		@include input-error;
-	}
+.input-box-group .login-input {
+	border: none;
+	box-shadow: none;
+	background-color: transparent;
 }
 
 .hidden {
 	display: none;
 }
 
-  scroll::-webkit-scrollbar {
-    width: 0.25rem;
-    height: 0.25rem;
-  }
+scroll::-webkit-scrollbar {
+	width: 0.25rem;
+	height: 0.25rem;
+}
 
-  scroll::-webkit-scrollbar-thumb {
-    background-color: #999;
-    border-radius: 0.25rem;
-  }
+scroll::-webkit-scrollbar-thumb {
+	background-color: #999;
+	border-radius: 0.25rem;
+}
 
-  scroll::-webkit-scrollbar-track {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 0.25rem;
-  }
+scroll::-webkit-scrollbar-track {
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: 0.25rem;
+}
+
+
+.flex-1 {
+	flex: 1;
+}
+
+.hidden {
+	display: none;
+}

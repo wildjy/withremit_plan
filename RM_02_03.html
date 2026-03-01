@@ -1366,7 +1366,7 @@
         // 사이드바 활성화 (정기 해외 송금)
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
-                const links = document.querySelectorAll('.db-sidebar-nav a');
+                const links = document.querySelectorAll('.sidebar-nav a');
                 links.forEach(link => {
                     link.classList.remove('active');
                     if (link.textContent.includes('정기 해외 송금')) {

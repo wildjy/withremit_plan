@@ -275,7 +275,7 @@
         // 사이드바 활성화 (정기 해외 송금)
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
-                const links = document.querySelectorAll('.db-sidebar-nav a');
+                const links = document.querySelectorAll('.sidebar-nav a');
                 links.forEach(link => {
                     if (link.textContent.includes('정기 해외 송금')) {
                         link.classList.add('active');
@@ -333,7 +333,7 @@
                             <span class="remit-card-label">은행</span>
                             <span class="remit-card-detail-value">${item.bank}</span>
                         </div>
-
+                        
                         <!-- Col 2: Type -->
                         <div class="remit-card-col remit-card-col-type">
                             <span class="remit-card-label">송금 구분</span>
@@ -343,7 +343,7 @@
                         <!-- Col 3: Amount -->
                         <div class="remit-card-col remit-card-col-amount">
                             <span class="remit-card-label">${amountLabel}</span>
-                            <span class="remit-card-amount-value" style="font-size: 1rem;">${amountDisplay}</span>
+                            <span class="remit-card-amount-value">${amountDisplay}</span>
                         </div>
 
                         <!-- Col 4: Cycle -->

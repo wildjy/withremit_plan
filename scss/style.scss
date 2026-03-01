@@ -185,7 +185,7 @@
 	gap: 6px;
 	padding: 10px;
 	background-color: #fff;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	border: 1.5px solid var(--border-default);
 	border-radius: 8px;
 	font-size: 0.9rem;
@@ -196,7 +196,7 @@
 }
 
 .db-reset-btn:hover {
-	border-color: var(--text-muted);
+	border-color: var(--text-soft);
 	color: var(--text-heavy);
 	background-color: var(--bg-light);
 }
@@ -274,7 +274,7 @@
 
 .db-total-count {
 	font-size: 0.9rem;
-	color: var(--text-muted);
+	color: var(--text-soft);
 }
 
 .db-total-count strong {
@@ -456,7 +456,7 @@
 
 .date-separator {
 	font-size: 0.9rem;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	font-weight: 500;
 	margin: 0 4px;
 }
@@ -770,7 +770,7 @@
 }
 
 .date-separator {
-	color: var(--text-muted);
+	color: var(--text-soft);
 	margin: 0 4px;
 	font-size: 1.1rem;
 }
@@ -866,7 +866,7 @@
 .search-field-label {
 	font-size: 0.8rem;
 	font-weight: 600;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	text-transform: uppercase;
 	letter-spacing: 0.3px;
 }
@@ -920,7 +920,7 @@
 
 .remit-detail-label {
 	font-size: 0.75rem;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	font-weight: 600;
 	text-transform: uppercase;
 	min-width: 80px;
@@ -1031,7 +1031,7 @@
 	.remit-table tbody tr.remit-row td::before {
 		content: attr(data-label);
 		font-size: 0.75rem;
-		color: var(--text-muted);
+		color: var(--text-soft);
 		font-weight: 600;
 		text-transform: uppercase;
 		flex-shrink: 0;
@@ -1419,7 +1419,7 @@
 	align-items: center;
 	gap: 6px;
 	font-size: 0.9rem;
-	color: var(--text-muted);
+	color: var(--text-soft);
 }
 
 .notice-detail-meta .meta-item svg {
@@ -1477,7 +1477,7 @@
 
 .notice-nav-item svg {
 	flex-shrink: 0;
-	color: var(--text-muted);
+	color: var(--text-soft);
 }
 
 .notice-nav-item:hover svg {
@@ -1485,17 +1485,17 @@
 }
 
 .notice-nav-item .nav-label {
+	flex-shrink: 0;
+	min-width: 50px;
 	font-size: 0.85rem;
 	font-weight: 600;
-	color: var(--text-muted);
-	min-width: 50px;
-	flex-shrink: 0;
+	color: var(--text-soft);
 }
 
 .notice-nav-item .nav-number {
 	font-size: 0.85rem;
 	font-weight: 600;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	min-width: 30px;
 	flex-shrink: 0;
 }
@@ -1784,7 +1784,7 @@
 .calc-col-label {
 	font-size: 0.75rem;
 	font-weight: 500;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	margin-bottom: 6px;
 	white-space: nowrap;
 }
@@ -2041,7 +2041,7 @@
 .remit-card-receipt-num {
 	font-size: 0.85rem;
 	font-weight: 500;
-	color: var(--text-muted);
+	color: var(--text-soft);
 }
 
 .remit-card-date {
@@ -2112,7 +2112,7 @@
 
 .remit-card-amount-label {
 	font-size: 0.75rem;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	font-weight: 500;
 	min-width: 32px;
 }
@@ -2125,7 +2125,7 @@
 
 /* Arrow between Column 1 and 2 */
 .remit-card-arrow {
-	color: var(--text-muted);
+	color: var(--text-soft);
 	display: flex;
 	align-items: center;
 	margin: 0 8px;
@@ -2168,7 +2168,7 @@
 }
 
 .remit-card-detail-label {
-	color: var(--text-muted);
+	color: var(--text-soft);
 	min-width: 50px;
 	flex-shrink: 0;
 }
@@ -2225,7 +2225,7 @@
 }
 
 .receipt-label {
-	color: var(--text-muted);
+	color: var(--text-soft);
 	font-weight: 500;
 	flex: 1;
 }
@@ -2896,7 +2896,7 @@ td.center {
 		grid-row: 1;
 		padding: 14px 20px;
 		font-size: 0.95rem;
-		color: #1e293b;
+		color: var(--neutral-heavy);
 		font-weight: 700;
 		border-bottom: 1px solid #f1f5f9;
 		background-color: #fff;
@@ -2931,7 +2931,7 @@ td.center {
   /* Label Styling */
 	.db-notice-table.history-mode td:nth-child(n + 3)::before {
 		content: attr(data-label);
-		color: #64748b;
+		color: var(--text-strong);
 		font-size: 0.85rem;
 		font-weight: 500;
 		margin-right: auto;
@@ -3259,8 +3259,8 @@ td.center {
 .remit-edit-page {
 	/* 그리드 컬럼 너비 조정 (RM_02_01 전용) */
 	.remit-card-col-bank {
-		min-width: 200px;
-		flex: 1.5;
+		min-width: 140px;
+		flex: 1;
 		/* 은행명 길면 말 줄임 */
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -3289,12 +3289,12 @@ td.center {
 	}
 
 	.remit-card-col-amount {
-		min-width: 180px;
+		min-width: 160px;
 		flex: 1.2;
 	}
 
 	.remit-card-col-cycle {
-		min-width: 120px;
+		min-width: 90px;
 		/* Slight decrease */
 		flex: 1;
 	}
@@ -3317,7 +3317,7 @@ td.center {
 	.remit-card-detail-value,
 	.remit-card-amount-value {
 		display: inline-block;
-		font-size: 15px;
+		font-size: var(--sm);
 		/* 조금 줄임 (기존 16px 추정 or default) */
 	}
 
@@ -3393,24 +3393,18 @@ td.center {
 
 	/* Adjustments for Small Mobile (< 480px) */
 	@media (max-width: 480px) {
-		/* Smaller font sizes for compact 2-column layout */
-		.field-label {
-			font-size: 13px;
-			margin-bottom: 4px;
-		}
-
 		.field-value-text {
-			font-size: 14px;
 			padding: 10px 0;
+			font-size: var(--sm);
 		}
 
 		/* Inputs adjustments if needed */
 		.login-input {
-			font-size: 14px;
+			font-size: var(--sm);
 		}
 
 		.select-styled {
-			font-size: 14px;
+			font-size: var(--sm);
 		}
 	}
 }
@@ -3419,10 +3413,10 @@ td.center {
 // RM_02_01 모달 영수증 스타일
 #scheduleDetailModal {
 	.receipt-section {
+		padding: 10px 0;
 		display: flex;
 		flex-direction: column;
 		gap: 12px;
-		padding: 10px 0;
 	}
 
 	.receipt-row {

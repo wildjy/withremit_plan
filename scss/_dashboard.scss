@@ -148,7 +148,7 @@
   }
 }
 
-/* Dashbord Overlay Mask - consolidated above as #dbOverlay */
+/* Dashbord Overlay Mask - consolidated above as #sidebarOverlay */
 .db-balance-badge {
 	display: flex;
 	align-items: center;
@@ -274,7 +274,7 @@
 	padding-top: 20px;
 	border-top: 1px solid var(--border-default);
 	font-size: 0.9rem;
-	color: var(--text-muted);
+	color: var(--text-soft);
 }
 
 .db-linked-account svg {
@@ -391,7 +391,7 @@
 
 .db-account-bank {
 	font-size: 0.85rem;
-	color: var(--text-muted);
+	color: var(--text-soft);
 }
 
 .db-add-account {
@@ -470,7 +470,7 @@
 
 .db-trans-type-new {
 	font-size: 0.8rem;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	font-weight: 500;
 }
 
@@ -496,7 +496,7 @@
 
 .db-trans-balance-new {
 	font-size: 0.85rem;
-	color: var(--text-muted);
+	color: var(--text-soft);
 }
 
 /* Transactions List - Old */
@@ -574,7 +574,7 @@
 
 .db-trans-balance {
 	font-size: 0.85rem;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	white-space: nowrap;
 }
 
@@ -628,13 +628,13 @@
 
 .db-account-bank {
 	font-size: 0.8rem;
-	color: var(--text-muted);
+	color: var(--text-soft);
 }
 
 /* Receipt Number Inquiry Card */
 .db-inquiry-desc {
 	font-size: 0.9rem;
-	color: var(--text-muted);
+	color: var(--text-soft);
 	line-height: 1.6;
 }
 
@@ -675,7 +675,7 @@
 
 .db-ongoing-label {
 	font-size: 0.9rem;
-	color: var(--text-muted);
+	color: var(--text-soft);
 }
 
 .db-ongoing-value {
@@ -847,7 +847,7 @@
 }
 
 .db-help-btn-new svg {
-	stroke: var(--text-muted);
+	stroke: var(--text-soft);
 }
 
 .db-help-btn-new span {

@@ -221,11 +221,11 @@
     <script>
         // 최근 입금 계좌 데이터
         const recentAccounts = [
-            { id: 1, country: 'JP', countryName: '일본', name: 'Suzuki Ichiro', bank: 'Mizuho Bank', account: '987-6543-21', purpose: 'family', purposeName: '가족 송금' },
-            { id: 2, country: 'PH', countryName: '필리핀', name: 'Jose Rizal', bank: 'BDO', account: '5555-6666-77', purpose: 'living', purposeName: '생활비' },
-            { id: 3, country: 'CN', countryName: '중국', name: 'Li Na', bank: 'ICBC', account: '6222-0000-99', purpose: 'business', purposeName: '사업' },
-            { id: 4, country: 'NP', countryName: '네팔', name: 'Sita', bank: 'Nabil Bank', account: '0202-0987-65', purpose: 'saving', purposeName: '저축' },
-            { id: 5, country: 'AU', countryName: '호주', name: 'Emma Watson', bank: 'Commonwealth', account: '013-111-2222', purpose: 'education', purposeName: '교육비' },
+            { id: 1, country: 'JP', countryName: '일본', firstName: 'Suzuki', lastName: 'Ichiro', bank: 'Mizuho Bank', account: '987-6543-21', purpose: 'family', purposeName: '가족 송금' },
+            { id: 2, country: 'PH', countryName: '필리핀', firstName: 'Jose', lastName: 'Rizal', bank: 'BDO', account: '5555-6666-77', purpose: 'living', purposeName: '생활비' },
+            { id: 3, country: 'CN', countryName: '중국', firstName: 'Li', lastName: 'Na', bank: 'ICBC', account: '6222-0000-99', purpose: 'business', purposeName: '사업' },
+            { id: 4, country: 'NP', countryName: '네팔', firstName: 'Sita', lastName: '', bank: 'Nabil Bank', account: '0202-0987-65', purpose: 'saving', purposeName: '저축' },
+            { id: 5, country: 'AU', countryName: '호주', firstName: 'Emma', lastName: 'Watson', bank: 'Commonwealth', account: '013-111-2222', purpose: 'education', purposeName: '교육비' },
         ];
 
         function openAccountModal(type) {
@@ -247,7 +247,7 @@
                 tr.innerHTML = `
                         <td class='center'>${index + 1}</td>
                         <td>${item.countryName}</td>
-                        <td>${item.name}</td>
+                        <td>${item.firstName} ${item.lastName}</td>
                         <td>${item.bank}</td>
                         <td>${item.account}</td>
                         <td>${item.purposeName}</td>
@@ -267,7 +267,7 @@
                     <div class="account-card-body">
                         <div class="account-card-row">
                             <span class="account-card-label">수취인명</span>
-                            <span class="account-card-value">${item.name}</span>
+                            <span class="account-card-value">${item.firstName} ${item.lastName}</span>
                         </div>
                         <div class="account-card-row">
                             <span class="account-card-label">은행명</span>
@@ -297,7 +297,8 @@
             countrySelect.value = item.country;
 
             // 수취인명
-            document.getElementById('recipientName').value = item.name;
+            document.getElementById('firstNameEn').value = item.firstName;
+            document.getElementById('lastNameEn').value = item.lastName;
 
             // 은행명 (텍스트 매칭)
             const bankSelect = document.getElementById('bankSelect');
@@ -343,7 +344,8 @@
 
             const requiredFields = [
                 { id: 'countrySelect', message: '국가를 선택해 주세요.' },
-                { id: 'recipientName', message: '수취인명을 입력해 주세요.' },
+                { id: 'firstNameEn', message: '이름을 입력해 주세요.' },
+                { id: 'lastNameEn', message: '성을 입력해 주세요.' },
                 { id: 'bankSelect', message: '은행을 선택해 주세요.' },
                 { id: 'accountNumber', message: '계좌 번호를 입력해 주세요.' },
                 { id: 'remitPurpose', message: '송금 목적을 선택해 주세요.' }
