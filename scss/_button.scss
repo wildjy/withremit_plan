@@ -18,7 +18,7 @@
 .btn-text {
 	border: none;
 	background-color: transparent;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 }
 
 .btn-text:hover {
@@ -28,7 +28,7 @@
 
 .btn-outline {
 	border: 1px solid var(--border-default);
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	background-color: #fff;
 }
 
@@ -124,14 +124,14 @@
 
 .db-more-link:hover {
 	background-color: #e5e7eb;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 }
 
 .quick-btn {
 	padding: 6px 12px;
 	font-size: 0.85rem;
 	font-weight: 500;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	background-color: var(--bg-light);
 	border: 1px solid var(--border-default);
 	border-radius: 6px;

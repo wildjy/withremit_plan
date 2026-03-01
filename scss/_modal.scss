@@ -86,7 +86,7 @@
 .modal-title {
 	font-size: 1.5rem;
 	font-weight: 700;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	margin: 0;
 }
 
@@ -99,7 +99,7 @@
 	padding: 4px 8px;
 	transition: all 0.2s;
 	&:hover {
-		color: var(--text-dark);
+		color: var(--text-heavy);
 		transform: rotate(90deg);
 	}
 }

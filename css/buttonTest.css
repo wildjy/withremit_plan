@@ -11,7 +11,7 @@
   padding: 0px var(--s5);
   height: var(--s10);
   font-size: 1rem;
-  color: var(--text-dark);
+  color: var(--text-heavy);
   font-weight: 500;
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -28,7 +28,7 @@
   border: 1px solid var(--border-default);
 }
 .button.tertiary {
-  color: var(--text-dark);
+  color: var(--text-heavy);
   background-color: var(--bg-light);
   border: 1px solid var(--border-default);
 }

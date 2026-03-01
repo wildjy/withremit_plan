@@ -64,7 +64,7 @@
 .btn-text {
   border: none;
   background-color: transparent;
-  color: var(--text-dark);
+  color: var(--text-heavy);
 }
 
 .btn-text:hover {
@@ -74,7 +74,7 @@
 
 .btn-outline {
   border: 1px solid var(--border-default);
-  color: var(--text-dark);
+  color: var(--text-heavy);
   background-color: #fff;
 }
 
@@ -176,14 +176,14 @@
 
 .db-more-link:hover {
   background-color: #e5e7eb;
-  color: var(--text-dark);
+  color: var(--text-heavy);
 }
 
 .quick-btn {
   padding: 6px 12px;
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--text-dark);
+  color: var(--text-heavy);
   background-color: var(--bg-light);
   border: 1px solid var(--border-default);
   border-radius: 6px;
@@ -764,7 +764,7 @@
 .modal-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-dark);
+  color: var(--text-heavy);
   margin: 0;
 }
 
@@ -779,7 +779,7 @@
   transition: all 0.2s;
 }
 .modal-close:hover {
-  color: var(--text-dark);
+  color: var(--text-heavy);
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
@@ -1117,7 +1117,7 @@
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100vh;
+  min-height: var(--full-dvh);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1128,7 +1128,6 @@
       -ms-flex-align: center;
           align-items: center;
   background-color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .error-container {

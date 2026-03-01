@@ -8,21 +8,21 @@ html,
 body {
   overflow-x: hidden;
   width: var(--full);
-  max-width: var(--full-vw);
+  max-width: var(--full-dvw);
   position: relative;
 }
 
 body{
   &.wh-full {
     width: var(--full);
-    height: var(--full-vh);
-    min-height: var(--full-vh);
+    height: var(--full-dvh);
+    min-height: var(--full-dvh);
   }
 }
 
 .db-body {
 	padding-top: var(--header-h-md);
-	min-height: var(--full-vh);
+	min-height: var(--full-dvh);
 	background-color: var(--bg-section);
 }
 
@@ -80,7 +80,7 @@ body{
 .db-page-title {
 	font-size: var(--3xl);
 	font-weight: 700;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	margin: 0;
 }
 
@@ -196,7 +196,7 @@ body{
 	padding-left: 12px;
 	font-size: 18px;
 	font-weight: 700;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	text-align: left;
 	border-left: 4px solid var(--primary-default);
 }

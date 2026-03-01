@@ -136,7 +136,7 @@
 
 .country-name {
   font-size: 0.8rem;
-  color: var(--text-dark);
+  color: var(--text-heavy);
   font-weight: 500;
 }
 
@@ -195,7 +195,7 @@
 .db-card-title {
 	font-size: 1.25rem;
 	font-weight: 700;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	margin-bottom: 20px;
 }
 
@@ -385,7 +385,7 @@
 .db-account-name {
 	font-size: 0.95rem;
 	font-weight: 600;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	margin-bottom: 4px;
 }
 
@@ -464,7 +464,7 @@
 
 .db-trans-date-new {
 	font-size: 0.9rem;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	font-weight: 500;
 }
 
@@ -622,7 +622,7 @@
 .db-account-name {
 	font-size: 0.9rem;
 	font-weight: 600;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	margin-bottom: 2px;
 }
 
@@ -681,7 +681,7 @@
 .db-ongoing-value {
 	font-size: 0.95rem;
 	font-weight: 600;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 }
 
 .db-ongoing-value.status-complete {
@@ -776,7 +776,7 @@
 
 .db-notice-title {
 	font-size: 0.9rem;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	flex: 1;
 }
 
@@ -828,7 +828,7 @@
 	transition: all 0.2s;
 	min-height: 60px;
 	background-color: #f8f9fa;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 }
 
 .db-help-btn-new:hover {
@@ -853,7 +853,7 @@
 .db-help-btn-new span {
 	font-size: 1rem;
 	font-weight: 600;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 }
 
 /* Help Card QR Section */
@@ -876,7 +876,7 @@
 	font-size: 0.9rem;
 	font-weight: 600;
 	margin-bottom: 12px;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 }
 
 .db-help-qr-code {

@@ -114,7 +114,7 @@
 	border-radius: 8px;
 	font-size: 0.9rem;
 	font-weight: 500;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	background-color: #fff;
 	cursor: pointer;
 	appearance: none;
@@ -197,7 +197,7 @@
 
 .db-reset-btn:hover {
 	border-color: var(--text-muted);
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	background-color: var(--bg-light);
 }
 
@@ -227,7 +227,7 @@
 	gap: 6px;
 	padding: 12px 16px;
 	background-color: #fff;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	border: 1.5px solid var(--border-default);
 	border-radius: 8px;
 	cursor: pointer;
@@ -250,7 +250,7 @@
 
 .db-mobile-search-toggle.active {
 	background-color: #fff;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	border-color: var(--border-default);
 }
 
@@ -278,7 +278,7 @@
 }
 
 .db-total-count strong {
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	font-weight: 700;
 }
 
@@ -385,7 +385,7 @@
 }
 
 .db-notice-table td.notice-title a {
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	font-weight: 500;
 	transition: color 0.2s;
 }
@@ -430,7 +430,7 @@
 	border-radius: 8px;
 	font-size: 0.85rem;
 	font-weight: 500;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	cursor: pointer;
 	transition: all 0.2s;
 	white-space: nowrap;
@@ -502,7 +502,7 @@
 	padding: 5px 10px;
 	font-size: 0.75rem;
 	font-weight: 500;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	background-color: var(--bg-light);
 	border: 1px solid var(--border-default);
 	border-radius: 5px;
@@ -529,7 +529,7 @@
 	border-radius: 8px;
 	font-size: 0.85rem;
 	font-weight: 500;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	background-color: #fff;
 	cursor: pointer;
 	appearance: none;
@@ -547,13 +547,13 @@
 
 .remit-table .remit-receipt-num {
 	font-weight: 600;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 }
 
 .remit-table .remit-amount {
 	text-align: right;
 	font-weight: 600;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 }
 
 .remit-action-btn {
@@ -603,7 +603,7 @@
 .search-label {
 	font-size: 0.9rem;
 	font-weight: 600;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	min-width: 50px;
 }
 
@@ -765,7 +765,7 @@
 .search-label {
 	font-size: 0.9rem;
 	font-weight: 600;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	min-width: 50px;
 }
 
@@ -782,7 +782,7 @@
 	border-radius: 6px;
 	font-size: 0.8rem;
 	font-weight: 500;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	cursor: pointer;
 	transition: all 0.2s;
 	white-space: nowrap;
@@ -818,7 +818,7 @@
 	border: none;
 	font-size: 0.85rem;
 	font-weight: 500;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	cursor: pointer;
 	transition: all 0.2s;
 	white-space: nowrap;
@@ -928,7 +928,7 @@
 
 .remit-detail-value {
 	font-size: 0.95rem;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	font-weight: 600;
 }
 
@@ -1403,7 +1403,7 @@
 .notice-detail-title {
 	font-size: 1.5rem;
 	font-weight: 700;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	margin-bottom: 16px;
 	line-height: 1.4;
 }
@@ -1709,7 +1709,7 @@
 	background-color: var(--bg-light);
 	border-color: transparent;
 	font-weight: 600;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 }
 
 /* Amount input wrapper */
@@ -1725,7 +1725,7 @@
 	left: 16px;
 	font-weight: 700;
 	font-size: 1rem;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	max-width: 50px;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -1797,7 +1797,7 @@
 .calc-col-value {
 	font-size: 0.9rem;
 	font-weight: 700;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -2047,7 +2047,7 @@
 .remit-card-date {
 	font-size: 1rem;
 	font-weight: 700;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 }
 
 .remit-card-view-btn {
@@ -2120,7 +2120,7 @@
 .remit-card-amount-value {
 	font-size: 0.95rem;
 	font-weight: 700;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 }
 
 /* Arrow between Column 1 and 2 */
@@ -2147,7 +2147,7 @@
 .remit-card-amount-value {
 	font-size: 1.1rem;
 	font-weight: 700;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 }
 
 /* Column 3: Details (Name, Bank, Date) - Wider to prevent wrapping */
@@ -2175,7 +2175,7 @@
 
 .remit-card-detail-value {
 	font-weight: 600;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -2191,7 +2191,7 @@
 	text-align: center;
 	margin-bottom: 30px;
 	padding-bottom: 20px;
-	border-bottom: 2px solid var(--text-dark);
+	border-bottom: 2px solid var(--text-heavy);
 }
 
 .receipt-logo {
@@ -2202,7 +2202,7 @@
 .receipt-title {
 	font-size: 1.5rem;
 	font-weight: 700;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 }
 
 .receipt-section {
@@ -2212,7 +2212,7 @@
 .receipt-section-title {
 	font-size: 1.1rem;
 	font-weight: 700;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	margin-bottom: 12px;
 }
 
@@ -2231,7 +2231,7 @@
 }
 
 .receipt-value {
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	font-weight: 600;
 	text-align: right;
 	justify-content: flex-end;
@@ -2505,7 +2505,7 @@
 
 .btn-receipt-close {
 	background-color: #f1f3f5;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	border: 1px solid var(--border-default);
 	border-radius: 8px;
 	padding: 12px;
@@ -2683,7 +2683,7 @@
 @media (max-width: 768px) {
 	.account-table-container {
 		padding: 10px;
-		max-height: calc(100vh - 150px);
+		max-height: calc(var(--full-dvh) - 150px);
 	}
   /* Hide table, show card layout */
 	#accountTable {

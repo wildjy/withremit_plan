@@ -5,7 +5,7 @@
 	padding: 60px 20px;
 	width: 100%;
 	height: 100%;
-	min-height: 100vh;
+	min-height: var(--full-dvh);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -17,7 +17,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	min-height: 100vh;
+	min-height: var(--full-dvh);
 	background-color: var(--bg-light);
 	padding: 40px 20px;
 }
@@ -100,7 +100,7 @@
 	font-weight: 700;
 	text-align: center;
 	margin-bottom: 32px;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	letter-spacing: -0.02em;
 }
 
@@ -334,7 +334,7 @@
 .btn-back-cancel:hover {
 	background-color: var(--bg-light);
 	border-color: var(--text-muted);
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	opacity: 0.9;
 }
 
@@ -350,7 +350,7 @@
 	flex-wrap: wrap;
 	gap: 5px;
 	font-size: 12px;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	margin-bottom: 10px;
 	font-weight: 600;
 	color: var(--text-muted);
@@ -413,7 +413,7 @@
 }
 
 .menu-text-list a:hover {
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	opacity: 0.8;
 }
 
@@ -902,7 +902,7 @@
 .reg-id-card span {
 	font-size: 13px;
 	font-weight: 600;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	display: block;
 }
 
@@ -1039,7 +1039,7 @@
 .check-text-bold {
 	font-weight: 700;
 	font-size: 15px;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 }
 
 .check-text {
@@ -1097,7 +1097,7 @@
 
 .btn-step-prev:hover {
 	background-color: var(--bg-light);
-	color: var(--text-dark);
+	color: var(--text-heavy);
 }
 
 .reg-action-btns .btn-main-login {
@@ -1153,7 +1153,7 @@
 	min-height: var(--input-h);
 	padding: 14px 40px 14px 16px;
 	font-size: 1.05rem;
-	color: var(--text-dark);
+	color: var(--text-heavy);
 	font-weight: 500;
 	text-align: left;
 	transition: var(--transition);

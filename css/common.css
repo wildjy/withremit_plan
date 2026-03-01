@@ -176,9 +176,6 @@ a.banner-slide {
 }
 
 .banner-control-btn {
-  background-color: rgba(255, 255, 255, 0.9);
-  border: none;
-  border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -188,11 +185,14 @@ a.banner-slide {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
   -webkit-transition: var(--transition);
   transition: var(--transition);
   -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 .banner-control-btn span {
   display: -webkit-box;
@@ -215,7 +215,7 @@ a.banner-slide {
 }
 
 .banner-control-btn svg {
-  color: var(--text-dark);
+  color: var(--text-heavy);
 }
 
 .banner-control-btn .hidden {
@@ -265,6 +265,10 @@ a.banner-slide {
 }
 .db-banner-slider .banner-image-group {
   height: 150px;
+}
+.db-banner-slider .banner-control-btn span {
+  width: 18px;
+  height: 18px;
 }
 
 /* Mobile Responsive for Banner */
@@ -358,7 +362,7 @@ a.banner-slide {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 24px;
-  color: var(--text-dark);
+  color: var(--text-heavy);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -440,7 +444,7 @@ a.banner-slide {
   font-weight: 600;
   border: none;
   outline: none;
-  color: var(--text-dark);
+  color: var(--text-heavy);
   background-color: transparent;
   min-width: 0;
 }
@@ -567,7 +571,7 @@ a.banner-slide {
 .calc-currency-code {
   font-weight: 600;
   font-size: 0.9rem;
-  color: var(--text-dark);
+  color: var(--text-heavy);
   white-space: nowrap;
 }
 
@@ -578,7 +582,7 @@ a.banner-slide {
   font-family: inherit;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--text-heavy);
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -636,7 +640,7 @@ a.banner-slide {
 .calc-currency-btn .calc-currency-code {
   font-weight: 600;
   font-size: 0.9rem;
-  color: var(--text-dark);
+  color: var(--text-heavy);
 }
 
 .calc-currency-arrow {
@@ -712,7 +716,7 @@ a.banner-slide {
 .calc-currency-option span {
   font-weight: 600;
   font-size: 0.9rem;
-  color: var(--text-dark);
+  color: var(--text-heavy);
 }
 
 .calc-rate {
@@ -822,7 +826,7 @@ a.banner-slide {
 
 .calc-compare span {
   font-size: 0.85rem;
-  color: var(--text-dark);
+  color: var(--text-heavy);
 }
 
 .calc-compare strong {

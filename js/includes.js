@@ -89,22 +89,6 @@ function loadIncludes() {
                 // Mark active navigation
                 const currentPage = window.location.pathname.split('/').pop();
 
-                // 공지사항 (Notice)
-                if (currentPage === 'CS_01_01.html' || currentPage === 'CS_01_02.html') {
-                    const navNotice = document.getElementById('navNotice');
-                    if (navNotice) {
-                        navNotice.classList.add('active');
-                    }
-                }
-
-                // 자주 묻는 질문 (FAQ)
-                if (currentPage === 'CS_02_01.html') {
-                    const navFaq = document.getElementById('navFaq');
-                    if (navFaq) {
-                        navFaq.classList.add('active');
-                    }
-                }
-
                 // 홈 (Home)
                 if (currentPage === 'DB_01_01.html') {
                     const navHome = document.getElementById('navHome');
@@ -193,6 +177,22 @@ function loadIncludes() {
                     }
                 }
 
+                // 공지사항 (Notice)
+                if (currentPage === 'CS_01_01.html' || currentPage === 'CS_01_02.html') {
+                    const navNotice = document.getElementById('navNotice');
+                    if (navNotice) {
+                        navNotice.classList.add('active');
+                    }
+                }
+
+                // 자주 묻는 질문 (FAQ)
+                if (currentPage === 'CS_02_01.html') {
+                    const navFaq = document.getElementById('navFaq');
+                    if (navFaq) {
+                        navFaq.classList.add('active');
+                    }
+                }
+
                 // 1:1 문의 (1:1 Inquiry)
                 if (['CS_03_01.html', 'CS_03_02.html', 'CS_03_03.html'].includes(currentPage)) {
                     const navInquiry = document.getElementById('navInquiry');
@@ -234,6 +234,55 @@ function loadIncludes() {
                         .then(response => response.text())
                         .then(data => {
                             nav.innerHTML += data;
+                            const currentPage = window.location.pathname.split('/').pop();
+
+                            // 송금 서비스 안내 (Service Guide)
+                            if (currentPage === 'GU_01_01.html') {
+                                const navServiceGuide = document.getElementById('navServiceGuide');
+                                if (navServiceGuide) {
+                                    navServiceGuide.classList.add('active');
+                                }
+                            }
+
+                            // 가입 안내 (Sign Up Guide)
+                            if (currentPage === 'GU_02_01.html') {
+                                const navSignupGuide = document.getElementById('navSignupGuide');
+                                if (navSignupGuide) {
+                                    navSignupGuide.classList.add('active');
+                                }
+                            }
+
+                            // 1:1 문의 (1:1 Inquiry)
+                            if (['CS_03_01.html', 'CS_03_02.html', 'CS_03_03.html'].includes(currentPage)) {
+                                const navInquiry = document.getElementById('navInquiry');
+                                if (navInquiry) {
+                                    navInquiry.classList.add('active');
+                                }
+                            }
+
+                            // 공지사항 (Notice)
+                            if (currentPage === 'CS_01_01.html' || currentPage === 'CS_01_02.html') {
+                                const navNotice = document.getElementById('navNotice');
+                                if (navNotice) {
+                                    navNotice.classList.add('active');
+                                }
+                            }
+
+                            // 자주 묻는 질문 (FAQ)
+                            if (currentPage === 'CS_02_01.html') {
+                                const navFaq = document.getElementById('navFaq');
+                                if (navFaq) {
+                                    navFaq.classList.add('active');
+                                }
+                            }
+                            
+                            // 1:1 문의 (1:1 Inquiry)
+                            if (['CS_03_01.html', 'CS_03_02.html', 'CS_03_03.html'].includes(currentPage)) {
+                                const navInquiry = document.getElementById('navInquiry');
+                                if (navInquiry) {
+                                    navInquiry.classList.add('active');
+                                }
+                            }
 
                             // Apply translations to newly loaded support section
                             applyTranslationsDeferred();
