@@ -737,7 +737,7 @@
   }
   .field-label {
     margin-bottom: var(--s1);
-    font-size: var(--xs);
+    font-size: var(--text-xs);
   }
   .password-wrap {
     -webkit-box-flex: 1;

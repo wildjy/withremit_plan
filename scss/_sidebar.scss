@@ -50,7 +50,7 @@
 	top: 0;
 	left: 0;
 	width: var(--sidebar-w);
-	height: 100dvh;
+	height: var(--full-dvh);
 	background-color: #fff;
 	border-radius: 0;
 	box-shadow: var(--shadow-lg);
@@ -174,10 +174,9 @@ body.db-body .sidebar {
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	margin-bottom: 2px;
 	padding: 0 var(--s4);
-	height: 36px;
-	font-size: var(--sm);
+	height: var(--s9);
+	font-size: var(--text-sm);
 	color: var(--text-strong);
 	font-weight: 500;
 	border-radius: var(--s2);
@@ -201,7 +200,7 @@ body.db-body .sidebar {
 
 .nav-label {
 	padding: var(--s5) var(--s4) var(--s2);
-	font-size: var(--2xs);
+	font-size: var(--text-2xs);
 	font-weight: 800;
 	color: var(--text-soft);
 	text-transform: uppercase;
@@ -226,7 +225,7 @@ body.db-body .sidebar {
 .guest-lang-label {
 	margin-bottom: var(--s2);
 	display: block;
-	font-size: var(--sm);
+	font-size: var(--text-sm);
 	color: var(--text-soft);
 	font-weight: 500;
 }
@@ -235,7 +234,7 @@ body.db-body .sidebar {
 	padding: 0 var(--s4);
 	width: 100%;
 	height: 44px;
-	font-size: var(--sm);
+	font-size: var(--text-sm);
 	color: var(--text-heavy);
 	font-weight: 500;
 	appearance: none;

@@ -78,7 +78,7 @@ body{
 }
 
 .db-page-title {
-	font-size: var(--3xl);
+	font-size: var(--text-3xl);
 	font-weight: 700;
 	color: var(--text-heavy);
 	margin: 0;
@@ -108,13 +108,13 @@ body{
 	}
 
 	.db-page-title {
-		font-size: var(--2xl);
+		font-size: var(--text-2xl);
 	}
 }
 
 @media (max-width: 480px) {
 	.db-page-title {
-		font-size: var(--xl);
+		font-size: var(--text-xl);
 	}
 }
 

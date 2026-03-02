@@ -394,10 +394,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 6px 12px;
-  font-size: 0.85rem;
+  padding: 0.375rem var(--s3);
+  font-size: var(--text-sm);
   font-weight: 600;
-  border-radius: 30px;
+  border-radius: var(--s8);
 }
 
 .remit-status {
@@ -407,25 +407,24 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 4px;
-  font-size: 0.85rem;
+  gap: var(--s1);
+  font-size: var(--text-sm);
   font-weight: 600;
 }
 
 @media (max-width: 768px) {
   .remit-card-status-wrapper {
+    margin-top: var(--s2);
+    margin-left: 0;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
     width: 100%;
-    margin-left: 0;
-    margin-top: 8px;
   }
 }
 @media (max-width: 480px) {
-  /* Card status padding 0 */
   .remit-status {
-    font-size: 0.7rem;
+    font-size: var(--text-xs);
   }
 }
 .remit-status svg {
@@ -500,22 +499,22 @@
   display: -ms-flexbox;
   display: flex;
   border-bottom: 2px solid #E5E7EB;
-  margin-bottom: 30px;
+  margin-bottom: var(--s8);
 }
 
 .find-tab-btn {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  padding: 15px;
-  font-size: 16px;
+  margin-bottom: -2px;
+  padding: var(--s4);
+  font-size: var(--text-md);
   font-weight: 600;
   color: #9CA3AF;
   background: none;
   border: none;
   cursor: pointer;
   border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
@@ -534,19 +533,19 @@
 }
 
 .common-tab-container {
-  margin-bottom: 30px;
+  margin-bottom: var(--s8);
 }
 
 .common-tabs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 6px;
-  border-radius: 16px;
-  margin-bottom: 25px;
-  gap: 6px;
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
+  padding: 0.375rem;
+  margin-bottom: var(--s6);
+  gap: var(--s2);
+  background-color: var(--bg-default);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
   -webkit-box-shadow: none;
           box-shadow: none;
   overflow-x: auto;
@@ -556,19 +555,19 @@
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  padding: 14px 20px;
-  text-align: center;
-  border-radius: 12px;
-  font-size: 15px;
+  padding: 0.875rem 0;
+  font-size: var(--text-md);
+  color: var(--text-soft);
   line-height: 1;
   font-weight: 600;
-  color: var(--text-soft);
-  cursor: pointer;
+  text-align: center;
+  border: none;
+  border-radius: var(--radius-md);
+  background-color: var(--transparent);
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
-  background-color: transparent;
-  border: none;
   position: relative;
+  cursor: pointer;
 }
 
 .guide-label {
@@ -583,18 +582,18 @@
 
 .guide-label input + .common-tab:hover:not(.active),
 .common-tab:hover:not(.active) {
-  background-color: rgba(255, 255, 255, 0.5);
-  color: #475569;
+  color: var(--text-strong);
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .guide-label input:checked + .common-tab,
 .common-tab.active {
-  color: #00A0DC !important;
+  color: var(--primary-default);
   font-weight: 700;
   background-color: var(--white);
   border-bottom: none;
-  -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
 }
 
 .tab-content {
@@ -615,15 +614,15 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    gap: 8px;
+    gap: var(--s2);
   }
   .common-tab {
     min-width: 45%;
+    padding: var(--s3) 0.625rem;
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
-    font-size: 14px;
-    padding: 12px 10px;
+    font-size: var(--text-sm);
   }
 }
 /* CM_04_12 회원가입 내국인/외국인 탭 스타일 */
@@ -658,12 +657,12 @@
           justify-content: center;
   width: 100%;
   height: 52px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #fff;
   font-size: 16px;
   font-weight: 500;
   color: #666;
+  background-color: var(--white);
+  border: 1px solid #ddd;
+  border-radius: 8px;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
@@ -681,8 +680,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: var(--full);
+  height: var(--full);
   background-color: rgba(0, 0, 0, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -706,7 +705,7 @@
 }
 
 .modal-content {
-  padding: 2.5rem;
+  padding: var(--s10);
   padding-right: 2.6125rem;
   max-width: 400px;
   width: 90%;
@@ -715,7 +714,7 @@
   -webkit-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
           box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   border: none;
-  border-radius: 20px;
+  border-radius: var(--radius-xl);
   overflow: hidden;
   -webkit-transform: scale(0.8);
           transform: scale(0.8);
@@ -747,7 +746,7 @@
 .modal-header {
   position: sticky;
   top: 0;
-  padding: 24px 24px 16px;
+  padding: var(--s6) var(--s6) var(--s4);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -774,19 +773,19 @@
   }
 }
 .modal-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-heavy);
   margin: 0;
+  font-size: var(--text-2xl);
+  color: var(--text-heavy);
+  font-weight: 700;
 }
 
 .modal-close {
+  padding: var(--s1) var(--s2);
+  font-size: var(--text-2xl);
+  color: var(--text-soft);
   background: none;
   border: none;
-  font-size: 1.5rem;
-  color: var(--text-soft);
   cursor: pointer;
-  padding: 4px 8px;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
@@ -797,19 +796,19 @@
 }
 
 .modal-body {
-  padding: 24px;
+  padding: var(--s6);
 }
 
 .modal-footer {
-  padding: 16px 24px;
-  border-top: 1px solid var(--border-default);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  gap: 12px;
+  gap: var(--s3);
+  padding: var(--s4) var(--s6);
+  border-top: 1px solid var(--border-default);
 }
 
 .modal-footer button {
@@ -827,12 +826,12 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 6px;
+  gap: var(--s2);
   margin: 0 !important;
 }
 
 .modal-icon {
-  margin-bottom: 1.25rem;
+  margin-bottom: var(--s5);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -846,17 +845,17 @@
 }
 
 .modal-content h3 {
-  font-size: 1.3rem;
+  margin-bottom: var(--s4);
+  font-size: var(--text-xl);
   font-weight: 700;
-  margin-bottom: 1rem;
   color: #111827;
 }
 
 .modal-content p {
-  font-size: 0.95rem;
-  line-height: 1.7;
+  margin-bottom: var(--s8);
+  font-size: var(--text-md);
+  line-height: 1.5;
   color: #4b5563;
-  margin-bottom: 2rem;
   word-break: keep-all;
 }
 
@@ -865,9 +864,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 12px;
-  margin-top: 24px;
-  width: 100%;
+  gap: var(--s3);
+  margin-top: var(--s6);
+  width: var(--full);
 }
 
 /* Specificity Override for Modal Buttons */
@@ -887,10 +886,6 @@
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  height: 48px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -900,6 +895,10 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  height: 48px;
+  font-size: var(--text-md);
+  font-weight: 600;
+  border-radius: var(--radius);
   cursor: pointer;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
@@ -910,8 +909,8 @@
   border: none;
   color: #ffffff;
   width: 100%;
-  padding: 0.875rem;
-  border-radius: 12px;
+  padding: var(--s4);
+  border-radius: var(--radius-md);
   font-weight: 600;
   font-size: 1rem;
   -webkit-transition: all 0.2s;
@@ -928,14 +927,14 @@
 }
 
 .modal-btn-success {
+  width: 100%;
+  padding: var(--s4);
+  font-size: var(--text-md);
+  color: var(--white);
+  font-weight: 600;
   background-color: var(--primary-default);
   border: none;
-  color: #ffffff;
-  width: 100%;
-  padding: 0.875rem;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 1rem;
+  border-radius: var(--radius-md);
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   cursor: pointer;

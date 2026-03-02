@@ -3,8 +3,8 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100%;
-	height: 100%;
+	width: var(--full);
+	height: var(--full);
 	background-color: rgba(0, 0, 0, 0.5);
 	display: flex;
 	align-items: center;
@@ -22,7 +22,7 @@
 }
 
 .modal-content {
-	padding: 2.5rem;
+	padding: var(--s10);
 	padding-right: 2.6125rem;
 	max-width: 400px;
 	width: 90%;
@@ -30,7 +30,7 @@
 	background-color: #ffffff;
 	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 	border: none;
-	border-radius: 20px;
+	border-radius: var(--radius-xl);
 	overflow: hidden;
 	transform: scale(0.8);
 	transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -59,7 +59,7 @@
 .modal-header {
 	position: sticky;
 	top: 0;
-	padding: 24px 24px 16px;
+	padding: var(--s6) var(--s6) var(--s4);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -84,19 +84,19 @@
 }
 
 .modal-title {
-	font-size: 1.5rem;
-	font-weight: 700;
-	color: var(--text-heavy);
 	margin: 0;
+	font-size: var(--text-2xl);
+	color: var(--text-heavy);
+	font-weight: 700;
 }
 
 .modal-close {
+	padding: var(--s1) var(--s2);
+	font-size: var(--text-2xl);
+	color: var(--text-soft);
 	background: none;
 	border: none;
-	font-size: 1.5rem;
-	color: var(--text-soft);
 	cursor: pointer;
-	padding: 4px 8px;
 	transition: all 0.2s;
 	&:hover {
 		color: var(--text-heavy);
@@ -105,15 +105,15 @@
 }
 
 .modal-body {
-	padding: 24px;
+	padding: var(--s6);
 }
 
 .modal-footer {
-	padding: 16px 24px;
-	border-top: 1px solid var(--border-default);
 	display: flex;
 	justify-content: flex-end;
-	gap: 12px;
+	gap: var(--s3);
+	padding: var(--s4) var(--s6);
+	border-top: 1px solid var(--border-default);
 }
 
 .modal-footer button {
@@ -123,12 +123,12 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 6px;
+	gap: var(--s2);
 	margin: 0 !important;
 }
 
 .modal-icon {
-	margin-bottom: 1.25rem;
+	margin-bottom: var(--s5);
 	display: flex;
 	justify-content: center;
 	svg {
@@ -138,26 +138,26 @@
 }
 
 .modal-content h3 {
-	font-size: 1.3rem;
+	margin-bottom: var(--s4);
+	font-size: var(--text-xl);
 	font-weight: 700;
-	margin-bottom: 1rem;
 	color: #111827;
 }
 
 .modal-content p {
-	font-size: 0.95rem;
-	line-height: 1.7;
+	margin-bottom: var(--s8);
+	font-size: var(--text-md);
+	line-height: 1.5;
 	color: #4b5563;
-	margin-bottom: 2rem;
 	word-break: keep-all;
 }
 
 /* Confirm Modal Buttons */
 .modal-btn-group {
 	display: flex;
-	gap: 12px;
-	margin-top: 24px;
-	width: 100%;
+	gap: var(--s3);
+	margin-top: var(--s6);
+	width: var(--full);
 }
 
 /* Specificity Override for Modal Buttons */
@@ -171,13 +171,13 @@
 
 .modal-btn-group button {
 	flex: 1;
-	height: 48px;
-	border-radius: 8px;
-	font-size: 16px;
-	font-weight: 600;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	height: 48px;
+	font-size: var(--text-md);
+	font-weight: 600;
+	border-radius: var(--radius);
     cursor: pointer;
     transition: all 0.2s;
 }
@@ -187,8 +187,8 @@
 	border: none;
 	color: #ffffff;
 	width: 100%;
-	padding: 0.875rem;
-	border-radius: 12px;
+	padding: var(--s4);
+	border-radius: var(--radius-md);
 	font-weight: 600;
 	font-size: 1rem;
 	transition: all 0.2s;
@@ -202,14 +202,14 @@
 }
 
 .modal-btn-success {
+	width: 100%;
+	padding: var(--s4);
+	font-size: var(--text-md);
+	color: var(--white);
+	font-weight: 600;
 	background-color: var(--primary-default);
 	border: none;
-	color: #ffffff;
-	width: 100%;
-	padding: 0.875rem;
-	border-radius: 12px;
-	font-weight: 600;
-	font-size: 1rem;
+	border-radius: var(--radius-md);
 	transition: all 0.2s;
 	cursor: pointer;
 }

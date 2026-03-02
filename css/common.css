@@ -311,7 +311,7 @@ a.banner-slide {
     text-align: right;
   }
   .banner-content h2 {
-    font-size: var(--2xl);
+    font-size: var(--text-2xl);
   }
   .banner-content p {
     font-size: 0.95rem;

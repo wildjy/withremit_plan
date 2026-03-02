@@ -74,7 +74,7 @@
 	align-items: center;
 	gap: var(--s2);
 	padding: var(--s2) var(--s4);
-	font-size: var(--sm);
+	font-size: var(--text-sm);
 	font-weight: 500;
 	color: #fff;
 	background-color: rgba(255, 255, 255, 0.1);
@@ -106,7 +106,7 @@
 }
 
 .section-header p {
-	font-size: var(--md);
+	font-size: var(--text-md);
 }
 
 .features-grid {
@@ -155,7 +155,7 @@
 
 .feature-card-content p,
 .feature-card p {
-	font-size: var(--md);
+	font-size: var(--text-md);
 	line-height: 1.5;
 	color: var(--text-default);
 }
@@ -212,13 +212,13 @@
 
 .country-info h4 {
 	margin-bottom: 2px;
-	font-size: var(--md);
+	font-size: var(--text-md);
 	color: var(--text-heavy);
 	font-weight: 600;
 }
 
 .country-info span {
-	font-size: var(--xs);
+	font-size: var(--text-xs);
 	color: var(--text-soft);
 }
 
@@ -299,12 +299,12 @@
 
 .trust-item h3 {
 	margin-bottom: var(--s3);
-	font-size: var(--2xl);
+	font-size: var(--text-2xl);
 	color: #fff;
 }
 
 .trust-item p {
-	font-size: var(--md);
+	font-size: var(--text-md);
 	color: rgba(255, 255, 255, 0.7);
 	line-height: var(--leading-relaxed);
 }
@@ -343,14 +343,14 @@
 	max-width: 480px;
 	margin-left: auto;
 	margin-right: auto;
-	font-size: var(--md);
+	font-size: var(--text-md);
 	color: rgba(255, 255, 255, 0.9);
 }
 
 .cta .btn-primary {
 	padding: var(--s4) var(--s9);
 	color: var(--primary-default);
-	font-size: var(--md);
+	font-size: var(--text-md);
 	background-color: var(--white);
 }
 
@@ -374,7 +374,7 @@
 
 .contact-info h3 {
 	margin-bottom: var(--s6);
-	font-size: var(--xl);
+	font-size: var(--text-xl);
 	color: var(--text-heavy);
 }
 
@@ -408,14 +408,14 @@
 
 .contact-item-content h4 {
 	margin-bottom: var(--s1);
-	font-size: var(--sm);
+	font-size: var(--text-sm);
 	color: var(--text-soft);
 	font-weight: 600;
 }
 
 .contact-item-content p {
 	margin: 0;
-	font-size: var(--md);
+	font-size: var(--text-md);
 	color: var(--text-heavy);
 	font-weight: 500;
 }
@@ -441,14 +441,14 @@
 	align-items: center;
 	gap: var(--s2);
 	margin-bottom: var(--s4);
-	font-size: var(--md);
+	font-size: var(--text-md);
 	font-weight: 600;
 	color: var(--text-heavy);
 }
 
 .contact-hours p {
 	margin-bottom: var(--s2);
-	font-size: var(--sm);
+	font-size: var(--text-sm);
 	color: var(--text-default);
 }
 
@@ -473,7 +473,7 @@
 
 .sns-item h4 {
 	margin-bottom: var(--s1);
-	font-size: var(--sm);
+	font-size: var(--text-sm);
 	font-weight: 600;
 	color: var(--text-heavy);
 }
@@ -567,12 +567,12 @@
 	}
 
 	.hero-content h1 {
-		font-size: var(--3xl);
+		font-size: var(--text-3xl);
 	}
 
 	.hero-content p {
 		margin-bottom: var(--s5);
-		font-size: var(--md);
+		font-size: var(--text-md);
 	}
 
 	.hero-content p br {
@@ -585,7 +585,7 @@
 
 	.badge {
 		padding: var(--s2) var(--s3);
-		font-size: var(--sm);
+		font-size: var(--text-sm);
 	}
 
 	.badge svg {
@@ -603,7 +603,7 @@
 	}
 
 	.section-header p {
-		font-size: var(--md);
+		font-size: var(--text-md);
 	}
   /* Features - ?꾩씠肄?醫뚯륫, ?띿뒪???곗륫 */
 	.features-grid {
@@ -638,11 +638,11 @@
 
 	.feature-card h3 {
 		margin-bottom: var(--s2);
-		font-size: var(--md);
+		font-size: var(--text-md);
 	}
 
 	.feature-card p {
-		font-size: var(--sm);
+		font-size: var(--text-sm);
 	}
   /* Countries - 2???좎? */
 	.countries-grid {
@@ -662,11 +662,11 @@
 	}
 
 	.country-info h4 {
-		font-size: var(--sm);
+		font-size: var(--text-sm);
 	}
 
 	.country-info span {
-		font-size: var(--xs);
+		font-size: var(--text-xs);
 	}
   /* Trust - ?꾩씠肄?醫뚯륫, ?띿뒪???곗륫 */
 	.trust-grid {
@@ -700,22 +700,22 @@
 	}
 
 	.trust-item h3 {
-		font-size: var(--md);
+		font-size: var(--text-md);
 		margin-bottom: var(--s2);
 	}
 
 	.trust-item p {
-		font-size: var(--sm);
+		font-size: var(--text-sm);
 	}
 
 	.cta p {
-		font-size: var(--md);
+		font-size: var(--text-md);
 		margin-bottom: var(--s6);
 	}
 
 	.cta .btn-primary {
 		padding: var(--s4) var(--s7);
-		font-size: var(--md);
+		font-size: var(--text-md);
 	}
   /* Contact - 1?대줈 蹂寃?*/
 	.contact-grid {
@@ -724,7 +724,7 @@
 	}
 
 	.contact-info h3 {
-		font-size: var(--md);
+		font-size: var(--text-md);
 		margin-bottom: var(--s5);
 	}
 
@@ -749,11 +749,11 @@
 	}
 
 	.contact-item-content h4 {
-		font-size: var(--xs);
+		font-size: var(--text-xs);
 	}
 
 	.contact-item-content p {
-		font-size: var(--sm);
+		font-size: var(--text-sm);
 	}
 
 	.contact-hours {
@@ -761,12 +761,12 @@
 	}
 
 	.contact-hours h4 {
-		font-size: var(--md);
+		font-size: var(--text-md);
 		margin-bottom: var(--s3);
 	}
 
 	.contact-hours p {
-		font-size: var(--sm);
+		font-size: var(--text-sm);
 	}
 
 	.contact-sns {
@@ -796,7 +796,7 @@
 	}
 
 	.calc-currency-code {
-		font-size: var(--sm);
+		font-size: var(--text-sm);
 	}
 
 	.calc-currency-flag {
@@ -805,12 +805,12 @@
 	}
 
 	.calc-currency-symbol-fixed {
-		font-size: var(--md);
+		font-size: var(--text-md);
 		margin-right: var(--s1);
 	}
 
 	.calc-fee-total {
-		font-size: var(--md);
+		font-size: var(--text-md);
 	}
 
 	.hero {
@@ -835,14 +835,14 @@
 
 	.hero-content h1 {
 		margin-bottom: var(--s4);
-		font-size: var(--2xl);
+		font-size: var(--text-2xl);
 	}
 
 	.hero-content p {
 		max-width: 320px;
 		width: 100%;
 		margin: 0 auto var(--s5);
-		font-size: var(--md);
+		font-size: var(--text-md);
 	}
 
 	.hero-badges {
@@ -897,7 +897,7 @@
 	}
 
 	.calc-max-amount {
-		font-size: var(--sm);
+		font-size: var(--text-sm);
 	}
 
 	.calculator-title {
@@ -912,7 +912,7 @@
 	}
 
 	.calc-amount-input {
-		font-size: var(--md);
+		font-size: var(--text-md);
 		width: 100%;
 		padding: var(--s3) var(--s2);
 	}

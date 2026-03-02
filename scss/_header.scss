@@ -60,11 +60,11 @@
 	align-items: center;
 	gap: 4px;
 	.nav-link {
-		padding: 10px 18px;
+		padding: var(--s3) var(--s5);
 		font-weight: 500;
-		font-size: 0.95rem;
+		font-size: var(--text-md);
 		color: var(--text-strong);
-		border-radius: 8px;
+		border-radius: var(--s2);
 		transition: var(--transition);
 	}
 
@@ -76,7 +76,7 @@
 .nav-right {
 	display: flex;
 	align-items: center;
-	gap: 6px;
+	gap: var(--s2);
 
 	.btn-text,
 	.btn-primary {
@@ -91,21 +91,14 @@
 .lang-select {
 	display: flex;
 	align-items: center;
-	gap: 6px;
-	padding: 8px 28px 8px 12px;
-	border: none;
-	border-radius: 8px;
-	font-size: 0.875rem;
-	background-color: transparent;
-	cursor: pointer;
-	color: var(--text-heavy);
-	font-weight: 500;
-	appearance: none;
-	-webkit-appearance: none;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237A8E96' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-	background-repeat: no-repeat;
-	background-position: right 8px center;
+	gap: var(--s2);
+	padding: var(--s2) var(--s7) var(--s2) var(--s3);
 	height: 40px;
+	font-size: var(--text-sm);
+	font-weight: 500;
+	color: var(--text-heavy);
+	border-radius: var(--s2);
+	cursor: pointer;
 	transition: var(--transition);
 }
 
@@ -122,7 +115,7 @@
 /* Base Header Adjustments */
 .header-inner {
 	justify-content: flex-start;
-	gap: 32px;
+	gap: var(--s8);
 }
 
 .nav-right {
@@ -135,9 +128,9 @@
 	background-color: var(--primary-default);
 	color: #fff;
 	font-weight: 500;
-	padding: 0 16px;
-	border-radius: 8px;
-	height: 38px;
+	padding: 0 var(--s4);
+	border-radius: var(--s2);
+	height: var(--s10);
 	transition: var(--transition);
 }
 
@@ -151,16 +144,16 @@
 }
 
 .db-my-layer {
+  display: none;
+  padding: var(--s2) 0;
   position: absolute;
   top: 50px;
   right: 0;
   width: 140px;
   background-color: #fff;
   border: 1px solid var(--border-default);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
-  display: none;
-  padding: 10px 0;
   z-index: 10;
 }
 
@@ -170,8 +163,8 @@
 
 .db-my-layer a {
   display: block;
-  padding: 12px 20px;
-  font-size: 14px;
+  padding: var(--s3) var(--s5);
+  font-size: var(--text-sm);
   color: var(--text-heavy);
   text-decoration: none;
 }
@@ -184,41 +177,43 @@
 /* 1. Tablet Landscape (769px ~ 1024px) */
 @media (max-width: 1024px) {
 	.header-inner {
-		gap: 16px;
+		gap: var(--s4);
 	}
 
-	.nav-link {
-		padding: 10px 10px;
-		font-size: 0.9rem;
+	.nav {
+		.nav-link {
+			padding: var(--s2) var(--s3);
+			font-size: var(--text-sm);
+		}
 	}
 
-	// .btn-login-mobile {
-	// 	display: none;
-	// }
-
-  // My Page Dropdown
-  .db-user-dropdown {
-    position: static;
+	// My Page Dropdown
+	.db-user-dropdown {
+		position: static;
   }
 }
 
 /* 2. Mobile Small (<= 768px) */
 @media (max-width: 768px) {
 	.header-inner {
-		gap: 12px;
+		height: 60px;
+		gap: var(--s3);
+
+		.logo img {
+			height: 35px;
+		}
 	}
 
 	.nav {
 		display: none;
-    /* Removed from header */;
 	}
-  /* Hide language and standard buttons */
+	
 	.nav-right .lang-select,
-	.nav-right .btn-text,
+	// .nav-right .btn-text,
 	.nav-right .btn-primary {
 		display: none;
 	}
-  /* Show Mobile Login Button */
+
 	.btn-login-mobile {
 		display: inline-flex;
 	}
@@ -227,54 +222,37 @@
 		gap: 0;
 		margin-left: auto;
 
-    .btn-login-mobile {
-      display: inline-flex;
-      padding: 0 14px;
-      height: 34px;
-      font-size: 0.85rem;
-      background-color: var(--primary-default);
-      color: #fff;
-      border-radius: 6px;
-      font-weight: 600;
-      margin-right: 8px;
-    }
+		.btn-text {
+			display: inline-flex;
+			margin-right: 8px;
+			padding: 0 14px;
+			height: 34px;
+			font-size: 0.85rem;
+			color: #fff;
+			background-color: var(--primary-default);
+			&:hover {
+				color: #fff;
+				background-color: var(--primary-strong);
+			}
+		}
 	}
 
-	.header-inner {
-		height: 56px;
 
-    .logo img {
-      height: 35px;
-    }
+	.db-my-layer a {
+		padding: var(--s2) var(--s5);
+		font-size: var(--text-sm);
 	}
 }
 
 /* 3. Mobile Small (<= 480px) */
 @media (max-width: 480px) {
 	.header-inner {
-		height: 60px;
-		gap: 10px;
+		gap: var(--s2);
 	}
 
-	.logo img {
-		height: 32px;
-	}
 
 	.nav {
 		display: none;
-	}
-
-	.nav-right .lang-select,
-	.nav-right .btn-text,
-	.nav-right .btn-primary {
-		display: none;
-	}
-
-	.btn-login-mobile {
-		display: inline-flex;
-		padding: 0 14px;
-		height: 34px;
-		font-size: 0.85rem;
 	}
 
   // My Page Dropdown
@@ -297,7 +275,7 @@
   .nav-right {
     display: flex !important;
     align-items: center;
-    gap: 15px;
+    gap: var(--s4);
   }
 
   .lang-select,
@@ -312,35 +290,35 @@
 
 @media (max-width: 1024px) {
 	.db-body .lang-select {
+		padding: 6px var(--s2);
 		min-width: 70px;
-		font-size: 12px;
-		padding: 6px 8px;
+		font-size: var(--text-xs);
 	}
 
 	.db-body .nav-right {
-		gap: 10px;
+		gap: var(--s2);
 	}
 }
 
 @media (max-width: 480px) {
-	.db-body .lang-select {
-		font-size: 11px;
-		padding: 4px 6px;
-	}
+	// .db-body .lang-select {
+	// 	font-size: var(--text-xs);
+	// 	padding: 4px var(--s2);
+	// }
 
-	.db-body .nav-right {
-		gap: 8px;
-	}
+	// .db-body .nav-right {
+	// 	gap: 8px;
+	// }
 }
 
 /* Header Balance Display */
 .db-balance-display {
 	display: flex;
 	align-items: center;
-	gap: 6px;
-	font-size: 14px;
-	font-weight: 600;
+	gap: var(--s2);
+	font-size: var(--text-sm);
 	color: var(--text-heavy);
+	font-weight: 600;
 }
 
 @media (max-width: 480px) {

@@ -3259,7 +3259,7 @@ td.center {
 .remit-edit-page {
 	/* 그리드 컬럼 너비 조정 (RM_02_01 전용) */
 	.remit-card-col-bank {
-		min-width: 140px;
+		min-width: 130px;
 		flex: 1;
 		/* 은행명 길면 말 줄임 */
 		overflow: hidden;
@@ -3283,13 +3283,13 @@ td.center {
 	}
 
 	.remit-card-col-type {
-		min-width: 160px;
+		min-width: 150px;
 		/* Slight increase */
 		flex: 1;
 	}
 
 	.remit-card-col-amount {
-		min-width: 160px;
+		min-width: 150px;
 		flex: 1.2;
 	}
 
@@ -3317,7 +3317,7 @@ td.center {
 	.remit-card-detail-value,
 	.remit-card-amount-value {
 		display: inline-block;
-		font-size: var(--sm);
+		font-size: var(--text-sm);
 		/* 조금 줄임 (기존 16px 추정 or default) */
 	}
 
@@ -3395,16 +3395,16 @@ td.center {
 	@media (max-width: 480px) {
 		.field-value-text {
 			padding: 10px 0;
-			font-size: var(--sm);
+			font-size: var(--text-sm);
 		}
 
 		/* Inputs adjustments if needed */
 		.login-input {
-			font-size: var(--sm);
+			font-size: var(--text-sm);
 		}
 
 		.select-styled {
-			font-size: var(--sm);
+			font-size: var(--text-sm);
 		}
 	}
 }
