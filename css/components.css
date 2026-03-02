@@ -165,7 +165,7 @@
   display: inline-block;
   padding: 6px 16px;
   background-color: #f3f4f6;
-  color: var(--text-body);
+  color: var(--text-default);
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 600;
@@ -1257,7 +1257,7 @@
   border-radius: 6px;
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--text-body);
+  color: var(--text-default);
   cursor: pointer;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;

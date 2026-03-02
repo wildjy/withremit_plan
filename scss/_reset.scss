@@ -45,29 +45,29 @@ img {
 /* ===== Typography ===== */
 h1 {
 	font-size: clamp(2.5rem, 5vw, 3.5rem);
+	color: var(--text-heavy);
 	font-weight: 700;
 	line-height: 1.25;
 	letter-spacing: -0.02em;
-	color: var(--text-heavy);
 }
 
 h2 {
 	font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+	color: var(--text-heavy);
 	font-weight: 700;
 	line-height: 1.3;
 	letter-spacing: -0.01em;
-	color: var(--text-heavy);
 }
 
 h3 {
 	font-size: clamp(1.125rem, 2vw, 1.375rem);
-	font-weight: 600;
 	color: var(--text-heavy);
+	font-weight: 600;
 }
 
 p {
 	font-size: var(--md);
-	color: var(--text-body);
+	color: var(--text-default);
 }
 
 
@@ -85,7 +85,7 @@ input, select, textarea {
 		box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);
 	}
 	&::placeholder {
-		color: #aab4b8;
+		color: var(--text-soft);
 		font-weight: 400;
 		opacity: 1;
 	}
@@ -93,6 +93,12 @@ input, select, textarea {
 		@include input-error;
 	}
 	&:disabled {
+		@include input-disabled;
+	}
+}
+
+input {
+	&:read-only {
 		background-color: var(--bg-default);
 		cursor: not-allowed;
 	}
@@ -104,9 +110,12 @@ select {
 	background-repeat: no-repeat;
 	background-position: right 10px center;
 	cursor: pointer;
+	&:focus,
+	&:valid {
+		color: var(--text-heavy);
+	}
 	&:disabled {
-		background-color: var(--border-soft);
-		cursor: not-allowed;
+		@include input-disabled;
 	}
 }
 

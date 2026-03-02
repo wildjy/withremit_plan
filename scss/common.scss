@@ -17,17 +17,17 @@
 
 @media (max-width: 1024px) {
 	.banner-slider {
-		height: 300px;
+		// height: 300px;
 	}
 }
 @media (max-width: 768px) {
 	.banner-slider {
-		height: 300px;
+		// height: 300px;
 	}
 }
 @media (max-width: 480px) {
 	.banner-slider {
-		height: 350px;
+		// height: 350px;
 	}
 }
 	
@@ -373,19 +373,19 @@ a.banner-slide {
 }
 
 .calc-label {
-	font-size: 0.8rem;
-	color: var(--text-soft);
 	margin-bottom: 0;
+	font-size: 0.8rem;
+	color: var(--text-default);
 	display: block;
 	font-weight: 500;
-	text-transform: uppercase;
-	letter-spacing: 0.5px;
 	text-align: left;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
 }
 
 .calc-max-amount {
 	font-size: 0.8rem;
-	color: var(--primary-default);
+	color: var(--primary-heavy);
 	font-weight: 600;
 }
 
@@ -492,12 +492,32 @@ a.banner-slide {
 	color: #333;
 }
 
-.calc-currency {
+.calc-currency,
+.calc-currency-btn {
 	display: flex;
 	align-items: center;
-	gap: 8px;
-	padding: 0 16px;
-	border-left: 1px solid var(--border-default);
+	height: var(--input-h);
+	> span {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 8px;
+		width: 100px;
+		border-left: 1px solid var(--border-default);
+	}
+}
+
+@media (max-width: 480px) {
+	.calc-currency,
+  	.calc-currency-btn {
+		> span {
+			gap: 4px;
+			width: 90px;
+		}
+	}
+}
+
+.calc-currency {
 	flex-shrink: 0;
 	height: 100%;
 }
@@ -543,20 +563,16 @@ a.banner-slide {
 .calc-currency-dropdown {
 	position: relative;
 	flex-shrink: 0;
+	// display: flex;
+	// align-items: center;
+	// justify-content: center;
 }
 
 .calc-currency-btn {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	padding: 0 14px;
 	border: none;
-	border-left: 1px solid var(--border-default);
-	cursor: pointer;
-	height: var(--input-h);
-	font-family: inherit;
-	transition: var(--transition);
 	border-radius: 0 var(--radius) var(--radius) 0;
+	transition: var(--transition);
+	cursor: pointer;
 }
 
 .calc-currency-btn:hover {
@@ -657,13 +673,13 @@ a.banner-slide {
 
 .calc-rate-value {
 	font-size: 0.85rem;
-	color: var(--primary-default);
+	color: var(--primary-heavy);
 	font-weight: 600;
 }
 
 .calc-rate-label {
 	font-size: 0.75rem;
-	color: var(--text-soft);
+	color: var(--text-default);
 }
 
 .calc-arrow {
@@ -705,14 +721,14 @@ a.banner-slide {
 }
 
 .calc-compare {
+	margin-bottom: 18px;
 	display: flex;
 	align-items: center;
 	gap: 10px;
 	padding: 12px 14px;
-	background-color: var(--primary-default-light);
+	background-color: var(--bg-default);
 	border-radius: 8px;
-	margin-bottom: 18px;
-	border: 1px solid rgba(27, 94, 158, 0.1);
+	border: 1px solid var(--border-default);
 }
 
 .calc-compare svg {

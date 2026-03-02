@@ -117,8 +117,10 @@
                                             placeholder="금액 입력">
                                     </div>
                                     <div class="calc-currency">
-                                        <img src="images/kr.png" alt="한국" class="calc-currency-flag">
-                                        <span class="calc-currency-code">KRW</span>
+                                        <span>
+                                            <img src="images/kr.png" alt="한국" class="calc-currency-flag">
+                                            <span class="calc-currency-code">KRW</span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -138,7 +140,9 @@
                             </div>
 
                             <div class="calc-row">
+                                <div class="calc-row-header">
                                 <label class="calc-label" data-i18n="calc.receive">받으실 금액</label>
+                                </div>
                                 <div class="calc-input-group">
                                     <div class="calc-input calc-input-with-symbol">
                                         <span class="calc-currency-symbol-fixed" id="receiveCurrencySymbol">¥</span>
@@ -147,15 +151,16 @@
                                     </div>
                                     <div class="calc-currency-dropdown" id="currencyDropdown">
                                         <button type="button" class="calc-currency-btn" id="currencyBtn">
-                                            <img src="images/jp.png" alt="일본" class="calc-currency-flag"
-                                                id="receiveCurrencyFlag">
-                                            <span class="calc-currency-code" id="receiveCurrencyCode">JPY</span>
-                                            <svg class="calc-currency-arrow" xmlns="http://www.w3.org/2000/svg"
-                                                width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <polyline points="6 9 12 15 18 9"></polyline>
-                                            </svg>
+                                            <span>
+                                                <img src="images/jp.png" alt="일본" class="calc-currency-flag" id="receiveCurrencyFlag">
+                                                <span class="calc-currency-code" id="receiveCurrencyCode">JPY</span>
+                                                <svg class="calc-currency-arrow" xmlns="http://www.w3.org/2000/svg"
+                                                    width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                </svg>
+                                            </span>
                                         </button>
 
                                         <div class="calc-currency-options" id="currencyOptions">

@@ -327,7 +327,7 @@
 .db-notice-table td {
 	padding: 12px;
 	font-size: 0.9rem;
-	color: var(--text-body);
+	color: var(--text-default);
 	text-align: center;
 }
 
@@ -473,7 +473,7 @@
 	border-radius: 6px;
 	font-size: 0.85rem;
 	font-weight: 500;
-	color: var(--text-body);
+	color: var(--text-default);
 	cursor: pointer;
 	transition: all 0.2s;
 	white-space: nowrap;
@@ -952,7 +952,7 @@
 	align-items: center;
 	gap: 6px;
 	font-size: 0.85rem;
-	color: var(--text-body);
+	color: var(--text-default);
 	white-space: nowrap;
 }
 
@@ -1431,7 +1431,7 @@
 }
 
 .notice-detail-meta .meta-value {
-	color: var(--text-body);
+	color: var(--text-default);
 	font-weight: 600;
 }
 
@@ -1444,7 +1444,7 @@
 .notice-detail-content {
 	font-size: 1rem;
 	line-height: 1.8;
-	color: var(--text-body);
+	color: var(--text-default);
 	min-height: 300px;
 	padding: 20px 0;
 }
@@ -1502,7 +1502,7 @@
 
 .notice-nav-item .nav-title {
 	font-size: 0.9rem;
-	color: var(--text-body);
+	color: var(--text-default);
 	flex: 1;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -1670,7 +1670,7 @@
 .calc-result-row .calc-label {
 	font-size: 1rem;
 	font-weight: 600;
-	color: var(--text-body);
+	color: var(--text-default);
 }
 
 .calc-result-row .calc-value {

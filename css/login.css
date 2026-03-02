@@ -168,7 +168,7 @@
   display: block;
   margin-bottom: 8px;
   font-size: 13px;
-  color: var(--text-body);
+  color: var(--text-default);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -192,6 +192,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 .field-error {
@@ -253,7 +254,7 @@
   gap: 5px;
   cursor: pointer;
   font-size: 13px;
-  color: var(--text-body);
+  color: var(--text-default);
 }
 
 .keep-login-wrap input[type=checkbox] {
@@ -571,7 +572,7 @@
 .keypad-header span {
   font-size: 13px;
   font-weight: 700;
-  color: var(--text-body);
+  color: var(--text-default);
 }
 
 .close-keypad {
@@ -1165,7 +1166,7 @@
 
 .check-text {
   font-size: 14px;
-  color: var(--text-body);
+  color: var(--text-default);
   font-weight: 500;
 }
 

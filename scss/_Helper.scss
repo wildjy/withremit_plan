@@ -467,6 +467,11 @@ $vw-context: calc($viewport * 0.01) * 1px;
   @include btnDisabled;
 }
 
+@mixin input-disabled {
+  background-color: var(--bg-default);
+  border-color: var(--border-soft);
+  cursor: not-allowed;
+}
 @mixin input-error {
 	border-color: var(--negative);
 	border: 1.5px solid var(--negative);

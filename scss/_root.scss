@@ -42,7 +42,7 @@
   --bg-success: #DDE9F4;
 
   // text colors
-  --text-body: var(--neutral-default);
+  --text-default: var(--neutral-default);
   --text-soft: var(--neutral-soft);
   --text-strong: var(--neutral-strong);
   --text-heavy: var(--neutral-heavy);
@@ -90,13 +90,15 @@
   --s6 : 1.5rem;   // 24px
   --s7 : 1.75rem;  // 28px
   --s8 : 2rem;     // 32px
+  --s9 : 2.25rem;  // 36px
   --s10: 2.5rem;   // 40px
   --s11: 2.75rem;  // 44px
   --s12: 3rem;     // 48px
   --s13: 3.25rem;  // 52px
-  --s14: 3.75rem;  // 60px
-  --s15: 4rem;     // 64px
-  --s16: 4.25rem;  // 68px
+  --s14: 3.5rem;   // 56px
+  --s15: 3.75rem;  // 60px
+  --s16: 4rem;     // 64px
+  --s17: 4.25rem;  // 68px
 
   // font sizes
   --2xs: 0.625rem; // 10px
