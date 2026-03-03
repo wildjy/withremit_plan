@@ -29,11 +29,13 @@ function loadIncludes() {
     // Check for guest mode
     const urlParams = new URLSearchParams(window.location.search);
     const isGuest = urlParams.get('guest') === 'true';
+    const currentPage = window.location.pathname.split('/').pop();
+    const useGuestHeader = isGuest || currentPage === 'CM_02_01.html';
 
     // Load header
     const headerContainer = document.getElementById('headerContainer');
     if (headerContainer) {
-        const headerFile = isGuest ? 'includes/header_guest.html' : 'includes/header.html';
+        const headerFile = useGuestHeader ? 'includes/header_guest.html' : 'includes/header.html';
         fetch(headerFile)
             .then(response => response.text())
             .then(data => {
@@ -80,7 +82,7 @@ function loadIncludes() {
     // Load sidebar
     const sidebarContainer = document.getElementById('sidebarContainer');
     if (sidebarContainer) {
-        const sidebarFile = isGuest ? 'includes/sidebar_guest.html' : 'includes/sidebar.html';
+        const sidebarFile = useGuestHeader ? 'includes/sidebar_guest.html' : 'includes/sidebar.html';
         fetch(sidebarFile)
             .then(response => response.text())
             .then(data => {
@@ -275,7 +277,7 @@ function loadIncludes() {
                                     navFaq.classList.add('active');
                                 }
                             }
-                            
+
                             // 1:1 문의 (1:1 Inquiry)
                             if (['CS_03_01.html', 'CS_03_02.html', 'CS_03_03.html'].includes(currentPage)) {
                                 const navInquiry = document.getElementById('navInquiry');
@@ -307,6 +309,7 @@ function loadIncludes() {
             .then(response => response.text())
             .then(data => {
                 supportContainer.innerHTML = data;
+                applyTranslationsDeferred();
             })
             .catch(error => console.error('Error loading support:', error));
     }
@@ -318,6 +321,7 @@ function loadIncludes() {
             .then(response => response.text())
             .then(data => {
                 contactContainer.innerHTML = data;
+                applyTranslationsDeferred();
             })
             .catch(error => console.error('Error loading contact:', error));
     }
@@ -329,6 +333,7 @@ function loadIncludes() {
             .then(response => response.text())
             .then(data => {
                 footerContainer.innerHTML = data;
+                applyTranslationsDeferred();
             })
             .catch(error => console.error('Error loading footer:', error));
     }

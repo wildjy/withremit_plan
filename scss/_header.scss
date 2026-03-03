@@ -83,8 +83,26 @@
 		display: flex;
 	}
 
+	.btn-text {
+		border: 1px solid var(--border-default);
+	}
+
 	select {
 		width: auto;
+	}
+}
+
+.lang-select-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	// gap: var(--s1-6);
+	position: relative;
+	&:before {
+		content: '';
+		width: 16px;
+		height: 16px;
+		background-image: url('../images/global.svg');
 	}
 }
 
@@ -97,6 +115,7 @@
 	font-size: var(--text-sm);
 	font-weight: 500;
 	color: var(--text-heavy);
+	border: none;
 	border-radius: var(--s2);
 	cursor: pointer;
 	transition: var(--transition);
@@ -207,8 +226,8 @@
 	.nav {
 		display: none;
 	}
-	
-	.nav-right .lang-select,
+
+	// .nav-right .lang-select,
 	// .nav-right .btn-text,
 	.nav-right .btn-primary {
 		display: none;
@@ -224,7 +243,7 @@
 
 		.btn-text {
 			display: inline-flex;
-			margin-right: 8px;
+			margin-right: 0px;
 			padding: 0 14px;
 			height: 34px;
 			font-size: 0.85rem;
@@ -257,16 +276,13 @@
 
   // My Page Dropdown
 	.db-user-dropdown .btn {
-		padding: 0 10px;
+		// padding: 0 10px;
 		min-width: 40px;
 	}
 
 	.db-user-dropdown .btn svg {
-		margin: 0;
-	}
-
-	.db-user-dropdown .btn-text {
 		display: none;
+		margin: 0;
 	}
 }
 
@@ -290,7 +306,7 @@
 
 @media (max-width: 1024px) {
 	.db-body .lang-select {
-		padding: 6px var(--s2);
+		padding: var(--s1-6) var(--s2);
 		min-width: 70px;
 		font-size: var(--text-xs);
 	}
@@ -332,7 +348,7 @@
 }
 
 .balance-amount {
-	color: var(--primary-heavy);
+	color: var(--primary-default);
 	font-weight: 700;
 }
 

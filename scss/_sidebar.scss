@@ -178,7 +178,7 @@ body.db-body .sidebar {
 	height: var(--s9);
 	font-size: var(--text-sm);
 	color: var(--text-strong);
-	font-weight: 500;
+	// font-weight: 500;
 	border-radius: var(--s2);
 	transition: 0.2s;
   	/* white-space: nowrap; */
@@ -188,6 +188,7 @@ body.db-body .sidebar {
 }
 
 .nav-link:hover {
+	color: var(--primary-heavy);
 	background-color: var(--bg-default);
 }
 

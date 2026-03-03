@@ -3,7 +3,7 @@ const translations = {
     ko: {
         // Buttons
         'button.confirm': '확인',
-        'button.mypage': '마이페이지',
+        'button.mypage': 'MY',
         'button.register': '등록',
         'button.cancel': '취소',
         'button.delete': '삭제',
@@ -19,6 +19,7 @@ const translations = {
         'nav.logout': '로그아웃',
         'nav.register': '회원가입',
         'nav.mypage': '마이페이지',
+        'nav.editProfile': '회원정보 수정',
         'nav.coupon': '쿠폰',
         'nav.language': '언어',
         'nav.remitGuide': '송금 서비스 안내',
@@ -192,7 +193,7 @@ const translations = {
     en: {
         // Buttons
         'button.confirm': 'Confirm',
-        'button.mypage': 'MY Page',
+        'button.mypage': 'MY',
         'button.register': 'Register',
         'button.cancel': 'Cancel',
         'button.delete': 'Delete',
@@ -208,6 +209,7 @@ const translations = {
         'nav.logout': 'Logout',
         'nav.register': 'Sign Up',
         'nav.mypage': 'MY Page',
+        'nav.editProfile': 'Edit Profile',
         'nav.coupon': 'Coupons',
         'nav.language': 'Language',
         'nav.remitGuide': 'Remittance Service Guide',
@@ -376,6 +378,15 @@ const translations = {
         'modal.terms.scrollRequired': 'Please read the terms and conditions to the end and agree.',
     },
     ja: {
+        // Buttons
+        'button.confirm': '確認',
+        'button.mypage': 'MY',
+        'button.register': '登録',
+        'button.cancel': 'キャンセル',
+        'button.delete': '削除',
+        'button.stop': '停止',
+        'button.more': 'もっと見る',
+
         // Navigation
         'nav.personal': '個人送金',
         'nav.business': '法人送金',
@@ -383,6 +394,7 @@ const translations = {
         'nav.login': 'ログイン',
         'nav.logout': 'ログアウト',
         'nav.mypage': 'マイページ',
+        'nav.editProfile': '会員情報修正',
         'nav.coupon': 'クーポン',
         'nav.register': '会員登録',
         'nav.language': '言語',
@@ -551,6 +563,15 @@ const translations = {
         'modal.terms.scrollRequired': '利用規約の内容を最後まで読んで同意してください。',
     },
     hi: {
+        // Buttons
+        'button.confirm': 'पुष्टि करें',
+        'button.mypage': 'MY',
+        'button.register': 'रजिस्टर',
+        'button.cancel': 'रद्द करें',
+        'button.delete': 'हटाएं',
+        'button.stop': 'रोकें',
+        'button.more': 'और देखें',
+
         // Navigation
         'nav.personal': 'व्यक्तिगत धन प्रेषण',
         'nav.business': 'व्यवसायिक धन प्रेषण',
@@ -558,6 +579,7 @@ const translations = {
         'nav.login': 'लॉग इन',
         'nav.logout': 'लॉग आउट',
         'nav.mypage': 'माई पेज',
+        'nav.editProfile': 'प्रोफ़ाइल संपादित करें',
         'nav.coupon': 'कूपन',
         'nav.register': 'साइन अप',
         'nav.language': 'भाषा',
