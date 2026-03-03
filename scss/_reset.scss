@@ -80,10 +80,10 @@ input, select, textarea {
     transition: var(--transition);
     border-radius: var(--radius);
     outline: none;
-	&:focus-within {
-		border-color: var(--primary-default);
-		box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);
-	}
+	// &:focus-within {
+	// 	border-color: var(--primary-default);
+	// 	box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);
+	// }
 	&::placeholder {
 		color: var(--text-soft);
 		font-weight: 400;
@@ -107,8 +107,12 @@ select {
 	appearance: none;
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M9.52257 12.5547C9.79146 12.8055 10.2085 12.8055 10.4774 12.5547L14.3297 8.96192C14.7944 8.5285 14.4878 7.75 13.8523 7.75H6.14771C5.51225 7.75 5.20556 8.5285 5.67028 8.96192L9.52257 12.5547Z' fill='%234A5C64'/%3E%3C/svg%3E");
 	background-repeat: no-repeat;
-	background-position: calc(100% - 12px) center;
+	background-position: calc(100% - 4px) center;
 	cursor: pointer;
+	// &:focus-within {
+	// 	border-color: var(--primary-default);
+	// 	box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);
+	// }
 	&:focus,
 	&:valid {
 		color: var(--text-heavy);

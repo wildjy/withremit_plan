@@ -174,8 +174,8 @@ body.db-body .sidebar {
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	padding: 0 var(--s4);
-	height: var(--s9);
+	padding: var(--s2) var(--s4);
+	// height: var(--s9);
 	font-size: var(--text-sm);
 	color: var(--text-strong);
 	// font-weight: 500;

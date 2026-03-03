@@ -99,12 +99,12 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <!-- <div class="field-item exchange-rate-display" id="exchangeRateDisplay">
+                                    <div class="field-item exchange-rate-display" id="exchangeRateDisplay">
                                         <label class="field-label">환율</label>
                                         <div class="login-input exchange-rate-box">
                                             <span id="exchangeRate">-</span>
                                         </div>
-                                    </div> -->
+                                    </div>
                                 </div>
 
                                 <div class="field-item top-level">
@@ -908,6 +908,7 @@
                 fee = Math.floor(sendAmount * feeRate);
                 receiveAmtBeforeFee = (sendAmount - fee) * rateInfo.rate;
                 withdrawalFee = rateInfo.withdrawalFee;
+                // receiveAmt = receiveAmtBeforeFee - withdrawalFee;
                 receiveAmt = Math.max(receiveAmtBeforeFee - withdrawalFee, 0);
                 depositAmount = sendAmount + fee;
 
