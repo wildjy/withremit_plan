@@ -71,13 +71,14 @@ const bankFeePercent = 3.5;
 const KRW_PER_USD = 1350;
 const MAX_USD = 5000;
 const MAX_KRW_LIMIT = MAX_USD * KRW_PER_USD; // 6,750,000원
+
 // [옵션 기능 - 최소 송금액 강제] 필요 시 아래 주석 해제 후 사용
 // const MIN_NET_RECEIVE_AMOUNT = 1;
-//
+
 // function getMinimumSendAmount(currency = selectedCurrency) {
 //     const rate = exchangeRates[currency]?.rate;
 //     if (!rate || rate <= 0) return 0;
-//
+
 //     const withdrawalFee = withdrawalFees[currency] || 0;
 //     return Math.ceil((MIN_NET_RECEIVE_AMOUNT + withdrawalFee) / rate);
 // }
@@ -167,7 +168,10 @@ function handleSendAmountInput(e) {
     const rate = exchangeRates[selectedCurrency].rate;
     const withdrawalFee = withdrawalFees[selectedCurrency] || 0;
     const grossReceiveAmount = Math.floor(numValue * rate);
-    const convertedAmount = Math.max(grossReceiveAmount - withdrawalFee, 0);
+    const convertedAmount = Math.max(grossReceiveAmount - withdrawalFee, 0); // [옵션 기능 - 최소 순수취금액 보정] 필요 시 위에서 minSendAmount 계산 후 아래처럼 보정
+    // const convertedAmount = grossReceiveAmount - withdrawalFee < MIN_NET_RECEIVE_AMOUNT
+    //     ? MIN_NET_RECEIVE_AMOUNT
+    //     : grossReceiveAmount - withdrawalFee;
 
     const receiveInput = document.getElementById('receiveAmount');
     if (receiveInput) {

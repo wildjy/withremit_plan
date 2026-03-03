@@ -93,6 +93,7 @@
 }
 
 .lang-select-box {
+	margin-right: var(--s4);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -100,9 +101,15 @@
 	position: relative;
 	&:before {
 		content: '';
+		position: absolute;
+		top: 50%;
+		left: 10px;
+		transform: translateY(-50%);
 		width: 16px;
 		height: 16px;
 		background-image: url('../images/global.svg');
+		background-size: cover;
+		background-repeat: no-repeat;
 	}
 }
 
@@ -110,7 +117,7 @@
 	display: flex;
 	align-items: center;
 	gap: var(--s2);
-	padding: var(--s2) var(--s7) var(--s2) var(--s3);
+	padding: var(--s2) var(--s7) var(--s2) var(--s8);
 	height: 40px;
 	font-size: var(--text-sm);
 	font-weight: 500;
@@ -206,6 +213,11 @@
 		}
 	}
 
+	.lang-select-box {
+		margin-right: var(--s2);
+	}
+
+
 	// My Page Dropdown
 	.db-user-dropdown {
 		position: static;
@@ -248,6 +260,7 @@
 			height: 34px;
 			font-size: 0.85rem;
 			color: #fff;
+			border: none;
 			background-color: var(--primary-default);
 			&:hover {
 				color: #fff;
@@ -255,7 +268,6 @@
 			}
 		}
 	}
-
 
 	.db-my-layer a {
 		padding: var(--s2) var(--s5);

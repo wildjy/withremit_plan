@@ -37,7 +37,7 @@
                             <div class="limit-value">$ 5,000</div>
                         </div>
                         <div class="limit-info-item">
-                            <div class="limit-label">1년 한도액</div>
+                            <div class="limit-label">연간 한도액</div>
                             <div class="limit-value">$ 100,000</div>
                         </div>
                         <div class="limit-info-item">
@@ -99,12 +99,12 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="field-item exchange-rate-display" id="exchangeRateDisplay">
+                                    <!-- <div class="field-item exchange-rate-display" id="exchangeRateDisplay">
                                         <label class="field-label">환율</label>
                                         <div class="login-input exchange-rate-box">
                                             <span id="exchangeRate">-</span>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                                 <div class="field-item top-level">
@@ -219,14 +219,14 @@
                                 <div class="form-row-2 no-mb">
                                     <div class="field-item">
                                         <label class="field-label">
-                                            <span data-i18n="join.request.firstNameEn">이름 (영문)</span>
+                                            <span data-i18n="join.request.firstNameEn">수취인 이름 (영문)</span>
                                         </label>
                                         <input type="text" placeholder="영문으로 입력하세요" class="login-input" id="firstNameEn">
                                         <span class="field-error" id="firstNameEnError"></span>
                                     </div>
                                     <div class="field-item">
                                         <label class="field-label">
-                                            <span data-i18n="join.request.lastNameEn">성 (영문)</span>
+                                            <span data-i18n="join.request.lastNameEn">수취인 성 (영문)</span>
                                         </label>
                                         <input type="text" placeholder="영문으로 입력하세요" class="login-input" id="lastNameEn">
                                         <span class="field-error" id="lastNameEnError"></span>
@@ -908,8 +908,9 @@
                 fee = Math.floor(sendAmount * feeRate);
                 receiveAmtBeforeFee = (sendAmount - fee) * rateInfo.rate;
                 withdrawalFee = rateInfo.withdrawalFee;
-                receiveAmt = receiveAmtBeforeFee - withdrawalFee;
+                receiveAmt = Math.max(receiveAmtBeforeFee - withdrawalFee, 0);
                 depositAmount = sendAmount + fee;
+
             } else {
                 // 수취 금액 기준 - 먼저 송금액 계산
                 receiveAmt = inputAmount;
@@ -985,8 +986,8 @@
                 { id: 'depositorName', message: '입금자 명을 입력해 주세요.' },
                 { id: 'depositAccount', message: '입금 계좌를 입력해 주세요.' },
                 { id: 'accountHolder', message: '입금 계좌 명의를 입력해 주세요.' },
-                { id: 'firstNameEn', message: '수취인 이름을 입력해 주세요.' },
-                { id: 'lastNameEn', message: '수취인 성을 입력해 주세요.' },
+                { id: 'firstNameEn', message: '수취인 이름 (영문)을 입력해 주세요.' },
+                { id: 'lastNameEn', message: '수취인 성 (영문)을 입력해 주세요.' },
                 { id: 'relationship', message: '수취인과의 관계를 선택해 주세요.' },
                 { id: 'beneficiaryBank', message: '수취 은행을 선택해 주세요.' },
                 { id: 'beneficiaryAccount', message: '수취 계좌 번호를 입력해 주세요.' },

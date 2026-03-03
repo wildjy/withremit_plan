@@ -1044,7 +1044,7 @@
                 fee = Math.floor(sendAmount * feeRate);
                 receiveAmtBeforeFee = (sendAmount - fee) * rateInfo.rate;
                 withdrawalFee = rateInfo.withdrawalFee;
-                receiveAmt = receiveAmtBeforeFee - withdrawalFee;
+                receiveAmt = Math.max(receiveAmtBeforeFee - withdrawalFee, 0);
                 depositAmount = sendAmount + fee;
             } else {
                 // 수취 금액 기준 - 먼저 송금액 계산
