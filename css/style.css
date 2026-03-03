@@ -666,16 +666,13 @@ body.wh-full {
   gap: var(--s2);
 }
 .header-inner .logo img {
-  height: 50px;
+  height: 40px;
   width: auto;
 }
 
 @media (max-width: 768px) {
   .header-inner {
     height: var(--header-h);
-  }
-  .logo img {
-    height: 40px;
   }
 }
 .db-h-left {
@@ -859,6 +856,9 @@ body.wh-full {
   .header-inner {
     gap: var(--s4);
   }
+  .nav {
+    display: none;
+  }
   .nav .nav-link {
     padding: var(--s2) var(--s3);
     font-size: var(--text-sm);
@@ -878,9 +878,6 @@ body.wh-full {
   }
   .header-inner .logo img {
     height: 35px;
-  }
-  .nav {
-    display: none;
   }
   .nav-right .btn-primary {
     display: none;

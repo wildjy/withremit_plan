@@ -34,7 +34,7 @@
   }
 
   .logo img {
-    height: 50px;
+    height: 40px;
     width: auto;
   }
 }
@@ -42,10 +42,6 @@
 @media (max-width: 768px) {
   .header-inner {
     height: var(--header-h);
-  }
-
-  .logo img {
-    height: 40px;
   }
 }
 
@@ -207,6 +203,7 @@
 	}
 
 	.nav {
+		display: none;
 		.nav-link {
 			padding: var(--s2) var(--s3);
 			font-size: var(--text-sm);
@@ -235,9 +232,10 @@
 		}
 	}
 
-	.nav {
-		display: none;
-	}
+	// 힌두어로 인하 768에서 1024로 변경
+	// .nav {
+	// 	display: none;
+	// }
 
 	// .nav-right .lang-select,
 	// .nav-right .btn-text,
