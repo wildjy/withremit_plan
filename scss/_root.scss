@@ -4,8 +4,8 @@
   --full-dvw: 100dvw;
   --full-dvh: 100dvh;
   --max-w: 1200px;
-  --header-h: 3.5625rem; //  max-width: 768px
-  --header-h-md: 4.5625rem; // min-width: 769px
+  --header-h: 3.75rem; // 60px, max-width: 768px
+  --header-h-md: 4.625rem; // 76px, min-width: 769px
   --sidebar-w: 18.75rem; // 300px
   --sidebarContainer-w: 12.25rem; // 196px
   --input-h: 3.25rem; // 52px
@@ -49,6 +49,11 @@
   --text-light: var(--white);
 
   // main bg colors
+  --bg-features: #E9F5FE;
+  --bg-countries: var(--white);
+  --bg-business: #34424C;
+  --bg-contact: var(--white);
+
   --bg-light: #F8FAFA;
   --bg-section: #F2F6F5;
   --bg-dark: #1A2E35;

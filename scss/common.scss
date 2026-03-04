@@ -8,10 +8,11 @@
 
 /* ===== Banner Slider ===== */
 .banner-slider {
-	margin-top: var(--header-h);
 	position: relative;
 	width: 100%;
 	height: 300px;
+	border-radius: var(--radius-xl);
+	overflow: hidden;
 	// overflow: hidden;
 }
 
@@ -30,7 +31,7 @@
 		// height: 350px;
 	}
 }
-	
+
 
 .banner-slides {
 	position: relative;
@@ -70,6 +71,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding: 0 var(--s14);
 	width: 100%;
 	max-width: 1280px;
 	margin: 0 auto;
@@ -244,27 +246,17 @@ a.banner-slide {
 		// flex: 0 0 230px;
 		height: 160px;
 	}
-
-	// .db-banner-slider {
-	// 	.banner-image-group {
-	// 		flex: 0 0 auto;
-	// 		padding-left: 0;
-	// 		height: 130px;
-	// 	}
-	// }
 }
 
 @media (max-width: 768px) {
   /* Banner */
 	.banner-slider {
-		margin-top: 56px;
-
 		.container {
 			// padding: 0 var(--s10);
 			width: 500px;
 			margin: 0 auto;
 		}
-		
+
 		&.db-banner-slider {
 			margin-top: 0;
 			height: 250px;
@@ -280,7 +272,7 @@ a.banner-slide {
 		flex-wrap: wrap;
 	}
 
-	.banner-text-group, 
+	.banner-text-group,
 	.banner-image-group {
 		padding: 0;
 		flex: 1 1 100%;
@@ -313,6 +305,46 @@ a.banner-slide {
 
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
+.calculator-card-box {
+	position: relative;
+	.bg-box {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+		> span {
+			position: absolute;
+		}
+
+		.coin-1 {
+			top: 177px;
+			left: -180px;
+			width: 170px;
+			height: 179px;
+			background: url('../images/svg/main_coin_1.svg') no-repeat center center;
+			background-size: contain;
+		}
+		.coin-2 {
+			top: -40px;
+			right: -54px;
+			width: 99px;
+			height: 72px;
+			background: url('../images/svg/main_coin_2.svg') no-repeat center center;
+			background-size: contain;
+		}
+		.coin-3 {
+			bottom: -20px;
+			right: -150px;
+			width: 170px;
+			height: 175px;
+			background: url('../images/svg/main_coin_3.svg') no-repeat center center;
+			background-size: contain;
+		}
+	}
+}
+
 .calculator-card {
 	padding: 35px;
 	max-width: 420px;
@@ -321,6 +353,8 @@ a.banner-slide {
 	border-radius: var(--radius-xl);
 	background-color: #fff;
 	box-shadow: var(--shadow-lg);
+	position: relative;
+	z-index: 1;
 	&.db {
 		max-width: 100%;
 		width: 100%;

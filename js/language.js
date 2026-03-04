@@ -30,7 +30,7 @@ const translations = {
         'nav.inquiry': '1:1 문의',
 
         // Hero
-        'hero.title': '해외송금,<br><span>이제는 쉽고 간편하게</span>',
+        'hero.title': '해외송금,<br>이제는 <span>쉽고 간편하게</span>',
         'hero.desc': '보내시는 분의 마음을 담아, 더 빠르고 더 저렴하게 전해드립니다. 언제 어디서나, 글로벌 기준의 빠르고 안전한 송금 솔루션',
         'hero.badge1': '최단 5분 송금',
         'hero.badge2': 'SGI 서울보증보험',

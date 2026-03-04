@@ -43,7 +43,10 @@ body{
 	margin: 0 auto;
 	width: var(--full);
 	max-width: var(--max-w);
-	overflow-x: hidden;
+	overflow: hidden;
+	&.visible {
+		overflow: visible
+	}
 }
 
 @media (max-width: 1024px) {

@@ -72,6 +72,7 @@ function loadIncludes() {
                 // Apply translations to newly loaded header
                 applyTranslationsDeferred();
                 initMyMenu();
+                callWhenAvailable('handleScroll', () => window.handleScroll());
                 tryInitSidebar();
             })
             .catch(error => console.error('Error loading header:', error));

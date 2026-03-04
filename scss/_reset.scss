@@ -73,13 +73,13 @@ p {
 
 input, select, textarea {
 	width: 100%;
-    padding: 15px 16px;
-    font-size: 1.05rem;
-    font-weight: 500;
-    -webkit-transition: var(--transition);
-    transition: var(--transition);
-    border-radius: var(--radius);
-    outline: none;
+	padding: 15px 16px;
+	font-size: 1.05rem;
+	font-weight: 500;
+	-webkit-transition: var(--transition);
+	transition: var(--transition);
+	border-radius: var(--radius);
+	outline: none;
 	&:focus-within {
 		border-color: var(--primary-default);
 		box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);

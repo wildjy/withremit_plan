@@ -29,247 +29,251 @@
     <div id="headerContainer"></div>
 
     <!-- Banner Slider -->
-    <section class="banner-slider swiper">
-        <div class="banner-slides swiper-wrapper">
-            <div class="banner-slide swiper-slide banner-slide-1">
-                <a href="#">
-                    <div class="container">
-                        <div class="banner-content">
-                            <div class="banner-text-group">
-                                <h2 data-i18n="banner.referral.title">친구도 나도, 송금 수수료 0원!</h2>
-                                <p data-i18n="banner.referral.desc">친구가 가입 후 첫 송금을 마치면 두 분 모두에게 수수료 무료 쿠폰을 드립니다.</p>
+    <section class="section-sec1">
+        <div class="container visible">
+            <section class="banner-slider swiper">
+                <div class="banner-slides swiper-wrapper">
+                    <div class="banner-slide swiper-slide banner-slide-1">
+                        <a href="#">
+                            <div class="banner-content">
+                                <div class="banner-text-group">
+                                    <h2 data-i18n="banner.referral.title">친구도 나도, 송금 수수료 0원!</h2>
+                                    <p data-i18n="banner.referral.desc">친구가 가입 후 첫 송금을 마치면 두 분 모두에게 수수료 무료 쿠폰을 드립니다.</p>
+                                </div>
+                                <div class="banner-image-group">
+                                    <img src="images/banner_referral.png" alt="친구 추천 이벤트" data-i18n="banner.referral.alt">
+                                </div>
                             </div>
-                            <div class="banner-image-group">
-                                <img src="images/banner_referral.png" alt="친구 추천 이벤트" data-i18n="banner.referral.alt">
-                            </div>
-                        </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <div class="banner-slide swiper-slide banner-slide-2">
-                <a href="#">
-                    <div class="container">
-                        <div class="banner-content">
-                            <div class="banner-text-group">
-                                <h2 data-i18n="banner.birthday.title">해피 벌스데이! 위드레미트가 드리는 생일 선물</h2>
-                                <p data-i18n="banner.birthday.desc">생일인 달에는 송금 수수료가 무료! 지금 쿠폰함에서 확인해 보세요.</p>
+                    <div class="banner-slide swiper-slide banner-slide-2">
+                        <a href="#">
+                            <div class="banner-content">
+                                <div class="banner-text-group">
+                                    <h2 data-i18n="banner.birthday.title">해피 벌스데이! 위드레미트가 드리는 생일 선물</h2>
+                                    <p data-i18n="banner.birthday.desc">생일인 달에는 송금 수수료가 무료! 지금 쿠폰함에서 확인해 보세요.</p>
+                                </div>
+                                <div class="banner-image-group">
+                                    <img src="images/banner_birthday.png" alt="생일 쿠폰 이벤트" data-i18n="banner.birthday.alt">
+                                </div>
                             </div>
-                            <div class="banner-image-group">
-                                <img src="images/banner_birthday.png" alt="생일 쿠폰 이벤트" data-i18n="banner.birthday.alt">
-                            </div>
-                        </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <div class="banner-slide swiper-slide banner-slide-3">
-                <a href="#">
-                    <div class="container">
-                        <div class="banner-content">
-                            <div class="banner-text-group">
-                                <h2 data-i18n="banner.security.title">국가가 인증하고 서울보증보험이 약속합니다.</h2>
-                                <p data-i18n="banner.security.desc">기획재정부 인가 및 SGI 서울보증보험 가입으로 단 1원도 안심하고 보내세요.</p>
+                    <div class="banner-slide swiper-slide banner-slide-3">
+                        <a href="#">
+                            <div class="banner-content">
+                                <div class="banner-text-group">
+                                    <h2 data-i18n="banner.security.title">국가가 인증하고 서울보증보험이 약속합니다.</h2>
+                                    <p data-i18n="banner.security.desc">기획재정부 인가 및 SGI 서울보증보험 가입으로 단 1원도 안심하고 보내세요.</p>
+                                </div>
+                                <div class="banner-image-group">
+                                    <img src="images/banner_security.png" alt="보안 안심 송금" data-i18n="banner.security.alt">
+                                </div>
                             </div>
-                            <div class="banner-image-group">
-
-                                <img src="images/banner_security.png" alt="보안 안심 송금" data-i18n="banner.security.alt">
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <!-- Banner Controls -->
-        <div class="banner-controls">
-            <button class="banner-control-btn" id="bannerPlayPause" aria-label="재생/정지">
-                <span>
-                    <svg class="play-icon hidden" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                        viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M8 5v14l11-7z" />
-                    </svg>
-                    <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                        viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-                    </svg>
-                </span>
-            </button>
-            <div class="banner-indicators" aria-label="배너 페이지네이션"></div>
-        </div>
-    </section>
-
-    <!-- Hero Section -->
-    <section class="hero" id="calculator">
-        <div class="container">
-            <div class="hero-inner">
-                <div class="hero-content">
-                    <h1 data-i18n="hero.title">해외송금,<br><span>이제는 쉽고 간편하게</span></h1>
-                    <p data-i18n="hero.desc">보내시는 분의 마음을 담아, 더 빠르고 더 저렴하게 전해드립니다. 언제 어디서나, 글로벌 기준의 빠르고 안전한 송금 솔루션</p>
-
-                    <div class="hero-badges">
-                        <div class="badge">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                            <span data-i18n="hero.badge1">최단 5분 송금</span>
-                        </div>
-                        <div class="badge">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                            </svg>
-                            <span data-i18n="hero.badge2">SGI 서울보증보험</span>
-                        </div>
-                        <div class="badge">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                            </svg>
-                            <span data-i18n="hero.badge3">기획재정부 인가 (2018-7)</span>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Calculator Card -->
-                <div class="calculator-card">
-                    <div class="calculator-title">💸 <span data-i18n="calc.title">송금 시뮬레이션</span></div>
-
-                    <div class="calc-row">
-                        <div class="calc-row-header">
-                            <label class="calc-label" data-i18n="calc.send">보내실 금액</label>
-                            <span class="calc-max-amount" data-i18n="calc.maxAmount">최대 송금액 6,500,000원</span>
-                        </div>
-                        <div class="calc-input-group">
-                            <div class="calc-input calc-input-with-symbol">
-                                <span class="calc-currency-symbol-fixed">₩</span>
-                                <input type="text" class="calc-amount-input" id="sendAmount" value="1,000,000"
-                                    placeholder="금액 입력">
-                            </div>
-                            <div class="calc-currency">
-                                <span>
-                                    <img src="images/kr.png" alt="한국" class="calc-currency-flag">
-                                    <span class="calc-currency-code">KRW</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="calc-rate">
-                        <div class="calc-rate-info">
-                            <span class="calc-rate-value" id="exchangeRate">1 KRW = 0.1085 JPY</span>
-                            <span class="calc-rate-label" data-i18n="calc.rate">실시간 환율 적용</span>
-                        </div>
-                        <div class="calc-arrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                <!-- Banner Controls -->
+                <div class="banner-controls">
+                    <button class="banner-control-btn" id="bannerPlayPause" aria-label="재생/정지">
+                        <span>
+                            <svg class="play-icon hidden" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
                             </svg>
+                            <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="banner-indicators" aria-label="배너 페이지네이션"></div>
+                </div>
+            </section>
+
+            <!-- Hero Section -->
+            <section class="hero" id="calculator">
+                <!-- <div class="container"> -->
+                <div class="hero-inner">
+                    <div class="hero-content">
+                        <h1 data-i18n="hero.title">해외송금,<br />이제는 <span>쉽고 간편하게</span></h1>
+                        <p data-i18n="hero.desc">보내시는 분의 마음을 담아, 더 빠르고 더 저렴하게 전해드립니다. 언제 어디서나, 글로벌 기준의 빠르고 안전한 송금 솔루션</p>
+
+                        <div class="hero-badges">
+                            <div class="badge">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                                <span data-i18n="hero.badge1">최단 5분 송금</span>
+                            </div>
+                            <div class="badge">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                                <span data-i18n="hero.badge2">SGI 서울보증보험</span>
+                            </div>
+                            <div class="badge">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                                </svg>
+                                <span data-i18n="hero.badge3">기획재정부 인가 (2018-7)</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="calc-row">
-                        <div class="calc-row-header">
-                            <label class="calc-label" data-i18n="calc.receive">받으실 금액</label>
-                        </div>
-                        <div class="calc-input-group">
-                            <div class="calc-input calc-input-with-symbol">
-                                <span class="calc-currency-symbol-fixed" id="receiveCurrencySymbol">¥</span>
-                                <input type="text" class="calc-amount-input receive" id="receiveAmount"
-                                    value="9,216,590" placeholder="금액 입력">
-                            </div>
-                            <div class="calc-currency-dropdown" id="currencyDropdown">
-                                <button type="button" class="calc-currency-btn" id="currencyBtn">
-                                    <span>
-                                        <img src="images/jp.png" alt="일본" class="calc-currency-flag" id="receiveCurrencyFlag">
-                                        <span class="calc-currency-code" id="receiveCurrencyCode">JPY</span>
-                                        <svg class="calc-currency-arrow" xmlns="http://www.w3.org/2000/svg" width="12"
-                                            height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                        </svg>
-                                    </span>
-                                </button>
-                                <div class="calc-currency-options" id="currencyOptions">
-                                    <div class="calc-currency-option" data-value="JP">
-                                        <img src="images/jp.png" alt="일본">
-                                        <span>JPY</span>
+                    <!-- Calculator Card -->
+                    <div class="calculator-card-box">
+                        <div class="calculator-card">
+                            <div class="calculator-title">💸 <span data-i18n="calc.title">송금 시뮬레이션</span></div>
+
+                            <div class="calc-row">
+                                <div class="calc-row-header">
+                                    <label class="calc-label" data-i18n="calc.send">보내실 금액</label>
+                                    <span class="calc-max-amount" data-i18n="calc.maxAmount">최대 송금액 6,500,000원</span>
+                                </div>
+                                <div class="calc-input-group">
+                                    <div class="calc-input calc-input-with-symbol">
+                                        <span class="calc-currency-symbol-fixed">₩</span>
+                                        <input type="text" class="calc-amount-input" id="sendAmount" value="1,000,000"
+                                            placeholder="금액 입력">
                                     </div>
-                                    <div class="calc-currency-option" data-value="PH">
-                                        <img src="images/ph.png" alt="필리핀">
-                                        <span>PHP</span>
-                                    </div>
-                                    <div class="calc-currency-option" data-value="CN">
-                                        <img src="images/cn.png" alt="중국">
-                                        <span>CNY</span>
-                                    </div>
-                                    <div class="calc-currency-option" data-value="NP">
-                                        <img src="images/np.png" alt="네팔">
-                                        <span>NPR</span>
-                                    </div>
-                                    <div class="calc-currency-option" data-value="AU">
-                                        <img src="images/au.png" alt="호주">
-                                        <span>AUD</span>
-                                    </div>
-                                    <div class="calc-currency-option" data-value="HK">
-                                        <img src="images/hk.png" alt="홍콩">
-                                        <span>HKD</span>
-                                    </div>
-                                    <div class="calc-currency-option" data-value="MN">
-                                        <img src="images/mn.png" alt="몽골">
-                                        <span>MNT</span>
-                                    </div>
-                                    <div class="calc-currency-option" data-value="VN">
-                                        <img src="images/vn.png" alt="베트남">
-                                        <span>VND</span>
-                                    </div>
-                                    <div class="calc-currency-option" data-value="LK">
-                                        <img src="images/lk.png" alt="스리랑카">
-                                        <span>LKR</span>
-                                    </div>
-                                    <div class="calc-currency-option" data-value="BD">
-                                        <img src="images/bd.png" alt="방글라데시">
-                                        <span>BDT</span>
+                                    <div class="calc-currency">
+                                        <span>
+                                            <img src="images/kr.png" alt="한국" class="calc-currency-flag">
+                                            <span class="calc-currency-code">KRW</span>
+                                        </span>
                                     </div>
                                 </div>
-                                <input type="hidden" id="receiveCurrency" value="JP">
                             </div>
+
+                            <div class="calc-rate">
+                                <div class="calc-rate-info">
+                                    <span class="calc-rate-value" id="exchangeRate">1 KRW = 0.1085 JPY</span>
+                                    <span class="calc-rate-label" data-i18n="calc.rate">실시간 환율 적용</span>
+                                </div>
+                                <div class="calc-arrow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="calc-row">
+                                <div class="calc-row-header">
+                                    <label class="calc-label" data-i18n="calc.receive">받으실 금액</label>
+                                </div>
+                                <div class="calc-input-group">
+                                    <div class="calc-input calc-input-with-symbol">
+                                        <span class="calc-currency-symbol-fixed" id="receiveCurrencySymbol">¥</span>
+                                        <input type="text" class="calc-amount-input receive" id="receiveAmount"
+                                            value="9,216,590" placeholder="금액 입력">
+                                    </div>
+                                    <div class="calc-currency-dropdown" id="currencyDropdown">
+                                        <button type="button" class="calc-currency-btn" id="currencyBtn">
+                                            <span>
+                                                <img src="images/jp.png" alt="일본" class="calc-currency-flag" id="receiveCurrencyFlag">
+                                                <span class="calc-currency-code" id="receiveCurrencyCode">JPY</span>
+                                                <svg class="calc-currency-arrow" xmlns="http://www.w3.org/2000/svg" width="12"
+                                                    height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <polyline points="6 9 12 15 18 9"></polyline>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        <div class="calc-currency-options" id="currencyOptions">
+                                            <div class="calc-currency-option" data-value="JP">
+                                                <img src="images/jp.png" alt="일본">
+                                                <span>JPY</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="PH">
+                                                <img src="images/ph.png" alt="필리핀">
+                                                <span>PHP</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="CN">
+                                                <img src="images/cn.png" alt="중국">
+                                                <span>CNY</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="NP">
+                                                <img src="images/np.png" alt="네팔">
+                                                <span>NPR</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="AU">
+                                                <img src="images/au.png" alt="호주">
+                                                <span>AUD</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="HK">
+                                                <img src="images/hk.png" alt="홍콩">
+                                                <span>HKD</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="MN">
+                                                <img src="images/mn.png" alt="몽골">
+                                                <span>MNT</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="VN">
+                                                <img src="images/vn.png" alt="베트남">
+                                                <span>VND</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="LK">
+                                                <img src="images/lk.png" alt="스리랑카">
+                                                <span>LKR</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="BD">
+                                                <img src="images/bd.png" alt="방글라데시">
+                                                <span>BDT</span>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" id="receiveCurrency" value="JP">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hidden">
+                                <div id="receiveAmountDisplay"></div>
+                            </div>
+
+                            <div class="calc-fee-box">
+                                <div class="calc-fee-header">
+                                    <span data-i18n="calc.deposit">입금할 금액</span>
+                                    <span class="calc-fee-total" id="depositAmount">₩1,010,000</span>
+                                </div>
+                                <div class="calc-fee-row">
+                                    <span data-i18n="calc.transferFee">송금 수수료</span>
+                                    <span id="transferFee">₩10,000</span>
+                                </div>
+                                <div class="calc-fee-row">
+                                    <span data-i18n="calc.withdrawalFee">수취 수수료</span>
+                                    <span id="withdrawalFee">¥660</span>
+                                </div>
+                            </div>
+
+                            <div class="calc-compare" id="savings">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>은행 대비 약 <strong>322,581 JPY</strong> 더 받으세요!</span>
+                            </div>
+
+                            <button class="calc-btn" data-i18n="calc.btn">지금 바로 송금하기</button>
+                        </div>
+                        <div class="bg-box">
+                            <span class="coin-1"></span>
+                            <span class="coin-2"></span>
+                            <span class="coin-3"></span>
                         </div>
                     </div>
-
-                    <div class="hidden">
-                        <div id="receiveAmountDisplay"></div>
-                    </div>
-
-                    <div class="calc-fee-box">
-                        <div class="calc-fee-header">
-                            <span data-i18n="calc.deposit">입금할 금액</span>
-                            <span class="calc-fee-total" id="depositAmount">₩1,010,000</span>
-                        </div>
-                        <div class="calc-fee-row">
-                            <span data-i18n="calc.transferFee">송금 수수료</span>
-                            <span id="transferFee">₩10,000</span>
-                        </div>
-                        <div class="calc-fee-row">
-                            <span data-i18n="calc.withdrawalFee">수취 수수료</span>
-                            <span id="withdrawalFee">¥660</span>
-                        </div>
-                    </div>
-
-                    <div class="calc-compare" id="savings">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span>은행 대비 약 <strong>322,581 JPY</strong> 더 받으세요!</span>
-                    </div>
-
-                    <button class="calc-btn" data-i18n="calc.btn">지금 바로 송금하기</button>
                 </div>
-            </div>
+                <!-- </div> -->
+            </section>
         </div>
     </section>
 
@@ -469,110 +473,118 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta section">
+    <section class="section-sec2">
         <div class="container">
-            <h2 data-i18n="cta.title">지금 바로 시작하세요</h2>
-            <p data-i18n="cta.desc">회원가입 후 첫 송금 시 특별 혜택을 드립니다. 더 현명한 해외송금, WithMoney와 함께하세요.</p>
-            <a href="CM_04_01.html" class="btn btn-primary" data-i18n="cta.btn">무료로 가입하기</a>
-        </div>
-    </section>
+            <!-- CTA Section -->
+            <section class="cta section">
+                <h2 data-i18n="cta.title">지금 바로 시작하세요</h2>
+                <p data-i18n="cta.desc">회원가입 후 첫 송금 시 특별 혜택을 드립니다. 더 현명한 해외송금, WithMoney와 함께하세요.</p>
+                <a href="CM_04_01.html" class="btn btn-primary" data-i18n="cta.btn">무료로 가입하기</a>
+            </section>
 
-    <!-- Contact Section -->
-    <section class="contact section" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-i18n="contact.section.title">고객센터</h2>
-                <p data-i18n="contact.section.desc">궁금한 점이 있으시면 언제든지 문의해 주세요</p>
-            </div>
+            <!-- Contact Section -->
+            <section class="contact section" id="contact">
+                <div class="section-header">
+                    <h2 data-i18n="contact.section.title">고객센터</h2>
+                    <p data-i18n="contact.section.desc">궁금한 점이 있으시면 언제든지 문의해 주세요</p>
+                </div>
 
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3 data-i18n="contact.title">연락처</h3>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-number">
+                            <h3 data-i18n="contact.title">연락처</h3>
 
-                    <div class="contact-items">
-                        <div class="contact-item">
-                            <div class="contact-item-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                                </svg>
-                            </div>
-                            <div class="contact-item-content">
-                                <h4 data-i18n="contact.korean">한국어 상담</h4>
-                                <p>02-2285-2077</p>
-                            </div>
-                        </div>
+                            <div class="contact-items">
+                                <div class="contact-item">
+                                    <div class="contact-item-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                        </svg>
+                                    </div>
+                                    <div class="contact-item-content">
+                                        <h4 data-i18n="contact.korean">한국어 상담</h4>
+                                        <p>02-2285-2077</p>
+                                    </div>
+                                </div>
 
-                        <div class="contact-item">
-                            <div class="contact-item-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                                </svg>
-                            </div>
-                            <div class="contact-item-content">
-                                <h4 data-i18n="contact.japanese">日本語 相談</h4>
-                                <p>070-8785-2292</p>
-                                <p>070-8785-1799</p>
-                            </div>
-                        </div>
+                                <div class="contact-item">
+                                    <div class="contact-item-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                        </svg>
+                                    </div>
+                                    <div class="contact-item-content">
+                                        <h4 data-i18n="contact.japanese">日本語 相談</h4>
+                                        <p>070-8785-2292</p>
+                                        <p>070-8785-1799</p>
+                                    </div>
+                                </div>
 
-                        <div class="contact-item">
-                            <div class="contact-item-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20" />
-                                </svg>
-                            </div>
-                            <div class="contact-item-content">
-                                <h4>FAX</h4>
-                                <p>02-2285-2078</p>
-                            </div>
-                        </div>
+                                <div class="contact-item">
+                                    <div class="contact-item-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20" />
+                                        </svg>
+                                    </div>
+                                    <div class="contact-item-content">
+                                        <h4>FAX</h4>
+                                        <p>02-2285-2078</p>
+                                    </div>
+                                </div>
 
-                        <div class="contact-item">
-                            <div class="contact-item-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-                            <div class="contact-item-content">
-                                <h4 data-i18n="contact.email">이메일</h4>
-                                <p><a href="mailto:remit@withmoney.net">remit@withmoney.net</a></p>
+                                <div class="contact-item">
+                                    <div class="contact-item-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
+                                    </div>
+                                    <div class="contact-item-content">
+                                        <h4 data-i18n="contact.email">이메일</h4>
+                                        <p><a href="mailto:remit@withmoney.net">remit@withmoney.net</a></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="contact-info">
-                    <div class="contact-sns">
-                        <div class="sns-item">
-                            <h4>LINE</h4>
-                            <img src="images/lineQR.png" alt="LINE QR Code" class="qr-code">
+                    <div class="contact-info">
+                        <div class="contact-sns ">
+                            <div class="sns-item line">
+                                <div class="sns-text">
+                                    <h4>LINE</h4>
+                                    <p>친구 추가 후 상담 가능</p>
+                                </div>
+                                <img src="images/lineQR.png" alt="LINE QR Code" class="qr-code">
+                            </div>
+                            <div class="sns-item kakao">
+                                <div class="sns-text">
+                                    <h4>Kakao Talk</h4>
+                                    <p>채널 추가 후 상담 가능</p>
+                                </div>
+                                <img src="images/kakaoQR.png" alt="Kakao Talk QR Code" class="qr-code">
+                            </div>
                         </div>
-                        <div class="sns-item">
-                            <h4>Kakao Talk</h4>
-                            <img src="images/kakaoQR.png" alt="Kakao Talk QR Code" class="qr-code">
+                    </div>
+
+                    <div class="contact-info">
+                        <div class="contact-hours">
+                            <h4>📞 <span data-i18n="contact.hours">상담 시간 안내</span></h4>
+                            <p><strong data-i18n="contact.weekday">평일</strong> 09:00 ~ 18:00</p>
+                            <p><strong data-i18n="contact.weekend">토요일 · 공휴일</strong> 10:00 ~ 16:00</p>
+                            <p style="color: var(--text-soft); font-size: 0.85rem; margin-top: 12px;"
+                                data-i18n="contact.closed">* 일요일 휴무</p>
                         </div>
                     </div>
                 </div>
-
-                <div class="contact-info">
-                    <div class="contact-hours">
-                        <h4>📞 <span data-i18n="contact.hours">상담 시간 안내</span></h4>
-                        <p><strong data-i18n="contact.weekday">평일</strong> 09:00 ~ 18:00</p>
-                        <p><strong data-i18n="contact.weekend">토요일 · 공휴일</strong> 10:00 ~ 16:00</p>
-                        <p style="color: var(--text-soft); font-size: 0.85rem; margin-top: 12px;"
-                            data-i18n="contact.closed">* 일요일 휴무</p>
-                    </div>
-                </div>
-            </div>
+            </section>
         </div>
     </section>
 

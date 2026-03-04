@@ -338,12 +338,17 @@ function handleCountryClick(e) {
 // ===== Header Scroll Effect =====
 function handleScroll() {
     const header = document.querySelector('.header');
-    if (header) {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+    if (!header) return;
+
+    if (document.body.classList.contains('db-body')) {
+        header.classList.add('scrolled');
+        return;
+    }
+
+    if (window.scrollY > 0) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
     }
 }
 
@@ -546,6 +551,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Header scroll
+    handleScroll(); // 초기 상태 체크
     window.addEventListener('scroll', handleScroll);
 
 

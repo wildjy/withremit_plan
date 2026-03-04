@@ -1,12 +1,13 @@
 @charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
 /*  vw-calc */
 :root {
   --full: 100%;
   --full-dvw: 100dvw;
   --full-dvh: 100dvh;
   --max-w: 1200px;
-  --header-h: 3.5625rem;
-  --header-h-md: 4.5625rem;
+  --header-h: 3.75rem;
+  --header-h-md: 4.625rem;
   --sidebar-w: 18.75rem;
   --sidebarContainer-w: 12.25rem;
   --input-h: 3.25rem;
@@ -38,6 +39,10 @@
   --text-strong: var(--neutral-strong);
   --text-heavy: var(--neutral-heavy);
   --text-light: var(--white);
+  --bg-features: #E9F5FE;
+  --bg-countries: var(--white);
+  --bg-business: #34424C;
+  --bg-contact: var(--white);
   --bg-light: #F8FAFA;
   --bg-section: #F2F6F5;
   --bg-dark: #1A2E35;
@@ -350,7 +355,10 @@ body.wh-full {
   margin: 0 auto;
   width: var(--full);
   max-width: var(--max-w);
-  overflow-x: hidden;
+  overflow: hidden;
+}
+.container.visible {
+  overflow: visible;
 }
 
 @media (max-width: 1024px) {
@@ -751,7 +759,7 @@ body.wh-full {
           transform: translateY(-50%);
   width: 16px;
   height: 16px;
-  background-image: url("../images/global.svg");
+  background-image: url("../images/svg/global.svg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -1470,10 +1478,11 @@ body.db-body .sidebar.mobile-open {
 
 /* ===== Banner Slider ===== */
 .banner-slider {
-  margin-top: var(--header-h);
   position: relative;
   width: 100%;
   height: 300px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
 }
 
 .banner-slides {
@@ -1532,6 +1541,7 @@ body.db-body .sidebar.mobile-open {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 0 var(--s14);
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
@@ -1734,9 +1744,6 @@ a.banner-slide {
 }
 @media (max-width: 768px) {
   /* Banner */
-  .banner-slider {
-    margin-top: 56px;
-  }
   .banner-slider .container {
     width: 500px;
     margin: 0 auto;
@@ -1786,6 +1793,44 @@ a.banner-slide {
 }
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
+.calculator-card-box {
+  position: relative;
+}
+.calculator-card-box .bg-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.calculator-card-box .bg-box > span {
+  position: absolute;
+}
+.calculator-card-box .bg-box .coin-1 {
+  top: 177px;
+  left: -180px;
+  width: 170px;
+  height: 179px;
+  background: url("../images/svg/main_coin_1.svg") no-repeat center center;
+  background-size: contain;
+}
+.calculator-card-box .bg-box .coin-2 {
+  top: -40px;
+  right: -54px;
+  width: 99px;
+  height: 72px;
+  background: url("../images/svg/main_coin_2.svg") no-repeat center center;
+  background-size: contain;
+}
+.calculator-card-box .bg-box .coin-3 {
+  bottom: -20px;
+  right: -150px;
+  width: 170px;
+  height: 175px;
+  background: url("../images/svg/main_coin_3.svg") no-repeat center center;
+  background-size: contain;
+}
+
 .calculator-card {
   padding: 35px;
   max-width: 420px;
@@ -1795,6 +1840,8 @@ a.banner-slide {
   background-color: #fff;
   -webkit-box-shadow: var(--shadow-lg);
           box-shadow: var(--shadow-lg);
+  position: relative;
+  z-index: 1;
 }
 .calculator-card.db {
   max-width: 100%;
@@ -5613,6 +5660,8 @@ a.banner-slide {
       -ms-flex: 1;
           flex: 1;
   padding: 35px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
 }
 
 @media (max-width: 1024px) {
@@ -5624,7 +5673,6 @@ a.banner-slide {
 }
 .db-info-card {
   background-color: #fff;
-  border-radius: var(--radius);
   border: 1px solid var(--border-default);
   -webkit-box-shadow: var(--shadow);
           box-shadow: var(--shadow);
@@ -5822,12 +5870,6 @@ a.banner-slide {
 /* Dashboard Banner Card Styles */
 .db-banner-card {
   width: 100%;
-  background-color: #fff;
-  border-radius: var(--radius);
-  border: 1px solid var(--border-default);
-  -webkit-box-shadow: var(--shadow);
-          box-shadow: var(--shadow);
-  overflow: hidden;
   margin-bottom: 20px;
 }
 
