@@ -58,6 +58,10 @@ body{
 @media (max-width: 480px) {
 	.container {
 		padding: 0 var(--s4);
+		&.visible {
+			padding: 0;
+			overflow: visible
+		}
 	}
 }
 

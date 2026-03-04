@@ -13,6 +13,12 @@
   overflow: hidden;
 }
 
+@media (max-width: 480px) {
+  .banner-slider {
+    margin: 0 var(--s4);
+    width: auto;
+  }
+}
 .banner-slides {
   position: relative;
   width: 100%;
@@ -238,22 +244,22 @@ a.banner-slide {
   border-radius: 5px;
 }
 
-.db-banner-slider {
+.db-body .banner-slider {
   margin-top: 0;
   height: 200px;
 }
-.db-banner-slider .banner-content h2 {
+.db-body .banner-slider .banner-content h2 {
   font-size: 1.5rem;
   margin-bottom: 6px;
 }
-.db-banner-slider .banner-content p {
+.db-body .banner-slider .banner-content p {
   font-size: 0.95rem;
   line-height: 1.4;
 }
-.db-banner-slider .banner-image-group {
+.db-body .banner-slider .banner-image-group {
   height: 150px;
 }
-.db-banner-slider .banner-control-btn span {
+.db-body .banner-slider .banner-control-btn span {
   width: 18px;
   height: 18px;
 }
@@ -276,14 +282,15 @@ a.banner-slide {
     width: 500px;
     margin: 0 auto;
   }
-  .banner-slider.db-banner-slider {
-    margin-top: 0;
+  .db-body .banner-slider {
+    margin: 0;
     height: 250px;
   }
-  .banner-slider.db-banner-slider .banner-image-group {
+  .db-body .banner-slider .banner-image-group {
     height: 100px;
   }
   .banner-content {
+    padding: 0 var(--s6) 0 var(--s8);
     width: 100%;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -322,6 +329,7 @@ a.banner-slide {
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
 .calculator-card-box {
+  width: 100%;
   position: relative;
 }
 .calculator-card-box .bg-box {
@@ -359,6 +367,11 @@ a.banner-slide {
   background-size: contain;
 }
 
+@media (max-width: 480px) {
+  .calculator-card-box {
+    padding: 0 var(--s4);
+  }
+}
 .calculator-card {
   padding: 35px;
   max-width: 420px;

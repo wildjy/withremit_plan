@@ -28,6 +28,8 @@
 }
 @media (max-width: 480px) {
 	.banner-slider {
+		margin: 0 var(--s4);
+		width: auto;
 		// height: 350px;
 	}
 }
@@ -205,31 +207,33 @@ a.banner-slide {
 }
 
 // DB_01_01 Sidebar
-.db-banner-slider {
-	margin-top: 0;
-	height: 200px;
+.db-body {
+	.banner-slider {
+		margin-top: 0;
+		height: 200px;
 
-	.banner-content h2 {
-		font-size: 1.5rem;
-		margin-bottom: 6px;
-	}
+		.banner-content h2 {
+			font-size: 1.5rem;
+			margin-bottom: 6px;
+		}
 
-	.banner-content p {
-		font-size: 0.95rem;
-		line-height: 1.4;
-	}
+		.banner-content p {
+			font-size: 0.95rem;
+			line-height: 1.4;
+		}
 
-	.banner-image-group {
-		// flex: 0 0 280px;
-		height: 150px;
-	}
+		.banner-image-group {
+			// flex: 0 0 280px;
+			height: 150px;
+		}
 
-.banner-control-btn {
-	span {
-		width: 18px;
-		height: 18px;
+		.banner-control-btn {
+			span {
+				width: 18px;
+				height: 18px;
+			}
+		}
 	}
-}
 }
 
 /* Mobile Responsive for Banner */
@@ -256,11 +260,12 @@ a.banner-slide {
 			width: 500px;
 			margin: 0 auto;
 		}
+	}
 
-		&.db-banner-slider {
-			margin-top: 0;
+	.db-body {
+		.banner-slider {
+			margin: 0;
 			height: 250px;
-
 			.banner-image-group {
 				height: 100px;
 			}
@@ -268,6 +273,7 @@ a.banner-slide {
 	}
 
 	.banner-content {
+		padding: 0 var(--s6) 0 var(--s8);
 		width: 100%;
 		flex-wrap: wrap;
 	}
@@ -306,6 +312,7 @@ a.banner-slide {
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
 .calculator-card-box {
+	width: 100%;
 	position: relative;
 	.bg-box {
 		position: absolute;
@@ -342,6 +349,12 @@ a.banner-slide {
 			background: url('../images/svg/main_coin_3.svg') no-repeat center center;
 			background-size: contain;
 		}
+	}
+}
+
+@media (max-width: 480px) {
+	.calculator-card-box {
+		padding: 0 var(--s4);
 	}
 }
 
