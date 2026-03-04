@@ -100,7 +100,7 @@ const translations = {
 
         // CTA
         'cta.title': '지금 바로 시작하세요',
-        'cta.desc': '회원가입 후 첫 송금 시 특별 혜택을 드립니다. 더 현명한 해외송금, withremit과 함께하세요.',
+        'cta.desc': '회원가입 후 첫 송금 시 특별 혜택을 드립니다.<br />더 현명한 해외송금, withremit과 함께하세요.',
         'cta.btn': '무료로 가입하기',
 
         // Contact
@@ -290,7 +290,7 @@ const translations = {
 
         // CTA
         'cta.title': 'Get Started Today',
-        'cta.desc': 'Special benefits for your first transfer. Smart remittance with withremit.',
+        'cta.desc': 'Special benefits for your first transfer.<br />Smart remittance with withremit.',
         'cta.btn': 'Sign Up Free',
 
         // Contact
@@ -475,7 +475,7 @@ const translations = {
 
         // CTA
         'cta.title': '今すぐ始めよう',
-        'cta.desc': '会員登録後、初回送金で特典あり。withremitで賢く送金。',
+        'cta.desc': '会員登録後、初回送金で特典あり。<br />withremitで賢く送金。',
         'cta.btn': '無料で登録',
 
         // Contact
@@ -660,7 +660,7 @@ const translations = {
 
         // CTA
         'cta.title': 'अभी शुरुआत करें',
-        'cta.desc': 'पंजीकरण के बाद पहली ट्रांसफर पर विशेष लाभ। withremit स्मार्ट ट्रांसफर।',
+        'cta.desc': 'पंजीकरण के बाद पहली ट्रांसफर पर विशेष लाभ।<br />withremit स्मार्ट ट्रांसफर।',
         'cta.btn': 'मुफ़्त साइन अप',
 
         // Contact

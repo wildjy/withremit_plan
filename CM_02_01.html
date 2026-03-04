@@ -131,8 +131,6 @@
                     <!-- Calculator Card -->
                     <div class="calculator-card-box">
                         <div class="calculator-card">
-                            <div class="calculator-title">💸 <span data-i18n="calc.title">송금 시뮬레이션</span></div>
-
                             <div class="calc-row">
                                 <div class="calc-row-header">
                                     <label class="calc-label" data-i18n="calc.send">보내실 금액</label>
@@ -154,16 +152,17 @@
                             </div>
 
                             <div class="calc-rate">
+                                <div class="calc-arrow">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M12.0465 9.62012L7.99979 13.6668L3.95312 9.62012" stroke="#7A8E96" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M8 2.33301V13.553" stroke="#7A8E96" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
                                 <div class="calc-rate-info">
                                     <span class="calc-rate-value" id="exchangeRate">1 KRW = 0.1085 JPY</span>
                                     <span class="calc-rate-label" data-i18n="calc.rate">실시간 환율 적용</span>
-                                </div>
-                                <div class="calc-arrow">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                                    </svg>
                                 </div>
                             </div>
 
@@ -265,6 +264,7 @@
 
                             <button class="calc-btn" data-i18n="calc.btn">지금 바로 송금하기</button>
                         </div>
+                        <!-- -->
                         <div class="bg-box">
                             <span class="coin-1"></span>
                             <span class="coin-2"></span>
@@ -288,10 +288,7 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+                        <img src="images/svg/icon_feature_1.svg" alt="Feature 1 Icon">
                     </div>
                     <div class="feature-card-content">
                         <h3 data-i18n="features.fast.title">보다 빠르고</h3>
@@ -301,10 +298,7 @@
 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
+                        <img src="images/svg/icon_feature_2.svg" alt="Feature 2 Icon">
                     </div>
                     <div class="feature-card-content">
                         <h3 data-i18n="features.cheap.title">보다 편리하게</h3>
@@ -315,10 +309,7 @@
 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                        </svg>
+                        <img src="images/svg/icon_feature_3.svg" alt="Feature 3 Icon">
                     </div>
 
                     <div class="feature-card-content">
@@ -430,50 +421,44 @@
                 <p data-i18n="trust.desc">보다 빠르고, 보다 편리하게, 보다 큰 혜택으로 더 큰 만족!</p>
             </div>
 
-            <div class="trust-grid">
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                    </div>
-                    <div class="trust-item-content">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-card-content">
                         <h3 data-i18n="trust.business.title">개인형 맞춤 송금</h3>
                         <p data-i18n="trust.business.desc">유학비, 생활비, 선물까지 상황에 맞춰 간편하게! 나에게 꼭 맞는 송금 방식을 제공합니다.</p>
                     </div>
+
+                    <div class="feature-icon">
+                        <img src="images/svg/icon_feature_1.svg" alt="Feature 1 Icon">
+                    </div>
                 </div>
 
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                    </div>
-                    <div class="trust-item-content">
+                <div class="feature-card">
+                    <div class="feature-card-content">
                         <h3 data-i18n="trust.report.title">한눈에 보는 송금 내역</h3>
                         <p data-i18n="trust.report.desc">실시간으로 송금 상태를 확인하세요. 복잡한 내역도 가계부처럼 한눈에 관리할 수 있습니다.</p>
                     </div>
+
+                    <div class="feature-icon">
+                        <img src="images/svg/icon_feature_2.svg" alt="Feature 2 Icon">
+                    </div>
                 </div>
 
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                        </svg>
-                    </div>
-                    <div class="trust-item-content">
+                <div class="feature-card">
+                    <div class="feature-card-content">
                         <h3 data-i18n="trust.support.title">친절한 고객 상담</h3>
                         <p data-i18n="trust.support.desc">궁금한 점이 생기면 언제든 문의해 주세요. 전문 상담팀이 친절하고 빠르게 도와드립니다.</p>
+                    </div>
+
+                    <div class="feature-icon">
+                        <img src="images/svg/icon_feature_3.svg" alt="Feature 3 Icon">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section-sec2">
+    <section class="section-sec2 section">
         <div class="container">
             <!-- CTA Section -->
             <section class="cta section">
@@ -483,7 +468,7 @@
             </section>
 
             <!-- Contact Section -->
-            <section class="contact section" id="contact">
+            <section class="contact " id="contact">
                 <div class="section-header">
                     <h2 data-i18n="contact.section.title">고객센터</h2>
                     <p data-i18n="contact.section.desc">궁금한 점이 있으시면 언제든지 문의해 주세요</p>
@@ -577,8 +562,8 @@
                     <div class="contact-info">
                         <div class="contact-hours">
                             <h4>📞 <span data-i18n="contact.hours">상담 시간 안내</span></h4>
-                            <p><strong data-i18n="contact.weekday">평일</strong> 09:00 ~ 18:00</p>
-                            <p><strong data-i18n="contact.weekend">토요일 · 공휴일</strong> 10:00 ~ 16:00</p>
+                            <p><span data-i18n="contact.weekday">평일</span> <strong>09:00 ~ 18:00</strong></p>
+                            <p><span data-i18n="contact.weekend">토요일 · 공휴일</span> <strong>10:00 ~ 16:00</strong></p>
                             <p style="color: var(--text-soft); font-size: 0.85rem; margin-top: 12px;"
                                 data-i18n="contact.closed">* 일요일 휴무</p>
                         </div>
@@ -590,24 +575,27 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-logo">
-                    <img src="images/logo-withmoney.png" alt="WithMoney">
-                </div>
-                <div class="footer-links">
-                    <a href="UT_02_01.html?guest=true" data-i18n="footer.company">회사소개</a>
-                    <a href="UT_02_02.html?guest=true" class="footer-link-important"
-                        data-i18n="footer.privacy">개인정보처리방침</a>
-                    <a href="UT_02_03.html?guest=true" data-i18n="footer.terms">이용약관</a>
-                    <a href="UT_02_04.html?guest=true" data-i18n="footer.antisocial">반사회적세력에 대한 방침</a>
-                    <a href="UT_02_05.html?guest=true" data-i18n="footer.fraud">사기피해주의</a>
-                </div>
+        <div class="footer-inner ">
+
+            <nav class="footer-nav" aria-label="Footer">
+                <a href="UT_02_01.html" onclick="handleFooterAboutClick(event)" data-i18n="footer.company">회사소개</a>
+                <a href="UT_02_02.html" onclick="handleGuestLinkClick(event)" class="footer-link-important"
+                    data-i18n="footer.privacy">개인정보처리방침</a>
+                <a href="UT_02_03.html" onclick="handleGuestLinkClick(event)" data-i18n="footer.terms">이용약관</a>
+                <a href="UT_02_04.html" onclick="handleGuestLinkClick(event)" data-i18n="footer.antisocial">반사회적세력에 대한
+                    방침</a>
+                <a href="UT_02_05.html" onclick="handleGuestLinkClick(event)" data-i18n="footer.fraud">사기피해주의</a>
+            </nav>
+
+            <div class="footer-logo">
+                <img src="images/footer_logo.svg" alt="WithMoney">
             </div>
-            <div class="footer-bottom">
-                <p>Copyright ⓒ 2026 withmoney Inc. All rights reserved.</p>
-                <p data-i18n="footer.license">기획재정부 인가 소액해외송금업체 (등록번호: 2018-7)</p>
+
+            <div class="footer-info">
+                <p class="footer-meta">기획재정부 인가 소액해외송금업체 (등록번호: 2018-7)</p>
+                <p class="footer-copy">© 2026 withmoney Inc. All rights reserved.</p>
             </div>
+
         </div>
     </footer>
 
