@@ -318,6 +318,7 @@
 
 /* ===== CTA Section ===== */
 .cta {
+  padding: var(--s14) 0;
   text-align: center;
   position: relative;
   background: url(../images/cta_section_bg.png) lightgray 0px -0.485px/100% 103.226% no-repeat;

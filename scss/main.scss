@@ -308,24 +308,13 @@
 
 /* ===== CTA Section ===== */
 .cta {
+	padding: var(--s14) 0;
 	text-align: center;
 	position: relative;
-	// background: linear-gradient(135deg, var(--primary-default) 0%, var(--accent-teal) 100%);
 	background: url(../images/cta_section_bg.png) lightgray 0px -0.485px / 100% 103.226% no-repeat;
 	border-radius: var(--radius-xl);
 	overflow: hidden;
 }
-
-// .cta::before {
-// 	content: "";
-// 	position: absolute;
-// 	top: 0;
-// 	left: 0;
-// 	right: 0;
-// 	bottom: 0;
-// 	background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M20 20h20v20H20zM0 0h20v20H0z'/%3E%3C/g%3E%3C/svg%3E");
-// 	pointer-events: none;
-// }
 
 .cta .container {
 	position: relative;
