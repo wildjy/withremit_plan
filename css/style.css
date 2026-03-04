@@ -185,11 +185,6 @@ input, select, textarea {
   border-radius: var(--radius);
   outline: none;
 }
-input:focus-within, select:focus-within, textarea:focus-within {
-  border-color: var(--primary-default);
-  -webkit-box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);
-          box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);
-}
 input::-webkit-input-placeholder, select::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   color: var(--text-soft);
   font-weight: 400;
@@ -246,7 +241,7 @@ select {
           appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M9.52257 12.5547C9.79146 12.8055 10.2085 12.8055 10.4774 12.5547L14.3297 8.96192C14.7944 8.5285 14.4878 7.75 13.8523 7.75H6.14771C5.51225 7.75 5.20556 8.5285 5.67028 8.96192L9.52257 12.5547Z' fill='%234A5C64'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: calc(100% - 12px) center;
+  background-position: calc(100% - 4px) center;
   cursor: pointer;
 }
 select:focus, select:valid {
@@ -336,7 +331,7 @@ body.wh-full {
 .db-body {
   padding-top: var(--header-h-md);
   min-height: var(--full-dvh);
-  background-color: var(--bg-section);
+  background-color: var(--bg-default);
 }
 
 @media (max-width: 1152px) {
@@ -754,7 +749,7 @@ body.wh-full {
   content: "";
   position: absolute;
   top: 50%;
-  left: 10px;
+  left: 0px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   width: 16px;
@@ -772,7 +767,7 @@ body.wh-full {
       -ms-flex-align: center;
           align-items: center;
   gap: var(--s2);
-  padding: var(--s2) var(--s7) var(--s2) var(--s8);
+  padding: var(--s2) var(--s8) var(--s2) 1.375rem;
   height: 40px;
   font-size: var(--text-sm);
   font-weight: 500;
@@ -782,15 +777,6 @@ body.wh-full {
   cursor: pointer;
   -webkit-transition: var(--transition);
   transition: var(--transition);
-}
-
-.lang-select:hover {
-  background-color: var(--bg-light);
-}
-
-.lang-select:focus {
-  outline: none;
-  background-color: var(--bg-light);
 }
 
 /* ===== GM Header Responsiveness Updates ===== */
@@ -955,16 +941,6 @@ body.wh-full {
   display: flex;
 }
 
-@media (max-width: 1024px) {
-  .db-body .lang-select {
-    padding: var(--s1-6) var(--s2);
-    min-width: 70px;
-    font-size: var(--text-xs);
-  }
-  .db-body .nav-right {
-    gap: var(--s2);
-  }
-}
 /* Header Balance Display */
 .db-balance-display {
   display: -webkit-box;
@@ -979,7 +955,7 @@ body.wh-full {
   font-weight: 600;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 550px) {
   .db-balance-display {
     display: none;
   }
@@ -1395,8 +1371,7 @@ body.db-body .sidebar.mobile-open {
       -ms-flex-align: center;
           align-items: center;
   gap: 10px;
-  padding: 0 var(--s4);
-  height: var(--s9);
+  padding: var(--s2) var(--s4);
   font-size: var(--text-sm);
   color: var(--text-strong);
   border-radius: var(--s2);

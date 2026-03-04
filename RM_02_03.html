@@ -1044,6 +1044,7 @@
                 fee = Math.floor(sendAmount * feeRate);
                 receiveAmtBeforeFee = (sendAmount - fee) * rateInfo.rate;
                 withdrawalFee = rateInfo.withdrawalFee;
+                // receiveAmt = receiveAmtBeforeFee - withdrawalFee;
                 receiveAmt = Math.max(receiveAmtBeforeFee - withdrawalFee, 0);
                 depositAmount = sendAmount + fee;
             } else {
