@@ -37,6 +37,12 @@
 	color: var(--primary-default);
 }
 
+@media (max-width: 1024px) {
+	.contact-info-items {
+		justify-content: flex-start;
+	}
+}
+
 /* ===== Footer ===== */
 .footer {
 	padding: var(--s12) 0 var(--s10);
