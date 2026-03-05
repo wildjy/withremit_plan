@@ -933,35 +933,6 @@
 	font-weight: 600;
 }
 
-/* Contact Info Bar */
-.contact-info-bar {
-	background-color: #f8fafc;
-	border-top: 1px solid var(--border-default);
-	padding: 14px 0;
-}
-
-.contact-info-items {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-	gap: 6px 20px;
-}
-
-.contact-info-item {
-	display: flex;
-	align-items: center;
-	gap: 6px;
-	font-size: 0.85rem;
-	color: var(--text-default);
-	white-space: nowrap;
-}
-
-.contact-info-item svg {
-	flex-shrink: 0;
-	color: var(--primary-default);
-}
-
 @media (max-width: 1024px) {
 	.db-balance-badge {
 		display: none !important;
@@ -991,88 +962,88 @@
 		display: block;
 	}
 
-	.remit-table thead {
-		display: none;
-	}
+	// .remit-table thead {
+	// 	display: none;
+	// }
 
-	.remit-table tbody {
-		display: block;
-	}
+	// .remit-table tbody {
+	// 	display: block;
+	// }
 
-	.remit-table tbody tr.remit-row {
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-		padding: 16px;
-		border: 1px solid var(--border-default);
-		border-radius: 8px;
-		margin-bottom: 12px;
-		background-color: #fff;
-		cursor: pointer;
-	}
+	// .remit-table tbody tr.remit-row {
+	// 	display: flex;
+	// 	flex-direction: column;
+	// 	gap: var(--s2);
+	// 	margin-bottom: var(--s3);
+	// 	padding: var(--s4);
+	// 	border: 1px solid var(--border-default);
+	// 	border-radius: var(--radius);
+	// 	background-color: #fff;
+	// 	cursor: pointer;
+	// }
 
-	.remit-table tbody tr.remit-row:hover {
-		background-color: var(--bg-light);
-		box-shadow: var(--shadow-sm);
-	}
+	// .remit-table tbody tr.remit-row:hover {
+	// 	background-color: var(--bg-light);
+	// 	box-shadow: var(--shadow-sm);
+	// }
 
-	.remit-table tbody tr.remit-row.expanded {
-		background-color: #e8f4f8;
-	}
+	// .remit-table tbody tr.remit-row.expanded {
+	// 	background-color: #e8f4f8;
+	// }
 
-	.remit-table tbody tr.remit-row td {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 8px;
-		border: none;
-		padding: 0;
-	}
+	// .remit-table tbody tr.remit-row td {
+	// 	display: flex;
+	// 	justify-content: space-between;
+	// 	align-items: center;
+	// 	gap: 8px;
+	// 	border: none;
+	// 	padding: 0;
+	// }
 
-	.remit-table tbody tr.remit-row td::before {
-		content: attr(data-label);
-		font-size: 0.75rem;
-		color: var(--text-soft);
-		font-weight: 600;
-		text-transform: uppercase;
-		flex-shrink: 0;
-	}
+	// .remit-table tbody tr.remit-row td::before {
+	// 	content: attr(data-label);
+	// 	font-size: 0.75rem;
+	// 	color: var(--text-soft);
+	// 	font-weight: 600;
+	// 	text-transform: uppercase;
+	// 	flex-shrink: 0;
+	// }
 
-	.remit-table tbody tr.remit-row td.hide-desktop {
-		display: none !important;
-	}
-  /* Specific styling for receipt number and status */
-	.remit-table tbody tr.remit-row td:first-child {
-		padding-bottom: 8px;
-		border-bottom: 1px solid var(--border-default);
-		margin-bottom: 4px;
-	}
+	// .remit-table tbody tr.remit-row td.hide-desktop {
+	// 	display: none !important;
+	// }
+  // /* Specific styling for receipt number and status */
+	// .remit-table tbody tr.remit-row td:first-child {
+	// 	padding-bottom: 8px;
+	// 	border-bottom: 1px solid var(--border-default);
+	// 	margin-bottom: 4px;
+	// }
 
-	.remit-table tbody tr.remit-row td:first-child::before {
-		font-size: 0.8rem;
-		font-weight: 700;
-	}
+	// .remit-table tbody tr.remit-row td:first-child::before {
+	// 	font-size: 0.8rem;
+	// 	font-weight: 700;
+	// }
 
-	.remit-table tbody tr.remit-detail-row {
-		display: none;
-		flex-direction: column;
-		padding: 16px;
-		border: 1px solid var(--border-default);
-		border-top: none;
-		border-radius: 0 0 8px 8px;
-		margin-top: -12px;
-		margin-bottom: 12px;
-		background-color: #f8fafb;
-	}
+	// .remit-table tbody tr.remit-detail-row {
+	// 	display: none;
+	// 	flex-direction: column;
+	// 	padding: 16px;
+	// 	border: 1px solid var(--border-default);
+	// 	border-top: none;
+	// 	border-radius: 0 0 8px 8px;
+	// 	margin-top: -12px;
+	// 	margin-bottom: 12px;
+	// 	background-color: #f8fafb;
+	// }
 
-	.remit-table tbody tr.remit-detail-row.show {
-		display: flex;
-	}
+	// .remit-table tbody tr.remit-detail-row.show {
+	// 	display: flex;
+	// }
 
-	.remit-table tbody tr.remit-detail-row td {
-		border: none;
-		padding: 0;
-	}
+	// .remit-table tbody tr.remit-detail-row td {
+	// 	border: none;
+	// 	padding: 0;
+	// }
 
 	.remit-detail-content {
 		flex-direction: column;
@@ -1345,17 +1316,17 @@
 		-webkit-overflow-scrolling: touch;
 	}
 
-	.remit-table {
-		font-size: 0.75rem;
-		min-width: 900px;
-	}
+	// .remit-table {
+	// 	font-size: 0.75rem;
+	// 	min-width: 900px;
+	// }
 
-	.remit-table th,
-  	.remit-table td {
-		padding: 8px 6px;
-		font-size: 0.7rem;
-		white-space: nowrap;
-	}
+	// .remit-table th,
+  // 	.remit-table td {
+	// 	padding: 8px 6px;
+	// 	font-size: 0.7rem;
+	// 	white-space: nowrap;
+	// }
 
 	.remit-action-btn {
 		padding: 4px 10px;
@@ -1373,8 +1344,8 @@
 	}
 
 	.faq-table td.faq-content {
+		padding: var(--s4);
 		text-align: left !important;
-		padding: 16px;
 	}
 
 	.db-notice-table.faq-table .col-icon {
