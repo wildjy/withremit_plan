@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Date Picker Custom Style */
 .date-picker-custom {
   padding: 8px 8px 8px 16px !important;
@@ -921,4 +922,78 @@ a.banner-slide {
           transform: translateY(-1px);
   -webkit-box-shadow: 0 6px 16px rgba(0, 160, 220, 0.25);
           box-shadow: 0 6px 16px rgba(0, 160, 220, 0.25);
+}
+
+.contact-sns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 16px;
+}
+
+/* 카드 공통 */
+.sns-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: var(--s6);
+  border-radius: var(--radius-xl);
+}
+.sns-item.line {
+  background: #06C755;
+  color: #fff;
+}
+.sns-item.line .sns-text p {
+  color: var(--white);
+}
+.sns-item.kakao {
+  background: #FEE500;
+  color: #111;
+}
+
+/* 왼쪽 텍스트 */
+.sns-text h4 {
+  font-family: Pretendard;
+  font-size: var(--text-xl);
+  font-weight: 800;
+}
+
+.sns-text p {
+  margin: var(--s2) 0 0;
+  font-size: var(--text-sm);
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* QR */
+.qr-code {
+  padding: 6px;
+  width: 62px;
+  height: 62px;
+  background: #fff;
+  border-radius: var(--radius);
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .contact-sns {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+@media (max-width: 480px) {
+  .contact-sns {
+    padding: 0;
+  }
 }

@@ -454,56 +454,6 @@
 	color: var(--text-heavy);
 }
 
-.contact-sns{
-  display:flex;
-  flex-direction:column;
-  gap:16px;
-}
-
-/* 카드 공통 */
-.sns-item{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--s6);
-  border-radius: var(--radius-xl);
-}
-
-/* 왼쪽 텍스트 */
-.sns-text h4{
-	font-family: Pretendard;
-  font-size: var(--text-xl);
-  font-weight: 800;
-}
-.sns-text p{
-  margin: var(--s2) 0 0;
-  font-size: var(--text-sm);
-	color: rgba(0, 0, 0, 0.85);
-}
-
-/* QR */
-.qr-code{
-  padding: 6px;
-  width: 62px;
-  height: 62px;
-  background:#fff;
-  border-radius: var(--radius);
-  object-fit: contain;
-}
-
-/* 개별 컬러 */
-.sns-item.line{
-  background:#06C755;
-  color:#fff;
-	.sns-text p {
-		color: var(--white);
-	}
-}
-.sns-item.kakao{
-  background:#FEE500;
-  color:#111;
-}
-
 @media (max-width: 480px) {
 }
 
@@ -670,7 +620,7 @@
 	.country-info span {
 		font-size: var(--text-xs);
 	}
-		
+
 	.trust {
 		.feature-card {
 			display: flex;
@@ -738,11 +688,11 @@
 		height: auto;
 		border: none;
 	}
-	
+
 	.contact-number {
 		padding: 0;
 	}
-	
+
 	.contact-hours {
 		padding: var(--s5);
 	}
@@ -754,10 +704,6 @@
 
 	.contact-hours p {
 		font-size: var(--text-sm);
-	}
-
-	.contact-sns {
-		justify-content: center;
 	}
 }
 
