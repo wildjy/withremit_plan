@@ -403,7 +403,7 @@ body.wh-full {
 }
 
 .login-card {
-  margin-bottom: var(--s10);
+  margin-top: var(--s8);
   padding: var(--s14);
   width: 100%;
   background-color: var(--white);
@@ -431,6 +431,13 @@ body.wh-full {
   }
 }
 @media (max-width: 768px) {
+  .mypage-main .db-content-card,
+  .remit-main .db-content-card {
+    margin-top: var(--s4);
+  }
+  .login-card {
+    margin-top: var(--s4);
+  }
   .db-page-header {
     margin-bottom: var(--s3);
   }
