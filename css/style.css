@@ -559,7 +559,8 @@ body.wh-full {
   text-align: left;
 }
 
-#domesticDocSection .form-sec-head {
+#domesticDocSection .form-sec-head,
+#foreignDocSection .form-sec-head {
   margin-top: var(--s10);
 }
 

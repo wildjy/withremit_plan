@@ -294,7 +294,8 @@ body{
 }
 
 // 회원가입 내국인/외국인 구분 섹션
-#domesticDocSection {
+#domesticDocSection,
+#foreignDocSection {
 	.form-sec-head {
 		margin-top: var(--s10);
 	}
