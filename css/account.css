@@ -1,19 +1,6 @@
 @charset "UTF-8";
 /* Account Management Page Styles */
 /* Page Header Layout */
-.db-page-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 24px;
-}
-
 .db-page-actions {
   -ms-flex-negative: 0;
       flex-shrink: 0;

@@ -1607,7 +1607,7 @@
 }
 
 .limit-info-item .limit-value {
-	font-size: var(--text-lg);
+	font-size: var(--text-xl);
 	color: var(--text-heavy);
 	font-weight: 700;
 	line-height: 1.6;
@@ -1620,18 +1620,28 @@
 .amountSectionWrapper {
 	display: none;
 	margin-top: var(--s6);
+	padding: var(--s6);
+	border: 1px solid var(--border-default);
+	border-radius: var(--radius-lg);
+
+	.form-row-full,
+	.form-row,
+	.form-row-2,
+	.form-row-3 {
+		margin-bottom: var(--s8);
+	}
 }
 
 .remit-calc-result {
-	display: none !important;
-	background-color: var(--bg-light);
-	border-radius: 10px;
-	padding: 20px;
-	margin-top: 20px;
+	display: none;
+	margin-top: var(--s8);
+	padding: var(--s5);
+	background-color: #EBF5FD;
+	border-radius: var(--radius);
 }
 
 .remit-calc-result.active {
-	display: block !important;
+	display: block;
 }
 
 .calc-result-row {
@@ -1684,11 +1694,14 @@
 
 .exchange-rate-box {
 	display: flex;
+	justify-content: center;
 	align-items: center;
-	background-color: var(--bg-light);
-	border-color: transparent;
+	height: var(--s12);
+	padding: 0 var(--s4);
 	font-weight: 600;
 	color: var(--text-heavy);
+	background-color: var(--bg-light);
+	border-radius: var(--radius);
 }
 
 /* Amount input wrapper */
@@ -1729,10 +1742,6 @@
 }
 
 /* Calculation result */
-#calcResult {
-	display: none;
-}
-
 .calc-col-item.hidden {
 	display: none;
 }
@@ -1761,31 +1770,30 @@
 }
 
 .calc-col-label {
-	font-size: 0.75rem;
+	margin-bottom: var(--s-1-6);
+	font-size: var(--text-xs);
 	font-weight: 500;
-	color: var(--text-soft);
-	margin-bottom: 6px;
+	color: var(--text-default);
 	white-space: nowrap;
 }
 
 .calc-col-item.highlight .calc-col-label {
 	font-weight: 600;
-	color: var(--primary-default);
+	color: var(--primary-heavy);
 }
 
 .calc-col-value {
-	font-size: 0.9rem;
+	max-width: 100%;
+	font-size: var(--text-lg);
 	font-weight: 700;
 	color: var(--text-heavy);
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	max-width: 100%;
 }
 
 .calc-col-item.highlight .calc-col-value {
-	color: var(--primary-default);
-	font-size: 1rem;
+	color: var(--primary-heavy);
 }
 
 /* Responsive styles for remittance page */
@@ -1799,14 +1807,6 @@
 	.limit-info-item .limit-label {
 		font-size: 0.7rem;
 		margin-bottom: 4px;
-	}
-
-	.limit-info-item .limit-value {
-		font-size: 0.95rem;
-	}
-
-	.limit-info-item.highlight .limit-value {
-		font-size: 1.05rem;
 	}
 }
 
@@ -1822,27 +1822,18 @@
 		margin-bottom: 4px;
 	}
 
-	.limit-info-item .limit-value {
-		font-size: 0.9rem;
-	}
-
-	.limit-info-item.highlight .limit-value {
-		font-size: 1rem;
-	}
-
 	.remit-form-section {
 		margin-bottom: 20px;
 	}
 
 	.remit-calc-result {
-		padding: 14px;
-		margin-top: 14px;
+		padding: var(--s1) var(--s4);
 	}
 
 	.calc-result-cols {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 12px;
+		gap: 0;
 	}
 
 	.calc-col-item {
@@ -1864,14 +1855,11 @@
 	}
 
 	.calc-col-label {
-		font-size: 0.8rem;
 		margin-bottom: 0;
 		text-align: left;
 	}
 
 	.calc-col-value {
-		font-size: 0.9rem;
-		font-weight: 700;
 		text-align: right;
 	}
 
@@ -1900,18 +1888,6 @@
 	.limit-info-item .limit-label {
 		font-size: 0.7rem;
 		margin-bottom: 3px;
-	}
-
-	.limit-info-item .limit-value {
-		font-size: 0.85rem;
-	}
-
-	.limit-info-item.highlight .limit-value {
-		font-size: 0.95rem;
-	}
-
-	.remit-calc-result {
-		padding: 12px;
 	}
 
 	.calc-result-cols {

@@ -197,8 +197,8 @@ a.banner-slide {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: var(--s4);
-  height: var(--s4);
+  width: var(--s4-18);
+  height: var(--s4-18);
 }
 
 .banner-control-btn:hover {
@@ -208,6 +208,8 @@ a.banner-slide {
 }
 
 .banner-control-btn svg {
+  width: var(--s3);
+  height: var(--s3);
   color: var(--text-heavy);
 }
 
@@ -260,10 +262,6 @@ a.banner-slide {
 .db-body .banner-slider .banner-image-group {
   height: 150px;
 }
-.db-body .banner-slider .banner-control-btn span {
-  width: var(--s4);
-  height: var(--s4);
-}
 
 /* Mobile Responsive for Banner */
 @media (max-width: 1024px) {
@@ -292,6 +290,15 @@ a.banner-slide {
     width: 100%;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+  }
+  .banner-content h2 {
+    margin-bottom: var(--s2);
+    font-size: var(--text-2xl);
+    line-height: 1.5;
+  }
+  .banner-content p {
+    font-size: var(--text-md);
+    line-height: 1.25;
   }
   .banner-text-group,
   .banner-image-group {

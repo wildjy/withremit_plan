@@ -180,20 +180,20 @@
 }
 
 .quick-btn {
-  padding: 6px 12px;
-  font-size: 0.85rem;
+  padding: var(--s1-6) var(--s3);
+  font-size: var(--text-sm);
+  color: var(--primary-heavy);
   font-weight: 500;
-  color: var(--text-heavy);
-  background-color: var(--bg-light);
+  background-color: var(--white);
   border: 1px solid var(--border-default);
-  border-radius: 6px;
+  border-radius: var(--s1-6);
   cursor: pointer;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
 
 .quick-btn.small {
-  padding: 6px 12px;
+  padding: var(--s1-6) var(--s3);
   font-size: 13px;
   min-width: auto;
   height: 32px;
@@ -209,10 +209,11 @@
   cursor: pointer;
 }
 
-.quick-btn:hover {
-  background-color: var(--primary-default);
+.quick-btn:hover,
+.quick-btn.active {
   color: #fff;
-  border-color: var(--primary-default);
+  background-color: var(--primary-heavy);
+  border-color: var(--primary-heavy);
 }
 
 .quick-btn:active {

@@ -161,8 +161,8 @@ a.banner-slide {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: var(--s4);
-		height: var(--s4);
+		width: var(--s4-18);
+		height: var(--s4-18);
 	}
 }
 
@@ -172,6 +172,8 @@ a.banner-slide {
 }
 
 .banner-control-btn svg {
+	width: var(--s3);
+	height: var(--s3);
 	color: var(--text-heavy);
 }
 
@@ -226,13 +228,6 @@ a.banner-slide {
 			// flex: 0 0 280px;
 			height: 150px;
 		}
-
-		.banner-control-btn {
-			span {
-				width: var(--s4);
-				height: var(--s4);
-			}
-		}
 	}
 }
 
@@ -272,6 +267,17 @@ a.banner-slide {
 		flex-wrap: wrap;
 	}
 
+	.banner-content h2 {
+		margin-bottom: var(--s2);
+		font-size: var(--text-2xl);
+		line-height: 1.5;
+	}
+
+	.banner-content p {
+		font-size: var(--text-md);
+		line-height: 1.25;
+	}
+	
 	.banner-text-group,
 	.banner-image-group {
 		padding: 0;

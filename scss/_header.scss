@@ -99,10 +99,10 @@
 		content: '';
 		position: absolute;
 		top: 50%;
-		left: 0px;
+		left: var(--s2-10);
 		transform: translateY(-50%);
-		width: 16px;
-		height: 16px;
+		width: var(--s4);
+		height: var(--s4);
 		background-image: url('../images/svg/global.svg');
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -113,26 +113,17 @@
 	display: flex;
 	align-items: center;
 	gap: var(--s2);
-	padding: var(--s2) var(--s8) var(--s2) 1.375rem;
-	height: 40px;
+	padding: 0 2.375rem 0 var(--s8);
+	height: var(--s10);
 	font-size: var(--text-sm);
 	font-weight: 500;
 	color: var(--text-heavy);
+	background-position: calc(100% - var(--s2-10)) center;
 	border: none;
 	border-radius: var(--s2);
 	cursor: pointer;
 	transition: var(--transition);
 }
-
-// .lang-select:hover {
-// 	background-color: var(--bg-light);
-// }
-
-// .lang-select:focus {
-// 	outline: none;
-// 	background-color: var(--bg-light);
-// }
-
 /* ===== GM Header Responsiveness Updates ===== */
 /* Base Header Adjustments */
 .header-inner {

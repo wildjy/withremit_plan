@@ -96,7 +96,7 @@ body{
 }
 
 .db-page-header {
-	margin-bottom: var(--s6);
+	margin-bottom: var(--s8);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -166,7 +166,7 @@ body{
 
 @media (max-width: 1024px) {
 	.db-page-header {
-		margin-bottom: var(--s4);
+		margin-bottom: var(--s6);
 	}
 
 	.db-content-card {
@@ -184,10 +184,6 @@ body{
 
 	.login-card {
 		margin-top: var(--s4);
-	}
-
-	.db-page-header {
-		margin-bottom: var(--s3);
 	}
 
 	.db-page-title {
@@ -306,7 +302,7 @@ body{
 .form-row-2,
 .form-row-3 {
 	width: 100%;
-	margin-bottom: 24px;
+	margin-bottom: var(--s6);
 	&.no-mb {
 		margin-bottom: 0;
 	}
@@ -320,11 +316,11 @@ body{
 
 .form-row {
 	grid-template-columns: repeat(1, 1fr);
-	gap: var(--s5);
+	gap: var(--s4);
 }
 .form-row-2 {
 	grid-template-columns: repeat(2, 1fr);
-	gap: var(--s5);
+	gap: var(--s4);
 }
 
 .form-row-3 {
@@ -338,9 +334,9 @@ body{
 	&.align-end {
 		justify-content: flex-end;
 	}
-	input {
-		margin-top: auto;
-	}
+	// input {
+	// 	margin-top: auto;
+	// }
 }
 
 .field-item.flex-2 {
