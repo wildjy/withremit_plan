@@ -1,4 +1,9 @@
-@import "./spacing", "./text", "./button", "./badge", "./tab", "./modal";
+@use "./spacing";
+@use "./text";
+@use "./button";
+@use "./badge";
+@use "./tab";
+@use "./modal";
 
 // width helpers
 .w-full {

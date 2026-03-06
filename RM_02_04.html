@@ -29,324 +29,334 @@
                     <h1 class="db-page-title">정기 해외 송금 수정</h1>
                 </div>
 
-                <div class="db-content-card">
-                    <!-- 한도액 안내 -->
-                    <div class="limit-info-grid">
-                        <div class="limit-info-item">
-                            <div class="limit-label">1회 한도액</div>
-                            <div class="limit-value">$ 5,000</div>
-                        </div>
-                        <div class="limit-info-item">
-                            <div class="limit-label">1년 한도액</div>
-                            <div class="limit-value">$ 100,000</div>
-                        </div>
-                        <div class="limit-info-item">
-                            <div class="limit-label">송금액</div>
-                            <div class="limit-value">$ 5,000.00</div>
-                        </div>
-                        <div class="limit-info-item highlight">
-                            <div class="limit-label">송금 가능 금액</div>
-                            <div class="limit-value">$ 5,000.00</div>
-                        </div>
-                    </div>
-
-                    <!-- 정기 송금 정보 -->
-                    <div class="remit-form-section">
-                        <h2 class="form-sec-head">정기 송금 정보</h2>
-                        <div class="form-sec">
-                            <div class="form-row-2">
-                                <div class="field-item">
-                                    <label class="field-label">송금 주기</label>
-                                    <div class="field-value-text">매월</div>
-                                </div>
-                                <div class="field-item">
-                                    <label class="field-label">송금 일자</label>
-                                    <div class="field-value-text">15일</div>
-                                </div>
+                <div class="remit-main">
+                    <div class="db-content-card">
+                        <!-- 한도액 안내 -->
+                        <div class="limit-info-grid">
+                            <div class="limit-info-item">
+                                <div class="limit-label">1회 한도액</div>
+                                <div class="limit-value">$ 5,000</div>
                             </div>
-                            <div class="form-row-2">
-                                <div class="field-item">
-                                    <label class="field-label">시작일</label>
-                                    <div class="field-value-text">2026-01-27</div>
-                                </div>
-                                <div class="field-item">
-                                    <label class="field-label">종료일</label>
-                                    <input type="date" class="login-input" id="endDate" value="2027-01-27">
-                                </div>
+                            <div class="limit-info-item">
+                                <div class="limit-label">1년 한도액</div>
+                                <div class="limit-value">$ 100,000</div>
+                            </div>
+                            <div class="limit-info-item">
+                                <div class="limit-label">송금액</div>
+                                <div class="limit-value">$ 5,000.00</div>
+                            </div>
+                            <div class="limit-info-item highlight">
+                                <div class="limit-label">송금 가능 금액</div>
+                                <div class="limit-value">$ 5,000.00</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 송금 정보 -->
-                    <div class="remit-form-section">
-                        <h2 class="form-sec-head">송금 정보</h2>
-
-                        <div class="form-sec">
-                            <div class="form-row-2">
-                                <div class="field-item">
-                                    <label class="field-label">국가</label>
-                                    <div class="field-value-text">일본 (JPY)</div>
-                                </div>
-                                <div class="field-item">
-                                    <label class="field-label">서비스</label>
-                                    <div class="field-value-text">일본 송금</div>
-                                </div>
-                            </div>
-
-                            <div class="form-row-2">
-                                <div class="field-item">
-                                    <label class="field-label">송금액 설정</label>
-                                    <div class="field-value-text">송금액 기준</div>
-                                </div>
-                                <div class="field-item">
-                                    <label class="field-label">환율</label>
-                                    <div class="field-value-text">₩ 1,000 = ¥ 111.20</div>
-                                </div>
-                            </div>
-
-                            <div class="field-item top-level">
-                                <label class="field-label">송금 금액</label>
-                                <div class="field-value-text">₩ 1,000,000</div>
-                            </div>
-
-                            <div class="remit-calc-result active">
-                                <div class="calc-result-cols">
-                                    <div class="calc-col-item">
-                                        <span class="calc-col-label">송금 금액</span>
-                                        <span class="calc-col-value">₩ 1,000,000</span>
+                    <div class="db-content-card">
+                        <!-- 정기 송금 정보 -->
+                        <div class="remit-form-section">
+                            <h2 class="form-sec-head">정기 송금 정보</h2>
+                            <div class="form-sec">
+                                <div class="form-row-2">
+                                    <div class="field-item">
+                                        <label class="field-label">송금 주기</label>
+                                        <div class="field-value-text">매월</div>
                                     </div>
-                                    <div class="calc-col-item">
-                                        <span class="calc-col-label">송금 수수료</span>
-                                        <span class="calc-col-value">₩ 5,000</span>
+                                    <div class="field-item">
+                                        <label class="field-label">송금 일자</label>
+                                        <div class="field-value-text">15일</div>
                                     </div>
-                                    <div class="calc-col-item">
-                                        <span class="calc-col-label">수취 금액</span>
-                                        <span class="calc-col-value">¥ 111,200</span>
+                                </div>
+                                <div class="form-row-2">
+                                    <div class="field-item">
+                                        <label class="field-label">시작일</label>
+                                        <div class="field-value-text">2026-01-27</div>
                                     </div>
-                                    <div class="calc-col-item">
-                                        <span class="calc-col-label">수취 수수료</span>
-                                        <span class="calc-col-value">¥ 660</span>
-                                    </div>
-                                    <div class="calc-col-item highlight">
-                                        <span class="calc-col-label">입금액</span>
-                                        <span class="calc-col-value">¥ 110,540</span>
+                                    <div class="field-item">
+                                        <label class="field-label">종료일</label>
+                                        <input type="date" class="login-input" id="endDate" value="2027-01-27">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 출금 계좌 선택 -->
-                    <div class="remit-form-section">
-                        <h2 class="form-sec-head">출금 계좌 선택</h2>
+                    <div class="db-content-card">
+                        <!-- 송금 정보 -->
+                        <div class="remit-form-section">
+                            <h2 class="form-sec-head">송금 정보</h2>
 
-                        <div class="form-sec">
-                            <p class="text-hint">출금 동의한 계좌 목록에서 선택해 주세요.</p>
+                            <div class="form-sec">
+                                <div class="form-row-2">
+                                    <div class="field-item">
+                                        <label class="field-label">국가</label>
+                                        <div class="field-value-text">일본 (JPY)</div>
+                                    </div>
+                                    <div class="field-item">
+                                        <label class="field-label">서비스</label>
+                                        <div class="field-value-text">일본 송금</div>
+                                    </div>
+                                </div>
 
-                            <!-- 출금 계좌 테이블 -->
-                            <div class="db-table-container mb-0">
-                                <table class="db-notice-table">
-                                    <colgroup>
-                                        <col class="col-select">
-                                        <col class="col-quarter">
-                                        <col class="col-40">
-                                        <col class="col-auto">
-                                    </colgroup>
-                                    <thead>
-                                        <tr>
-                                            <th>선택</th>
-                                            <th>은행</th>
-                                            <th>계좌 번호</th>
-                                            <th>계좌 명의</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="center">
+                                <div class="form-row-2">
+                                    <div class="field-item">
+                                        <label class="field-label">송금액 설정</label>
+                                        <div class="field-value-text">송금액 기준</div>
+                                    </div>
+                                    <div class="field-item">
+                                        <label class="field-label">환율</label>
+                                        <div class="field-value-text">₩ 1,000 = ¥ 111.20</div>
+                                    </div>
+                                </div>
+
+                                <div class="field-item top-level">
+                                    <label class="field-label">송금 금액</label>
+                                    <div class="field-value-text">₩ 1,000,000</div>
+                                </div>
+
+                                <div class="remit-calc-result active">
+                                    <div class="calc-result-cols">
+                                        <div class="calc-col-item">
+                                            <span class="calc-col-label">송금 금액</span>
+                                            <span class="calc-col-value">₩ 1,000,000</span>
+                                        </div>
+                                        <div class="calc-col-item">
+                                            <span class="calc-col-label">송금 수수료</span>
+                                            <span class="calc-col-value">₩ 5,000</span>
+                                        </div>
+                                        <div class="calc-col-item">
+                                            <span class="calc-col-label">수취 금액</span>
+                                            <span class="calc-col-value">¥ 111,200</span>
+                                        </div>
+                                        <div class="calc-col-item">
+                                            <span class="calc-col-label">수취 수수료</span>
+                                            <span class="calc-col-value">¥ 660</span>
+                                        </div>
+                                        <div class="calc-col-item highlight">
+                                            <span class="calc-col-label">입금액</span>
+                                            <span class="calc-col-value">¥ 110,540</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="db-content-card">
+                        <!-- 출금 계좌 선택 -->
+                        <div class="remit-form-section">
+                            <h2 class="form-sec-head">출금 계좌 선택</h2>
+
+                            <div class="form-sec">
+                                <p class="text-hint">출금 동의한 계좌 목록에서 선택해 주세요.</p>
+
+                                <!-- 출금 계좌 테이블 -->
+                                <div class="db-table-container mb-0">
+                                    <table class="db-notice-table">
+                                        <colgroup>
+                                            <col class="col-select">
+                                            <col class="col-quarter">
+                                            <col class="col-40">
+                                            <col class="col-auto">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>선택</th>
+                                                <th>은행</th>
+                                                <th>계좌 번호</th>
+                                                <th>계좌 명의</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="center">
+                                                    <label class="radio-wrap">
+                                                        <input type="radio" name="withdrawalAccount" value="1" id="account1"
+                                                            checked>
+                                                        <span class="custom-radio"></span>
+                                                    </label>
+                                                </td>
+                                                <td>기업은행 (IBK)</td>
+                                                <td>064-146189-04-024</td>
+                                                <td>홍길동</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">
+                                                    <label class="radio-wrap">
+                                                        <input type="radio" name="withdrawalAccount" value="2"
+                                                            id="account2">
+                                                        <span class="custom-radio"></span>
+                                                    </label>
+                                                </td>
+                                                <td>농협은행 (NH)</td>
+                                                <td>301-0313-2544-01</td>
+                                                <td>홍길동</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">
+                                                    <label class="radio-wrap">
+                                                        <input type="radio" name="withdrawalAccount" value="3"
+                                                            id="account3">
+                                                        <span class="custom-radio"></span>
+                                                    </label>
+                                                </td>
+                                                <td>신한은행</td>
+                                                <td>110-456-789012</td>
+                                                <td>홍길동</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- Mobile Card View -->
+                                <div class="account-card-list mobile-only" id="withdrawalAccountCards">
+                                    <!-- Card 1 -->
+                                    <div class="account-card selected" onclick="selectCard(1)">
+                                        <div class="account-card-header">
+                                            <div class="account-card-radio">
                                                 <label class="radio-wrap">
-                                                    <input type="radio" name="withdrawalAccount" value="1" id="account1"
-                                                        checked>
+                                                    <input type="radio" name="withdrawalAccountMobile" value="1" checked>
                                                     <span class="custom-radio"></span>
                                                 </label>
-                                            </td>
-                                            <td>기업은행 (IBK)</td>
-                                            <td>064-146189-04-024</td>
-                                            <td>홍길동</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="center">
+                                                <span>선택</span>
+                                            </div>
+                                        </div>
+                                        <div class="account-card-body">
+                                            <div class="account-card-row">
+                                                <span class="account-card-label">은행</span>
+                                                <span class="account-card-value">기업은행 (IBK)</span>
+                                            </div>
+                                            <div class="account-card-row">
+                                                <span class="account-card-label">계좌 번호</span>
+                                                <span class="account-card-value">064-146189-04-024</span>
+                                            </div>
+                                            <div class="account-card-row">
+                                                <span class="account-card-label">계좌 명의</span>
+                                                <span class="account-card-value">홍길동</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card 2 -->
+                                    <div class="account-card" onclick="selectCard(2)">
+                                        <div class="account-card-header">
+                                            <div class="account-card-radio">
                                                 <label class="radio-wrap">
-                                                    <input type="radio" name="withdrawalAccount" value="2"
-                                                        id="account2">
+                                                    <input type="radio" name="withdrawalAccountMobile" value="2">
                                                     <span class="custom-radio"></span>
                                                 </label>
-                                            </td>
-                                            <td>농협은행 (NH)</td>
-                                            <td>301-0313-2544-01</td>
-                                            <td>홍길동</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="center">
+                                                <span>선택</span>
+                                            </div>
+                                        </div>
+                                        <div class="account-card-body">
+                                            <div class="account-card-row">
+                                                <span class="account-card-label">은행</span>
+                                                <span class="account-card-value">농협은행 (NH)</span>
+                                            </div>
+                                            <div class="account-card-row">
+                                                <span class="account-card-label">계좌 번호</span>
+                                                <span class="account-card-value">301-0313-2544-01</span>
+                                            </div>
+                                            <div class="account-card-row">
+                                                <span class="account-card-label">계좌 명의</span>
+                                                <span class="account-card-value">홍길동</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card 3 -->
+                                    <div class="account-card" onclick="selectCard(3)">
+                                        <div class="account-card-header">
+                                            <div class="account-card-radio">
                                                 <label class="radio-wrap">
-                                                    <input type="radio" name="withdrawalAccount" value="3"
-                                                        id="account3">
+                                                    <input type="radio" name="withdrawalAccountMobile" value="3">
                                                     <span class="custom-radio"></span>
                                                 </label>
-                                            </td>
-                                            <td>신한은행</td>
-                                            <td>110-456-789012</td>
-                                            <td>홍길동</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                                <span>선택</span>
+                                            </div>
+                                        </div>
+                                        <div class="account-card-body">
+                                            <div class="account-card-row">
+                                                <span class="account-card-label">은행</span>
+                                                <span class="account-card-value">신한은행</span>
+                                            </div>
+                                            <div class="account-card-row">
+                                                <span class="account-card-label">계좌 번호</span>
+                                                <span class="account-card-value">110-456-789012</span>
+                                            </div>
+                                            <div class="account-card-row">
+                                                <span class="account-card-label">계좌 명의</span>
+                                                <span class="account-card-value">홍길동</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="field-error" id="withdrawalAccountError"></span>
                             </div>
-
-                            <!-- Mobile Card View -->
-                            <div class="account-card-list mobile-only" id="withdrawalAccountCards">
-                                <!-- Card 1 -->
-                                <div class="account-card selected" onclick="selectCard(1)">
-                                    <div class="account-card-header">
-                                        <div class="account-card-radio">
-                                            <label class="radio-wrap">
-                                                <input type="radio" name="withdrawalAccountMobile" value="1" checked>
-                                                <span class="custom-radio"></span>
-                                            </label>
-                                            <span>선택</span>
-                                        </div>
-                                    </div>
-                                    <div class="account-card-body">
-                                        <div class="account-card-row">
-                                            <span class="account-card-label">은행</span>
-                                            <span class="account-card-value">기업은행 (IBK)</span>
-                                        </div>
-                                        <div class="account-card-row">
-                                            <span class="account-card-label">계좌 번호</span>
-                                            <span class="account-card-value">064-146189-04-024</span>
-                                        </div>
-                                        <div class="account-card-row">
-                                            <span class="account-card-label">계좌 명의</span>
-                                            <span class="account-card-value">홍길동</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Card 2 -->
-                                <div class="account-card" onclick="selectCard(2)">
-                                    <div class="account-card-header">
-                                        <div class="account-card-radio">
-                                            <label class="radio-wrap">
-                                                <input type="radio" name="withdrawalAccountMobile" value="2">
-                                                <span class="custom-radio"></span>
-                                            </label>
-                                            <span>선택</span>
-                                        </div>
-                                    </div>
-                                    <div class="account-card-body">
-                                        <div class="account-card-row">
-                                            <span class="account-card-label">은행</span>
-                                            <span class="account-card-value">농협은행 (NH)</span>
-                                        </div>
-                                        <div class="account-card-row">
-                                            <span class="account-card-label">계좌 번호</span>
-                                            <span class="account-card-value">301-0313-2544-01</span>
-                                        </div>
-                                        <div class="account-card-row">
-                                            <span class="account-card-label">계좌 명의</span>
-                                            <span class="account-card-value">홍길동</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Card 3 -->
-                                <div class="account-card" onclick="selectCard(3)">
-                                    <div class="account-card-header">
-                                        <div class="account-card-radio">
-                                            <label class="radio-wrap">
-                                                <input type="radio" name="withdrawalAccountMobile" value="3">
-                                                <span class="custom-radio"></span>
-                                            </label>
-                                            <span>선택</span>
-                                        </div>
-                                    </div>
-                                    <div class="account-card-body">
-                                        <div class="account-card-row">
-                                            <span class="account-card-label">은행</span>
-                                            <span class="account-card-value">신한은행</span>
-                                        </div>
-                                        <div class="account-card-row">
-                                            <span class="account-card-label">계좌 번호</span>
-                                            <span class="account-card-value">110-456-789012</span>
-                                        </div>
-                                        <div class="account-card-row">
-                                            <span class="account-card-label">계좌 명의</span>
-                                            <span class="account-card-value">홍길동</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="field-error" id="withdrawalAccountError"></span>
                         </div>
                     </div>
 
-                    <!-- 수취 정보 (수정 불가) -->
-                    <div class="remit-form-section">
-                        <h2 class="form-sec-head">수취 정보</h2>
+                    <div class="db-content-card">
+                        <!-- 수취 정보 (수정 불가) -->
+                        <div class="remit-form-section">
+                            <h2 class="form-sec-head">수취 정보</h2>
 
-                        <div class="form-sec">
-                            <div class="form-row-2">
-                                <div class="field-item">
-                                    <label class="field-label">수취인명(영문)</label>
-                                    <div class="field-value-text">YAMADA TARO</div>
+                            <div class="form-sec">
+                                <div class="form-row-2">
+                                    <div class="field-item">
+                                        <label class="field-label">수취인명(영문)</label>
+                                        <div class="field-value-text">YAMADA TARO</div>
+                                    </div>
+                                    <div class="field-item">
+                                        <label class="field-label">수취인과의 관계</label>
+                                        <div class="field-value-text">친구</div>
+                                    </div>
                                 </div>
-                                <div class="field-item">
-                                    <label class="field-label">수취인과의 관계</label>
-                                    <div class="field-value-text">친구</div>
-                                </div>
-                            </div>
 
-                            <div class="form-row-2">
-                                <div class="field-item">
-                                    <label class="field-label">수취 은행</label>
-                                    <div class="field-value-text">三菱UFJ銀行 / 미츠비시UFJ은행</div>
+                                <div class="form-row-2">
+                                    <div class="field-item">
+                                        <label class="field-label">수취 은행</label>
+                                        <div class="field-value-text">三菱UFJ銀行 / 미츠비시UFJ은행</div>
+                                    </div>
+                                    <div class="field-item">
+                                        <label class="field-label">은행 지점 번호</label>
+                                        <div class="field-value-text">001</div>
+                                    </div>
                                 </div>
-                                <div class="field-item">
-                                    <label class="field-label">은행 지점 번호</label>
-                                    <div class="field-value-text">001</div>
-                                </div>
-                            </div>
 
-                            <div class="form-row-2">
-                                <div class="field-item">
-                                    <label class="field-label">수취 계좌 번호</label>
-                                    <div class="field-value-text">1234567</div>
+                                <div class="form-row-2">
+                                    <div class="field-item">
+                                        <label class="field-label">수취 계좌 번호</label>
+                                        <div class="field-value-text">1234567</div>
+                                    </div>
+                                    <div class="field-item">
+                                        <label class="field-label">수취 계좌 타입</label>
+                                        <div class="field-value-text">Futuu 저축계좌</div>
+                                    </div>
                                 </div>
-                                <div class="field-item">
-                                    <label class="field-label">수취 계좌 타입</label>
-                                    <div class="field-value-text">Futuu 저축계좌</div>
-                                </div>
-                            </div>
 
-                            <div class="form-row-2">
-                                <div class="field-item">
-                                    <label class="field-label">송금 목적</label>
-                                    <div class="field-value-text">가족 송금</div>
+                                <div class="form-row-2">
+                                    <div class="field-item">
+                                        <label class="field-label">송금 목적</label>
+                                        <div class="field-value-text">가족 송금</div>
+                                    </div>
+                                    <div class="field-item">
+                                        <label class="field-label">자금 출처</label>
+                                        <div class="field-value-text">월급</div>
+                                    </div>
                                 </div>
-                                <div class="field-item">
-                                    <label class="field-label">자금 출처</label>
-                                    <div class="field-value-text">월급</div>
-                                </div>
-                            </div>
 
-                            <div class="form-row-2">
-                                <div class="field-item">
-                                    <label class="field-label">전화번호</label>
-                                    <div class="field-value-text">080-1234-5678</div>
+                                <div class="form-row-2">
+                                    <div class="field-item">
+                                        <label class="field-label">전화번호</label>
+                                        <div class="field-value-text">080-1234-5678</div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="field-item top-level">
-                                <label class="field-label">주소</label>
-                                <div class="field-value-text">東京都新宿区西新宿2-8-1 新宿NSビル</div>
+                                <div class="field-item top-level">
+                                    <label class="field-label">주소</label>
+                                    <div class="field-value-text">東京都新宿区西新宿2-8-1 新宿NSビル</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1059,6 +1069,8 @@
                     if (!firstErrorElement) {
                         firstErrorElement = element;
                     }
+                } else {
+                    clearFieldError(field.id);
                 }
             }
 

@@ -472,11 +472,19 @@ $vw-context: calc($viewport * 0.01) * 1px;
   border-color: var(--border-soft);
   cursor: not-allowed;
 }
+
+@mixin input-focus {
+	border: 2px solid var(--primary-default);
+	&:focus {
+		border-color: var(--primary-default);
+		// box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+	}
+}
+
 @mixin input-error {
-	border-color: var(--negative);
-	border: 1.5px solid var(--negative);
+	border: 2px solid var(--negative);
 	&:focus {
 		border-color: var(--negative);
-		box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+		// box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 	}
 }

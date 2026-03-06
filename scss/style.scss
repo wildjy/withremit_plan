@@ -1,6 +1,12 @@
 @charset "UTF-8";
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
-@import  "./Helper", "./root", "./reset", "./layout", "./common", "./components"; // "./Helper",
+@use "./Helper";
+@use "./root";
+@use "./reset";
+@use "./layout";
+@use "./common";
+@use "./components";
+@use "./login";
+@use "./dashboard";
 
 /* Inquiry Form Utility Classes */
 .mb-0 {
@@ -65,12 +71,6 @@
 		transform: translate(-50%, 0);
 	}
 }
-
-/* ===== Login Page Styles ===== */
-@import "./login";
-
-/* ===== Dashboard Styles ===== */
-@import "./dashboard";
 
 /* Notice List Page */
 .db-search-box {
@@ -1564,51 +1564,62 @@
 
 /* Request Remittance Page */
 .limit-info-grid {
+	margin-bottom: var(--s6);
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	gap: 16px;
-	margin-bottom: 24px;
+	gap: var(--s4);
 }
 
 .limit-info-item {
-	background: linear-gradient(135deg, #1b5e9e 0%, #00a0dc 100%);
-	border: 1px solid rgba(27, 94, 158, 0.3);
-	border-radius: 10px;
-	padding: 14px 12px;
-	text-align: center;
+	padding: var(--s5) var(--s6);
+	text-align: left;
 	transition: all 0.3s ease;
-	box-shadow: 0 2px 8px rgba(27, 94, 158, 0.1);
-}
+	background-color: var(--white);
+	border-radius: var(--radius);
 
-.limit-info-item:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 4px 12px rgba(27, 94, 158, 0.2);
-}
+	@function remit-icon-url($index) {
+		@return url("../images/svg/icon_remit_#{$index}.svg");
+	}
 
-.limit-info-item.highlight {
-	background-color: var(--primary-default);
+	@for $i from 1 through 4 {
+		&:nth-child(#{$i}) .limit-label:before {
+			background-image: remit-icon-url($i);
+		}
+	}
 }
 
 .limit-info-item .limit-label {
-	font-size: 0.8rem;
-	font-weight: 500;
-	color: rgba(255, 255, 255, 0.9);
-	margin-bottom: 6px;
+	display: flex;
+	align-items: center;
+	gap: var(--s2);
+	margin-bottom: var(--s1);
+	font-size: var(--text-sm);
+	font-weight: var(--text-soft);
+	&:before {
+		content: "";
+		width: var(--s8);
+		height: var(--s8);
+		background-color: var(--bg-default);
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		border-radius: var(--s2-10);
+	}
 }
 
 .limit-info-item .limit-value {
-	font-size: 1.1rem;
+	font-size: var(--text-lg);
+	color: var(--text-heavy);
 	font-weight: 700;
-	color: #ffffff;
-	letter-spacing: -0.5px;
-}
-
-.limit-info-item.highlight .limit-value {
-	font-size: 1.2rem;
+	line-height: 1.6;
 }
 
 .remit-form-section {
 	margin-bottom: 24px;
+}
+
+.amountSectionWrapper {
+	display: none;
+	margin-top: var(--s6);
 }
 
 .remit-calc-result {
@@ -3229,14 +3240,11 @@ td.center {
 	.remit-card-col-bank {
 		min-width: 130px;
 		flex: 1;
-		/* 은행명 길면 말 줄임 */
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		display: block !important;
-		/* Force block for truncation logic inside flex item if needed, but flex items usually truncate with min-width:0. Let's try flexible approach first, but user asked for truncation. */
 		display: flex !important;
-		/* Restore flex for label placement */
 		align-items: center;
 	}
 

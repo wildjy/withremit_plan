@@ -759,6 +759,8 @@ function showFieldError(elementId, message) {
     const element = document.getElementById(elementId);
     if (!element) return;
 
+    bindGlobalFieldErrorAutoClear();
+
     // 부모 요소 찾기
     const fieldItem = element.closest('.field-item');
     if (!fieldItem) return;
@@ -783,6 +785,82 @@ function showFieldError(elementId, message) {
     if (errorSpan) {
         errorSpan.textContent = message;
     }
+
+    // 값이 입력되면 해당 필드 에러 자동 해제 (중복 바인딩 방지)
+    if (element.dataset.errorClearBound !== '1') {
+        const clearHandler = () => clearFieldError(element);
+        element.addEventListener('input', clearHandler);
+        element.addEventListener('change', clearHandler);
+        element.dataset.errorClearBound = '1';
+    }
+}
+
+// 전역 자동 해제 바인딩 (select 변경으로 input 값이 코드에서 채워지는 케이스 대응)
+function bindGlobalFieldErrorAutoClear() {
+    if (document.documentElement.dataset.fieldErrorGlobalBound === '1') return;
+
+    const reevaluate = () => {
+        clearResolvedFieldErrors();
+    };
+
+    document.addEventListener('input', reevaluate, true);
+    document.addEventListener('change', () => {
+        // change 핸들러 내부에서 값이 세팅되는 경우를 위해 다음 tick에서 재평가
+        setTimeout(reevaluate, 0);
+    }, true);
+
+    document.documentElement.dataset.fieldErrorGlobalBound = '1';
+}
+
+// 값이 채워진 에러 필드만 선별 해제
+function clearResolvedFieldErrors() {
+    const candidates = document.querySelectorAll(
+        'input.error, select.error, textarea.error, .input-box-group.error input, .input-box-group.error select, .input-box-group.error textarea'
+    );
+
+    const seen = new Set();
+    candidates.forEach((el) => {
+        if (!el || seen.has(el)) return;
+        seen.add(el);
+        clearFieldError(el);
+    });
+}
+
+// 단일 필드 에러 초기화
+function clearFieldError(elementOrId) {
+    const element = typeof elementOrId === 'string'
+        ? document.getElementById(elementOrId)
+        : elementOrId;
+
+    if (!element) return;
+
+    const value = (element.value ?? '').toString().trim();
+    if (!value) return;
+
+    const fieldItem = element.closest('.field-item');
+    const inputGroup = element.closest('.input-box-group');
+
+    if (inputGroup) {
+        inputGroup.classList.remove('error');
+    }
+
+    if (element.tagName === 'SELECT' || element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+        element.classList.remove('error');
+    }
+
+    const errorSpanId = `${element.id}Error`;
+    let errorSpan = document.getElementById(errorSpanId);
+    if (!errorSpan && fieldItem) {
+        errorSpan = fieldItem.querySelector('.field-error');
+    }
+    if (errorSpan) {
+        errorSpan.textContent = '';
+    }
+}
+
+// 오타 호환용 alias (clearFiledError)
+function clearFiledError(elementOrId) {
+    clearFieldError(elementOrId);
 }
 
 // 모든 에러 초기화
@@ -1231,7 +1309,6 @@ if (agreeAll && items.length > 0) {
     syncMasterState();
     checkAllRequired();
 }
-
 
 // ===== Remove Table Row : AC_01_01, AC_02_01 =====
 let currentDeleteButton = null;

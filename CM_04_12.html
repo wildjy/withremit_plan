@@ -21,9 +21,11 @@
                 <img src="images/logo-withremit.png" alt="withremit">
             </a>
         </div>
-        <div class="login-card register-card-wide">
+
+        <form action="register_complete.html" method="POST" class="info-form-body register-card-wide">
             <h2 class="login-title" data-i18n="join.personal">개인회원 가입</h2>
-            <form action="register_complete.html" method="POST" class="info-form-body">
+            <!-- 계정 정보 -->
+            <div class="login-card ">
                 <section class="form-sec">
                     <div class="form-sec-head" data-i18n="join.account">계정 정보</div>
                     <div class="form-row-full">
@@ -81,35 +83,28 @@
                         </div>
                     </div>
                 </section>
+            </div>
 
-                <section class="form-sec border-none" id="nationalitySection">
-                    <div class="field-item">
-                        <div class="common-tabs mb-0">
-                            <label class="guide-label">
-                                <input type="radio" name="nationality" value="domestic" id="domesticRadio">
-                                <div class="common-tab" data-i18n="join.national">내국인 회원가입</div>
-                            </label>
-                            <label class="guide-label">
-                                <input type="radio" name="nationality" value="foreign" id="foreignRadio">
-                                <div class="common-tab" data-i18n="join.foreign">외국인 회원가입</div>
-                            </label>
-                        </div>
+            <!-- 내국인/외국인 회원가입 선택 -->
+            <div class="login-card">
+                <!-- <section class="form-sec" id="nationalitySection">
+                </section> -->
+
+                <div class="field-item" id="nationalitySection">
+                    <div class="common-tabs mb-0">
+                        <label class="guide-label">
+                            <input type="radio" name="nationality" value="domestic" id="domesticRadio">
+                            <div class="common-tab" data-i18n="join.national">내국인 회원가입</div>
+                        </label>
+                        <label class="guide-label">
+                            <input type="radio" name="nationality" value="foreign" id="foreignRadio">
+                            <div class="common-tab" data-i18n="join.foreign">외국인 회원가입</div>
+                        </label>
                     </div>
-
-                    <!-- <div class="nationality-selector">
-                        <label class="nationality-btn-label">
-                            <input type="radio" name="a" value="a" id="a" checked>
-                            <div class="nationality-btn" data-i18n="join.national">내국인 회원가입</div>
-                        </label>
-                        <label class="nationality-btn-label">
-                            <input type="radio" name="b" value="b" id="b">
-                            <div class="nationality-btn" data-i18n="join.foreign">외국인 회원가입</div>
-                        </label>
-                    </div> -->
-                </section>
+                </div>
 
                 <!-- 내국인 서류 업로드 -->
-                <section class="form-sec" id="domesticDocSection" style="display: none;">
+                <section class="form-sec hidden" id="domesticDocSection">
                     <div class="form-sec-head" data-i18n="join.upload">서류 업로드</div>
                     <div class="form-row-2">
                         <div class="field-item">
@@ -139,7 +134,7 @@
                 </section>
 
                 <!-- 외국인 서류 업로드 -->
-                <section class="form-sec" id="foreignDocSection" style="display: none;">
+                <section class="form-sec hidden" id="foreignDocSection">
                     <div class="form-sec-head" data-i18n="join.upload">서류 업로드</div>
                     <div class="form-row-2">
                         <div class="field-item">
@@ -191,95 +186,212 @@
                     </div>
                     <p class="field-desc accent-red" data-i18n="join.upload.guide2"></p>
                 </section>
+            </div>
 
-                <section class="form-sec" id="personalInfoSection" style="display: none;">
-                    <div class="form-sec-head" data-i18n="join.personalInfo">개인 정보</div>
+            <div class="hidden" id="commonInfoSection">
+                <!-- 개인 정보 -->
+                <div class="login-card">
+                    <section class="form-sec" id="personalInfoSection">
+                        <div class="form-sec-head" data-i18n="join.personalInfo">개인 정보</div>
 
-                    <div class="form-row-2">
-                        <div class="form-row-2 no-mb">
-                            <div class="field-item">
-                                <label class="field-label">
-                                    <span data-i18n="join.request.lastName">성 (한글)</span>
-                                    <span class="badge-required" data-i18n="join.required">필수</span>
-                                </label>
-                                <input type="text" placeholder="예: 홍" class="login-input" id="lastNameKo">
-                            </div>
-                            <div class="field-item">
-                                <label class="field-label">
-                                    <span data-i18n="join.request.firstName">이름 (한글)</span>
-                                    <span class="badge-required" data-i18n="join.required">필수</span>
-                                </label>
-                                <input type="text" placeholder="예: 길동" class="login-input" id="firstNameKo">
-                            </div>
-                        </div>
-                        <div class="form-row-2 no-mb">
-                            <div class="field-item">
-                                <label class="field-label">
-                                    <span data-i18n="join.request.firstNameEn">이름 (영문)</span>
-                                    <span class="badge-required" data-i18n="join.required">필수</span>
-                                </label>
-                                <input type="text" placeholder="예: GILDONG" class="login-input" id="firstNameEn">
-                            </div>
-                            <div class="field-item">
-                                <label class="field-label">
-                                    <span data-i18n="join.request.lastNameEn">성 (영문)</span>
-                                    <span class="badge-required" data-i18n="join.required">필수</span>
-                                </label>
-                                <input type="text" placeholder="예: HONG" class="login-input" id="lastNameEn">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row-2">
-                        <div class="form-row-2 no-mb">
-                            <div class="field-item">
-                                <label class="field-label">
-                                    <span data-i18n="join.request.birthdate">생년월일</span>
-                                    <span class="badge-required" data-i18n="join.required">필수</span>
-                                </label>
-                                <input type="text" class="login-input date-picker-custom" id="birthDate" placeholder="연도.월.일" data-i18n="join.request.birthdatePlaceholder"
-                                    onfocus="this.type='date'; if (this.showPicker) this.showPicker();" onblur="if(!this.value){this.type='text'}">
-                            </div>
-                            <div class="field-item">
-                                <label class="field-label">
-                                    <span data-i18n="join.request.nationality">국적</span>
-                                    <span class="badge-required" data-i18n="join.required">필수</span>
-                                </label>
-                                <select class="login-input select-styled" id="nationalitySelect">
-                                    <option value="" disabled selected data-i18n="join.selectNationality">국적 선택</option>
-                                    <option value="KR" data-i18n="country.korea">대한민국</option>
-                                    <option value="JP" data-i18n="country.japan">일본</option>
-                                    <option value="CN" data-i18n="country.china">중국</option>
-                                    <option value="VN" data-i18n="country.vietnam">베트남</option>
-                                    <option value="PH" data-i18n="country.philippines">필리핀</option>
-                                    <option value="TH" data-i18n="country.thailand">태국</option>
-                                    <option value="ID" data-i18n="country.indonesia">인도네시아</option>
-                                    <option value="MY" data-i18n="country.malaysia">말레이시아</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row-2 no-mb">
-                            <div class="field-item">
-                                <label class="field-label">
-                                    <span data-i18n="join.request.gender">성별</span>
-                                    <span class="badge-required" data-i18n="join.required">필수</span>
-                                </label>
-                                <div class="field-flex h-52">
-                                    <label class="radio-wrap">
-                                        <input type="radio" name="g" id="genderMale">
-                                        <span class="custom-radio"></span>
-                                        <span data-i18n="join.request.male">남성</span>
+                        <div class="form-row-2">
+                            <div class="form-row-2 no-mb">
+                                <div class="field-item">
+                                    <label class="field-label">
+                                        <span data-i18n="join.request.lastName">성 (한글)</span>
+                                        <span class="badge-required" data-i18n="join.required">필수</span>
                                     </label>
-                                    <label class="radio-wrap">
-                                        <input type="radio" name="g" id="genderFemale">
-                                        <span class="custom-radio"></span>
-                                        <span data-i18n="join.request.female">여성</span>
+                                    <input type="text" placeholder="예: 홍" class="login-input" id="lastNameKo">
+                                </div>
+                                <div class="field-item">
+                                    <label class="field-label">
+                                        <span data-i18n="join.request.firstName">이름 (한글)</span>
+                                        <span class="badge-required" data-i18n="join.required">필수</span>
                                     </label>
+                                    <input type="text" placeholder="예: 길동" class="login-input" id="firstNameKo">
                                 </div>
                             </div>
+                            <div class="form-row-2 no-mb">
+                                <div class="field-item">
+                                    <label class="field-label">
+                                        <span data-i18n="join.request.firstNameEn">이름 (영문)</span>
+                                        <span class="badge-required" data-i18n="join.required">필수</span>
+                                    </label>
+                                    <input type="text" placeholder="예: GILDONG" class="login-input" id="firstNameEn">
+                                </div>
+                                <div class="field-item">
+                                    <label class="field-label">
+                                        <span data-i18n="join.request.lastNameEn">성 (영문)</span>
+                                        <span class="badge-required" data-i18n="join.required">필수</span>
+                                    </label>
+                                    <input type="text" placeholder="예: HONG" class="login-input" id="lastNameEn">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row-2">
+                            <div class="form-row-2 no-mb">
+                                <div class="field-item">
+                                    <label class="field-label">
+                                        <span data-i18n="join.request.birthdate">생년월일</span>
+                                        <span class="badge-required" data-i18n="join.required">필수</span>
+                                    </label>
+                                    <input type="text" class="login-input date-picker-custom" id="birthDate" placeholder="연도.월.일" data-i18n="join.request.birthdatePlaceholder"
+                                        onfocus="this.type='date'; if (this.showPicker) this.showPicker();" onblur="if(!this.value){this.type='text'}">
+                                </div>
+                                <div class="field-item">
+                                    <label class="field-label">
+                                        <span data-i18n="join.request.nationality">국적</span>
+                                        <span class="badge-required" data-i18n="join.required">필수</span>
+                                    </label>
+                                    <select class="login-input select-styled" id="nationalitySelect">
+                                        <option value="" disabled selected data-i18n="join.selectNationality">국적 선택</option>
+                                        <option value="KR" data-i18n="country.korea">대한민국</option>
+                                        <option value="JP" data-i18n="country.japan">일본</option>
+                                        <option value="CN" data-i18n="country.china">중국</option>
+                                        <option value="VN" data-i18n="country.vietnam">베트남</option>
+                                        <option value="PH" data-i18n="country.philippines">필리핀</option>
+                                        <option value="TH" data-i18n="country.thailand">태국</option>
+                                        <option value="ID" data-i18n="country.indonesia">인도네시아</option>
+                                        <option value="MY" data-i18n="country.malaysia">말레이시아</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row-2 no-mb">
+                                <div class="field-item">
+                                    <label class="field-label">
+                                        <span data-i18n="join.request.gender">성별</span>
+                                        <span class="badge-required" data-i18n="join.required">필수</span>
+                                    </label>
+                                    <div class="field-flex h-52">
+                                        <label class="radio-wrap">
+                                            <input type="radio" name="g" id="genderMale">
+                                            <span class="custom-radio"></span>
+                                            <span data-i18n="join.request.male">남성</span>
+                                        </label>
+                                        <label class="radio-wrap">
+                                            <input type="radio" name="g" id="genderFemale">
+                                            <span class="custom-radio"></span>
+                                            <span data-i18n="join.request.female">여성</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="field-item">
+                                    <label class="field-label">
+                                        <span data-i18n="join.request.phone">전화번호</span>
+                                        <span class="badge-required" data-i18n="join.required">필수</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        class="login-input "
+                                        inputmode="numeric"
+                                        pattern="[0-9]*"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                                        data-i18n="join.request.phonePlaceholder"
+                                        placeholder="예: 01012345678"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row-2">
+                            <div class="form-row-2 no-mb">
+                                <div class="field-item">
+                                    <label class="field-label">
+                                        <span data-i18n="join.request.email">이메일 주소</span>
+                                        <span class="badge-required" data-i18n="join.required">필수</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="emailLocal"
+                                        class="login-input half-KeyMode-only"
+                                        inputmode="email"
+                                        autocomplete="email"
+                                        placeholder="예: user"
+                                        aria-label="이메일 아이디"
+                                        data-i18n="join.emailLocalPlaceholder"
+                                    />
+                                </div>
+                                <div class="field-item align-end">
+                                    <input
+                                        type="text"
+                                        id="emailDomain"
+                                        class="login-input half-KeyMode-only"
+                                        inputmode="url"
+                                        placeholder="직접 입력"
+                                        aria-label="이메일 도메인 직접 입력"
+                                        data-i18n="join.emailDomainPlaceholder"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-row no-mb">
+                                <div class="field-item align-end">
+                                    <div class="field-flex full-width">
+                                        <select id="domainMode" class="login-input select-styled" aria-label="도메인 입력 방식">
+                                            <option value="direct" selected data-i18n="join.emailDomainPlaceholder">직접 입력</option>
+                                            <option value="gmail.com">gmail.com</option>
+                                            <option value="naver.com">naver.com</option>
+                                            <option value="daum.net">daum.net</option>
+                                            <option value="hotmail.com">hotmail.com</option>
+                                            <option value="nate.com">nate.com</option>
+                                        </select>
+                                        <button
+                                            type="button"
+                                            class="btn-sub-action"
+                                            id="btnCheckEmail"
+                                            onclick="openModal('emailDupOkModal') // emailDupOkModal & emailDupUsedModal"
+                                            data-i18n="join.checkEmail"
+                                        >
+                                            이메일 중복
+                                        </button>
+
+                                        <input type="hidden" id="emailFull" name="email" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field-item top-level">
+                            <label class="field-label">
+                                <span data-i18n="join.request.address">주소</span>
+                                <span class="badge-required" data-i18n="join.required">필수</span>
+                            </label>
+                            <div class="field-flex mb-12">
+                                <input type="text" placeholder="우편번호" class="login-input" readonly id="postcodeInput">
+                                <button type="button" class="btn-sub-action" onclick="openPostcodeModal()" data-i18n="join.searchPostcode">우편번호 검색</button>
+                            </div>
+                            <input type="text" placeholder="기본 주소" class="login-input mb-12" readonly
+                                id="addressBasicInput">
+                            <input type="text" placeholder="상세 주소를 입력해 주세요" class="login-input" data-i18n="join.request.addressDetail">
+                        </div>
+                    </section>
+                </div>
+
+                <!-- 은행 정보 -->
+                <div class="login-card">
+                    <section class="form-sec" id="bankInfoSection">
+                        <div class="form-sec-head">은행 정보</div>
+                        <div class="form-row-3">
                             <div class="field-item">
                                 <label class="field-label">
-                                    <span data-i18n="join.request.phone">전화번호</span>
+                                    <span>은행명</span>
                                     <span class="badge-required" data-i18n="join.required">필수</span>
+                                </label>
+                                <select class="login-input select-styled">
+                                    <option value="" disabled selected>은행 선택</option>
+                                    <option>국민은행</option>
+                                    <option>신한은행</option>
+                                    <option>우리은행</option>
+                                    <option>하나은행</option>
+                                    <option>농협은행</option>
+                                    <option>기업은행</option>
+                                    <option>카카오뱅크</option>
+                                    <option>토스뱅크</option>
+                                </select>
+                            </div>
+                            <div class="field-item">
+                                <label class="field-label">
+                                    계좌 번호
+                                    <span class="badge-required">필수</span>
                                 </label>
                                 <input
                                     type="text"
@@ -288,221 +400,115 @@
                                     pattern="[0-9]*"
                                     oninput="this.value = this.value.replace(/[^0-9]/g, '');"
                                     data-i18n="join.request.phonePlaceholder"
-                                    placeholder="예: 01012345678"
+                                    placeholder="'-' 없이 숫자만 입력"
                                 />
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="form-row-2">
-                        <div class="form-row-2 no-mb">
                             <div class="field-item">
                                 <label class="field-label">
-                                    <span data-i18n="join.request.email">이메일 주소</span>
-                                    <span class="badge-required" data-i18n="join.required">필수</span>
+                                    계좌 소유주
+                                    <span class="badge-required">필수</span>
                                 </label>
-                                <input
-                                    type="text"
-                                    id="emailLocal"
-                                    class="login-input half-KeyMode-only"
-                                    inputmode="email"
-                                    autocomplete="email"
-                                    placeholder="예: user"
-                                    aria-label="이메일 아이디"
-                                    data-i18n="join.emailLocalPlaceholder"
-                                />
-                            </div>
-                            <div class="field-item align-end">
-                                <input
-                                    type="text"
-                                    id="emailDomain"
-                                    class="login-input half-KeyMode-only"
-                                    inputmode="url"
-                                    placeholder="직접 입력"
-                                    aria-label="이메일 도메인 직접 입력"
-                                    data-i18n="join.emailDomainPlaceholder"
-                                />
+                                <input type="text" placeholder="성함 자동 입력" class="login-input" readonly>
                             </div>
                         </div>
-                        <div class="form-row no-mb">
-                            <div class="field-item align-end">
-                                <div class="field-flex full-width">
-                                    <select id="domainMode" class="login-input select-styled" aria-label="도메인 입력 방식">
-                                        <option value="direct" selected data-i18n="join.emailDomainPlaceholder">직접 입력</option>
-                                        <option value="gmail.com">gmail.com</option>
-                                        <option value="naver.com">naver.com</option>
-                                        <option value="daum.net">daum.net</option>
-                                        <option value="hotmail.com">hotmail.com</option>
-                                        <option value="nate.com">nate.com</option>
-                                    </select>
-                                    <button
-                                        type="button"
-                                        class="btn-sub-action"
-                                        id="btnCheckEmail"
-                                        onclick="openModal('emailDupOkModal') // emailDupOkModal & emailDupUsedModal"
-                                        data-i18n="join.checkEmail"
-                                    >
-                                        이메일 중복
-                                    </button>
-
-                                    <input type="hidden" id="emailFull" name="email" value="" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="field-item top-level">
-                        <label class="field-label">
-                            <span data-i18n="join.request.address">주소</span>
-                            <span class="badge-required" data-i18n="join.required">필수</span>
-                        </label>
-                        <div class="field-flex mb-12">
-                            <input type="text" placeholder="우편번호" class="login-input" readonly id="postcodeInput">
-                            <button type="button" class="btn-sub-action" onclick="openPostcodeModal()" data-i18n="join.searchPostcode">우편번호 검색</button>
-                        </div>
-                        <input type="text" placeholder="기본 주소" class="login-input mb-12" readonly
-                            id="addressBasicInput">
-                        <input type="text" placeholder="상세 주소를 입력해 주세요" class="login-input" data-i18n="join.request.addressDetail">
-                    </div>
-                </section>
-
-                <section class="form-sec" id="bankInfoSection" style="display: none;">
-                    <div class="form-sec-head" data-i18n="join.request.bankInfo">은행 정보</div>
-                    <div class="form-row-3">
-                        <div class="field-item">
-                            <label class="field-label">
-                                <span data-i18n="join.request.bankName">은행명</span>
-                                <span class="badge-required" data-i18n="join.required">필수</span>
-                            </label>
-                            <select class="login-input select-styled">
-                                <option value="" disabled selected data-i18n="join.request.selectBank">은행 선택</option>
-                                <option>국민은행</option>
-                                <option>신한은행</option>
-                                <option>우리은행</option>
-                                <option>하나은행</option>
-                                <option>농협은행</option>
-                                <option>기업은행</option>
-                                <option>카카오뱅크</option>
-                                <option>토스뱅크</option>
-                            </select>
-                        </div>
-                        <div class="field-item">
-                            <label class="field-label">
-                                계좌 번호
-                                <span class="badge-required">필수</span>
-                            </label>
-                            <input
-                                type="text"
-                                class="login-input "
-                                inputmode="numeric"
-                                pattern="[0-9]*"
-                                oninput="this.value = this.value.replace(/[^0-9]/g, '');"
-                                data-i18n="join.request.phonePlaceholder"
-                                placeholder="'-' 없이 숫자만 입력"
-                            />
-                        </div>
-                        <div class="field-item">
-                            <label class="field-label">
-                                계좌 소유주
-                                <span class="badge-required">필수</span>
-                            </label>
-                            <input type="text" placeholder="성함 자동 입력" class="login-input" readonly>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="form-sec border-none" id="remittancePurposeSection" style="display: none;">
-                    <div class="form-sec-head">송금 목적 (복수 선택 가능)</div>
-                    <div class="purpose-grid-full">
-                        <label class="check-label-group">
-                            <input type="checkbox" class="agree-item">
-                            <span class="custom-check"></span>
-                            <span class="check-text">통관수입대금</span>
-                        </label>
-                        <label class="check-label-group">
-                            <input type="checkbox" class="agree-item">
-                            <span class="custom-check"></span>
-                            <span class="check-text">무통관수입대금</span>
-                        </label>
-                        <label class="check-label-group">
-                            <input type="checkbox" class="agree-item">
-                            <span class="custom-check"></span>
-                            <span class="check-text">수출대금 반송분</span>
-                        </label>
-                        <label class="check-label-group">
-                            <input type="checkbox" class="agree-item">
-                            <span class="custom-check"></span>
-                            <span class="check-text">유학 및 연수</span>
-                        </label>
-                        <label class="check-label-group">
-                            <input type="checkbox" class="agree-item">
-                            <span class="custom-check"></span>
-                            <span class="check-text">여행</span>
-                        </label>
-                        <label class="check-label-group">
-                            <input type="checkbox" class="agree-item">
-                            <span class="custom-check"></span>
-                            <span class="check-text">운수</span>
-                        </label>
-                        <label class="check-label-group">
-                            <input type="checkbox" class="agree-item">
-                            <span class="custom-check"></span>
-                            <span class="check-text">보험료</span>
-                        </label>
-                        <label class="check-label-group">
-                            <input type="checkbox" class="agree-item">
-                            <span class="custom-check"></span>
-                            <span class="check-text">투자수익(배당금 및 이자)</span>
-                        </label>
-                        <label class="check-label-group">
-                            <input type="checkbox" class="agree-item">
-                            <span class="custom-check"></span>
-                            <span class="check-text">정부거래</span>
-                        </label>
-                        <label class="check-label-group">
-                            <input type="checkbox" class="agree-item">
-                            <span class="custom-check"></span>
-                            <span class="check-text">서비스거래(사업서비스)</span>
-                        </label>
-                        <label class="check-label-group">
-                            <input type="checkbox" class="agree-item">
-                            <span class="custom-check"></span>
-                            <span class="check-text">서비스거래(임금)</span>
-                        </label>
-                        <label class="check-label-group">
-                            <input type="checkbox" class="agree-item">
-                            <span class="custom-check"></span>
-                            <span class="check-text">이전거래(무상지급)</span>
-                        </label>
-                        <label class="check-label-group">
-                            <input type="checkbox" class="agree-item">
-                            <span class="custom-check"></span>
-                            <span class="check-text">해외증권투자</span>
-                        </label>
-                        <label class="check-label-group">
-                            <input type="checkbox" class="agree-item">
-                            <span class="custom-check"></span>
-                            <span class="check-text">차입 상환</span>
-                        </label>
-                        <label class="check-label-group">
-                            <input type="checkbox" class="agree-item">
-                            <span class="custom-check"></span>
-                            <span class="check-text">부동산 거래</span>
-                        </label>
-                        <label class="check-label-group">
-                            <input type="checkbox" class="agree-item">
-                            <span class="custom-check"></span>
-                            <span class="check-text">기타 자본거래</span>
-                        </label>
-                    </div>
-                </section>
-
-                <div class="reg-action-btns">
-                    <button type="button" class="btn-step-prev" onclick="location.href='CM_02_01.html'">취소</button>
-                    <button type="button" class="btn-main-login" onclick="openModal('regCompleteModal')">회원가입 신청 완료</button>
+                    </section>
                 </div>
-            </form>
-        </div>
+
+                <!-- 송금 목적 -->
+                <div class="login-card">
+                    <section class="form-sec border-none" id="remittancePurposeSection">
+                        <div class="form-sec-head">송금 목적 (복수 선택 가능)</div>
+                        <div class="purpose-grid-full">
+                            <label class="check-label-group">
+                                <input type="checkbox" class="agree-item">
+                                <span class="custom-check"></span>
+                                <span class="check-text">통관수입대금</span>
+                            </label>
+                            <label class="check-label-group">
+                                <input type="checkbox" class="agree-item">
+                                <span class="custom-check"></span>
+                                <span class="check-text">무통관수입대금</span>
+                            </label>
+                            <label class="check-label-group">
+                                <input type="checkbox" class="agree-item">
+                                <span class="custom-check"></span>
+                                <span class="check-text">수출대금 반송분</span>
+                            </label>
+                            <label class="check-label-group">
+                                <input type="checkbox" class="agree-item">
+                                <span class="custom-check"></span>
+                                <span class="check-text">유학 및 연수</span>
+                            </label>
+                            <label class="check-label-group">
+                                <input type="checkbox" class="agree-item">
+                                <span class="custom-check"></span>
+                                <span class="check-text">여행</span>
+                            </label>
+                            <label class="check-label-group">
+                                <input type="checkbox" class="agree-item">
+                                <span class="custom-check"></span>
+                                <span class="check-text">운수</span>
+                            </label>
+                            <label class="check-label-group">
+                                <input type="checkbox" class="agree-item">
+                                <span class="custom-check"></span>
+                                <span class="check-text">보험료</span>
+                            </label>
+                            <label class="check-label-group">
+                                <input type="checkbox" class="agree-item">
+                                <span class="custom-check"></span>
+                                <span class="check-text">투자수익(배당금 및 이자)</span>
+                            </label>
+                            <label class="check-label-group">
+                                <input type="checkbox" class="agree-item">
+                                <span class="custom-check"></span>
+                                <span class="check-text">정부거래</span>
+                            </label>
+                            <label class="check-label-group">
+                                <input type="checkbox" class="agree-item">
+                                <span class="custom-check"></span>
+                                <span class="check-text">서비스거래(사업서비스)</span>
+                            </label>
+                            <label class="check-label-group">
+                                <input type="checkbox" class="agree-item">
+                                <span class="custom-check"></span>
+                                <span class="check-text">서비스거래(임금)</span>
+                            </label>
+                            <label class="check-label-group">
+                                <input type="checkbox" class="agree-item">
+                                <span class="custom-check"></span>
+                                <span class="check-text">이전거래(무상지급)</span>
+                            </label>
+                            <label class="check-label-group">
+                                <input type="checkbox" class="agree-item">
+                                <span class="custom-check"></span>
+                                <span class="check-text">해외증권투자</span>
+                            </label>
+                            <label class="check-label-group">
+                                <input type="checkbox" class="agree-item">
+                                <span class="custom-check"></span>
+                                <span class="check-text">차입 상환</span>
+                            </label>
+                            <label class="check-label-group">
+                                <input type="checkbox" class="agree-item">
+                                <span class="custom-check"></span>
+                                <span class="check-text">부동산 거래</span>
+                            </label>
+                            <label class="check-label-group">
+                                <input type="checkbox" class="agree-item">
+                                <span class="custom-check"></span>
+                                <span class="check-text">기타 자본거래</span>
+                            </label>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <div class="reg-action-btns">
+                <button type="button" class="btn-step-prev" onclick="location.href='CM_02_01.html'">취소</button>
+                <button type="button" class="btn-main-login" onclick="openModal('regCompleteModal')">회원가입 신청 완료</button>
+            </div>
+        </form>
 
         <!-- OCR 신분증 업로드 모달 -->
         <div id="ocrModal" class="modal-overlay">
@@ -666,7 +672,7 @@
             </div>
         </div>
 
-        <!--
+        <!-- 미사용..
         openDupCheckModal({type: 'email', status: 'success'})// id & email || success & fail
 
         <div id="dupCheckModal" class="modal-overlay">
@@ -801,11 +807,12 @@
                 if (!selectEl.value) selectEl.value = 'direct';
 
                 if (domesticRadio.checked) {
-                    document.getElementById('domesticDocSection').style.display = 'block';
-                    document.getElementById('foreignDocSection').style.display = 'none';
-                    document.getElementById('personalInfoSection').style.display = 'block';
-                    document.getElementById('bankInfoSection').style.display = 'block';
-                    document.getElementById('remittancePurposeSection').style.display = 'block';
+                    // document.getElementById('domesticDocSection').style.display = 'block';
+                    // document.getElementById('foreignDocSection').style.display = 'none';
+                    // document.getElementById('commonInfoSection').style.display = 'block';
+                    document.getElementById('domesticDocSection').classList.remove('hidden');
+                    document.getElementById('foreignDocSection').classList.add('hidden');
+                    document.getElementById('commonInfoSection').classList.remove('hidden');
 
                     // 내국인: 대한민국 자동 선택 및 비활성화
                     if (krOption) krOption.style.display = 'block'; // 혹시 숨겨져 있었다면 보임
@@ -815,11 +822,12 @@
                     // 여기서는 UI 로직만 구현. 필요 시 disabled 풀어주는 로직이나 hidden input 추가.
                     // (일단 UI 요구사항에 집중)
                 } else if (foreignRadio.checked) {
-                    document.getElementById('domesticDocSection').style.display = 'none';
-                    document.getElementById('foreignDocSection').style.display = 'block';
-                    document.getElementById('personalInfoSection').style.display = 'block';
-                    document.getElementById('bankInfoSection').style.display = 'block';
-                    document.getElementById('remittancePurposeSection').style.display = 'block';
+                    // document.getElementById('domesticDocSection').style.display = 'none';
+                    // document.getElementById('foreignDocSection').style.display = 'block';
+                    // document.getElementById('commonInfoSection').style.display = 'block';
+                    document.getElementById('domesticDocSection').classList.add('hidden');
+                    document.getElementById('foreignDocSection').classList.remove('hidden');
+                    document.getElementById('commonInfoSection').classList.remove('hidden');
 
                     // 외국인: 대한민국 선택 불가 (숨김 또는 제거)
                     natSelect.disabled = false;

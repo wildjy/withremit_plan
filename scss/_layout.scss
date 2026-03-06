@@ -4,6 +4,24 @@
 /* ===== Responsive - Mobile = max-width: 768 : padding: 0 16px ===== */
 /* ===== Responsive - Small Mobile = max-width: 480 : padding: 0 16px ===== */
 
+/*
+	white section margin-bottom 제거
+	.db-content-card,
+	.login-card
+*/
+
+@mixin cardMarginHidden {
+	.field-item,
+	.form-row,
+	.form-row-2,
+	.form-row-3,
+	.form-row-full {
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
 html,
 body {
   overflow-x: hidden;
@@ -92,11 +110,58 @@ body{
 }
 
 /* ===== Inner White Content ===== */
+.mypage-main,
+.remit-main {
+	.db-content-card {
+		margin-top: var(--s8);
+	}
+}
+
+.remit-main {
+	.db-content-card {
+		&:first-child {
+			margin-top: 0;
+			padding: 0;
+			background-color: transparent;
+		}
+	}
+}
+
 .db-content-card {
 	padding: var(--s8);
-	background-color: #fff;
+	background-color: var(--white);
 	border-radius: var(--radius-xl);
-	box-shadow: var(--shadow-sm);
+
+	.remit-form-section {
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	.form-sec {
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		@include cardMarginHidden;
+	}
+}
+
+.login-card {
+	margin-bottom: var(--s10);
+  padding: var(--s14);
+	width: 100%;
+	background-color: var(--white);
+	border-radius: var(--radius-xl);
+	box-shadow: var(--shadow);
+
+	.form-sec {
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	@include cardMarginHidden;
 }
 
 @media (max-width: 1024px) {
@@ -194,25 +259,40 @@ body{
 /* ===== form Layout ===== */
 .form-sec {
 	margin-bottom: 30px;
-	padding-bottom: 10px;
-	border-bottom: 1px solid var(--border-default);
+	// padding-bottom: 10px;
+	// border-bottom: 1px solid var(--border-default);
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+
+	&.hidden {
+		opacity: 0;
+		width: 0;
+		height: 0;
+		overflow: hidden;
+		visibility: hidden;
+	}
 }
 
 .form-sec-head {
-	margin-bottom: 20px;
-	padding-left: 12px;
-	font-size: 18px;
-	font-weight: 700;
+	margin-bottom: var(--s6);
+	font-size: var(--text-lg);
 	color: var(--text-heavy);
+	font-weight: 700;
 	text-align: left;
-	border-left: 4px solid var(--primary-default);
+}
+
+// 회원가입 내국인/외국인 구분 섹션
+#domesticDocSection {
+	.form-sec-head {
+		margin-top: var(--s10);
+	}
 }
 
 .form-row-full,
 .form-row,
 .form-row-2,
-.form-row-3,
-.field-item.top-level {
+.form-row-3 {
 	width: 100%;
 	margin-bottom: 24px;
 	&.no-mb {

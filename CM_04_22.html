@@ -16,10 +16,13 @@
 <body class="login-page">
     <main class="login-container register-max-wrap">
         <div class="login-logo"><a href="CM_02_01.html"><img src="images/logo-withremit.png" alt="withremit"></a></div>
-        <div class="login-card register-card-wide">
-            <h2 class="login-title">기업회원 가입</h2>
-            <form action="#" method="POST" class="info-form-body">
 
+        <form action="#" method="POST" class="info-form-body register-card-wide">
+
+            <h2 class="login-title">기업회원 가입</h2>
+
+            <!-- 계정 정보 -->
+            <div class="login-card">
                 <section class="form-sec">
                     <div class="form-sec-head">계정 정보</div>
                     <div class="form-row-full">
@@ -57,7 +60,10 @@
                         </div>
                     </div>
                 </section>
+            </div>
 
+            <!-- 법인 정보 -->
+            <div class="login-card">
                 <section class="form-sec">
                     <div class="form-sec-head">법인 정보</div>
                     <div class="form-row-3">
@@ -139,7 +145,10 @@
                         <input type="text" placeholder="상세 주소를 입력해 주세요" class="login-input">
                     </div>
                 </section>
+            </div>
 
+            <!-- 법인 관리자 정보 -->
+            <div class="login-card">
                 <section class="form-sec">
                     <div class="form-sec-head">법인 관리자 정보</div>
                     <div class="form-row-3">
@@ -229,7 +238,10 @@
                         </div>
                     </div>
                 </section>
+            </div>
 
+            <!-- 법인 은행 정보 -->
+            <div class="login-card">
                 <section class="form-sec">
                     <div class="form-sec-head">법인 은행 정보</div>
                     <div class="form-row-3">
@@ -261,7 +273,10 @@
                         </div>
                     </div>
                 </section>
+            </div>
 
+            <!-- 법인 확인 서류 -->
+            <div class="login-card">
                 <section class="form-sec">
                     <div class="form-sec-head">법인 확인 서류</div>
                     <div class="form-row-2">
@@ -348,7 +363,10 @@
                     </div>
                     <p class="field-desc accent-red">* 신청자가 대표님이 아닐 경우 위임장을 첨부해 주셔야 합니다.</p>
                 </section>
+            </div>
 
+            <!-- 주주 명부 -->
+            <div class="login-card">
                 <section class="form-sec">
                     <div class="form-sec-head-flex">
                         <div class="form-sec-head">주주 명부</div>
@@ -407,7 +425,10 @@
                     </div>
                     <p class="field-desc accent-red">* 주식 25% 이상 소유자를 입력해 주세요.</p>
                 </section>
+            </div>
 
+            <!-- 송금 목적 선택 -->
+            <div class="login-card">
                 <section class="form-sec border-none">
                     <div class="form-sec-head">송금 목적 선택 (복수 선택 가능)</div>
                     <div class="purpose-grid-full business-purpose-grid">
@@ -447,13 +468,13 @@
                                 class="check-text">기타 자본거래</span></label>
                     </div>
                 </section>
+            </div>
 
-                <div class="reg-action-btns">
-                    <button type="button" class="btn-step-prev" onclick="location.href='CM_02_01.html'">취소</button>
-                    <button type="button" class="btn-main-login" onclick="openModal('regCompleteModal')">회원가입 신청 완료</button>
-                </div>
-            </form>
-        </div>
+            <div class="reg-action-btns">
+                <button type="button" class="btn-step-prev" onclick="location.href='CM_02_01.html'">취소</button>
+                <button type="button" class="btn-main-login" onclick="openModal('regCompleteModal')">회원가입 신청 완료</button>
+            </div>
+        </form>
 
         <div id="regCompleteModal" class="modal-overlay">
             <div class="modal-content">

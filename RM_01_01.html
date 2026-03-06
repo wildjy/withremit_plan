@@ -29,133 +29,137 @@
                     <h1 class="db-page-title">해외 송금 신청</h1>
                 </div>
 
-                <div class="db-content-card">
+                <div class="remit-main">
                     <!-- 한도액 안내 -->
-                    <div class="limit-info-grid">
-                        <div class="limit-info-item">
-                            <div class="limit-label">1회 한도액</div>
-                            <div class="limit-value">$ 5,000</div>
-                        </div>
-                        <div class="limit-info-item">
-                            <div class="limit-label">연간 한도액</div>
-                            <div class="limit-value">$ 100,000</div>
-                        </div>
-                        <div class="limit-info-item">
-                            <div class="limit-label">송금액</div>
-                            <div class="limit-value">$ 5,000.00</div>
-                        </div>
-                        <div class="limit-info-item highlight">
-                            <div class="limit-label">송금 가능 금액</div>
-                            <div class="limit-value">$ 5,000.00</div>
+                    <div class="db-content-card">
+                        <div class="limit-info-grid">
+                            <div class="limit-info-item">
+                                <div class="limit-label">1회 한도액</div>
+                                <div class="limit-value">$ 5,000</div>
+                            </div>
+                            <div class="limit-info-item">
+                                <div class="limit-label">연간 한도액</div>
+                                <div class="limit-value">$ 100,000</div>
+                            </div>
+                            <div class="limit-info-item">
+                                <div class="limit-label">송금액</div>
+                                <div class="limit-value">$ 5,000.00</div>
+                            </div>
+                            <div class="limit-info-item highlight">
+                                <div class="limit-label">송금 가능 금액</div>
+                                <div class="limit-value">$ 5,000.00</div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- 송금 정보 입력 -->
-                    <div class="remit-form-section">
-                        <h2 class="form-sec-head">송금 정보 입력</h2>
+                    <div class="db-content-card">
+                        <div class="remit-form-section">
+                            <h2 class="form-sec-head">송금 정보 입력</h2>
 
-                        <div class="form-sec">
-                            <div class="form-row-2">
-                                <div class="field-item">
-                                    <label class="field-label">국가</label>
-                                    <select class="login-input select-styled" id="remitCountry">
-                                        <option value="" disabled selected>선택</option>
-                                        <option value="JP">일본 (JPY)</option>
-                                        <option value="PH">필리핀 (PHP)</option>
-                                        <option value="CN">중국 (CNY)</option>
-                                        <option value="NP">네팔 (NPR)</option>
-                                        <option value="AU">호주 (AUD)</option>
-                                        <option value="HK">홍콩 (HKD)</option>
-                                        <option value="MN">몽골 (MNT)</option>
-                                        <option value="VN">베트남 (VND)</option>
-                                        <option value="LK">스리랑카 (LKR)</option>
-                                        <option value="BD">방글라데시 (BDT)</option>
-                                    </select>
-                                    <span class="field-error" id="remitCountryError"></span>
-                                </div>
-                                <div class="field-item">
-                                    <label class="field-label">서비스 선택</label>
-                                    <select class="login-input select-styled" id="remitService" disabled>
-                                        <option value="" disabled selected>선택</option>
-                                    </select>
-                                    <span class="field-error" id="remitServiceError"></span>
-                                </div>
-                            </div>
-
-                            <div id="amountSectionWrapper" style="display: none;">
-                                <div class="form-row-2">
+                            <div class="form-sec">
+                                <div class="form-row-2 mb-0">
                                     <div class="field-item">
-                                        <label class="field-label">송금액 설정</label>
-                                        <div class="field-flex h-52">
-                                            <label class="radio-wrap">
-                                                <input type="radio" name="amountType" value="send" checked>
-                                                <span class="custom-radio"></span>
-                                                <span>송금액 기준</span>
-                                            </label>
-                                            <label class="radio-wrap">
-                                                <input type="radio" name="amountType" value="receive">
-                                                <span class="custom-radio"></span>
-                                                <span>수취 금액 기준</span>
-                                            </label>
-                                        </div>
+                                        <label class="field-label">국가</label>
+                                        <select class="login-input select-styled" id="remitCountry">
+                                            <option value="" disabled selected>선택</option>
+                                            <option value="JP">일본 (JPY)</option>
+                                            <option value="PH">필리핀 (PHP)</option>
+                                            <option value="CN">중국 (CNY)</option>
+                                            <option value="NP">네팔 (NPR)</option>
+                                            <option value="AU">호주 (AUD)</option>
+                                            <option value="HK">홍콩 (HKD)</option>
+                                            <option value="MN">몽골 (MNT)</option>
+                                            <option value="VN">베트남 (VND)</option>
+                                            <option value="LK">스리랑카 (LKR)</option>
+                                            <option value="BD">방글라데시 (BDT)</option>
+                                        </select>
+                                        <span class="field-error" id="remitCountryError"></span>
                                     </div>
-                                    <div class="field-item exchange-rate-display" id="exchangeRateDisplay">
-                                        <label class="field-label">환율</label>
-                                        <div class="login-input exchange-rate-box">
-                                            <span id="exchangeRate">-</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="field-item top-level">
-                                    <label class="field-label" id="amountLabel">송금 금액</label>
-                                    <div class="field-flex">
-                                        <div class="amount-input-wrapper">
-                                            <span id="currencySymbol" class="currency-symbol-fixed">₩</span>
-                                            <input type="text" placeholder="송금 금액을 입력하세요"
-                                                class="login-input amount-input" id="sendAmount">
-                                        </div>
-                                        <button type="button" class="btn-sub-action"
-                                            onclick="calculateRemit()">계산하기</button>
-                                    </div>
-                                    <span class="field-error" id="sendAmountError"></span>
-                                    <div class="quick-amount-buttons" id="quickAmountButtons">
-                                        <button type="button" class="quick-btn" onclick="setQuickAmount(1000000)">₩
-                                            1,000,000</button>
-                                        <button type="button" class="quick-btn" onclick="setQuickAmount(2000000)">₩
-                                            2,000,000</button>
-                                        <button type="button" class="quick-btn" onclick="setQuickAmount(3000000)">₩
-                                            3,000,000</button>
-                                        <button type="button" class="quick-btn" onclick="setQuickAmount(4000000)">₩
-                                            4,000,000</button>
-                                        <button type="button" class="quick-btn" onclick="setQuickAmount(5000000)">₩
-                                            5,000,000</button>
-                                        <button type="button" class="quick-btn" onclick="setQuickAmount(6000000)">₩
-                                            6,000,000</button>
+                                    <div class="field-item">
+                                        <label class="field-label">서비스 선택</label>
+                                        <select class="login-input select-styled" id="remitService" disabled>
+                                            <option value="" disabled selected>선택</option>
+                                        </select>
+                                        <span class="field-error" id="remitServiceError"></span>
                                     </div>
                                 </div>
 
-                                <div class="remit-calc-result" id="calcResult">
-                                    <div class="calc-result-cols">
-                                        <div class="calc-col-item">
-                                            <span class="calc-col-label">송금 금액</span>
-                                            <span class="calc-col-value" id="displaySendAmount">-</span>
+                                <div class="amountSectionWrapper" id="amountSectionWrapper">
+                                    <div class="form-row-2">
+                                        <div class="field-item">
+                                            <label class="field-label">송금액 설정</label>
+                                            <div class="field-flex h-52">
+                                                <label class="radio-wrap">
+                                                    <input type="radio" name="amountType" value="send" checked>
+                                                    <span class="custom-radio"></span>
+                                                    <span>송금액 기준</span>
+                                                </label>
+                                                <label class="radio-wrap">
+                                                    <input type="radio" name="amountType" value="receive">
+                                                    <span class="custom-radio"></span>
+                                                    <span>수취 금액 기준</span>
+                                                </label>
+                                            </div>
                                         </div>
-                                        <div class="calc-col-item">
-                                            <span class="calc-col-label">송금 수수료</span>
-                                            <span class="calc-col-value" id="remitFee">-</span>
+                                        <div class="field-item exchange-rate-display" id="exchangeRateDisplay">
+                                            <label class="field-label">환율</label>
+                                            <div class="login-input exchange-rate-box">
+                                                <span id="exchangeRate">-</span>
+                                            </div>
                                         </div>
-                                        <div class="calc-col-item">
-                                            <span class="calc-col-label">수취 금액</span>
-                                            <span class="calc-col-value" id="receiveAmount">-</span>
+                                    </div>
+
+                                    <div class="field-item top-level">
+                                        <label class="field-label" id="amountLabel">송금 금액</label>
+                                        <div class="field-flex">
+                                            <div class="amount-input-wrapper">
+                                                <span id="currencySymbol" class="currency-symbol-fixed">₩</span>
+                                                <input type="text" placeholder="송금 금액을 입력하세요"
+                                                    class="login-input amount-input" id="sendAmount">
+                                            </div>
+                                            <button type="button" class="btn-sub-action"
+                                                onclick="calculateRemit()">계산하기</button>
                                         </div>
-                                        <div class="calc-col-item" id="withdrawalFeeRow">
-                                            <span class="calc-col-label">수취 수수료</span>
-                                            <span class="calc-col-value" id="withdrawalFeeAmount">-</span>
+                                        <span class="field-error" id="sendAmountError"></span>
+                                        <div class="quick-amount-buttons" id="quickAmountButtons">
+                                            <button type="button" class="quick-btn" onclick="setQuickAmount(1000000)">₩
+                                                1,000,000</button>
+                                            <button type="button" class="quick-btn" onclick="setQuickAmount(2000000)">₩
+                                                2,000,000</button>
+                                            <button type="button" class="quick-btn" onclick="setQuickAmount(3000000)">₩
+                                                3,000,000</button>
+                                            <button type="button" class="quick-btn" onclick="setQuickAmount(4000000)">₩
+                                                4,000,000</button>
+                                            <button type="button" class="quick-btn" onclick="setQuickAmount(5000000)">₩
+                                                5,000,000</button>
+                                            <button type="button" class="quick-btn" onclick="setQuickAmount(6000000)">₩
+                                                6,000,000</button>
                                         </div>
-                                        <div class="calc-col-item highlight">
-                                            <span class="calc-col-label">입금액</span>
-                                            <span class="calc-col-value" id="depositAmount">-</span>
+                                    </div>
+
+                                    <div class="remit-calc-result" id="calcResult">
+                                        <div class="calc-result-cols">
+                                            <div class="calc-col-item">
+                                                <span class="calc-col-label">송금 금액</span>
+                                                <span class="calc-col-value" id="displaySendAmount">-</span>
+                                            </div>
+                                            <div class="calc-col-item">
+                                                <span class="calc-col-label">송금 수수료</span>
+                                                <span class="calc-col-value" id="remitFee">-</span>
+                                            </div>
+                                            <div class="calc-col-item">
+                                                <span class="calc-col-label">수취 금액</span>
+                                                <span class="calc-col-value" id="receiveAmount">-</span>
+                                            </div>
+                                            <div class="calc-col-item" id="withdrawalFeeRow">
+                                                <span class="calc-col-label">수취 수수료</span>
+                                                <span class="calc-col-value" id="withdrawalFeeAmount">-</span>
+                                            </div>
+                                            <div class="calc-col-item highlight">
+                                                <span class="calc-col-label">입금액</span>
+                                                <span class="calc-col-value" id="depositAmount">-</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -164,226 +168,230 @@
                     </div>
 
                     <!-- 입금 은행 선택 -->
-                    <div class="remit-form-section">
-                        <h2 class="form-sec-head">입금 은행 선택</h2>
+                    <div class="db-content-card">
+                        <div class="remit-form-section">
+                            <h2 class="form-sec-head">입금 은행 선택</h2>
 
-                        <div class="form-sec">
-                            <div class="form-row-2">
-                                <div class="field-item">
-                                    <label class="field-label">입금 은행</label>
-                                    <select class="login-input select-styled" id="depositBank">
-                                        <option value="" disabled selected>선택</option>
-                                        <option value="ibk">기업은행 (IBK)</option>
-                                        <option value="nh">농협은행 (NONGHYUP BANK)</option>
-                                        <option value="auto">자동 출금</option>
-                                    </select>
-                                    <span class="field-error" id="depositBankError"></span>
+                            <div class="form-sec">
+                                <div class="form-row-2">
+                                    <div class="field-item">
+                                        <label class="field-label">입금 은행</label>
+                                        <select class="login-input select-styled" id="depositBank">
+                                            <option value="" disabled selected>선택</option>
+                                            <option value="ibk">기업은행 (IBK)</option>
+                                            <option value="nh">농협은행 (NONGHYUP BANK)</option>
+                                            <option value="auto">자동 출금</option>
+                                        </select>
+                                        <span class="field-error" id="depositBankError"></span>
+                                    </div>
+                                    <div class="field-item">
+                                        <label class="field-label">입금자 명</label>
+                                        <input type="text" placeholder="입금자 명을 입력하세요" class="login-input" id="depositorName"
+                                            value="홍길동">
+                                        <span class="field-error" id="depositorNameError"></span>
+                                    </div>
                                 </div>
-                                <div class="field-item">
-                                    <label class="field-label">입금자 명</label>
-                                    <input type="text" placeholder="입금자 명을 입력하세요" class="login-input" id="depositorName"
-                                        value="홍길동">
-                                    <span class="field-error" id="depositorNameError"></span>
-                                </div>
-                            </div>
 
-                            <div class="form-row-2">
-                                <div class="field-item">
-                                    <label class="field-label">입금 계좌</label>
-                                    <input type="text" placeholder="계좌 번호를 입력하세요" class="login-input"
-                                        id="depositAccount">
-                                    <span class="field-error" id="depositAccountError"></span>
-                                </div>
-                                <div class="field-item">
-                                    <label class="field-label">입금 계좌 명의</label>
-                                    <input type="text" placeholder="계좌 명의를 입력하세요" class="login-input"
-                                        id="accountHolder">
-                                    <span class="field-error" id="accountHolderError"></span>
+                                <div class="form-row-2">
+                                    <div class="field-item">
+                                        <label class="field-label">입금 계좌</label>
+                                        <input type="text" placeholder="계좌 번호를 입력하세요" class="login-input"
+                                            id="depositAccount">
+                                        <span class="field-error" id="depositAccountError"></span>
+                                    </div>
+                                    <div class="field-item">
+                                        <label class="field-label">입금 계좌 명의</label>
+                                        <input type="text" placeholder="계좌 명의를 입력하세요" class="login-input"
+                                            id="accountHolder">
+                                        <span class="field-error" id="accountHolderError"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- 수취 정보 입력 -->
-                    <div class="remit-form-section">
-                        <div class="form-sec-head-wrap">
-                            <h2 class="form-sec-head">수취 정보 입력</h2>
-                            <div class="head-buttons">
-                                <button type="button" class="quick-btn small">자주 쓰는 계좌</button>
-                                <button type="button" class="quick-btn small">최근 입금 계좌</button>
+                    <div class="db-content-card">
+                        <div class="remit-form-section">
+                            <div class="form-sec-head-wrap">
+                                <h2 class="form-sec-head">수취 정보 입력</h2>
+                                <div class="head-buttons">
+                                    <button type="button" class="quick-btn small">자주 쓰는 계좌</button>
+                                    <button type="button" class="quick-btn small">최근 입금 계좌</button>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-sec">
-                            <div class="form-row-2">
-                                <div class="form-row-2 no-mb">
-                                    <div class="field-item">
-                                        <label class="field-label">
-                                            <span data-i18n="join.request.firstNameEn">수취인 이름 (영문)</span>
-                                        </label>
-                                        <input type="text" placeholder="영문으로 입력하세요" class="login-input" id="firstNameEn">
-                                        <span class="field-error" id="firstNameEnError"></span>
+                            <div class="form-sec">
+                                <div class="form-row-2">
+                                    <div class="form-row-2 no-mb">
+                                        <div class="field-item">
+                                            <label class="field-label">
+                                                <span data-i18n="join.request.firstNameEn">수취인 이름 (영문)</span>
+                                            </label>
+                                            <input type="text" placeholder="영문으로 입력하세요" class="login-input" id="firstNameEn">
+                                            <span class="field-error" id="firstNameEnError"></span>
+                                        </div>
+                                        <div class="field-item">
+                                            <label class="field-label">
+                                                <span data-i18n="join.request.lastNameEn">수취인 성 (영문)</span>
+                                            </label>
+                                            <input type="text" placeholder="영문으로 입력하세요" class="login-input" id="lastNameEn">
+                                            <span class="field-error" id="lastNameEnError"></span>
+                                        </div>
                                     </div>
-                                    <div class="field-item">
-                                        <label class="field-label">
-                                            <span data-i18n="join.request.lastNameEn">수취인 성 (영문)</span>
-                                        </label>
-                                        <input type="text" placeholder="영문으로 입력하세요" class="login-input" id="lastNameEn">
-                                        <span class="field-error" id="lastNameEnError"></span>
+                                    <div class="form-row no-mb">
+                                        <div class="field-item">
+                                            <label class="field-label">수취인과의 관계</label>
+                                            <select class="login-input select-styled" id="relationship">
+                                                <option value="">선택</option>
+                                                <option value="R01">본인</option>
+                                                <option value="R02">자식</option>
+                                                <option value="R03">부모</option>
+                                                <option value="R04">형제</option>
+                                                <option value="R05">조카</option>
+                                                <option value="R06">친척</option>
+                                                <option value="R07">사업파트너</option>
+                                                <option value="R08">친구</option>
+                                                <option value="R09">배우자</option>
+                                            </select>
+                                            <span class="field-error" id="relationshipError"></span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-row no-mb">
+
+                                <div class="form-row-2" id="NameKanaSection" style="display: none;">
                                     <div class="field-item">
-                                        <label class="field-label">수취인과의 관계</label>
-                                        <select class="login-input select-styled" id="relationship">
+                                        <label class="field-label">수취인 이름 (카나명)</label>
+                                        <input type="text" placeholder="카타카나로 입력하세요 (예: ヤマダ)" class="login-input"
+                                            id="beneficiaryNameKana">
+                                        <span class="field-error" id="beneficiaryNameKanaError"></span>
+                                    </div>
+                                    <div class="field-item">
+                                        <label class="field-label">수취인 성 (카나명)</label>
+                                        <input type="text" placeholder="카타카나로 입력하세요 (예: ヤマダ)" class="login-input"
+                                            id="beneficiaryLastNameKana">
+                                        <span class="field-error" id="beneficiaryLastNameKanaError"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-row-2">
+                                    <div class="form-row no-mb">
+                                        <div class="field-item">
+                                            <label class="field-label">수취 은행</label>
+                                            <select class="login-input select-styled" id="beneficiaryBank">
+                                                <option value="">선택</option>
+                                            </select>
+                                            <span class="field-error" id="beneficiaryBankError"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row no-mb" id="BsbSection">
+                                        <div class="field-item" id="BsbField" style="display: none;">
+                                            <label class="field-label no-uppercase">BSB<span class="hide-pc">(Bank State Branch)</span> 번호</label>
+                                            <input type="text" placeholder="BSB 번호를 입력하세요" class="login-input" id="bsbNumber">
+                                            <span class="field-error" id="bsbNumberError"></span>
+                                        </div>
+                                        <div class="field-item">
+                                            <label class="field-label">은행 지점 번호</label>
+                                            <input type="text" placeholder="지점 번호를 입력하세요" class="login-input" id="branchNumber">
+                                            <span class="field-error" id="branchNumberError"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row-2">
+                                    <div class="field-item">
+                                        <label class="field-label">수취 계좌 번호</label>
+                                        <input
+                                            type="text"
+                                            class="login-input"
+                                            id="beneficiaryAccount"
+                                            inputmode="numeric"
+                                            pattern="[0-9]*"
+                                            oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                                            data-i18n="join.request.phonePlaceholder"
+                                            placeholder="계좌 번호를 입력하세요"
+                                        />
+                                        <span class="field-error" id="beneficiaryAccountError"></span>
+                                    </div>
+                                    <div class="field-item">
+                                        <label class="field-label">수취 계좌 타입</label>
+                                        <select class="login-input select-styled" id="accountType">
                                             <option value="">선택</option>
-                                            <option value="R01">본인</option>
-                                            <option value="R02">자식</option>
-                                            <option value="R03">부모</option>
-                                            <option value="R04">형제</option>
-                                            <option value="R05">조카</option>
-                                            <option value="R06">친척</option>
-                                            <option value="R07">사업파트너</option>
-                                            <option value="R08">친구</option>
-                                            <option value="R09">배우자</option>
+                                            <option value="1">Futuu 저축계좌</option>
+                                            <option value="2">Touza 당좌계좌</option>
                                         </select>
-                                        <span class="field-error" id="relationshipError"></span>
+                                        <span class="field-error" id="accountTypeError"></span>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="form-row-2" id="NameKanaSection" style="display: none;">
-                                <div class="field-item">
-                                    <label class="field-label">수취인 이름 (카나명)</label>
-                                    <input type="text" placeholder="카타카나로 입력하세요 (예: ヤマダ)" class="login-input"
-                                        id="beneficiaryNameKana">
-                                    <span class="field-error" id="beneficiaryNameKanaError"></span>
-                                </div>
-                                <div class="field-item">
-                                    <label class="field-label">수취인 성 (카나명)</label>
-                                    <input type="text" placeholder="카타카나로 입력하세요 (예: ヤマダ)" class="login-input"
-                                        id="beneficiaryLastNameKana">
-                                    <span class="field-error" id="beneficiaryLastNameKanaError"></span>
-                                </div>
-                            </div>
-
-                            <div class="form-row-2">
-                                <div class="form-row no-mb">
+                                <div class="form-row-2">
                                     <div class="field-item">
-                                        <label class="field-label">수취 은행</label>
-                                        <select class="login-input select-styled" id="beneficiaryBank">
-                                            <option value="">선택</option>
+                                        <label class="field-label">송금 목적</label>
+                                        <select class="login-input select-styled" id="remitPurpose">
+                                            <option value="" disabled selected>선택</option>
+                                            <option value="family">가족 송금</option>
+                                            <option value="education">교육비</option>
+                                            <option value="living">생활비</option>
+                                            <option value="medical">의료비</option>
+                                            <option value="business">사업</option>
+                                            <option value="investment">투자</option>
+                                            <option value="gift">선물</option>
+                                            <option value="other">기타</option>
                                         </select>
-                                        <span class="field-error" id="beneficiaryBankError"></span>
+                                        <span class="field-error" id="remitPurposeError"></span>
+                                    </div>
+                                    <div class="field-item">
+                                        <label class="field-label">자금 출처</label>
+                                        <select class="login-input select-styled" id="fundSource">
+                                            <option value="">선택</option>
+                                            <option value="SF01">월급</option>
+                                            <option value="SF02">부동산/동산 판매이익</option>
+                                            <option value="SF03">저축</option>
+                                            <option value="SF04">투자이익</option>
+                                            <option value="SF05">연금</option>
+                                            <option value="SF06">사업수입</option>
+                                        </select>
+                                        <span class="field-error" id="fundSourceError"></span>
                                     </div>
                                 </div>
-                                <div class="form-row no-mb" id="BsbSection">
-                                    <div class="field-item" id="BsbField" style="display: none;">
-                                        <label class="field-label no-uppercase">BSB<span class="hide-pc">(Bank State Branch)</span> 번호</label>
-                                        <input type="text" placeholder="BSB 번호를 입력하세요" class="login-input" id="bsbNumber">
-                                        <span class="field-error" id="bsbNumberError"></span>
+
+                                <div class="form-row-2">
+                                    <div class="field-item">
+                                        <label class="field-label">전화번호</label>
+                                        <input
+                                            type="text"
+                                            class="login-input"
+                                            id="beneficiaryPhone"
+                                            inputmode="numeric"
+                                            pattern="[0-9]*"
+                                            oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                                            data-i18n="join.request.phonePlaceholder"
+                                            placeholder="예: 01012345678"
+                                        />
+                                        <span class="field-error" id="beneficiaryPhoneError"></span>
                                     </div>
                                     <div class="field-item">
                                         <label class="field-label">은행 지점 번호</label>
-                                        <input type="text" placeholder="지점 번호를 입력하세요" class="login-input" id="branchNumber">
-                                        <span class="field-error" id="branchNumberError"></span>
+                                        <input
+                                            type="text"
+                                            class="login-input"
+                                            inputmode="numeric"
+                                            pattern="[0-9]*"
+                                            oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                                            data-i18n="join.request.phonePlaceholder"
+                                            id="bankBranchNumber"
+                                            placeholder="은행 지점 번호를 입력하세요"
+                                        />
+                                        <span class="field-error" id="bankBranchNumberError"></span>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="form-row-2">
-                                <div class="field-item">
-                                    <label class="field-label">수취 계좌 번호</label>
-                                    <input
-                                        type="text"
-                                        class="login-input"
-                                        id="beneficiaryAccount"
-                                        inputmode="numeric"
-                                        pattern="[0-9]*"
-                                        oninput="this.value = this.value.replace(/[^0-9]/g, '');"
-                                        data-i18n="join.request.phonePlaceholder"
-                                        placeholder="계좌 번호를 입력하세요"
-                                    />
-                                    <span class="field-error" id="beneficiaryAccountError"></span>
+                                <div class="field-item top-level">
+                                    <label class="field-label">주소</label>
+                                    <textarea class="login-input textarea-input" placeholder="수취인 주소를 입력하세요"
+                                        id="beneficiaryAddress" rows="3"></textarea>
+                                    <span class="field-error" id="beneficiaryAddressError"></span>
                                 </div>
-                                <div class="field-item">
-                                    <label class="field-label">수취 계좌 타입</label>
-                                    <select class="login-input select-styled" id="accountType">
-                                        <option value="">선택</option>
-                                        <option value="1">Futuu 저축계좌</option>
-                                        <option value="2">Touza 당좌계좌</option>
-                                    </select>
-                                    <span class="field-error" id="accountTypeError"></span>
-                                </div>
-                            </div>
-
-                            <div class="form-row-2">
-                                <div class="field-item">
-                                    <label class="field-label">송금 목적</label>
-                                    <select class="login-input select-styled" id="remitPurpose">
-                                        <option value="" disabled selected>선택</option>
-                                        <option value="family">가족 송금</option>
-                                        <option value="education">교육비</option>
-                                        <option value="living">생활비</option>
-                                        <option value="medical">의료비</option>
-                                        <option value="business">사업</option>
-                                        <option value="investment">투자</option>
-                                        <option value="gift">선물</option>
-                                        <option value="other">기타</option>
-                                    </select>
-                                    <span class="field-error" id="remitPurposeError"></span>
-                                </div>
-                                <div class="field-item">
-                                    <label class="field-label">자금 출처</label>
-                                    <select class="login-input select-styled" id="fundSource">
-                                        <option value="">선택</option>
-                                        <option value="SF01">월급</option>
-                                        <option value="SF02">부동산/동산 판매이익</option>
-                                        <option value="SF03">저축</option>
-                                        <option value="SF04">투자이익</option>
-                                        <option value="SF05">연금</option>
-                                        <option value="SF06">사업수입</option>
-                                    </select>
-                                    <span class="field-error" id="fundSourceError"></span>
-                                </div>
-                            </div>
-
-                            <div class="form-row-2">
-                                <div class="field-item">
-                                    <label class="field-label">전화번호</label>
-                                    <input
-                                        type="text"
-                                        class="login-input"
-                                        id="beneficiaryPhone"
-                                        inputmode="numeric"
-                                        pattern="[0-9]*"
-                                        oninput="this.value = this.value.replace(/[^0-9]/g, '');"
-                                        data-i18n="join.request.phonePlaceholder"
-                                        placeholder="예: 01012345678"
-                                    />
-                                    <span class="field-error" id="beneficiaryPhoneError"></span>
-                                </div>
-                                <div class="field-item">
-                                    <label class="field-label">은행 지점 번호</label>
-                                    <input
-                                        type="text"
-                                        class="login-input"
-                                        inputmode="numeric"
-                                        pattern="[0-9]*"
-                                        oninput="this.value = this.value.replace(/[^0-9]/g, '');"
-                                        data-i18n="join.request.phonePlaceholder"
-                                        id="bankBranchNumber"
-                                        placeholder="은행 지점 번호를 입력하세요"
-                                    />
-                                    <span class="field-error" id="bankBranchNumberError"></span>
-                                </div>
-                            </div>
-
-                            <div class="field-item top-level">
-                                <label class="field-label">주소</label>
-                                <textarea class="login-input textarea-input" placeholder="수취인 주소를 입력하세요"
-                                    id="beneficiaryAddress" rows="3"></textarea>
-                                <span class="field-error" id="beneficiaryAddressError"></span>
                             </div>
                         </div>
                     </div>
@@ -1006,6 +1014,7 @@
                     { id: 'accountType', message: '수취 계좌 타입을 선택해 주세요.' }
                 );
             }
+
             // 호주인 경우에만 계좌 타입 필수
             if (country === 'AU') {
                 requiredFields.push(
@@ -1026,6 +1035,8 @@
                     if (!firstErrorElement) {
                         firstErrorElement = element;
                     }
+                } else {
+                    clearFieldError(field.id);
                 }
             }
 

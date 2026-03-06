@@ -178,12 +178,12 @@ body.db-body .sidebar {
 }
 
 .nav-icon {
-	width: 20px;
-	height: 20px;
+	width: var(--s5);
+	height: var(--s5);
 	flex-shrink: 0;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 20px 20px;
+	background-size: var(--s5) var(--s5);
 }
 
 .nav-icon-home {
