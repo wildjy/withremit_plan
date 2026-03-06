@@ -613,6 +613,9 @@ body.wh-full {
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
+.field-item input {
+  margin-top: auto;
+}
 
 .field-item.flex-2 {
   grid-column: span 2;
@@ -5346,7 +5349,7 @@ a.banner-slide {
 
 .purpose-grid-full {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px 16px;
   background-color: var(--bg-light);
   padding: 24px;
@@ -8315,7 +8318,7 @@ a.banner-slide {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   background-color: var(--white);
-  border-radius: var(--radius);
+  border-radius: var(--radius-xl);
 }
 .limit-info-item:nth-child(1) .limit-label:before {
   background-image: url("../images/svg/icon_remit_1.svg");
@@ -8570,9 +8573,6 @@ a.banner-slide {
     gap: 12px;
     margin-bottom: 20px;
   }
-  .limit-info-item {
-    padding: 10px 8px;
-  }
   .limit-info-item .limit-label {
     font-size: 0.7rem;
     margin-bottom: 4px;
@@ -8589,9 +8589,6 @@ a.banner-slide {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     margin-bottom: 16px;
-  }
-  .limit-info-item {
-    padding: 10px 8px;
   }
   .limit-info-item .limit-label {
     font-size: 0.75rem;
@@ -8669,9 +8666,6 @@ a.banner-slide {
   .limit-info-grid {
     gap: 8px;
     margin-bottom: 12px;
-  }
-  .limit-info-item {
-    padding: 8px 6px;
   }
   .limit-info-item .limit-label {
     font-size: 0.7rem;

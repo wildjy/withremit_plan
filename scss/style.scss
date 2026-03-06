@@ -1575,7 +1575,7 @@
 	text-align: left;
 	transition: all 0.3s ease;
 	background-color: var(--white);
-	border-radius: var(--radius);
+	border-radius: var(--radius-xl);
 
 	@function remit-icon-url($index) {
 		@return url("../images/svg/icon_remit_#{$index}.svg");
@@ -1796,10 +1796,6 @@
 		margin-bottom: 20px;
 	}
 
-	.limit-info-item {
-		padding: 10px 8px;
-	}
-
 	.limit-info-item .limit-label {
 		font-size: 0.7rem;
 		margin-bottom: 4px;
@@ -1819,10 +1815,6 @@
 		grid-template-columns: repeat(2, 1fr);
 		gap: 10px;
 		margin-bottom: 16px;
-	}
-
-	.limit-info-item {
-		padding: 10px 8px;
 	}
 
 	.limit-info-item .limit-label {
@@ -1903,10 +1895,6 @@
 	.limit-info-grid {
 		gap: 8px;
 		margin-bottom: 12px;
-	}
-
-	.limit-info-item {
-		padding: 8px 6px;
 	}
 
 	.limit-info-item .limit-label {

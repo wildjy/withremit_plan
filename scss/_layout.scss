@@ -338,6 +338,9 @@ body{
 	&.align-end {
 		justify-content: flex-end;
 	}
+	input {
+		margin-top: auto;
+	}
 }
 
 .field-item.flex-2 {
