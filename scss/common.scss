@@ -1,10 +1,49 @@
 // Main(CM_02_01), DB_01_01, Common Styles
 
 /* Date Picker Custom Style */
+// .date-picker-custom {
+// 	padding: 8px 8px 8px 16px !important;
+// 	text-align: left;
+// }
+
 .date-picker-custom {
-	padding: 8px 8px 8px 16px !important;
+	width: 100%;
+	min-height: var(--input-h);
+	color: var(--text-heavy);
+	font-weight: 500;
+	text-align: left;
+	transition: var(--transition);
+	background-color: #fff;
+	background-image: var(--icon-datepicker);
+	background-repeat: no-repeat;
+	background-position: right 14px center;
+	background-size: 16px;
+	border-radius: var(--radius);
+	outline: none;
+	cursor: pointer;
+	appearance: none;
+	-webkit-appearance: none;
+}
+
+.date-picker-custom::-webkit-calendar-picker-indicator {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.date-picker-custom::-webkit-datetime-edit,
+.date-picker-custom::-webkit-datetime-edit-fields-wrapper {
 	text-align: left;
 }
+
+.date-picker-custom::-webkit-datetime-edit-fields-wrapper {
+	justify-content: flex-start;
+}
+
+.date-picker-custom:focus {
+	border-color: var(--primary-default) !important;
+	box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);
+}
+
 
 /* ===== Banner Slider ===== */
 .banner-slider {

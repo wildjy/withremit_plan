@@ -113,8 +113,9 @@ input {
 select {
 	appearance: none;
 	background-image: var(--icon-select);
+	background-size: var(--s3) 0.4375rem;
 	background-repeat: no-repeat;
-	background-position: calc(100% - 20px) center;
+	background-position: calc(100% - var(--s5)) center;
 	cursor: pointer;
 	// &:focus-within {
 	// 	border-color: var(--primary-default);

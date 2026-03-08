@@ -1,8 +1,45 @@
 @charset "UTF-8";
 /* Date Picker Custom Style */
 .date-picker-custom {
-  padding: 8px 8px 8px 16px !important;
+  width: 100%;
+  min-height: var(--input-h);
+  color: var(--text-heavy);
+  font-weight: 500;
   text-align: left;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  background-color: #fff;
+  background-image: var(--icon-datepicker);
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  border-radius: var(--radius);
+  outline: none;
+  cursor: pointer;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+}
+
+.date-picker-custom::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.date-picker-custom::-webkit-datetime-edit,
+.date-picker-custom::-webkit-datetime-edit-fields-wrapper {
+  text-align: left;
+}
+
+.date-picker-custom::-webkit-datetime-edit-fields-wrapper {
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+}
+
+.date-picker-custom:focus {
+  border-color: var(--primary-default) !important;
+  -webkit-box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);
+          box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);
 }
 
 /* ===== Banner Slider ===== */
