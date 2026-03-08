@@ -18,19 +18,19 @@ css_to_append = """
     justify-content: center;
 }
 
-.btn-cancel {
+.btn btn-secondary size-lg {
     background-color: #F3F4F6;
     color: #4B5563;
     flex: 1; /* Narrower */
 }
 
-.btn-confirm-action {
+.btn btn-primary size-lg {
     background-color: #1B5E9E;
     color: #FFFFFF;
     flex: 2; /* Wider */
 }
 
-.btn-confirm-action:hover {
+.btn btn-primary size-lg:hover {
     background-color: #154A7C;
 }
 
@@ -59,11 +59,11 @@ with open('css/style.css', 'r', encoding='utf-8') as f:
     content = f.read()
 
 # Remove the previous attempt's partial addition if it exists (lines 9411-9442 approximately)
-# The previous append added .modal-btn-group, .btn-cancel, etc. but WITHOUT flex: 1/2.
+# The previous append added .modal-btn-group, .btn btn-secondary size-lg, etc. but WITHOUT flex: 1/2.
 # We should try to replace that block or just append this new one at the end and rely on cascade?
 # Better to replace if we can find it.
 
-# Simple approach: If ".btn-confirm-action:hover" is near the end, we can try to find the block and replace it.
+# Simple approach: If ".btn btn-primary size-lg:hover" is near the end, we can try to find the block and replace it.
 # Or just append, since CSS cascade will take the last definition.
 # BUT, we want to be clean.
 # Let's just append for now to ensure it works, as specificity is the same.

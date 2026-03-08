@@ -148,8 +148,8 @@
                     </div>
 
                     <!-- 하단 버튼 -->
-                    <div class="remit-action-btns">
-                        <button type="button" class="btn btn-primary" onclick="openConfirmModal()">문의하기</button>
+                    <div class="btn-align right">
+                        <button type="button" class="btn btn-primary size-lg" onclick="openConfirmModal()">문의하기</button>
                     </div>
 
                     <!-- 문의 내역 확인 박스 -->
@@ -181,7 +181,7 @@
                 </div>
                 <h3 data-i18n="modal.emailDup.title">이메일 중복 확인</h3>
                 <p data-i18n="modal.emailDup.ok">사용 가능한 이메일입니다.</p>
-                <button class="modal-btn-success" onclick="closeModal('emailDupOkModal')" data-i18n="button.confirm">확인</button>
+                <button class="btn btn-primary full size-lg" onclick="closeModal('emailDupOkModal')" data-i18n="button.confirm">확인</button>
             </div>
         </div>
     </div>
@@ -200,7 +200,7 @@
                 </div>
                 <h3 data-i18n="modal.emailDup.title">이메일 중복 확인</h3>
                 <p data-i18n="modal.emailDup.fail">이미 사용 중인 이메일입니다.</p>
-                <button class="modal-btn-warning" onclick="closeModal('emailDupUsedModal')" data-i18n="button.confirm">확인</button>
+                <button class="btn btn-warning full size-lg" onclick="closeModal('emailDupUsedModal')" data-i18n="button.confirm">확인</button>
             </div>
         </div>
     </div>
@@ -220,8 +220,8 @@
                 <h3>문의하시겠습니까?</h3>
                 <p>문의에 대한 답변을 이메일로 받아보실 수 있습니다.</p>
                 <div class="modal-btn-group">
-                    <button class="btn-cancel" onclick="closeModal('confirmModal')">취소</button>
-                    <button class="btn-confirm-action" onclick="submitInquiry()">확인</button>
+                    <button class="btn btn-secondary size-lg" onclick="closeModal('confirmModal')">취소</button>
+                    <button class="btn btn-primary size-lg" onclick="submitInquiry()">확인</button>
                 </div>
             </div>
         </div>

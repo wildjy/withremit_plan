@@ -276,7 +276,7 @@
 	opacity: 0.8;
 }
 
-.btn-main-login {
+.btn btn-primary size-lg {
 	margin-bottom: 12px;
 	padding: 15px;
 	display: flex;
@@ -291,12 +291,12 @@
 	transition: var(--transition);
 }
 
-.btn-main-login:hover {
+.btn btn-primary size-lg:hover {
 	background-color: var(--primary-strong);
 	transform: translateY(-1px);
 }
 
-.btn-back-cancel {
+.btn btn-secondary size-lg {
 	display: block;
 	width: 100%;
 	padding: 10px;
@@ -309,7 +309,7 @@
 	text-decoration: none !important;
 }
 
-.btn-back-cancel:hover {
+.btn btn-secondary size-lg:hover {
 	background-color: var(--bg-light);
 	border-color: var(--text-soft);
 	color: var(--text-heavy);
@@ -631,7 +631,7 @@
 		padding: 8px;
 	}
 
-	.btn-main-login {
+	.btn btn-primary size-lg {
 		width: 100%;
 		padding: 15px;
 		background-color: var(--primary-default);
@@ -642,13 +642,13 @@
 		margin-bottom: 12px;
 	}
 
-	.btn-main-login:hover {
+	.btn btn-primary size-lg:hover {
 		background-color: var(--primary-strong);
 		transform: translateY(-1px);
 		box-shadow: 0 6px 16px rgba(0, 160, 220, 0.25);
 	}
 
-	.btn-back-cancel {
+	.btn btn-secondary size-lg {
 		display: block;
 		width: 100%;
 		padding: 10px;
@@ -877,7 +877,7 @@
 	text-align: center;
 }
 
-.reg-submit .btn-main-login {
+.reg-submit .btn btn-primary size-lg {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -895,7 +895,7 @@
 	padding-top: 24px;
 }
 
-.reg-cancel-box .btn-back-cancel {
+.reg-cancel-box .btn btn-secondary size-lg {
 	width: auto;
 	min-width: 100px;
 	display: inline-block;
@@ -939,7 +939,7 @@
 		margin-right: 20px;
 	}
 
-	.reg-submit .btn-main-login {
+	.reg-submit .btn btn-primary size-lg {
 		width: 100%;
 	}
 }
@@ -1031,16 +1031,16 @@
 	word-break: keep-all;
 }
 
-.reg-action-btns {
-	display: flex;
-	justify-content: center;
-	gap: 12px;
-	margin-top: 40px;
-	padding-top: 24px;
-	border-top: 1px solid #f1f3f5;
-}
+// .btn-align {
+// 	display: flex;
+// 	justify-content: center;
+// 	gap: 12px;
+// 	margin-top: 40px;
+// 	padding-top: 24px;
+// 	border-top: 1px solid #f1f3f5;
+// }
 
-.btn-step-prev {
+.btn btn-secondary size-lg {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -1056,37 +1056,37 @@
 	transition: var(--transition);
 }
 
-.btn-step-prev:hover {
+.btn btn-secondary size-lg:hover {
 	background-color: var(--bg-light);
 	color: var(--text-heavy);
 }
 
-.reg-action-btns .btn-main-login {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	min-width: 160px;
-	height: 50px;
-	padding: 0 40px;
-	border-radius: 10px;
-	margin: 0;
-	text-decoration: none;
-}
+// .btn-align .btn btn-primary size-lg {
+// 	display: inline-flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	min-width: 160px;
+// 	height: 50px;
+// 	padding: 0 40px;
+// 	border-radius: 10px;
+// 	margin: 0;
+// 	text-decoration: none;
+// }
 
-@media (max-width: 480px) {
-	.reg-action-btns {
-		flex-direction: column-reverse;
-		gap: 10px;
-	}
+// @media (max-width: 480px) {
+// 	.btn-align {
+// 		flex-direction: column-reverse;
+// 		gap: 10px;
+// 	}
 
-	.btn-step-prev {
-		width: 100% !important;
-	}
+// 	.btn btn-secondary size-lg {
+// 		width: 100% !important;
+// 	}
 
-	.reg-action-btns .btn-main-login {
-		width: 100% !important;
-	}
-}
+// 	.btn-align .btn btn-primary size-lg {
+// 		width: 100% !important;
+// 	}
+// }
 
 /* ?꾩닔/?좏깮 badge styles */
 .badge-required,
@@ -1247,15 +1247,15 @@
 	border-top: none !important;
 }
 
-.reg-action-btns {
-	display: flex;
-	justify-content: center;
-	gap: 12px;
-	margin-top: 20px;
-	padding-top: 24px;
-}
+// .btn-align {
+// 	display: flex;
+// 	justify-content: center;
+// 	gap: 12px;
+// 	margin-top: 20px;
+// 	padding-top: 24px;
+// }
 
-.btn-step-prev {
+.btn btn-secondary size-lg {
 	min-width: 120px;
 	height: 50px;
 	background-color: #fff;
@@ -1266,7 +1266,7 @@
 	font-weight: 500;
 }
 
-.register-card-wide .btn-main-login {
+.register-card-wide .btn btn-primary size-lg {
 	width: auto;
 	min-width: 140px;
 	margin: 0;
@@ -1454,10 +1454,10 @@
 		grid-template-columns: 1fr !important;
 	}
 
-	.reg-action-btns {
-		flex-direction: column-reverse;
-		gap: 10px;
-	}
+	// .btn-align {
+	// 	flex-direction: column-reverse;
+	// 	gap: 10px;
+	// }
 }
 
 @media (max-width: 480px) {
@@ -1520,10 +1520,10 @@
 		grid-template-columns: 1fr !important;
 	}
 
-	.reg-action-btns {
-		flex-direction: column-reverse;
-		gap: 10px;
-	}
+	// .btn-align {
+	// 	flex-direction: column-reverse;
+	// 	gap: 10px;
+	// }
 }
 
 /* Drag & Drop 영역 */

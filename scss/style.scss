@@ -1611,6 +1611,14 @@
 	.form-row-3 {
 		margin-bottom: var(--s8);
 	}
+
+	.btn.btn-secondary {
+		&.active {
+			color: var(--primary-heavy);
+			background-color: var(--bg-default);
+			border: 1px solid var(--primary-heavy);
+		}
+	};
 }
 
 .remit-calc-result {
@@ -1654,19 +1662,19 @@
 	resize: vertical;
 }
 
-.remit-action-btns {
-	display: flex;
-	gap: 16px;
-	justify-content: flex-end;
-	margin-top: 32px;
-}
+// .btn-align {
+// 	display: flex;
+// 	gap: 16px;
+// 	justify-content: flex-end;
+// 	margin-top: 32px;
+// }
 
-.remit-action-btns .btn {
-	min-width: 140px;
-	height: 48px;
-	padding: 0 32px;
-	font-size: 1rem;
-}
+// .btn-align .btn {
+// 	min-width: 140px;
+// 	height: 48px;
+// 	padding: 0 32px;
+// 	font-size: 1rem;
+// }
 
 /* Exchange rate display */
 .exchange-rate-display {
@@ -1848,16 +1856,16 @@
 		font-size: 1rem;
 	}
 
-	.remit-action-btns {
+	.btn-align {
 		margin-top: 24px;
 	}
 
-	.remit-action-btns .btn {
-		min-width: 110px;
-		height: 44px;
-		padding: 0 24px;
-		font-size: 0.95rem;
-	}
+	// .btn-align .btn {
+	// 	min-width: 110px;
+	// 	height: 44px;
+	// 	padding: 0 24px;
+	// 	font-size: 0.95rem;
+	// }
 }
 
 @media (max-width: 480px) {
@@ -1907,26 +1915,26 @@
 		font-size: 0.9rem;
 	}
 
-	.remit-action-btns {
-		flex-direction: row;
-		gap: 10px;
-		margin-top: 20px;
-	}
+	// .btn-align {
+	// 	flex-direction: row;
+	// 	gap: 10px;
+	// 	margin-top: 20px;
+	// }
 
-	.remit-action-btns .btn {
-		min-width: auto;
-		height: 42px;
-		padding: 0 16px;
-		font-size: 0.9rem;
-	}
+	// .btn-align .btn {
+	// 	min-width: auto;
+	// 	height: 42px;
+	// 	padding: 0 16px;
+	// 	font-size: 0.9rem;
+	// }
 
-	.remit-action-btns .btn-remit-cancel {
-		flex: 1;
-	}
+	// .btn-align .btn-remit-cancel {
+	// 	flex: 1;
+	// }
 
-	.remit-action-btns .btn-primary {
-		flex: 1.5;
-	}
+	// .btn-align .btn-primary {
+	// 	flex: 1.5;
+	// }
 }
 
 /* Remittance Card Grid Layout - 1 card per row */
@@ -2525,7 +2533,7 @@
 
 .head-buttons {
 	display: flex;
-	gap: 8px;
+	gap: var(--s2);
 }
 
 /* Account Selection Modal Styles */
@@ -2675,6 +2683,12 @@
 	.account-card-value {
 		color: #333;
 		flex: 1;
+	}
+
+	.head-buttons {
+		a, button {
+			width: calc(100%/2 - var(--s2));
+		}
 	}
 }
 

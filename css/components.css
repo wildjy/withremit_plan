@@ -159,6 +159,12 @@
   color: var(--text-strong);
   border-color: var(--border-default);
 }
+.btn-secondary.size-sm:not(:disabled):not(.is-disabled) {
+  color: var(--primary-heavy);
+}
+.btn-secondary.size-sm:hover:not(:disabled):not(.is-disabled) {
+  color: var(--primary-heavy);
+}
 .btn-secondary:hover:not(:disabled):not(.is-disabled) {
   background-color: var(--secondary-gray);
   color: var(--text-strong);
@@ -322,6 +328,13 @@
           justify-content: center;
   gap: var(--s4);
 }
+.btn-align.wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.btn-align.wrap .btn, .btn-align.wrap a, .btn-align.wrap button {
+  width: var(--full);
+}
 .btn-align.mt-0 {
   margin-top: 0;
 }
@@ -336,6 +349,14 @@
           justify-content: flex-end;
 }
 
+@media (max-width: 768px) {
+  .btn-align.wrap .btn, .btn-align.wrap a, .btn-align.wrap button {
+    width: var(--full);
+  }
+  .btn-align .btn, .btn-align a, .btn-align button {
+    width: calc(50% - var(--s4));
+  }
+}
 .btn btn-secondary size-sm {
   display: inline-block;
   padding: 6px 16px;
@@ -349,67 +370,12 @@
   transition: all 0.2s;
 }
 
-.btn btn-secondary size-sm:hover {
+.btn btn-secondary.size-sm.active,
+.btn btn-secondary.size-sm:hover {
   background-color: #e5e7eb;
   color: var(--text-heavy);
 }
 
-.quick-btn {
-  padding: var(--s1-6) var(--s3);
-  font-size: var(--text-sm);
-  color: var(--primary-heavy);
-  font-weight: 500;
-  background-color: var(--white);
-  border: 1px solid var(--border-default);
-  border-radius: var(--s1-6);
-  cursor: pointer;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.quick-btn.small {
-  padding: var(--s1-6) var(--s3);
-  font-size: 13px;
-  min-width: auto;
-  height: 32px;
-}
-
-.quick-btn.re-upload {
-  padding: 4px 8px;
-  font-size: 13px;
-  border-radius: 4px;
-  background-color: #f0f0f0;
-  color: #333;
-  border: 1px solid #ccc;
-  cursor: pointer;
-}
-
-.quick-btn:hover,
-.quick-btn.active {
-  color: #fff;
-  background-color: var(--primary-heavy);
-  border-color: var(--primary-heavy);
-}
-
-.quick-btn:active {
-  -webkit-transform: scale(0.98);
-          transform: scale(0.98);
-}
-
-@media (max-width: 768px) {
-  .quick-btn {
-    font-size: 0.75rem;
-    padding: 5px 10px;
-  }
-}
-@media (max-width: 480px) {
-  .quick-btn.small {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    min-width: 0;
-  }
-}
 .btn-confirm {
   background-color: #1b5e9e;
 }
@@ -420,7 +386,7 @@
           transform: translateY(-1px);
 }
 
-.btn-confirm-action {
+.btn btn-primary size-lg {
   -webkit-box-flex: 1.5;
       -ms-flex: 1.5;
           flex: 1.5;
@@ -435,7 +401,7 @@
   transition: 0.3s;
 }
 
-.btn-confirm-action:hover {
+.btn btn-primary size-lg:hover {
   background-color: #154a7c;
   -webkit-transform: translateY(-1px);
           transform: translateY(-1px);
@@ -987,6 +953,10 @@
   border-top: 1px solid var(--border-default);
 }
 
+.modal-footer .btn-align {
+  margin-top: 0;
+}
+
 .modal-footer button {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -1046,13 +1016,13 @@
 }
 
 /* Specificity Override for Modal Buttons */
-.modal-btn-group .btn-cancel {
+.modal-btn-group .btn btn-secondary size-lg {
   -webkit-box-flex: 1 !important;
       -ms-flex: 1 !important;
           flex: 1 !important;
 }
 
-.modal-btn-group .btn-confirm-action {
+.modal-btn-group .btn btn-primary size-lg {
   -webkit-box-flex: 1.5 !important;
       -ms-flex: 1.5 !important;
           flex: 1.5 !important;
@@ -1080,7 +1050,7 @@
   transition: all 0.2s;
 }
 
-.modal-btn-warning {
+.btn btn-warning full size-lg {
   background-color: #f59e0b;
   border: none;
   color: #ffffff;
@@ -1094,7 +1064,7 @@
   cursor: pointer;
 }
 
-.modal-btn-warning:hover {
+.btn btn-warning full size-lg:hover {
   background-color: #d97706;
   -webkit-transform: translateY(-1px);
           transform: translateY(-1px);
@@ -1102,7 +1072,7 @@
           box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-.modal-btn-success {
+.btn btn-primary full size-lg {
   width: 100%;
   padding: var(--s4);
   font-size: var(--text-md);
@@ -1116,7 +1086,7 @@
   cursor: pointer;
 }
 
-.modal-btn-success:hover {
+.btn btn-primary full size-lg:hover {
   background-color: #0088be;
   -webkit-transform: translateY(-1px);
           transform: translateY(-1px);

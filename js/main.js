@@ -1365,7 +1365,7 @@ window.selectAccount = function (item) {
 };
 
 window.initRemitAccountSelection = function () {
-    const typedButtons = document.querySelectorAll('.quick-btn.small[data-account-type]');
+    const typedButtons = document.querySelectorAll('.account-btn[data-account-type]');
     if (typedButtons.length > 0) {
         typedButtons.forEach((btn) => {
             btn.addEventListener('click', () => window.openAccountModal(btn.dataset.accountType));
@@ -1373,7 +1373,7 @@ window.initRemitAccountSelection = function () {
         return;
     }
 
-    const btns = document.querySelectorAll('.quick-btn.small');
+    const btns = document.querySelectorAll('.account-btn');
     if (btns.length >= 2) {
         btns[0].addEventListener('click', () => window.openAccountModal('frequent'));
         btns[1].addEventListener('click', () => window.openAccountModal('recent'));

@@ -126,11 +126,11 @@
                                         </div>
                                         <span class="field-error" id="sendAmountError"></span>
                                         <div class="quick-amount-buttons" id="quickAmountButtons">
-                                            <button type="button" class="quick-btn" data-amount="1000000" onclick="setQuickAmount(1000000, this)">₩
+                                            <button type="button" class="quick-btn btn size-sm" data-amount="1000000" onclick="setQuickAmount(1000000, this)">₩
                                                 1,000,000</button>
-                                            <button type="button" class="quick-btn" data-amount="2000000" onclick="setQuickAmount(2000000, this)">₩
+                                            <button type="button" class="quick-btn btn size-sm" data-amount="2000000" onclick="setQuickAmount(2000000, this)">₩
                                                 2,000,000</button>
-                                            <button type="button" class="quick-btn" data-amount="3000000" onclick="setQuickAmount(3000000, this)">₩
+                                            <button type="button" class="quick-btn btn size-sm" data-amount="3000000" onclick="setQuickAmount(3000000, this)">₩
                                                 3,000,000</button>
                                             <button type="button" class="quick-btn" data-amount="4000000" onclick="setQuickAmount(4000000, this)">₩
                                                 4,000,000</button>
@@ -216,11 +216,11 @@
                     <!-- 수취 정보 입력 -->
                     <div class="db-content-card">
                         <div class="remit-form-section">
-                            <div class="form-sec-head-wrap">
+                            <div class="form-sec-head-wrap">    
                                 <h2 class="form-sec-head">수취 정보 입력</h2>
                                 <div class="head-buttons">
-                                    <button type="button" class="quick-btn small">자주 쓰는 계좌</button>
-                                    <button type="button" class="quick-btn small">최근 입금 계좌</button>
+                                    <button type="button" class="account-btn btn btn-secondary size-sm">자주 쓰는 계좌</button>
+                                    <button type="button" class="account-btn btn btn-secondary size-sm">최근 입금 계좌</button>
                                 </div>
                             </div>
 
@@ -426,7 +426,7 @@
                 </div>
                 <h3>송금 신청 완료</h3>
                 <p>송금 신청이 정상적으로 접수되었습니다.<br>처리 결과는 SMS 및 이메일로 안내드립니다.</p>
-                <button class="modal-btn-success" onclick="closeRemitModal()">확인</button>
+                <button class="btn btn-primary full size-lg" onclick="closeRemitModal()">확인</button>
             </div>
         </div>
     </div>
@@ -446,7 +446,7 @@
                 </div>
                 <h3 id="warningTitle">안내</h3>
                 <p id="warningMessage"></p>
-                <button class="modal-btn-warning" onclick="closeModal('warningModal');">확인</button>
+                <button class="btn btn-warning full size-lg" onclick="closeModal('warningModal');">확인</button>
             </div>
         </div>
     </div>
@@ -466,7 +466,7 @@
                 </div>
                 <h3>송금 한도 초과</h3>
                 <p id="limitModalMessage"></p>
-                <button class="modal-btn-warning" onclick="closeModal('limitModal')">확인</button>
+                <button class="btn btn-warning full size-lg" onclick="closeModal('limitModal')">확인</button>
             </div>
         </div>
     </div>
@@ -517,7 +517,9 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn-cancel" onclick="closeModal('accountSelectionModal')">확인</button>
+                    <div class="btn-align">
+                        <button class="btn btn-primary full size-lg" onclick="closeModal('accountSelectionModal')">확인</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -518,6 +518,16 @@ $btn-variants: (
   color: map-get-deep($btn-variants, $variant-name, color);
   border-color: map-get-deep($btn-variants, $variant-name, border);
 
+  @if $variant-name == secondary {
+    &.size-sm:not(:disabled):not(.is-disabled) {
+      color: var(--primary-heavy);
+    }
+
+    &.size-sm:hover:not(:disabled):not(.is-disabled) {
+      color: var(--primary-heavy);
+    }
+  }
+
   &:hover:not(:disabled):not(.is-disabled) {
     background-color: map-get-deep($btn-variants, $variant-name, hover-bg);
     color: map-get-deep($btn-variants, $variant-name, hover-color);

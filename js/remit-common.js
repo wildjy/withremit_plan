@@ -428,7 +428,7 @@ function updateQuickAmountButtons() {
 
         amounts.forEach(amount => {
             if (amount <= maxKrwLimit) {
-                buttonsHtml += `<button type="button" class="quick-btn" data-amount="${amount}" onclick="setQuickAmount(${amount}, this)">₩ ${amount.toLocaleString('ko-KR')}</button>`;
+                buttonsHtml += `<button type="button" class="quick-btn btn btn-secondary size-sm" data-amount="${amount}" onclick="setQuickAmount(${amount}, this)">₩ ${amount.toLocaleString('ko-KR')}</button>`;
             }
         });
     } else {

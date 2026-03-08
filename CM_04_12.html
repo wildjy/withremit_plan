@@ -504,9 +504,9 @@
                 </div>
             </div>
 
-            <div class="reg-action-btns">
-                <button type="button" class="btn-step-prev" onclick="location.href='CM_02_01.html'">취소</button>
-                <button type="button" class="btn-main-login" onclick="openModal('regCompleteModal')">회원가입 신청 완료</button>
+            <div class="btn-align">
+                <button type="button" class="btn btn-secondary size-lg" onclick="location.href='CM_02_01.html'">취소</button>
+                <button type="button" class="btn btn-primary size-lg" onclick="openModal('regCompleteModal')">회원가입 신청 완료</button>
             </div>
         </form>
 
@@ -628,8 +628,8 @@
                         </div>
 
                         <div style="display: flex; gap: 12px; margin-top: 24px;">
-                            <button type="button" class="btn-step-prev" onclick="closeModal('ocrModal')" style="flex: 1;">취소</button>
-                            <button type="button" class="btn-main-login" onclick="applyOCRData()" style="flex: 1;">확인</button>
+                            <button type="button" class="btn btn-secondary size-lg" onclick="closeModal('ocrModal')" style="flex: 1;">취소</button>
+                            <button type="button" class="btn btn-primary size-lg" onclick="applyOCRData()" style="flex: 1;">확인</button>
                         </div>
                     </div>
                 </div>
@@ -648,7 +648,7 @@
                     </div>
                     <h3 data-i18n="modal.emailDup.title">이메일 중복 확인</h3>
                     <p data-i18n="modal.emailDup.ok">사용 가능한 이메일입니다.</p>
-                    <button class="modal-btn-success" onclick="closeModal('emailDupOkModal')" data-i18n="button.confirm">확인</button>
+                    <button class="btn btn-primary full size-lg" onclick="closeModal('emailDupOkModal')" data-i18n="button.confirm">확인</button>
                 </div>
             </div>
         </div>
@@ -667,7 +667,7 @@
                     </div>
                     <h3 data-i18n="modal.emailDup.title">이메일 중복 확인</h3>
                     <p data-i18n="modal.emailDup.fail">이미 사용 중인 이메일입니다.</p>
-                    <button class="modal-btn-warning" onclick="closeModal('emailDupUsedModal')" data-i18n="button.confirm">확인</button>
+                    <button class="btn btn-warning full size-lg" onclick="closeModal('emailDupUsedModal')" data-i18n="button.confirm">확인</button>
                 </div>
             </div>
         </div>
@@ -681,7 +681,7 @@
                     <div class="modal-icon" id="dupCheckIcon">아이콘</div>
                     <h3 id="dupCheckTitle">중복 확인</h3>
                     <p id="dupCheckMessage">메시지 영역</p>
-                    <button class="modal-btn-warning" id="dupCheckBtn" onclick="closeModal('dupCheckModal')">
+                    <button class="btn btn-warning full size-lg" id="dupCheckBtn" onclick="closeModal('dupCheckModal')">
                         확인
                     </button>
                 </div>
@@ -702,7 +702,7 @@
                     </div>
                     <h3>회원가입 완료</h3>
                     <p>회원가입이 완료되었습니다.<br>이메일 인증을 완료하여 주시기 바랍니다.</p>
-                    <button class="modal-btn-success" onclick="location.href='CM_02_01.html'">확인</button>
+                    <button class="btn btn-primary full size-lg" onclick="location.href='CM_02_01.html'">확인</button>
                 </div>
             </div>
         </div>

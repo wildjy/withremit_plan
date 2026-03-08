@@ -292,8 +292,8 @@
                             <div class="form-sec-head-wrap">
                                 <h2 class="form-sec-head">수취 정보 입력</h2>
                                 <div class="head-buttons">
-                                    <button type="button" class="quick-btn small">자주 쓰는 계좌</button>
-                                    <button type="button" class="quick-btn small">최근 입금 계좌</button>
+                                    <button type="button" class="account-btn btn btn-secondary size-sm">자주 쓰는 계좌</button>
+                                    <button type="button" class="account-btn btn btn-secondary size-sm">최근 입금 계좌</button>
                                 </div>
                             </div>
 
@@ -463,10 +463,9 @@
                     </div>
 
                     <!-- 하단 버튼 -->
-                    <div class="remit-action-btns">
-                        <button type="button" class="btn btn-outline btn-remit-cancel"
-                            onclick="location.href='RM_02_01.html'">취소</button>
-                        <button type="button" class="btn btn-primary" onclick="submitRemittance()">정기 송금 신청</button>
+                    <div class="btn-align right">
+                        <button type="button" class="btn btn-secondary size-lg" onclick="location.href='RM_02_01.html'">취소</button>
+                        <button type="button" class="btn btn-primary size-lg" onclick="submitRemittance()">정기 송금 신청</button>
                     </div>
                 </div>
             </div>
@@ -489,7 +488,7 @@
                 </div>
                 <h3>정기 송금 신청 완료</h3>
                 <p>정기 송금 신청이 완료되었습니다.<br>언제든 정지할 수 있습니다.</p>
-                <button class="modal-btn-success" onclick="closeRemitModal()">확인</button>
+                <button class="btn btn-primary full size-lg" onclick="closeRemitModal()">확인</button>
             </div>
         </div>
     </div>
@@ -509,7 +508,7 @@
                 </div>
                 <h3 id="warningTitle">안내</h3>
                 <p id="warningMessage"></p>
-                <button class="modal-btn-warning" onclick="closeModal('warningModal');">확인</button>
+                <button class="btn btn-warning full size-lg" onclick="closeModal('warningModal');">확인</button>
             </div>
         </div>
     </div>
@@ -529,7 +528,7 @@
                 </div>
                 <h3>송금 한도 초과</h3>
                 <p id="limitModalMessage"></p>
-                <button class="modal-btn-warning" onclick="closeModal('limitModal')">확인</button>
+                <button class="btn btn-warning full size-lg" onclick="closeModal('limitModal')">확인</button>
             </div>
         </div>
     </div>
@@ -550,7 +549,10 @@
                             <col class="account-col-num">
                             <col class="account-col-country">
                             <col class="account-col-name">
+                            <col class="account-col-name">
                             <col class="account-col-bank">
+                            <col class="account-col-account">
+                            <col class="account-col-account">
                             <col class="account-col-account">
                             <col>
                         </colgroup>
@@ -559,9 +561,11 @@
                                 <th>번호</th>
                                 <th>국가</th>
                                 <th>수취인명</th>
+                                <th>수취인명(카나)</th>
                                 <th>은행명</th>
                                 <th>계좌 번호</th>
-                                <th>송금 목적</th>
+                                <th>BSB 번호</th>
+                                <th>송금목적</th>
                             </tr>
                         </thead>
                         <tbody id="accountTableBody">
@@ -576,7 +580,9 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn-cancel" onclick="closeModal('accountSelectionModal')">확인</button>
+                    <div class="btn-align">
+                        <button class="btn btn-primary full size-lg" onclick="closeModal('accountSelectionModal')">확인</button>
+                    </div>
                 </div>
             </div>
         </div>
