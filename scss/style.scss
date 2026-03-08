@@ -302,9 +302,9 @@
 	background-color: #f8fafa;
 }
 
-.db-notice-table tbody tr:last-child {
-	border-bottom: none;
-}
+// .db-notice-table tbody tr:last-child {
+// 	border-bottom: none;
+// }
 
 .db-notice-table td {
 	padding: 12px;
@@ -2910,23 +2910,6 @@ td.center {
 	font-weight: 700;
 }
 
-.remit-balance-round-box .btn-refund-account {
-	background-color: #ffffff;
-	border: 1px solid #c7d2fe;
-	color: #3b82f6;
-	padding: 8px 16px;
-	border-radius: 8px;
-	font-size: 14px;
-	font-weight: 600;
-	cursor: pointer;
-	transition: all 0.2s;
-}
-
-.remit-balance-round-box .btn-refund-account:hover {
-	background-color: #eff6ff;
-	border-color: #3b82f6;
-}
-
 @media (max-width: 480px) {
 	.remit-balance-round-box {
 		flex-direction: column;
@@ -2935,7 +2918,7 @@ td.center {
 		padding: 16px;
 	}
 
-	.remit-balance-round-box .btn-refund-account {
+	.remit-balance-round-box .btn-confirm {
 		width: 100%;
 		text-align: center;
 	}

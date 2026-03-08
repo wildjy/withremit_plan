@@ -250,8 +250,8 @@
 		position: relative;
 		box-sizing: border-box;
     /* Ensure padding doesn't overflow width */ }
-  .db-notice-table tbody tr:last-child {
-    border-bottom: none; }
+//   .db-notice-table tbody tr:last-child {
+//     border-bottom: none; }
   .db-notice-table td {
     display: flex;
     justify-content: space-between;
@@ -265,8 +265,8 @@
     width: 100%;
     /* Ensure cell takes full width */
     box-sizing: border-box; }
-  .db-notice-table td:last-child {
-    border-bottom: none; }
+//   .db-notice-table td:last-child {
+//     border-bottom: none; }
   /* Labels */
   .db-notice-table td::before {
     content: attr(data-label);
