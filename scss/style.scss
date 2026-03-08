@@ -2685,11 +2685,11 @@
 		flex: 1;
 	}
 
-	.head-buttons {
-		a, button {
-			width: calc(100%/2 - var(--s2));
-		}
-	}
+	// .head-buttons {
+	// 	a, button {
+	// 		width: calc(100%/2 - var(--s2));
+	// 	}
+	// }
 }
 
 /* Responsive: Move buttons below title on small screens */
@@ -2917,7 +2917,7 @@ td.center {
 		gap: 12px;
 		padding: 16px;
 	}
-
+	
 	.remit-balance-round-box .btn-confirm {
 		width: 100%;
 		text-align: center;

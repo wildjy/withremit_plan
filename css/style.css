@@ -2906,6 +2906,9 @@ a.banner-slide {
 }
 
 @media (max-width: 768px) {
+  .btn-align.wrap {
+    width: var(--full);
+  }
   .btn-align.wrap .btn, .btn-align.wrap a, .btn-align.wrap button {
     width: var(--full);
   }
@@ -3504,32 +3507,28 @@ a.banner-slide {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  gap: var(--s3);
   padding: var(--s4) var(--s6);
+  gap: var(--s4);
   border-top: 1px solid var(--border-default);
 }
-
-.modal-footer .btn-align {
-  margin-top: 0;
+.modal-footer .btn.full, .modal-footer a.full, .modal-footer button.full {
+  width: auto;
 }
 
-.modal-footer button {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  width: auto !important;
-  min-width: 0 !important;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: var(--s2);
-  margin: 0 !important;
+@media (max-width: 768px) {
+  .modal-footer {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .modal-footer .btn, .modal-footer a, .modal-footer button {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+}
+.modal-footer .btn-align {
+  margin-top: 0;
 }
 
 .modal-icon {
@@ -9559,9 +9558,6 @@ a.banner-slide {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
-  }
-  .head-buttons a, .head-buttons button {
-    width: calc(50% - var(--s2));
   }
 }
 /* Responsive: Move buttons below title on small screens */

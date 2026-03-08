@@ -111,26 +111,30 @@
 .modal-footer {
 	display: flex;
 	justify-content: flex-end;
-	gap: var(--s3);
 	padding: var(--s4) var(--s6);
+	gap: var(--s4);
 	border-top: 1px solid var(--border-default);
+	.btn, a, button {
+		&.full {
+			width: auto;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.modal-footer {
+		justify-content: space-between;
+
+		.btn, a, button {
+			flex-grow: 1;
+		}
+	}
 }
 
 .modal-footer {
 	.btn-align {
 		margin-top: 0;
 	};
-}
-
-.modal-footer button {
-	flex: 1;
-	width: auto !important;
-	min-width: 0 !important;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: var(--s2);
-	margin: 0 !important;
 }
 
 .modal-icon {

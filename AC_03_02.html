@@ -15,6 +15,7 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel='stylesheet' href='css/auth.css'>
     <script src='js/auth.js'></script>
+    <script src="js/head-include.js"></script>
 </head>
 
 <body class="db-body">
@@ -36,8 +37,7 @@
                         <div class="form-sec-head-wrap">
                             <h2 class="form-sec-head">계좌 정보 입력</h2>
                             <div class="head-buttons">
-                                <button type="button" class="btn btn-secondary size-sm" data-account-type="recent">최근 입금
-                                    계좌</button>
+                                <button type="button" class="account-btn btn btn-secondary size-sm" data-account-type="recent">최근 입금 계좌</button>
                             </div>
                         </div>
 
@@ -193,49 +193,51 @@
     <!-- 계좌 선택 모달 -->
     <div id="accountSelectionModal" class="modal-overlay">
         <div class="modal-content modal-layout lg">
-            <div class="modal-header">
-                <h2 class="modal-title" id="accountModalTitle">최근 입금 계좌</h2>
-                <button class="modal-close" onclick="closeModal('accountSelectionModal')">&times;</button>
-            </div>
+            <div class="modal-inner">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="accountModalTitle">최근 입금 계좌</h2>
+                    <button class="modal-close" onclick="closeModal('accountSelectionModal')">&times;</button>
+                </div>
 
-            <!-- 테이블 영역 (스크롤 가능) -->
-            <div class=" account-table-container"><!-- db-table-container -->
-                <table class="db-notice-table hover-table" id="accountTable">
-                    <colgroup>
-                        <col class="account-col-num">
-                        <col class="account-col-country">
-                        <col class="account-col-name">
-                        <col class="account-col-name">
-                        <col class="account-col-bank">
-                        <col class="account-col-account">
-                        <col class="account-col-account">
-                        <col class="account-col-account">
-                    </colgroup>
-                    <thead class="account-table-sticky-header">
-                        <tr>
-                            <th>번호</th>
-                            <th>국가</th>
-                            <th>수취인명</th>
-                            <th>수취인명(카나)</th>
-                            <th>은행명</th>
-                            <th>계좌 번호</th>
-                            <th>BSB 번호</th>
-                            <th>송금목적</th>
-                        </tr>
-                    </thead>
-                    <tbody id="accountTableBody">
-                        <!-- 자바스크립트로 데이터 로드 -->
-                    </tbody>
-                </table>
-            </div>
+                <!-- 테이블 영역 (스크롤 가능) -->
+                <div class=" account-table-container"><!-- db-table-container -->
+                    <table class="db-notice-table hover-table" id="accountTable">
+                        <colgroup>
+                            <col class="account-col-num">
+                            <col class="account-col-country">
+                            <col class="account-col-name">
+                            <col class="account-col-name">
+                            <col class="account-col-bank">
+                            <col class="account-col-account">
+                            <col class="account-col-account">
+                            <col class="account-col-account">
+                        </colgroup>
+                        <thead class="account-table-sticky-header">
+                            <tr>
+                                <th>번호</th>
+                                <th>국가</th>
+                                <th>수취인명</th>
+                                <th>수취인명(카나)</th>
+                                <th>은행명</th>
+                                <th>계좌 번호</th>
+                                <th>BSB 번호</th>
+                                <th>송금목적</th>
+                            </tr>
+                        </thead>
+                        <tbody id="accountTableBody">
+                            <!-- 자바스크립트로 데이터 로드 -->
+                        </tbody>
+                    </table>
+                </div>
 
-            <!-- 모바일 카드 레이아웃 (768px 이하) -->
-            <div class="account-card-list" id="accountCardList">
-                <!-- JavaScript로 카드 렌더링 -->
-            </div>
+                <!-- 모바일 카드 레이아웃 (768px 이하) -->
+                <div class="account-card-list" id="accountCardList">
+                    <!-- JavaScript로 카드 렌더링 -->
+                </div>
 
-            <div class="modal-footer">
-                <button class="btn btn-secondary size-lg" onclick="closeModal('accountSelectionModal')">확인</button>
+                <div class="modal-footer">
+                        <button class="btn btn-primary full size-lg" onclick="closeModal('accountSelectionModal')">확인</button>
+                </div>
             </div>
         </div>
     </div>

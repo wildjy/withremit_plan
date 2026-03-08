@@ -91,6 +91,7 @@
 @media (max-width: 768px) {
 	.btn-align {
 		&.wrap {
+			width: var(--full);
 			.btn, a, button {
 				width: var(--full)
 			}
