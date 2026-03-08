@@ -60,6 +60,21 @@
   }
 }
 
+.btn-align {
+	margin-top: var(--s8);
+	display: flex;
+	justify-content: center;
+	gap: var(--s4);
+	&.mt-0 {
+		margin-top: 0;
+	}
+	&.left {
+		justify-content: flex-start;
+	}
+	&.right {
+		justify-content: flex-end;
+	}
+}
 // .btn {
 // 	display: inline-flex;
 // 	align-items: center;

@@ -2868,6 +2868,30 @@ a.banner-slide {
   border: 0;
 }
 
+.btn-align {
+  margin-top: var(--s8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: var(--s4);
+}
+.btn-align.mt-0 {
+  margin-top: 0;
+}
+.btn-align.left {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.btn-align.right {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 .btn btn-secondary size-sm {
   display: inline-block;
   padding: 6px 16px;
@@ -5398,7 +5422,7 @@ a.banner-slide {
           align-items: center;
 }
 
-.btn-sub-action {
+.btn btn-utility size-lg {
   padding: 0 16px;
   background-color: #7a8e96;
   color: #fff;
@@ -5416,7 +5440,7 @@ a.banner-slide {
   cursor: pointer;
 }
 
-.btn-sub-action:hover {
+.btn btn-utility size-lg:hover {
   background-color: #6a7e86;
   -webkit-transform: translateY(-1px);
           transform: translateY(-1px);
