@@ -121,7 +121,7 @@
                                                 <input type="text" placeholder="송금 금액을 입력하세요"
                                                     class="login-input amount-input" id="sendAmount">
                                             </div>
-                                            <button type="button" class="btn-sub-action"
+                                            <button type="button" class="btn btn-utility size-lg"
                                                 onclick="calculateRemit()">계산하기</button>
                                         </div>
                                         <span class="field-error" id="sendAmountError"></span>
@@ -488,18 +488,22 @@
                             <col class="account-col-num">
                             <col class="account-col-country">
                             <col class="account-col-name">
+                            <col class="account-col-name">
                             <col class="account-col-bank">
                             <col class="account-col-account">
-                            <col>
+                            <col class="account-col-account">
+                            <col class="account-col-account">
                         </colgroup>
                         <thead class="account-table-sticky-header">
                             <tr>
                                 <th>번호</th>
                                 <th>국가</th>
                                 <th>수취인명</th>
+                                <th>수취인명(카나)</th>
                                 <th>은행명</th>
                                 <th>계좌 번호</th>
-                                <th>송금 목적</th>
+                                <th>BSB 번호</th>
+                                <th>송금목적</th>
                             </tr>
                         </thead>
                         <tbody id="accountTableBody">

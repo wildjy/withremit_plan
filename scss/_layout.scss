@@ -1,3 +1,7 @@
+@use "./header";
+@use "./footer";
+@use "./sidebar";
+
 /* ===== Layout ===== */
 /* ===== Responsive - Desktop : padding: 0 24px ===== */
 /* ===== Responsive - Tablet = max-width: 1024 : padding: 0 20px ===== */
@@ -373,12 +377,3 @@ body{
 		grid-column: auto;
 	}
 }
-
-/* ===== Header ===== */
-@import  "./header";
-
-/* ===== Footer ===== */
-@import  "./footer";
-
-/* ===== SideBar ===== */
-@import  "./sidebar";

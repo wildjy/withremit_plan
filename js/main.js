@@ -1187,55 +1187,102 @@ function renderRemitAccountModal(type) {
     const title = document.getElementById('accountModalTitle');
     const tbody = document.getElementById('accountTableBody');
     const cardList = document.getElementById('accountCardList');
-    if (!title || !tbody || !cardList) return;
+    const table = document.getElementById('accountTable');
+    if (!title || !tbody || !cardList || !table) return;
 
-    const data = type === 'frequent' ? remitFrequentAccounts : remitRecentAccounts;
+    const data = type === 'frequent'
+        ? remitFrequentAccounts
+        : (Array.isArray(window.recentAccounts) && window.recentAccounts.length > 0
+            ? window.recentAccounts
+            : remitRecentAccounts);
+
     title.textContent = type === 'frequent' ? '자주 쓰는 계좌' : '최근 입금 계좌';
 
     tbody.innerHTML = '';
     cardList.innerHTML = '';
 
-    data.forEach((item, index) => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td class='center'>${index + 1}</td>
-            <td>${item.countryName}</td>
-            <td>${item.name}</td>
-            <td>${item.bank}</td>
-            <td>${item.account}</td>
-            <td>${item.purposeName}</td>
-        `;
-        tr.style.cursor = 'pointer';
-        tr.onclick = () => window.selectAccount(item);
-        tbody.appendChild(tr);
+    const headerLabels = Array.from(table.querySelectorAll('thead th')).map((th) => th.textContent.trim());
+    const hasKanaColumn = headerLabels.some((label) => label.includes('카나'));
+    const hasBsbColumn = headerLabels.some((label) => label.replace(/\s/g, '').includes('BSB'));
 
+    data.forEach((item, index) => {
+        const name = item.name || [item.firstName, item.lastName].filter(Boolean).join(' ').trim();
+        const kanaName = item.nameKana || [item.firstNameKana, item.lastNameKana].filter(Boolean).join(' ').trim();
+
+        const cells = headerLabels.map((label) => {
+            const normalized = label.replace(/\s/g, '');
+            switch (normalized) {
+                case '번호':
+                    return `<td class='center'>${index + 1}</td>`;
+                case '국가':
+                    return `<td>${item.countryName || ''}</td>`;
+                case '수취인명':
+                    return `<td>${name || '-'}</td>`;
+                case '수취인명(카나)':
+                    return `<td>${kanaName || '-'}</td>`;
+                case '은행명':
+                    return `<td>${item.bank || ''}</td>`;
+                case '계좌번호':
+                    return `<td>${item.account || ''}</td>`;
+                case 'BSB번호':
+                    return `<td>${item.bsbNumber || '-'}</td>`;
+                case '송금목적':
+                    return `<td>${item.purposeName || ''}</td>`;
+                default:
+                    return `<td></td>`;
+            }
+        });
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = cells.join('');
+        tr.style.cursor = 'pointer';
+        tr.onclick = () => {
+            window.selectAccount(item);
+        };
+        tbody.appendChild(tr);
+        
         const card = document.createElement('div');
         card.className = 'account-card';
         card.innerHTML = `
             <div class="account-card-header">
                 <span class="account-card-number">#${index + 1}</span>
-                <span class="account-card-country">${item.countryName}</span>
+                <span class="account-card-country">${item.countryName || ''}</span>
             </div>
             <div class="account-card-body">
                 <div class="account-card-row">
                     <span class="account-card-label">수취인명</span>
-                    <span class="account-card-value">${item.name}</span>
+                    <span class="account-card-value">${name || '-'}</span>
                 </div>
+                ${hasKanaColumn ? `
+                <div class="account-card-row">
+                    <span class="account-card-label">수취인명(카나)</span>
+                    <span class="account-card-value">${kanaName || '-'}</span>
+                </div>
+                ` : ''}
                 <div class="account-card-row">
                     <span class="account-card-label">은행명</span>
-                    <span class="account-card-value">${item.bank}</span>
+                    <span class="account-card-value">${item.bank || ''}</span>
                 </div>
                 <div class="account-card-row">
                     <span class="account-card-label">계좌 번호</span>
-                    <span class="account-card-value">${item.account}</span>
+                    <span class="account-card-value">${item.account || ''}</span>
                 </div>
+                ${hasBsbColumn ? `
+                <div class="account-card-row">
+                    <span class="account-card-label">BSB 번호</span>
+                    <span class="account-card-value">${item.bsbNumber || '-'}</span>
+                </div>
+                ` : ''}
                 <div class="account-card-row">
                     <span class="account-card-label">송금 목적</span>
-                    <span class="account-card-value">${item.purposeName}</span>
+                    <span class="account-card-value">${item.purposeName || ''}</span>
                 </div>
             </div>
         `;
-        card.onclick = () => window.selectAccount(item);
+        card.onclick = () => {
+            window.selectAccount(item);
+        };
+
         cardList.appendChild(card);
     });
 }
@@ -1246,6 +1293,7 @@ window.openAccountModal = function (type) {
 };
 
 window.selectAccount = function (item) {
+    bindGlobalFieldErrorAutoClear();
     const countrySelect = document.getElementById('remitCountry');
     if (countrySelect) {
         countrySelect.value = item.country;
@@ -1253,22 +1301,56 @@ window.selectAccount = function (item) {
     }
 
     setTimeout(() => {
-        fillBeneficiaryName(item.name);
+        const name = item.name || [item.firstName, item.lastName].filter(Boolean).join(' ').trim();
+
+        const firstNameInput = document.getElementById('firstNameEn');
+        const lastNameInput = document.getElementById('lastNameEn');
+        if ((firstNameInput || lastNameInput) && (item.firstName || item.lastName)) {
+            if (firstNameInput) firstNameInput.value = item.firstName || '';
+            if (lastNameInput) lastNameInput.value = item.lastName || '';
+        } else if (name) {
+            fillBeneficiaryName(name);
+        }
+
+        const kanaFirstInput = document.getElementById('beneficiaryNameKana');
+        const kanaLastInput = document.getElementById('beneficiaryLastNameKana');
+        if (kanaFirstInput) kanaFirstInput.value = item.firstNameKana || item.nameKana || '';
+        if (kanaLastInput) kanaLastInput.value = item.lastNameKana || '';
+
+        const accountNumberInput = document.getElementById('accountNumber');
+        if (accountNumberInput) {
+            accountNumberInput.value = item.account || '';
+        }
 
         const beneficiaryAccountInput = document.getElementById('beneficiaryAccount');
         if (beneficiaryAccountInput) {
-            beneficiaryAccountInput.value = item.account;
+            beneficiaryAccountInput.value = item.account || '';
         }
 
-        const bankSelect = document.getElementById('beneficiaryBank');
-        if (bankSelect && bankSelect.options.length > 1) {
+        const bankSelect = document.getElementById('bankSelect');
+        if (bankSelect && bankSelect.options.length > 0) {
             for (let i = 0; i < bankSelect.options.length; i++) {
-                if (bankSelect.options[i].text.toLowerCase().includes(item.bank.toLowerCase()) ||
-                    bankSelect.options[i].value.toLowerCase().includes(item.bank.toLowerCase())) {
+                if (bankSelect.options[i].value === item.bank) {
                     bankSelect.selectedIndex = i;
                     break;
                 }
             }
+        }
+
+        const beneficiaryBank = document.getElementById('beneficiaryBank');
+        if (beneficiaryBank && beneficiaryBank.options.length > 1) {
+            for (let i = 0; i < beneficiaryBank.options.length; i++) {
+                if (beneficiaryBank.options[i].text.toLowerCase().includes(String(item.bank || '').toLowerCase()) ||
+                    beneficiaryBank.options[i].value.toLowerCase().includes(String(item.bank || '').toLowerCase())) {
+                    beneficiaryBank.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+
+        const bsbInput = document.getElementById('bsbNumber');
+        if (bsbInput) {
+            bsbInput.value = item.bsbNumber || '';
         }
 
         const purposeSelect = document.getElementById('remitPurpose');
@@ -1276,11 +1358,21 @@ window.selectAccount = function (item) {
             purposeSelect.value = item.purpose;
         }
 
+        clearResolvedFieldErrors();
+
         closeModal('accountSelectionModal');
     }, 100);
 };
 
 window.initRemitAccountSelection = function () {
+    const typedButtons = document.querySelectorAll('.quick-btn.small[data-account-type]');
+    if (typedButtons.length > 0) {
+        typedButtons.forEach((btn) => {
+            btn.addEventListener('click', () => window.openAccountModal(btn.dataset.accountType));
+        });
+        return;
+    }
+
     const btns = document.querySelectorAll('.quick-btn.small');
     if (btns.length >= 2) {
         btns[0].addEventListener('click', () => window.openAccountModal('frequent'));

@@ -1,5 +1,14 @@
 @charset "UTF-8";
 /*  vw-calc */
+/* =========================
+   Button Maps
+========================= */
+/* =========================
+   Helpers
+========================= */
+/* =========================
+   Mixins
+========================= */
 /* ===== Login Page Styles ===== */
 .login-wh-full {
   padding: 60px 20px;
@@ -1350,7 +1359,7 @@
           align-items: center;
 }
 
-.btn-sub-action {
+.btn btn-utility size-lg {
   padding: 0 16px;
   background-color: #7a8e96;
   color: #fff;
@@ -1368,7 +1377,7 @@
   cursor: pointer;
 }
 
-.btn-sub-action:hover {
+.btn btn-utility size-lg:hover {
   background-color: #6a7e86;
   -webkit-transform: translateY(-1px);
           transform: translateY(-1px);

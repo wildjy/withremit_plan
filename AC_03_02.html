@@ -36,7 +36,7 @@
                         <div class="form-sec-head-wrap">
                             <h2 class="form-sec-head">계좌 정보 입력</h2>
                             <div class="head-buttons">
-                                <button type="button" class="quick-btn small" onclick="openAccountModal('recent')">최근 입금
+                                <button type="button" class="quick-btn small" data-account-type="recent">최근 입금
                                     계좌</button>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                             <!-- 국가 (Full Width) -->
                             <div class="field-item" style="margin-bottom: 24px;">
                                 <label class="field-label">국가</label>
-                                <select class="login-input select-styled" id="countrySelect">
+                                <select class="login-input select-styled" id="remitCountry"> <!-- remitCountry-->
                                     <option value="" disabled selected>선택</option>
                                     <option value="JP">일본 (JPY)</option>
                                     <option value="PH">필리핀 (PHP)</option>
@@ -58,7 +58,7 @@
                                     <option value="LK">스리랑카 (LKR)</option>
                                     <option value="BD">방글라데시 (BDT)</option>
                                 </select>
-                                <span class="field-error" id="countrySelectError"></span>
+                                <span class="field-error" id="remitCountryError"></span>
                             </div>
 
                             <!-- 2 Columns Row 1 -->
@@ -70,17 +70,39 @@
                                             <span data-i18n="join.request.firstNameEn">이름 (영문)</span>
                                         </label>
                                         <input type="text" placeholder="영문으로 입력하세요" class="login-input" id="firstNameEn">
+                                        <span class="field-error" id="firstNameEnError"></span>
                                     </div>
                                     <div class="field-item">
                                         <label class="field-label">
                                             <span data-i18n="join.request.lastNameEn">성 (영문)</span>
                                         </label>
                                         <input type="text" placeholder="영문으로 입력하세요" class="login-input" id="lastNameEn">
+                                        <span class="field-error" id="lastNameEnError"></span>
                                     </div>
                                 </div>
                                 <!-- 은행명 -->
+                                 
+                                <div class="form-row-2 no-mb" id="NameKanaSection" style="display: none;">
+                                    <div class="field-item">
+                                        <label class="field-label">수취인 이름 (카나명)</label>
+                                        <input type="text" placeholder="카타카나로 입력하세요 (예: ヤマダ)" class="login-input"
+                                            id="beneficiaryNameKana">
+                                        <span class="field-error" id="beneficiaryNameKanaError"></span>
+                                    </div>
+                                    <div class="field-item">
+                                        <label class="field-label">수취인 성 (카나명)</label>
+                                        <input type="text" placeholder="카타카나로 입력하세요 (예: ヤマダ)" class="login-input"
+                                            id="beneficiaryLastNameKana">
+                                        <span class="field-error" id="beneficiaryLastNameKanaError"></span>
+                                    </div>
+                                </div>
 
-                                <div class="form-row no-mb">
+                                <div class="form-row no-mb" id="BsbSection">
+                                    <div class="field-item" id="BsbField" style="display: none;">
+                                        <label class="field-label no-uppercase">BSB<span class="hide-pc">(Bank State Branch)</span> 번호</label>
+                                        <input type="text" placeholder="BSB 번호를 입력하세요" class="login-input" id="bsbNumber">
+                                        <span class="field-error" id="bsbNumberError"></span>
+                                    </div>
                                     <div class="field-item">
                                         <label class="field-label">은행명</label>
                                         <select class="login-input select-styled" id="bankSelect">
@@ -184,17 +206,21 @@
                         <col class="account-col-num">
                         <col class="account-col-country">
                         <col class="account-col-name">
+                        <col class="account-col-name">
                         <col class="account-col-bank">
                         <col class="account-col-account">
-                        <col>
+                        <col class="account-col-account">
+                        <col class="account-col-account">
                     </colgroup>
                     <thead class="account-table-sticky-header">
                         <tr>
                             <th>번호</th>
                             <th>국가</th>
                             <th>수취인명</th>
+                            <th>수취인명(카나)</th>
                             <th>은행명</th>
                             <th>계좌 번호</th>
+                            <th>BSB 번호</th>
                             <th>송금목적</th>
                         </tr>
                     </thead>
@@ -219,108 +245,14 @@
     <script src="data/main-data.js"></script>
     <script src="js/main.js"></script>
     <script src="js/includes.js"></script>
+    <script src="data/remit-common-data.js"></script>
+    <script src="js/remit-common.js"></script>
     <script>
-        // 최근 입금 계좌 데이터
-        const recentAccounts = [
-            { id: 1, country: 'JP', countryName: '일본', firstName: 'Suzuki', lastName: 'Ichiro', bank: 'Mizuho Bank', account: '987-6543-21', purpose: 'family', purposeName: '가족 송금' },
-            { id: 2, country: 'PH', countryName: '필리핀', firstName: 'Jose', lastName: 'Rizal', bank: 'BDO', account: '5555-6666-77', purpose: 'living', purposeName: '생활비' },
-            { id: 3, country: 'CN', countryName: '중국', firstName: 'Li', lastName: 'Na', bank: 'ICBC', account: '6222-0000-99', purpose: 'business', purposeName: '사업' },
-            { id: 4, country: 'NP', countryName: '네팔', firstName: 'Sita', lastName: '', bank: 'Nabil Bank', account: '0202-0987-65', purpose: 'saving', purposeName: '저축' },
-            { id: 5, country: 'AU', countryName: '호주', firstName: 'Emma', lastName: 'Watson', bank: 'Commonwealth', account: '013-111-2222', purpose: 'education', purposeName: '교육비' },
-        ];
-
-        function openAccountModal(type) {
-            const modal = document.getElementById('accountSelectionModal');
-            const title = document.getElementById('accountModalTitle');
-            const tbody = document.getElementById('accountTableBody');
-
-            title.textContent = '최근 입금 계좌';
-            const data = recentAccounts;
-
-            // 테이블 데이터 렌더링
-            tbody.innerHTML = '';
-            const cardList = document.getElementById('accountCardList');
-            cardList.innerHTML = '';
-
-            data.forEach((item, index) => {
-                // 테이블 행 렌더링
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                        <td class='center'>${index + 1}</td>
-                        <td>${item.countryName}</td>
-                        <td>${item.firstName} ${item.lastName}</td>
-                        <td>${item.bank}</td>
-                        <td>${item.account}</td>
-                        <td>${item.purposeName}</td>
-                    `;
-                tr.style.cursor = 'pointer';
-                tr.onclick = () => selectAccount(item);
-                tbody.appendChild(tr);
-
-                // 모바일 카드 렌더링
-                const card = document.createElement('div');
-                card.className = 'account-card';
-                card.innerHTML = `
-                    <div class="account-card-header">
-                        <span class="account-card-number">#${index + 1}</span>
-                        <span class="account-card-country">${item.countryName}</span>
-                    </div>
-                    <div class="account-card-body">
-                        <div class="account-card-row">
-                            <span class="account-card-label">수취인명</span>
-                            <span class="account-card-value">${item.firstName} ${item.lastName}</span>
-                        </div>
-                        <div class="account-card-row">
-                            <span class="account-card-label">은행명</span>
-                            <span class="account-card-value">${item.bank}</span>
-                        </div>
-                        <div class="account-card-row">
-                            <span class="account-card-label">계좌 번호</span>
-                            <span class="account-card-value">${item.account}</span>
-                        </div>
-                        <div class="account-card-row">
-                            <span class="account-card-label">송금목적</span>
-                            <span class="account-card-value">${item.purposeName}</span>
-                        </div>
-                    </div>
-                `;
-                card.onclick = () => selectAccount(item);
-                cardList.appendChild(card);
-            });
-
-            modal.classList.add('active');
-        }
-
-        // 계좌 선택 처리
-        function selectAccount(item) {
-            // 국가 설정
-            const countrySelect = document.getElementById('countrySelect');
-            countrySelect.value = item.country;
-
-            // 수취인명
-            document.getElementById('firstNameEn').value = item.firstName;
-            document.getElementById('lastNameEn').value = item.lastName;
-
-            // 은행명 (텍스트 매칭)
-            const bankSelect = document.getElementById('bankSelect');
-            for (let i = 0; i < bankSelect.options.length; i++) {
-                if (bankSelect.options[i].value === item.bank) {
-                    bankSelect.selectedIndex = i;
-                    break;
-                }
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof window.initRemitAccountSelection === 'function') {
+                window.initRemitAccountSelection();
             }
-
-            // 계좌 번호
-            document.getElementById('accountNumber').value = item.account;
-
-            // 송금 목적
-            const purposeSelect = document.getElementById('remitPurpose');
-            if (item.purpose) {
-                purposeSelect.value = item.purpose;
-            }
-
-            closeModal('accountSelectionModal');
-        }
+        });
 
         document.getElementById('accountSelectionModal').addEventListener('click', function (e) {
             if (e.target === this) {
@@ -344,9 +276,12 @@
             let firstErrorElement = null;
 
             const requiredFields = [
-                { id: 'countrySelect', message: '국가를 선택해 주세요.' },
+                { id: 'remitCountry', message: '국가를 선택해 주세요.' },
                 { id: 'firstNameEn', message: '이름을 입력해 주세요.' },
                 { id: 'lastNameEn', message: '성을 입력해 주세요.' },
+                { id: 'beneficiaryNameKana', message: '수취인 이름 (카나명)을 입력해 주세요.' },
+                { id: 'beneficiaryLastNameKana', message: '수취인 성 (카나명)을 입력해 주세요.' },
+                { id: 'bsbNumber', message: 'BSB 번호를 입력해 주세요.' },
                 { id: 'bankSelect', message: '은행을 선택해 주세요.' },
                 { id: 'accountNumber', message: '계좌 번호를 입력해 주세요.' },
                 { id: 'remitPurpose', message: '송금 목적을 선택해 주세요.' }
