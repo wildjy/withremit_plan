@@ -353,6 +353,9 @@ body{
 	gap: var(--s2);
 	width: 100%;
 	height: var(--input-h);
+	&.h-52 {
+		gap: var(--s6);
+	}
 }
 
 .field-flex.full-width .login-input {

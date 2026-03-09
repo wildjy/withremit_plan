@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>withremit - 개인 계좌</title>
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -14,9 +14,8 @@
 
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel='stylesheet' href='css/auth.css'>
-    <link rel='stylesheet' href='css/account.css'>
+    <!-- <link rel='stylesheet' href='css/account.css'> -->
     <script src='js/auth.js'></script>
-    <script src="js/head-include.js"></script>
 </head>
 
 <body class="db-body">
@@ -65,7 +64,7 @@
                                     <th>삭제</th>
                                 </tr>
                             </thead>
-                            <tbody id="accountTableBody">
+                            <tbody id="deleteTableBody">
                                 <!-- Sample Data -->
                                 <tr>
                                     <td class="td-num" data-label="번호">3</td>
@@ -91,7 +90,7 @@
                                         </span>
                                     </td>
                                     <td data-label="삭제">
-                                        <button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button>
+                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -120,7 +119,7 @@
                                         </span>
                                     </td>
                                     <td data-label="삭제">
-                                        <button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button>
+                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -149,7 +148,7 @@
                                         </span>
                                     </td>
                                     <td data-label="삭제">
-                                        <button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button>
+                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -307,7 +306,7 @@
             const maskedAccount = accountNum.substring(0, 4) + '*'.repeat(Math.max(7, accountNum.length - 4));
 
             // Add new row to table
-            const tbody = document.getElementById('accountTableBody');
+            const tbody = document.getElementById('deleteTableBody');
             const rowCount = tbody.querySelectorAll('tr').length;
             const newRow = document.createElement('tr');
 
@@ -337,7 +336,7 @@
                     </span>
                 </td>
                 <td data-label="삭제">
-                    <button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button>
+                    <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
                 </td>
             `;
 

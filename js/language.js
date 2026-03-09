@@ -189,6 +189,10 @@ const translations = {
         'modal.ok': '확인',
         'modal.notice.title': '약관확인',
         'modal.terms.scrollRequired': '약관 내용을 끝까지 읽고 동의해 주세요.',
+        'modal.invite.required': '모든 항목을 입력해주세요.',
+        'modal.invite.alreadyMember': '이미가입한 회원입니다',
+        'modal.invite.confirmSend': '입력하신 정보로 초대장을 발송하시겠습니까?',
+        'modal.invite.sendSuccess': '초대장 발송이 완료되었습니다',
     },
     en: {
         // Buttons
@@ -376,6 +380,10 @@ const translations = {
         'modal.ok': 'Confirm',
         'modal.notice.title': 'Notice',
         'modal.terms.scrollRequired': 'Please read the terms and conditions to the end and agree.',
+        'modal.invite.required': 'Please fill in all fields.',
+        'modal.invite.alreadyMember': 'This member is already registered.',
+        'modal.invite.confirmSend': 'Would you like to send an invitation with the entered information?',
+        'modal.invite.sendSuccess': 'Invitation has been sent successfully.',
     },
     ja: {
         // Buttons
@@ -561,6 +569,10 @@ const translations = {
         'modal.ok': '確認',
         'modal.notice.title': '案内',
         'modal.terms.scrollRequired': '利用規約の内容を最後まで読んで同意してください。',
+        'modal.invite.required': 'すべての項目を入力してください。',
+        'modal.invite.alreadyMember': 'すでに登録済みの会員です。',
+        'modal.invite.confirmSend': '入力した情報で招待状を送信しますか？',
+        'modal.invite.sendSuccess': '招待状の送信が完了しました。',
     },
     hi: {
         // Buttons
@@ -746,6 +758,10 @@ const translations = {
         'modal.ok': 'पुष्टि करें',
         'modal.notice.title': 'सूचना',
         'modal.terms.scrollRequired': 'कृपया सेवा की शर्तों को अंत तक पढ़ें और सहमत हों।',
+        'modal.invite.required': 'कृपया सभी फ़ील्ड भरें।',
+        'modal.invite.alreadyMember': 'यह सदस्य पहले से पंजीकृत है।',
+        'modal.invite.confirmSend': 'क्या आप दर्ज की गई जानकारी से निमंत्रण भेजना चाहते हैं?',
+        'modal.invite.sendSuccess': 'निमंत्रण भेजना सफलतापूर्वक पूरा हुआ।',
 
     }
 };

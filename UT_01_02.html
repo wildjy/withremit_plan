@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>withremit - 마이 페이지</title>
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -16,7 +16,7 @@
     <link rel='stylesheet' href='css/auth.css'>
     <script src='js/auth.js'></script>
     <link rel="stylesheet" href="css/utility.css">
-    <script src="js/head-include.js"></script>
+
 </head>
 
 <body class="db-body">
@@ -298,7 +298,7 @@
                                                 <input type="text" value="서울특별시 중구 남대문로 120" class="sh-input">
                                             </div>
                                             <div class="sh-action">
-                                                <button type="button" class="btn-sh-del"
+                                                <button type="button" class="btn btn-delete full size-sm"
                                                     onclick="removeRow(this)">삭제</button>
                                             </div>
                                         </div>
@@ -478,7 +478,7 @@
                     <span class="sh-mobile-label">지분율(%)</span><input type="text" placeholder="00" class="sh-input" inputmode="numeric" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                 </div>
                 <div class="sh-field sh-addr"><span class="sh-mobile-label">주소</span><input type="text" placeholder="주소" class="sh-input"></div>
-                <div class="sh-action"><button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button></div>
+                <div class="sh-action"><button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button></div>
             `;
             container.appendChild(newRow);
         }

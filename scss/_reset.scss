@@ -72,6 +72,12 @@ p {
 	color: var(--text-default);
 }
 
+table {
+	border: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 input, select, textarea {
 	width: 100%;
 	padding: var(--s3-14) var(--s4);
@@ -204,8 +210,4 @@ scroll::-webkit-scrollbar-track {
 
 .flex-1 {
 	flex: 1;
-}
-
-.hidden {
-	display: none;
 }

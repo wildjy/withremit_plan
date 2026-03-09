@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>withremit - 해외 송금 신청</title>
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -15,7 +15,7 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel='stylesheet' href='css/auth.css'>
     <script src='js/auth.js'></script>
-    <script src="js/head-include.js"></script>
+
 </head>
 
 <body class="db-body">
@@ -400,6 +400,38 @@
                         </div>
                     </div>
 
+                    <div class="db-content-card">
+                        <div class="remit-form-section">
+                            <div class="form-sec-head-wrap">
+                                <h2 class="form-sec-head">쿠폰</h2>
+                            </div>
+
+                            <div class="form-sec">
+                                <div class="form-row no-mb">
+                                    <div class="field-item">
+                                        <label class="field-label between">
+                                            <span>할인쿠폰</span>
+                                            <span>보유 쿠폰 <span>3</span>장</span>
+                                        </label>
+                                        <select class="login-input select-styled" id="couponSelect">
+                                            <option value="">선택</option>
+                                            <option value="R01">본인</option>
+                                            <option value="R02">자식</option>
+                                            <option value="R03">부모</option>
+                                            <option value="R04">형제</option>
+                                            <option value="R05">조카</option>
+                                            <option value="R06">친척</option>
+                                            <option value="R07">사업파트너</option>
+                                            <option value="R08">친구</option>
+                                            <option value="R09">배우자</option>
+                                        </select>
+                                        <span class="field-error" id="couponSelectError"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- 하단 버튼 -->
                     <div class="btn-align">
                         <!-- <button type="button" class="btn btn-outline btn-remit-cancel" -->
@@ -506,7 +538,7 @@
                                 <th>송금목적</th>
                             </tr>
                         </thead>
-                        <tbody id="accountTableBody">
+                        <tbody id="deleteTableBody">
                             <!-- 자바스크립트로 데이터 로드 -->
                         </tbody>
                     </table>

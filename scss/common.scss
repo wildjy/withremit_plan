@@ -5,6 +5,27 @@
 // 	padding: 8px 8px 8px 16px !important;
 // 	text-align: left;
 // }
+.field-info,
+.field-error {
+	margin-top: var(--s1-6);
+	display: block;
+	padding-left: var(--s5);
+	font-size: var(--text-xs);
+	font-weight: 500;
+	background-repeat: no-repeat;
+	background-size: var(--s4) var(--s4);
+	background-position: 0 0;
+}
+
+.field-info {
+	color: var(--primary-default);
+	background-image: var(--icon-info);
+}
+
+.field-error {
+	color: var(--negative);
+	background-image: var(--icon-error);
+}
 
 .date-picker-custom {
 	width: 100%;

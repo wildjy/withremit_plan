@@ -1128,7 +1128,7 @@ function confirmDelete() {
     if (currentDeleteButton) {
         currentDeleteButton.closest('tr').remove();
         // Re-number rows
-        const tbody = document.getElementById('accountTableBody');
+        const tbody = document.getElementById('deleteTableBody');
         const rows = tbody.querySelectorAll('tr');
         rows.forEach((row, index) => {
             row.querySelector('td:first-child').textContent = rows.length - index;
@@ -1150,7 +1150,7 @@ function closeValidationModal() {
 }
 
 function updateTotalCount() {
-    const tbody = document.getElementById('accountTableBody');
+    const tbody = document.getElementById('deleteTableBody');
     const count = tbody ? tbody.querySelectorAll('tr').length : 0;
     const countElement = document.getElementById('totalCount');
     if (countElement) {
@@ -1185,7 +1185,7 @@ function fillBeneficiaryName(name) {
 
 function renderRemitAccountModal(type) {
     const title = document.getElementById('accountModalTitle');
-    const tbody = document.getElementById('accountTableBody');
+    const tbody = document.getElementById('deleteTableBody');
     const cardList = document.getElementById('accountCardList');
     const table = document.getElementById('accountTable');
     if (!title || !tbody || !cardList || !table) return;
@@ -1240,7 +1240,7 @@ function renderRemitAccountModal(type) {
             window.selectAccount(item);
         };
         tbody.appendChild(tr);
-        
+
         const card = document.createElement('div');
         card.className = 'account-card';
         card.innerHTML = `

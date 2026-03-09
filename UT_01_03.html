@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>withremit - 송금 서비스 안내</title>
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -17,7 +17,7 @@
     <link rel='stylesheet' href='css/auth.css'>
     <script src='js/auth.js'></script>
 
-    <script src="js/head-include.js"></script>
+
 </head>
 
 <body class="db-body">
@@ -35,11 +35,13 @@
                 <div class="db-content-card">
                     <!-- Premium Hero Section -->
                     <div class="guide-hero">
-                        <h2 class="hero-title">더 가깝고 더 스마트한<br>글로벌 송금의 시작</h2>
+                        <h2 class="hero-title">친구 초대하면 송금 수수료 무료!</h2>
                         <p class="hero-desc">
-                            (주)위드머니는 혁신적인 핀테크 기술과 글로벌 금융 파트너십을 바탕으로,<br>
-                            가장 저렴하고 빠르며 안전한 국제송금 서비스 <strong>withremit</strong>를 제공합니다.
+                          지인에게 '수수료 전액 할인' 쿠폰을 발송할 수 있습니다.<br />
+                          초대받은 사용자의 첫 송금 완료 시, 회원님께 수수료 면제 혜택이 자동 부여됩니다.<br />
+                          발급된 혜택은 발급일로부터 90일간 유효합니다
                         </p>
+                        <a href="UT_01_04.html" class="btn btn-secondary size-lg">친구 초대하기</a>
                     </div>
 
                     <div class="common-tab-container">
@@ -50,7 +52,82 @@
 
                         <!-- Tab 1: 송금 서비스 특징 -->
                         <div id="tab-service" class="tab-content active">
-                          사용가능...
+                            <!-- Table Container -->
+                            <div class="db-table-responsive">
+                                <table class="db-notice-table history-mode">
+                                    <colgroup>
+                                        <col class="col-num">
+                                        <col>
+                                        <col>
+                                        <col>
+                                        <col class="col-delete">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th class="th-num">번호</th>
+                                            <th>쿠폰명</th>
+                                            <th>혜택</th>
+                                            <th>유효기간</th>
+                                            <th>비고</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-label="번호">1</td>
+                                            <td data-label="쿠폰명">친구 소개 쿠폰</td>
+                                            <td data-label="혜택">수수료 전액 할인</td>
+                                            <td data-label="유효기간">2025.12.31 ~ 2026.01.31</td>
+                                            <td data-label="비고">친구 아이디 : withremit</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-label="번호">2</td>
+                                            <td data-label="쿠폰명">생일 축하 쿠폰</td>
+                                            <td data-label="혜택">수수료 전액 할인</td>
+                                            <td data-label="유효기간">2024.12.31</td>
+                                            <td data-label="비고">친구 아이디 : withremit</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Pagination -->
+                            <div class="db-table-footer">
+                                <div class="db-pagination">
+                                    <button class="db-page-btn db-page-first">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <polyline points="11 17 6 12 11 7"></polyline>
+                                            <polyline points="18 17 13 12 18 7"></polyline>
+                                        </svg>
+                                    </button>
+                                    <button class="db-page-btn db-page-prev">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <polyline points="15 18 9 12 15 6"></polyline>
+                                        </svg>
+                                    </button>
+                                    <button class="db-page-num active">1</button>
+                                    <button class="db-page-btn db-page-next">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <polyline points="9 18 15 12 9 6"></polyline>
+                                        </svg>
+                                    </button>
+                                    <button class="db-page-btn db-page-last">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <polyline points="13 17 18 12 13 7"></polyline>
+                                            <polyline points="6 17 11 12 6 7"></polyline>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <select class="db-rows-select">
+                                    <option value="10" selected>10개씩 보기</option>
+                                    <option value="20">20개씩 보기</option>
+                                    <option value="30">30개씩 보기</option>
+                                    <option value="50">50개씩 보기</option>
+                                </select>
+                            </div>
                         </div>
 
                         <!-- Tab 2: 송금 가능 국가 -->

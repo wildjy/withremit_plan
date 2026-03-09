@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>withremit - 자주 쓰는 계좌</title>
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -14,9 +14,9 @@
 
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel='stylesheet' href='css/auth.css'>
-    <link rel='stylesheet' href='css/account.css'>
+    <!-- <link rel='stylesheet' href='css/account.css'> -->
     <script src='js/auth.js'></script>
-    <script src="js/head-include.js"></script>
+
 </head>
 
 <body class="db-body">
@@ -64,7 +64,7 @@
                                     <th>삭제</th>
                                 </tr>
                             </thead>
-                            <tbody id="accountTableBody">
+                            <tbody id="deleteTableBody">
                                 <tr>
                                     <td class="td-num" data-label="번호">9</td>
                                     <td data-label="국가">일본</td>
@@ -73,7 +73,7 @@
                                     <td data-label="계좌 번호">123-4567-89</td>
                                     <td data-label="송금 목적">가족 송금</td>
                                     <td data-label="삭제">
-                                        <button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button>
+                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -84,7 +84,7 @@
                                     <td data-label="계좌 번호">0011-2233-44</td>
                                     <td data-label="송금 목적">생활비</td>
                                     <td data-label="삭제">
-                                        <button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button>
+                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -95,7 +95,7 @@
                                     <td data-label="계좌 번호">6222-0210-01</td>
                                     <td data-label="송금 목적">사업</td>
                                     <td data-label="삭제">
-                                        <button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button>
+                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -106,7 +106,7 @@
                                     <td data-label="계좌 번호">0101-0123-45</td>
                                     <td data-label="송금 목적">저축</td>
                                     <td data-label="삭제">
-                                        <button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button>
+                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -117,7 +117,7 @@
                                     <td data-label="계좌 번호">062-000-1234</td>
                                     <td data-label="송금 목적">교육비</td>
                                     <td data-label="삭제">
-                                        <button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button>
+                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -128,7 +128,7 @@
                                     <td data-label="계좌 번호">123-456-789</td>
                                     <td data-label="송금 목적">투자</td>
                                     <td data-label="삭제">
-                                        <button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button>
+                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -139,7 +139,7 @@
                                     <td data-label="계좌 번호">5000-1234-56</td>
                                     <td data-label="송금 목적">선물</td>
                                     <td data-label="삭제">
-                                        <button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button>
+                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -150,7 +150,7 @@
                                     <td data-label="계좌 번호">0011-0022-33</td>
                                     <td data-label="송금 목적">의료비</td>
                                     <td data-label="삭제">
-                                        <button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button>
+                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -161,7 +161,7 @@
                                     <td data-label="계좌 번호">8888-7777-66</td>
                                     <td data-label="송금 목적">기타</td>
                                     <td data-label="삭제">
-                                        <button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button>
+                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
                                     </td>
                                 </tr>
                             </tbody>

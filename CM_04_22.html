@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>기업회원 가입 - 정보 입력</title>
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel='stylesheet' href='css/auth.css'>
     <script src='js/auth.js'></script>
-    <script src="js/head-include.js"></script>
+
 </head>
 
 <body class="login-page">
@@ -419,7 +419,7 @@
                                     <input type="text" placeholder="주소" class="sh-input">
                                 </div>
                                 <div class="sh-action">
-                                    <button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button>
+                                    <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
                                 </div>
                             </div>
                         </div>
@@ -653,7 +653,7 @@
                     <span class="sh-mobile-label">지분율(%)</span><input type="text" placeholder="00" class="sh-input" inputmode="numeric" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                 </div>
                 <div class="sh-field sh-addr"><span class="sh-mobile-label">주소</span><input type="text" placeholder="주소" class="sh-input"></div>
-                <div class="sh-action"><button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button></div>
+                <div class="sh-action"><button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button></div>
             `;
             container.appendChild(newRow);
         }

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>withremit - 비밀번호 확인</title>
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -18,7 +18,6 @@
 
     <script src='js/auth.js'></script>
 
-    <script src="js/head-include.js"></script>
 </head>
 
 <body class="db-body">
@@ -31,7 +30,7 @@
             <div class="db-content">
                 <!-- db-page-header Removed -->
 
-                <div class="db-content-card" style="min-height: 600px;">
+                <div class="db-content-card">
                     <div class="password-confirm-container">
                         <h2 class="password-confirm-title">비밀번호 확인</h2>
                         <p class="password-confirm-desc">정보 보호를 위해 비밀번호 확인이 필요합니다.</p>
@@ -40,10 +39,8 @@
                             <label class="field-label">비밀번호</label>
                             <div class="input-box-group" id="passwordCheckBox">
                                 <div class="password-wrap">
-                                    <input type="text" id="passwordCheck" class="login-input" placeholder="비밀번호를 입력하세요"
-                                        readonly onclick="toggleKeypad('passwordCheck')">
-                                    <button type="button" class="keypad-btn" tabindex="-1"
-                                        onclick="toggleKeypad('passwordCheck')">
+                                    <input type="text" id="passwordCheck" class="login-input" placeholder="비밀번호를 입력하세요" readonly onclick="toggleKeypad('passwordCheck')">
+                                    <button type="button" class="keypad-btn" tabindex="-1" onclick="toggleKeypad('passwordCheck')">
                                         <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
                                             stroke="currentColor" stroke-width="2">
                                             <path
@@ -89,8 +86,6 @@
                 const confirmBtn = document.getElementById('confirmBtn');
                 if (confirmBtn) {
                     confirmBtn.addEventListener('click', (e) => {
-                        // In a real app, you'd validate the password first.
-                        // For this UI demo, we just redirect on click as requested.
                         window.location.href = 'UT_01_01.html';
                     });
                 }

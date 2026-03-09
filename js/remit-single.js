@@ -28,7 +28,8 @@ function submitRemittance() {
         { id: 'remitPurpose', message: '송금 목적을 선택해 주세요.' },
         { id: 'fundSource', message: '자금 출처를 선택해 주세요.' },
         { id: 'beneficiaryPhone', message: '전화번호를 입력해 주세요.' },
-        { id: 'beneficiaryAddress', message: '주소를 입력해 주세요.' }
+        { id: 'beneficiaryAddress', message: '주소를 입력해 주세요.' },
+        { id: 'couponSelect', message: '할인쿠폰을 선택해 주세요.' }
     ];
 
     // 일본인 경우에만 계좌 타입 필수

@@ -138,8 +138,14 @@
 	font-weight: 500;
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
+	&.hidden {
+		@include Helper.hidden;
+	}
 	&.no-uppercase {
 		text-transform: none;
+	}
+	&.between {
+		justify-content: space-between;
 	}
 }
 
@@ -155,14 +161,6 @@
 	display: flex;
 	align-items: center;
 	position: relative;
-}
-
-.field-error {
-	display: block;
-	color: var(--negative);
-	font-size: 0.85rem;
-	margin-top: 6px;
-	font-weight: 500;
 }
 
 .field-desc {
@@ -988,6 +986,11 @@
 
 .terms-header {
 	margin-bottom: 12px;
+	.check-text {
+		display: flex;
+		align-items: center;
+
+	}
 }
 
 .terms-content-box {
@@ -1160,25 +1163,6 @@
 	padding: 24px;
 	border-radius: 12px;
 	border-top: none !important;
-}
-
-// .btn-align {
-// 	display: flex;
-// 	justify-content: center;
-// 	gap: 12px;
-// 	margin-top: 20px;
-// 	padding-top: 24px;
-// }
-
-.btn btn-secondary size-lg {
-	min-width: 120px;
-	height: 50px;
-	background-color: #fff;
-	border: 1px solid var(--border-default);
-	border-radius: 10px;
-	color: var(--text-soft);
-	cursor: pointer;
-	font-weight: 500;
 }
 
 .register-card-wide .btn btn-primary size-lg {
