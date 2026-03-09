@@ -108,16 +108,73 @@
                                 </div>
 
                                 <!-- Row 3: 전화번호/이메일 (Editable) -->
-                                <div class="form-row-2" style="margin-top: 24px;">
+                                <div class="form-row-2">
                                     <div class="field-item">
                                         <label class="field-label">전화번호 <span class="badge-required">필수</span></label>
                                         <input type="text" value="01012345678" class="login-input">
                                     </div>
-                                    <div class="field-item">
+                                    <!-- <div class="field-item">
                                         <label class="field-label">이메일 주소 <span class="badge-required">필수</span></label>
                                         <div class="field-flex">
                                             <input type="email" value="example@email.com" class="login-input">
                                             <button type="button" class="btn btn-utility size-lg">이메일 중복 확인</button>
+                                        </div>
+                                    </div> -->
+                                </div>
+
+                                <div class="form-row-2">
+                                    <div class="form-row-2 no-mb">
+                                        <div class="field-item">
+                                            <label class="field-label">
+                                                <span data-i18n="join.request.email">이메일 주소</span>
+                                                <span class="badge-required" data-i18n="join.required">필수</span>
+                                            </label>
+                                            <input
+                                                type="text"
+                                                id="emailLocal"
+                                                class="login-input"
+                                                inputmode="email"
+                                                autocomplete="email"
+                                                placeholder="예: user"
+                                                aria-label="이메일 아이디"
+                                                data-i18n="join.emailLocalPlaceholder"
+                                            />
+                                        </div>
+                                        <div class="field-item align-end">
+                                            <input
+                                                type="text"
+                                                id="emailDomain"
+                                                class="login-input"
+                                                inputmode="url"
+                                                placeholder="직접 입력"
+                                                aria-label="이메일 도메인 직접 입력"
+                                                data-i18n="join.emailDomainPlaceholder"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="form-row no-mb">
+                                        <div class="field-item align-end">
+                                            <div class="field-flex full-width">
+                                                <select id="domainMode" class="login-input select-styled" aria-label="도메인 입력 방식">
+                                                    <option value="direct" selected data-i18n="join.emailDomainPlaceholder">직접 입력</option>
+                                                    <option value="gmail.com">gmail.com</option>
+                                                    <option value="naver.com">naver.com</option>
+                                                    <option value="daum.net">daum.net</option>
+                                                    <option value="hotmail.com">hotmail.com</option>
+                                                    <option value="nate.com">nate.com</option>
+                                                </select>
+                                                <button
+                                                    type="button"
+                                                    class="btn btn-utility size-lg"
+                                                    id="btnCheckEmail"
+                                                    onclick="openModal('emailDupOkModal') // emailDupOkModal & emailDupUsedModal"
+                                                    data-i18n="join.checkEmail"
+                                                >
+                                                    이메일 중복
+                                                </button>
+
+                                                <input type="hidden" id="emailFull" name="email" value="" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -190,7 +247,7 @@
                     </div>
 
                     <!-- 하단 버튼 -->
-                    <div class="btn-align right">
+                    <div class="btn-align">
                         <button type="button" class="btn btn-secondary size-lg" onclick="history.back()">취소</button>
                         <button type="button" class="btn btn-primary size-lg" onclick="openModal('successModal')">저장</button>
                     </div>
@@ -215,6 +272,42 @@
                 <h3>저장 완료</h3>
                 <p>회원 정보를 수정하였습니다.</p>
                 <button class="btn btn-warning full size-lg" style="background-color: #00A0DC;" onclick="closeModal('successModal')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 이메일 중복 확인 모달 -->
+    <div id="emailDupOkModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-inner">
+                <div class="modal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00A0DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11"></polyline>
+                    </svg>
+                </div>
+                <h3 data-i18n="modal.emailDup.title">이메일 중복 확인</h3>
+                <p data-i18n="modal.emailDup.ok">사용 가능한 이메일입니다.</p>
+                <button class="btn btn-primary full size-lg" onclick="closeModal('emailDupOkModal')" data-i18n="button.confirm">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 이메일 중복 확인 실패 모달 -->
+    <div id="emailDupUsedModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-inner">
+                <div class="modal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                        </path>
+                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                </div>
+                <h3 data-i18n="modal.emailDup.title">이메일 중복 확인</h3>
+                <p data-i18n="modal.emailDup.fail">이미 사용 중인 이메일입니다.</p>
+                <button class="btn btn-warning full size-lg" onclick="closeModal('emailDupUsedModal')" data-i18n="button.confirm">확인</button>
             </div>
         </div>
     </div>

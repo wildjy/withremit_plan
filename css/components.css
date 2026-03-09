@@ -323,9 +323,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   gap: var(--s4);
 }
 .btn-align.wrap {
@@ -343,6 +343,11 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
+.btn-align.center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 .btn-align.right {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
@@ -357,7 +362,7 @@
     width: var(--full);
   }
   .btn-align .btn, .btn-align a, .btn-align button {
-    width: calc(50% - var(--s4));
+    width: 50%;
   }
 }
 .btn btn-secondary size-sm {
@@ -797,25 +802,40 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 var(--s4);
   width: 100%;
   height: 52px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #666;
+  font-size: var(--text-md);
+  color: var(--text-default);
+  font-weight: 600;
   background-color: var(--white);
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
 
 .nationality-btn-label input:checked + .nationality-btn {
-  border-color: #00A0DC;
-  background-color: #00A0DC;
-  color: #fff;
+  border: 2px solid var(--primary-default);
+  color: var(--primary-default);
+}
+.nationality-btn-label input:checked + .nationality-btn .custom-check {
+  background-color: var(--primary-default);
+  border-color: var(--primary-default);
+}
+.nationality-btn-label input:checked + .nationality-btn .custom-check::after {
+  content: "";
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  margin-bottom: 2px;
+  display: block;
 }
 
 /* ===== end findTabs ===== */
@@ -966,9 +986,7 @@
             justify-content: space-between;
   }
   .modal-footer .btn, .modal-footer a, .modal-footer button {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
+    width: 50%;
   }
 }
 .modal-footer .btn-align {

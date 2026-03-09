@@ -72,7 +72,6 @@ p {
 	color: var(--text-default);
 }
 
-
 input, select, textarea {
 	width: 100%;
 	padding: var(--s3-14) var(--s4);
@@ -92,12 +91,16 @@ input, select, textarea {
 		opacity: 1;
 	}
 
-	&:focus {
-		@include Helper.input-focus;
+	&:not(:disabled, :read-only) {
+		&:focus {
+			@include Helper.input-focus;
+		}
 	}
+
 	&.error {
 		@include Helper.input-error;
 	}
+
 	&:disabled {
 		@include Helper.input-disabled;
 	}
@@ -121,15 +124,47 @@ select {
 	// 	border-color: var(--primary-default);
 	// 	box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);
 	// }
-	&:focus,
-	&:valid {
-		color: var(--text-heavy);
+	&:not(:disabled, :read-only) {
+		&:focus,
+		&:valid {
+			color: var(--text-heavy);
+		}
 	}
 	&:disabled {
 		@include Helper.input-disabled;
 	}
 }
 
+.custom-check {
+	width: 18px;
+	height: 18px;
+	border: 1.5px solid var(--border-default);
+	border-radius: 3px;
+	background-color: #fff;
+	transition: var(--transition);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+input[type="radio"]:checked + .custom-check,
+input[type="checkbox"]:checked + .custom-check {
+	background-color: var(--primary-default);
+	border-color: var(--primary-default);
+}
+
+input[type="radio"]:checked + .custom-check::after,
+input[type="checkbox"]:checked + .custom-check::after {
+	content: "";
+	width: 5px;
+	height: 9px;
+	border: solid #fff;
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg);
+	margin-bottom: 2px;
+	display: block;
+}
 
 // input, select, textarea,
 // .input-box-group {

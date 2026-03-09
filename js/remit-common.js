@@ -451,7 +451,7 @@ function updateQuickAmountButtons() {
         amounts.forEach(amount => {
             // 한도 내의 금액만 표시
             if (amount <= maxReceiveAmt) {
-                buttonsHtml += `<button type="button" class="quick-btn" data-amount="${amount}" onclick="setQuickAmount(${amount}, this)">${rateInfo.symbol} ${amount.toLocaleString('ko-KR')}</button>`;
+                buttonsHtml += `<button type="button" class="quick-btn btn btn-secondary size-sm" data-amount="${amount}" onclick="setQuickAmount(${amount}, this)">${rateInfo.symbol} ${amount.toLocaleString('ko-KR')}</button>`;
             }
         });
     }
