@@ -1188,7 +1188,7 @@ function renderRemitAccountModal(type) {
     const tbody = document.getElementById('deleteTableBody');
     const cardList = document.getElementById('accountCardList');
     const table = document.getElementById('accountTable');
-    if (!title || !tbody || !cardList || !table) return;
+    if (!title || !tbody || !table) return;
 
     const data = type === 'frequent'
         ? remitFrequentAccounts
@@ -1199,11 +1199,11 @@ function renderRemitAccountModal(type) {
     title.textContent = type === 'frequent' ? '자주 쓰는 계좌' : '최근 입금 계좌';
 
     tbody.innerHTML = '';
-    cardList.innerHTML = '';
+    if (cardList) {
+        cardList.innerHTML = '';
+    }
 
     const headerLabels = Array.from(table.querySelectorAll('thead th')).map((th) => th.textContent.trim());
-    const hasKanaColumn = headerLabels.some((label) => label.includes('카나'));
-    const hasBsbColumn = headerLabels.some((label) => label.replace(/\s/g, '').includes('BSB'));
 
     data.forEach((item, index) => {
         const name = item.name || [item.firstName, item.lastName].filter(Boolean).join(' ').trim();
@@ -1213,21 +1213,21 @@ function renderRemitAccountModal(type) {
             const normalized = label.replace(/\s/g, '');
             switch (normalized) {
                 case '번호':
-                    return `<td class='center'>${index + 1}</td>`;
+                    return `<td class='center' data-label='번호'>${index + 1}</td>`;
                 case '국가':
-                    return `<td>${item.countryName || ''}</td>`;
+                    return `<td data-label='국가'>${item.countryName || ''}</td>`;
                 case '수취인명':
-                    return `<td>${name || '-'}</td>`;
+                    return `<td data-label='수취인명'>${name || '-'}</td>`;
                 case '수취인명(카나)':
-                    return `<td>${kanaName || '-'}</td>`;
+                    return `<td data-label='수취인명(카나)'>${kanaName || '-'}</td>`;
                 case '은행명':
-                    return `<td>${item.bank || ''}</td>`;
+                    return `<td data-label='은행명'>${item.bank || ''}</td>`;
                 case '계좌번호':
-                    return `<td>${item.account || ''}</td>`;
+                    return `<td data-label='계좌번호'>${item.account || ''}</td>`;
                 case 'BSB번호':
-                    return `<td>${item.bsbNumber || '-'}</td>`;
+                    return `<td data-label='BSB번호'>${item.bsbNumber || '-'}</td>`;
                 case '송금목적':
-                    return `<td>${item.purposeName || ''}</td>`;
+                    return `<td data-label='송금목적'>${item.purposeName || ''}</td>`;
                 default:
                     return `<td></td>`;
             }
@@ -1240,50 +1240,6 @@ function renderRemitAccountModal(type) {
             window.selectAccount(item);
         };
         tbody.appendChild(tr);
-
-        const card = document.createElement('div');
-        card.className = 'account-card';
-        card.innerHTML = `
-            <div class="account-card-header">
-                <span class="account-card-number">#${index + 1}</span>
-                <span class="account-card-country">${item.countryName || ''}</span>
-            </div>
-            <div class="account-card-body">
-                <div class="account-card-row">
-                    <span class="account-card-label">수취인명</span>
-                    <span class="account-card-value">${name || '-'}</span>
-                </div>
-                ${hasKanaColumn ? `
-                <div class="account-card-row">
-                    <span class="account-card-label">수취인명(카나)</span>
-                    <span class="account-card-value">${kanaName || '-'}</span>
-                </div>
-                ` : ''}
-                <div class="account-card-row">
-                    <span class="account-card-label">은행명</span>
-                    <span class="account-card-value">${item.bank || ''}</span>
-                </div>
-                <div class="account-card-row">
-                    <span class="account-card-label">계좌 번호</span>
-                    <span class="account-card-value">${item.account || ''}</span>
-                </div>
-                ${hasBsbColumn ? `
-                <div class="account-card-row">
-                    <span class="account-card-label">BSB 번호</span>
-                    <span class="account-card-value">${item.bsbNumber || '-'}</span>
-                </div>
-                ` : ''}
-                <div class="account-card-row">
-                    <span class="account-card-label">송금 목적</span>
-                    <span class="account-card-value">${item.purposeName || ''}</span>
-                </div>
-            </div>
-        `;
-        card.onclick = () => {
-            window.selectAccount(item);
-        };
-
-        cardList.appendChild(card);
     });
 }
 

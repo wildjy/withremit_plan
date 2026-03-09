@@ -513,3 +513,51 @@ if (depositBankEl) {
         }
     });
 }
+
+const couponButton = document.querySelector('.coupon-btn');
+const applyCouponButton = document.getElementById('applyCouponBtn');
+const couponHiddenInput = document.getElementById('couponSelect');
+const couponLabel = document.querySelector('.coupon-btn .btn-label');
+const couponRows = document.querySelectorAll('#couponSelectionModal tbody tr');
+
+couponRows.forEach((row) => {
+    row.addEventListener('click', () => {
+        const radio = row.querySelector('input[type="radio"]');
+        if (radio) {
+            radio.checked = true;
+        }
+    });
+});
+
+if (couponButton) {
+    couponButton.addEventListener('click', () => {
+        openModal('couponSelectionModal');
+    });
+}
+
+if (applyCouponButton) {
+    applyCouponButton.addEventListener('click', () => {
+        const selectedRadio = document.querySelector('#couponSelectionModal input[name="couponSelectRadio"]:checked');
+        if (!selectedRadio) {
+            return;
+        }
+
+        const selectedRow = selectedRadio.closest('tr');
+        const selectedCouponName = selectedRow?.dataset.couponName || '';
+        const selectedCouponId = selectedRow?.dataset.couponId || '';
+
+        if (couponHiddenInput) {
+            couponHiddenInput.value = selectedCouponId;
+        }
+
+        if (couponLabel && selectedCouponName) {
+            couponLabel.textContent = selectedCouponName;
+        }
+
+        if (typeof clearFieldError === 'function') {
+            clearFieldError('couponSelect');
+        }
+
+        closeModal('couponSelectionModal');
+    });
+}

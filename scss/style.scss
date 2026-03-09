@@ -2674,10 +2674,13 @@
 @media (max-width: 768px) {
 	.account-table-container {
 		padding: 10px;
-		max-height: calc(var(--full-dvh) - 150px);
+		// max-height: calc(var(--full-dvh) - 150px);
 	}
   /* Hide table, show card layout */
 	#accountTable {
+		// display: none;
+	}
+	#accountCardList {
 		display: none;
 	}
 
@@ -2906,6 +2909,13 @@ td.center {
 
 	.db-notice-table.history-mode {
 		&:is(.coupon-mode) {
+			// tr {
+			// 	td {
+			// 		&:before {
+			// 			display: block;
+			// 		}
+			// 	}
+			// }
 			td:nth-child(2) {
 				padding-bottom: 0;
 				border-top: none;
@@ -2948,10 +2958,17 @@ td.center {
 	.db-notice-table.history-mode td:last-child {
 		padding-bottom: 20px;
     // border-bottom: 1px solid var(--border-default);
+		// &:before {
+		// 	display: none;
+		// }
+	}
+
+	.db-notice-table.history-mode td:last-child[data-label='삭제'] {
 		&:before {
 			display: none;
 		}
 	}
+
   /* Label Styling */
 	.db-notice-table.history-mode td:nth-child(n + 3)::before {
 		content: attr(data-label);

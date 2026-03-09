@@ -365,54 +365,12 @@
     width: 50%;
   }
 }
-.btn btn-secondary size-sm {
-  display: inline-block;
-  padding: 6px 16px;
-  background-color: #f3f4f6;
-  color: var(--text-default);
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border-radius: 6px;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.btn btn-secondary.size-sm.active,
-.btn btn-secondary.size-sm:hover {
-  background-color: #e5e7eb;
-  color: var(--text-heavy);
-}
-
-.btn-confirm {
-  background-color: #1b5e9e;
-}
-
-.btn-confirm:hover {
-  background-color: #154a7c;
-  -webkit-transform: translateY(-1px);
-          transform: translateY(-1px);
-}
-
-.btn btn-primary size-lg {
-  -webkit-box-flex: 1.5;
-      -ms-flex: 1.5;
-          flex: 1.5;
-  background-color: #1b5e9e;
-  color: #fff;
-  padding: 14px;
-  border-radius: 12px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.btn btn-primary size-lg:hover {
-  background-color: #154a7c;
-  -webkit-transform: translateY(-1px);
-          transform: translateY(-1px);
+.coupon-btn {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 var(--s4);
+  color: var(--text-soft);
 }
 
 .btn-close-modal {
@@ -987,6 +945,9 @@
   }
   .modal-footer .btn, .modal-footer a, .modal-footer button {
     width: 50%;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
   }
 }
 .modal-footer .btn-align {

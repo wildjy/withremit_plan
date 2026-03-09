@@ -127,6 +127,7 @@
 
 		.btn, a, button {
 			width: calc(100% / 2);
+			flex-grow: 1;
 		}
 	}
 }

@@ -413,18 +413,15 @@
                                             <span>할인쿠폰</span>
                                             <span>보유 쿠폰 <span>3</span>장</span>
                                         </label>
-                                        <select class="login-input select-styled" id="couponSelect">
-                                            <option value="">선택</option>
-                                            <option value="R01">본인</option>
-                                            <option value="R02">자식</option>
-                                            <option value="R03">부모</option>
-                                            <option value="R04">형제</option>
-                                            <option value="R05">조카</option>
-                                            <option value="R06">친척</option>
-                                            <option value="R07">사업파트너</option>
-                                            <option value="R08">친구</option>
-                                            <option value="R09">배우자</option>
-                                        </select>
+                                        <button type="button" class="coupon-btn btn btn-secondary size-lg">
+                                            <span class="btn-label">쿠폰을 선택해 주세요.</span>
+                                            <span class="btn-icon" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                    <path d="M7.94975 5.05025L12.8995 10L7.94975 14.9497" stroke="#4A5C64" stroke-width="1.6" stroke-linecap="round"/>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        <input type="hidden" id="couponSelect" value="">
                                         <span class="field-error" id="couponSelectError"></span>
                                     </div>
                                 </div>
@@ -504,6 +501,67 @@
         </div>
     </div>
 
+    <!-- 쿠폰 선택 모달 -->
+    <div id="couponSelectionModal" class="modal-overlay">
+        <div class="modal-content modal-layout">
+            <div class="modal-inner">
+                <div class="modal-header">
+                    <h2 class="modal-title">쿠폰 선택</h2>
+                    <button class="modal-close" onclick="closeModal('couponSelectionModal')">&times;</button>
+                </div>
+
+                <div class="db-table-container account-table-container">
+                    <table class="db-notice-table " id="">
+                        <colgroup>
+                            <col style="width: 60px;">
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>선택</th>
+                                <th>쿠폰명</th>
+                                <th>혜택</th>
+                                <th>유효기간</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-coupon-id="coupon_1" data-coupon-name="친구 소개 쿠폰">
+                                <td class="center">
+                                    <label class="radio-wrap">
+                                        <input type="radio" name="couponSelectRadio">
+                                        <span class="custom-radio"></span>
+                                    </label>
+                                </td>
+                                <td data-label="쿠폰명">친구 소개 쿠폰</td>
+                                <td data-label="혜택">수수료 전액 할인</td>
+                                <td data-label="유효기간">2025.12.31 ~ 2026.01.31</td>
+                            </tr>
+                            <tr data-coupon-id="coupon_2" data-coupon-name="생일 축하 쿠폰">
+                                <td class="center">
+                                    <label class="radio-wrap">
+                                        <input type="radio" name="couponSelectRadio" checked>
+                                        <span class="custom-radio"></span>
+                                    </label>
+                                </td>
+                                <td data-label="쿠폰명">생일 축하 쿠폰</td>
+                                <td data-label="혜택">수수료 전액 할인</td>
+                                <td data-label="유효기간">2024.12.31</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary size-lg" onclick="closeModal('couponSelectionModal')">취소</button>
+                    <button class="btn btn-primary size-lg" id="applyCouponBtn">선택</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- 계좌 선택 모달 (자주 쓰는 계좌 / 최근 입금 계좌 공용) -->
     <div id="accountSelectionModal" class="modal-overlay">
         <div class="modal-content modal-layout lg account-modal-content">
@@ -515,7 +573,7 @@
 
                 <!-- 테이블 영역 (스크롤 가능) -->
                 <div class="db-table-container account-table-container">
-                    <table class="db-notice-table hover-table" id="accountTable">
+                    <table class="db-notice-table hover-table history-mode" id="accountTable">
                         <colgroup>
                             <col class="account-col-num">
                             <col class="account-col-country">
@@ -542,11 +600,6 @@
                             <!-- 자바스크립트로 데이터 로드 -->
                         </tbody>
                     </table>
-                </div>
-
-                <!-- 모바일 카드 레이아웃 (768px 이하) -->
-                <div class="account-card-list" id="accountCardList">
-                    <!-- JavaScript로 카드 렌더링 -->
                 </div>
 
                 <div class="modal-footer">
