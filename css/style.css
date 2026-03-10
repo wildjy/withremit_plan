@@ -9722,7 +9722,7 @@ td.center {
     padding: 15px;
   }
   .account-col-num {
-    width: 50px;
+    width: var(--s15);
   }
   .account-col-country {
     width: 80px;
