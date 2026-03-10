@@ -191,13 +191,10 @@
   width: auto;
   -o-object-fit: contain;
      object-fit: contain;
-  -webkit-filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.25));
-          filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.25));
   -webkit-transition: -webkit-transform 0.4s ease;
   transition: -webkit-transform 0.4s ease;
   transition: transform 0.4s ease;
   transition: transform 0.4s ease, -webkit-transform 0.4s ease;
-  mix-blend-mode: screen;
 }
 
 a.banner-slide {

@@ -212,11 +212,11 @@
 /* 2. Mobile Small (<= 768px) */
 @media (max-width: 768px) {
 	.header-inner {
-		height: 60px;
+		// height: 60px;
 		gap: var(--s3);
 
 		.logo img {
-			height: 35px;
+			height: 2.1875rem;
 		}
 	}
 
@@ -289,7 +289,7 @@
   .nav-right {
     display: flex !important;
     align-items: center;
-    gap: var(--s4);
+    gap: var(--s2);
   }
 
   .lang-select,
@@ -335,7 +335,7 @@
 	font-weight: 600;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 768px) {
 	.db-balance-display {
 		display: none;
 	}

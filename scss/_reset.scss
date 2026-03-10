@@ -13,6 +13,7 @@ html {
 }
 
 /* Base Body Overflow Fix */
+html,
 body {
 	width: 100%;
 	font-family: var(--font-family);
@@ -23,6 +24,20 @@ body {
 	overflow-x: hidden;
 	*{
 		font-family: inherit;
+	}
+}
+
+@media (max-width: 480px) {
+	html,
+	body {
+		font-size: var(--xsBase);
+	}
+}
+
+@media (max-width: 768px) {
+	html,
+	body {
+		font-size: var(--smBase);
 	}
 }
 

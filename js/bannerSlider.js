@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
         effect: 'fade',
         loop: true,
         speed: 800,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
+        // autoplay: {
+        //     delay: 5000,
+        //     disableOnInteraction: false,
+        // },
         pagination: paginationEl
             ? {
                   el: paginationEl,

@@ -106,6 +106,8 @@
   --s19: 4.75rem;
   --s20: 5rem;
   --s21: 5.25rem;
+  --xsBase: 4.444vw;
+  --smBase: 3.333vw;
   --text-2xs: 0.625rem;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -140,6 +142,7 @@ html {
 }
 
 /* Base Body Overflow Fix */
+html,
 body {
   width: 100%;
   font-family: var(--font-family);
@@ -149,10 +152,23 @@ body {
   background-color: var(--white);
   overflow-x: hidden;
 }
+html *,
 body * {
   font-family: inherit;
 }
 
+@media (max-width: 480px) {
+  html,
+  body {
+    font-size: var(--xsBase);
+  }
+}
+@media (max-width: 768px) {
+  html,
+  body {
+    font-size: var(--smBase);
+  }
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -588,11 +604,10 @@ input[type=checkbox]:checked + .custom-check::after {
 /* 2. Mobile Small (<= 768px) */
 @media (max-width: 768px) {
   .header-inner {
-    height: 60px;
     gap: var(--s3);
   }
   .header-inner .logo img {
-    height: 35px;
+    height: 2.1875rem;
   }
   .nav-right .btn-primary {
     display: none;
@@ -650,7 +665,7 @@ input[type=checkbox]:checked + .custom-check::after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: var(--s4);
+  gap: var(--s2);
 }
 .db-body .lang-select,
 .db-body .db-user-dropdown {
@@ -676,7 +691,7 @@ input[type=checkbox]:checked + .custom-check::after {
   font-weight: 600;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 768px) {
   .db-balance-display {
     display: none;
   }
@@ -1781,13 +1796,10 @@ body.wh-full {
   width: auto;
   -o-object-fit: contain;
      object-fit: contain;
-  -webkit-filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.25));
-          filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.25));
   -webkit-transition: -webkit-transform 0.4s ease;
   transition: -webkit-transform 0.4s ease;
   transition: transform 0.4s ease;
   transition: transform 0.4s ease, -webkit-transform 0.4s ease;
-  mix-blend-mode: screen;
 }
 
 a.banner-slide {
