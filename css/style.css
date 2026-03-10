@@ -9501,7 +9501,7 @@ a.banner-slide {
 
 /* Account Table Column Widths */
 .account-col-num {
-  width: 60px;
+  width: 75px;
 }
 
 .account-col-country {
@@ -9795,9 +9795,7 @@ td.center {
     background-color: #fff;
   }
   .db-notice-table.history-mode:is(.coupon-mode) td:nth-child(2) {
-    padding-bottom: 0;
     border-top: none;
-    border-bottom: none;
   }
   .db-notice-table.history-mode:is(.coupon-mode) td:nth-child(2) .field-label {
     display: -webkit-box;

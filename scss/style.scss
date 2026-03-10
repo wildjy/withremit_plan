@@ -981,17 +981,17 @@
 	}
 
 	.db-notice-table .th-num,
-  	.db-notice-table .td-num {
+  .db-notice-table .td-num {
 		display: none;
 	}
 
 	.db-notice-table .th-views,
-  	.db-notice-table .td-views {
+  .db-notice-table .td-views {
 		display: none;
 	}
 
 	.db-notice-table .col-num,
-  	.db-notice-table .col-views {
+  .db-notice-table .col-views {
 		display: none;
 	}
 
@@ -2619,7 +2619,7 @@
 
 /* Account Table Column Widths */
 .account-col-num {
-	width: 60px;
+	width: 75px;
 }
 
 .account-col-country {
@@ -2925,9 +2925,7 @@ td.center {
 			// 	}
 			// }
 			td:nth-child(2) {
-				padding-bottom: 0;
 				border-top: none;
-				border-bottom: none;
 				.field-label {
 					display: flex;
 					margin-bottom: var(--s4);
