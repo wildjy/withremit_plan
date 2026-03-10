@@ -1213,7 +1213,7 @@ function renderRemitAccountModal(type) {
             const normalized = label.replace(/\s/g, '');
             switch (normalized) {
                 case '번호':
-                    return `<td class='center' data-label='번호'>${index + 1}</td>`;
+                    return `<td class='number center' data-label='번호'>${index + 1}</td>`;
                 case '국가':
                     return `<td data-label='국가'>${item.countryName || ''}</td>`;
                 case '수취인명':
@@ -1482,9 +1482,14 @@ window.initCouponSelection = function () {
         const tr = document.createElement('tr');
         tr.dataset.couponId = coupon.id;
         tr.innerHTML = `
-            <td><input type="radio" name="couponSelect" value="${String(coupon.id || '')}"></td>
+            <td class="center">
+                <label class="radio-wrap">
+                    <input type="radio" name="couponSelect" value="${String(coupon.id || '')}">
+                    <span class="custom-radio"></span>
+                </label>
+            </td>
             <td data-i18n="">${coupon.name || ''}</td>
-            <td data-i18n="">${coupon.description || ''}</td>
+            <td data-i18n="">${coupon.benefit || ''}</td>
             <td data-i18n="">${coupon.validUntil || ''}</td>
         `;
         couponTableBody.appendChild(tr);

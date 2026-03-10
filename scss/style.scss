@@ -7,6 +7,7 @@
 @use "./components";
 @use "./login";
 @use "./dashboard";
+@use "./table";
 
 /* Inquiry Form Utility Classes */
 .mb-0 {
@@ -270,125 +271,6 @@
 	padding: 0;
 }
 
-.db-notice-table {
-	width: 100%;
-	border-collapse: separate;
-	border-spacing: 0;
-	border: 1px solid var(--border-default);
-	border-radius: var(--radius);
-	overflow: hidden;
-}
-
-// column widths
-.col-check {
-	width: 80px;
-	text-align: center;
-}
-
-.col-type {
-	width: 100px;
-	text-align: center;
-}
-
-.col-name {
-	width: auto;
-}
-
-.col-num {
-	width: 80px;
-}
-
-.col-balance {
-	width: auto;
-	text-align: right;
-	font-weight: 700;
-	color: #1f2937;
-}
-
-.col-status {
-	width: 100px;
-	text-align: center;
-}
-
-.col-delete {
-	width: 100px;
-}
-
-.db-notice-table thead {
-	background-color: var(--bg-default);
-}
-
-.db-notice-table {
-	tbody tr {
-		background-color: var(--white);
-		border-bottom: 1px solid #eee;
-		transition: background-color 0.2s;
-		cursor: pointer;
-	}
-	&.coupon-mode {
-		tbody tr {
-			cursor: default;
-		}
-	}
-}
-
-
-.db-notice-table tbody tr:hover {
-	background-color: #f8fafa;
-}
-
-.db-notice-table tbody tr:first-child {
-	td {
-		border-top: none;
-	}
-}
-
-.db-notice-table tbody tr:last-child {
-	border-bottom: none;
-}
-
-.db-notice-table tbody tr:last-child td:first-child {
-	border-bottom-left-radius: var(--radius);
-}
-
-.db-notice-table tbody tr:last-child td:last-child {
-	border-bottom-right-radius: var(--radius);
-}
-
-.db-notice-table th,
-.db-notice-table td {
-	padding: var(--s4) var(--s3-14);
-	font-size: var(--text-sm);
-	text-align: center;
-}
-
-.db-notice-table th {
-	color: var(--text-heavy);
-	font-weight: 600;
-	border-bottom: 1px solid var(--border-default);
-}
-
-.db-notice-table td {
-	color: var(--text-strong);
-	border-top: 1px solid var(--border-soft);
-}
-
-
-.db-notice-table .faq-title {
-	font-size: 15px;
-	font-weight: 500;
-	vertical-align: middle;
-	text-align: left !important;
-}
-
-.db-notice-table .faq-content {
-	padding: 24px 40px 24px 48px;
-	line-height: 1.6;
-	color: #555;
-	// white-space: pre-line;
-	text-align: left !important;
-}
-
 .faq-row {
 	cursor: pointer;
 	transition: background-color 0.2s;
@@ -420,21 +302,6 @@
 
 .faq-content-row.active {
 	display: table-row;
-}
-
-.db-notice-table td.notice-title {
-	text-align: left;
-	padding-left: 16px;
-}
-
-.db-notice-table td.notice-title a {
-	color: var(--text-heavy);
-	font-weight: 500;
-	transition: color 0.2s;
-}
-
-.db-notice-table td.notice-title a:hover {
-	color: var(--primary-default);
 }
 
 
@@ -979,22 +846,6 @@
 	.db-balance-badge {
 		display: none !important;
 	}
-
-	.db-notice-table .th-num,
-  .db-notice-table .td-num {
-		display: none;
-	}
-
-	.db-notice-table .th-views,
-  .db-notice-table .td-views {
-		display: none;
-	}
-
-	.db-notice-table .col-num,
-  .db-notice-table .col-views {
-		display: none;
-	}
-
   /* Remittance List - Card Layout for Tablet/Mobile */
 	.remit-table {
 		display: block;
@@ -1101,14 +952,7 @@
 }
 
 /* Tablet view (768px - 1024px): Reset button text already hidden by default */
-
 @media (max-width: 1024px) {
-	.db-notice-table th,
-  	.db-notice-table td {
-		padding: 12px 8px;
-		font-size: 0.875rem;
-	}
-
 	.db-search-box {
 		display: none;
 		gap: 8px;
@@ -1191,40 +1035,6 @@
 
 	.db-total-count {
 		font-size: 0.85rem;
-	}
-
-	.col-num,
-	.th-num,
-	.td-num {
-		display: none !important;
-	}
-
-	.db-notice-table th,
-  	.db-notice-table td {
-		padding: 10px 8px;
-		font-size: 0.85rem;
-	}
-
-	.db-notice-table .th-num,
-  	.db-notice-table .td-num {
-		display: table-cell !important;
-	}
-
-	.db-notice-table .th-views,
-  	.db-notice-table .td-views {
-		display: none;
-	}
-
-	.db-notice-table .col-views {
-		display: none;
-	}
-
-	.db-notice-table.faq-table thead {
-		display: none;
-	}
-
-	.db-notice-table td.notice-title {
-		padding-left: 10px;
 	}
 
 	.remit-search-box {
@@ -2649,14 +2459,14 @@
 		padding: 15px;
 	}
 
-	#accountTable {
-		font-size: 13px;
-	}
+	// #accountTable {
+	// 	font-size: 13px;
+	// }
 
-	#accountTable th,
-  	#accountTable td {
-		padding: 10px 8px;
-	}
+	// #accountTable th,
+  // 	#accountTable td {
+	// 	padding: 10px 8px;
+	// }
 
 	.account-col-num {
 		width: 50px;
@@ -2826,171 +2636,6 @@
 	padding: 12px 0;
 	background-color: transparent;
 	border: none;
-}
-
-/* HI_02_01: 거래 내역 테이블 스타일 (History Mode) */
-/* 기본 스타일은 db-notice-table 상속 */
-.db-notice-table.history-mode td.text-right {
-	text-align: right;
-}
-
-.db-notice-table.history-mode td {
-	.field-label {
-		display: none;
-	}
-}
-
-.db-notice-table td.center,
-.db-basic-table td.center,
-td.center {
-	text-align: center;
-}
-
-/* 768px 이하: 카드형 (HI_01_01 스타일 재구성) */
-@media (max-width: 768px) {
-	.db-notice-table.history-mode thead {
-		display: none;
-	}
-
-	.db-notice-table.history-mode,
-  	.db-notice-table.history-mode tbody {
-		display: block;
-		width: 100%;
-		border: none;
-		background-color: transparent;
-		border-collapse: separate;
-	}
-
-	.db-notice-table.history-mode tbody {
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
-    /* 카드 간격 좀 더 넓게 */;
-	}
-  /* Card Container */
-	.db-notice-table.history-mode tr {
-		display: grid;
-		grid-template-columns: auto 1fr;
-		width: 100%;
-		background-color: #fff;
-		border: 1.5px solid #e5e7eb;
-    /* remit-card border style */
-		border-radius: 12px !important;
-		overflow: hidden !important;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    /* remit-card shadow */
-		padding: 0;
-		margin: 0;
-	}
-  /* Specific override for first-child radius issue */
-	.db-content .db-notice-table.history-mode tbody tr:first-child {
-		border-radius: 12px !important;
-		overflow: hidden !important;
-	}
-	.db-content .db-notice-table.history-mode tbody tr:last-child {
-		td:last-child {
-			border-bottom: 1px solid var(--border-default);
-		}
-	}
-
-  /* Header Area: Date Only */
-  /* 번호 (No) - Hide again as per user feedback implications */
-	.db-notice-table.history-mode td:nth-child(1) {
-		display: none !important;
-	}
-
-  /* 거래일시 (Date) */
-	.db-notice-table.history-mode td:nth-child(2) {
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-    /* Left align date */
-		grid-column: 1 / -1;
-    /* Full width */
-		grid-row: 1;
-		padding: 14px 20px;
-		color: var(--neutral-heavy);
-		font-weight: 700;
-		border-bottom: 1px solid var(--border-default);
-		background-color: #fff;
-	}
-
-	.db-notice-table.history-mode {
-		&:is(.coupon-mode) {
-			// tr {
-			// 	td {
-			// 		&:before {
-			// 			display: block;
-			// 		}
-			// 	}
-			// }
-			td:nth-child(2) {
-				border-top: none;
-				.field-label {
-					display: flex;
-					margin-bottom: var(--s4);
-					padding-bottom: var(--s3);
-					font-size: var(--text-sm);
-					font-weight: 600;
-					color: var(--text-strong);
-					border-bottom: 1px solid var(--border-soft);
-				}
-			}
-		}
-	}
-
-	.db-notice-table.history-mode td:nth-child(2)::before {
-		content: none !important;
-    /* Hide data-label for date as requested */;
-	}
-  /* Body Area: Details */
-	.db-notice-table.history-mode td:nth-child(n + 3) {
-		grid-column: 1 / -1;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 8px 20px;
-		border: none;
-		font-size: 0.95rem;
-		color: #333;
-		background-color: #fff;
-	}
-
-	.db-notice-table.history-mode td:nth-child(3) {
-		padding-top: 16px;
-    /* First item padding */;
-	}
-
-	.db-notice-table.history-mode td:last-child {
-		padding-bottom: 20px;
-    // border-bottom: 1px solid var(--border-default);
-		// &:before {
-		// 	display: none;
-		// }
-	}
-
-	.db-notice-table.history-mode td:last-child[data-label='삭제'] {
-		&:before {
-			display: none;
-		}
-	}
-
-  /* Label Styling */
-	.db-notice-table.history-mode td:nth-child(n + 3)::before {
-		content: attr(data-label);
-		color: var(--text-strong);
-		font-size: 0.85rem;
-		font-weight: 500;
-		margin-right: auto;
-	}
-
-	.db-notice-table.history-mode td.text-right {
-		text-align: right;
-	}
-
-	.db-notice-table.history-mode td .field-item {
-		width: 100%;
-	}
 }
 
 /* Balance Round Box */
@@ -3205,10 +2850,6 @@ td.center {
 	justify-content: center;
 	vertical-align: middle;
 	cursor: pointer;
-}
-
-.db-notice-table td.center .radio-wrap {
-	margin: 0 auto;
 }
 
 /* Inquiry Status Badges */
