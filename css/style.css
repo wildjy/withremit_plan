@@ -1604,6 +1604,14 @@ body.wh-full {
     grid-column: auto;
   }
 }
+.bank-group {
+  margin-bottom: var(--s8);
+  background-color: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 /* Date Picker Custom Style */
 .field-info,
 .field-error {
@@ -10624,4 +10632,17 @@ td.center {
 .coupon-total-count b {
   color: var(--text-heavy);
   font-weight: 700;
+}
+
+.load-account-top {
+  margin-bottom: var(--s4);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
