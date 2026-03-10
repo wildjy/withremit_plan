@@ -221,20 +221,19 @@ a.banner-slide {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: var(--s4-18);
-		height: var(--s4-18);
+		width: var(--s10);
+		height: var(--s10);
+		svg {
+			width: var(--s5);
+			height: var(--s5);
+			color: var(--text-heavy);
+		}
 	}
 }
 
 .banner-control-btn:hover {
 	background-color: #fff;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.banner-control-btn svg {
-	width: var(--s3);
-	height: var(--s3);
-	color: var(--text-heavy);
 }
 
 .banner-control-btn .hidden {
@@ -247,24 +246,23 @@ a.banner-slide {
 }
 
 .banner-indicator {
-	width: var(--s2-10);
-	height: var(--s2-10);
+	width: var(--s3);
+	height: var(--s3);
 	border-radius: 50%;
 	background-color: rgba(255, 255, 255, 0.5);
 	border: none;
 	cursor: pointer;
 	transition: var(--transition);
 	padding: 0;
-}
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.8);
+	}
 
-.banner-indicator:hover {
-	background-color: rgba(255, 255, 255, 0.8);
-}
-
-.banner-indicator.active {
-	background-color: #fff;
-	width: var(--s6);
-	border-radius: var(--s3);
+	&.active {
+		width: 1.875rem;
+		border-radius: var(--s3);
+		background-color: var(--white);
+	}
 }
 
 // DB_01_01 Sidebar
@@ -280,6 +278,7 @@ a.banner-slide {
 		}
 
 		.banner-content p {
+			margin-top: var(--s2);
 			font-size: var(--text-md);
 			line-height: 1.25;
 		}
@@ -287,6 +286,25 @@ a.banner-slide {
 		.banner-image-group {
 			// flex: 0 0 280px;
 			height: 150px;
+		}
+	}
+	.banner-control-btn {
+		span {
+			width: var(--s6);
+			height: var(--s6);
+			svg {
+				width: var(--s3);
+				height: var(--s3);
+			}
+		}
+	}
+
+	.banner-indicator {
+		width: var(--s2-10);
+		height: var(--s2-10);
+		&.active {
+			width: var(--s6);
+			border-radius: var(--s2-10);
 		}
 	}
 }
@@ -759,12 +777,12 @@ a.banner-slide {
 	transition: var(--transition);
 }
 
-.calc-currency-option:hover {
-	background-color: var(--bg-light);
-}
-
 .calc-currency-option.selected {
 	background-color: var(--primary-default-light);
+}
+
+.calc-currency-option:hover {
+	background-color: var(--bg-light);
 }
 
 .calc-currency-option img {
@@ -903,7 +921,7 @@ a.banner-slide {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--s6);
+  padding: var(--s4) var(--s6);
   border-radius: var(--radius-xl);
 
 	&.line{
@@ -934,12 +952,20 @@ a.banner-slide {
 
 /* QR */
 .qr-code{
-  padding: 6px;
-  width: 62px;
-  height: 62px;
+	padding: 0.0781rem;
+  width: 5rem;
+  height: 5rem;
   background:#fff;
   border-radius: var(--radius);
   object-fit: contain;
+}
+
+.db-body {
+	.qr-code{
+		padding: 0.0781rem;
+		width: 3.875rem;
+		height: 3.875rem;
+	}
 }
 
 @media (max-width: 768px) {

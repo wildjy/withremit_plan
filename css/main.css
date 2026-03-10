@@ -173,20 +173,11 @@
 .feature-card {
   padding: var(--s12) var(--s10);
   text-align: left;
-  background-color: var(--bg-light);
+  background-color: var(--white);
   border: 1px solid transparent;
   border-radius: var(--radius-xl);
   -webkit-transition: var(--transition);
   transition: var(--transition);
-}
-
-.feature-card:hover {
-  border-color: var(--border-default);
-  background-color: #fff;
-  -webkit-transform: translateY(-6px);
-          transform: translateY(-6px);
-  -webkit-box-shadow: var(--shadow);
-          box-shadow: var(--shadow);
 }
 
 .feature-icon {
@@ -199,6 +190,8 @@
 .feature-card h3 {
   margin-bottom: var(--s3);
   font-size: var(--text-2xl);
+  color: var(--text-heavy);
+  line-height: 1.5;
 }
 
 .feature-card-content p,
@@ -225,14 +218,13 @@
   background: linear-gradient(90deg, transparent, var(--border-default), transparent);
 }
 
-.countries-grid {
+.country-card-list {
   margin-top: var(--s10);
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: var(--s6);
 }
-
-.country-card {
+.country-card-list > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -242,17 +234,14 @@
   gap: var(--s4);
   padding: var(--s6);
   background-color: #F5F7F9;
-  border-radius: var(--radius);
+  border: 1px solid #F5F7F9;
+  border-radius: var(--radius-lg);
   -webkit-transition: var(--transition);
   transition: var(--transition);
   cursor: pointer;
 }
-
-.country-card:hover {
-  -webkit-transform: translateY(-3px);
-          transform: translateY(-3px);
-  -webkit-box-shadow: var(--shadow);
-          box-shadow: var(--shadow);
+.country-card-list > div:hover {
+  background-color: var(--white);
   border-color: var(--primary-default);
 }
 
@@ -442,7 +431,7 @@
 }
 
 .contact-item-content a {
-  color: var(--primary-default);
+  color: var(--primary-heavy);
 }
 
 .contact-item-content a:hover {

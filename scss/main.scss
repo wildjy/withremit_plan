@@ -179,18 +179,18 @@
 .feature-card {
 	padding: var(--s12) var(--s10);
 	text-align: left;
-	background-color: var(--bg-light);
+	background-color: var(--white);
 	border: 1px solid transparent;
 	border-radius: var(--radius-xl);
 	transition: var(--transition);
 }
 
-.feature-card:hover {
-	border-color: var(--border-default);
-	background-color: #fff;
-	transform: translateY(-6px);
-	box-shadow: var(--shadow);
-}
+// .feature-card:hover {
+// 	border-color: var(--border-default);
+// 	background-color: #fff;
+// 	transform: translateY(-6px);
+// 	box-shadow: var(--shadow);
+// }
 
 .feature-icon {
 	margin-bottom: var(--s10);
@@ -202,6 +202,8 @@
 .feature-card h3 {
 	margin-bottom: var(--s3);
 	font-size: var(--text-2xl);
+	color: var(--text-heavy);
+	line-height: 1.5;
 }
 
 .feature-card-content p,
@@ -228,29 +230,36 @@
 	background: linear-gradient(90deg, transparent, var(--border-default), transparent);
 }
 
-.countries-grid {
+.country-card-list {
 	margin-top: var(--s10);
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	gap: var(--s6);
+	> div {
+		display: flex;
+		align-items: center;
+		gap: var(--s4);
+		padding: var(--s6);
+		background-color: #F5F7F9;
+		border: 1px solid #F5F7F9;
+		border-radius: var(--radius-lg);
+		transition: var(--transition);
+		cursor: pointer;
+		&:hover {
+			background-color: var(--white);
+			border-color: var(--primary-default);
+		}
+	}
 }
 
 .country-card {
-	display: flex;
-	align-items: center;
-	gap: var(--s4);
-	padding: var(--s6);
-	background-color: #F5F7F9;
-	border-radius: var(--radius);
-	transition: var(--transition);
-	cursor: pointer;
 }
 
-.country-card:hover {
-	transform: translateY(-3px);
-	box-shadow: var(--shadow);
-	border-color: var(--primary-default);
-}
+// .country-card:hover {
+// 	transform: translateY(-3px);
+// 	box-shadow: var(--shadow);
+// 	border-color: var(--primary-default);
+// }
 
 .country-flag {
 	object-fit: cover;
@@ -420,7 +429,7 @@
 }
 
 .contact-item-content a {
-	color: var(--primary-default);
+	color: var(--primary-heavy);
 }
 
 .contact-item-content a:hover {
