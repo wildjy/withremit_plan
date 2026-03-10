@@ -59,41 +59,6 @@
 	font-weight: bold;
 }
 
-.common-table-wrapper {
-	background-color: white;
-	border-radius: 12px;
-	border: 1px solid #eee;
-	overflow: hidden;
-	margin-top: 15px;
-}
-
-.common-table {
-	width: 100%;
-	border-collapse: collapse;
-}
-
-.common-table th {
-	background-color: #f8faff;
-	padding: 15px;
-	font-weight: 600;
-	font-size: 14px;
-	color: #333;
-	border-bottom: 1px solid #eee;
-	text-align: center;
-}
-
-.common-table td {
-	padding: 15px;
-	font-size: 14px;
-	color: #555;
-	border-bottom: 1px solid #eee;
-	text-align: center;
-}
-
-.common-table tr:last-child td {
-	border-bottom: none;
-}
-
 .guide-note {
 	margin-top: 15px;
 	font-size: 13px;
