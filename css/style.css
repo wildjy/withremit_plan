@@ -6827,14 +6827,6 @@ a.banner-slide {
   border-bottom: none;
 }
 
-.common-table tbody tr:last-child td:first-child {
-  border-bottom-left-radius: var(--radius);
-}
-
-.common-table tbody tr:last-child td:last-child {
-  border-bottom-right-radius: var(--radius);
-}
-
 .common-table th,
 .common-table td {
   padding: var(--s4) var(--s3-14);
@@ -6912,6 +6904,9 @@ td.center {
 }
 /* 768px 이하: 카드형 (HI_01_01 스타일 재구성) */
 @media (max-width: 768px) {
+  .common-table {
+    border-radius: var(--radius);
+  }
   .common-table .th-num,
   .common-table .td-num {
     display: none;
@@ -7005,7 +7000,7 @@ td.center {
     border-bottom: 1px solid var(--border-soft);
   }
   .common-table.history-mode td:nth-child(2)::before {
-    content: none !important;
+    content: none;
     /* Hide data-label for date as requested */
   }
   /* Body Area: Details */
@@ -7078,6 +7073,39 @@ td.center {
         -ms-flex-pack: end;
             justify-content: flex-end;
     color: var(--primary-default);
+  }
+  .common-table.account-mode td:nth-child(1) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0;
+    padding-bottom: var(--s3);
+    grid-column: 1/-1;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    border-top: none;
+    border-bottom: 1px solid var(--border-default);
+  }
+  .common-table.account-mode td:nth-child(1)::before {
+    display: block;
+    content: attr(data-label);
+  }
+  .common-table.account-mode td:nth-child(2) {
+    padding: 0;
+    padding-top: var(--s3);
+    width: 100%;
+    grid-column: 1/-1;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    border: none;
+  }
+  .common-table.account-mode td:nth-child(2)::before {
+    display: block;
+    content: attr(data-label);
+    color: var(--text-default);
+    font-weight: 600;
   }
 }
 @media (max-width: 480px) {
@@ -10121,15 +10149,6 @@ td.center {
   margin-bottom: 20px;
 }
 
-/* FINAL OVERRIDE FOR MOBILE CARD RADIUS */
-@media (max-width: 768px) {
-  .db-content .common-table.history-mode tbody tr:first-child {
-    border-radius: 8px !important;
-    border-top-left-radius: 8px !important;
-    border-top-right-radius: 8px !important;
-    overflow: hidden !important;
-  }
-}
 #refundAccountModal .db-select {
   padding-right: 30px;
 }

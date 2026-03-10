@@ -76,11 +76,11 @@
 }
 
 .common-table tbody tr:last-child td:first-child {
-	border-bottom-left-radius: var(--radius);
+	// border-bottom-left-radius: var(--radius);
 }
 
 .common-table tbody tr:last-child td:last-child {
-	border-bottom-right-radius: var(--radius);
+	// border-bottom-right-radius: var(--radius);
 }
 
 .common-table th,
@@ -165,6 +165,9 @@ td.center {
 
 /* 768px 이하: 카드형 (HI_01_01 스타일 재구성) */
 @media (max-width: 768px) {
+	.common-table {
+		border-radius: var(--radius);
+	}
 	.common-table .th-num,
   	.common-table .td-num {
 		display: none;
@@ -263,7 +266,7 @@ td.center {
 	}
 
 	.common-table.history-mode td:nth-child(2)::before {
-		content: none !important;
+		content: none;
     /* Hide data-label for date as requested */;
 	}
 
@@ -341,6 +344,36 @@ td.center {
 		grid-column: 2 / 3;
 		justify-content: flex-end;
 		color: var(--primary-default);
+	}
+
+	// AC_02_03: 계좌 관리 테이블 스타일 (Account Mode)
+	.common-table.account-mode td:nth-child(1) {
+		display: flex;
+		padding: 0;
+		padding-bottom: var(--s3);
+		grid-column: 1 / -1;
+		justify-content: space-between;
+		border-top: none;
+		border-bottom: 1px solid var(--border-default);
+		&::before {
+			display: block;
+			content: attr(data-label);
+		}
+	}
+
+	.common-table.account-mode td:nth-child(2) {
+		padding: 0;
+		padding-top: var(--s3);
+		width: 100%;
+		grid-column: 1 / -1;
+		justify-content: space-between;
+		border: none;
+		&::before {
+			display: block;
+			content: attr(data-label);
+			color: var(--text-default);
+        	font-weight: 600;
+		}
 	}
 }
 
