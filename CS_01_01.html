@@ -78,7 +78,7 @@
                     </div>
 
                     <div class="db-notice-list-page">
-                        <table class="db-notice-table">
+                        <table class="common-table">
                             <colgroup>
                                 <col class="col-num" style="width: 80px;">
                                 <col class="col-title">
@@ -232,7 +232,7 @@
         }
 
         // Table row click handler
-        const noticeTableRows = document.querySelectorAll('.db-notice-table tbody tr');
+        const noticeTableRows = document.querySelectorAll('.common-table tbody tr');
         noticeTableRows.forEach(row => {
             row.addEventListener('click', () => {
                 const titleElement = row.querySelector('.notice-title');

@@ -5715,7 +5715,7 @@ textarea.error:focus {
   padding: 0;
 }
 
-.db-notice-table {
+.common-table {
   width: 100%;
   border-collapse: collapse;
   border-radius: var(--radius);
@@ -5723,12 +5723,12 @@ textarea.error:focus {
   border: 1.5px solid var(--border-color);
 }
 
-.db-notice-table thead {
+.common-table thead {
   background: #f8fafa;
   border-bottom: 1.5px solid var(--border-color);
 }
 
-.db-notice-table th {
+.common-table th {
   padding: 14px 12px;
   font-size: 0.875rem;
   font-weight: 700;
@@ -5736,40 +5736,40 @@ textarea.error:focus {
   text-align: center;
 }
 
-.db-notice-table tbody tr {
+.common-table tbody tr {
   border-bottom: 1px solid #eee;
   transition: background-color 0.2s;
   background: #fff;
   cursor: pointer;
 }
 
-.db-notice-table tbody tr:hover {
+.common-table tbody tr:hover {
   background: #f8fafa;
 }
 
-.db-notice-table tbody tr:last-child {
+.common-table tbody tr:last-child {
   border-bottom: none;
 }
 
-.db-notice-table td {
+.common-table td {
   padding: 12px;
   font-size: 0.9rem;
   color: var(--text-body);
   text-align: center;
 }
 
-.db-notice-table td.notice-title {
+.common-table td.notice-title {
   text-align: left;
   padding-left: 16px;
 }
 
-.db-notice-table td.notice-title a {
+.common-table td.notice-title a {
   color: var(--text-dark);
   font-weight: 500;
   transition: color 0.2s;
 }
 
-.db-notice-table td.notice-title a:hover {
+.common-table td.notice-title a:hover {
   color: var(--primary-blue);
 }
 
@@ -6818,18 +6818,18 @@ textarea.error:focus {
     min-width: 65px;
   }
 
-  .db-notice-table .th-num,
-  .db-notice-table .td-num {
+  .common-table .th-num,
+  .common-table .td-num {
     display: none;
   }
 
-  .db-notice-table .th-views,
-  .db-notice-table .td-views {
+  .common-table .th-views,
+  .common-table .td-views {
     display: none;
   }
 
-  .db-notice-table .col-num,
-  .db-notice-table .col-views {
+  .common-table .col-num,
+  .common-table .col-views {
     display: none;
   }
 
@@ -7208,8 +7208,8 @@ textarea.error:focus {
     width: 100%;
   }
 
-  .db-notice-table th,
-  .db-notice-table td {
+  .common-table th,
+  .common-table td {
     padding: 12px 8px;
     font-size: 0.875rem;
   }
@@ -7707,35 +7707,35 @@ textarea.error:focus {
     padding: 6px 28px 6px 10px;
   }
 
-  .db-notice-table {
+  .common-table {
     border: 1px solid var(--border-color);
   }
 
-  .db-notice-table th,
-  .db-notice-table td {
+  .common-table th,
+  .common-table td {
     padding: 10px 8px;
     font-size: 0.85rem;
   }
 
-  .db-notice-table .th-num,
-  .db-notice-table .td-num {
+  .common-table .th-num,
+  .common-table .td-num {
     display: table-cell !important;
   }
 
-  .db-notice-table .th-views,
-  .db-notice-table .td-views {
+  .common-table .th-views,
+  .common-table .td-views {
     display: none;
   }
 
-  .db-notice-table .col-views {
+  .common-table .col-views {
     display: none;
   }
 
-  .db-notice-table.faq-table thead {
+  .common-table.faq-table thead {
     display: none;
   }
 
-  .db-notice-table td.notice-title {
+  .common-table td.notice-title {
     padding-left: 10px;
   }
 
@@ -7912,21 +7912,21 @@ textarea.error:focus {
   }
 
   /* FAQ Mobile - Hide Header & Left Align */
-  .db-notice-table.faq-table thead {
+  .common-table.faq-table thead {
     display: none !important;
   }
 
-  .db-notice-table.faq-table td.faq-title {
+  .common-table.faq-table td.faq-title {
     text-align: left !important;
     padding-left: 0;
   }
 
-  .db-notice-table.faq-table td.faq-content {
+  .common-table.faq-table td.faq-content {
     text-align: left !important;
     padding: 16px;
   }
 
-  .db-notice-table.faq-table .col-icon {
+  .common-table.faq-table .col-icon {
     width: 30px;
     padding: 10px 4px;
   }
@@ -10389,12 +10389,12 @@ textarea.error:focus {
 }
 
 /* HI_02_01: 거래 내역 테이블 스타일 (History Mode) */
-/* 기본 스타일은 db-notice-table 상속 */
-.db-notice-table.history-mode td.text-right {
+/* 기본 스타일은 common-table 상속 */
+.common-table.history-mode td.text-right {
   text-align: right;
 }
 
-.db-notice-table td.center,
+.common-table td.center,
 .db-basic-table td.center,
 td.center {
   text-align: center;
@@ -10402,12 +10402,12 @@ td.center {
 
 /* 768px 이하: 카드형 (HI_01_01 스타일 재구성) */
 @media (max-width: 768px) {
-  .db-notice-table.history-mode thead {
+  .common-table.history-mode thead {
     display: none;
   }
 
-  .db-notice-table.history-mode,
-  .db-notice-table.history-mode tbody {
+  .common-table.history-mode,
+  .common-table.history-mode tbody {
     display: block;
     width: 100%;
     border: none;
@@ -10415,7 +10415,7 @@ td.center {
     border-collapse: separate;
   }
 
-  .db-notice-table.history-mode tbody {
+  .common-table.history-mode tbody {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -10423,7 +10423,7 @@ td.center {
   }
 
   /* Card Container */
-  .db-notice-table.history-mode tr {
+  .common-table.history-mode tr {
     display: grid;
     grid-template-columns: auto 1fr;
     width: 100%;
@@ -10439,19 +10439,19 @@ td.center {
   }
 
   /* Specific override for first-child radius issue */
-  .db-content .db-notice-table.history-mode tbody tr:first-child {
+  .db-content .common-table.history-mode tbody tr:first-child {
     border-radius: 12px !important;
     overflow: hidden !important;
   }
 
   /* Header Area: Date Only */
   /* 번호 (No) - Hide again as per user feedback implications */
-  .db-notice-table.history-mode td:nth-child(1) {
+  .common-table.history-mode td:nth-child(1) {
     display: none !important;
   }
 
   /* 거래일시 (Date) */
-  .db-notice-table.history-mode td:nth-child(2) {
+  .common-table.history-mode td:nth-child(2) {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -10467,13 +10467,13 @@ td.center {
     background-color: #fff;
   }
 
-  .db-notice-table.history-mode td:nth-child(2)::before {
+  .common-table.history-mode td:nth-child(2)::before {
     content: none !important;
     /* Hide data-label for date as requested */
   }
 
   /* Body Area: Details */
-  .db-notice-table.history-mode td:nth-child(n + 3) {
+  .common-table.history-mode td:nth-child(n + 3) {
     grid-column: 1 / -1;
     display: flex;
     justify-content: space-between;
@@ -10485,18 +10485,18 @@ td.center {
     background-color: #fff;
   }
 
-  .db-notice-table.history-mode td:nth-child(3) {
+  .common-table.history-mode td:nth-child(3) {
     padding-top: 16px;
     /* First item padding */
   }
 
-  .db-notice-table.history-mode td:last-child {
+  .common-table.history-mode td:last-child {
     padding-bottom: 20px;
     /* Last item padding */
   }
 
   /* Label Styling */
-  .db-notice-table.history-mode td:nth-child(n + 3)::before {
+  .common-table.history-mode td:nth-child(n + 3)::before {
     content: attr(data-label);
     color: #64748b;
     font-size: 0.85rem;
@@ -10504,7 +10504,7 @@ td.center {
     margin-right: auto;
   }
 
-  .db-notice-table.history-mode td.text-right {
+  .common-table.history-mode td.text-right {
     text-align: right;
   }
 }
@@ -10826,7 +10826,7 @@ td.center {
 
 /* FINAL OVERRIDE FOR MOBILE CARD RADIUS */
 @media (max-width: 768px) {
-  .db-content .db-notice-table.history-mode tbody tr:first-child {
+  .db-content .common-table.history-mode tbody tr:first-child {
     border-radius: 8px !important;
     border-top-left-radius: 8px !important;
     border-top-right-radius: 8px !important;
@@ -10851,7 +10851,7 @@ td.center {
   cursor: pointer;
 }
 
-.db-notice-table td.center .radio-wrap {
+.common-table td.center .radio-wrap {
   margin: 0 auto;
 }
 

@@ -563,7 +563,7 @@ if (applyCouponButton) {
 }
 
 // 출금 계좌 테이블 행 클릭 시 라디오 버튼 선택
-const withdrawalRows = document.querySelectorAll('.db-notice-table tbody tr');
+const withdrawalRows = document.querySelectorAll('.common-table tbody tr');
 withdrawalRows.forEach(row => {
     row.style.cursor = 'pointer';
     row.addEventListener('click', function (e) {

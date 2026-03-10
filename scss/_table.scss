@@ -1,5 +1,5 @@
 
-.db-notice-table {
+.common-table {
 	width: 100%;
 	border-collapse: separate;
 	border-spacing: 0;
@@ -43,11 +43,11 @@
 	width: 100px;
 }
 
-.db-notice-table thead {
+.common-table thead {
 	background-color: var(--bg-default);
 }
 
-.db-notice-table {
+.common-table {
 	tbody tr {
 		background-color: var(--white);
 		border-bottom: 1px solid #eee;
@@ -61,55 +61,55 @@
 	}
 }
 
-.db-notice-table tbody tr:hover {
+.common-table tbody tr:hover {
 	background-color: #f8fafa;
 }
 
-.db-notice-table tbody tr:first-child {
+.common-table tbody tr:first-child {
 	td {
 		border-top: none;
 	}
 }
 
-.db-notice-table tbody tr:last-child {
+.common-table tbody tr:last-child {
 	border-bottom: none;
 }
 
-.db-notice-table tbody tr:last-child td:first-child {
+.common-table tbody tr:last-child td:first-child {
 	border-bottom-left-radius: var(--radius);
 }
 
-.db-notice-table tbody tr:last-child td:last-child {
+.common-table tbody tr:last-child td:last-child {
 	border-bottom-right-radius: var(--radius);
 }
 
-.db-notice-table th,
-.db-notice-table td {
+.common-table th,
+.common-table td {
 	padding: var(--s4) var(--s3-14);
 	font-size: var(--text-sm);
 	text-align: center;
 }
 
-.db-notice-table th {
+.common-table th {
 	color: var(--text-heavy);
 	font-weight: 600;
 	border-bottom: 1px solid var(--border-default);
 }
 
-.db-notice-table td {
+.common-table td {
 	color: var(--text-strong);
 	border-top: 1px solid var(--border-soft);
 }
 
 
-.db-notice-table .faq-title {
+.common-table .faq-title {
 	font-size: 15px;
 	font-weight: 500;
 	vertical-align: middle;
 	text-align: left !important;
 }
 
-.db-notice-table .faq-content {
+.common-table .faq-content {
 	padding: 24px 40px 24px 48px;
 	line-height: 1.6;
 	color: #555;
@@ -117,61 +117,61 @@
 	text-align: left !important;
 }
 
-.db-notice-table td.notice-title {
+.common-table td.notice-title {
 	text-align: left;
 	padding-left: 16px;
 }
 
-.db-notice-table td.notice-title a {
+.common-table td.notice-title a {
 	color: var(--text-heavy);
 	font-weight: 500;
 	transition: color 0.2s;
 }
 
-.db-notice-table td.notice-title a:hover {
+.common-table td.notice-title a:hover {
 	color: var(--primary-default);
 }
 
-.db-notice-table td.center .radio-wrap {
+.common-table td.center .radio-wrap {
 	margin: 0 auto;
 }
 
 /* HI_02_01: 거래 내역 테이블 스타일 (History Mode) */
-/* 기본 스타일은 db-notice-table 상속 */
-.db-notice-table.history-mode td.text-right {
+/* 기본 스타일은 common-table 상속 */
+.common-table.history-mode td.text-right {
 	text-align: right;
 }
 
-.db-notice-table.history-mode td {
+.common-table.history-mode td {
 	.field-label {
 		display: none;
 	}
 }
 
-.db-notice-table td.center,
+.common-table td.center,
 .db-basic-table td.center,
 td.center {
 	text-align: center;
 }
 
 @media (max-width: 1024px) {
-	.db-notice-table .th-num,
-  .db-notice-table .td-num {
+	.common-table .th-num,
+  .common-table .td-num {
 		display: none;
 	}
 
-	.db-notice-table .th-views,
-  .db-notice-table .td-views {
+	.common-table .th-views,
+  .common-table .td-views {
 		display: none;
 	}
 
-	.db-notice-table .col-num,
-  .db-notice-table .col-views {
+	.common-table .col-num,
+  .common-table .col-views {
 		display: none;
 	}
 
-	.db-notice-table th,
-  .db-notice-table td {
+	.common-table th,
+  .common-table td {
 		padding: var(--s3) var(--s2);
 		font-size: var(--text-sm);
 	}
@@ -179,12 +179,12 @@ td.center {
 
 /* 768px 이하: 카드형 (HI_01_01 스타일 재구성) */
 @media (max-width: 768px) {
-	.db-notice-table.history-mode thead {
+	.common-table.history-mode thead {
 		display: none;
 	}
 
-	.db-notice-table.history-mode,
-  .db-notice-table.history-mode tbody {
+	.common-table.history-mode,
+  .common-table.history-mode tbody {
 		display: block;
 		width: 100%;
 		border: none;
@@ -192,14 +192,14 @@ td.center {
 		border-collapse: separate;
 	}
 
-	.db-notice-table.history-mode tbody {
+	.common-table.history-mode tbody {
 		display: flex;
 		flex-direction: column;
 		gap: var(--s3);
 	}
 
   /* Card Container */
-	.db-notice-table.history-mode tr {
+	.common-table.history-mode tr {
 		padding: var(--s4);
 		display: grid;
 		grid-template-columns: auto 1fr;
@@ -214,22 +214,22 @@ td.center {
     }
 	}
   /* Specific override for first-child radius issue */
-	// .db-content .db-notice-table.history-mode tbody tr:first-child {
+	// .db-content .common-table.history-mode tbody tr:first-child {
 	// 	border-radius: 12px;
 	// 	overflow: hidden;
 	// }
-	.db-notice-table tbody tr:last-child {
+	.common-table tbody tr:last-child {
 		border-bottom: 1px solid var(--border-default);
 	}
 
   /* Header Area: Date Only */
   /* 번호 숨김 history-mode */
-	.db-notice-table.history-mode td:nth-child(1) {
+	.common-table.history-mode td:nth-child(1) {
 		display: none;
 	}
 
   /* title 영역 부분 */
-	.db-notice-table.history-mode td:nth-child(2) {
+	.common-table.history-mode td:nth-child(2) {
 		padding: 0;
 		padding-bottom: var(--s3);
 		display: flex;
@@ -244,7 +244,7 @@ td.center {
 		background-color: #fff;
 	}
 
-	.db-notice-table.history-mode {
+	.common-table.history-mode {
 		&:is(.coupon-mode) {
 			td:nth-child(2) {
 				border-top: none;
@@ -261,13 +261,13 @@ td.center {
 		}
 	}
 
-	.db-notice-table.history-mode td:nth-child(2)::before {
+	.common-table.history-mode td:nth-child(2)::before {
 		content: none !important;
     /* Hide data-label for date as requested */;
 	}
 
   /* Body Area: Details */
-	.db-notice-table.history-mode td:nth-child(n + 3) {
+	.common-table.history-mode td:nth-child(n + 3) {
 		padding: 0;
 		padding-top: var(--s2);
 		grid-column: 1 / -1;
@@ -281,12 +281,12 @@ td.center {
 		background-color: #fff;
 	}
 
-	.db-notice-table.history-mode td:nth-child(3) {
+	.common-table.history-mode td:nth-child(3) {
     /* First item padding */
 		padding-top: var(--s3);
 	}
 
-	.db-notice-table.history-mode td:last-child {
+	.common-table.history-mode td:last-child {
 		// padding-bottom: 20px;
     // border-bottom: 1px solid var(--border-default);
 		// &:before {
@@ -294,14 +294,14 @@ td.center {
 		// }
 	}
 
-	.db-notice-table.history-mode td:last-child[data-label='삭제'] {
+	.common-table.history-mode td:last-child[data-label='삭제'] {
 		&:before {
 			display: none;
 		}
 	}
 
   /* Label Styling */
-	.db-notice-table.history-mode td:nth-child(n + 3)::before {
+	.common-table.history-mode td:nth-child(n + 3)::before {
 		content: attr(data-label);
 		font-size: var(--text-sm);
 		color: var(--text-default);
@@ -309,24 +309,24 @@ td.center {
 		margin-right: auto;
 	}
 
-	.db-notice-table.history-mode td.text-right {
+	.common-table.history-mode td.text-right {
 		text-align: right;
 	}
 
-	.db-notice-table.history-mode td .field-item {
+	.common-table.history-mode td .field-item {
 		width: 100%;
 	}
 
 	/* 번호 노출 number-mode : 자주 쓰는 계좌, 최근 입금 계좌 모달용 */
-	.db-notice-table.number-mode td:nth-child(1),
-	.db-notice-table.number-mode td:nth-child(2) {
+	.common-table.number-mode td:nth-child(1),
+	.common-table.number-mode td:nth-child(2) {
 		padding: 0;
 		padding-bottom: var(--s3);
 		display: flex;
 		align-items: center;
 	}
 
-	.db-notice-table.number-mode td:nth-child(1) {
+	.common-table.number-mode td:nth-child(1) {
 		grid-column: 1 / 2;
 		justify-content: flex-start;
 		border-top: none;
@@ -336,7 +336,7 @@ td.center {
 		}
 	}
 
-	.db-notice-table.number-mode td:nth-child(2) {
+	.common-table.number-mode td:nth-child(2) {
 		grid-column: 2 / 3;
 		justify-content: flex-end;
 		color: var(--primary-default);
@@ -350,30 +350,30 @@ td.center {
 		display: none !important;
 	}
 
-	.db-notice-table th,
-  .db-notice-table td {
+	.common-table th,
+  .common-table td {
 		padding: 10px 8px;
 	}
 
-	.db-notice-table .th-num,
-  	.db-notice-table .td-num {
+	.common-table .th-num,
+  	.common-table .td-num {
 		display: table-cell !important;
 	}
 
-	.db-notice-table .th-views,
-  	.db-notice-table .td-views {
+	.common-table .th-views,
+  	.common-table .td-views {
 		display: none;
 	}
 
-	.db-notice-table .col-views {
+	.common-table .col-views {
 		display: none;
 	}
 
-	.db-notice-table.faq-table thead {
+	.common-table.faq-table thead {
 		display: none;
 	}
 
-	.db-notice-table td.notice-title {
+	.common-table td.notice-title {
 		padding-left: 10px;
 	}
 }

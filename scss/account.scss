@@ -49,7 +49,7 @@
 /* Hide delete label on mobile */
 @media (max-width: 768px) {
   /* Hide delete button label */
-	.db-notice-table.history-mode tbody tr td:last-child::before {
+	.common-table.history-mode tbody tr td:last-child::before {
 		content: none !important;
 		display: none !important;
 	}
@@ -216,28 +216,28 @@
 	text-align: center;
 }
 
-.db-notice-table tbody tr {
+.common-table tbody tr {
 	cursor: pointer;
 }
 
-.db-notice-table tbody tr:hover {
+.common-table tbody tr:hover {
 	background-color: #f9fafb;
 }
 
 /* Mobile Card Layout Override */
 @media (max-width: 768px) {
-	.db-notice-table,
-  .db-notice-table tbody,
-  .db-notice-table tr {
+	.common-table,
+  .common-table tbody,
+  .common-table tr {
 		display: block;
 		width: 100%;
 	}
 
-	.db-notice-table thead {
+	.common-table thead {
 		display: none;
 	}
 
-	.db-notice-table tbody tr {
+	.common-table tbody tr {
 		display: block;
 		background-color: #fff;
 		border: none;
@@ -250,9 +250,9 @@
 		position: relative;
 		box-sizing: border-box;
     /* Ensure padding doesn't overflow width */ }
-//   .db-notice-table tbody tr:last-child {
+//   .common-table tbody tr:last-child {
 //     border-bottom: none; }
-  .db-notice-table td {
+  .common-table td {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -265,10 +265,10 @@
     width: 100%;
     /* Ensure cell takes full width */
     box-sizing: border-box; }
-//   .db-notice-table td:last-child {
+//   .common-table td:last-child {
 //     border-bottom: none; }
   /* Labels */
-  .db-notice-table td::before {
+  .common-table td::before {
     content: attr(data-label);
     font-weight: 600;
     color: #6b7280;
@@ -278,14 +278,14 @@
     text-align: left;
     white-space: nowrap; }
   /* Value styling on right side */
-  .db-notice-table td > * {
+  .common-table td > * {
     flex-shrink: 0; }
   /* Adjust checkbox row for mobile - Make it look like a header for the item */
-  .db-notice-table .col-check {
+  .common-table .col-check {
     padding-bottom: 12px;
     margin-bottom: 8px;
     border-bottom: 1px dashed #e5e7eb; }
-  .db-notice-table .col-check::before {
+  .common-table .col-check::before {
     font-size: 1.1rem;
     color: #111; }
   /* Status alignment wrapper - Icon Left */

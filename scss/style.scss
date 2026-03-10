@@ -1182,11 +1182,11 @@
 	}
 
   /* FAQ Mobile - Hide Header & Left Align */
-	.db-notice-table.faq-table thead {
+	.common-table.faq-table thead {
 		display: none !important;
 	}
 
-	.db-notice-table.faq-table td.faq-title {
+	.common-table.faq-table td.faq-title {
 		text-align: left !important;
 		padding-left: 0;
 	}
@@ -1196,7 +1196,7 @@
 		text-align: left !important;
 	}
 
-	.db-notice-table.faq-table .col-icon {
+	.common-table.faq-table .col-icon {
 		width: 30px;
 		padding: 10px 4px;
 	}
@@ -2827,7 +2827,7 @@
 
 /* FINAL OVERRIDE FOR MOBILE CARD RADIUS */
 @media (max-width: 768px) {
-	.db-content .db-notice-table.history-mode tbody tr:first-child {
+	.db-content .common-table.history-mode tbody tr:first-child {
 		border-radius: 8px !important;
 		border-top-left-radius: 8px !important;
 		border-top-right-radius: 8px !important;

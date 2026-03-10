@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/guide.css">
+    <!-- <link rel="stylesheet" href="css/guide.css"> -->
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel='stylesheet' href='css/auth.css'>
     <script src='js/auth.js'></script>
@@ -106,7 +106,7 @@
 
                     <!-- Transaction History Table -->
                     <div class="db-table-responsive">
-                        <table class="db-notice-table history-mode">
+                        <table class="common-table history-mode">
                             <colgroup>
                                 <col style="width: 60px;"> <!-- 번호 -->
                                 <col style="width: 160px;"> <!-- 거래일시 -->
@@ -286,7 +286,7 @@
                         <p class="db-modal-desc">출금 동의한 계좌 목록에서
                             선택해 주세요.</p>
                         <div class="db-table-responsive-wrapper">
-                            <table class="db-notice-table"> <!-- Changed from db-basic-table -->
+                            <table class="common-table"> <!-- Changed from db-basic-table -->
                                 <colgroup>
                                     <col style="width: 60px;">
                                     <col>
@@ -436,7 +436,7 @@
             });
 
             // Table Row Click Selection
-            const tableRows = document.querySelectorAll('#refundAccountModal .db-notice-table tbody tr');
+            const tableRows = document.querySelectorAll('#refundAccountModal .common-table tbody tr');
             tableRows.forEach(tr => {
                 tr.style.cursor = 'pointer'; // Make it look clickable
                 tr.addEventListener('click', (e) => {
