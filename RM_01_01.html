@@ -408,13 +408,13 @@
 
                             <div class="form-sec">
                                 <div class="form-row no-mb">
-                                    <div class="field-item">
+                                    <div class="field-item" id="couponInfoBox">
                                         <label class="field-label between">
                                             <span>할인쿠폰</span>
-                                            <span>보유 쿠폰 <span>3</span>장</span>
+                                            <span>보유 쿠폰 <span id="couponTotalCount">3</span>장</span>
                                         </label>
-                                        <button type="button" class="coupon-btn btn btn-secondary size-lg">
-                                            <span class="btn-label">쿠폰을 선택해 주세요.</span>
+                                        <button type="button" class="coupon-btn btn btn-secondary size-lg" id="selectCouponBox">
+                                            <span class="btn-label" id="selectCouponLabel">쿠폰을 선택해 주세요.</span>
                                             <span class="btn-icon" aria-hidden="true">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                                     <path d="M7.94975 5.05025L12.8995 10L7.94975 14.9497" stroke="#4A5C64" stroke-width="1.6" stroke-linecap="round"/>
@@ -511,7 +511,7 @@
                 </div>
 
                 <div class="db-table-container account-table-container">
-                    <table class="db-notice-table " id="">
+                    <table class="db-notice-table" id="">
                         <colgroup>
                             <col style="width: 60px;">
                             <col>
@@ -527,29 +527,8 @@
                                 <th>유효기간</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr data-coupon-id="coupon_1" data-coupon-name="친구 소개 쿠폰">
-                                <td class="center">
-                                    <label class="radio-wrap">
-                                        <input type="radio" name="couponSelectRadio">
-                                        <span class="custom-radio"></span>
-                                    </label>
-                                </td>
-                                <td data-label="쿠폰명">친구 소개 쿠폰</td>
-                                <td data-label="혜택">수수료 전액 할인</td>
-                                <td data-label="유효기간">2025.12.31 ~ 2026.01.31</td>
-                            </tr>
-                            <tr data-coupon-id="coupon_2" data-coupon-name="생일 축하 쿠폰">
-                                <td class="center">
-                                    <label class="radio-wrap">
-                                        <input type="radio" name="couponSelectRadio" checked>
-                                        <span class="custom-radio"></span>
-                                    </label>
-                                </td>
-                                <td data-label="쿠폰명">생일 축하 쿠폰</td>
-                                <td data-label="혜택">수수료 전액 할인</td>
-                                <td data-label="유효기간">2024.12.31</td>
-                            </tr>
+                        <tbody id="couponTableBody" data-bound="0">
+                            <!-- main.data -->
                         </tbody>
                     </table>
                 </div>
@@ -621,6 +600,9 @@
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof window.initRemitAccountSelection === 'function') {
                 window.initRemitAccountSelection();
+            }
+            if (typeof window.initCouponSelection === 'function') {
+                window.initCouponSelection();
             }
         });
     </script>

@@ -51,6 +51,10 @@
                         </div>
 
                         <!-- Tab 1 : 쿠폰 선택 테이블 -->
+                        <p class="coupon-total-count">
+                            <span>총</span> <b id="couponTotalCount"></b><span>건</span>
+                        </p>
+
                         <div id="tab-service" class="tab-content active">
                             <!-- Table Container -->
                             <div class="db-table-responsive">
@@ -71,7 +75,7 @@
                                             <th>비고</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="couponTableBody" data-bound="0">
                                         <tr>
                                             <td data-label="번호">1</td>
                                             <td data-label="쿠폰명">친구 소개 쿠폰</td>
@@ -147,6 +151,13 @@
     <script src="data/main-data.js"></script>
     <script src="js/main.js"></script>
     <script src="js/includes.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof window.initCouponList === 'function') {
+                window.initCouponList();
+            }
+        });
+    </script>
 </body>
 
 </html>

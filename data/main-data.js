@@ -194,3 +194,11 @@ window.recentAccounts = [
   { id: 4, country: 'NP', countryName: '네팔', firstName: 'Sita', lastName: '', bank: 'Nabil Bank', account: '0202-0987-65', purpose: 'saving', purposeName: '저축' },
   { id: 5, country: 'AU', countryName: '호주', firstName: 'Emma', lastName: 'Watson', bank: 'Commonwealth', account: '013-111-2222', bsbNumber: '123-456', purpose: 'education', purposeName: '교육비' },
 ];
+
+window.couponList = [
+  { id: 'coupon_1', name: '친구 소개 쿠폰', benefit: '수수료 전액 할인', description: '친구를 소개하면 받을 수 있는 쿠폰입니다.', validUntil: '2026.12.31', etc: '추가 혜택' },
+  { id: 'coupon_2', name: '첫 거래 쿠폰', benefit: '수수료 50% 할인', description: '첫 거래를 완료하면 받을 수 있는 쿠폰입니다.', validUntil: '2026.12.31', etc: '친구 아이디 : withremit' },
+  { id: 'coupon_3', name: '휴면 고객 쿠폰', benefit: '수수료 30% 할인', description: '오랜 기간 거래가 없는 고객에게 제공되는 쿠폰입니다.', validUntil: '2026.12.31', etc: '-' },
+  { id: 'coupon_4', name: '특정 국가 송금 쿠폰', benefit: '수수료 20% 할인', description: '특정 국가로 송금할 때 사용할 수 있는 쿠폰입니다.', validUntil: '2026.12.31', etc: '-' },
+  { id: 'coupon_5', name: '이벤트 참여 쿠폰', benefit: '수수료 10% 할인', description: '이벤트에 참여하면 받을 수 있는 쿠폰입니다.', validUntil: '2026.12.31', etc: '추가 혜택' }
+]

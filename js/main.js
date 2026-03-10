@@ -1441,3 +1441,214 @@ window.initEnhancedRemitCycle = function () {
         });
     }
 };
+
+window.initCouponList = function () {
+    const couponTableBody = document.getElementById('couponTableBody');
+    const couponTotalCount = document.getElementById('couponTotalCount');
+    if (!couponTableBody || !couponTotalCount) return;
+
+    const couponItems = Array.isArray(window.couponList) ? window.couponList : [];
+    couponTableBody.innerHTML = '';
+    couponTotalCount.textContent = String(couponItems.length);
+    couponItems.forEach((coupon, index) => {
+        const tr = document.createElement('tr');
+        tr.dataset.couponId = coupon.id;
+        tr.innerHTML = `
+            <td data-label='번호' data-i18n="">${index + 1}</td>
+            <td data-label='쿠폰명' data-i18n="">${coupon.name || ''}</td>
+            <td data-label='혜택' data-i18n="">${coupon.benefit || ''}</td>
+            <td data-label='유효기간' data-i18n="">${coupon.validUntil || ''}</td>
+            <td data-label='비고' data-i18n="">${coupon.etc || ''}</td>
+        `;
+        couponTableBody.appendChild(tr);
+    });
+}
+
+window.initCouponSelection = function () {
+    const couponItems = Array.isArray(window.couponList) ? window.couponList : [];
+    const couponTableBody = document.getElementById('couponTableBody');
+    const applyCouponBtn = document.getElementById('applyCouponBtn');
+    const couponSelect = document.getElementById('couponSelect');
+    const selectCouponBox = document.getElementById('selectCouponBox');
+    const couponTotalCount = document.getElementById('couponTotalCount');
+    const couponSelectName = document.getElementById('selectCouponLabel');
+
+    if (!couponTableBody || !applyCouponBtn || !couponSelect || !selectCouponBox || !couponTotalCount || !couponSelectName) return;
+
+    couponTableBody.innerHTML = '';
+    couponTotalCount.textContent = String(couponItems.length);
+
+    couponItems.forEach(coupon => {
+        const tr = document.createElement('tr');
+        tr.dataset.couponId = coupon.id;
+        tr.innerHTML = `
+            <td><input type="radio" name="couponSelect" value="${String(coupon.id || '')}"></td>
+            <td data-i18n="">${coupon.name || ''}</td>
+            <td data-i18n="">${coupon.description || ''}</td>
+            <td data-i18n="">${coupon.validUntil || ''}</td>
+        `;
+        couponTableBody.appendChild(tr);
+        couponTotalCount.textContent = String(couponItems.length);
+    });
+
+    if (couponTableBody.dataset.bound !== '1') {
+        couponTableBody.addEventListener('click', function (e) {
+            const tr = e.target.closest('tr[data-coupon-id]');
+            if (!tr) return;
+
+            const selectedRadio = tr.querySelector('input[type="radio"]');
+            if (selectedRadio) {
+                selectedRadio.checked = true;
+                couponSelect.value = selectedRadio.value;
+            }
+        });
+        couponTableBody.dataset.bound = '1';
+    }
+
+    if (applyCouponBtn.dataset.bound !== '1') {
+        applyCouponBtn.addEventListener('click', function () {
+            const selectedCoupon = couponTableBody.querySelector('input[name="couponSelect"]:checked');
+            if (!selectedCoupon) return;
+
+            const couponInfo = couponItems.find(c => String(c.id) === selectedCoupon.value);
+            const couponName = couponInfo ? couponInfo.name : '알 수 없는 쿠폰';
+
+            couponSelect.value = selectedCoupon.value;
+            couponSelectName.textContent = couponName;
+            selectCouponBox.classList.add('active');
+            closeModal('couponSelectionModal');
+        });
+        applyCouponBtn.dataset.bound = '1';
+    }
+};
+
+window.initFriendInvite = function () {
+    const REGISTERED_MEMBER_PHONES = new Set(['01012345678', '01099998888', '01077776666']);
+    let inviteDeleteButton = null;
+
+    const inviteTableBody = document.getElementById('deleteTableBody');
+    const inviteTotalCount = document.getElementById('couponTotalCount');
+    const inviteConfirmModal = document.getElementById('inviteConfirmModal');
+
+    if (!inviteTableBody || !inviteTotalCount || !inviteConfirmModal) return;
+
+    function updateRowNumbers() {
+        const rows = Array.from(inviteTableBody.querySelectorAll('tr'));
+        const total = rows.length;
+
+        rows.forEach((row, index) => {
+            const numberCell = row.querySelector('.td-num');
+            if (numberCell) {
+                numberCell.textContent = String(total - index);
+            }
+
+            const phoneInput = row.querySelector('input.login-input');
+            if (phoneInput) {
+                phoneInput.id = `friendPhone${total - index}`;
+            }
+        });
+    }
+
+    function updateTotalCount() {
+        inviteTotalCount.textContent = String(inviteTableBody.querySelectorAll('tr').length);
+    }
+
+    function addFriendRow() {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td class="td-num" data-label="번호"></td>
+            <td>
+                <div class="field-item">
+                    <label class="field-label">전화번호</label>
+                    <input type="text" placeholder="전화번호를 입력하세요" class="login-input" id="friendPhoneNew"/>
+                </div>
+            </td>
+            <td data-label="삭제">
+                <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
+            </td>
+        `;
+
+        inviteTableBody.insertBefore(newRow, inviteTableBody.firstChild);
+        updateRowNumbers();
+        updateTotalCount();
+    }
+
+    function removeRow(button) {
+        inviteDeleteButton = button;
+        openModal('deleteConfirmModal');
+    }
+
+    function confirmDelete() {
+        if (!inviteDeleteButton) {
+            closeModal('deleteConfirmModal');
+            inviteDeleteButton = null;
+            return;
+        }
+
+        const rows = inviteTableBody.querySelectorAll('tr');
+        if (rows.length <= 1) {
+            closeModal('deleteConfirmModal');
+            openModal('validationModal');
+            inviteDeleteButton = null;
+            return;
+        }
+
+        inviteDeleteButton.closest('tr')?.remove();
+        inviteDeleteButton = null;
+        closeModal('deleteConfirmModal');
+        updateRowNumbers();
+        updateTotalCount();
+    }
+
+    function closeValidationModal() {
+        const modal = document.getElementById('validationModal');
+        if (modal) {
+            closeModal('validationModal');
+        }
+    }
+
+    function confirmInviteSend() {
+        closeModal('inviteConfirmModal');
+        openModal('inviteSuccessModal');
+    }
+
+    function saveFriends() {
+        const rows = Array.from(inviteTableBody.querySelectorAll('tr'));
+        if (rows.length < 1) {
+            openModal('validationModal');
+            return;
+        }
+
+        const phoneInputs = rows
+            .map(row => row.querySelector('input.login-input'))
+            .filter(Boolean);
+
+        for (const input of phoneInputs) {
+            input.value = input.value.replace(/[^0-9]/g, '').trim();
+
+            if (!input.value) {
+                openModal('validationModal');
+                input.focus();
+                return;
+            }
+
+            if (REGISTERED_MEMBER_PHONES.has(input.value)) {
+                openModal('inviteAlreadyMemberModal');
+                input.focus();
+                return;
+            }
+        }
+
+        openModal('inviteConfirmModal');
+    }
+
+    window.addFriendRow = addFriendRow;
+    window.removeRow = removeRow;
+    window.confirmDelete = confirmDelete;
+    window.closeValidationModal = closeValidationModal;
+    window.confirmInviteSend = confirmInviteSend;
+    window.saveFriends = saveFriends;
+
+    updateRowNumbers();
+    updateTotalCount();
+};

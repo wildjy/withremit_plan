@@ -561,3 +561,18 @@ if (applyCouponButton) {
         closeModal('couponSelectionModal');
     });
 }
+
+// 출금 계좌 테이블 행 클릭 시 라디오 버튼 선택
+const withdrawalRows = document.querySelectorAll('.db-notice-table tbody tr');
+withdrawalRows.forEach(row => {
+    row.style.cursor = 'pointer';
+    row.addEventListener('click', function (e) {
+        // 라디오 버튼 직접 클릭한 경우는 처리 불필요
+        if (e.target.type === 'radio') return;
+
+        const radio = this.querySelector('input[type="radio"]');
+        if (radio) {
+            radio.checked = true;
+        }
+    });
+});

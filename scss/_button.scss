@@ -108,6 +108,9 @@
 	justify-content: space-between;
 	padding: 0 var(--s4);
 	color: var(--text-soft);
+	&.active {
+		color: var(--text-heavy);
+	}
 }
 
 .btn-close-modal {

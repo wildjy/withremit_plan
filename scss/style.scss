@@ -318,12 +318,20 @@
 	background-color: var(--bg-default);
 }
 
-.db-notice-table tbody tr {
-	background-color: var(--white);
-	border-bottom: 1px solid #eee;
-	transition: background-color 0.2s;
-	cursor: pointer;
+.db-notice-table {
+	tbody tr {
+		background-color: var(--white);
+		border-bottom: 1px solid #eee;
+		transition: background-color 0.2s;
+		cursor: pointer;
+	}
+	&.coupon-mode {
+		tbody tr {
+			cursor: default;
+		}
+	}
 }
+
 
 .db-notice-table tbody tr:hover {
 	background-color: #f8fafa;
@@ -3566,5 +3574,17 @@ td.center {
 		width: 100%;
 		justify-content: flex-end;
 		/* 모바일에서도 값은 우측 정렬 */
+	}
+}
+
+.coupon-total-count {
+	margin-top: var(--s6);
+	margin-bottom: var(--s5);
+	font-size: var(--text-sm);
+	color: var(--text-default);
+	font-weight: 500;
+	b {
+		color: var(--text-heavy);
+		font-weight: 700;
 	}
 }

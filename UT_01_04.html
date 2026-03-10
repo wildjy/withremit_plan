@@ -46,9 +46,9 @@
                     </div>
 
                     <!-- Total Count -->
-                    <div class="db-table-info">
-                        <span class="db-total-count">총 <strong id="totalCount">0</strong>건</span>
-                    </div>
+                    <p class="coupon-total-count">
+                        <span>총</span> <b id="couponTotalCount"></b><span>건</span>
+                    </p>
 
                     <!-- Table Container -->
                     <div class="db-table-responsive">
@@ -213,197 +213,11 @@
     <script src="js/main.js"></script>
     <script src="js/includes.js"></script>
     <script>
-        const REGISTERED_MEMBER_PHONES = new Set(['01012345678', '01099998888', '01077776666']);
-        let inviteDeleteButton = null;
-
-        function updateRowNumbers() {
-            const tbody = document.getElementById('deleteTableBody');
-            const rows = Array.from(tbody.querySelectorAll('tr'));
-            const total = rows.length;
-
-            rows.forEach((row, index) => {
-                const numberCell = row.querySelector('.td-num');
-                if (numberCell) {
-                    numberCell.textContent = String(total - index);
-                }
-
-                const phoneInput = row.querySelector('input.login-input');
-                if (phoneInput) {
-                    phoneInput.id = `friendPhone${total - index}`;
-                }
-            });
-        }
-
-        function updateTotalCount() {
-            const tbody = document.getElementById('deleteTableBody');
-            const totalCountElement = document.getElementById('totalCount');
-
-            if (!tbody || !totalCountElement) {
-                return;
-            }
-
-            totalCountElement.textContent = String(tbody.querySelectorAll('tr').length);
-        }
-
-        function addFriendRow() {
-            const tbody = document.getElementById('deleteTableBody');
-            if (!tbody) {
-                return;
-            }
-
-            const newRow = document.createElement('tr');
-            newRow.innerHTML = `
-                <td class="td-num" data-label="번호"></td>
-                <td>
-                    <div class="field-item">
-                        <label class="field-label">전화번호</label>
-                        <input type="text" placeholder="전화번호를 입력하세요" class="login-input" id="friendPhoneNew"/>
-                    </div>
-                </td>
-                <td data-label="삭제">
-                    <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
-                </td>
-            `;
-
-            tbody.insertBefore(newRow, tbody.firstChild);
-            updateRowNumbers();
-            updateTotalCount();
-        }
-
-        function removeRow(button) {
-            inviteDeleteButton = button;
-            openModal('deleteConfirmModal');
-        }
-
-        function confirmDelete() {
-            const tbody = document.getElementById('deleteTableBody');
-            if (!tbody || !inviteDeleteButton) {
-                closeModal('deleteConfirmModal');
-                inviteDeleteButton = null;
-                return;
-            }
-
-            const rows = tbody.querySelectorAll('tr');
-            if (rows.length <= 1) {
-                closeModal('deleteConfirmModal');
-                openModal('validationModal');
-                inviteDeleteButton = null;
-                return;
-            }
-
-            inviteDeleteButton.closest('tr')?.remove();
-            inviteDeleteButton = null;
-            closeModal('deleteConfirmModal');
-            updateRowNumbers();
-            updateTotalCount();
-        }
-
-        function closeValidationModal() {
-            const modal = document.getElementById('validationModal');
-            if (modal) {
-                closeModal('validationModal');
-            }
-        }
-
-        function confirmInviteSend() {
-            closeModal('inviteConfirmModal');
-            openModal('inviteSuccessModal');
-        }
-
-        function saveFriends() {
-            const tbody = document.getElementById('deleteTableBody');
-            if (!tbody) {
-                return;
-            }
-
-            const rows = Array.from(tbody.querySelectorAll('tr'));
-            if (rows.length < 1) {
-                openModal('validationModal');
-                return;
-            }
-
-            const phoneInputs = rows
-                .map(row => row.querySelector('input.login-input'))
-                .filter(Boolean);
-
-            for (const input of phoneInputs) {
-                input.value = input.value.replace(/[^0-9]/g, '').trim();
-
-                if (!input.value) {
-                    openModal('validationModal');
-                    input.focus();
-                    return;
-                }
-
-                if (REGISTERED_MEMBER_PHONES.has(input.value)) {
-                    openModal('inviteAlreadyMemberModal');
-                    input.focus();
-                    return;
-                }
-            }
-
-            openModal('inviteConfirmModal');
-        }
-
         document.addEventListener('DOMContentLoaded', () => {
-            updateRowNumbers();
-            updateTotalCount();
-        });
-
-        function registerAccount() {
-            const bank = document.getElementById('bankSelect').value;
-            const accountNum = document.getElementById('accountNumber').value;
-            const holder = document.getElementById('accountHolder').value;
-
-            if (!bank || !accountNum || !holder) {
-                document.getElementById('validationModal').classList.add('active');
-                return;
+            if (typeof window.initFriendInvite === 'function') {
+                window.initFriendInvite();
             }
-
-            // Mask account number (show first 4 digits only)
-            const maskedAccount = accountNum.substring(0, 4) + '*'.repeat(Math.max(7, accountNum.length - 4));
-
-            // Add new row to table
-            const tbody = document.getElementById('deleteTableBody');
-            const rowCount = tbody.querySelectorAll('tr').length;
-            const newRow = document.createElement('tr');
-
-            newRow.innerHTML = `
-                <td class="td-num" data-label="번호">${rowCount + 1}</td>
-                <td data-label="은행명">${bank}</td>
-                <td data-label="계좌 번호">${maskedAccount}</td>
-                <td data-label="예금주">${holder}</td>
-                <td data-label="1원 인증상태">
-                    <span class="status-unverified">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="15" y1="9" x2="9" y2="15"></line>
-                            <line x1="9" y1="9" x2="15" y2="15"></line>
-                        </svg>
-                        미인증
-                    </span>
-                </td>
-                <td data-label="본인 인증 상태">
-                    <span class="status-unverified">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="15" y1="9" x2="9" y2="15"></line>
-                            <line x1="9" y1="9" x2="15" y2="15"></line>
-                        </svg>
-                        미인증
-                    </span>
-                </td>
-                <td data-label="삭제">
-                    <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
-                </td>
-            `;
-
-
-            tbody.insertBefore(newRow, tbody.firstChild);
-            closeModal('accountModal')
-            updateTotalCount();
-        }
-
+        });
     </script>
 </body>
 
