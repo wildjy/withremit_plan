@@ -32,6 +32,9 @@
 
 .login-logo {
 	margin-bottom: 30px;
+	& ~ .login-card {
+		margin-top: 0;
+	}
 }
 
 .login-logo img {
@@ -288,6 +291,7 @@
 }
 
 .login-footer-wrap {
+	margin-top: var(--s10);
 	text-align: center;
 	width: 100%;
 }

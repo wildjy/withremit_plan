@@ -201,7 +201,7 @@
 
 .wallet-val-white {
 	font-size: var(--text-5xl);
-	font-weight: 800;
+	font-weight: 700;
 	color: #fff;
 }
 
@@ -235,6 +235,9 @@
   overflow: hidden;
   position: relative;
   white-space: nowrap;
+	.swiper-wrapper {
+			transition-timing-function: linear !important;
+	}
 }
 
 // .country-slider-container::before,
@@ -274,8 +277,9 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 var(--s3);
-  width: 60px;
+	margin: 0 var(--s2);
+  width: 68px;
+	text-align: center;
   vertical-align: top;
 }
 

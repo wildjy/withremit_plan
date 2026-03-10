@@ -52,4 +52,24 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     updatePlayState(true);
+
+    const countrySlider = document.querySelector('.country-swiper');
+    if (!countrySlider || typeof Swiper === 'undefined') return;
+
+    new Swiper(countrySlider, {
+        loop: true,
+        slidesPerView: 'auto',
+        spaceBetween: 0,
+        speed: 5000,
+        allowTouchMove: false,
+        loopAdditionalSlides: 3,
+        freeMode: {
+            enabled: true,
+            momentum: false,
+        },
+        autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+        },
+    });
 });

@@ -10,6 +10,9 @@
   --sidebarContainer-w: 12.25rem; // 196px
   --input-h: 3.25rem; // 52px
 
+  --white-section-spacing: var(--s6); // 24px
+  --mobile-white-section-spacing: var(--s4); // 16px
+
   --font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   // new colors
@@ -76,9 +79,12 @@
 
   --border-soft: #EDEFF0;
   --border-default: #DFE4E6;
+border-radius: var(--24, 24px);
+background: var(--Neutral-White, #FFF);
 
+/* Shadow */
   --shadow-sm: 0 0.125rem 0.5rem rgba(26, 46, 53, 0.06);
-  --shadow: 0 0.25rem 1.25rem rgba(193, 208, 219, 0.20);
+  --shadow: 0 0.25rem 1rem rgba(193, 208, 219, 0.20);
   --shadow-lg: 0 0.75rem 2.5rem rgba(26, 46, 53, 0.12);
 
   // button test
