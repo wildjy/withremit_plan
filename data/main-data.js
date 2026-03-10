@@ -162,6 +162,8 @@ window.remittanceData = [
     country: '스리랑카'
   }
 ];
+// test data - for empty state
+// window.remittanceData = [];
 
 window.remitFrequentAccounts = [
     { id: 1, country: 'JP', countryName: '일본', firstName: 'Suzuki', lastName: 'Ichiro', firstNameKana: 'スズキ', lastNameKana: 'イチロウ', bank: 'Mizuho Bank', account: '987-6543-21', purpose: 'family', purposeName: '가족 송금' },

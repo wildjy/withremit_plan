@@ -146,7 +146,7 @@
 .badge svg {
 	width: var(--s5);
 	height: var(--s5);
-	color: #7ec8e3;
+	color: var(--primary-heavy);
 }
 
 /* ===== Features Section ===== */
@@ -187,7 +187,7 @@
 
 // .feature-card:hover {
 // 	border-color: var(--border-default);
-// 	background-color: #fff;
+// 	background-color: var(--white);
 // 	transform: translateY(-6px);
 // 	box-shadow: var(--shadow);
 // }
@@ -308,7 +308,7 @@
 }
 
 .trust h2 {
-	color: #fff;
+	color: var(--white);
 }
 
 .trust .section-header p {
@@ -333,7 +333,7 @@
 .cta h2 {
 	margin-bottom: var(--s4);
 	font-size: var(--text-5xl);
-	color: #fff;
+	color: var(--white);
 }
 
 .cta p {
@@ -352,10 +352,9 @@
 	background-color: var(--white);
 }
 
-.cta .btn-primary:hover {
-	background-color: rgba(255, 255, 255, 0.95);
-	transform: translateY(-2px);
-	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+.cta .btn-primary:hover:not(:disabled):not(.is-disabled) {
+	color: var(--primary-default);
+	background-color: var(--white);
 }
 
 /* ===== Contact Section ===== */

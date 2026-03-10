@@ -726,7 +726,7 @@ function renderKeypad() {
         btn.style.height = '42px';
         btn.style.borderRadius = '5px';
         btn.style.border = '1px solid #d1d5db';
-        // btn.style.background = '#fff'; // MOVED TO CSS to enable hover
+        // btn.style.background = 'var(--white)'; // MOVED TO CSS to enable hover
         btn.style.fontSize = '16px';
         btn.style.fontWeight = '600';
         btn.style.color = '#333';
@@ -1657,3 +1657,62 @@ window.initFriendInvite = function () {
     updateRowNumbers();
     updateTotalCount();
 };
+
+// 최근 송금 내역
+function recentRemittanceList() {
+    const ongoingContainer = document.getElementById('dbOngoingInfo');
+    const emptyState = document.getElementById('dbOngoingEmpty');
+
+    if (!ongoingContainer || !emptyState) return;
+
+    const dataList = Array.isArray(remittanceData) ? remittanceData : [];
+
+    if (dataList.length === 0) {
+        ongoingContainer.innerHTML = '';
+        ongoingContainer.style.display = 'none';
+        emptyState.style.display = 'flex';
+        return;
+    }
+
+    const latest = dataList[0] || {};
+    const status = latest.status || 'pending';
+    const statusClass = `status-${status}`;
+    const statusIcon = getStatusSVG(status);
+
+    ongoingContainer.innerHTML = `
+        <div class="db-ongoing-row">
+            <span class="db-ongoing-label" data-i18n=''>송금액</span>
+            <span class="db-ongoing-value">${latest.sendAmount || '-'}</span>
+        </div>
+        <div class="db-ongoing-row">
+            <span class="db-ongoing-label" data-i18n=''>입금액</span>
+            <span class="db-ongoing-value">${latest.depositAmount || '-'}</span>
+        </div>
+        <div class="db-ongoing-row">
+            <span class="db-ongoing-label" data-i18n=''>수취인</span>
+            <span class="db-ongoing-value">${latest.name || '-'}</span>
+        </div>
+        <div class="db-ongoing-row">
+            <span class="db-ongoing-label" data-i18n=''>수취 국가</span>
+            <span class="db-ongoing-value">${latest.country || '-'}</span>
+        </div>
+        <div class="db-ongoing-row">
+            <span class="db-ongoing-label" data-i18n=''>실 수취 금액</span>
+            <span class="db-ongoing-value">${latest.receiveAmount || '-'}</span>
+        </div>
+        <div class="db-ongoing-row">
+            <span class="db-ongoing-label" data-i18n=''>송금 상태</span>
+            <div class="remit-card-status-wrapper">
+                <span class="remit-status ${statusClass}">
+                    ${statusIcon}
+                    ${latest.statusText || '-'}
+                </span>
+            </div>
+        </div>
+    `;
+
+    ongoingContainer.style.display = 'flex';
+    emptyState.style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', recentRemittanceList);

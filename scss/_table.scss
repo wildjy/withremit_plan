@@ -155,23 +155,9 @@ td.center {
 }
 
 @media (max-width: 1024px) {
-	.common-table .th-num,
-  .common-table .td-num {
-		display: none;
-	}
-
-	.common-table .th-views,
-  .common-table .td-views {
-		display: none;
-	}
-
-	.common-table .col-num,
-  .common-table .col-views {
-		display: none;
-	}
 
 	.common-table th,
-  .common-table td {
+  	.common-table td {
 		padding: var(--s3) var(--s2);
 		font-size: var(--text-sm);
 	}
@@ -179,12 +165,27 @@ td.center {
 
 /* 768px 이하: 카드형 (HI_01_01 스타일 재구성) */
 @media (max-width: 768px) {
+	.common-table .th-num,
+  	.common-table .td-num {
+		display: none;
+	}
+
+	.common-table .th-views,
+  	.common-table .td-views {
+		display: none;
+	}
+
+	.common-table .col-num,
+  	.common-table .col-views {
+		display: none;
+	}
+	
 	.common-table.history-mode thead {
 		display: none;
 	}
 
 	.common-table.history-mode,
-  .common-table.history-mode tbody {
+  	.common-table.history-mode tbody {
 		display: block;
 		width: 100%;
 		border: none;
@@ -205,7 +206,7 @@ td.center {
 		grid-template-columns: auto 1fr;
 		width: 100%;
 		color: var(--text-default);
-		background-color: #fff;
+		background-color: var(--white);
 		border: 1px solid var(--border-default);
 		border-radius: var(--radius);
 		overflow: hidden;
@@ -241,7 +242,7 @@ td.center {
 		font-weight: 500;
 		border-top: none;
 		border-bottom: 1px solid var(--border-default);
-		background-color: #fff;
+		background-color: var(--white);
 	}
 
 	.common-table.history-mode {
@@ -278,7 +279,7 @@ td.center {
 		color: var(--text-strong);
 		font-weight: 500;
 		border: none;
-		background-color: #fff;
+		background-color: var(--white);
 	}
 
 	.common-table.history-mode td:nth-child(3) {
@@ -347,18 +348,18 @@ td.center {
 	.col-num,
 	.th-num,
 	.td-num {
-		display: none !important;
+		display: none;
 	}
 
 	.common-table th,
-  .common-table td {
+  	.common-table td {
 		padding: 10px 8px;
 	}
 
-	.common-table .th-num,
-  	.common-table .td-num {
-		display: table-cell !important;
-	}
+	// .common-table .th-num,
+  	// .common-table .td-num {
+	// 	display: table-cell;
+	// }
 
 	.common-table .th-views,
   	.common-table .td-views {

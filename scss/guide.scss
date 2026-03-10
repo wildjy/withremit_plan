@@ -331,7 +331,7 @@
   background: var(--company-gradient);
   border-radius: 24px;
   padding: 60px 40px;
-  color: #fff;
+  color: var(--white);
   text-align: center;
   margin-bottom: 40px;
   overflow: hidden;
@@ -380,7 +380,7 @@
 
 /* Unified Feature Card Style */
 .feature-card-new {
-  background-color: #fff;
+  background-color: var(--white);
   padding: 35px;
   border-radius: 24px;
   border: 1px solid #f1f5f9;
@@ -410,7 +410,7 @@
 
 .feature-card-new:hover .feature-icon-box {
   background-color: #00A0DC;
-  color: #fff;
+  color: var(--white);
   transform: scale(1.1); }
 
 .feature-title-new {
@@ -434,7 +434,7 @@
 
 /* Content Box */
 .content-box-premium {
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 24px;
   border: 1px solid #f1f5f9;
   padding: 40px;
@@ -467,7 +467,7 @@
   gap: 20px; }
 
 .country-card {
-  background-color: #fff;
+  background-color: var(--white);
   border: 1px solid #f1f5f9;
   box-shadow: var(--card-shadow);
   border-radius: 16px;

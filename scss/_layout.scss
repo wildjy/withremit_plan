@@ -146,6 +146,7 @@ body{
 			margin-top: 0;
 			padding: 0;
 			background-color: transparent;
+			box-shadow: none;
 		}
 	}
 }
@@ -170,7 +171,7 @@ body{
 }
 
 .login-card {
-  padding: var(--s14);
+  	padding: var(--s14);
 	width: 100%;
 
 	.form-sec {
@@ -182,6 +183,12 @@ body{
 	@include cardMarginHidden;
 }
 
+@media (max-width: 1024px) {
+	.login-card {
+		padding: var(--s8);
+	}
+}
+
 @media (max-width: 768px) {
 	.db-page-title {
 		font-size: var(--text-2xl);
@@ -189,6 +196,12 @@ body{
 }
 
 @media (max-width: 480px) {
+	.login-card,
+	.db-content-card  {
+		padding: var(--s6);
+		border-radius: var(--radius-lg) !important;
+	}
+
 	.db-page-title {
 		font-size: var(--text-xl);
 	}

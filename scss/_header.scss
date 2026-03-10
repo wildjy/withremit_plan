@@ -136,7 +136,7 @@
 .btn-login-mobile {
 	display: none;
 	background-color: var(--primary-default);
-	color: #fff;
+	color: var(--white);
 	font-weight: 500;
 	padding: 0 var(--s4);
 	border-radius: var(--s2);
@@ -160,7 +160,7 @@
   top: 50px;
   right: 0;
   width: 140px;
-  background-color: #fff;
+  background-color: var(--white);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
@@ -245,11 +245,11 @@
 			padding: 0 14px;
 			height: 34px;
 			font-size: 0.85rem;
-			color: #fff;
+			color: var(--white);
 			border: none;
 			background-color: var(--primary-default);
 			&:hover {
-				color: #fff;
+				color: var(--white);
 				background-color: var(--primary-strong);
 			}
 		}

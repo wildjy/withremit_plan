@@ -107,7 +107,9 @@
 .coupon-btn {
 	justify-content: space-between;
 	padding: 0 var(--s4);
+	font-size: var(--text-sm);
 	color: var(--text-soft);
+	font-weight: normal;
 	&.active {
 		color: var(--text-heavy);
 	}
@@ -142,7 +144,7 @@
 	border: none;
 	font-size: 15px;
 	font-weight: 700;
-	color: #fff;
+	color: var(--white);
 	cursor: pointer;
 	transition: filter 0.2s;
 	text-decoration: none;
@@ -177,11 +179,11 @@
 
 .btn-kakao {
 	background-color: #fee500;
-	color: #fff;
+	color: var(--white);
 }
 
 .btn-kakao {
-	color: #fff;
+	color: var(--white);
 }
 
 .btn-facebook {

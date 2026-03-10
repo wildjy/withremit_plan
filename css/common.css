@@ -30,7 +30,7 @@
   text-align: left;
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  background-color: #fff;
+  background-color: var(--white);
   background-image: var(--icon-datepicker);
   background-repeat: no-repeat;
   background-position: right 14px center;
@@ -145,7 +145,7 @@
   font-size: var(--text-5xl);
   font-weight: 700;
   line-height: 1.22;
-  color: #fff !important;
+  color: var(--white) !important;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -156,7 +156,7 @@
   font-weight: 400;
   max-width: 600px;
   line-height: 1.55;
-  color: #fff !important;
+  color: var(--white) !important;
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -263,7 +263,7 @@ a.banner-slide {
 }
 
 .banner-control-btn:hover {
-  background-color: #fff;
+  background-color: var(--white);
   -webkit-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
@@ -446,7 +446,7 @@ a.banner-slide {
   margin: 0 auto;
   border: 1px solid var(--border-default);
   border-radius: var(--radius-xl);
-  background-color: #fff;
+  background-color: var(--white);
   -webkit-box-shadow: var(--shadow-lg);
           box-shadow: var(--shadow-lg);
   position: relative;
@@ -552,7 +552,7 @@ a.banner-slide {
   border-radius: var(--radius);
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  background-color: #fff;
+  background-color: var(--white);
   overflow: visible;
 }
 
@@ -806,7 +806,7 @@ a.banner-slide {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-width: 280px;
-  background-color: #fff;
+  background-color: var(--white);
   border: 1px solid var(--border-default);
   border-radius: var(--radius);
   -webkit-transform: translateY(-8px);
@@ -985,7 +985,7 @@ a.banner-slide {
 .calc-btn {
   width: 100%;
   padding: var(--s4);
-  color: #fff;
+  color: var(--white);
   font-weight: 600;
   background-color: var(--primary-default);
   border-radius: var(--radius);
@@ -1028,7 +1028,7 @@ a.banner-slide {
 }
 .sns-item.line {
   background: #06C755;
-  color: #fff;
+  color: var(--white);
 }
 .sns-item.line .sns-text p {
   color: var(--white);
@@ -1053,10 +1053,9 @@ a.banner-slide {
 
 /* QR */
 .qr-code {
-  padding: 0.0781rem;
   width: 5rem;
   height: 5rem;
-  background: #fff;
+  background-color: var(--white);
   border-radius: var(--radius);
   -o-object-fit: contain;
      object-fit: contain;

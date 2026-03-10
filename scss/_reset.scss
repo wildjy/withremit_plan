@@ -27,13 +27,6 @@ body {
 	}
 }
 
-@media (max-width: 480px) {
-	html,
-	body {
-		font-size: var(--xsBase);
-	}
-}
-
 @media (max-width: 768px) {
 	html,
 	body {
@@ -98,7 +91,7 @@ input, select, textarea {
 	padding: var(--s3-14) var(--s4);
 	font-size: var(--text-md);
 	font-weight: 500;
-	background-color: #fff;
+	background-color: var(--white);
 	border: 1px solid var(--border-soft);
 	border-radius: var(--radius);
 	outline: none;
@@ -156,16 +149,17 @@ select {
 	}
 }
 
+// checkbox, radio
 .custom-check {
-	width: 18px;
-	height: 18px;
-	border: 1.5px solid var(--border-default);
-	border-radius: 3px;
-	background-color: #fff;
-	transition: var(--transition);
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: var(--s5);
+	height: var(--s5);
+	background-color: var(--white);
+	border: 1px solid var(--border-default);
+	border-radius: var(--s1);
+	transition: var(--transition);
 	flex-shrink: 0;
 }
 
@@ -177,32 +171,15 @@ input[type="checkbox"]:checked + .custom-check {
 
 input[type="radio"]:checked + .custom-check::after,
 input[type="checkbox"]:checked + .custom-check::after {
-	content: "";
-	width: 5px;
-	height: 9px;
-	border: solid #fff;
-	border-width: 0 2px 2px 0;
-	transform: rotate(45deg);
-	margin-bottom: 2px;
 	display: block;
+	content: "";
+	margin-bottom: 0.1875rem;
+	width: 0.25rem;
+	height: 0.5rem;
+	border: solid var(--white);
+	border-width: 0 0.125rem 0.125rem 0;
+	transform: rotate(45deg);
 }
-
-// input, select, textarea,
-// .input-box-group {
-// 	background-color: #fff;
-// 	border: 1.5px solid var(--border-soft);
-// 	border-radius: var(--radius);
-// 	transition: var(--transition);
-// 	&.error {
-// 		@include input-error;
-// 	}
-// }
-
-// .input-box-group .login-input {
-// 	border: none;
-// 	box-shadow: none;
-// 	background-color: transparent;
-// }
 
 .hidden {
 	display: none;

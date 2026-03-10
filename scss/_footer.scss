@@ -85,6 +85,12 @@
   }
 }
 
+@media (max-width: 1200px) {
+	.footer-logo {
+  		right: var(--s6);
+	}
+}
+
 .footer-meta,
 .footer-copy {
 	color: var(--text-default);

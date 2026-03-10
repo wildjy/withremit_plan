@@ -33,7 +33,7 @@
 }
 
 .db-info-card {
-	background-color: #fff;
+	background-color: var(--white);
 }
 
 .db-card-header {
@@ -64,7 +64,7 @@
 	align-items: center;
 	gap: 8px;
 	background-color: #7a8e96;
-	color: #fff;
+	color: var(--white);
 	padding: 8px 16px;
 	border-radius: 50px;
 	font-size: 14px;
@@ -100,7 +100,7 @@
 
 /* White Button Styles for Blue Card */
 .btn-white {
-	background-color: #fff;
+	background-color: var(--white);
 	color: var(--primary-default);
 	border: none;
 	font-weight: 600;
@@ -114,8 +114,8 @@
 
 .btn-white-outline {
 	background-color: transparent;
-	color: #fff;
-	border: 2px solid #fff;
+	color: var(--white);
+	border: 2px solid var(--white);
 	font-weight: 600;
 	transition: all 0.2s;
 }
@@ -158,7 +158,6 @@
 .db-limit-icon svg {
 	width: var(--s6);
 	height: var(--s6);
-	stroke: rgba(255, 255, 255, 0.9);
 }
 
 .db-limit-content {
@@ -190,6 +189,11 @@
 	background-color: var(--primary-heavy);
 }
 
+.db-card-title-white {
+	font-size: var(--s4-18);
+	color: rgba(255, 255, 255, 0.9);
+}
+
 .db-main-wallet {
 	margin-top: var(--s9);
 	display: flex;
@@ -202,20 +206,20 @@
 .wallet-val-white {
 	font-size: var(--text-5xl);
 	font-weight: 700;
-	color: #fff;
+	color: var(--white);
 }
 
-@media (max-width: 1150px) {
+@media (max-width: 1024px) {
 	.wallet-val-white {
 		font-size: var(--text-3xl);
 	}
 }
 
-@media (max-width: 1024px) {
-	.wallet-val-white {
-		font-size: var(--text-5xl);
-	}
-}
+// @media (max-width: 1024px) {
+// 	.wallet-val-white {
+// 		font-size: var(--text-5xl);
+// 	}
+// }
 
 .wallet-btns {
 	display: flex;
@@ -253,12 +257,12 @@
 
 // .country-slider-container::before {
 //   left: 0;
-//   background: linear-gradient(to right, #fff, transparent);
+//   background: linear-gradient(to right, var(--white), transparent);
 // }
 
 // .country-slider-container::after {
 //   right: 0;
-//   background: linear-gradient(to left, #fff, transparent);
+//   background: linear-gradient(to left, var(--white), transparent);
 // }
 
 .country-slider {
@@ -558,12 +562,12 @@
 			h4 {
 				font-size: var(--text-md);
 				color: var(--text-heavy);
-  			font-weight: 600;
+  				font-weight: 600;
 			}
 			p {
 				font-size: var(--text-sm);
 				color: var(--text-default);
-  			font-weight: 500;
+  				font-weight: 500;
 			}
 		}
 	}
@@ -642,18 +646,26 @@
 }
 
 @media (max-width: 1024px) and (min-width: 769px) {
-	.db-help-content-wrapper {
-		display: flex;
-		gap: var(--s5);
-		align-items: flex-start;
+	// .db-help-content-wrapper {
+	// 	display: flex;
+	// 	gap: var(--s5);
+	// 	align-items: flex-start;
+	// }
+	.contact-sns {
+		flex-direction: row;
+		.sns-item {
+			flex: 1;
+		}
 	}
-
 	.db-help-btns-new {
-		flex: 0 0 auto;
-		width: auto;
+		flex: 1;
+		// width: auto;
 		display: flex;
-		flex-direction: column;
+		// flex-direction: column;
 		gap: var(--s3);
+		a {
+			flex: 1;
+		}
 	}
 
 	.db-help-qr-section {

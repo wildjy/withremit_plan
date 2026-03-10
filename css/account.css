@@ -105,7 +105,7 @@
 }
 
 .bank-table-card {
-  background-color: #fff;
+  background-color: var(--white);
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   overflow: hidden;
@@ -207,7 +207,7 @@
 }
 
 .bank-table-card {
-  background-color: #fff;
+  background-color: var(--white);
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   overflow: hidden;
@@ -267,7 +267,7 @@
   }
   .common-table tbody tr {
     display: block;
-    background-color: #fff;
+    background-color: var(--white);
     border: none;
     border-bottom: 1px solid #e5e7eb;
     border-radius: 0;
