@@ -2462,7 +2462,7 @@
 
 /* Account Modal Responsive Styles */
 @media (max-width: 1024px) {
-	 {
+	.account-table-container {
 		padding: 15px;
 	}
 
@@ -2747,8 +2747,16 @@
 #refundAccountModal #tab-direct {
 	padding: 10px 0;
 }
+
 #accountModal .field-item, 
 #refundAccountModal .field-item {
+	margin-bottom: 20px;
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+#resetPasswordModal .field-group {
 	margin-bottom: 20px;
 	&:last-of-type {
 		margin-bottom: 0;

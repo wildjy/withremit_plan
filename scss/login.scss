@@ -109,16 +109,16 @@
 
 /* Info Box Style */
 .info-box {
-	background-color: #E8F1F8;
-	color: #1B5E9E;
-	padding: 15px;
-	border-radius: 8px;
-	text-align: left;
-	margin-bottom: 24px;
-	font-size: 14px;
+	margin-bottom: var(--s6);
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	gap: var(--s2);
+	padding: var(--s4);
+	font-size: var(--text-sm);
+	color: var(--primary-default);
+	text-align: left;
+	background-color: #E8F1F8;
+	border-radius: 8px;
 }
 
 .info-box i {

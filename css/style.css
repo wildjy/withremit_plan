@@ -4287,20 +4287,20 @@ a.banner-slide {
 
 /* Info Box Style */
 .info-box {
-  background-color: #E8F1F8;
-  color: #1B5E9E;
-  padding: 15px;
-  border-radius: 8px;
-  text-align: left;
-  margin-bottom: 24px;
-  font-size: 14px;
+  margin-bottom: var(--s6);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 8px;
+  gap: var(--s2);
+  padding: var(--s4);
+  font-size: var(--text-sm);
+  color: var(--primary-default);
+  text-align: left;
+  background-color: #E8F1F8;
+  border-radius: 8px;
 }
 
 .info-box i {
@@ -9703,6 +9703,10 @@ td.center {
 }
 
 /* Account Selection Modal Styles */
+.account-table-container {
+  padding: 20px;
+}
+
 .account-table-sticky-header {
   position: sticky;
   top: 0;
@@ -10043,6 +10047,13 @@ td.center {
 }
 #accountModal .field-item:last-of-type,
 #refundAccountModal .field-item:last-of-type {
+  margin-bottom: 0;
+}
+
+#resetPasswordModal .field-group {
+  margin-bottom: 20px;
+}
+#resetPasswordModal .field-group:last-of-type {
   margin-bottom: 0;
 }
 
