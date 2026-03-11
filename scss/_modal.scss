@@ -59,7 +59,7 @@
 .modal-header {
 	position: sticky;
 	top: 0;
-	padding: var(--s6) var(--s6) var(--s4);
+	padding: var(--s6) var(--s6)var(--s4) ;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -73,19 +73,11 @@
 		display: flex;
 		flex-direction: column;
 	}
-
-	// .modal-header {
-	// 	position: sticky;
-	// 	top: 0;
-	// 	z-index: 10;
-	// 	background-color: var(--white);
-	// 	border-radius: 12px 12px 0 0;
-	// }
 }
 
 .modal-title {
 	margin: 0;
-	font-size: var(--text-2xl);
+	font-size: var(--text-lg);
 	color: var(--text-heavy);
 	font-weight: 700;
 }
@@ -113,7 +105,7 @@
 	justify-content: flex-end;
 	padding: var(--s4) var(--s6);
 	gap: var(--s4);
-	border-top: 1px solid var(--border-default);
+	// border-top: 1px solid var(--border-default);
 	.btn, a, button {
 		&.full {
 			width: auto;

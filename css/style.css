@@ -42,8 +42,8 @@
   --bg-default: #F5F8FC;
   --bg-soft: #F8FBFD;
   --bg-positive: #D9F3EB;
-  --bg-negative: #FDE9E9;
-  --bg-success: #DDE9F4;
+  --bg-negative: #FFF3F3;
+  --bg-success: #E8F4FF;
   --text-default: var(--neutral-default);
   --text-soft: var(--neutral-soft);
   --text-strong: var(--neutral-strong);
@@ -71,8 +71,6 @@
   --accent-teal: #00C9B7;
   --border-soft: #EDEFF0;
   --border-default: #DFE4E6;
-  border-radius: var(--24, 24px);
-  background: var(--Neutral-White, #FFF);
   /* Shadow */
   --shadow-sm: 0 0.125rem 0.5rem rgba(26, 46, 53, 0.06);
   --shadow: 0 0.25rem 1rem rgba(193, 208, 219, 0.20);
@@ -2680,9 +2678,6 @@ a.banner-slide {
   width: 5rem;
   height: 5rem;
   background-color: var(--white);
-  border-radius: var(--radius);
-  -o-object-fit: contain;
-     object-fit: contain;
 }
 
 .db-body .qr-code {
@@ -3596,7 +3591,7 @@ a.banner-slide {
 }
 .modal-title {
   margin: 0;
-  font-size: var(--text-2xl);
+  font-size: var(--text-lg);
   color: var(--text-heavy);
   font-weight: 700;
 }
@@ -3630,7 +3625,6 @@ a.banner-slide {
           justify-content: flex-end;
   padding: var(--s4) var(--s6);
   gap: var(--s4);
-  border-top: 1px solid var(--border-default);
 }
 .modal-footer .btn.full, .modal-footer a.full, .modal-footer button.full {
   width: auto;
@@ -5230,7 +5224,7 @@ a.banner-slide {
 }
 
 .agree-all-box {
-  background-color: var(--bg-light);
+  background-color: var(--bg-default);
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 24px;
@@ -6185,8 +6179,6 @@ a.banner-slide {
   height: var(--s10);
   border: 1px solid #f0f0f0;
   border-radius: var(--radius-md);
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
@@ -8850,6 +8842,11 @@ td.center {
     height: var(--s7);
   }
 }
+@media (max-width: 768px) {
+  .quick-amount-buttons .btn {
+    height: var(--s10);
+  }
+}
 /* Calculation result */
 .calc-col-item.hidden {
   display: none;
@@ -9706,12 +9703,6 @@ td.center {
 }
 
 /* Account Selection Modal Styles */
-.account-table-container {
-  max-height: 500px;
-  overflow-y: auto;
-  padding: 20px;
-}
-
 .account-table-sticky-header {
   position: sticky;
   top: 0;
@@ -9860,10 +9851,19 @@ td.center {
     margin-bottom: 0;
   }
   .head-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     width: 100%;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
+  }
+  .head-buttons button {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    height: var(--s10);
   }
 }
 /* RM_02_02 Recurring Remittance Form Styles */
@@ -10013,114 +10013,6 @@ td.center {
   text-align: center;
 }
 
-/* Modal Container */
-.db-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1050;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.db-modal.show {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-/* Modal Content */
-.db-modal-content {
-  background-color: var(--white);
-  border-radius: 12px;
-  width: 90%;
-  max-width: 500px;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  z-index: 1060;
-  -webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-/* Modal Header */
-.db-modal-header {
-  padding: 16px 20px;
-  border-bottom: 1px solid #f3f4f6;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.db-modal-header h3 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 600;
-  color: #1f2937;
-}
-
-.db-modal-close {
-  background-color: none;
-  border: none;
-  cursor: pointer;
-  color: #9ca3af;
-  padding: 4px;
-  border-radius: 4px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.db-modal-close:hover {
-  background-color: #f3f4f6;
-  color: #4b5563;
-}
-
-/* Modal Body */
-.db-modal-body {
-  padding: 20px;
-  overflow-y: auto;
-}
-
-/* Modal Footer */
-.db-modal-footer {
-  padding: 16px 20px;
-  border-top: 1px solid #f3f4f6;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  gap: 8px;
-}
-
 /* Refund Modal Specific Styles - Moving inline styles to CSS */
 #refundAccountModal .db-modal-content {
   max-width: 600px;
@@ -10145,8 +10037,13 @@ td.center {
   padding: 10px 0;
 }
 
+#accountModal .field-item,
 #refundAccountModal .field-item {
   margin-bottom: 20px;
+}
+#accountModal .field-item:last-of-type,
+#refundAccountModal .field-item:last-of-type {
+  margin-bottom: 0;
 }
 
 #refundAccountModal .db-select {

@@ -902,7 +902,7 @@
 }
 .modal-title {
   margin: 0;
-  font-size: var(--text-2xl);
+  font-size: var(--text-lg);
   color: var(--text-heavy);
   font-weight: 700;
 }
@@ -936,7 +936,6 @@
           justify-content: flex-end;
   padding: var(--s4) var(--s6);
   gap: var(--s4);
-  border-top: 1px solid var(--border-default);
 }
 .modal-footer .btn.full, .modal-footer a.full, .modal-footer button.full {
   width: auto;

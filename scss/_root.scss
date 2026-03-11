@@ -41,8 +41,8 @@
   --bg-default: #F5F8FC;
   --bg-soft: #F8FBFD;
   --bg-positive: #D9F3EB;
-  --bg-negative: #FDE9E9;
-  --bg-success: #DDE9F4;
+  --bg-negative: #FFF3F3;
+  --bg-success: #E8F4FF;
 
   // text colors
   --text-default: var(--neutral-default);
@@ -79,8 +79,6 @@
 
   --border-soft: #EDEFF0;
   --border-default: #DFE4E6;
-border-radius: var(--24, 24px);
-background: var(--Neutral-White, #FFF);
 
 /* Shadow */
   --shadow-sm: 0 0.125rem 0.5rem rgba(26, 46, 53, 0.06);
