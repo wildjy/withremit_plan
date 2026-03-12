@@ -404,11 +404,13 @@
 
 .remit-sort-select {
 	padding: var(--s2) var(--s8) var(--s2) var(--s3);
-	border: 1.5px solid var(--border-default);
+	border: 1px solid var(--border-default);
 	border-radius: var(--s2);
 	font-size: var(--text-sm);
 	font-weight: 500;
 	color: var(--text-heavy);
+	-webkit-text-fill-color: #A4B7C0;
+	color-scheme: light;
 	background-color: var(--white);
 	cursor: pointer;
 	appearance: none;
@@ -1510,9 +1512,6 @@
 		text-align: right;
 	}
 
-	.calc-col-item.highlight .calc-col-value {
-		font-size: 1rem;
-	}
 }
 
 @media (max-width: 480px) {
@@ -1540,10 +1539,6 @@
 
 	.calc-col-item:last-child {
 		border-bottom: none;
-	}
-
-	.calc-col-item.highlight .calc-col-value {
-		font-size: var(--text-sm);
 	}
 
 	.calc-result-row .calc-label {

@@ -114,6 +114,8 @@
 	font-size: var(--text-sm);
 	font-weight: 500;
 	color: var(--text-heavy);
+	-webkit-text-fill-color: #A4B7C0;
+	color-scheme: light;
 	background-color: var(--transparent);
 	background-position: calc(var(--full) - var(--s2-10)) center;
 	border: none;

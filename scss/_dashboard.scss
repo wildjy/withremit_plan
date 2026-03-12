@@ -312,7 +312,7 @@
   0% {
     transform: translateX(0);
 	}
-  var(--full) {
+  100% {
     transform: translateX(-50%);
   }
 }

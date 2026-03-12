@@ -108,7 +108,8 @@ input {
 select {
 	padding: var(--s3-14) var(--s8) var(--s3-14)var(--s4);
 	color: var(--text-soft);
-	-webkit-text-fill-color: var(--text-soft); // iOS Safari 파란색 방지
+	-webkit-text-fill-color: #A4B7C0; // iOS Safari 파란색 방지
+	color-scheme: light;
 	appearance: none;
 	background-image: var(--icon-select);
 	background-size: var(--s3) 0.4375rem;
