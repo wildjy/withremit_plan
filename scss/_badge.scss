@@ -99,6 +99,16 @@
 	background-color: var(--bg-default);
 }
 
+.remit-status.status-available {
+	color: var(--status-received);
+	background-color: var(--bg-positive);
+}
+
+.remit-status.status-unavailable {
+	color: var(--status-unverified);
+	background-color: var(--bg-negative);
+}
+
 .modal-overlay {
 	.remit-status {
 		background-color: var(--transparent);

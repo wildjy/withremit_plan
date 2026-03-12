@@ -714,6 +714,22 @@ a.banner-slide {
 	border-radius: 0 var(--radius) var(--radius) 0;
 	transition: var(--transition);
 	cursor: pointer;
+	>span {
+		position: relative;
+		&:after {
+			// display: block;
+			margin-left: var(--s1);
+			content: "";
+			width: var(--s3);
+			height: 0.4375rem;
+			background-image: var(--icon-select);
+			background-size: var(--s3) 0.4375rem;
+			background-repeat: no-repeat;
+			background-position: center;
+			transition: var(--transition);
+			z-index: 1;
+		}
+	}
 }
 
 .calc-currency-btn:hover {
@@ -739,8 +755,11 @@ a.banner-slide {
 	transition: var(--transition);
 }
 
-.calc-currency-dropdown.open .calc-currency-arrow {
-	transform: rotate(180deg);
+.calc-currency-dropdown.open {
+	.calc-currency-arrow,
+	.calc-currency-btn>span::after {
+		transform: rotate(180deg);
+	}
 }
 
 .calc-currency-options {

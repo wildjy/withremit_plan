@@ -42,10 +42,12 @@ function getStatusSVG(status) {
         paused: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
         active: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
         // stop: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>'
+        // AC_02_03, AC_02_04 status icons
+        available: '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.66667 0C2.99333 0 0 2.99333 0 6.66667C0 10.34 2.99333 13.3333 6.66667 13.3333C10.34 13.3333 13.3333 10.34 13.3333 6.66667C13.3333 2.99333 10.34 0 6.66667 0ZM9.85333 5.13333L6.07333 8.91333C5.98 9.00667 5.85333 9.06 5.72 9.06C5.58667 9.06 5.46 9.00667 5.36667 8.91333L3.48 7.02667C3.28667 6.83333 3.28667 6.51333 3.48 6.32C3.67333 6.12667 3.99333 6.12667 4.18667 6.32L5.72 7.85333L9.14667 4.42667C9.34 4.23333 9.66 4.23333 9.85333 4.42667C10.0467 4.62 10.0467 4.93333 9.85333 5.13333Z" fill="#059669"/></svg>',
+        unavailable: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8.00016 1.33333C4.32683 1.33333 1.3335 4.32666 1.3335 7.99999C1.3335 11.6733 4.32683 14.6667 8.00016 14.6667C11.6735 14.6667 14.6668 11.6733 14.6668 7.99999C14.6668 4.32666 11.6735 1.33333 8.00016 1.33333ZM10.2402 9.53333C10.4335 9.72666 10.4335 10.0467 10.2402 10.24C10.1402 10.34 10.0135 10.3867 9.88683 10.3867C9.76016 10.3867 9.6335 10.34 9.5335 10.24L8.00016 8.70666L6.46683 10.24C6.36683 10.34 6.24016 10.3867 6.1135 10.3867C5.98683 10.3867 5.86016 10.34 5.76016 10.24C5.56683 10.0467 5.56683 9.72666 5.76016 9.53333L7.2935 7.99999L5.76016 6.46666C5.56683 6.27333 5.56683 5.95333 5.76016 5.75999C5.9535 5.56666 6.2735 5.56666 6.46683 5.75999L8.00016 7.29333L9.5335 5.75999C9.72683 5.56666 10.0468 5.56666 10.2402 5.75999C10.4335 5.95333 10.4335 6.27333 10.2402 6.46666L8.70683 7.99999L10.2402 9.53333Z" fill="#EF4444"/></svg>'
     };
     return svgs[status] || '';
 }
-
 // Function to activate a specific tab
 if(tabs.length > 0 && contents.length > 0) {
     function activateTab(tabId) {
