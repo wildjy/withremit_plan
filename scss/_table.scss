@@ -75,14 +75,6 @@
 	border-bottom: none;
 }
 
-.common-table tbody tr:last-child td:first-child {
-	// border-bottom-left-radius: var(--radius);
-}
-
-.common-table tbody tr:last-child td:last-child {
-	// border-bottom-right-radius: var(--radius);
-}
-
 .common-table th,
 .common-table td {
 	padding: var(--s4) var(--s3-14);
@@ -99,6 +91,10 @@
 .common-table td {
 	color: var(--text-strong);
 	border-top: 1px solid var(--border-soft);
+
+	.check-label-group {
+		justify-content: center;
+	}
 }
 
 
@@ -182,7 +178,7 @@ td.center {
   	.common-table .col-views {
 		display: none;
 	}
-	
+
 	.common-table.history-mode thead {
 		display: none;
 	}
@@ -217,11 +213,6 @@ td.center {
       background-color: var(--white);
     }
 	}
-  /* Specific override for first-child radius issue */
-	// .db-content .common-table.history-mode tbody tr:first-child {
-	// 	border-radius: 12px;
-	// 	overflow: hidden;
-	// }
 	.common-table tbody tr:last-child {
 		border-bottom: 1px solid var(--border-default);
 	}
@@ -267,7 +258,6 @@ td.center {
 
 	.common-table.history-mode td:nth-child(2)::before {
 		content: none;
-    /* Hide data-label for date as requested */;
 	}
 
   /* Body Area: Details */
@@ -286,16 +276,7 @@ td.center {
 	}
 
 	.common-table.history-mode td:nth-child(3) {
-    /* First item padding */
 		padding-top: var(--s3);
-	}
-
-	.common-table.history-mode td:last-child {
-		// padding-bottom: 20px;
-    // border-bottom: 1px solid var(--border-default);
-		// &:before {
-		// 	display: none;
-		// }
 	}
 
 	.common-table.history-mode td:last-child[data-label='삭제'] {

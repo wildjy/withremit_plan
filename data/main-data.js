@@ -203,4 +203,66 @@ window.couponList = [
   { id: 'coupon_3', name: '휴면 고객 쿠폰', benefit: '수수료 30% 할인', description: '오랜 기간 거래가 없는 고객에게 제공되는 쿠폰입니다.', validUntil: '2026.12.31', etc: '-' },
   { id: 'coupon_4', name: '특정 국가 송금 쿠폰', benefit: '수수료 20% 할인', description: '특정 국가로 송금할 때 사용할 수 있는 쿠폰입니다.', validUntil: '2026.12.31', etc: '-' },
   { id: 'coupon_5', name: '이벤트 참여 쿠폰', benefit: '수수료 10% 할인', description: '이벤트에 참여하면 받을 수 있는 쿠폰입니다.', validUntil: '2026.12.31', etc: '추가 혜택' }
-]
+];
+
+// Bank Account Data (AC_02_03 - 출금 계좌 등록)
+window.bankAccountData = [
+  // 산업은행 - 2계좌
+  {
+    id: 1,
+    bankName: '산업',
+    accountType: '예금 · 적금',
+    accountName: 'KDB 정기예금',
+    accountNumber: '76346662510674',
+    balance: '30,000,000원',
+    status: 'available',
+    statusText: '등록가능',
+    disabled: false
+  },
+  {
+    id: 2,
+    bankName: '산업',
+    accountType: '예금 · 적금',
+    accountName: 'KDB 정기예금',
+    accountNumber: '93808008753696',
+    balance: '20,000,000원',
+    status: 'available',
+    statusText: '등록가능',
+    disabled: false
+  },
+  // 케이뱅크 - 1계좌
+  {
+    id: 3,
+    bankName: '케이뱅크',
+    accountType: '입출금',
+    accountName: '듀얼K 입출금통장',
+    accountNumber: '100144380011',
+    balance: '330,017원',
+    status: 'available',
+    statusText: '등록가능',
+    disabled: false
+  },
+  // 카카오뱅크 - 2계좌
+  {
+    id: 4,
+    bankName: '카카오뱅크',
+    accountType: '입출금',
+    accountName: '카카오뱅크 입출금통장',
+    accountNumber: '3333037115702',
+    balance: '613,612원',
+    status: 'unavailable',
+    statusText: '등록불가',
+    disabled: true
+  },
+  {
+    id: 5,
+    bankName: '카카오뱅크',
+    accountType: '예금·적금',
+    accountName: '카카오뱅크 정기예금',
+    accountNumber: '3388140671141',
+    balance: '30,000,000원',
+    status: 'available',
+    statusText: '등록가능',
+    disabled: false
+  }
+];

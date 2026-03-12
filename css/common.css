@@ -764,6 +764,22 @@ a.banner-slide {
   transition: var(--transition);
   cursor: pointer;
 }
+.calc-currency-btn > span {
+  position: relative;
+}
+.calc-currency-btn > span:after {
+  margin-left: var(--s1);
+  content: "";
+  width: var(--s3);
+  height: 0.4375rem;
+  background-image: var(--icon-select);
+  background-size: var(--s3) 0.4375rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  z-index: 1;
+}
 
 .calc-currency-btn:hover {
   background-color: #eef2f1;
@@ -791,7 +807,8 @@ a.banner-slide {
   transition: var(--transition);
 }
 
-.calc-currency-dropdown.open .calc-currency-arrow {
+.calc-currency-dropdown.open .calc-currency-arrow,
+.calc-currency-dropdown.open .calc-currency-btn > span::after {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }

@@ -2386,6 +2386,22 @@ a.banner-slide {
   transition: var(--transition);
   cursor: pointer;
 }
+.calc-currency-btn > span {
+  position: relative;
+}
+.calc-currency-btn > span:after {
+  margin-left: var(--s1);
+  content: "";
+  width: var(--s3);
+  height: 0.4375rem;
+  background-image: var(--icon-select);
+  background-size: var(--s3) 0.4375rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  z-index: 1;
+}
 
 .calc-currency-btn:hover {
   background-color: #eef2f1;
@@ -2413,7 +2429,8 @@ a.banner-slide {
   transition: var(--transition);
 }
 
-.calc-currency-dropdown.open .calc-currency-arrow {
+.calc-currency-dropdown.open .calc-currency-arrow,
+.calc-currency-dropdown.open .calc-currency-btn > span::after {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
@@ -3288,6 +3305,16 @@ a.banner-slide {
 .remit-status.status-paused {
   color: var(--status-cancel);
   background-color: var(--bg-default);
+}
+
+.remit-status.status-available {
+  color: var(--status-received);
+  background-color: var(--bg-positive);
+}
+
+.remit-status.status-unavailable {
+  color: var(--status-unverified);
+  background-color: var(--bg-negative);
 }
 
 .modal-overlay .remit-status {
@@ -5220,14 +5247,14 @@ a.banner-slide {
   }
 }
 .terms-wrapper {
-  margin-bottom: 30px;
+  margin-bottom: var(--s8);
 }
 
 .agree-all-box {
+  margin-bottom: var(--s6);
+  padding: var(--s5);
+  border-radius: var(--s3);
   background-color: var(--bg-default);
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 24px;
   border: 1px solid var(--border-default);
 }
 
@@ -5257,17 +5284,17 @@ a.banner-slide {
 }
 
 .check-text {
-  font-size: 14px;
+  font-size: var(--text-md);
   color: var(--text-default);
   font-weight: 500;
 }
 
 .terms-container {
-  margin-bottom: 20px;
+  margin-bottom: var(--s5);
 }
 
 .terms-header {
-  margin-bottom: 12px;
+  margin-bottom: var(--s3);
 }
 .terms-header .check-text {
   display: -webkit-box;
@@ -5281,15 +5308,15 @@ a.banner-slide {
 .terms-content-box {
   height: 180px;
   overflow-y: auto;
-  background-color: var(--white);
-  border: 1px solid var(--border-default);
-  border-radius: 8px;
-  padding: 15px;
-  font-size: 13px;
+  padding: var(--s4);
+  font-size: var(--text-sm);
   color: var(--text-soft);
   line-height: 1.7;
   white-space: pre-line;
   word-break: keep-all;
+  background-color: var(--white);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
 }
 
 /* 필수/선택 badge styles */
@@ -6836,6 +6863,11 @@ a.banner-slide {
   color: var(--text-strong);
   border-top: 1px solid var(--border-soft);
 }
+.common-table td .check-label-group {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 
 .common-table .faq-title {
   font-size: 15px;
@@ -6947,7 +6979,6 @@ td.center {
   .common-table.history-mode tr:hover {
     background-color: var(--white);
   }
-  /* Specific override for first-child radius issue */
   .common-table tbody tr:last-child {
     border-bottom: 1px solid var(--border-default);
   }
@@ -6993,7 +7024,6 @@ td.center {
   }
   .common-table.history-mode td:nth-child(2)::before {
     content: none;
-    /* Hide data-label for date as requested */
   }
   /* Body Area: Details */
   .common-table.history-mode td:nth-child(n+3) {
@@ -7016,7 +7046,6 @@ td.center {
     background-color: var(--white);
   }
   .common-table.history-mode td:nth-child(3) {
-    /* First item padding */
     padding-top: var(--s3);
   }
   .common-table.history-mode td:last-child[data-label=삭제]:before {
