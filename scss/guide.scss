@@ -14,22 +14,22 @@
 }
 
 .guide-section {
-	margin-bottom: 40px;
+	margin-bottom: var(--s10);
 }
 
 .guide-section-title {
-	font-size: 20px;
+	font-size: var(--s5);
 	font-weight: 700;
-	margin-bottom: 20px;
+	margin-bottom: var(--s5);
 	color: #333;
 	display: flex;
 	align-items: center;
-	gap: 12px;
+	gap: var(--s3);
 }
 
 .title-icon {
-	width: 24px;
-	height: 24px;
+	width: var(--s6);
+	height: var(--s6);
 	color: #4A90E2;
 }
 
@@ -46,7 +46,7 @@
 
 .guide-list li {
 	position: relative;
-	padding-left: 20px;
+	padding-left: var(--s5);
 	margin-bottom: 10px;
 	line-height: 1.6;
 }
@@ -65,7 +65,7 @@
 	color: #888;
 	background-color: #f9f9f9;
 	padding: 15px;
-	border-radius: 8px;
+	border-radius: var(--s2);
 }
 
 .guide-highlight {
@@ -82,15 +82,15 @@
 .service-intro {
 	text-align: center;
 	margin-bottom: 50px;
-	padding: 60px 0 20px;
+	padding: 60px 0 var(--s5);
 	position: relative;
 	z-index: 2;
 }
 
 .service-slogan {
-	font-size: 32px;
+	font-size: var(--s8);
 	font-weight: 900;
-	margin-bottom: 20px;
+	margin-bottom: var(--s5);
 	letter-spacing: -1.2px;
 }
 
@@ -112,8 +112,8 @@
 	position: absolute;
 	bottom: 2px;
 	left: 0;
-	width: 100%;
-	height: 4px;
+	width: var(--full);
+	height: var(--s1);
 	background-color: rgba(74, 144, 226, 0.15);
 	z-index: -1;
 }
@@ -123,7 +123,7 @@
 .feature-grid {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	gap: 20px;
+	gap: var(--s5);
 	margin-bottom: 60px;
 	position: relative;
 	z-index: 1;
@@ -139,8 +139,8 @@
 .feature-card {
 	background-color: #ffffff;
 	border: 1px solid #edf2f7;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-	border-radius: 20px;
+	box-shadow: 0 var(--s1) var(--s5) rgba(0, 0, 0, 0.03);
+	border-radius: var(--s5);
 	padding: 0;
 	overflow: hidden;
 	transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -175,13 +175,13 @@
 }
 
 .feature-card:hover {
-	transform: translateY(-8px);
+	transform: translateY(-var(--s2));
 	border-color: #4A90E2;
-	box-shadow: 0 12px 30px rgba(74, 144, 226, 0.08);
+	box-shadow: 0 var(--s3) 30px rgba(74, 144, 226, 0.08);
 }
 
 .feature-image-container {
-	width: 100%;
+	width: var(--full);
   /* removed fixed height to let image scaling determine height, or keep it if needed but let's make it flexible */
   padding: 30px 0 0;
   /* Added whitespace at top */
@@ -202,15 +202,15 @@
   transform: scale(1.05); }
 
 .feature-content {
-  padding: 20px 25px 30px;
-  width: 100%;
+  padding: var(--s5) 25px 30px;
+  width: var(--full);
   text-align: left; }
 
 .feature-title {
-  font-size: 20px;
+  font-size: var(--s5);
   font-weight: 800;
   color: #1a1a1a;
-  margin-bottom: 12px;
+  margin-bottom: var(--s3);
   letter-spacing: -0.5px; }
 
 .feature-desc {
@@ -220,7 +220,7 @@
   text-align: left; }
 
 .feature-desc p {
-  margin-bottom: 8px; }
+  margin-bottom: var(--s2); }
 
 .feature-desc p:last-child {
   margin-bottom: 0; }
@@ -228,9 +228,9 @@
 /* Responsive Adjustments */
 @media (max-width: 992px) {
   .service-slogan {
-    font-size: 28px; }
+    font-size: var(--s7); }
   .feature-grid {
-    gap: 20px; } }
+    gap: var(--s5); } }
 
 @media (max-width: 1024px) {
   .feature-grid {
@@ -238,7 +238,7 @@
   .feature-grid.three-col {
     grid-template-columns: 1fr; }
   .service-slogan {
-    font-size: 24px; }
+    font-size: var(--s6); }
   /* 모바일에서 카드 가로 배치 (이미지 좌측, 텍스트 우측) */
   .feature-card {
     flex-direction: row;
@@ -250,7 +250,7 @@
     min-width: 100px;
     padding: 0;
     margin-right: 15px;
-    height: 100%;
+    height: var(--full);
     display: flex;
     align-items: center;
     justify-content: center; }
@@ -262,7 +262,7 @@
     width: auto;
     flex: 1; }
   .feature-title {
-    font-size: 16px;
+    font-size: var(--s4);
     margin-bottom: 5px; }
   .feature-desc {
     font-size: 13px;
@@ -278,20 +278,20 @@
 
 /* Guide Countries Grid Overrides */
 .guide-countries-grid {
-  margin-top: 20px;
-  padding-bottom: 20px; }
+  margin-top: var(--s5);
+  padding-bottom: var(--s5); }
 
 .guide-countries-grid .country-card {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding: 30px 20px;
+  padding: 30px var(--s5);
   gap: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); }
+  box-shadow: 0 var(--s1) var(--s3) rgba(0, 0, 0, 0.04); }
 
 .guide-countries-grid .country-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(74, 144, 226, 0.12); }
+  box-shadow: 0 var(--s3) var(--s6) rgba(74, 144, 226, 0.12); }
 
 .guide-countries-grid .country-flag {
   width: 60px;
@@ -303,7 +303,7 @@
   margin-bottom: 6px; }
 
 .guide-countries-grid .country-info span {
-  font-size: 0.9rem; }
+  font-size: var(--text-sm); }
 
 /* Responsive for Countries Grid */
 @media (max-width: 1024px) {
@@ -318,24 +318,24 @@
   .guide-countries-grid.countries-grid {
     grid-template-columns: repeat(2, 1fr); }
   .guide-countries-grid .country-card {
-    padding: 20px 15px; } }
+    padding: var(--s5) 15px; } }
 
 /* ===== Premium Guide Styles (Migrated from HTML) ===== */
 :root {
-  --company-gradient: linear-gradient(135deg, #00A0DC 0%, #2563eb 100%);
+  --company-gradient: linear-gradient(135deg, #00A0DC 0%, #2563eb var(--full));
   --glass-bg: rgba(255, 255, 255, 0.8);
   --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); }
 
 .guide-hero {
   position: relative;
   background: var(--company-gradient);
-  border-radius: 24px;
-  padding: 60px 40px;
+  border-radius: var(--s6);
+  padding: 60px var(--s10);
   color: var(--white);
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: var(--s10);
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 160, 220, 0.2); }
+  box-shadow: 0 var(--s5) var(--s10) rgba(0, 160, 220, 0.2); }
 
 .guide-hero::before {
   content: '';
@@ -349,14 +349,14 @@
   pointer-events: none; }
 
 .hero-title {
-  font-size: 32px;
+  font-size: var(--s8);
   font-weight: 800;
-  margin-bottom: 20px;
+  margin-bottom: var(--s5);
   line-height: 1.3;
   position: relative;
   z-index: 1;
   color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+  text-shadow: 0 2px var(--s1) rgba(0, 0, 0, 0.1); }
 
 .hero-desc {
   font-size: 18px;
@@ -372,8 +372,8 @@
 .feature-grid-new {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin-bottom: 40px; }
+  gap: var(--s6);
+  margin-bottom: var(--s10); }
 
 .feature-grid-new.cols-3 {
   grid-template-columns: repeat(3, 1fr); }
@@ -382,19 +382,19 @@
 .feature-card-new {
   background-color: var(--white);
   padding: 35px;
-  border-radius: 24px;
+  border-radius: var(--s6);
   border: 1px solid #f1f5f9;
   box-shadow: var(--card-shadow);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 100%; }
+  height: var(--full); }
 
 .feature-card-new:hover {
-  transform: translateY(-8px);
+  transform: translateY(-var(--s2));
   border-color: #00A0DC;
-  box-shadow: 0 20px 40px rgba(0, 160, 220, 0.1); }
+  box-shadow: 0 var(--s5) var(--s10) rgba(0, 160, 220, 0.1); }
 
 .feature-icon-box {
   width: 60px;
@@ -404,7 +404,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: var(--s6);
   color: #00A0DC;
   transition: all 0.3s; }
 
@@ -414,10 +414,10 @@
   transform: scale(1.1); }
 
 .feature-title-new {
-  font-size: 20px;
+  font-size: var(--s5);
   font-weight: 700;
   color: var(--neutral-heavy);
-  margin-bottom: 12px; }
+  margin-bottom: var(--s3); }
 
 .feature-desc-new {
   font-size: 15px;
@@ -425,7 +425,7 @@
   line-height: 1.6; }
 
 .feature-desc-new ul {
-  padding-left: 20px;
+  padding-left: var(--s5);
   margin: 0;
   list-style-type: disc; }
 
@@ -435,20 +435,20 @@
 /* Content Box */
 .content-box-premium {
   background-color: var(--white);
-  border-radius: 24px;
+  border-radius: var(--s6);
   border: 1px solid #f1f5f9;
-  padding: 40px;
+  padding: var(--s10);
   box-shadow: var(--card-shadow);
   margin-bottom: 30px; }
 
 .section-header {
-  margin-bottom: 24px;
-  padding-bottom: 20px;
+  margin-bottom: var(--s6);
+  padding-bottom: var(--s5);
   border-bottom: 1px solid #f1f5f9;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px; }
+  gap: var(--s3); }
 
 .section-header h3 {
   font-size: 22px;
@@ -464,21 +464,21 @@
 .guide-countries-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px; }
+  gap: var(--s5); }
 
 .country-card {
   background-color: var(--white);
   border: 1px solid #f1f5f9;
   box-shadow: var(--card-shadow);
-  border-radius: 16px;
-  padding: 20px;
+  border-radius: var(--s4);
+  padding: var(--s5);
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: var(--s4);
   transition: all 0.2s; }
 
 .country-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-var(--s1));
   border-color: #00A0DC; }
 
 .country-flag {
@@ -489,10 +489,10 @@
   border: 1px solid #f1f5f9; }
 
 .country-info h4 {
-  font-size: 16px;
+  font-size: var(--s4);
   font-weight: 700;
   color: var(--neutral-heavy);
-  margin-bottom: 4px; }
+  margin-bottom: var(--s1); }
 
 .country-info span {
   font-size: 13px;
@@ -501,23 +501,23 @@
 
 /* Premium Table */
 .premium-table {
-  width: 100%;
+  width: var(--full);
   border-collapse: separate;
   border-spacing: 0;
-  border-radius: 12px;
+  border-radius: var(--s3);
   overflow: hidden;
   border: 1px solid #e2e8f0; }
 
 .premium-table th {
   background-color: #f8fafc;
-  padding: 16px;
+  padding: var(--s4);
   text-align: left;
   font-weight: 600;
   color: #475569;
   border-bottom: 1px solid #e2e8f0; }
 
 .premium-table td {
-  padding: 16px;
+  padding: var(--s4);
   border-bottom: 1px solid #e2e8f0;
   color: #333;
   font-size: 15px; }
@@ -542,18 +542,18 @@
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: auto auto;
-    column-gap: 20px;
-    padding: 24px;
+    column-gap: var(--s5);
+    padding: var(--s6);
     align-items: start; }
   .feature-icon-box {
     grid-row: 1 / span 2;
     margin-bottom: 0;
     width: 48px;
     height: 48px;
-    border-radius: 12px; }
+    border-radius: var(--s3); }
   .feature-icon-box svg {
-    width: 24px;
-    height: 24px; }
+    width: var(--s6);
+    height: var(--s6); }
   .feature-title-new {
     grid-column: 2;
     margin-bottom: 6px;
@@ -564,7 +564,7 @@
     grid-column: 2;
     font-size: 14px; }
   .hero-title {
-    font-size: 24px; }
+    font-size: var(--s6); }
   .hero-desc {
     font-size: 15px; } }
 
@@ -572,15 +572,15 @@
   .guide-countries-grid {
     grid-template-columns: 1fr; }
   .country-card {
-    padding: 12px;
-    gap: 12px; }
+    padding: var(--s3);
+    gap: var(--s3); }
   .country-flag {
-    width: 36px;
-    height: 36px; }
+    width: var(--s9);
+    height: var(--s9); }
   .country-info h4 {
     font-size: 14px; }
   .country-info span {
-    font-size: 12px; } }
+    font-size: var(--s3); } }
 
 /* Override styles for cards inside content-box-premium (no icons, subtle design) */
 .content-box-premium .feature-card-new {

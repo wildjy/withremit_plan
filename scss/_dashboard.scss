@@ -20,7 +20,7 @@
 	padding: var(--s8);
 	border: none;
 	border-radius: var(--radius-xl);
-	box-shadow: 0 4px 20px 0 rgba(193, 208, 219, 0.20);
+	box-shadow: 0 var(--s1) var(--s5) 0 rgba(193, 208, 219, 0.20);
 	overflow:  hidden;
 }
 
@@ -62,10 +62,10 @@
 .db-balance-badge {
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	gap: var(--s2);
 	background-color: #7a8e96;
 	color: var(--white);
-	padding: 8px 16px;
+	padding: var(--s2) var(--s4);
 	border-radius: 50px;
 	font-size: 14px;
 	font-weight: 600;
@@ -79,7 +79,7 @@
 }
 
 .db-balance-badge .badge-label {
-	font-size: 12px;
+	font-size: var(--s3);
 	font-weight: 500;
 	opacity: 0.9;
 }
@@ -92,7 +92,7 @@
 /* Dashboard Banner Card Styles */
 .db-banner-card {
 	width: var(--full);
-	margin-bottom: 20px;
+	margin-bottom: var(--s5);
 }
 
 /* Dashboard Card Components */
@@ -312,7 +312,7 @@
   0% {
     transform: translateX(0);
 	}
-  100% {
+  var(--full) {
     transform: translateX(-50%);
   }
 }
@@ -530,7 +530,7 @@
 .db-help-btn-new:hover {
 	background-color: #e9ecef;
 	transform: translateY(-2px);
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+	box-shadow: 0 var(--s1) var(--s3) rgba(0, 0, 0, 0.08);
 }
 
 .db-help-icon {

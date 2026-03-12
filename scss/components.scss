@@ -7,7 +7,7 @@
 
 // width helpers
 .w-full {
-    width: 100%;
+    width: var(--full);
 }
 
 // flex helpers
@@ -52,8 +52,8 @@
 
 /* Demo Guide Buttons */
 .demo-btn {
-	padding: 10px 20px;
-	border-radius: 8px;
+	padding: 10px var(--s5);
+	border-radius: var(--s2);
 	font-weight: 600;
 	font-size: 14px;
 	color: white;
@@ -67,8 +67,8 @@
 .loading-body {
 	margin: 0;
 	padding: 0;
-	width: 100%;
-	height: 100%;
+	width: var(--full);
+	height: var(--full);
 	overflow: hidden;
 	background-color: transparent;
 }
@@ -77,10 +77,10 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100%;
-	height: 100%;
+	width: var(--full);
+	height: var(--full);
 	background-color: rgba(255, 255, 255, 0.6);
-	backdrop-filter: blur(8px);
+	backdrop-filter: blur(var(--s2));
 	z-index: 9999;
 	display: flex;
 	justify-content: center;
@@ -108,7 +108,7 @@
 		transform: rotate(0deg);
 	}
 
-	100% {
+	var(--full) {
 		transform: rotate(360deg);
 	}
 }
@@ -117,7 +117,7 @@
 .error-body {
 	margin: 0;
 	padding: 0;
-	width: 100%;
+	width: var(--full);
 	min-height: var(--full-dvh);
 	display: flex;
 	justify-content: center;
@@ -127,21 +127,21 @@
 
 .error-container {
 	text-align: center;
-	padding: 24px;
+	padding: var(--s6);
 	max-width: 400px;
-	width: 100%;
+	width: var(--full);
 
     .btn-confirm {
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        width: var(--full);
         height: 48px;
         background-color: #f59e0b;
         color: var(--white);
-        font-size: 16px;
+        font-size: var(--s4);
         font-weight: 600;
-        border-radius: 8px;
+        border-radius: var(--s2);
         border: none;
         cursor: pointer;
         text-decoration: none;
@@ -154,20 +154,20 @@
 }
 
 .error-icon {
-	margin-bottom: 24px;
+	margin-bottom: var(--s6);
 }
 
 .error-title {
-	font-size: 20px;
+	font-size: var(--s5);
 	font-weight: 700;
 	color: #111827;
-	margin-bottom: 12px;
+	margin-bottom: var(--s3);
 }
 
 .error-desc {
-	font-size: 16px;
+	font-size: var(--s4);
 	color: #6b7280;
-	margin-bottom: 32px;
+	margin-bottom: var(--s8);
 	line-height: 1.5;
 }
 /* ===== end Loading Overlay & Component Styles ===== */
@@ -177,22 +177,22 @@
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	gap: 16px;
-	margin-top: 20px;
+	gap: var(--s4);
+	margin-top: var(--s5);
 }
 
 .db-pagination {
 	display: flex;
 	align-items: center;
-	gap: 4px;
+	gap: var(--s1);
 }
 
 .db-page-btn {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 32px;
-	height: 32px;
+	width: var(--s8);
+	height: var(--s8);
 	border: 1px solid var(--border-default);
 	background-color: var(--white);
 	border-radius: 6px;
@@ -210,13 +210,13 @@
 }
 
 .db-page-num {
-	min-width: 32px;
-	height: 32px;
-	padding: 0 8px;
+	min-width: var(--s8);
+	height: var(--s8);
+	padding: 0 var(--s2);
 	border: 1px solid var(--border-default);
 	background-color: var(--white);
 	border-radius: 6px;
-	font-size: 0.9rem;
+	font-size: var(--text-sm);
 	font-weight: 500;
 	color: var(--text-default);
 	cursor: pointer;
@@ -237,9 +237,9 @@
 }
 
 .db-rows-select {
-	padding: 8px 32px 8px 12px;
+	padding: var(--s2) var(--s8) var(--s2) var(--s3);
 	width: auto;
-	font-size: 0.85rem;
+	font-size: var(--text-sm);
 }
 
 .db-rows-select:hover {
@@ -255,7 +255,7 @@
 	.db-table-footer {
 		flex-direction: column-reverse;
 		align-items: stretch;
-		gap: 12px;
+		gap: var(--s3);
 	}
 
 	.db-pagination {
@@ -267,18 +267,18 @@
 	}
 
 	.db-rows-select {
-		width: 100%;
+		width: var(--full);
 	}
 }
 
 @media (max-width: 480px) {
 	.db-table-footer {
-		margin-top: 16px;
+		margin-top: var(--s4);
 	}
 
 	.db-rows-select {
-		font-size: 0.8rem;
-		padding: 6px 28px 6px 10px;
+		font-size: var(--text-xs);
+		padding: 6px var(--s7) 6px 10px;
 	}
 
 	.db-pagination {
@@ -287,14 +287,14 @@
 	}
 
 	.db-page-num {
-		min-width: 28px;
-		height: 28px;
-		font-size: 0.8rem;
+		min-width: var(--s7);
+		height: var(--s7);
+		font-size: var(--text-xs);
 	}
 
 	.db-page-btn {
-		width: 28px;
-		height: 28px;
+		width: var(--s7);
+		height: var(--s7);
 	}
 
 	.db-page-num:nth-child(n + 7):nth-last-child(n + 3) {

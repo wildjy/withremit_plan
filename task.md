@@ -22,7 +22,7 @@
     - [x] Adjust font size for tablet - *Completed*
     - [x] Reorder cards for tablet (<= 1024px) - *Completed*
     - [x] Fix horizontal scroll at <= 1024px - *Completed*
-    - [x] Fix width > 100% overflow at <= 1024px - *Completed*
+    - [x] Fix width > var(--full) overflow at <= 1024px - *Completed*
     - [x] Fix sidebar layout causing overflow (481px-1024px) - *Completed*
     - [x] Enforce single-column grids (Limit, Buttons) at <= 1024px - *Completed*
     - [x] Fix calculator card selector preventing resize - *Completed*

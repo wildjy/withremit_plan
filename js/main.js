@@ -715,7 +715,7 @@ function renderKeypad() {
     container.className = 'keypad-grid keypad-container';
     container.style.display = 'flex';
     container.style.flexDirection = 'column';
-    container.style.padding = '8px';
+    container.style.padding = 'var(--s2)';
     container.style.background = '#eef1f5';
     container.style.gap = '6px';
 
@@ -729,7 +729,7 @@ function renderKeypad() {
         btn.style.borderRadius = '5px';
         btn.style.border = '1px solid #d1d5db';
         // btn.style.background = 'var(--white)'; // MOVED TO CSS to enable hover
-        btn.style.fontSize = '16px';
+        btn.style.fontSize = 'var(--s4)';
         btn.style.fontWeight = '600';
         btn.style.color = '#333';
         btn.style.cursor = 'pointer';
@@ -786,7 +786,7 @@ function renderKeypad() {
     // 1. Top Row: Numbers + Backspace (Always present in password mode)
     const numRowDiv = document.createElement('div');
     numRowDiv.style.display = 'flex';
-    numRowDiv.style.width = '100%';
+    numRowDiv.style.width = 'var(--full)';
     numRowDiv.style.justifyContent = 'center';
 
     // Numbers 1-0
@@ -803,7 +803,7 @@ function renderKeypad() {
         layout.forEach(rowKeys => {
             const rowDiv = document.createElement('div');
             rowDiv.style.display = 'flex';
-            rowDiv.style.width = '100%';
+            rowDiv.style.width = 'var(--full)';
             rowDiv.style.justifyContent = 'center';
 
             rowKeys.forEach(key => {
@@ -816,7 +816,7 @@ function renderKeypad() {
     // 3. Bottom Row: [!#1/abc] [Space] [확인]
     const bottomRow = document.createElement('div');
     bottomRow.style.display = 'flex';
-    bottomRow.style.width = '100%';
+    bottomRow.style.width = 'var(--full)';
     bottomRow.style.justifyContent = 'center';
 
     // Mode Switch Button
@@ -1011,7 +1011,7 @@ function toggleKeypad(targetId) {
     const keypadWidth = 320;
 
     keypad.style.position = 'fixed';
-    keypad.style.top = `${rect.bottom + 8}px`; // 8px gap
+    keypad.style.top = `${rect.bottom + 8}px`; // var(--s2) gap
     const centerPos = rect.left + (rect.width / 2);
 
     keypad.style.left = `${centerPos}px`;

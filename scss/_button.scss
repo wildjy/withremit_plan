@@ -11,7 +11,7 @@
 	@include Helper.btn-size(md);
 	@include Helper.btn-variant(primary);
 	&.full {
-		width: 100%;
+		width: var(--full);
 	}
 }
 /* variant modifiers */
@@ -99,7 +99,7 @@
 			}
 		}
 		.btn, a, button {
-			width: calc(100%/2);
+			width: calc(var(--full)/2);
 		}
 	}
 }
@@ -118,7 +118,7 @@
 .btn-close-modal {
 	background: none;
 	border: none;
-	font-size: 24px;
+	font-size: var(--s6);
 	cursor: pointer;
 	color: #111;
 	padding: 0;
@@ -129,8 +129,8 @@
 .sns-login-buttons {
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
-	width: 100%;
+	gap: var(--s3);
+	width: var(--full);
 }
 
 .btn-sns {
@@ -138,9 +138,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 100%;
+	width: var(--full);
 	height: 48px;
-	border-radius: 24px;
+	border-radius: var(--s6);
 	border: none;
 	font-size: 15px;
 	font-weight: 700;
@@ -148,7 +148,7 @@
 	cursor: pointer;
 	transition: filter 0.2s;
 	text-decoration: none;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px var(--s1) rgba(0, 0, 0, 0.1);
 }
 
 .btn-sns:hover {
@@ -157,17 +157,17 @@
 
 .sns-icon-wrap {
 	position: absolute;
-	left: 20px;
-	width: 24px;
-	height: 24px;
+	left: var(--s5);
+	width: var(--s6);
+	height: var(--s6);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
 .sns-icon-img {
-	width: 100%;
-	height: 100%;
+	width: var(--full);
+	height: var(--full);
 	object-fit: contain;
 	filter: brightness(0) invert(1);
   /* Converts black/dark icons to white */;

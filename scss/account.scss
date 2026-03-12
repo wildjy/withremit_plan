@@ -7,7 +7,7 @@
 
 /* Modal Field Spacing */
 #accountModal .field-item {
-	margin-bottom: 24px;
+	margin-bottom: var(--s6);
 }
 
 /* Status Styles */
@@ -15,14 +15,14 @@
 	color: #059669;
 	display: inline-flex;
 	align-items: center;
-	gap: 4px;
+	gap: var(--s1);
 }
 
 .status-unverified {
 	color: #dc2626;
 	display: inline-flex;
 	align-items: center;
-	gap: 4px;
+	gap: var(--s1);
 }
 
 /* Delete Button */
@@ -30,7 +30,7 @@
 	background-color: #fef2f2;
 	color: #ef4444;
 	border: 1px solid #fca5a5;
-	padding: 6px 16px;
+	padding: 6px var(--s4);
 	border-radius: 6px;
 	font-size: 14px;
 	font-weight: 600;
@@ -64,11 +64,11 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 16px;
+	margin-bottom: var(--s4);
 }
 
 .total-count {
-	font-size: 16px;
+	font-size: var(--s4);
 	font-weight: 700;
 	color: #1f2937;
 }
@@ -78,17 +78,10 @@
 	align-items: center;
 }
 
-.bank-group {
-	background-color: transparent;
-	border: none;
-	box-shadow: none;
-	margin-bottom: 32px;
-}
-
 .bank-table-card {
 	background-color: var(--white);
 	border: 1px solid #e5e7eb;
-	border-radius: 8px;
+	border-radius: var(--s2);
 	overflow: hidden;
 }
 
@@ -99,7 +92,7 @@
 	color: #888;
 	background-color: #f9f9f9;
 	padding: 15px;
-	border-radius: 8px;
+	border-radius: var(--s2);
 }
 
 .guide-list {
@@ -110,8 +103,8 @@
 
 .guide-list li {
 	position: relative;
-	padding-left: 20px;
-	margin-bottom: 4px;
+	padding-left: var(--s5);
+	margin-bottom: var(--s1);
   /* Reduced margin for tighter list */
 	line-height: 1.6;
 }
@@ -132,7 +125,7 @@
 	font-size: 18px;
 	font-weight: 600;
 	color: #111;
-	margin-bottom: 12px;
+	margin-bottom: var(--s3);
 }
 
 .confirm-table th {
@@ -155,11 +148,11 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 16px;
+	margin-bottom: var(--s4);
 }
 
 .total-count {
-	font-size: 16px;
+	font-size: var(--s4);
 	font-weight: 700;
 	color: #1f2937;
 }
@@ -169,17 +162,10 @@
 	align-items: center;
 }
 
-.bank-group {
-	background-color: transparent;
-	border: none;
-	box-shadow: none;
-	margin-bottom: 32px;
-}
-
 .bank-table-card {
 	background-color: var(--white);
 	border: 1px solid #e5e7eb;
-	border-radius: 8px;
+	border-radius: var(--s2);
 	overflow: hidden;
 }
 
@@ -230,7 +216,7 @@
   .common-table tbody,
   .common-table tr {
 		display: block;
-		width: 100%;
+		width: var(--full);
 	}
 
 	.common-table thead {
@@ -244,7 +230,7 @@
 		border-bottom: 1px solid #e5e7eb;
 		border-radius: 0;
 		margin-bottom: 0;
-		padding: 20px 20px;
+		padding: var(--s5) var(--s5);
     /* Added horizontal padding */
 		box-shadow: none;
 		position: relative;
@@ -256,13 +242,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
+    padding: var(--s2) 0;
     /* Slightly reduced vertical padding inside the item */
     border-bottom: none;
     /* Remove inner separator, let the row handle it or use light spacing */
     text-align: right;
     font-size: 0.95rem;
-    width: 100%;
+    width: var(--full);
     /* Ensure cell takes full width */
     box-sizing: border-box; }
 //   .common-table td:last-child {
@@ -274,7 +260,7 @@
     color: #6b7280;
     margin-right: auto;
     /* Push label to left */
-    padding-right: 16px;
+    padding-right: var(--s4);
     text-align: left;
     white-space: nowrap; }
   /* Value styling on right side */
@@ -282,8 +268,8 @@
     flex-shrink: 0; }
   /* Adjust checkbox row for mobile - Make it look like a header for the item */
   .common-table .col-check {
-    padding-bottom: 12px;
-    margin-bottom: 8px;
+    padding-bottom: var(--s3);
+    margin-bottom: var(--s2);
     border-bottom: 1px dashed #e5e7eb; }
   .common-table .col-check::before {
     font-size: 1.1rem;
@@ -327,13 +313,13 @@
 .account-balance {
   font-weight: 700;
   color: #1f2937;
-  margin-top: 4px; }
+  margin-top: var(--s1); }
 
 .bank-icon {
-  width: 24px;
-  height: 24px;
+  width: var(--s6);
+  height: var(--s6);
   border-radius: 50%;
-  margin-right: 8px;
+  margin-right: var(--s2);
   vertical-align: middle; }
 
 /* Status Colors */
@@ -347,7 +333,7 @@
   align-items: center;
   justify-content: center;
   /* Center the group */
-  gap: 4px; }
+  gap: var(--s1); }
 
 .status-unavailable {
   color: #9ca3af;
@@ -359,4 +345,4 @@
   align-items: center;
   justify-content: center;
   /* Center the group */
-  gap: 4px; }
+  gap: var(--s1); }

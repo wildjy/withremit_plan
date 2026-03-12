@@ -59,11 +59,11 @@ $vw-context: calc($viewport * 0.01) * 1px;
 @mixin calc-calc($vw, $type){
 	$a:calc($vw / $vw-context) * 1vw;
 	@if $type == width {
-			width:calc(100% - #{$a});
+			width:calc(var(--full) - #{$a});
 	} @else if $type == width2 {
-			width:calc(100%/2 - #{$a});
+			width:calc(var(--full)/2 - #{$a});
 	} @else if $type == calc2 {
-			height:calc(100%/2 - #{$a});
+			height:calc(var(--full)/2 - #{$a});
 	}
 }
 
@@ -166,7 +166,7 @@ $vw-context: calc($viewport * 0.01) * 1px;
 @mixin paddingSize{
   @for $i from 1 through 10 {
     &.p#{$i * 5}{
-      padding:40px #{$i * 5}px !important;
+      padding:var(--s10) #{$i * 5}px !important;
     }
   }
 }
@@ -287,7 +287,7 @@ $vw-context: calc($viewport * 0.01) * 1px;
 	justify-content:space-between;
 
 	& > * {
-			$w : '(100% - #{$space})';
+			$w : '(var(--full) - #{$space})';
 			width : calc( #{$w} / #{$count});
 	}
 	&:after{
@@ -312,7 +312,7 @@ $vw-context: calc($viewport * 0.01) * 1px;
 		text-decoration:none;
 		@include transition(all, .2s, ease-out);
 		&:after{
-			width:100%;
+			width:var(--full);
 			height:1px;
 			background-color: $basic_color_blue;
 			@include transition(all, .2s, ease-out);

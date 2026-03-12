@@ -1619,6 +1619,9 @@ body.wh-full {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
+.bank-group .form-sec-head {
+  margin-bottom: var(--s3);
+}
 
 /* Date Picker Custom Style */
 .field-info,
@@ -7191,71 +7194,42 @@ td.center {
 }
 /* Notice List Page */
 .db-search-box {
+  margin-bottom: var(--s6);
+  padding: var(--s5);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 8px;
-  margin-bottom: 24px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: var(--s2);
+  background-color: var(--bg-default);
+  border-radius: var(--radius);
   -webkit-transition: max-height 0.3s ease, opacity 0.3s ease;
   transition: max-height 0.3s ease, opacity 0.3s ease;
   overflow: hidden;
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 8px;
 }
 
-@media screen and (max-width: 760px) {
-  .db-mobile-search-toggle {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-  .db-search-box {
-    display: none;
-    margin-bottom: 20px;
-  }
-  .db-search-box.show {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    gap: 12px;
-  }
-  .db-search-type,
-  .db-search-input,
-  .db-search-btn {
-    width: 100%;
-  }
+.db-search-type,
+.db-search-input,
+.db-search-btn,
+.db-reset-btn {
+  height: var(--s10);
+  font-size: var(--text-sm);
 }
-.db-search-type {
-  padding: 10px 32px 10px 14px;
-  border: 1.5px solid var(--border-default);
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text-heavy);
-  background-color: var(--white);
-  cursor: pointer;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237A8E96' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
+
+.db-search-type,
+.db-search-input {
   min-width: 120px;
-  width: auto;
 }
 
-.db-search-type:hover,
-.db-search-type:focus {
+.db-search-type {
+  padding-top: 0;
+  padding-bottom: 0;
+  width: auto;
+  font-size: var(--text-sm);
+}
+.db-search-type:hover, .db-search-type:focus {
   outline: none;
   border-color: var(--primary-default);
 }
@@ -7264,16 +7238,13 @@ td.center {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  padding: 10px 16px;
-  min-width: 148px;
+  padding: var(--s3) var(--s4);
   min-height: auto;
-  border: 1.5px solid var(--border-default);
-  border-radius: 8px;
-  font-size: 0.9rem;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .db-search-input:focus {
   outline: none;
   border-color: var(--primary-default);
@@ -7287,19 +7258,17 @@ td.center {
       -ms-flex-align: center;
           align-items: center;
   gap: 6px;
-  padding: 10px 20px;
-  background-color: #7a8e96;
-  color: var(--white);
-  border: none;
-  border-radius: 8px;
-  font-size: 0.9rem;
+  padding: var(--s3) var(--s4);
   font-weight: 600;
+  color: var(--white);
+  background-color: #7a8e96;
+  border: none;
+  border-radius: var(--radius);
   cursor: pointer;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   white-space: nowrap;
 }
-
 .db-search-btn:hover {
   background-color: #6a7e86;
   -webkit-transform: translateY(-1px);
@@ -7307,12 +7276,10 @@ td.center {
   -webkit-box-shadow: 0 4px 12px rgba(122, 142, 150, 0.3);
           box-shadow: 0 4px 12px rgba(122, 142, 150, 0.3);
 }
-
 .db-search-btn svg {
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
-
 .db-search-btn .search-btn-icon {
   display: none;
 }
@@ -7328,34 +7295,28 @@ td.center {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 6px;
-  padding: 10px;
-  background-color: var(--white);
+  padding: var(--s3) var(--s4);
+  min-width: var(--s10);
   color: var(--text-soft);
-  border: 1.5px solid var(--border-default);
-  border-radius: 8px;
-  font-size: 0.9rem;
   font-weight: 600;
+  background-color: var(--white);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
   cursor: pointer;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   white-space: nowrap;
 }
-
 .db-reset-btn:hover {
   border-color: var(--text-soft);
   color: var(--text-heavy);
   background-color: var(--bg-light);
 }
-
 .db-reset-btn svg {
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
-
-.db-reset-btn .reset-text {
-  display: none;
-}
-
+.db-reset-btn .reset-text,
 .db-reset-btn .reset-btn-text {
   display: none;
 }
@@ -7375,67 +7336,58 @@ td.center {
 
 .db-mobile-search-toggle {
   display: none;
+  margin-bottom: var(--s4);
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 6px;
-  padding: 12px 16px;
-  background-color: var(--white);
+  gap: var(--s1-6);
+  padding: var(--s3) var(--s4);
+  width: 100%;
+  font-size: var(--text-sm);
   color: var(--text-heavy);
-  border: 1.5px solid var(--border-default);
-  border-radius: 8px;
+  font-weight: 600;
+  background-color: var(--white);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
   cursor: pointer;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  white-space: nowrap;
-  font-size: 0.9rem;
-  font-weight: 600;
-  width: 100%;
-  margin-bottom: 16px;
 }
-
-.db-mobile-search-toggle:hover {
-  background-color: #f9f9f9;
-}
-
-.db-mobile-search-toggle .close-icon,
-.db-mobile-search-toggle .close-text {
-  display: none;
-}
-
 .db-mobile-search-toggle.active {
   background-color: var(--white);
   color: var(--text-heavy);
   border-color: var(--border-default);
 }
-
 .db-mobile-search-toggle.active:hover {
   background-color: #f9f9f9;
 }
-
 .db-mobile-search-toggle.active .search-icon,
 .db-mobile-search-toggle.active .search-text {
   display: none;
 }
-
 .db-mobile-search-toggle.active .close-icon,
 .db-mobile-search-toggle.active .close-text {
   display: inline;
 }
-
+.db-mobile-search-toggle:hover {
+  background-color: #f9f9f9;
+}
+.db-mobile-search-toggle .close-icon,
+.db-mobile-search-toggle .close-text {
+  display: none;
+}
 .db-mobile-search-toggle svg {
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
 
 .db-total-count {
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   color: var(--text-soft);
 }
-
 .db-total-count strong {
   color: var(--text-heavy);
   font-weight: 700;
@@ -7560,7 +7512,7 @@ td.center {
 }
 
 .date-separator {
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   color: var(--text-soft);
   font-weight: 500;
   margin: 0 4px;
@@ -7762,10 +7714,41 @@ td.center {
 
 /* New Remittance Search Form - Left/Right Split Layout */
 .remit-search-wrapper {
-  margin-bottom: 20px;
+  margin-bottom: var(--s5);
 }
 
+/* Tablet view (768px - 1024px): Reset button text already hidden by default */
+@media (max-width: 1024px) {
+  .db-search-box.mobile-active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .db-user-dropdown .btn-text {
+    display: none;
+  }
+}
 @media (max-width: 768px) {
+  .db-mobile-search-toggle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .db-search-box {
+    display: none;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .db-search-type,
+  .db-search-input {
+    min-width: calc(50% - var(--s2));
+  }
   .remit-search-wrapper {
     display: none;
   }
@@ -7774,6 +7757,28 @@ td.center {
   }
 }
 @media (max-width: 480px) {
+  .db-search-type,
+  .db-search-input {
+    width: 100%;
+  }
+  .db-search-btn,
+  .db-reset-btn {
+    min-width: 100%;
+  }
+  .db-search-btn .search-btn-icon {
+    display: block;
+  }
+  .db-reset-btn .reset-text {
+    display: inline;
+  }
+  .db-reset-btn .reset-btn-text {
+    display: inline;
+  }
+  .db-mobile-search-toggle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
   /* Search Form 480px Layout */
   .remit-search-row {
     -webkit-box-orient: vertical;
@@ -7799,7 +7804,6 @@ td.center {
   .search-label {
     width: 100%;
   }
-  /* Period section in one line */
   .remit-search-section > .search-label,
   .remit-search-section > .db-search-input {
     display: inline-block;
@@ -7807,7 +7811,6 @@ td.center {
   .remit-search-section > .date-separator {
     display: none;
   }
-  /* Quick buttons full width on next line */
   .remit-quick-btns-inline {
     width: 100%;
     margin-left: 0;
@@ -7818,8 +7821,6 @@ td.center {
         flex-wrap: nowrap;
     overflow-x: auto;
   }
-  /* Detail search - status and receipt number each on own line */
-  /* Always show detail search on mobile */
   .remit-search-detail {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
@@ -7838,13 +7839,6 @@ td.center {
     width: 100%;
     margin-bottom: 4px;
   }
-  .db-search-type {
-    width: 100%;
-  }
-  .db-search-input {
-    width: 100%;
-  }
-  /* Search buttons - one per line with icons */
   .remit-search-right {
     width: 100%;
   }
@@ -7856,44 +7850,6 @@ td.center {
     width: 100%;
     gap: 8px;
   }
-  .db-search-btn {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    gap: 8px;
-  }
-  .db-search-btn .search-btn-icon {
-    display: block;
-  }
-  .db-reset-btn {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    gap: 8px;
-    border-radius: 8px;
-    padding: 10px;
-  }
-  .db-reset-btn .reset-text {
-    display: inline;
-  }
-  .db-reset-btn .reset-btn-text {
-    display: inline;
-  }
-  /* Hide detail toggle button */
   .remit-detail-toggle-btn {
     display: none;
   }
@@ -8187,111 +8143,7 @@ td.center {
             align-items: center;
   }
 }
-/* Tablet view (768px - 1024px): Reset button text already hidden by default */
-@media (max-width: 1024px) {
-  .db-search-box {
-    display: none;
-    gap: 8px;
-    margin-bottom: 16px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .db-search-box.mobile-active {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  .db-user-dropdown .btn-text {
-    display: none;
-  }
-}
-@media (max-width: 768px) {
-  .db-mobile-search-toggle {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-}
 @media (max-width: 480px) {
-  /* Mobile Search Box Logic for Tablet (< 768px) */
-  .db-search-box {
-    display: none;
-    gap: 8px;
-    margin-bottom: 16px;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    /* Allow wrapping for 2 lines */
-  }
-  .db-search-box.mobile-active {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  /* Row 1: Select + Input */
-  .db-search-type {
-    width: 30%;
-    padding: 10px;
-    font-size: 0.9rem;
-  }
-  .db-search-input {
-    padding: 10px;
-    font-size: 0.9rem;
-  }
-  /* Row 2: Search Btn + Reset Btn */
-  .db-search-btn {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    padding: 10px;
-    font-size: 0.9rem;
-  }
-  .db-reset-btn {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    min-width: 80px;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    padding: 10px;
-  }
-  .db-reset-btn .reset-text {
-    display: inline;
-    margin-left: 4px;
-  }
-  .db-reset-btn .reset-btn-text {
-    display: inline;
-    margin-left: 4px;
-  }
-  .db-mobile-search-toggle {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-  .db-total-count {
-    font-size: 0.85rem;
-  }
   .remit-search-box {
     display: none;
     -webkit-box-orient: vertical;
@@ -8362,19 +8214,11 @@ td.center {
     display: -ms-flexbox !important;
     display: flex !important;
   }
-  .db-search-btn {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-  }
   .remit-search-box .db-reset-btn {
     width: auto;
     padding: 8px 16px;
   }
   .remit-search-box .db-reset-btn .reset-text {
-    display: inline;
-  }
-  .remit-search-box .db-reset-btn .reset-btn-text {
     display: inline;
   }
   .search-field-wrapper {
@@ -8441,7 +8285,6 @@ td.center {
     padding: 4px 10px;
     font-size: 0.75rem;
   }
-  /* FAQ Mobile - Hide Header & Left Align */
   .common-table.faq-table thead {
     display: none !important;
   }
@@ -8461,7 +8304,6 @@ td.center {
     width: 18px;
     margin-right: 4px;
   }
-  /* Mobile Search Box - Stack vertically on small screens */
 }
 /* Notice Detail Page */
 .notice-detail-card {
@@ -9023,9 +8865,6 @@ td.center {
   }
   .calc-col-item.highlight .calc-col-value {
     font-size: 1rem;
-  }
-  .btn-align {
-    margin-top: 24px;
   }
 }
 @media (max-width: 480px) {

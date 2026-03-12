@@ -53,12 +53,12 @@
   gap: var(--s2);
 }
 .button.full {
-  width: 100%;
+  width: var(--full);
 }
 .button.sm {
   padding: 0 var(--s3);
   height: var(--s8);
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
 }
 .button.md {
   height: var(--s10);

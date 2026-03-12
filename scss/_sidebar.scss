@@ -10,8 +10,8 @@
 	inset: 0;
 	position: fixed;
 	background-color: rgba(0, 0, 0, 0.4);
-	backdrop-filter: blur(4px);
-	-webkit-backdrop-filter: blur(4px);
+	backdrop-filter: blur(var(--s1));
+	-webkit-backdrop-filter: blur(var(--s1));
 	transition: opacity 0.3s ease;
 	z-index: 1050;
 
@@ -55,7 +55,7 @@
 	border-radius: 0;
 	box-shadow: var(--shadow-lg);
 	overflow-y: auto;
-	transform: translate3d(-100%, 0, 0);
+	transform: translate3d(-var(--full), 0, 0);
 	transition: margin-left 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
 	z-index: 1100;
 	&.mobile-open {
@@ -96,7 +96,7 @@ body.db-body .sidebar {
 		top: 0;
 		width: var(--sidebar-w);
 		background-color: var(--white);
-		transform: translate3d(-100%, 0, 0);
+		transform: translate3d(-var(--full), 0, 0);
 	}
 
 	.db-collapsed .sidebar {
@@ -109,11 +109,11 @@ body.db-body .sidebar {
 	// .sidebar-close {
 	// 	display: flex !important;
 	// 	position: absolute;
-	// 	top: 12px;
-	// 	right: 12px;
+	// 	top: var(--s3);
+	// 	right: var(--s3);
 	// 	z-index: 10;
 	// 	background-color: #f1f5f9;
-	// 	padding: 8px;
+	// 	padding: var(--s2);
 	// 	border-radius: 50%;
 	// }
 }
@@ -143,7 +143,7 @@ body.db-body .sidebar {
 	border-bottom: 1px solid var(--border-default);
 
 	.sidebar-logo img {
-		height: 40px;
+		height: var(--s10);
 	}
 }
 
@@ -340,7 +340,7 @@ body.db-body .sidebar {
 @media (max-width: 768px) {
 	.guest-sidebar-mobile-only {
 		display: block;
-		// padding: 20px;
+		// padding: var(--s5);
 	}
 }
 
@@ -358,7 +358,7 @@ body.db-body .sidebar {
 
 .guest-lang-select {
 	padding: 0 var(--s4);
-	width: 100%;
+	width: var(--full);
 	height: 44px;
 	font-size: var(--text-sm);
 	color: var(--text-heavy);
@@ -366,11 +366,11 @@ body.db-body .sidebar {
 	appearance: none;
 	border: 1px solid var(--border-default);
 	border-radius: var(--s2);
-	background: var(--white) url(var(--icon-select)) no-repeat right 16px center;
+	background: var(--white) url(var(--icon-select)) no-repeat right var(--s4) center;
 }
 
 .btn-full {
-	width: 100%;
+	width: var(--full);
 	justify-content: center;
 	height: 44px;
 }

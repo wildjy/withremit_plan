@@ -3,10 +3,10 @@
 @use "./sidebar";
 
 /* ===== Layout ===== */
-/* ===== Responsive - Desktop : padding: 0 24px ===== */
-/* ===== Responsive - Tablet = max-width: 1024 : padding: 0 20px ===== */
-/* ===== Responsive - Mobile = max-width: 768 : padding: 0 16px ===== */
-/* ===== Responsive - Small Mobile = max-width: 480 : padding: 0 16px ===== */
+/* ===== Responsive - Desktop : padding: 0 var(--s6) ===== */
+/* ===== Responsive - Tablet = max-width: 1024 : padding: 0 var(--s5) ===== */
+/* ===== Responsive - Mobile = max-width: 768 : padding: 0 var(--s4) ===== */
+/* ===== Responsive - Small Mobile = max-width: 480 : padding: 0 var(--s4) ===== */
 
 @mixin cardMarginHidden {
 	.field-item,
@@ -172,7 +172,7 @@ body{
 
 .login-card {
   	padding: var(--s14);
-	width: 100%;
+	width: var(--full);
 
 	.form-sec {
 		&:last-of-type {
@@ -231,7 +231,7 @@ body{
 		// grid-template-columns: repeat(3, 1fr);
 	}
 	>.calculator-card {
-		max-width: 100% !important;
+		max-width: var(--full) !important;
 		flex: 0 1 auto !important;
 	}
 }
@@ -311,7 +311,7 @@ body{
 .form-row,
 .form-row-2,
 .form-row-3 {
-	width: 100%;
+	width: var(--full);
 	margin-bottom: var(--s6);
 	&.no-mb {
 		margin-bottom: 0;
@@ -357,7 +357,7 @@ body{
 	display: flex;
 	align-items: center;
 	gap: var(--s2);
-	width: 100%;
+	width: var(--full);
 	height: var(--input-h);
 	&.h-52 {
 		gap: var(--s6);
@@ -367,7 +367,7 @@ body{
 .field-flex.full-width .login-input {
 	flex: 1;
 	min-width: 0;
-	width: 100%;
+	width: var(--full);
 }
 
 @media (max-width: 860px) {
@@ -392,4 +392,7 @@ body{
 	background-color: transparent;
 	border: none;
 	box-shadow: none;
+	.form-sec-head {
+		margin-bottom: var(--s3);
+	}
 }

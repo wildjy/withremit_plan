@@ -88,7 +88,7 @@
 	font-weight: 700;
 	background-color: var(--white);
 	border-bottom: none;
-	box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+	box-shadow: 0 var(--s1) var(--s3) 0 rgba(0, 0, 0, 0.05);
 }
 
 .tab-content {
@@ -121,7 +121,7 @@
 .nationality-selector {
 	display: flex;
 	gap: 10px;
-	width: 100%;
+	width: var(--full);
 }
 
 .nationality-btn-label {
@@ -138,7 +138,7 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 0 var(--s4);
-	width: 100%;
+	width: var(--full);
 	height: 52px;
 	font-size: var(--text-md);
 	color: var(--text-default);

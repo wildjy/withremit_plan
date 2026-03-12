@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>WithRemit - 비밀번호 재설정</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
-    
+
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -42,7 +42,7 @@
                         <div class="field-group">
                             <label class="input-label">비밀번호</label>
                             <div class="input-box-group">
-                                <div class="password-wrap" style="width: 100%;">
+                                <div class="password-wrap" style="width: var(--full);">
                                     <input type="text" id="newPassword" class="login-input" placeholder="비밀번호를 입력하세요" readonly
                                         onclick="toggleKeypad('newPassword')">
                                     <button type="button" class="keypad-btn" tabindex="-1" onclick="toggleKeypad('newPassword')">
@@ -59,7 +59,7 @@
                         <div class="field-group">
                             <label class="input-label">비밀번호 확인</label>
                             <div class="input-box-group">
-                                <div class="password-wrap" style="width: 100%;">
+                                <div class="password-wrap" style="width: var(--full);">
                                     <input type="text" id="confirmPassword" class="login-input" placeholder="비밀번호를 다시 입력하세요"
                                         readonly onclick="toggleKeypad('confirmPassword')">
                                     <button type="button" class="keypad-btn" tabindex="-1"

@@ -1,6 +1,6 @@
 
 .common-table {
-	width: 100%;
+	width: var(--full);
 	border-collapse: separate;
 	border-spacing: 0;
 	border: 1px solid var(--border-default);
@@ -115,7 +115,7 @@
 }
 
 .common-table .faq-content {
-	padding: 24px 40px 24px 48px;
+	padding: var(--s6) var(--s10) var(--s6) 48px;
 	line-height: 1.6;
 	color: #555;
 	// white-space: pre-line;
@@ -124,7 +124,7 @@
 
 .common-table td.notice-title {
 	text-align: left;
-	padding-left: 16px;
+	padding-left: var(--s4);
 }
 
 .common-table td.notice-title a {
@@ -195,7 +195,7 @@ td.center {
 	.common-table.history-mode,
   	.common-table.history-mode tbody {
 		display: block;
-		width: 100%;
+		width: var(--full);
 		border: none;
 		background-color: transparent;
 		border-collapse: separate;
@@ -212,7 +212,7 @@ td.center {
 		padding: var(--s4);
 		display: grid;
 		grid-template-columns: auto 1fr;
-		width: 100%;
+		width: var(--full);
 		color: var(--text-default);
 		background-color: var(--white);
 		border: 1px solid var(--border-default);
@@ -315,7 +315,7 @@ td.center {
 	}
 
 	.common-table.history-mode td .field-item {
-		width: 100%;
+		width: var(--full);
 	}
 
 	/* 번호 노출 number-mode : 자주 쓰는 계좌, 최근 입금 계좌 모달용 */
@@ -361,7 +361,7 @@ td.center {
 	.common-table.account-mode td:nth-child(2) {
 		padding: 0;
 		padding-top: var(--s3);
-		width: 100%;
+		width: var(--full);
 		grid-column: 1 / -1;
 		justify-content: space-between;
 		border: none;
@@ -383,7 +383,7 @@ td.center {
 
 	.common-table th,
   .common-table td {
-		padding: 10px 8px;
+		padding: 10px var(--s2);
 	}
 
 	// .common-table .th-num,

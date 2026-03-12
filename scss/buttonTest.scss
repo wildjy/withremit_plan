@@ -55,12 +55,12 @@
 
     // button sizes
     &.full {
-        width: 100%;
+        width: var(--full);
     }
     &.sm {
         padding: 0 var(--s3);
         height: var(--s8);
-        font-size: 0.9rem;
+        font-size: var(--text-sm);
     }
     &.md {
         height: var(--s10);

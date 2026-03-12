@@ -15,7 +15,7 @@ html {
 /* Base Body Overflow Fix */
 html,
 body {
-	width: 100%;
+	width: var(--full);
 	font-family: var(--font-family);
 	font-size: var(--text-md);
 	color: var(--text-heavy);
@@ -48,7 +48,7 @@ button {
 }
 
 img {
-	max-width: 100%;
+	max-width: var(--full);
 	height: auto;
 }
 
@@ -87,7 +87,7 @@ table {
 }
 
 input, select, textarea {
-	width: 100%;
+	width: var(--full);
 	padding: var(--s3-14) var(--s4);
 	font-size: var(--text-md);
 	font-weight: 500;
@@ -133,7 +133,7 @@ select {
 	background-image: var(--icon-select);
 	background-size: var(--s3) 0.4375rem;
 	background-repeat: no-repeat;
-	background-position: calc(100% - var(--s4)) center;
+	background-position: calc(var(--full) - var(--s4)) center;
 	cursor: pointer;
 	// &:focus-within {
 	// 	border-color: var(--primary-default);

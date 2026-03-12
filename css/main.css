@@ -134,7 +134,7 @@
   background-color: rgba(232, 244, 255, 0.3);
   border: 1px solid #C7E4FF;
   border-radius: var(--radius);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(var(--s1));
 }
 
 .badge svg {
@@ -288,7 +288,7 @@
 .trust .feature-icon {
   margin-top: var(--s10);
   margin-bottom: 0;
-  width: 100%;
+  width: var(--full);
   text-align: right;
 }
 
@@ -310,7 +310,7 @@
   padding: var(--s14) 0;
   text-align: center;
   position: relative;
-  background: url(../images/cta_section_bg.png) lightgray 0px -0.485px/100% 103.226% no-repeat;
+  background: url(../images/cta_section_bg.png) lightgray 0px -0.485px/var(--full) 103.226% no-repeat;
   border-radius: var(--radius-xl);
   overflow: hidden;
 }
@@ -470,8 +470,8 @@
 @-webkit-keyframes fadeInUp {
   from {
     opacity: 0;
-    -webkit-transform: translateY(24px);
-            transform: translateY(24px);
+    -webkit-transform: translateY(var(--s6));
+            transform: translateY(var(--s6));
   }
   to {
     opacity: 1;
@@ -482,8 +482,8 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    -webkit-transform: translateY(24px);
-            transform: translateY(24px);
+    -webkit-transform: translateY(var(--s6));
+            transform: translateY(var(--s6));
   }
   to {
     opacity: 1;
@@ -688,12 +688,12 @@
 /* ===== Responsive - Small Mobile ===== */
 @media (max-width: 480px) {
   .container {
-    width: 100%;
+    width: var(--full);
     padding: 0 var(--s4);
   }
   .calculator-card {
-    width: 100%;
-    max-width: 100%;
+    width: var(--full);
+    max-width: var(--full);
     padding: var(--s5) var(--s3);
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -730,7 +730,7 @@
     display: none;
   }
   .hero-content {
-    width: 100%;
+    width: var(--full);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -748,11 +748,11 @@
   }
   .hero-content p {
     padding: 0 var(--s4);
-    width: 100%;
+    width: var(--full);
     font-size: var(--text-md);
   }
   .hero-badges {
-    width: 100%;
+    width: var(--full);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -766,7 +766,7 @@
     gap: var(--s2);
   }
   .badge {
-    width: 100%;
+    width: var(--full);
     max-width: 320px;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -786,11 +786,11 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 100%;
+    width: var(--full);
   }
   .calculator-card {
-    width: 100%;
-    max-width: 100%;
+    width: var(--full);
+    max-width: var(--full);
     padding: var(--s5) var(--s4);
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -809,7 +809,7 @@
     margin-bottom: var(--s5);
   }
   .calc-input-group {
-    width: 100%;
+    width: var(--full);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -819,7 +819,7 @@
   }
   .calc-amount-input {
     font-size: var(--text-md);
-    width: 100%;
+    width: var(--full);
     padding: var(--s3) var(--s2);
   }
   .calc-fee-box {
@@ -829,7 +829,7 @@
   }
   .calc-fee-header,
   .calc-fee-row {
-    width: 100%;
+    width: var(--full);
   }
   .calc-compare {
     text-align: left;

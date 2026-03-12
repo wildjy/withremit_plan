@@ -3,15 +3,15 @@ css_to_append = """
 /* Confirm Modal Buttons & Demo Buttons */
 .modal-btn-group {
     display: flex;
-    gap: 12px;
-    margin-top: 24px;
-    width: 100%;
+    gap: var(--s3);
+    margin-top: var(--s6);
+    width: var(--full);
 }
 
 .modal-btn-group button {
     height: 48px;
-    border-radius: 8px;
-    font-size: 16px;
+    border-radius: var(--s2);
+    font-size: var(--s4);
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -36,8 +36,8 @@ css_to_append = """
 
 /* Demo Guide Buttons */
 .demo-btn {
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 10px var(--s5);
+    border-radius: var(--s2);
     font-weight: 600;
     font-size: 14px;
     color: white;

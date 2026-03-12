@@ -6,7 +6,7 @@
 	left: 0;
 	right: 0;
 	background-color: rgba(255, 255, 255, 0.97);
-	backdrop-filter: blur(12px);
+	backdrop-filter: blur(var(--s3));
 	border-bottom: 1px solid transparent;
 	transition: var(--transition);
 	z-index: 1000;
@@ -34,7 +34,7 @@
   }
 
   .logo img {
-    height: 40px;
+    height: var(--s10);
     width: auto;
   }
 }
@@ -54,7 +54,7 @@
 .nav {
 	display: flex;
 	align-items: center;
-	gap: 4px;
+	gap: var(--s1);
 	.nav-link {
 		padding: var(--s3) var(--s5);
 		font-weight: 500;
@@ -115,7 +115,7 @@
 	font-weight: 500;
 	color: var(--text-heavy);
 	background-color: var(--transparent);
-	background-position: calc(100% - var(--s2-10)) center;
+	background-position: calc(var(--full) - var(--s2-10)) center;
 	border: none;
 	border-radius: var(--s2);
 	cursor: pointer;
@@ -244,7 +244,7 @@
 			margin-right: 0px;
 			padding: 0 14px;
 			height: 34px;
-			font-size: 0.85rem;
+			font-size: var(--text-sm);
 			color: var(--white);
 			border: none;
 			background-color: var(--primary-default);
@@ -275,7 +275,7 @@
   // My Page Dropdown
 	.db-user-dropdown .btn {
 		// padding: 0 10px;
-		min-width: 40px;
+		min-width: var(--s10);
 	}
 
 	.db-user-dropdown .btn svg {
@@ -317,11 +317,11 @@
 @media (max-width: 480px) {
 	// .db-body .lang-select {
 	// 	font-size: var(--text-xs);
-	// 	padding: 4px var(--s2);
+	// 	padding: var(--s1) var(--s2);
 	// }
 
 	// .db-body .nav-right {
-	// 	gap: 8px;
+	// 	gap: var(--s2);
 	// }
 }
 
