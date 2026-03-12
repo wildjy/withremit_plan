@@ -6838,6 +6838,14 @@ a.banner-slide {
   background-color: #f8fafa;
 }
 
+.common-table tbody tr.disabled {
+  background-color: #f8fafa;
+}
+.common-table tbody tr.disabled td {
+  color: var(--text-soft);
+  cursor: not-allowed;
+}
+
 .common-table tbody tr:first-child td {
   border-top: none;
 }
@@ -7058,6 +7066,10 @@ td.center {
     color: var(--text-default);
     font-weight: 600;
     margin-right: auto;
+  }
+  .common-table.history-mode td .remit-card-status-wrapper {
+    min-width: auto;
+    width: auto;
   }
   .common-table.history-mode td.text-right {
     text-align: right;

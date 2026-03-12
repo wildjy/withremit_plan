@@ -65,6 +65,15 @@
 	background-color: #f8fafa;
 }
 
+// disabled row style
+.common-table tbody tr.disabled {
+	background-color: #f8fafa;
+	td {
+		color: var(--text-soft);
+		cursor: not-allowed;
+	}
+}
+
 .common-table tbody tr:first-child {
 	td {
 		border-top: none;
@@ -294,6 +303,13 @@ td.center {
 		margin-right: auto;
 	}
 
+	.common-table.history-mode td {
+		.remit-card-status-wrapper {
+			min-width: auto;
+			width: auto;
+		}
+	}
+
 	.common-table.history-mode td.text-right {
 		text-align: right;
 	}
@@ -366,7 +382,7 @@ td.center {
 	}
 
 	.common-table th,
-  	.common-table td {
+  .common-table td {
 		padding: 10px 8px;
 	}
 
