@@ -53,28 +53,6 @@ img {
 }
 
 /* ===== Typography ===== */
-// h1 {
-// 	font-size: clamp(2.5rem, 5vw, 3.5rem);
-// 	color: var(--text-heavy);
-// 	font-weight: 700;
-// 	line-height: 1.25;
-// 	letter-spacing: -0.02em;
-// }
-
-// h2 {
-// 	font-size: clamp(var(--text-3xl), 3.5vw, var(--text-5xl));
-// 	color: var(--text-heavy);
-// 	font-weight: 700;
-// 	line-height: 1.3;
-// 	letter-spacing: -0.01em;
-// }
-
-// h3 {
-// 	font-size: clamp(1.125rem, 2vw, 1.375rem);
-// 	color: var(--text-heavy);
-// 	font-weight: 600;
-// }
-
 p {
 	font-size: var(--text-md);
 	color: var(--text-default);
@@ -129,6 +107,7 @@ input {
 
 select {
 	padding: var(--s3-14) var(--s8) var(--s3-14)var(--s4);
+	color: var(--text-soft);
 	appearance: none;
 	background-image: var(--icon-select);
 	background-size: var(--s3) 0.4375rem;
@@ -139,6 +118,9 @@ select {
 	// 	border-color: var(--primary-default);
 	// 	box-shadow: 0 0 0 3px rgba(0, 160, 220, 0.1);
 	// }
+	&:valid {
+		color: var(--text-heavy);
+	}
 	&:not(:disabled, :read-only) {
 		&:focus,
 		&:valid {
