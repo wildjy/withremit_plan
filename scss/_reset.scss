@@ -108,6 +108,7 @@ input {
 select {
 	padding: var(--s3-14) var(--s8) var(--s3-14)var(--s4);
 	color: var(--text-soft);
+	-webkit-text-fill-color: var(--text-soft); // iOS Safari 파란색 방지
 	appearance: none;
 	background-image: var(--icon-select);
 	background-size: var(--s3) 0.4375rem;
@@ -120,11 +121,13 @@ select {
 	// }
 	&:valid {
 		color: var(--text-heavy);
+		-webkit-text-fill-color: var(--text-heavy); // iOS Safari 파란색 방지
 	}
 	&:not(:disabled, :read-only) {
 		&:focus,
 		&:valid {
 			color: var(--text-heavy);
+			-webkit-text-fill-color: var(--text-heavy); // iOS Safari 파란색 방지
 		}
 	}
 	&:disabled {
