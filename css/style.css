@@ -252,23 +252,22 @@ input:disabled, select:disabled, textarea:disabled {
 }
 
 input:-moz-read-only {
-  background-color: var(--bg-default);
   cursor: not-allowed;
 }
 
 input:read-only {
-  background-color: var(--bg-default);
   cursor: not-allowed;
 }
 
 select {
+  padding: var(--s3-14) var(--s8) var(--s3-14) var(--s4);
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   background-image: var(--icon-select);
   background-size: var(--s3) 0.4375rem;
   background-repeat: no-repeat;
-  background-position: calc(100% - var(--s5)) center;
+  background-position: calc(100% - var(--s4)) center;
   cursor: pointer;
 }
 select:not(:disabled, :-moz-read-only):focus, select:not(:disabled, :-moz-read-only):valid {
@@ -7597,6 +7596,11 @@ td.center {
       -ms-flex-align: center;
           align-items: center;
   gap: 12px;
+}
+.remit-sort-wrapper select {
+  padding-top: var(--s2);
+  padding-bottom: var(--s2);
+  font-size: var(--text-sm);
 }
 
 .remit-sort-select {

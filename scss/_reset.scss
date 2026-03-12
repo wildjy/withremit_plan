@@ -122,17 +122,18 @@ input, select, textarea {
 
 input {
 	&:read-only {
-		background-color: var(--bg-default);
+		// background-color: var(--bg-default);
 		cursor: not-allowed;
 	}
 }
 
 select {
+	padding: var(--s3-14) var(--s8) var(--s3-14)var(--s4);
 	appearance: none;
 	background-image: var(--icon-select);
 	background-size: var(--s3) 0.4375rem;
 	background-repeat: no-repeat;
-	background-position: calc(100% - var(--s5)) center;
+	background-position: calc(100% - var(--s4)) center;
 	cursor: pointer;
 	// &:focus-within {
 	// 	border-color: var(--primary-default);

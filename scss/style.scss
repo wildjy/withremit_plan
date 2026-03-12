@@ -431,6 +431,11 @@
 	display: flex;
 	align-items: center;
 	gap: 12px;
+	select {
+		padding-top: var(--s2);
+		padding-bottom: var(--s2);
+		font-size: var(--text-sm);
+	}
 }
 
 .remit-sort-select {
