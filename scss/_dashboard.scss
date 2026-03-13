@@ -58,36 +58,6 @@
 	}
 }
 
-/* Dashbord Overlay Mask - consolidated above as #sidebarOverlay */
-.db-balance-badge {
-	display: flex;
-	align-items: center;
-	gap: var(--s2);
-	background-color: #7a8e96;
-	color: var(--white);
-	padding: var(--s2) var(--s4);
-	border-radius: 50px;
-	font-size: 14px;
-	font-weight: 600;
-	text-decoration: none;
-	cursor: pointer;
-	transition: background 0.2s;
-}
-
-.db-balance-badge:hover {
-	background-color: #6b7d85;
-}
-
-.db-balance-badge .badge-label {
-	font-size: var(--s3);
-	font-weight: 500;
-	opacity: 0.9;
-}
-
-.db-balance-badge .badge-amount {
-	font-size: 14px;
-	font-weight: 700;
-}
 
 /* Dashboard Banner Card Styles */
 .db-banner-card {

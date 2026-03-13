@@ -300,7 +300,7 @@
 	gap: 6px;
 	padding: 10px var(--s4);
 	background-color: var(--white);
-	border: 1.5px solid var(--border-default);
+	border: 1px solid var(--border-default);
 	border-radius: var(--s2);
 	font-size: var(--text-sm);
 	font-weight: 500;
@@ -308,25 +308,25 @@
 	cursor: pointer;
 	transition: all 0.2s;
 	white-space: nowrap;
+	&:hover {
+		color: var(--primary-default);
+	}
+
+	&.active {
+		background-color: var(--primary-default);
+		border-color: var(--primary-default);
+		color: var(--white);
+	}
+	.toggle-text {
+		font-weight: 600;
+	}
+
+	.hidden {
+		display: none;
+	}
+
 }
 
-.remit-detail-toggle:hover {
-	color: var(--primary-default);
-}
-
-.remit-detail-toggle.active {
-	background-color: var(--primary-default);
-	border-color: var(--primary-default);
-	color: var(--white);
-}
-
-.remit-detail-toggle .toggle-text {
-	font-weight: 600;
-}
-
-.remit-detail-toggle .hidden {
-	display: none;
-}
 
 .date-separator {
 	font-size: var(--text-sm);
@@ -342,12 +342,12 @@
 
 .remit-quick-btn {
 	padding: var(--s2) 14px;
-	border: 1.5px solid var(--border-default);
-	background-color: var(--white);
-	border-radius: 6px;
 	font-size: var(--text-sm);
 	font-weight: 500;
 	color: var(--text-default);
+	border: 1px solid var(--border-default);
+	background-color: var(--white);
+	border-radius: 6px;
 	cursor: pointer;
 	transition: all 0.2s;
 	white-space: nowrap;
@@ -360,36 +360,12 @@
 }
 
 .remit-quick-btn.active {
-	background-color: var(--primary-default);
-	border-color: var(--primary-default);
 	color: var(--white);
 	font-weight: 600;
-}
-
-.remit-quick-btns-small {
-	display: flex;
-	gap: var(--s1);
-	flex-wrap: nowrap;
-}
-
-.remit-quick-btn-small {
-	padding: 5px 10px;
-	font-size: 0.75rem;
-	font-weight: 500;
-	color: var(--text-heavy);
-	background-color: var(--bg-light);
-	border: 1px solid var(--border-default);
-	border-radius: 5px;
-	cursor: pointer;
-	transition: all 0.2s;
-	white-space: nowrap;
-}
-
-.remit-quick-btn-small:hover {
 	background-color: var(--primary-default);
-	color: var(--white);
 	border-color: var(--primary-default);
 }
+
 
 .remit-sort-wrapper {
 	display: flex;
@@ -400,30 +376,6 @@
 		padding-bottom: var(--s2);
 		font-size: var(--text-sm);
 	}
-}
-
-.remit-sort-select {
-	padding: var(--s2) var(--s8) var(--s2) var(--s3);
-	border: 1px solid var(--border-default);
-	border-radius: var(--s2);
-	font-size: var(--text-sm);
-	font-weight: 500;
-	color: var(--text-heavy);
-	-webkit-text-fill-color: #A4B7C0;
-	color-scheme: light;
-	background-color: var(--white);
-	cursor: pointer;
-	appearance: none;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237A8E96' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-	background-repeat: no-repeat;
-	background-position: right 10px center;
-	transition: var(--transition);
-}
-
-.remit-sort-select:hover,
-.remit-sort-select:focus {
-	outline: none;
-	border-color: var(--primary-default);
 }
 
 .remit-table .remit-receipt-num {
@@ -481,153 +433,10 @@
 	flex-wrap: wrap;
 }
 
-.search-label {
-	font-size: var(--text-sm);
-	font-weight: 600;
-	color: var(--text-heavy);
-	min-width: 50px;
-}
-
-.remit-quick-btns-inline {
-	display: flex;
-	gap: 2px;
-	flex-wrap: wrap;
-}
-
-/* New Remittance Search Form - Left/Right Split Layout */
 .remit-search-wrapper {
 	margin-bottom: var(--s5);
 }
 
-/* Tablet view (768px - 1024px): Reset button text already hidden by default */
-@media (max-width: 1024px) {
-	.db-search-box.mobile-active {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
-
-	.db-user-dropdown .btn-text {
-		display: none;
-	}
-}
-
-@media (max-width: 768px) {
-	.db-mobile-search-toggle {
-		display: flex;
-	}
-	.db-search-box {
-		display: none;
-		flex-wrap: wrap;
-	}
-	.db-search-type,
-	.db-search-input {
-		min-width: calc(50% - var(--s2));
-	}
-	
-	.remit-search-wrapper {
-		display: none;
-	}
-
-	.remit-search-wrapper.mobile-active {
-		display: block;
-	}
-}
-
-@media (max-width: 480px) {
-	.db-search-type,
-	.db-search-input {
-		width: var(--full);
-	}
-
-	.db-search-btn,
-	.db-reset-btn {
-		min-width: var(--full);
-	}
-	.db-search-btn .search-btn-icon {
-		display: block;
-	}
-	
-	.db-reset-btn .reset-text {
-		display: inline;
-	}
-
-	.db-reset-btn .reset-btn-text {
-		display: inline;
-	}
-
-	.db-mobile-search-toggle {
-		display: flex;
-	}
-
-  	/* Search Form 480px Layout */
-	.remit-search-row {
-		flex-direction: column;
-		gap: var(--s3);
-	}
-
-	.remit-search-left {
-		width: var(--full);
-	}
-
-	.remit-search-section {
-		flex-direction: column;
-		align-items: flex-start;
-		width: var(--full);
-		gap: 2px;
-	}
-
-	.search-label {
-		width: var(--full);
-	}
-
-	.remit-search-section > .search-label,
- 	.remit-search-section > .db-search-input {
-		display: inline-block;
-	}
-
-	.remit-search-section > .date-separator {
-		display: none;
-	}
-
-	.remit-quick-btns-inline {
-		width: var(--full);
-		margin-left: 0;
-		display: flex;
-		flex-wrap: nowrap;
-		overflow-x: auto;
-	}
-	
-	.remit-search-detail {
-		display: flex !important;
-		flex-direction: column;
-		align-items: flex-start;
-		width: var(--full);
-		gap: var(--s3);
-	}
-
-	.remit-search-detail .search-label {
-		width: var(--full);
-		margin-bottom: var(--s1);
-	}
-
-	.remit-search-right {
-		width: var(--full);
-	}
-
-	.remit-search-buttons {
-		flex-direction: column;
-		width: var(--full);
-		gap: var(--s2);
-	}
-
-	.remit-detail-toggle-btn {
-		display: none;
-	}
-}
-
-
-/* Customizing Kakao Icon inner parts if needed via CSS? SVG fill handles it. */
 .remit-search-row {
 	display: flex;
 	justify-content: space-between;
@@ -638,13 +447,6 @@
 	border-radius: var(--s2);
 }
 
-/* Left Side: Search Conditions */
-.remit-search-left {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-}
-
 .remit-search-section {
 	display: flex;
 	align-items: center;
@@ -652,36 +454,21 @@
 	flex-wrap: wrap;
 }
 
-.search-label {
-	font-size: var(--text-sm);
-	font-weight: 600;
-	color: var(--text-heavy);
-	min-width: 50px;
-}
+	.search-label,
+	.db-search-input,
+	.date-separator,
+	.remit-quick-btns-inline,
+	.remit-search-buttons {
+		display: flex;
+		align-items: center;
+		height: var(--s10);
+	}
 
-.date-separator {
-	color: var(--text-soft);
-	margin: 0 var(--s1);
-	font-size: 1.1rem;
-}
-
-.remit-quick-btn-small {
-	padding: var(--s2) 10px;
-	background-color: var(--white);
-	border: 1.5px solid var(--border-default);
-	border-radius: 6px;
-	font-size: var(--text-xs);
-	font-weight: 500;
-	color: var(--text-heavy);
-	cursor: pointer;
-	transition: all 0.2s;
-	white-space: nowrap;
-}
-
-.remit-quick-btn-small:hover {
-	border-color: var(--primary-default);
-	color: var(--primary-default);
-	background-color: var(--primary-default-light);
+/* Left Side: Search Conditions */
+.remit-search-left {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
 }
 
 /* Right Side: Buttons */
@@ -712,40 +499,257 @@
 	cursor: pointer;
 	transition: all 0.2s;
 	white-space: nowrap;
-}
+	&:hover {
+		color: var(--primary-default);
+		svg {
+			color: var(--primary-default);
+		}
+	}
 
-.remit-detail-toggle-btn:hover {
-	color: var(--primary-default);
-}
-
-.remit-detail-toggle-btn:hover svg {
-	color: var(--primary-default);
-}
-
-.remit-detail-toggle-btn.active {
-	color: var(--primary-default);
-}
-
-.remit-detail-toggle-btn .toggle-arrow {
-	transition: transform 0.3s;
-	color: inherit;
-}
-
-.remit-detail-toggle-btn.active .toggle-arrow {
-	transform: rotate(180deg);
+	&.active {
+		color: var(--primary-default);
+		.toggle-arrow {
+			transform: rotate(180deg);
+		}
+	}
+	.toggle-arrow {
+		transition: transform 0.3s;
+		color: inherit;
+	}
 }
 
 /* Detail Search Section (Collapsible) */
 .remit-search-detail {
 	display: none;
+	margin-top: var(--s3);
 	align-items: center;
 	gap: var(--s3);
-	margin-top: var(--s3);
+	&.show {
+		display: flex;
+	}
 }
 
-.remit-search-detail.show {
-	display: flex;
+.search-label {
+	min-width: var(--s10);
+	font-size: var(--text-sm);
+	color: var(--text-default);
+	font-weight: 600;
 }
+
+.remit-quick-btns-inline {
+	display: flex;
+	align-items: stretch;
+	gap: 2px;
+	flex-wrap: wrap;
+
+	.remit-quick-btn-small {
+		padding: var(--s2) 10px;
+		font-size: var(--text-xs);
+		font-weight: 500;
+		color: var(--text-heavy);
+		background-color: var(--white);
+		border: 1px solid var(--border-default);
+		border-radius: 6px;
+		cursor: pointer;
+    transition: var(--transition);
+		white-space: nowrap;
+
+		&:hover {
+			border-color: var(--primary-default);
+			color: var(--primary-default);
+			background-color: var(--primary-default-light);
+		}
+	}
+}
+
+
+/* Tablet view (768px - 1024px): Reset button text already hidden by default */
+@media (max-width: 1024px) {
+	.db-search-box.mobile-active {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.db-user-dropdown .btn-text {
+		display: none;
+	}
+}
+
+@media (max-width: 768px) {
+	.db-mobile-search-toggle {
+		display: flex;
+	}
+	.db-search-box {
+		display: none;
+		flex-wrap: wrap;
+	}
+	.db-search-type {
+		min-width: calc(50% - var(--s2));
+	}
+
+  /* Search Form Mobile Layout */
+	.remit-search-row {
+		flex-direction: column;
+	}
+
+	.remit-search-right {
+		width: var(--full);
+		align-items: flex-start;
+	}
+
+	.search-label,
+	.remit-quick-btns-inline,
+	.remit-search-buttons {
+		height: auto;
+	}
+
+	.remit-search-buttons {
+		width: var(--full);
+	}
+
+	.db-search-btn {
+		flex: 1;
+		justify-content: center;
+	}
+  /* Search section mobile layout */
+	.remit-search-section {
+		gap: 2px;
+		width: var(--full);
+	}
+
+	.search-label {
+		margin-bottom: var(--s1);
+		width: var(--full);
+	}
+
+	.remit-search-detail {
+		margin-top: 0;
+		display: flex; // 768px 이하에서 항상 보이도록 변경
+		flex-direction: column;
+		width: var(--full);
+		gap: 0;
+
+		.search-label {
+			margin-top: var(--s3);
+		}
+
+		.db-search-type {
+			width: var(--full);
+		}
+
+		.db-search-input {
+			width: var(--full);
+		}
+	}
+
+	.remit-detail-toggle-btn {
+		display: none;
+	}
+
+	.remit-search-wrapper {
+		display: none;
+		&.mobile-active {
+			display: block;
+		}
+	}
+
+	.remit-quick-btns-inline {
+		margin-top: var(--s2);
+		width: var(--full);
+	}
+
+	.remit-quick-btn-small {
+		flex: 1;
+		min-width: auto;
+	}
+}
+
+@media (max-width: 480px) {
+	.db-search-type,
+	.db-search-input {
+		width: var(--full);
+	}
+
+	.db-search-btn,
+	.db-reset-btn {
+		min-width: var(--full);
+	}
+	.db-search-btn .search-btn-icon {
+		display: block;
+	}
+
+	.db-reset-btn .reset-text {
+		display: inline;
+	}
+
+	.db-reset-btn .reset-btn-text {
+		display: inline;
+	}
+
+	.db-mobile-search-toggle {
+		display: flex;
+	}
+
+	.remit-search-row {
+		flex-direction: column;
+		gap: var(--s3);
+	}
+
+	.remit-search-left {
+		width: var(--full);
+	}
+
+	.remit-search-right {
+		width: var(--full);
+	}
+
+	.remit-search-section {
+		flex-direction: column;
+		align-items: flex-start;
+		width: var(--full);
+		gap: 2px;
+	}
+
+	.search-label {
+		width: var(--full);
+	}
+
+	.remit-search-section > .search-label,
+ 	.remit-search-section > .db-search-input {
+		display: inline-block;
+	}
+
+	.remit-search-section > .date-separator {
+		display: none;
+	}
+
+	.remit-quick-btns-inline {
+		width: var(--full);
+		margin-left: 0;
+		display: flex;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+	}
+
+	.remit-detail-toggle-btn {
+		display: none;
+	}
+
+	.remit-search-buttons {
+		flex-direction: column;
+		width: var(--full);
+		gap: var(--s2);
+	}
+}
+
+
+.date-separator {
+	color: var(--text-soft);
+	margin: 0 var(--s1);
+	font-size: 1.1rem;
+}
+
 
 .search-field-group {
 	display: flex;
@@ -823,9 +827,6 @@
 }
 
 @media (max-width: 1024px) {
-	.db-balance-badge {
-		display: none !important;
-	}
   /* Remittance List - Card Layout for Tablet/Mobile */
 	.remit-table {
 		display: block;
@@ -900,10 +901,6 @@
 		display: none;
 	}
 
-	.db-detail-toggle-btn {
-		display: none !important;
-	}
-
 	.search-conditions-detail {
 		display: flex !important;
 	}
@@ -933,16 +930,6 @@
 		min-width: var(--full);
 	}
 
-	.remit-quick-btns-inline {
-		flex-wrap: wrap;
-		width: var(--full);
-		margin-left: 0;
-	}
-
-	.remit-quick-btn-small {
-		flex: 1;
-		min-width: calc(50% - 2px);
-	}
 
 	.db-table-info {
 		flex-direction: row;
@@ -953,10 +940,6 @@
 	.remit-sort-wrapper {
 		width: auto;
 		justify-content: flex-end;
-	}
-
-	.remit-sort-select {
-		font-size: var(--text-xs);
 	}
 
 	.db-mobile-search-toggle {
@@ -1851,71 +1834,6 @@
 }
 
 @media (max-width: 768px){
-  /* Search Form Mobile Layout */
-	.remit-search-row {
-		flex-direction: column;
-	}
-
-	.remit-search-right {
-		width: var(--full);
-		align-items: flex-start;
-	}
-
-	.remit-search-buttons {
-		width: var(--full);
-	}
-
-	.db-search-btn {
-		flex: 1;
-		justify-content: center;
-	}
-  /* Quick Buttons - 1 row, 5 buttons */
-	.remit-quick-btns-inline {
-		display: flex;
-		flex-wrap: nowrap;
-		overflow-x: auto;
-		gap: 2px;
-		margin-left: 0;
-		justify-content: flex-end;
-	}
-
-	.remit-quick-btn-small {
-		flex: 1;
-		min-width: auto;
-		font-size: 0.7rem;
-		padding: 6px var(--s2);
-	}
-  /* Search section mobile layout */
-	.remit-search-section {
-		gap: 2px;
-		width: var(--full);
-	}
-
-	.search-label {
-		width: var(--full);
-	}
-  /* Always show detail search on mobile - each field on separate line */
-	.remit-search-detail {
-		display: flex !important;
-		flex-direction: column;
-		gap: var(--s3);
-	}
-
-	.remit-search-detail .search-label {
-		width: var(--full);
-	}
-
-	.remit-search-detail .db-search-type {
-		width: var(--full);
-	}
-
-	.remit-search-detail .db-search-input {
-		width: var(--full);
-	}
-  /* Hide detail toggle button on mobile */
-	.remit-detail-toggle-btn {
-		display: none;
-	}
   /* Card Mobile Layout - Keep amounts in one row */
 	.remit-card-body {
 		flex-direction: row;

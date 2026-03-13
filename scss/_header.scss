@@ -109,15 +109,17 @@
 	display: flex;
 	align-items: center;
 	gap: var(--s2);
-	padding: 0 2.375rem 0 var(--s8);
+	padding: 0 var(--s7) 0 var(--s8);
 	height: var(--s10);
 	font-size: var(--text-sm);
 	font-weight: 500;
 	color: var(--text-heavy);
 	-webkit-text-fill-color: #A4B7C0;
 	color-scheme: light;
+	background-image: var(--icon-lang-select);
+	background-size: var(--s5);
 	background-color: var(--transparent);
-	background-position: calc(var(--full) - var(--s2-10)) center;
+	background-position: right center;
 	border: none;
 	border-radius: var(--s2);
 	cursor: pointer;
@@ -222,13 +224,6 @@
 		}
 	}
 
-	// 힌두어로 인하 768에서 1024로 변경
-	// .nav {
-	// 	display: none;
-	// }
-
-	// .nav-right .lang-select,
-	// .nav-right .btn-text,
 	.nav-right .btn-primary {
 		display: none;
 	}
@@ -241,18 +236,13 @@
 		gap: 0;
 		margin-left: auto;
 
-		.btn-text {
-			display: inline-flex;
-			margin-right: 0px;
-			padding: 0 14px;
-			height: 34px;
-			font-size: var(--text-sm);
+		.btn-secondary {
 			color: var(--white);
-			border: none;
 			background-color: var(--primary-default);
-			&:hover {
-				color: var(--white);
+			&:hover:not(:disabled):not(.is-disabled) {
+				color: var(--text-light);
 				background-color: var(--primary-strong);
+				border-color: var(--primary-strong);
 			}
 		}
 	}
