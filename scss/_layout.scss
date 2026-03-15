@@ -76,7 +76,11 @@ body{
 		padding: 0 var(--s4);
 		&.visible {
 			padding: 0;
-			overflow: visible
+			overflow: visible;
+
+			.banner-slider {
+				padding: 0 var(--s6);
+			}
 		}
 	}
 }
@@ -115,7 +119,8 @@ body{
 }
 
 .mypage-main,
-.remit-main {
+.remit-main, 
+.sub-card-wrapper {
 	.db-content-card {
 		margin-top: var(--white-section-spacing);
 		@include whiteSection;
@@ -129,7 +134,8 @@ body{
 
 @media (max-width: 768px) {
 	.mypage-main,
-	.remit-main {
+	.remit-main, 
+.sub-card-wrapper {
 		.db-content-card {
 			margin-top: var(--mobile-white-section-spacing);
 		}
@@ -140,7 +146,8 @@ body{
 	}
 }
 
-.remit-main {
+.remit-main, 
+.sub-card-wrapper {
 	.db-content-card {
 		&:first-child {
 			margin-top: 0;

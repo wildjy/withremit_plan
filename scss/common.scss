@@ -5,6 +5,8 @@
 // 	padding: var(--s2) var(--s2) var(--s2) var(--s4) !important;
 // 	text-align: left;
 // }
+
+
 .field-info,
 .field-error {
 	margin-top: var(--s1-6);
@@ -66,32 +68,49 @@
 }
 
 
+// visual, slider Color Palette
+// visual, slider Color Palette
+.banner-slide-1 {
+	.banner-content {
+		background: linear-gradient(90deg, #786BF4 0%, #6053E0 100%);
+	}
+}
+
+.banner-slide-2 {
+	.banner-content {
+		background: linear-gradient(90deg, #F9C669 0%, #FFD486 100%);
+	}
+}
+
+.banner-slide-3 {
+	.banner-content {
+		background: linear-gradient(90deg, #6BC8C6 0%, #41CAC7 100%);
+	}
+}
+
+.sub-visual {
+	&.company {
+		background: linear-gradient(90deg, #4C8ADB 0%, #165297 100%);
+	}
+	&.guide {
+		background: linear-gradient(90deg, #3E5597 0%, #243668 100%);
+	}
+	&.invite {
+		background: linear-gradient(90deg, #119CED 0%, #13B8E1 100%);
+	}
+	&.join {
+		background: linear-gradient(90deg, #86A3C9 0%, #5378A7 100%);
+	}
+	&.coupon {
+		background: linear-gradient(90deg, #786BF4 0%, #6053E0 100%);
+	}
+}
+
 /* ===== Banner Slider ===== */
 .banner-slider {
 	position: relative;
 	width: var(--full);
-	height: 300px;
-	border-radius: var(--radius-xl);
-	overflow: hidden;
 	// overflow: hidden;
-}
-
-@media (max-width: 1024px) {
-	.banner-slider {
-		// height: 300px;
-	}
-}
-@media (max-width: 768px) {
-	.banner-slider {
-		height: 20.5rem;
-	}
-}
-@media (max-width: 480px) {
-	.banner-slider {
-		margin: 0 var(--s4);
-		width: auto;
-		// height: 350px;
-	}
 }
 
 
@@ -117,26 +136,18 @@
 	}
 }
 
-.banner-slide-1 {
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 var(--full));
-}
-
-.banner-slide-2 {
-	background: linear-gradient(135deg, #f093fb 0%, #f5576c var(--full));
-}
-
-.banner-slide-3 {
-	background: linear-gradient(135deg, #4facfe 0%, #00f2fe var(--full));
-}
-
 .banner-content {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 var(--s14);
 	width: var(--full);
+	height: 300px;
 	margin: 0 auto;
 	text-align: left;
+	border-radius: var(--radius-xl);
+	// overflow: hidden;
+	position: relative;
 }
 
 .banner-content h2 {
@@ -160,7 +171,6 @@
 
 .banner-text-group {
 	flex: 1;
-	padding-right: var(--s5);
 	z-index: 2;
 }
 
@@ -170,6 +180,10 @@
 
 .banner-image-group {
 	// flex: 0 0 380px;
+	position: absolute;
+	top: 50%;
+	right: var(--s14);
+	transform: translateY(-50%);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -186,11 +200,38 @@
 	// mix-blend-mode: screen;
 }
 
-a.banner-slide {
-	text-decoration: none;
-	color: inherit;
-	cursor: pointer;
+// a.banner-slide {
+// 	text-decoration: none;
+// 	color: inherit;
+// 	cursor: pointer;
+// }
+
+@media (max-width: 1024px) {
+	.banner-content {
+		// height: 300px;
+	}
 }
+@media (max-width: 768px) {
+	.banner-content {
+		align-items: flex-start;
+		padding: var(--s10) var(--s6);
+		height: 20.5rem;
+	}
+	.banner-image-group {
+		top: auto;
+		bottom: var(--s10);
+		right: var(--s6);
+		transform: translateY(0);
+	}
+}
+@media (max-width: 480px) {
+	.banner-content {
+		// margin: 0 var(--s4);
+		// width: auto;
+		// height: 350px;
+	}
+}
+
 
 .banner-slide:hover .banner-image-group img {
 	transform: translateY(-5px) scale(1.02);
@@ -229,15 +270,13 @@ a.banner-slide {
 			color: var(--text-heavy);
 		}
 	}
-}
-
-.banner-control-btn:hover {
-	background-color: var(--white);
-	box-shadow: 0 var(--s1) 15px rgba(0, 0, 0, 0.2);
-}
-
-.banner-control-btn .hidden {
-	display: none;
+	&:hover {
+		background-color: var(--white);
+		box-shadow: 0 var(--s1) 15px rgba(0, 0, 0, 0.2);
+	}
+	.hidden {
+		display: none;
+	}
 }
 
 .banner-indicators {
@@ -269,25 +308,29 @@ a.banner-slide {
 .db-body {
 	.banner-slider {
 		margin-top: 0;
-		height: 200px;
-
-		.banner-content h2 {
-			margin-bottom: var(--s2);
-			font-size: var(--text-2xl);
-			line-height: 1.5;
-		}
-
-		.banner-content p {
-			margin-top: var(--s2);
-			font-size: var(--text-md);
-			line-height: 1.25;
-		}
-
-		.banner-image-group {
-			// flex: 0 0 280px;
-			height: 150px;
-		}
 	}
+
+	.banner-content {
+		height: 200px;
+	}
+
+	.banner-content h2 {
+		margin-bottom: var(--s2);
+		font-size: var(--text-2xl);
+		line-height: 1.5;
+	}
+
+	.banner-content p {
+		margin-top: var(--s2);
+		font-size: var(--text-md);
+		line-height: 1.25;
+	}
+
+	.banner-image-group {
+		// flex: 0 0 280px;
+		height: 150px;
+	}
+	
 	.banner-control-btn {
 		span {
 			width: var(--s6);
@@ -330,19 +373,13 @@ a.banner-slide {
 	}
 
 	.db-body {
-		.banner-slider {
+		.banner-content {
 			margin: 0;
 			height: 20.5rem;
-			.banner-image-group {
-				height: 10.625rem;
-			}
 		}
-	}
-
-	.banner-content {
-		padding: 0 var(--s6) 0 var(--s8);
-		width: var(--full);
-		flex-wrap: wrap;
+		.banner-image-group {
+			height: 10.625rem;
+		}
 	}
 
 	.banner-content h2 {
@@ -356,22 +393,12 @@ a.banner-slide {
 		line-height: 1.25;
 	}
 
-	.banner-text-group,
-	.banner-image-group {
-		padding: 0;
-		flex: 1 1 var(--full);
-	}
-
 	.banner-text-group {
-		margin-bottom: 10px;
 		text-align: left;
 	}
 
 	.banner-image-group {
-		flex: 0 0 var(--full);
 		height: 10.625rem;
-		justify-content: flex-end;
-		text-align: right;
 	}
 
 	.banner-controls {
@@ -381,9 +408,62 @@ a.banner-slide {
 
 @media (max-width: 480px) {
 	.banner-image-group {
-		height: 10.625rem;
+		height: 10rem;
 	}
 }
+
+.sub-visual {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 300px;
+	border-radius: var(--radius-lg);
+
+	.banner-content {
+		padding-right: 40%;
+		h2 {
+			font-size: var(--text-3xl);
+			line-height: 1.42;
+		}
+		p {
+			margin-top: var(--s6);
+			font-size: var(--text-sm);
+			&.sub-text {
+				margin-top: 0;
+				font-size: var(--text-xs);
+			}
+		}
+		.btn-secondary {
+			margin-top: var(--s6);
+		}
+
+		.banner-image-group {
+			height: auto;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.sub-visual {
+		height: auto;
+		.banner-content {
+			padding-right: var(--s6);
+			h2 {
+				font-size: var(--text-2xl);
+			}
+			p {
+				margin-top: var(--s4);
+				font-size: var(--text-sm);
+			}
+			.banner-image-group {
+				bottom: var(--s6);
+				height: 8.625rem;
+			}
+		}
+	}
+}
+
+
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
 .calculator-card-box,

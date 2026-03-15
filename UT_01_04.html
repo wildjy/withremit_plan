@@ -36,68 +36,76 @@
                     </div>
                 </div>
 
-                <div class="db-content-card">
-                    <!-- Premium Hero Section -->
-                    <div class="guide-hero">
-                        <h2 class="hero-title">친구 초대 및 무료 쿠폰 발송</h2>
-                        <p class="hero-desc">
-                          친구의 휴대전화 번호만 입력하면 즉시 초대장이 발송됩니다.
-                        </p>
+                <div class="sub-card-wrapper">
+                    <div class="db-content-card">
+                        <div class="sub-visual invite">
+                            <div class="banner-content">
+                                <div class="banner-text-group">
+                                    <h2>친구 초대 및 무료 쿠폰 발송</h2>
+                                    <p>친구의 휴대전화 번호만 입력하면 즉시 초대장이 발송됩니다.</p>
+                                </div>
+                                <div class="banner-image-group">
+                                    <img src="images/visual_invite.svg" alt="친구 추천 이벤트" data-i18n="banner.referral.alt">
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Total Count -->
-                    <p class="coupon-total-count">
-                        <span>총</span> <b id="couponTotalCount"></b><span>건</span>
-                    </p>
+                    <div class="db-content-card">
+                        <!-- Total Count -->
+                        <p class="coupon-total-count">
+                            <span>총</span> <b id="couponTotalCount"></b><span>건</span>
+                        </p>
 
-                    <!-- Table Container -->
-                    <div class="db-table-responsive">
-                        <table class="common-table history-mode coupon-mode">
-                            <colgroup>
-                                <col class="col-num">
-                                <col>
-                                <col class="col-delete">
-                            </colgroup>
-                            <thead>
-                                <tr>
-                                    <th class="th-num">번호</th>
-                                    <th>친구 전화번호</th>
-                                    <th>삭제</th>
-                                </tr>
-                            </thead>
-                            <tbody id="deleteTableBody">
-                                <tr>
-                                    <td class="td-num" data-label="번호">2</td>
-                                    <td data-label="친구 전화번호">
-                                      <div class="field-item">
-                                          <label class="field-label">친구 전화번호</label>
-                                          <input type="text" placeholder="전화번호를 입력하세요" class="login-input" id="friendPhone2" />
-                                      </div>
-                                    </td>
-                                    <td data-label="삭제">
-                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="td-num" data-label="번호">1</td>
-                                    <td data-label="친구 전화번호">
-                                      <div class="field-item">
-                                          <label class="field-label">친구 전화번호</label>
-                                          <input type="text" placeholder="전화번호를 입력하세요" class="login-input" id="friendPhone1" />
-                                      </div>
-                                    </td>
-                                    <td data-label="삭제">
-                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p class="field-info">초대한 친구가 해당 번호로 가입 후 첫 송금을 완료하면 회원님께도 송금 수수료 무료 쿠폰이 발행됩니다.</p>
+                        <!-- Table Container -->
+                        <div class="db-table-responsive">
+                            <table class="common-table history-mode coupon-mode">
+                                <colgroup>
+                                    <col class="col-num">
+                                    <col>
+                                    <col class="col-delete">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th class="th-num">번호</th>
+                                        <th>친구 전화번호</th>
+                                        <th>삭제</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="deleteTableBody">
+                                    <tr>
+                                        <td class="td-num" data-label="번호">2</td>
+                                        <td data-label="친구 전화번호">
+                                        <div class="field-item">
+                                            <label class="field-label">친구 전화번호</label>
+                                            <input type="text" placeholder="전화번호를 입력하세요" class="login-input" id="friendPhone2" />
+                                        </div>
+                                        </td>
+                                        <td data-label="삭제">
+                                            <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td-num" data-label="번호">1</td>
+                                        <td data-label="친구 전화번호">
+                                        <div class="field-item">
+                                            <label class="field-label">친구 전화번호</label>
+                                            <input type="text" placeholder="전화번호를 입력하세요" class="login-input" id="friendPhone1" />
+                                        </div>
+                                        </td>
+                                        <td data-label="삭제">
+                                            <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p class="field-info">초대한 친구가 해당 번호로 가입 후 첫 송금을 완료하면 회원님께도 송금 수수료 무료 쿠폰이 발행됩니다.</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="btn-align">
-                    <button type="button" class="btn btn-secondary size-lg" onclick="location.reload()">취소</button>
+                    <a href="UT_01_03.html" class="btn btn-secondary size-lg">취소</a>
                     <button type="button" class="btn btn-primary size-lg" onclick="saveFriends()">초대장 발송</button>
                 </div>
             </div>
@@ -130,12 +138,7 @@
         <div class="modal-content">
             <div class="modal-inner">
                 <div class="modal-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
-                      </path>
-                      <line x1="12" y1="9" x2="12" y2="13"></line>
-                      <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                  </svg>
+                    <img src="images/svg/icon_warning.svg" alt="경고 아이콘" class="upload-icon" />
                 </div>
                 <h3>삭제 오류</h3>
                 <p>친구는 최소 1인 입력해 주세요.</p>
@@ -149,12 +152,7 @@
         <div class="modal-content">
             <div class="modal-inner">
                 <div class="modal-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
-                      </path>
-                      <line x1="12" y1="9" x2="12" y2="13"></line>
-                      <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                  </svg>
+                    <img src="images/svg/icon_warning.svg" alt="경고 아이콘" class="upload-icon" />
                 </div>
                 <h3>안내</h3>
                 <p data-i18n="modal.invite.alreadyMember">이미가입한 회원입니다</p>
