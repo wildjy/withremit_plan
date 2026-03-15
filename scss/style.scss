@@ -1905,43 +1905,105 @@
 /* Print Styles */
 /* Print Styles */
 @media print {
-  body>* {
-    display: none !important;
-  }
+	@page {
+		size: A4 portrait;
+	}
 
-  #remitModal {
-    display: block !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: var(--full) !important;
-    height: auto !important;
-    background: white !important;
-    z-index: 9999 !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
+	html {
+		font-size: 14px !important;
+	}
 
-  #remitModal .modal-content {
-    box-shadow: none !important;
-    border: none !important;
-    width: var(--full) !important;
-    max-width: var(--full) !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
+	html,
+	body {
+		overflow: visible !important;
+		height: auto !important;
+	}
 
-  #remitModal .modal-header,
-  #remitModal .modal-footer,
-  #remitModal .modal-close {
-    display: none !important;
-  }
+	body>* {
+		display: none !important;
+	}
 
-  #remitModal .modal-body {
-    padding: var(--s5) !important;
-    max-height: none !important;
-    overflow: visible !important;
-  }
+	#remitModal {
+		display: block !important;
+		position: static !important;
+		inset: auto !important;
+		width: 100% !important;
+		max-width: none !important;
+		height: auto !important;
+		min-height: 0 !important;
+		background: white !important;
+		z-index: auto !important;
+		opacity: 1 !important;
+		visibility: visible !important;
+		overflow: visible !important;
+		transform: none !important;
+		padding: 0 !important;
+	}
+
+	#remitModal .modal-content,
+	#remitModal .modal-inner,
+	#remitModal .modal-body {
+		transform: none !important;
+		transition: none !important;
+		animation: none !important;
+		height: auto !important;
+		max-height: none !important;
+		overflow: visible !important;
+	}
+
+	#remitModal .modal-content {
+		box-shadow: none !important;
+		border: none !important;
+		border-radius: 0 !important;
+		width: 100% !important;
+		// max-width: 186mm !important;
+		margin: 0 auto !important;
+		padding: 0 !important;
+		box-sizing: border-box !important;
+	}
+
+	#remitModal .modal-inner {
+		padding: 0 !important;
+	}
+
+	#remitModal .modal-header,
+	#remitModal .modal-footer,
+	#remitModal .modal-close {
+		display: none !important;
+	}
+
+	#remitModal .modal-body {
+		padding: 0 !important;
+	}
+
+	#remitModal .receipt-layout {
+		padding: 0 !important;
+		padding-bottom: 12mm !important;
+	}
+
+	#remitModal .receipt-header {
+		margin-top: 0 !important;
+		padding-top: 0 !important;
+	}
+
+	#remitModal .receipt-logo {
+		margin-top: 0 !important;
+	}
+
+	#remitModal .receipt-layout {
+		line-height: 1.4 !important;
+	}
+	
+	#remitModal .receipt-footer {
+		display: block !important;
+		margin-top: 5mm !important;
+		padding-top: 3mm !important;
+		padding-bottom: 2mm !important;
+		color: #666 !important;
+		line-height: 1.6 !important;
+		page-break-inside: avoid !important;
+		break-inside: avoid !important;
+	}
 
   /* Force background graphics for logos/colors if needed */
   * {
