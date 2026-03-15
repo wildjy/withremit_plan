@@ -187,20 +187,23 @@ function calculateRemit() {
     const amountType = document.querySelector('input[name="amountType"]:checked')?.value;
 
     if (!country) {
-        showWarning('송금 국가를 선택해주세요.');
+        showWarningModal('warningModalCountryRequired');
         return;
     }
 
     if (!sendAmountInput) {
-        const message = amountType === 'send' ? '송금 금액을 입력해주세요.' : '수취 금액을 입력해주세요.';
-        showWarning(message);
+        if (amountType === 'send') {
+            showWarningModal('warningModalSendAmountRequired');
+        } else {
+            showWarningModal('warningModalReceiveAmountRequired');
+        }
         return;
     }
 
     const inputAmount = parseFloat(sendAmountInput.replace(/,/g, ''));
 
     if (isNaN(inputAmount) || inputAmount <= 0) {
-        showWarning('올바른 금액을 입력해주세요.');
+        showWarningModal('warningModalInvalidAmount');
         return;
     }
 
@@ -229,7 +232,7 @@ function calculateRemit() {
 
         // 역산한 송금 금액이 한도를 초과하는지 검증
         if (sendAmount > getMaxKrwLimit()) {
-            showLimitModal(`외환거래법령에 따라 건당 최대 <b>$${getMaxUsd().toLocaleString()}(USD)</b>까지 송금이 가능합니다.<br><br>수취 금액을 낮춰주세요.`);
+            showLimitModalByType('reduceReceive');
             return;
         }
     }
@@ -237,11 +240,10 @@ function calculateRemit() {
     // 한도 검증 (송금액 기준으로 통일)
     if (sendAmount > getMaxKrwLimit()) {
         if (amountType === 'send') {
-            showLimitModal(`외환거래법령에 따라 건당 최대 <b>$${getMaxUsd().toLocaleString()}(USD)</b>까지 송금이 가능합니다.<br><br>현재 환율 기준 송금 가능액인 <b>₩${getMaxKrwLimit().toLocaleString()}</b>까지 입력해주세요.`);
+            showLimitModalByType('maxSend');
         } else {
             // 수취 금액 기준일 때는 최대 수취 가능액 계산
-            const maxReceiveAmt = getMaxKrwLimit() * (1 - feeRate) * rateInfo.rate - rateInfo.withdrawalFee;
-            showLimitModal(`외환거래법령에 따라 건당 최대 <b>$${getMaxUsd().toLocaleString()}(USD)</b>까지 송금이 가능합니다.<br><br>현재 환율 기준 수취 가능액인 <b>${rateInfo.symbol} ${Math.floor(maxReceiveAmt).toLocaleString()}</b>까지 입력해주세요.`);
+            showLimitModalByType('maxReceive');
         }
         return;
     }
@@ -295,33 +297,45 @@ function calculateRemit() {
     }
 }
 
-// 한도 초과 모달
-function showLimitModal(message) {
-    const limitModalMessage = document.getElementById('limitModalMessage');
-    if (limitModalMessage) {
-        limitModalMessage.innerHTML = message;
-    }
-
+function openRemitModal(modalId) {
+    if (!modalId) return;
     if (typeof openModal === 'function') {
-        openModal('limitModal');
+        openModal(modalId);
     } else {
-        const modal = document.getElementById('limitModal');
+        const modal = document.getElementById(modalId);
         if (modal) modal.classList.add('active');
     }
 }
 
-// 경고 모달
-function showWarning(message) {
-    const warningMessage = document.getElementById('warningMessage');
-    if (warningMessage) {
-        warningMessage.textContent = message;
+// 한도 초과 모달 (메시지 타입별 고정 모달)
+function showLimitModalByType(type) {
+    const typeMap = {
+        maxSend: 'limitModalMaxSend',
+        maxReceive: 'limitModalMaxReceive',
+        reduceReceive: 'limitModalReduceReceive'
+    };
+
+    const preferredId = typeMap[type] || 'limitModal';
+    const fallbackIds = [preferredId, 'limitModal'];
+
+    for (const modalId of fallbackIds) {
+        if (document.getElementById(modalId)) {
+            openRemitModal(modalId);
+            return;
+        }
+    }
+}
+
+// 경고 모달 (메시지 타입별 고정 모달)
+function showWarningModal(modalId) {
+    if (document.getElementById(modalId)) {
+        openRemitModal(modalId);
+        return;
     }
 
-    if (typeof openModal === 'function') {
-        openModal('warningModal');
-    } else {
-        const modal = document.getElementById('warningModal');
-        if (modal) modal.classList.add('active');
+    // 하위호환: 타입별 모달이 없으면 기존 warningModal
+    if (document.getElementById('warningModal')) {
+        openRemitModal('warningModal');
     }
 }
 
@@ -345,7 +359,7 @@ if (sendAmountEl) {
         // 한도 검증
         if (amountType === 'send') {
             if (numValue > maxKrwLimit) {
-                showLimitModal(`외환거래법령에 따라 건당 최대 <b>$${getMaxUsd().toLocaleString()}(USD)</b>까지 송금이 가능합니다.<br><br>현재 환율 기준 송금 가능액인 <b>₩${maxKrwLimit.toLocaleString()}</b>까지 입력해주세요.`);
+                showLimitModalByType('maxSend');
                 numValue = maxKrwLimit;
             }
         } else if (amountType === 'receive' && country && exchangeRates[country]) {
@@ -360,7 +374,7 @@ if (sendAmountEl) {
 
             if (calculatedSendAmount > maxKrwLimit) {
                 const maxReceiveAmt = maxKrwLimit * (1 - feeRate) * rateInfo.rate - rateInfo.withdrawalFee;
-                showLimitModal(`외환거래법령에 따라 건당 최대 <b>$${getMaxUsd().toLocaleString()}(USD)</b>까지 송금이 가능합니다.<br><br>현재 환율 기준 수취 가능액인 <b>${rateInfo.symbol} ${Math.floor(maxReceiveAmt).toLocaleString()}</b>까지 입력해주세요.`);
+                showLimitModalByType('maxReceive');
                 numValue = Math.floor(maxReceiveAmt);
             }
         }

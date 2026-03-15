@@ -513,7 +513,7 @@ document.addEventListener('DOMContentLoaded', () => {
   obs.observe(document.body, { childList: true, subtree: true });
 });
 
-// 중복 확인 모달 열기
+// 중복 확인 모달 열기 *** 사용안함 ***
 function openDupCheckModal({
     type = 'email',      // 'email' | 'id'
     status = 'success',  // 'success' | 'fail'
@@ -532,10 +532,9 @@ function openDupCheckModal({
         : '사용 가능한 아이디입니다.';
 
         iconEl.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00A0DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11"></polyline>
-        </svg>
+        <div class="modal-icon">
+            <img src="/images/svg/icon_success.svg" alt="성공 아이콘" class="upload-icon" />
+        </div>
         `;
 
         btnEl.style.backgroundColor = '#00A0DC';

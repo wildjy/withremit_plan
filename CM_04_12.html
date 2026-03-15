@@ -545,10 +545,7 @@
                             <div id="ocrUploadArea" class="ocr-upload-area"
                                 onclick="document.getElementById('ocrFileInput').click()" ondragover="handleDragOver(event)"
                                 ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00A0DC"
-                                    stroke-width="2" style="margin: 0 auto var(--s3);">
-                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" />
-                                </svg>
+                                <img src="/images/svg/icon_upload.svg" alt="업로드 아이콘" class="upload-icon" />
                                 <p class="ocr-upload-text">클릭 또는 이미지를 여기로 끌어오세요</p>
                                 <p class="ocr-upload-text isMobile">직접 촬영하거나 휴대폰 보관함에서 이미지를 선택해 주세요</p>
                             </div>
@@ -556,7 +553,7 @@
                                 <img id="ocrPreviewImg" alt="업로드 이미지" />
                                 <p id="previewText">이미지 확인 중...</p>
                                 <div class="ocrBtn-box">
-                                    <button type="button" class="quick-btn re-upload" onclick="resetOCRModal()">이미지 다시등록</button>
+                                    <button type="button" class="btn btn-secondary size-sm" onclick="resetOCRModal()">이미지 다시등록</button>
                                 </div>
                             </div>
                         </div>
@@ -659,10 +656,7 @@
             <div class="modal-content">
                 <div class="modal-inner">
                     <div class="modal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00A0DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11"></polyline>
-                        </svg>
+                        <img src="/images/svg/icon_success.svg" alt="성공 아이콘" class="upload-icon" />
                     </div>
                     <h3 data-i18n="modal.emailDup.title">이메일 중복 확인</h3>
                     <p data-i18n="modal.emailDup.ok">사용 가능한 이메일입니다.</p>
@@ -712,11 +706,7 @@
             <div class="modal-content">
                 <div class="modal-inner">
                     <div class="modal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                            stroke="#00A0DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11"></polyline>
-                        </svg>
+                        <img src="/images/svg/icon_success.svg" alt="성공 아이콘" class="upload-icon" />
                     </div>
                     <h3>회원가입 완료</h3>
                     <p>회원가입이 완료되었습니다.<br>이메일 인증을 완료하여 주시기 바랍니다.</p>
