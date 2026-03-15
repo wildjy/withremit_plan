@@ -533,7 +533,7 @@ function openDupCheckModal({
 
         iconEl.innerHTML = `
         <div class="modal-icon">
-            <img src="/images/svg/icon_success.svg" alt="성공 아이콘" class="upload-icon" />
+            <img src="images/svg/icon_success.svg" alt="성공 아이콘" class="upload-icon" />
         </div>
         `;
 
