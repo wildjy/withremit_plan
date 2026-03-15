@@ -35,6 +35,7 @@
 
 @media (max-width: 1024px) {
 	.section-sec1 {
+		margin-top: calc(var(--header-h) + var(--s5));
 		&:before,
 		&:after {
 			width: 720px;
@@ -53,7 +54,7 @@
 }
 @media (max-width: 768px) {
 	.section-sec1 {
-		margin-top: calc(var(--header-h) + var(--s10));
+		// margin-top: calc(var(--header-h) + var(--s10));
 
 		&:before,
 		&:after {

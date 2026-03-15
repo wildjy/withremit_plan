@@ -30,6 +30,9 @@
 }
 
 @media (max-width: 1024px) {
+  .section-sec1 {
+    margin-top: calc(var(--header-h) + var(--s5));
+  }
   .section-sec1:before, .section-sec1:after {
     width: 720px;
     height: 720px;
@@ -44,9 +47,6 @@
   }
 }
 @media (max-width: 768px) {
-  .section-sec1 {
-    margin-top: calc(var(--header-h) + var(--s10));
-  }
   .section-sec1:before, .section-sec1:after {
     width: 520px;
     height: 520px;

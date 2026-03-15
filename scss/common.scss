@@ -83,7 +83,7 @@
 }
 @media (max-width: 768px) {
 	.banner-slider {
-		// height: 300px;
+		height: 20.5rem;
 	}
 }
 @media (max-width: 480px) {
@@ -332,9 +332,9 @@ a.banner-slide {
 	.db-body {
 		.banner-slider {
 			margin: 0;
-			height: 300px;
+			height: 20.5rem;
 			.banner-image-group {
-				height: 100px;
+				height: 10.625rem;
 			}
 		}
 	}
@@ -352,7 +352,7 @@ a.banner-slide {
 	}
 
 	.banner-content p {
-		font-size: var(--text-md);
+		font-size: var(--text-base);
 		line-height: 1.25;
 	}
 
@@ -369,7 +369,7 @@ a.banner-slide {
 
 	.banner-image-group {
 		flex: 0 0 var(--full);
-		height: 120px;
+		height: 10.625rem;
 		justify-content: flex-end;
 		text-align: right;
 	}
@@ -379,6 +379,11 @@ a.banner-slide {
 	}
 }
 
+@media (max-width: 480px) {
+	.banner-image-group {
+		height: 10.625rem;
+	}
+}
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
 .calculator-card-box,

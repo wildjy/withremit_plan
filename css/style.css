@@ -1705,6 +1705,11 @@ body.wh-full {
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .banner-slider {
+    height: 20.5rem;
+  }
+}
 @media (max-width: 480px) {
   .banner-slider {
     margin: 0 var(--s4);
@@ -1982,10 +1987,10 @@ a.banner-slide {
   }
   .db-body .banner-slider {
     margin: 0;
-    height: 300px;
+    height: 20.5rem;
   }
   .db-body .banner-slider .banner-image-group {
-    height: 100px;
+    height: 10.625rem;
   }
   .banner-content {
     padding: 0 var(--s6) 0 var(--s8);
@@ -1999,7 +2004,7 @@ a.banner-slide {
     line-height: 1.5;
   }
   .banner-content p {
-    font-size: var(--text-md);
+    font-size: var(--text-base);
     line-height: 1.25;
   }
   .banner-text-group,
@@ -2017,7 +2022,7 @@ a.banner-slide {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 var(--full);
             flex: 0 0 var(--full);
-    height: 120px;
+    height: 10.625rem;
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
@@ -2025,6 +2030,11 @@ a.banner-slide {
   }
   .banner-controls {
     bottom: var(--s5);
+  }
+}
+@media (max-width: 480px) {
+  .banner-image-group {
+    height: 10.625rem;
   }
 }
 /* ===== Calculator Card : CM_02_01, DB_01_01 ) ===== */
