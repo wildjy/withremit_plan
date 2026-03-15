@@ -7161,6 +7161,12 @@ td.center {
             justify-content: flex-end;
     color: var(--primary-default);
   }
+  .common-table.radio-mode td:nth-child(1):before {
+    content: "";
+  }
+  .common-table.radio-mode td:nth-child(2) {
+    color: var(--text-heavy);
+  }
   .common-table.account-mode td:nth-child(1) {
     display: -webkit-box;
     display: -ms-flexbox;

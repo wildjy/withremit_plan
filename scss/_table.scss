@@ -343,6 +343,16 @@ td.center {
 		color: var(--primary-default);
 	}
 
+	.common-table.radio-mode td:nth-child(1) {
+		&:before {
+			content: '';
+		}
+	}
+	.common-table.radio-mode td:nth-child(2) {
+		color: var(--text-heavy);
+	}
+
+
 	// AC_02_03: 계좌 관리 테이블 스타일 (Account Mode)
 	.common-table.account-mode td:nth-child(1) {
 		display: flex;
