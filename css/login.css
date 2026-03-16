@@ -900,10 +900,10 @@
 
 /* 媛쒖씤?뚯썝 2???덉씠?꾩썐 */
 .reg-dual-section {
+  margin-bottom: var(--s6);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--s8);
-  margin-bottom: var(--s6);
+  gap: var(--s3);
 }
 
 .reg-subsection {
@@ -939,11 +939,14 @@
 }
 
 .reg-id-card {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 10px var(--s3);
+  text-align: center;
   background-color: var(--white);
   border: 1.5px solid var(--border-default);
   border-radius: var(--s4);
-  padding: 10px var(--s3);
-  text-align: center;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
@@ -973,6 +976,11 @@
 
 .reg-svg-wrap svg {
   width: 85%;
+  height: auto;
+}
+
+.reg-svg-wrap img {
+  width: 147px;
   height: auto;
 }
 
