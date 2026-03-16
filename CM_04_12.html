@@ -724,61 +724,84 @@
                         <button type="button" class="modal-close" onclick="closeModal('postcodeModal')">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <div class="postcode-search-desc" style="text-align: center; margin-bottom: var(--s5);">
-                            <p style="color: #00A0DC; font-weight: 700; margin-bottom: var(--s2);">찾으시려는 동 혹은 도로의 이름을 입력해 주세요.</p>
-                            <p style="color: #666; font-size: 13px; line-height: 1.5;">지번주소 : 동/읍/면/리 이름을 입력하세요.
+                        <div class="postcode-search-desc">
+                            <p class="search-title">찾으시려는 동 혹은 도로의 이름을 입력해 주세요.</p>
+                            <p class="search-info">지번주소 : 동/읍/면/리 이름을 입력하세요.
                                 (예:서현동)<br>도로명(새주소) : 도로명을 입력하세요. (예:성남대로)</p>
                         </div>
 
-                        <div class="postcode-search-box" style="display: flex; gap: var(--s2); margin-bottom: var(--s6);">
-                            <input type="text" class="login-input" placeholder="검색어 입력" style="flex: 1;"
-                                id="postcodeSearchInput">
-                            <button type="button" class="btn btn-primary" style="width: 80px; height: 52px;"
-                                onclick="searchPostcode()">검색</button>
+                        <div class="postcode-search-box">
+                            <input type="text" class="login-input" placeholder="검색어 입력" id="postcodeSearchInput">
+                            <button type="button" class="btn btn-primary size-lg" onclick="searchPostcode()">검색</button>
                         </div>
 
-                        <div class="postcode-result-area"
-                            style="border: 1px solid #ddd; border-radius: var(--s1); max-height: 400px; overflow-y: auto;">
-                            <ul class="postcode-list" style="list-style: none; padding: 0; margin: 0;"
-                                id="postcodeResultList">
+                        <div class="postcode-result-area">
+                            <ul class="postcode-list" id="postcodeResultList">
                                 <!-- Sample Results -->
-                                <li style="padding: var(--s3) var(--s4); border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: var(--s3); cursor: pointer;"
-                                    onclick="selectAddress('13560', '경기도 성남시 분당구 불정로 1')">
-                                    <div style="min-width: 60px; color: #666; font-size: 13px; line-height: 1.4;">
+                                <li onclick="selectAddress('13560', '경기도 성남시 분당구 불정로 1')">
+                                    <div class="post-code">
                                         463-867<br>13560
                                     </div>
-                                    <div style="flex: 1;">
-                                        <div style="margin-bottom: var(--s1);"><span
-                                                style="background: #94a3b8; color: #fff; font-size: 11px; padding: 1px var(--s1); border-radius: 3px; margin-right: var(--s1);">지번</span>
-                                            <span style="font-size: 14px;">경기도 성남시 분당구 정자동 177</span>
+                                    <div class="post-code-info">
+                                        <div class="post-info-box">
+                                            <span class="post-label">지번</span>
+                                            <span class="post-value">경기도 성남시 분당구 정자동 177</span>
                                         </div>
-                                        <div><span
-                                                style="background: #60a5fa; color: #fff; font-size: 11px; padding: 1px var(--s1); border-radius: 3px; margin-right: var(--s1);">도로명</span>
-                                            <span style="font-size: 14px;">경기도 성남시 분당구 불정로 1</span>
+                                        <div class="post-info-box">
+                                            <span class="post-label">도로명</span>
+                                            <span class="post-value">경기도 성남시 분당구 불정로 1</span>
                                         </div>
                                     </div>
                                 </li>
-                                <li style="padding: var(--s3) var(--s4); border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: var(--s3); cursor: pointer;"
-                                    onclick="selectAddress('13606', '경기도 성남시 분당구 불정로 100')">
-                                    <div style="min-width: 60px; color: #666; font-size: 13px; line-height: 1.4;">
+                                <li onclick="selectAddress('13606', '경기도 성남시 분당구 불정로 100')">
+                                    <div class="post-code">
                                         463-815<br>13606
                                     </div>
-                                    <div style="flex: 1;">
-                                        <div style="margin-bottom: var(--s1);"><span
-                                                style="background: #94a3b8; color: #fff; font-size: 11px; padding: 1px var(--s1); border-radius: 3px; margin-right: var(--s1);">지번</span>
-                                            <span style="font-size: 14px;">경기도 성남시 분당구 정자동 207</span>
+                                    <div class="post-code-info">
+                                        <div class="post-info-box">
+                                            <span class="post-label">지번</span>
+                                            <span class="post-value">경기도 성남시 분당구 정자동 207</span>
                                         </div>
-                                        <div><span
-                                                style="background: #60a5fa; color: #fff; font-size: 11px; padding: 1px var(--s1); border-radius: 3px; margin-right: var(--s1);">도로명</span>
-                                            <span style="font-size: 14px;">경기도 성남시 분당구 불정로 100</span>
+                                        <div class="post-info-box">
+                                            <span class="post-label">도로명</span>
+                                            <span class="post-value">경기도 성남시 분당구 불정로 100</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li onclick="selectAddress('13606', '경기도 성남시 분당구 불정로 110')">
+                                    <div class="post-code">
+                                        463-815<br>13606
+                                    </div>
+                                    <div class="post-code-info">
+                                        <div class="post-info-box">
+                                            <span class="post-label">지번</span>
+                                            <span class="post-value">경기도 성남시 분당구 정자동 208</span>
+                                        </div>
+                                        <div class="post-info-box">
+                                            <span class="post-label">도로명</span>
+                                            <span class="post-value">경기도 성남시 분당구 불정로 110</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li onclick="selectAddress('13606', '경기도 성남시 분당구 불정로 120')">
+                                    <div class="post-code">
+                                        463-815<br>13606
+                                    </div>
+                                    <div class="post-code-info">
+                                        <div class="post-info-box">
+                                            <span class="post-label">지번</span>
+                                            <span class="post-value">경기도 성남시 분당구 정자동 209</span>
+                                        </div>
+                                        <div class="post-info-box">
+                                            <span class="post-label">도로명</span>
+                                            <span class="post-value">경기도 성남시 분당구 불정로 120</span>
                                         </div>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="modal-footer"
-                        style="padding: var(--s5) var(--s6); border-top: 1px solid #eee; text-align: right;">
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-outline" onclick="closeModal('postcodeModal')">닫기</button>
                     </div>
                 </div>

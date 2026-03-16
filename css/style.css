@@ -2801,6 +2801,90 @@ body.wh-full {
     padding: 0;
   }
 }
+.postcode-search-desc {
+  margin-bottom: var(--s6);
+  padding: var(--s6) 0;
+  text-align: center;
+  background-color: var(--bg-default);
+  border: 1px dashed var(--border-default);
+  border-radius: var(--radius);
+}
+.postcode-search-desc p {
+  margin-bottom: 0 !important;
+}
+.postcode-search-desc .search-title {
+  color: var(--primary-default);
+  font-weight: 700;
+}
+.postcode-search-desc .search-info {
+  margin-top: var(--s2);
+  font-size: var(--text-sm);
+  color: var(--text-default);
+}
+
+.postcode-search-box {
+  margin-bottom: var(--s6);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: var(--s2);
+}
+.postcode-search-box input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.postcode-result-area {
+  max-height: 25rem;
+  border: 1px solid #ddd;
+  border-radius: var(--s1);
+  overflow-y: auto;
+}
+.postcode-result-area ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: var(--s3);
+  padding: var(--s3) var(--s4);
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+.postcode-result-area ul li .post-code {
+  min-width: var(--s20);
+  font-size: var(--text-sm);
+  line-height: 1.4;
+}
+.postcode-result-area ul li .post-code-info {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.postcode-result-area ul li .post-info-box:last-child .post-label {
+  background-color: #60a5fa;
+}
+.postcode-result-area ul li .post-info-box .post-label {
+  margin-right: var(--s1);
+  margin-bottom: var(--s1);
+  padding: 1px var(--s1);
+  font-size: var(--text-xs);
+  color: #fff;
+  background-color: #94a3b8;
+  border-radius: 3px;
+}
+.postcode-result-area ul li .post-info-box .post-value {
+  font-size: var(--text-sm);
+  color: var(--text-heavy);
+}
+
+@media (max-width: 480px) {
+  .postcode-result-area {
+    max-height: 15rem;
+  }
+}
 .m1 {
   margin: var(--s4);
 }
@@ -5161,10 +5245,10 @@ body.wh-full {
 
 /* 媛쒖씤?뚯썝 2???덉씠?꾩썐 */
 .reg-dual-section {
+  margin-bottom: var(--s6);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--s8);
-  margin-bottom: var(--s6);
+  gap: var(--s3);
 }
 
 .reg-subsection {
@@ -5200,11 +5284,14 @@ body.wh-full {
 }
 
 .reg-id-card {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 10px var(--s3);
+  text-align: center;
   background-color: var(--white);
   border: 1.5px solid var(--border-default);
   border-radius: var(--s4);
-  padding: 10px var(--s3);
-  text-align: center;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
@@ -5234,6 +5321,11 @@ body.wh-full {
 
 .reg-svg-wrap svg {
   width: 85%;
+  height: auto;
+}
+
+.reg-svg-wrap img {
+  width: 147px;
   height: auto;
 }
 
@@ -9849,7 +9941,7 @@ td.center {
   font-weight: 700;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .remit-balance-round-box {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
