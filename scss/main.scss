@@ -109,6 +109,7 @@
 
 .hero-content h1 {
 	margin-bottom: var(--s5);
+	font-size: 3.5rem;
 	color: var(--text-heavy);
 }
 
@@ -493,6 +494,11 @@
 		flex-direction: column;
 		text-align: center;
 		gap: var(--s16);
+	}
+
+	.hero-content h1 {
+		font-size: 3rem;
+		line-height: 1.3;
 	}
 
 	.hero-content p {
