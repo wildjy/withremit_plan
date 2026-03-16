@@ -173,7 +173,6 @@
   font-size: var(--text-lg);
   font-weight: 400;
   max-width: 600px;
-  line-height: 1.55;
   color: var(--white) !important;
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 }
@@ -343,7 +342,6 @@
 .db-body .banner-content p {
   margin-top: var(--s2);
   font-size: var(--text-md);
-  line-height: 1.25;
 }
 .db-body .banner-image-group {
   height: 150px;
@@ -394,7 +392,6 @@
   }
   .banner-content p {
     font-size: var(--text-base);
-    line-height: 1.25;
   }
   .banner-text-group {
     text-align: left;
@@ -424,6 +421,11 @@
   height: 300px;
   border-radius: var(--radius-lg);
 }
+.sub-visual.coupon .banner-content p {
+  margin-top: var(--s6);
+  font-size: var(--text-sm);
+  line-height: 1.57;
+}
 .sub-visual .banner-content {
   padding-right: 40%;
 }
@@ -433,14 +435,19 @@
 }
 .sub-visual .banner-content p {
   margin-top: var(--s6);
-  font-size: var(--text-sm);
 }
 .sub-visual .banner-content p.sub-text {
-  margin-top: 0;
+  margin-top: var(--s2);
   font-size: var(--text-xs);
 }
 .sub-visual .banner-content .btn-secondary {
   margin-top: var(--s6);
+  color: #776AF3;
+  border-color: var(--transparent);
+}
+.sub-visual .banner-content .btn-secondary:hover:not(:disabled):not(.is-disabled) {
+  color: #776AF3;
+  border-color: var(--transparent);
 }
 .sub-visual .banner-content .banner-image-group {
   height: auto;
@@ -458,7 +465,6 @@
   }
   .sub-visual .banner-content p {
     margin-top: var(--s4);
-    font-size: var(--text-sm);
   }
   .sub-visual .banner-content .banner-image-group {
     bottom: var(--s6);

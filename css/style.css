@@ -147,7 +147,7 @@ body {
   font-family: var(--font-family);
   font-size: var(--text-md);
   color: var(--text-heavy);
-  line-height: 1.42;
+  line-height: 1.5;
   background-color: var(--white);
   overflow-x: hidden;
 }
@@ -1811,7 +1811,6 @@ body.wh-full {
   font-size: var(--text-lg);
   font-weight: 400;
   max-width: 600px;
-  line-height: 1.55;
   color: var(--white) !important;
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 }
@@ -1981,7 +1980,6 @@ body.wh-full {
 .db-body .banner-content p {
   margin-top: var(--s2);
   font-size: var(--text-md);
-  line-height: 1.25;
 }
 .db-body .banner-image-group {
   height: 150px;
@@ -2032,7 +2030,6 @@ body.wh-full {
   }
   .banner-content p {
     font-size: var(--text-base);
-    line-height: 1.25;
   }
   .banner-text-group {
     text-align: left;
@@ -2062,6 +2059,11 @@ body.wh-full {
   height: 300px;
   border-radius: var(--radius-lg);
 }
+.sub-visual.coupon .banner-content p {
+  margin-top: var(--s6);
+  font-size: var(--text-sm);
+  line-height: 1.57;
+}
 .sub-visual .banner-content {
   padding-right: 40%;
 }
@@ -2071,14 +2073,19 @@ body.wh-full {
 }
 .sub-visual .banner-content p {
   margin-top: var(--s6);
-  font-size: var(--text-sm);
 }
 .sub-visual .banner-content p.sub-text {
-  margin-top: 0;
+  margin-top: var(--s2);
   font-size: var(--text-xs);
 }
 .sub-visual .banner-content .btn-secondary {
   margin-top: var(--s6);
+  color: #776AF3;
+  border-color: var(--transparent);
+}
+.sub-visual .banner-content .btn-secondary:hover:not(:disabled):not(.is-disabled) {
+  color: #776AF3;
+  border-color: var(--transparent);
 }
 .sub-visual .banner-content .banner-image-group {
   height: auto;
@@ -2096,7 +2103,6 @@ body.wh-full {
   }
   .sub-visual .banner-content p {
     margin-top: var(--s4);
-    font-size: var(--text-sm);
   }
   .sub-visual .banner-content .banner-image-group {
     bottom: var(--s6);

@@ -164,7 +164,6 @@
 	font-size: var(--text-lg);
 	font-weight: 400;
 	max-width: 600px;
-	line-height: 1.55;
 	color: var(--white) !important;
 	text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 }
@@ -323,7 +322,6 @@
 	.banner-content p {
 		margin-top: var(--s2);
 		font-size: var(--text-md);
-		line-height: 1.25;
 	}
 
 	.banner-image-group {
@@ -390,7 +388,6 @@
 
 	.banner-content p {
 		font-size: var(--text-base);
-		line-height: 1.25;
 	}
 
 	.banner-text-group {
@@ -419,6 +416,15 @@
 	height: 300px;
 	border-radius: var(--radius-lg);
 
+	&.coupon {
+		.banner-content {
+			p {
+				margin-top: var(--s6);
+				font-size: var(--text-sm);
+				line-height: 1.57;
+			}
+		}
+	}
 	.banner-content {
 		padding-right: 40%;
 		h2 {
@@ -427,14 +433,19 @@
 		}
 		p {
 			margin-top: var(--s6);
-			font-size: var(--text-sm);
 			&.sub-text {
-				margin-top: 0;
+				margin-top: var(--s2);
 				font-size: var(--text-xs);
 			}
 		}
 		.btn-secondary {
 			margin-top: var(--s6);
+			color: #776AF3;
+			border-color: var(--transparent);
+			&:hover:not(:disabled):not(.is-disabled) {
+				color: #776AF3;
+				border-color: var(--transparent);
+			}
 		}
 
 		.banner-image-group {
@@ -453,7 +464,6 @@
 			}
 			p {
 				margin-top: var(--s4);
-				font-size: var(--text-sm);
 			}
 			.banner-image-group {
 				bottom: var(--s6);

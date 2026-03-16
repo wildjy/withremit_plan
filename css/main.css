@@ -129,7 +129,6 @@
           align-items: center;
   gap: var(--s2);
   padding: 0.625rem var(--s4);
-  font-size: var(--text-lg);
   font-weight: 500;
   color: var(--primary-heavy);
   background-color: rgba(232, 244, 255, 0.3);
