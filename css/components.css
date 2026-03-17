@@ -992,7 +992,6 @@
 .modal-content p {
   margin-bottom: var(--s8);
   font-size: var(--text-md);
-  line-height: 1.5;
   color: #4b5563;
   word-break: keep-all;
 }
@@ -1327,7 +1326,6 @@
   font-size: var(--s4);
   color: #6b7280;
   margin-bottom: var(--s8);
-  line-height: 1.5;
 }
 
 /* ===== end Loading Overlay & Component Styles ===== */

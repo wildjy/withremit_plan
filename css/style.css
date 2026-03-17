@@ -148,7 +148,6 @@ body {
   font-family: var(--font-family);
   font-size: var(--text-md);
   color: var(--text-heavy);
-  line-height: 1.5;
   background-color: var(--white);
   overflow-x: hidden;
 }
@@ -431,7 +430,7 @@ input[type=checkbox]:checked + .custom-check::after {
           align-items: center;
   gap: 15px;
 }
-.db-h-left .db-toggle-btn {
+.db-h-left .db-toggle-btn svg {
   color: var(--black);
 }
 
@@ -1983,7 +1982,6 @@ body.wh-full {
 .db-body .banner-content h2 {
   margin-bottom: var(--s2);
   font-size: var(--text-2xl);
-  line-height: 1.5;
 }
 .db-body .banner-content p {
   margin-top: var(--s2);
@@ -2013,6 +2011,7 @@ body.wh-full {
 @media (max-width: 1024px) {
   .banner-content p {
     margin-top: var(--s4);
+    width: 65%;
   }
   .banner-image-group {
     height: 160px;
@@ -2034,7 +2033,6 @@ body.wh-full {
   .banner-content h2 {
     margin-bottom: var(--s2);
     font-size: var(--text-2xl);
-    line-height: 1.5;
   }
   .banner-content p {
     font-size: var(--text-base);
@@ -2155,7 +2153,7 @@ body.wh-full {
   background-size: contain;
 }
 .calculator-card-box .bg-box .coin-3 {
-  bottom: -var(--s5);
+  bottom: -20px;
   right: -150px;
   width: 170px;
   height: 175px;
@@ -2192,7 +2190,7 @@ body.wh-full {
     left: -180px;
   }
   .calculator-card-box .bg-box .coin-3 {
-    bottom: -var(--s10);
+    bottom: -40px;
     right: -108px;
   }
 }
@@ -2208,7 +2206,6 @@ body.wh-full {
     right: 0;
   }
   .calculator-card-box .bg-box .coin-3 {
-    bottom: -var(--s10);
     right: -108px;
   }
 }
@@ -3882,7 +3879,6 @@ body.wh-full {
 .modal-content p {
   margin-bottom: var(--s8);
   font-size: var(--text-md);
-  line-height: 1.5;
   color: #4b5563;
   word-break: keep-all;
 }
@@ -4217,7 +4213,6 @@ body.wh-full {
   font-size: var(--s4);
   color: #6b7280;
   margin-bottom: var(--s8);
-  line-height: 1.5;
 }
 
 /* ===== end Loading Overlay & Component Styles ===== */
@@ -5283,7 +5278,6 @@ body.wh-full {
   color: var(--text-soft);
   margin-bottom: var(--s5);
   text-align: center;
-  line-height: 1.5;
 }
 
 .reg-id-cards-vertical {
@@ -9400,7 +9394,6 @@ td.center {
   text-align: center;
   font-size: var(--text-xs);
   color: #aaa;
-  line-height: 1.5;
 }
 
 @media (max-width: 1024px) {
@@ -10126,7 +10119,6 @@ td.center {
 .inquiry-info-text {
   color: #666;
   font-size: 14px;
-  line-height: 1.5;
 }
 
 .inquiry-info-text strong {

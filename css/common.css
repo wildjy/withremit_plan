@@ -337,7 +337,6 @@
 .db-body .banner-content h2 {
   margin-bottom: var(--s2);
   font-size: var(--text-2xl);
-  line-height: 1.5;
 }
 .db-body .banner-content p {
   margin-top: var(--s2);
@@ -367,6 +366,7 @@
 @media (max-width: 1024px) {
   .banner-content p {
     margin-top: var(--s4);
+    width: 65%;
   }
   .banner-image-group {
     height: 160px;
@@ -388,7 +388,6 @@
   .banner-content h2 {
     margin-bottom: var(--s2);
     font-size: var(--text-2xl);
-    line-height: 1.5;
   }
   .banner-content p {
     font-size: var(--text-base);
@@ -509,7 +508,7 @@
   background-size: contain;
 }
 .calculator-card-box .bg-box .coin-3 {
-  bottom: -var(--s5);
+  bottom: -20px;
   right: -150px;
   width: 170px;
   height: 175px;
@@ -546,7 +545,7 @@
     left: -180px;
   }
   .calculator-card-box .bg-box .coin-3 {
-    bottom: -var(--s10);
+    bottom: -40px;
     right: -108px;
   }
 }
@@ -562,7 +561,6 @@
     right: 0;
   }
   .calculator-card-box .bg-box .coin-3 {
-    bottom: -var(--s10);
     right: -108px;
   }
 }

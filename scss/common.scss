@@ -316,7 +316,7 @@
 	.banner-content h2 {
 		margin-bottom: var(--s2);
 		font-size: var(--text-2xl);
-		line-height: 1.5;
+		
 	}
 
 	.banner-content p {
@@ -354,6 +354,7 @@
 @media (max-width: 1024px) {
 	.banner-content p {
 		margin-top: var(--s4);
+		width: 65%;
 	}
 	.banner-image-group {
 		// flex: 0 0 230px;
@@ -383,7 +384,7 @@
 	.banner-content h2 {
 		margin-bottom: var(--s2);
 		font-size: var(--text-2xl);
-		line-height: 1.5;
+		
 	}
 
 	.banner-content p {
@@ -512,7 +513,7 @@
 			background-size: contain;
 		}
 		.coin-3 {
-			bottom: -var(--s5);
+			bottom: -20px;
 			right: -150px;
 			width: 170px;
 			height: 175px;
@@ -553,7 +554,7 @@
 				left: -180px;
 			}
 			.coin-3 {
-				bottom: -var(--s10);
+				bottom: -40px;
 				right: -108px;
 			}
 		}
@@ -573,7 +574,6 @@
 			}
 
 			.coin-3 {
-				bottom: -var(--s10);
 				right: -108px;
 			}
 		}

@@ -50,7 +50,9 @@
 	align-items: center;
 	gap: 15px;
 	.db-toggle-btn {
-		color: var(--black);
+		svg {
+			color: var(--black);
+		}
 	}
 }
 
