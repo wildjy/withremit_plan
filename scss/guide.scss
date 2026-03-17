@@ -1,5 +1,5 @@
 @charset "UTF-8";
-
+@use "./root";
 
 @keyframes fadeIn {
 	from {
@@ -33,33 +33,44 @@
 	color: #4A90E2;
 }
 
-.guide-list {
-	list-style: none;
-	padding-left: 0;
-}
-
-.guide-list li {
-	position: relative;
-	padding-left: var(--s5);
-	margin-bottom: 10px;
-
-}
-
-.guide-list li::before {
-	content: '•';
-	position: absolute;
-	left: 0;
-	color: #4A90E2;
-	font-weight: bold;
-}
-
 .guide-note {
 	margin-top: 15px;
-	font-size: 13px;
-	color: #888;
-	background-color: #f9f9f9;
-	padding: 15px;
-	border-radius: var(--s2);
+  p {
+    display: flex;
+    align-items: center;
+    gap: var(--s2);
+    color: var(--primary-heavy);
+    font-weight: 600;
+    & ~ .guide-list {
+      margin-top: var(--s4);
+    }
+
+    &:before {
+      content: '';
+      background-image: var(--icon-info-navy);
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: var(--s5);
+      height: var(--s5);
+      aspect-ratio: 1/1;
+    }
+  }
+}
+
+.guide-list {
+	padding-left: 0;
+  li {
+    position: relative;
+    padding-left: var(--s5);
+    color: var(--text-default);
+    &::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--text-default);
+      font-weight: bold;
+    }
+  }
 }
 
 .guide-highlight {
@@ -436,6 +447,7 @@
       align-items: center;
       gap: var(--s2);
       color: var(--text-default);
+       font-weight: 500;
     }
     p {
       margin-top: var(--s4-18);
@@ -445,6 +457,7 @@
       span {
         font-size: var(--text-md);
         color: var(--text-default);
+        font-weight: 500;
       }
     }
   }
@@ -504,18 +517,24 @@
 
 .section-header {
   text-align: center;
+  &:not(:has(p.guide-text)) {
+    margin-bottom: var(--s6);
+  }
   h3 {
-    margin-bottom: var(--s2);
     font-size: var(--text-2xl);
     font-weight: 700;
     color: var(--neutral-heavy);
+    &:not(:has(p.guide-text)) {
+      margin-bottom: 0;
+    }
     & ~ p.guide-text {
-      margin-top: 0;
+      margin-top: var(--s2);
       margin-bottom: var(--s6);
       font-size: var(--text-sm);
     }
   }
 }
+
 .guide-text {
   margin-top: var(--s6);
   font-size: var(--text-md);
@@ -524,6 +543,12 @@
   strong {
     color: var(--text-strong);
   }
+}
+
+@media (max-width: 768px) {
+  .guide-text {
+    text-align: left;
+}
 }
 
 .section-icon {
@@ -602,6 +627,7 @@
     grid-template-columns: auto 1fr;
     grid-template-rows: auto auto;
     column-gap: var(--s5);
+    align-items: start;
     padding: var(--s6);
     text-align: left;
   }

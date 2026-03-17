@@ -1455,7 +1455,7 @@ window.initCouponList = function () {
         const tr = document.createElement('tr');
         tr.dataset.couponId = coupon.id;
         tr.innerHTML = `
-            <td data-label='번호' data-i18n="">${index + 1}</td>
+            <td data-label='번호' data-i18n="">${couponItems.length - index}</td>
             <td data-label='쿠폰명' data-i18n="">${coupon.name || ''}</td>
             <td data-label='혜택' data-i18n="">${coupon.benefit || ''}</td>
             <td data-label='유효기간' data-i18n="">${coupon.validUntil || ''}</td>

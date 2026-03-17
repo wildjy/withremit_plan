@@ -49,6 +49,9 @@
 	display: flex;
 	align-items: center;
 	gap: 15px;
+	.db-toggle-btn {
+		color: var(--black);
+	}
 }
 
 .nav {
