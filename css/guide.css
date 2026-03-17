@@ -47,12 +47,6 @@
   color: #4A90E2;
 }
 
-.guide-text {
-  line-height: 1.7;
-  color: #555;
-  margin-bottom: 15px;
-}
-
 .guide-list {
   list-style: none;
   padding-left: 0;
@@ -62,7 +56,6 @@
   position: relative;
   padding-left: var(--s5);
   margin-bottom: 10px;
-  line-height: 1.6;
 }
 
 .guide-list li::before {
@@ -83,7 +76,7 @@
 }
 
 .guide-highlight {
-  color: #4A90E2;
+  color: var(--primary-default);
   font-weight: 600;
 }
 
@@ -273,7 +266,6 @@
 
 .feature-desc {
   font-size: 15px;
-  line-height: 1.6;
   color: #666;
   text-align: left;
 }
@@ -367,42 +359,33 @@
   margin-top: var(--s5);
   padding-bottom: var(--s5);
 }
-
 .guide-countries-grid .country-card {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  padding: 30px var(--s5);
-  gap: 15px;
-  -webkit-box-shadow: 0 var(--s1) var(--s3) rgba(0, 0, 0, 0.04);
-          box-shadow: 0 var(--s1) var(--s3) rgba(0, 0, 0, 0.04);
-}
-
-.guide-countries-grid .country-card:hover {
-  -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
-  -webkit-box-shadow: 0 var(--s3) var(--s6) rgba(74, 144, 226, 0.12);
-          box-shadow: 0 var(--s3) var(--s6) rgba(74, 144, 226, 0.12);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: left;
+  padding: var(--s6);
+  gap: var(--s5);
+  background-color: #F5F7F9;
+  border-radius: var(--radius-lg);
 }
 
 .guide-countries-grid .country-flag {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 5px;
-}
-
-.guide-countries-grid .country-info h4 {
-  font-size: 1.1rem;
-  margin-bottom: 6px;
+  width: var(--s10);
+  height: var(--s10);
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
 .guide-countries-grid .country-info span {
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
+  color: var(--text-soft);
+  line-height: 1;
 }
 
 /* Responsive for Countries Grid */
@@ -471,7 +454,6 @@
 .hero-desc {
   font-size: 18px;
   color: #ffffff;
-  line-height: 1.6;
   max-width: 800px;
   margin: 0 auto;
   position: relative;
@@ -480,27 +462,61 @@
 }
 
 /* Feature Cards */
+.guide-tabs {
+  margin-bottom: var(--s12);
+}
+
 .feature-grid-new {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--s6);
   margin-bottom: var(--s10);
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: var(--border-soft);
 }
 
 .feature-grid-new.cols-3 {
   grid-template-columns: repeat(3, 1fr);
 }
 
-/* Unified Feature Card Style */
+.useRemit-grid-new {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: var(--s4);
+}
+.useRemit-grid-new > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: var(--s8);
+  border-radius: var(--radius-lg);
+  background-color: #F5F8FC;
+}
+.useRemit-grid-new > div h4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--s2);
+  color: var(--text-default);
+}
+.useRemit-grid-new > div p {
+  margin-top: var(--s4-18);
+  font-size: var(--text-2xl);
+  color: var(--text-heavy);
+  font-weight: 700;
+}
+.useRemit-grid-new > div p span {
+  font-size: var(--text-md);
+  color: var(--text-default);
+}
+
 .feature-card-new {
-  background-color: var(--white);
-  padding: 35px;
-  border-radius: var(--s6);
-  border: 1px solid #f1f5f9;
-  -webkit-box-shadow: var(--card-shadow);
-          box-shadow: var(--card-shadow);
-  -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -508,25 +524,19 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  padding: var(--s12) var(--s10);
   height: var(--full);
-}
-
-.feature-card-new:hover {
-  -webkit-transform: translateY(-var(--s2));
-          transform: translateY(-var(--s2));
-  border-color: #00A0DC;
-  -webkit-box-shadow: 0 var(--s5) var(--s10) rgba(0, 160, 220, 0.1);
-          box-shadow: 0 var(--s5) var(--s10) rgba(0, 160, 220, 0.1);
+  background-color: var(--white);
 }
 
 .feature-icon-box {
-  width: 60px;
-  height: 60px;
-  background-color: #f0f9ff;
-  border-radius: 18px;
+  margin-bottom: var(--s8);
+  width: var(--s16);
+  height: var(--s16);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -536,30 +546,17 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-bottom: var(--s6);
-  color: #00A0DC;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.feature-card-new:hover .feature-icon-box {
-  background-color: #00A0DC;
-  color: var(--white);
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
 }
 
 .feature-title-new {
-  font-size: var(--s5);
+  margin-bottom: var(--s4);
+  font-size: var(--text-lg);
   font-weight: 700;
-  color: var(--neutral-heavy);
-  margin-bottom: var(--s3);
+  color: var(--text-heavy);
 }
 
 .feature-desc-new {
-  font-size: 15px;
-  color: var(--text-strong);
-  line-height: 1.6;
+  color: var(--text-default);
 }
 
 .feature-desc-new ul {
@@ -574,37 +571,38 @@
 
 /* Content Box */
 .content-box-premium {
-  background-color: var(--white);
-  border-radius: var(--s6);
-  border: 1px solid #f1f5f9;
-  padding: var(--s10);
-  -webkit-box-shadow: var(--card-shadow);
-          box-shadow: var(--card-shadow);
   margin-bottom: 30px;
+  padding: var(--s10) 0;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-soft);
+}
+.content-box-premium:last-of-type {
+  border-bottom: none;
 }
 
 .section-header {
-  margin-bottom: var(--s6);
-  padding-bottom: var(--s5);
-  border-bottom: 1px solid #f1f5f9;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: var(--s3);
+  text-align: center;
 }
-
 .section-header h3 {
-  font-size: 22px;
+  margin-bottom: var(--s2);
+  font-size: var(--text-2xl);
   font-weight: 700;
   color: var(--neutral-heavy);
-  margin: 0;
+}
+.section-header h3 ~ p.guide-text {
+  margin-top: 0;
+  margin-bottom: var(--s6);
+  font-size: var(--text-sm);
+}
+
+.guide-text {
+  margin-top: var(--s6);
+  font-size: var(--text-md);
+  color: var(--text-default);
   text-align: center;
+}
+.guide-text strong {
+  color: var(--text-strong);
 }
 
 .section-icon {
@@ -614,100 +612,30 @@
 /* Country Grid */
 .guide-countries-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--s5);
-}
-
-.country-card {
-  background-color: var(--white);
-  border: 1px solid #f1f5f9;
-  -webkit-box-shadow: var(--card-shadow);
-          box-shadow: var(--card-shadow);
-  border-radius: var(--s4);
-  padding: var(--s5);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: var(--s4);
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.country-card:hover {
-  -webkit-transform: translateY(-var(--s1));
-          transform: translateY(-var(--s1));
-  border-color: #00A0DC;
-}
-
-.country-flag {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border: 1px solid #f1f5f9;
-}
-
-.country-info h4 {
-  font-size: var(--s4);
-  font-weight: 700;
-  color: var(--neutral-heavy);
-  margin-bottom: var(--s1);
-}
-
-.country-info span {
-  font-size: 13px;
-  color: var(--text-strong);
-  font-weight: 500;
 }
 
 /* Premium Table */
 .premium-table {
-  width: var(--full);
-  border-collapse: separate;
-  border-spacing: 0;
-  border-radius: var(--s3);
-  overflow: hidden;
-  border: 1px solid #e2e8f0;
+  text-align: center;
 }
 
-.premium-table th {
-  background-color: #f8fafc;
-  padding: var(--s4);
-  text-align: left;
-  font-weight: 600;
-  color: #475569;
-  border-bottom: 1px solid #e2e8f0;
-}
-
+.premium-table th,
 .premium-table td {
-  padding: var(--s4);
-  border-bottom: 1px solid #e2e8f0;
-  color: #333;
-  font-size: 15px;
-}
-
-.premium-table tr:last-child td {
-  border-bottom: none;
-}
-
-.premium-table tr:hover td {
-  background-color: #f8fafc;
+  font-size: var(--text-md);
 }
 
 /* Responsiveness */
 /* Default for > 767px is 3 columns for .cols-3 (defined in base styles) */
 /* Mobile Styles (Max-width 767px - strictly below 768px) */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .feature-grid-new,
   .feature-grid-new.cols-3 {
     grid-template-columns: 1fr;
   }
   .guide-countries-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
   /* Mobile Horizontal Layout for Feature Cards */
   .feature-card-new {
@@ -718,9 +646,7 @@
        -moz-column-gap: var(--s5);
             column-gap: var(--s5);
     padding: var(--s6);
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: start;
+    text-align: left;
   }
   .feature-icon-box {
     grid-row: 1/span 2;
@@ -749,6 +675,16 @@
   }
   .hero-desc {
     font-size: 15px;
+  }
+  .useRemit-grid-new {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: var(--s5);
+  }
+  .useRemit-grid-new > div {
+    width: 100%;
   }
 }
 @media (max-width: 480px) {
