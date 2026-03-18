@@ -451,8 +451,19 @@
 
     .grid-info-card {
       padding: var(--s6);
+      &:last-child {
+        margin-right: -1px;
+      }
       .icon-box {
         margin-bottom: 0;
+      }
+    }
+  }
+
+  &.join-guide {
+    .grid-info-card {
+      h4 {
+        margin-top: var(--s8);
       }
     }
   }
@@ -468,6 +479,7 @@
   padding: var(--s12) var(--s6);
   height: var(--full);
   background-color: var(--white);
+
   .icon-box {
     margin-bottom: var(--s8);
     width: var(--s16);
@@ -476,7 +488,7 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   h4 {
     margin-bottom: var(--s4);
     font-size: var(--text-lg);
@@ -495,24 +507,60 @@
   p {
     color: var(--text-default);
   }
+
+  ul {
+    li {
+      display: flex;
+      align-items: center;
+      gap: var(--s2);
+      font-size: var(--text-sm);
+      color: var(--text-default);
+      line-height: 1.57;
+      &::before {
+        content: '•';
+      }
+    }
+  }
 }
 
 @media (max-width: 768px) {
   .grid-info-card {
-    h4 strong { 
+    h4 strong {
         margin-top: 0;
     }
   }
 }
 
 .info-grid {
+	margin-bottom: var(--s6);
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: var(--s5);
-	margin-bottom: 60px;
+  &.col-1 {
+	  grid-template-columns: repeat(1, 1fr);
+  }
+  &.join-guide {
+    > div {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto;
+      column-gap: var(--s5);
+      padding: var(--s8);
+      align-items: start;
+      text-align: left;
+      .icon-box {
+        grid-row: 1 / span 2;
+        margin-bottom: 0;
+        width: 48px;
+        height: 48px;
+        border-radius: var(--s3);
+      }
+    }
+  }
   > div {
     display: flex;
     align-items: center;
+    align-content: center;
     padding: var(--s6);
     gap: var(--s5);
     background-color: var(--bg-default);
@@ -586,10 +634,13 @@
 
 /* Content Box */
 .content-box-premium {
-  margin-bottom: 30px;
+  margin-bottom: var(--s8);
   padding: var(--s10) 0;
   background-color: var(--white);
   border-bottom: 1px solid var(--border-soft);
+  &:first-of-type {
+    padding-top: 0;
+  }
   &:last-of-type {
     border-bottom: none;
   }
@@ -602,12 +653,12 @@
 
 .section-header {
   text-align: center;
-  &:not(:has(p.guide-text)) {
+  &:not(:has(.guide-text)) {
     margin-bottom: var(--s6);
   }
   &.company {
-    margin-top: var(--s4); 
-    &:not(:has(p.guide-text)) {
+    margin-top: var(--s4);
+    &:not(:has(.guide-text)) {
       margin-bottom: var(--s8);
     }
   }
@@ -615,11 +666,11 @@
     font-size: var(--text-2xl);
     font-weight: 700;
     color: var(--neutral-heavy);
-    &:not(:has(p.guide-text)) {
+    &:not(:has(.guide-text)) {
       margin-bottom: 0;
     }
-    & ~ p.guide-text {
-      margin-top: var(--s2);
+    & ~ .guide-text {
+      // margin-top: var(--s2);
       margin-bottom: var(--s6);
       font-size: var(--text-sm);
     }
@@ -759,9 +810,25 @@
 }
 
 @media (max-width: 768px) {
+	.value-grid,
+  .info-grid,
+  .info-grid.join-guide,
+  .contact-grid {
+		grid-template-columns: 1fr;
+	}
+
   .grid-info-wrapper,
   .grid-info-wrapper.cols-3 {
     grid-template-columns: 1fr;
+  }
+
+  .grid-info-wrapper.join-guide {
+    margin-bottom: 0;
+    .grid-info-card {
+      h4 {
+        margin-top: 0;
+      }
+    }
   }
   .guide-countries-grid {
     grid-template-columns: repeat(1, 1fr);
@@ -778,7 +845,8 @@
     text-align: left;
   }
 
-  .info-grid > div {
+  .info-grid > div,
+  .info-grid.join-guide > div {
     grid-template-rows: auto;
   }
 
@@ -833,15 +901,15 @@
 }
 
 /* Override styles for cards inside content-box-premium (no icons, subtle design) */
-.content-box-premium .grid-info-card {
-  box-shadow: none;
-  border: none;
-  background-color: #f8fafc;
-}
+// .content-box-premium .grid-info-card {
+//   box-shadow: none;
+//   border: none;
+//   background-color: #f8fafc;
+// }
 
-.content-box-premium .grid-info-card:hover {
-  transform: translateY(-2px);
-  box-shadow: none;
-  background-color: #f1f5f9;
-  border: none;
-}
+// .content-box-premium .grid-info-card:hover {
+//   transform: translateY(-2px);
+//   box-shadow: none;
+//   background-color: #f1f5f9;
+//   border: none;
+// }

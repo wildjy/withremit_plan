@@ -204,11 +204,6 @@
   .hero-description {
     font-size: var(--s4);
   }
-  .value-grid,
-  .info-grid,
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
   .center-card-header {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

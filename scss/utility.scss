@@ -195,12 +195,6 @@
 		font-size: var(--s4);
 	}
 
-	.value-grid,
-  .info-grid,
-  .contact-grid {
-		grid-template-columns: 1fr;
-	}
-
 	.center-card-header {
 		flex-direction: column;
 		gap: var(--s5);

@@ -629,8 +629,14 @@
 .grid-info-wrapper.cols-3 .grid-info-card {
   padding: var(--s6);
 }
+.grid-info-wrapper.cols-3 .grid-info-card:last-child {
+  margin-right: -1px;
+}
 .grid-info-wrapper.cols-3 .grid-info-card .icon-box {
   margin-bottom: 0;
+}
+.grid-info-wrapper.join-guide .grid-info-card h4 {
+  margin-top: var(--s8);
 }
 
 .grid-info-card {
@@ -684,6 +690,21 @@
 .grid-info-card p {
   color: var(--text-default);
 }
+.grid-info-card ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--s2);
+  font-size: var(--text-sm);
+  color: var(--text-default);
+  line-height: 1.57;
+}
+.grid-info-card ul li::before {
+  content: "•";
+}
 
 @media (max-width: 768px) {
   .grid-info-card h4 strong {
@@ -691,10 +712,33 @@
   }
 }
 .info-grid {
+  margin-bottom: var(--s6);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--s5);
-  margin-bottom: 60px;
+}
+.info-grid.col-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+.info-grid.join-guide > div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+  -webkit-column-gap: var(--s5);
+     -moz-column-gap: var(--s5);
+          column-gap: var(--s5);
+  padding: var(--s8);
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  text-align: left;
+}
+.info-grid.join-guide > div .icon-box {
+  grid-row: 1/span 2;
+  margin-bottom: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--s3);
 }
 .info-grid > div {
   display: -webkit-box;
@@ -703,6 +747,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   padding: var(--s6);
   gap: var(--s5);
   background-color: var(--bg-default);
@@ -786,10 +832,13 @@
 
 /* Content Box */
 .content-box-premium {
-  margin-bottom: 30px;
+  margin-bottom: var(--s8);
   padding: var(--s10) 0;
   background-color: var(--white);
   border-bottom: 1px solid var(--border-soft);
+}
+.content-box-premium:first-of-type {
+  padding-top: 0;
 }
 .content-box-premium:last-of-type {
   border-bottom: none;
@@ -801,13 +850,13 @@
 .section-header {
   text-align: center;
 }
-.section-header:not(:has(p.guide-text)) {
+.section-header:not(:has(.guide-text)) {
   margin-bottom: var(--s6);
 }
 .section-header.company {
   margin-top: var(--s4);
 }
-.section-header.company:not(:has(p.guide-text)) {
+.section-header.company:not(:has(.guide-text)) {
   margin-bottom: var(--s8);
 }
 .section-header h3 {
@@ -815,11 +864,10 @@
   font-weight: 700;
   color: var(--neutral-heavy);
 }
-.section-header h3:not(:has(p.guide-text)) {
+.section-header h3:not(:has(.guide-text)) {
   margin-bottom: 0;
 }
-.section-header h3 ~ p.guide-text {
-  margin-top: var(--s2);
+.section-header h3 ~ .guide-text {
   margin-bottom: var(--s6);
   font-size: var(--text-sm);
 }
@@ -977,9 +1025,21 @@
 }
 
 @media (max-width: 768px) {
+  .value-grid,
+  .info-grid,
+  .info-grid.join-guide,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
   .grid-info-wrapper,
   .grid-info-wrapper.cols-3 {
     grid-template-columns: 1fr;
+  }
+  .grid-info-wrapper.join-guide {
+    margin-bottom: 0;
+  }
+  .grid-info-wrapper.join-guide .grid-info-card h4 {
+    margin-top: 0;
   }
   .guide-countries-grid {
     grid-template-columns: repeat(1, 1fr);
@@ -999,7 +1059,8 @@
     padding: var(--s6);
     text-align: left;
   }
-  .info-grid > div {
+  .info-grid > div,
+  .info-grid.join-guide > div {
     grid-template-rows: auto;
   }
   .icon-box {
@@ -1049,18 +1110,3 @@
   }
 }
 /* Override styles for cards inside content-box-premium (no icons, subtle design) */
-.content-box-premium .grid-info-card {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  border: none;
-  background-color: #f8fafc;
-}
-
-.content-box-premium .grid-info-card:hover {
-  -webkit-transform: translateY(-2px);
-          transform: translateY(-2px);
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  background-color: #f1f5f9;
-  border: none;
-}
