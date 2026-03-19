@@ -32,7 +32,7 @@
   --bg-default: #F5F8FC;
   --bg-soft: #F8FBFD;
   --bg-positive: #D9F3EB;
-  --bg-negative: #FFF3F3;
+  --bg-negative: #FFF3F3 ;
   --bg-success: #E8F4FF;
   --text-default: var(--neutral-default);
   --text-soft: var(--neutral-soft);

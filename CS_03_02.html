@@ -80,53 +80,8 @@
                                     <th>상태</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr onclick="location.href='CS_03_03.html'" style="cursor: pointer;">
-                                    <td class="td-num" data-label="번호">3</td>
-                                    <td class="notice-title" data-label="제목"><a href="CS_03_03.html">송금 완료까지 얼마나
-                                            걸리나요?</a></td>
-                                    <td data-label="등록일">2026.01.26</td>
-                                    <td data-label="상태">
-                                        <span class="badge-status pending">
-                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-                                                stroke="currentColor" stroke-width="2">
-                                                <circle cx="12" cy="12" r="10"></circle>
-                                                <polyline points="12 6 12 12 16 14"></polyline>
-                                            </svg>
-                                            처리중
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr onclick="location.href='CS_03_03.html'" style="cursor: pointer;">
-                                    <td class="td-num" data-label="번호">2</td>
-                                    <td class="notice-title" data-label="제목"><a href="CS_03_03.html">회원 탈퇴는 어떻게 하나요?</a>
-                                    </td>
-                                    <td data-label="등록일">2026.01.25</td>
-                                    <td data-label="상태">
-                                        <span class="badge-status completed">
-                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-                                                stroke="currentColor" stroke-width="2">
-                                                <polyline points="20 6 9 17 4 12"></polyline>
-                                            </svg>
-                                            답변 완료
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr onclick="location.href='CS_03_03.html'" style="cursor: pointer;">
-                                    <td class="td-num" data-label="번호">1</td>
-                                    <td class="notice-title" data-label="제목"><a href="CS_03_03.html">이메일 변경 문의드립니다.</a>
-                                    </td>
-                                    <td data-label="등록일">2026.01.20</td>
-                                    <td data-label="상태">
-                                        <span class="badge-status completed">
-                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-                                                stroke="currentColor" stroke-width="2">
-                                                <polyline points="20 6 9 17 4 12"></polyline>
-                                            </svg>
-                                            답변 완료
-                                        </span>
-                                    </td>
-                                </tr>
+                            <tbody id="inquiryTableBody">
+                                <!-- 동적 생성: renderInquiryList() -->
                             </tbody>
                         </table>
 

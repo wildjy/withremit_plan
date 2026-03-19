@@ -266,3 +266,31 @@ window.bankAccountData = [
     disabled: false
   }
 ];
+
+// 1:1 문의 데이터 (CS_03_02)
+window.inquiryData = [
+  {
+    id: 3,
+    title: '송금 완료까지 얼마나 걸리나요?',
+    date: '2026.01.26',
+    status: 'inquiry_pending',
+    statusText: '처리중',
+    link: 'CS_03_03.html'
+  },
+  {
+    id: 2,
+    title: '회원 탈퇴는 어떻게 하나요?',
+    date: '2026.01.25',
+    status: 'inquiry_completed',
+    statusText: '등록완료',
+    link: 'CS_03_03.html'
+  },
+  {
+    id: 1,
+    title: '이메일 변경 문의드립니다.',
+    date: '2026.01.20',
+    status: 'inquiry_completed',
+    statusText: '등록완료',
+    link: 'CS_03_03.html'
+  }
+];

@@ -24,6 +24,8 @@ const contents = document.querySelectorAll('.tab-content');
 // failed - 거래 실패,
 // pending - 거래 보류
 // cancel - 거래취소
+// inquiry_pending - 처리중
+// inquiry_completed - 답변완료
 function getStatusSVG(status) {
     const svgs = {
         // HI_01_01, HI_01_03
@@ -42,6 +44,11 @@ function getStatusSVG(status) {
         paused: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
         active: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
         // stop: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>'
+
+        // CS_03_02 status icons
+        inquiry_pending: '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.00016 1.33333C4.32683 1.33333 1.3335 4.32666 1.3335 7.99999C1.3335 11.6733 4.32683 14.6667 8.00016 14.6667C11.6735 14.6667 14.6668 11.6733 14.6668 7.99999C14.6668 4.32666 11.6735 1.33333 8.00016 1.33333ZM11.1868 6.46666L7.40683 10.2467C7.3135 10.34 7.18683 10.3933 7.0535 10.3933C6.92016 10.3933 6.7935 10.34 6.70016 10.2467L4.8135 8.35999C4.62016 8.16666 4.62016 7.84666 4.8135 7.65333C5.00683 7.45999 5.32683 7.45999 5.52016 7.65333L7.0535 9.18666L10.4802 5.75999C10.6735 5.56666 10.9935 5.56666 11.1868 5.75999C11.3802 5.95333 11.3802 6.26666 11.1868 6.46666Z" fill="#059669"/></svg>',
+        inquiry_completed: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8.00016 1.33333C4.32683 1.33333 1.3335 4.32666 1.3335 7.99999C1.3335 11.6733 4.32683 14.6667 8.00016 14.6667C11.6735 14.6667 14.6668 11.6733 14.6668 7.99999C14.6668 4.32666 11.6735 1.33333 8.00016 1.33333ZM11.1868 6.46666L7.40683 10.2467C7.3135 10.34 7.18683 10.3933 7.0535 10.3933C6.92016 10.3933 6.7935 10.34 6.70016 10.2467L4.8135 8.35999C4.62016 8.16666 4.62016 7.84666 4.8135 7.65333C5.00683 7.45999 5.32683 7.45999 5.52016 7.65333L7.0535 9.18666L10.4802 5.75999C10.6735 5.56666 10.9935 5.56666 11.1868 5.75999C11.3802 5.95333 11.3802 6.26666 11.1868 6.46666Z" fill="#4A5C64"/></svg>',
+
         // AC_02_03, AC_02_04 status icons
         available: '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.66667 0C2.99333 0 0 2.99333 0 6.66667C0 10.34 2.99333 13.3333 6.66667 13.3333C10.34 13.3333 13.3333 10.34 13.3333 6.66667C13.3333 2.99333 10.34 0 6.66667 0ZM9.85333 5.13333L6.07333 8.91333C5.98 9.00667 5.85333 9.06 5.72 9.06C5.58667 9.06 5.46 9.00667 5.36667 8.91333L3.48 7.02667C3.28667 6.83333 3.28667 6.51333 3.48 6.32C3.67333 6.12667 3.99333 6.12667 4.18667 6.32L5.72 7.85333L9.14667 4.42667C9.34 4.23333 9.66 4.23333 9.85333 4.42667C10.0467 4.62 10.0467 4.93333 9.85333 5.13333Z" fill="#059669"/></svg>',
         unavailable: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8.00016 1.33333C4.32683 1.33333 1.3335 4.32666 1.3335 7.99999C1.3335 11.6733 4.32683 14.6667 8.00016 14.6667C11.6735 14.6667 14.6668 11.6733 14.6668 7.99999C14.6668 4.32666 11.6735 1.33333 8.00016 1.33333ZM10.2402 9.53333C10.4335 9.72666 10.4335 10.0467 10.2402 10.24C10.1402 10.34 10.0135 10.3867 9.88683 10.3867C9.76016 10.3867 9.6335 10.34 9.5335 10.24L8.00016 8.70666L6.46683 10.24C6.36683 10.34 6.24016 10.3867 6.1135 10.3867C5.98683 10.3867 5.86016 10.34 5.76016 10.24C5.56683 10.0467 5.56683 9.72666 5.76016 9.53333L7.2935 7.99999L5.76016 6.46666C5.56683 6.27333 5.56683 5.95333 5.76016 5.75999C5.9535 5.56666 6.2735 5.56666 6.46683 5.75999L8.00016 7.29333L9.5335 5.75999C9.72683 5.56666 10.0468 5.56666 10.2402 5.75999C10.4335 5.95333 10.4335 6.27333 10.2402 6.46666L8.70683 7.99999L10.2402 9.53333Z" fill="#EF4444"/></svg>'
@@ -1799,7 +1806,7 @@ function renderCards(mode) {
             <div class="remit-card-header">
                 <span class="remit-card-receipt-num">${data.receiptNum}</span>
                 <span class="remit-card-date">${data.date}</span>
-                <button class="remit-card-view-btn" onclick="openDetailModal(${index}, '${mode}')">
+                <button class="btn btn-text" onclick="openDetailModal(${index}, '${mode}')">
                     내역 보기
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="9 18 15 12 9 6"></polyline>
@@ -1957,3 +1964,32 @@ function openDetailModal(index, mode) {
 
     modal.classList.add('active');
 }
+
+// ===== 1:1 문의 목록 렌더링 (CS_03_02) =====
+function renderInquiryList() {
+    const inquiryData = window.inquiryData || [];
+    const tbody = document.getElementById('inquiryTableBody');
+    if (!tbody) return;
+
+    const countEl = document.querySelector('.db-total-count strong');
+    if (countEl) countEl.textContent = inquiryData.length;
+
+    tbody.innerHTML = inquiryData.map(item => {
+        return `
+        <tr onclick="location.href='${item.link}'">
+            <td class="td-num" data-label="번호">${item.id}</td>
+            <td class="notice-title" data-label="제목"><a href="${item.link}">${item.title}</a></td>
+            <td data-label="등록일">${item.date}</td>
+            <td data-label="상태">
+                <div class="remit-card-status-wrapper">
+                    <span class="remit-status status-${item.status}">
+                        ${getStatusSVG(item.status)}
+                        ${item.statusText}
+                    </span>
+                </div>
+            </td>
+        </tr>`;
+    }).join('');
+}
+
+document.addEventListener('DOMContentLoaded', renderInquiryList);

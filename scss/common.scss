@@ -9,11 +9,12 @@
 
 .field-info,
 .field-error {
-	margin-top: var(--s1-6);
+	margin-top: var(--s2);
 	display: block;
 	padding-left: var(--s5);
 	font-size: var(--text-xs);
 	font-weight: 500;
+	line-height: 1.5;
 	background-repeat: no-repeat;
 	background-size: var(--s4) var(--s4);
 	background-position: 0 0;
@@ -316,7 +317,7 @@
 	.banner-content h2 {
 		margin-bottom: var(--s2);
 		font-size: var(--text-2xl);
-		
+
 	}
 
 	.banner-content p {
@@ -384,7 +385,7 @@
 	.banner-content h2 {
 		margin-bottom: var(--s2);
 		font-size: var(--text-2xl);
-		
+
 	}
 
 	.banner-content p {

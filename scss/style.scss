@@ -442,8 +442,8 @@
 	justify-content: space-between;
 	align-items: flex-start;
 	gap: var(--s5);
-	background-color: #f8f9fa;
 	padding: var(--s5);
+	background-color: var(--bg-default);
 	border-radius: var(--s2);
 }
 
@@ -487,34 +487,15 @@
 
 /* Detail Toggle Button - No background, minimal padding with hover on text and icon */
 .remit-detail-toggle-btn {
-	display: flex;
-	align-items: center;
-	gap: 6px;
-	padding: 2px 0;
-	background-color: transparent;
-	border: none;
-	font-size: var(--text-sm);
-	font-weight: 500;
-	color: var(--text-heavy);
-	cursor: pointer;
+	padding-inline: 0;
 	transition: all 0.2s;
-	white-space: nowrap;
-	&:hover {
-		color: var(--primary-default);
-		svg {
-			color: var(--primary-default);
-		}
-	}
-
 	&.active {
-		color: var(--primary-default);
 		.toggle-arrow {
 			transform: rotate(180deg);
 		}
 	}
 	.toggle-arrow {
 		transition: transform 0.3s;
-		color: inherit;
 	}
 }
 
@@ -994,10 +975,10 @@
 }
 
 .notice-detail-title {
-	font-size: 1.5rem;
+	margin: var(--s4) 0;
+	font-size: var(--text-2xl);
 	font-weight: 700;
 	color: var(--text-heavy);
-	margin-bottom: var(--s4);
 	line-height: 1.4;
 }
 
@@ -1115,6 +1096,15 @@
 .notice-detail-footer .btn {
 	min-width: 120px;
 	padding: 10px var(--s6);
+}
+
+.inquiry-reply-section{
+	padding: var(--s6);
+	background-color: var(--bg-default);
+	border-radius: var(--radius-lg);
+	.reply-title {
+		margin-bottom: var(--s3);
+	}
 }
 
 @media (max-width: 768px) {
@@ -1499,8 +1489,12 @@
 
 @media (max-width: 480px) {
 	.limit-info-grid {
-		gap: var(--s2);
 		margin-bottom: var(--s3);
+		gap: var(--s4);
+	}
+
+	.limit-info-item {
+		border-radius: var(--radius-lg);
 	}
 
 	.limit-info-item .limit-label {
@@ -1564,6 +1558,11 @@
 	gap: var(--s3);
 	padding-bottom: var(--s3);
 	border-bottom: 1px solid var(--border-default);
+
+	.btn.btn-text {
+		margin-left: auto;
+		padding-inline: 0;
+	}
 }
 
 .remit-card-receipt-num {
@@ -1792,10 +1791,10 @@
 }
 
 .receipt-total-section {
-	background-color: var(--bg-light);
-	padding: var(--s5);
-	border-radius: var(--s3);
 	margin-top: var(--s5);
+	padding: var(--s5);
+	background-color: var(--bg-default);
+	border-radius: var(--s3);
 }
 
 .receipt-total-row {
@@ -1821,7 +1820,7 @@
 	text-align: center;
 	font-size: var(--text-xs);
 	color: #aaa;
-	
+
 }
 
 @media (max-width: 1024px){
@@ -2532,7 +2531,7 @@
 .inquiry-info-text {
 	color: #666;
 	font-size: 14px;
-	
+
 }
 
 .inquiry-info-text strong {

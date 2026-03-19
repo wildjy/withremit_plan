@@ -42,7 +42,7 @@
   --bg-default: #F5F8FC;
   --bg-soft: #F8FBFD;
   --bg-positive: #D9F3EB;
-  --bg-negative: #FFF3F3;
+  --bg-negative: #FFF3F3 ;
   --bg-success: #E8F4FF;
   --text-default: var(--neutral-default);
   --text-soft: var(--neutral-soft);
@@ -1647,11 +1647,12 @@ body.wh-full {
 /* Date Picker Custom Style */
 .field-info,
 .field-error {
-  margin-top: var(--s1-6);
+  margin-top: var(--s2);
   display: block;
   padding-left: var(--s5);
   font-size: var(--text-xs);
   font-weight: 500;
+  line-height: 1.5;
   background-repeat: no-repeat;
   background-size: var(--s4) var(--s4);
   background-position: 0 0;
@@ -3353,11 +3354,11 @@ body.wh-full {
 
 .btn-kakao {
   background-color: #fee500;
-  color: var(--white);
+  color: var(--black);
 }
 
 .btn-kakao {
-  color: var(--white);
+  color: var(--black);
 }
 
 .btn-facebook {
@@ -3384,7 +3385,7 @@ body.wh-full {
   min-width: 96px;
 }
 
-.remit-card-status-wrapper .remit-status {
+.remit-status {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3496,6 +3497,16 @@ body.wh-full {
 .remit-status.status-unavailable {
   color: var(--status-unverified);
   background-color: var(--bg-negative);
+}
+
+.remit-status.status-inquiry_pending {
+  color: var(--status-processing);
+  background-color: var(--bg-positive);
+}
+
+.remit-status.status-inquiry_completed {
+  color: var(--status-cancel);
+  background-color: var(--bg-default);
 }
 
 .modal-overlay .remit-status {
@@ -3667,7 +3678,7 @@ body.wh-full {
           justify-content: space-between;
   padding: 0 var(--s4);
   width: var(--full);
-  height: 52px;
+  height: var(--s15);
   font-size: var(--text-md);
   color: var(--text-default);
   font-weight: 600;
@@ -4503,9 +4514,9 @@ body.wh-full {
   gap: var(--s2);
   padding: var(--s4);
   font-size: var(--text-sm);
-  color: var(--primary-default);
+  color: var(--primary-heavy);
   text-align: left;
-  background-color: #E8F1F8;
+  background-color: var(--bg-default);
   border-radius: var(--s2);
 }
 
@@ -5678,7 +5689,7 @@ body.wh-full {
   height: var(--full);
   padding: 0 var(--s5);
   color: var(--primary-default);
-  font-size: 13px;
+  font-size: var(--text-sm);
   font-weight: 600;
   background-color: var(--white);
   border: 1px solid var(--border-default);
@@ -5700,7 +5711,7 @@ body.wh-full {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--s3) var(--s4);
-  background-color: var(--bg-light);
+  background-color: var(--bg-default);
   padding: var(--s6);
   border-radius: var(--s3);
   border-top: none !important;
@@ -5924,7 +5935,7 @@ body.wh-full {
     border-color: #ffe3e3 !important;
   }
   .purpose-grid-full {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
   }
 }
 @media (max-width: 480px) {
@@ -5987,9 +5998,6 @@ body.wh-full {
     height: 44px !important;
     background-color: #fff5f5 !important;
     border-color: #ffe3e3 !important;
-  }
-  .purpose-grid-full {
-    grid-template-columns: 1fr !important;
   }
 }
 /* Drag & Drop 영역 */
@@ -7811,8 +7819,8 @@ td.center {
       -ms-flex-align: start;
           align-items: flex-start;
   gap: var(--s5);
-  background-color: #f8f9fa;
   padding: var(--s5);
+  background-color: var(--bg-default);
   border-radius: var(--s2);
 }
 
@@ -7883,32 +7891,9 @@ td.center {
 
 /* Detail Toggle Button - No background, minimal padding with hover on text and icon */
 .remit-detail-toggle-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 6px;
-  padding: 2px 0;
-  background-color: transparent;
-  border: none;
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--text-heavy);
-  cursor: pointer;
+  padding-inline: 0;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  white-space: nowrap;
-}
-.remit-detail-toggle-btn:hover {
-  color: var(--primary-default);
-}
-.remit-detail-toggle-btn:hover svg {
-  color: var(--primary-default);
-}
-.remit-detail-toggle-btn.active {
-  color: var(--primary-default);
 }
 .remit-detail-toggle-btn.active .toggle-arrow {
   -webkit-transform: rotate(180deg);
@@ -7919,7 +7904,6 @@ td.center {
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
-  color: inherit;
 }
 
 /* Detail Search Section (Collapsible) */
@@ -8450,10 +8434,10 @@ td.center {
 }
 
 .notice-detail-title {
-  font-size: 1.5rem;
+  margin: var(--s4) 0;
+  font-size: var(--text-2xl);
   font-weight: 700;
   color: var(--text-heavy);
-  margin-bottom: var(--s4);
   line-height: 1.4;
 }
 
@@ -8598,6 +8582,15 @@ td.center {
 .notice-detail-footer .btn {
   min-width: 120px;
   padding: 10px var(--s6);
+}
+
+.inquiry-reply-section {
+  padding: var(--s6);
+  background-color: var(--bg-default);
+  border-radius: var(--radius-lg);
+}
+.inquiry-reply-section .reply-title {
+  margin-bottom: var(--s3);
 }
 
 @media (max-width: 768px) {
@@ -8997,8 +8990,11 @@ td.center {
 }
 @media (max-width: 480px) {
   .limit-info-grid {
-    gap: var(--s2);
     margin-bottom: var(--s3);
+    gap: var(--s4);
+  }
+  .limit-info-item {
+    border-radius: var(--radius-lg);
   }
   .limit-info-item .limit-label {
     font-size: 0.7rem;
@@ -9076,6 +9072,10 @@ td.center {
   gap: var(--s3);
   padding-bottom: var(--s3);
   border-bottom: 1px solid var(--border-default);
+}
+.remit-card-header .btn.btn-text {
+  margin-left: auto;
+  padding-inline: 0;
 }
 
 .remit-card-receipt-num {
@@ -9359,10 +9359,10 @@ td.center {
 }
 
 .receipt-total-section {
-  background-color: var(--bg-light);
-  padding: var(--s5);
-  border-radius: var(--s3);
   margin-top: var(--s5);
+  padding: var(--s5);
+  background-color: var(--bg-default);
+  border-radius: var(--s3);
 }
 
 .receipt-total-row {

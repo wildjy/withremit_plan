@@ -7,7 +7,7 @@
 	min-width: 96px;
 }
 
-.remit-card-status-wrapper .remit-status {
+.remit-status {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -107,6 +107,16 @@
 .remit-status.status-unavailable {
 	color: var(--status-unverified);
 	background-color: var(--bg-negative);
+}
+
+.remit-status.status-inquiry_pending {
+	color: var(--status-processing);
+	background-color: var(--bg-positive);
+}
+
+.remit-status.status-inquiry_completed {
+	color: var(--status-cancel);
+	background-color: var(--bg-default);
 }
 
 .modal-overlay {

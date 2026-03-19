@@ -466,11 +466,11 @@
 
 .btn-kakao {
   background-color: #fee500;
-  color: var(--white);
+  color: var(--black);
 }
 
 .btn-kakao {
-  color: var(--white);
+  color: var(--black);
 }
 
 .btn-facebook {
@@ -497,7 +497,7 @@
   min-width: 96px;
 }
 
-.remit-card-status-wrapper .remit-status {
+.remit-status {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -609,6 +609,16 @@
 .remit-status.status-unavailable {
   color: var(--status-unverified);
   background-color: var(--bg-negative);
+}
+
+.remit-status.status-inquiry_pending {
+  color: var(--status-processing);
+  background-color: var(--bg-positive);
+}
+
+.remit-status.status-inquiry_completed {
+  color: var(--status-cancel);
+  background-color: var(--bg-default);
 }
 
 .modal-overlay .remit-status {
@@ -780,7 +790,7 @@
           justify-content: space-between;
   padding: 0 var(--s4);
   width: var(--full);
-  height: 52px;
+  height: var(--s15);
   font-size: var(--text-md);
   color: var(--text-default);
   font-weight: 600;
