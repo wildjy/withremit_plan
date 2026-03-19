@@ -1717,3 +1717,243 @@ function recentRemittanceList() {
 }
 
 document.addEventListener('DOMContentLoaded', recentRemittanceList);
+
+// ===== History Page Common Utilities =====
+
+// Quick date button functionality (HI_01_01, HI_02_01, HI_03_01)
+function initQuickDateButtons() {
+    const quickBtns = document.querySelectorAll('.remit-quick-btn-small');
+    const startDateInput = document.getElementById('startDate');
+    const endDateInput = document.getElementById('endDate');
+    if (!quickBtns.length || !startDateInput || !endDateInput) return;
+
+    const formatDate = (date) => {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    };
+
+    quickBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const days = parseInt(btn.getAttribute('data-days'));
+            const today = new Date();
+            if (days === 0) {
+                startDateInput.value = formatDate(today);
+                endDateInput.value = formatDate(today);
+            } else {
+                const startDate = new Date(today);
+                startDate.setDate(today.getDate() - days);
+                startDateInput.value = formatDate(startDate);
+                endDateInput.value = formatDate(today);
+            }
+        });
+    });
+}
+
+// Mobile search toggle (HI_01_01, HI_02_01, HI_03_01)
+function initMobileSearchToggle() {
+    const toggleBtn = document.getElementById('mobileSearchToggle');
+    const searchWrapper = document.querySelector('.remit-search-wrapper');
+    if (toggleBtn && searchWrapper) {
+        toggleBtn.addEventListener('click', () => {
+            toggleBtn.classList.toggle('active');
+            searchWrapper.classList.toggle('mobile-active');
+        });
+    }
+}
+
+// Detail search toggle (HI_01_01, HI_03_01)
+function initDetailSearchToggle() {
+    const detailToggleBtn = document.getElementById('detailToggleBtn');
+    const searchDetail = document.getElementById('searchDetail');
+    if (detailToggleBtn && searchDetail) {
+        detailToggleBtn.addEventListener('click', () => {
+            detailToggleBtn.classList.toggle('active');
+            searchDetail.classList.toggle('show');
+        });
+    }
+}
+
+// Render remittance cards (HI_01_01: 'send', HI_03_01: 'receive')
+function renderCards(mode) {
+    const grid = document.getElementById('remitCardGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    remittanceData.forEach((data, index) => {
+        const card = document.createElement('div');
+        card.className = 'remit-card';
+        card.onclick = (e) => {
+            if (!e.target.closest('button')) openDetailModal(index, mode);
+        };
+
+        const leftFlag = mode === 'receive'
+            ? `<img src="${data.flag}" alt="flag" class="remit-card-flag">`
+            : `<img src="images/kr.svg" alt="KR" class="remit-card-flag">`;
+        const rightFlag = mode === 'receive'
+            ? `<img src="images/kr.svg" alt="KR" class="remit-card-flag">`
+            : `<img src="${data.flag}" alt="flag" class="remit-card-flag">`;
+
+        card.innerHTML = `
+            <div class="remit-card-header">
+                <span class="remit-card-receipt-num">${data.receiptNum}</span>
+                <span class="remit-card-date">${data.date}</span>
+                <button class="remit-card-view-btn" onclick="openDetailModal(${index}, '${mode}')">
+                    내역 보기
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+            <div class="remit-card-body">
+                <div class="remit-card-col remit-card-kr-amounts">
+                    ${leftFlag}
+                    <div class="remit-card-amounts-krw">
+                        <div class="remit-card-amount-row">
+                            <span class="remit-card-amount-label">송금</span>
+                            <span class="remit-card-amount-value">${data.sendAmount}</span>
+                        </div>
+                        <div class="remit-card-amount-row">
+                            <span class="remit-card-amount-label">입금</span>
+                            <span class="remit-card-amount-value">${data.depositAmount}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="remit-card-arrow">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+                <div class="remit-card-col remit-card-receive-amount">
+                    ${rightFlag}
+                    <span class="remit-card-amount-value">${data.receiveCurrency}</span>
+                </div>
+                <div class="remit-card-col remit-card-details">
+                    <div class="remit-card-detail-row">
+                        <span class="remit-card-detail-label">이름</span>
+                        <span class="remit-card-detail-value">${data.name}</span>
+                    </div>
+                    <div class="remit-card-detail-row">
+                        <span class="remit-card-detail-label">은행명</span>
+                        <span class="remit-card-detail-value">${data.bank}</span>
+                    </div>
+                    <div class="remit-card-detail-row">
+                        <span class="remit-card-detail-label">수취일</span>
+                        <span class="remit-card-detail-value">${data.receiveDate}</span>
+                    </div>
+                </div>
+                <div class="remit-card-col remit-card-status-wrapper">
+                    <span class="remit-status status-${data.status}">
+                        ${getStatusSVG(data.status)}
+                        ${data.statusText}
+                    </span>
+                </div>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+// Open detail modal (HI_01_01: 'send', HI_03_01: 'receive')
+function openDetailModal(index, mode) {
+    const data = remittanceData[index];
+    const modal = document.getElementById('remitModal');
+    const modalBody = document.getElementById('modalBody');
+    if (!modal || !modalBody) return;
+
+    const isSend = mode !== 'receive';
+    const title = isSend ? '해외 송금 내역서' : '해외 수취 내역서';
+    const subText = isSend ? 'Foreign Remittance Receipt' : 'Foreign Inbound Remittance Statement';
+
+    const senderSection = isSend
+        ? `<div class="receipt-row">
+               <span class="receipt-label">송금액 (Send Amount)</span>
+               <span class="receipt-value">${data.sendAmount}</span>
+           </div>
+           <div class="receipt-row">
+               <span class="receipt-label">입금액 (Deposit)</span>
+               <span class="receipt-value">${data.depositAmount} KRW</span>
+           </div>`
+        : `<div class="receipt-row">
+               <span class="receipt-label">송금 국가 (Country)</span>
+               <span class="receipt-value">${data.country}</span>
+           </div>
+           <div class="receipt-row">
+               <span class="receipt-label">송금액 (Send Amount)</span>
+               <span class="receipt-value">${data.sendAmount}</span>
+           </div>
+           <div class="receipt-row">
+               <span class="receipt-label">입금액 (Deposit)</span>
+               <span class="receipt-value">${data.depositAmount}</span>
+           </div>`;
+
+    const receiverCountry = isSend ? data.country : '대한민국';
+    const footerText = isSend
+        ? '본 영수증은 고객님의 해외 송금 거래 내역을 증명하기 위해 발급되었습니다.<br>This receipt is issued to certify your foreign remittance transaction.'
+        : '본 영수증은 고객님의 해외 수취 거래 내역을 증명하기 위해 발급되었습니다.<br>This receipt is issued to certify your foreign inbound remittance transaction.';
+
+    modalBody.innerHTML = `
+        <div class="receipt-layout">
+            <div class="receipt-header">
+                <img src="images/logo-withmoney.png" alt="withmoney" class="receipt-logo">
+                <div class="receipt-title">${title}</div>
+                <p class="receipt-sub-text">${subText}</p>
+            </div>
+            <div class="receipt-section">
+                <div class="receipt-row">
+                    <span class="receipt-label">송금 상태 (Status)</span>
+                    <span class="receipt-value remit-status status-${data.status}">${data.statusText}</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">접수 번호 (Ref No.)</span>
+                    <span class="receipt-value">${data.receiptNum}</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">접수 일시 (Date)</span>
+                    <span class="receipt-value">${data.date}</span>
+                </div>
+            </div>
+            <div class="receipt-divider"></div>
+            <div class="receipt-section">
+                <div class="receipt-section-title">보내는 분 (Sender)</div>
+                ${senderSection}
+            </div>
+            <div class="receipt-divider dashed"></div>
+            <div class="receipt-section">
+                <div class="receipt-section-title">받는 분 (Receiver)</div>
+                <div class="receipt-row">
+                    <span class="receipt-label">수취인 (Name)</span>
+                    <span class="receipt-value">${data.name}</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">수취 국가 (Country)</span>
+                    <span class="receipt-value">${receiverCountry}</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">은행 (Bank)</span>
+                    <span class="receipt-value">${data.bank}</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">계좌 번호 (Account)</span>
+                    <span class="receipt-value">*******1234</span>
+                </div>
+            </div>
+            <div class="receipt-total-section">
+                <div class="receipt-total-row">
+                    <span class="receipt-total-label">실 수취 금액<br><span style="font-size:0.8em; font-weight:400;">(Receive Amount)</span></span>
+                    <span class="receipt-total-value">${data.receiveAmount}</span>
+                </div>
+                <div class="receipt-row" style="margin-top:10px; padding:0;">
+                    <span class="receipt-label" style="text-align:right; flex:1;">적용 환율 : 1 KRW = 1,435.00 USD</span>
+                </div>
+            </div>
+            <div class="receipt-footer">
+                ${footerText}<br>
+                <strong>(주)위드머니 / withmoney Inc.</strong>
+            </div>
+        </div>
+    `;
+
+    modal.classList.add('active');
+}
