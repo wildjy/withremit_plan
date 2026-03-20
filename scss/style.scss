@@ -1104,6 +1104,7 @@
 	border-radius: var(--radius-lg);
 	.reply-title {
 		margin-bottom: var(--s3);
+		font-size: var(--text-xl);
 	}
 }
 
@@ -1112,9 +1113,9 @@
 		padding: var(--s6) var(--s5);
 	}
 
-	.notice-detail-title {
-		font-size: 1.25rem;
-	}
+	// .notice-detail-title {
+	// 	font-size: 1.25rem;
+	// }
 
 	.notice-detail-meta {
 		gap: var(--s4);
@@ -1150,7 +1151,6 @@
 	}
 
 	.notice-detail-title {
-		font-size: 1.1rem;
 		margin-bottom: var(--s3);
 	}
 

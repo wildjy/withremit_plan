@@ -506,7 +506,7 @@
 			background-size: contain;
 		}
 		.coin-2 {
-			top: -var(--s10);
+			top: calc(var(--s10) * -1);
 			right: -54px;
 			width: 99px;
 			height: 72px;
@@ -629,7 +629,7 @@
 .calc-input-group {
 	display: flex;
 	align-items: center;
-	border: 1.5px solid var(--border-default);
+	border: 1px solid var(--border-default);
 	border-radius: var(--radius);
 	transition: var(--transition);
 	background-color: var(--white);
@@ -754,10 +754,10 @@
 	}
 }
 
-.calc-currency {
-	flex-shrink: 0;
-	height: var(--full);
-}
+// .calc-currency {
+// 	flex-shrink: 0;
+// 	height: var(--full);
+// }
 
 .calc-currency-flag {
 	width: 1.375rem;
@@ -871,7 +871,7 @@
 	background-color: var(--white);
 	border: 1px solid var(--border-default);
 	border-radius: var(--radius);
-	transform: translateY(-var(--s2));
+	transform: translateY(calc(var(--s2) * -1));
 	transition: var(--transition);
 	box-shadow: var(--shadow-lg);
 	z-index: 100;
@@ -958,7 +958,7 @@
 	&:before {
 		content: "";
 		position: absolute;
-		top: -var(--s3);
+		top: calc(var(--s3) * -1);
 		bottom: -10px;
 		left: 50%;
 		width: 1px;

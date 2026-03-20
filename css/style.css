@@ -636,6 +636,7 @@ input[type=checkbox]:checked + .custom-check::after {
   .nav-right .btn-secondary {
     color: var(--white);
     background-color: var(--primary-default);
+    border: none;
   }
   .nav-right .btn-secondary:hover:not(:disabled):not(.is-disabled) {
     color: var(--text-light);
@@ -2146,7 +2147,7 @@ body.wh-full {
   background-size: contain;
 }
 .calculator-card-box .bg-box .coin-2 {
-  top: -var(--s10);
+  top: calc(var(--s10) * -1);
   right: -54px;
   width: 99px;
   height: 72px;
@@ -2268,7 +2269,7 @@ body.wh-full {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 1.5px solid var(--border-default);
+  border: 1px solid var(--border-default);
   border-radius: var(--radius);
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -2423,12 +2424,6 @@ body.wh-full {
     width: 5.625rem;
   }
 }
-.calc-currency {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  height: var(--full);
-}
-
 .calc-currency-flag {
   width: 1.375rem;
   height: 1.375rem;
@@ -2546,8 +2541,8 @@ body.wh-full {
   background-color: var(--white);
   border: 1px solid var(--border-default);
   border-radius: var(--radius);
-  -webkit-transform: translateY(-var(--s2));
-          transform: translateY(-var(--s2));
+  -webkit-transform: translateY(calc(var(--s2) * -1));
+          transform: translateY(calc(var(--s2) * -1));
   -webkit-transition: var(--transition);
   transition: var(--transition);
   -webkit-box-shadow: var(--shadow-lg);
@@ -2663,7 +2658,7 @@ body.wh-full {
 .calc-arrow:before {
   content: "";
   position: absolute;
-  top: -var(--s3);
+  top: calc(var(--s3) * -1);
   bottom: -10px;
   left: 50%;
   width: 1px;
@@ -8591,14 +8586,12 @@ td.center {
 }
 .inquiry-reply-section .reply-title {
   margin-bottom: var(--s3);
+  font-size: var(--text-xl);
 }
 
 @media (max-width: 768px) {
   .notice-detail-card {
     padding: var(--s6) var(--s5);
-  }
-  .notice-detail-title {
-    font-size: 1.25rem;
   }
   .notice-detail-meta {
     gap: var(--s4);
@@ -8627,7 +8620,6 @@ td.center {
     padding: var(--s5) var(--s4);
   }
   .notice-detail-title {
-    font-size: 1.1rem;
     margin-bottom: var(--s3);
   }
   .notice-detail-meta {

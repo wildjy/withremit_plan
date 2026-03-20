@@ -501,7 +501,7 @@
   background-size: contain;
 }
 .calculator-card-box .bg-box .coin-2 {
-  top: -var(--s10);
+  top: calc(var(--s10) * -1);
   right: -54px;
   width: 99px;
   height: 72px;
@@ -623,7 +623,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 1.5px solid var(--border-default);
+  border: 1px solid var(--border-default);
   border-radius: var(--radius);
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -778,12 +778,6 @@
     width: 5.625rem;
   }
 }
-.calc-currency {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  height: var(--full);
-}
-
 .calc-currency-flag {
   width: 1.375rem;
   height: 1.375rem;
@@ -901,8 +895,8 @@
   background-color: var(--white);
   border: 1px solid var(--border-default);
   border-radius: var(--radius);
-  -webkit-transform: translateY(-var(--s2));
-          transform: translateY(-var(--s2));
+  -webkit-transform: translateY(calc(var(--s2) * -1));
+          transform: translateY(calc(var(--s2) * -1));
   -webkit-transition: var(--transition);
   transition: var(--transition);
   -webkit-box-shadow: var(--shadow-lg);
@@ -1018,7 +1012,7 @@
 .calc-arrow:before {
   content: "";
   position: absolute;
-  top: -var(--s3);
+  top: calc(var(--s3) * -1);
   bottom: -10px;
   left: 50%;
   width: 1px;
