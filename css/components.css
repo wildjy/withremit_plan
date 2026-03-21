@@ -468,6 +468,10 @@
   background-color: #fee500;
   color: var(--black);
 }
+.btn-kakao .sns-icon-img {
+  -webkit-filter: none;
+          filter: none; /* 카카오톡 아이콘은 원래 색상을 유지 */
+}
 
 .btn-kakao {
   color: var(--black);

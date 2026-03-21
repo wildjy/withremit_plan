@@ -18,7 +18,7 @@
   --header-h-md: 4.625rem;
   --sidebar-w: 18.75rem;
   --sidebarContainer-w: 12.25rem;
-  --input-h: 3.25rem;
+  --input-h: var(--s12);
   --white-section-spacing: var(--s6);
   --mobile-white-section-spacing: var(--s4);
   --font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -104,8 +104,8 @@
   --s19: 4.75rem;
   --s20: 5rem;
   --s21: 5.25rem;
-  --xsBase: 4.444vw;
-  --smBase: 3.333vw;
+  --xsBase: 3.333vw;
+  --smBase: 2.083vw;
   --text-2xs: 0.625rem;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -148,6 +148,7 @@ body {
   font-family: var(--font-family);
   font-size: var(--text-md);
   color: var(--text-heavy);
+  line-height: 1.5;
   background-color: var(--white);
   overflow-x: hidden;
 }
@@ -160,6 +161,12 @@ body * {
   html,
   body {
     font-size: var(--smBase);
+  }
+}
+@media (max-width: 480px) {
+  html,
+  body {
+    font-size: var(--xsBase);
   }
 }
 li, dd {
@@ -199,7 +206,8 @@ table {
 
 input, select, textarea {
   width: var(--full);
-  padding: var(--s3-14) var(--s4);
+  height: var(--input-h);
+  padding: var(--s3) var(--s4);
   font-size: var(--text-md);
   font-weight: 500;
   background-color: var(--white);
@@ -447,7 +455,7 @@ input[type=checkbox]:checked + .custom-check::after {
   padding: var(--s3) var(--s5);
   font-weight: 500;
   font-size: var(--text-md);
-  color: var(--text-strong);
+  color: var(--text-heavy);
   border-radius: var(--s2);
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -465,6 +473,10 @@ input[type=checkbox]:checked + .custom-check::after {
           align-items: center;
   gap: var(--s2);
 }
+.nav-right .db-balance-display,
+.nav-right .lang-select-box {
+  margin-right: var(--s3);
+}
 .nav-right .btn-text,
 .nav-right .btn-primary {
   display: -webkit-box;
@@ -476,7 +488,6 @@ input[type=checkbox]:checked + .custom-check::after {
 }
 
 .lang-select-box {
-  margin-right: var(--s4);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -492,7 +503,7 @@ input[type=checkbox]:checked + .custom-check::after {
   content: "";
   position: absolute;
   top: 50%;
-  left: var(--s2-10);
+  left: 0;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   width: var(--s4);
@@ -510,11 +521,11 @@ input[type=checkbox]:checked + .custom-check::after {
       -ms-flex-align: center;
           align-items: center;
   gap: var(--s2);
-  padding: 0 var(--s7) 0 var(--s8);
+  padding: 0 var(--s7) 0 1.375rem;
   height: var(--s10);
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--text-heavy);
+  color: var(--text-strong);
   -webkit-text-fill-color: #A4B7C0;
   color-scheme: light;
   background-image: var(--icon-lang-select);
@@ -606,9 +617,6 @@ input[type=checkbox]:checked + .custom-check::after {
     padding: var(--s2) var(--s3);
     font-size: var(--text-sm);
   }
-  .lang-select-box {
-    margin-right: var(--s2);
-  }
   .db-user-dropdown {
     position: static;
   }
@@ -630,7 +638,6 @@ input[type=checkbox]:checked + .custom-check::after {
     display: inline-flex;
   }
   .nav-right {
-    gap: 0;
     margin-left: auto;
   }
   .nav-right .btn-secondary {
@@ -663,15 +670,6 @@ input[type=checkbox]:checked + .custom-check::after {
     display: none;
     margin: 0;
   }
-}
-.db-body .nav-right {
-  display: -webkit-box !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: var(--s2);
 }
 .db-body .lang-select,
 .db-body .db-user-dropdown {
@@ -922,6 +920,19 @@ input[type=checkbox]:checked + .custom-check::after {
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
+}
+.sidebar .sidebar-close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 10px;
+  color: var(--text-strong);
 }
 
 .db-collapsed .sidebar {
@@ -1255,11 +1266,13 @@ body.wh-full {
   height: var(--full-dvh);
   min-height: var(--full-dvh);
 }
+body.db-body, body.login-page {
+  background-color: var(--bg-default);
+}
 
 .db-body {
   padding-top: var(--header-h-md);
   min-height: var(--full-dvh);
-  background-color: var(--bg-default);
 }
 
 @media (max-width: 1152px) {
@@ -2016,7 +2029,7 @@ body.wh-full {
     width: 65%;
   }
   .banner-image-group {
-    height: 160px;
+    height: 200px;
   }
 }
 @media (max-width: 768px) {
@@ -2368,8 +2381,8 @@ body.wh-full {
 }
 
 .calc-fee-total {
-  font-size: var(--text-xl);
-  color: #00a8e8;
+  font-size: var(--text-lg);
+  color: var(--primary-default);
   font-weight: 700;
 }
 
@@ -2412,8 +2425,8 @@ body.wh-full {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 0 var(--s4);
   gap: var(--s2);
-  width: 6.25rem;
   border-left: 1px solid var(--border-default);
 }
 
@@ -2421,7 +2434,6 @@ body.wh-full {
   .calc-currency > span,
   .calc-currency-btn > span {
     gap: var(--s1);
-    width: 5.625rem;
   }
 }
 .calc-currency-flag {
@@ -2684,7 +2696,7 @@ body.wh-full {
 
 .calc-compare {
   margin-bottom: var(--s5);
-  padding: var(--s3) var(--s4);
+  padding: var(--s4);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2759,22 +2771,21 @@ body.wh-full {
   border-radius: var(--radius-xl);
 }
 .sns-item.line {
-  background: #06C755;
   color: var(--white);
+  background-color: #06C755;
 }
 .sns-item.line .sns-text p {
   color: var(--white);
 }
 .sns-item.kakao {
-  background: #FEE500;
-  color: #111;
+  color: rgba(0, 0, 0, 0.85);
+  background-color: #FEE500;
 }
 
 /* 왼쪽 텍스트 */
 .sns-text h4 {
-  font-family: Pretendard;
-  font-size: var(--text-xl);
-  font-weight: 800;
+  font-size: var(--text-lg);
+  font-weight: 700;
 }
 
 .sns-text p {
@@ -3350,6 +3361,10 @@ body.wh-full {
 .btn-kakao {
   background-color: #fee500;
   color: var(--black);
+}
+.btn-kakao .sns-icon-img {
+  -webkit-filter: none;
+          filter: none; /* 카카오톡 아이콘은 원래 색상을 유지 */
 }
 
 .btn-kakao {
@@ -4403,7 +4418,6 @@ body.wh-full {
       -ms-flex-pack: center;
           justify-content: center;
   min-height: var(--full-dvh);
-  background-color: var(--bg-light);
   padding: var(--s10) var(--s5);
 }
 
@@ -6004,11 +6018,11 @@ body.wh-full {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 2px dashed #ddd;
-  border-radius: var(--s2);
   padding: var(--s10);
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: var(--bg-default);
+  border: 2px dashed var(--border-default);
+  border-radius: var(--radius);
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   cursor: pointer;
@@ -6017,7 +6031,7 @@ body.wh-full {
   margin-top: var(--s6);
   margin-bottom: 0;
   font-size: var(--s4);
-  color: #666;
+  color: var(--text-default);
   font-weight: 500;
 }
 .ocr-upload-area .ocr-upload-text.isMobile {
@@ -6035,9 +6049,9 @@ body.wh-full {
   border-radius: var(--s2);
 }
 .ocr-upload-area.has-image #previewText {
-  margin-top: 10px;
-  color: #666;
-  font-size: 14px;
+  margin: var(--s6) 0 var(--s4) 0;
+  color: var(--text-default);
+  font-size: var(--text-md);
 }
 .ocr-upload-area.has-image .ocrBtn-box {
   margin-top: var(--s4);
@@ -6059,11 +6073,8 @@ body.wh-full {
   }
 }
 .ocr-upload-area {
-  border: 2px dashed #ddd;
-  border-radius: var(--s2);
   padding: var(--s10);
   text-align: center;
-  background-color: #f9f9f9;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   cursor: pointer;

@@ -113,7 +113,8 @@ const translations = {
         'contact.hours': '상담 시간 안내',
         'contact.weekday': '평일',
         'contact.weekend': '토요일 · 공휴일',
-        'contact.closed': '* 일요일 휴무',
+        'contact.closed': '휴무',
+        'contact.sunday': '일요일',
 
         // Footer
         'footer.company': '회사소개',
@@ -136,8 +137,8 @@ const translations = {
 
         // join
         'join.title': '회원가입',
-        'join.personal': '개인 회원가입',
-        'join.business': '기업 회원가입',
+        'join.personal': '개인회원 가입',
+        'join.business': '기업회원 가입',
         'join.terms': '이용약관',
         'join.privacy': '개인정보처리방침',
         'join.national': '내국인 회원가입',
@@ -150,7 +151,7 @@ const translations = {
         'join.checkId': '중복 확인',
         'join.fileSelect': '파일을 선택해 주세요',
         'join.upload.guide': '주민등록증 또는 운전면허증 중 한 가지만 양면 올려주세요.',
-        'join.upload.guide2': '* 여권과 외국인등록증 양면을 모두 올려주세요.',
+        'join.upload.guide2': '여권과 외국인등록증 양면을 모두 올려주세요.',
         'join.checkId.success': '사용 가능한 아이디입니다.',
         'join.checkId.failure': '이미 사용 중인 아이디입니다.',
         'join.browse': '찾아보기',
@@ -315,7 +316,8 @@ const translations = {
         'contact.hours': 'Business Hours',
         'contact.weekday': 'Weekdays',
         'contact.weekend': 'Sat · Holidays',
-        'contact.closed': '* Closed on Sundays',
+        'contact.closed': 'Closed',
+        'contact.sunday': 'Sundays',
 
         // Footer
         'footer.company': 'About Us',
@@ -352,7 +354,7 @@ const translations = {
         'join.checkId': 'Check Availability',
         'join.fileSelect': 'Please select a file',
         'join.upload.guide': 'Please upload both sides of either your Resident Registration Card or Driver’s License.',
-        'join.upload.guide2': '* Please upload both sides of your Passport and Alien Registration Card.',
+        'join.upload.guide2': 'Please upload both sides of your Passport and Alien Registration Card.',
         'join.checkId.success': 'This username is available.',
         'join.checkId.failure': 'This username is already in use.',
         'join.browse': 'Browse',
@@ -512,7 +514,8 @@ const translations = {
         'contact.hours': '営業時間',
         'contact.weekday': '平日',
         'contact.weekend': '土曜・祝日',
-        'contact.closed': '* 日曜休業',
+        'contact.sunday': '日曜',
+        'contact.closed': '休業',
 
         // Footer
         'footer.company': '会社概要',
@@ -549,7 +552,7 @@ const translations = {
         'join.checkId': '重複確認',
         'join.fileSelect': 'ファイルを選択してください',
         'join.upload.guide': '住民登録証または運転免許証のいずれか一つを両面アップロードしてください。',
-        'join.upload.guide2': '※ パスポートおよび外国人登録証の両面をすべてアップロードしてください。',
+        'join.upload.guide2': 'パスポートおよび外国人登録証の両面をすべてアップロードしてください。',
         'join.checkId.success': 'ご利用可能なIDです。',
         'join.checkId.failure': 'すでに使用されているIDです。',
         'join.browse': '参照',
@@ -709,7 +712,8 @@ const translations = {
         'contact.hours': 'सेवा समय',
         'contact.weekday': 'कार्यदिवस',
         'contact.weekend': 'शनिवार / अवकाश',
-        'contact.closed': '* रविवार बंद',
+        'contact.closed': 'बंद',
+        'contact.sunday': 'रविवार',
 
         // Footer
         'footer.company': 'कंपनी परिचय',
@@ -746,7 +750,7 @@ const translations = {
         'join.checkId': 'उपलब्धता जाँचें',
         'join.fileSelect': 'कृपया फ़ाइल चुनें',
         'join.upload.guide': 'कृपया निवासी पंजीकरण कार्ड या ड्राइविंग लाइसेंस में से किसी एक के दोनों पक्ष अपलोड करें।',
-        'join.upload.guide2': '* कृपया पासपोर्ट और विदेशी पंजीकरण कार्ड दोनों के दोनों पक्ष अपलोड करें।',
+        'join.upload.guide2': 'कृपया पासपोर्ट और विदेशी पंजीकरण कार्ड दोनों के दोनों पक्ष अपलोड करें।',
         'join.checkId.success': 'यह उपयोगकर्ता नाम उपलब्ध है।',
         'join.checkId.failure': 'यह उपयोगकर्ता नाम पहले से उपयोग में है।',
         'join.browse': 'ब्राउज़ करें',

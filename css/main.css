@@ -205,17 +205,6 @@
   position: relative;
 }
 
-.countries::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(var(--border-default)), to(transparent));
-  background: linear-gradient(90deg, transparent, var(--border-default), transparent);
-}
-
 .country-card-list {
   margin-top: var(--s10);
   display: grid;
@@ -370,6 +359,13 @@
 }
 .contact-number p,
 .contact-hours p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--s2);
   font-size: var(--text-sm);
   color: var(--text-heavy);
   font-weight: 500;
@@ -386,6 +382,18 @@
 }
 .contact-number h3 {
   margin-bottom: var(--s4);
+}
+.contact-number .number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.contact-number .number p {
+  gap: 0;
 }
 
 .contact-items {
@@ -548,6 +556,17 @@
   .contact-grid .contact-info {
     grid-column: 1/-1;
   }
+  .contact-number .number {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .contact-number .number p:first-of-type:after {
+    display: inline-block;
+    content: "/";
+    padding: 0 var(--s2);
+  }
   .contact-hours {
     height: auto;
   }
@@ -632,12 +651,6 @@
     width: var(--s9);
     height: var(--s9);
   }
-  .country-info h4 {
-    font-size: var(--text-sm);
-  }
-  .country-info span {
-    font-size: var(--text-xs);
-  }
   .trust .feature-card {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -672,7 +685,7 @@
     margin-bottom: var(--s5);
   }
   .contact-items {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: var(--s3);
   }
   .contact-item {
@@ -789,9 +802,6 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-  }
-  .contact-items {
-    grid-template-columns: 1fr;
   }
   .hero-inner {
     display: -webkit-box;

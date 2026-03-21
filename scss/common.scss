@@ -359,7 +359,7 @@
 	}
 	.banner-image-group {
 		// flex: 0 0 230px;
-		height: 160px;
+		height: 200px;
 	}
 }
 
@@ -712,8 +712,8 @@
 }
 
 .calc-fee-total {
-	font-size: var(--text-xl);
-	color: #00a8e8;
+	font-size: var(--text-lg);
+	color: var(--primary-default);
 	font-weight: 700;
 }
 
@@ -738,8 +738,8 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		padding: 0 var(--s4);
 		gap: var(--s2);
-		width: 6.25rem;
 		border-left: 1px solid var(--border-default);
 	}
 }
@@ -749,7 +749,6 @@
   	.calc-currency-btn {
 		> span {
 			gap: var(--s1);
-			width: 5.625rem;
 		}
 	}
 }
@@ -984,7 +983,7 @@
 
 .calc-compare {
 	margin-bottom: var(--s5);
-	padding: var(--s3) var(--s4);
+	padding: var(--s4);
 	display: flex;
 	align-items: center;
 	gap: var(--s2-10);
@@ -1040,28 +1039,28 @@
   border-radius: var(--radius-xl);
 
 	&.line{
-		background:#06C755;
 		color:var(--white);
+		background-color:#06C755;
 		.sns-text p {
 			color: var(--white);
 		}
 	}
 
 	&.kakao{
-		background:#FEE500;
-		color:#111;
+		color: rgba(0, 0, 0, 0.85);
+		background-color:#FEE500;
 	}
 }
 
 /* 왼쪽 텍스트 */
 .sns-text h4{
-	font-family: Pretendard;
-  font-size: var(--text-xl);
-  font-weight: 800;
+  font-size: var(--text-lg);
+  font-weight: 700;
 }
+
 .sns-text p{
-  margin: var(--s2) 0 0;
-  font-size: var(--text-sm);
+	margin: var(--s2) 0 0;
+	font-size: var(--text-sm);
 	color: rgba(0, 0, 0, 0.85);
 }
 

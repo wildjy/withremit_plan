@@ -8,7 +8,7 @@
   --header-h-md: 4.625rem;
   --sidebar-w: 18.75rem;
   --sidebarContainer-w: 12.25rem;
-  --input-h: 3.25rem;
+  --input-h: var(--s12);
   --white-section-spacing: var(--s6);
   --mobile-white-section-spacing: var(--s4);
   --font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -94,8 +94,8 @@
   --s19: 4.75rem;
   --s20: 5rem;
   --s21: 5.25rem;
-  --xsBase: 4.444vw;
-  --smBase: 3.333vw;
+  --xsBase: 3.333vw;
+  --smBase: 2.083vw;
   --text-2xs: 0.625rem;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;

@@ -43,7 +43,6 @@
       -ms-flex-pack: center;
           justify-content: center;
   min-height: var(--full-dvh);
-  background-color: var(--bg-light);
   padding: var(--s10) var(--s5);
 }
 
@@ -1644,11 +1643,11 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 2px dashed #ddd;
-  border-radius: var(--s2);
   padding: var(--s10);
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: var(--bg-default);
+  border: 2px dashed var(--border-default);
+  border-radius: var(--radius);
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   cursor: pointer;
@@ -1657,7 +1656,7 @@
   margin-top: var(--s6);
   margin-bottom: 0;
   font-size: var(--s4);
-  color: #666;
+  color: var(--text-default);
   font-weight: 500;
 }
 .ocr-upload-area .ocr-upload-text.isMobile {
@@ -1675,9 +1674,9 @@
   border-radius: var(--s2);
 }
 .ocr-upload-area.has-image #previewText {
-  margin-top: 10px;
-  color: #666;
-  font-size: 14px;
+  margin: var(--s6) 0 var(--s4) 0;
+  color: var(--text-default);
+  font-size: var(--text-md);
 }
 .ocr-upload-area.has-image .ocrBtn-box {
   margin-top: var(--s4);
@@ -1699,11 +1698,8 @@
   }
 }
 .ocr-upload-area {
-  border: 2px dashed #ddd;
-  border-radius: var(--s2);
   padding: var(--s10);
   text-align: center;
-  background-color: #f9f9f9;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   cursor: pointer;

@@ -64,7 +64,7 @@
 		padding: var(--s3) var(--s5);
 		font-weight: 500;
 		font-size: var(--text-md);
-		color: var(--text-strong);
+		color: var(--text-heavy);
 		border-radius: var(--s2);
 		transition: var(--transition);
 	}
@@ -79,6 +79,11 @@
 	align-items: center;
 	gap: var(--s2);
 
+	.db-balance-display,
+	.lang-select-box {
+		margin-right: var(--s3);
+	}
+
 	.btn-text,
 	.btn-primary {
 		display: flex;
@@ -90,17 +95,15 @@
 }
 
 .lang-select-box {
-	margin-right: var(--s4);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	// gap: var(--s1-6);
 	position: relative;
 	&:before {
 		content: '';
 		position: absolute;
 		top: 50%;
-		left: var(--s2-10);
+		left: 0;
 		transform: translateY(-50%);
 		width: var(--s4);
 		height: var(--s4);
@@ -114,11 +117,11 @@
 	display: flex;
 	align-items: center;
 	gap: var(--s2);
-	padding: 0 var(--s7) 0 var(--s8);
+	padding: 0 var(--s7) 0 1.375rem;
 	height: var(--s10);
 	font-size: var(--text-sm);
 	font-weight: 500;
-	color: var(--text-heavy);
+	color: var(--text-strong);
 	-webkit-text-fill-color: #A4B7C0;
 	color-scheme: light;
 	background-image: var(--icon-lang-select);
@@ -207,11 +210,6 @@
 		}
 	}
 
-	.lang-select-box {
-		margin-right: var(--s2);
-	}
-
-
 	// My Page Dropdown
 	.db-user-dropdown {
 		position: static;
@@ -238,7 +236,6 @@
 	}
 
 	.nav-right {
-		gap: 0;
 		margin-left: auto;
 
 		.btn-secondary {
@@ -284,12 +281,6 @@
 
 // ===== Dashboard Header Adjustments =====
 .db-body {
-  .nav-right {
-    display: flex !important;
-    align-items: center;
-    gap: var(--s2);
-  }
-
   .lang-select,
   .db-user-dropdown {
     display: block;
@@ -298,29 +289,6 @@
   .db-user-dropdown .btn {
     display: flex;
   }
-}
-
-@media (max-width: 1024px) {
-	// .db-body .lang-select {
-	// 	padding: var(--s1-6) var(--s2);
-	// 	min-width: 70px;
-	// 	font-size: var(--text-xs);
-	// }
-
-	// .db-body .nav-right {
-	// 	gap: var(--s2);
-	// }
-}
-
-@media (max-width: 480px) {
-	// .db-body .lang-select {
-	// 	font-size: var(--text-xs);
-	// 	padding: var(--s1) var(--s2);
-	// }
-
-	// .db-body .nav-right {
-	// 	gap: var(--s2);
-	// }
 }
 
 /* Header Balance Display */

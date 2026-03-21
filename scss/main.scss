@@ -221,16 +221,6 @@
 	position: relative;
 }
 
-.countries::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 1px;
-	background: linear-gradient(90deg, transparent, var(--border-default), transparent);
-}
-
 .country-card-list {
 	margin-top: var(--s10);
 	display: grid;
@@ -381,6 +371,9 @@
 	}
 
 	p {
+		display: flex;
+		align-items: center;
+		gap: var(--s2);
 		font-size: var(--text-sm);
 		color: var(--text-heavy);
 		font-weight: 500;
@@ -397,6 +390,13 @@
 	border: 1px solid var(--border-default);
 	h3 {
 		margin-bottom: var(--s4);
+	}
+	.number {
+		display: flex;
+		flex-direction: column;
+		p {
+			gap: 0;
+		}
 	}
 }
 
@@ -543,6 +543,24 @@
 		grid-column: 1 / -1;
 	}
 
+
+
+	.contact-number {
+		.number {
+			flex-direction: row;
+			p {
+				&:first-of-type {
+					&:after {
+						display: inline-block;
+						content: '/';
+						padding: 0 var(--s2);
+					}
+				}
+			}
+		}
+	}
+
+
 	.contact-hours {
 		height: auto;
 	}
@@ -643,13 +661,13 @@
 		height: var(--s9);
 	}
 
-	.country-info h4 {
-		font-size: var(--text-sm);
-	}
+	// .country-info h4 {
+	// 	font-size: var(--text-sm);
+	// }
 
-	.country-info span {
-		font-size: var(--text-xs);
-	}
+	// .country-info span {
+	// 	font-size: var(--text-xs);
+	// }
 
 	.trust {
 		.feature-card {
@@ -686,7 +704,7 @@
 	}
 
 	.contact-items {
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr;
 		gap: var(--s3);
 	}
 
@@ -801,10 +819,6 @@
 		width: var(--full);
 		max-width: 320px;
 		justify-content: center;
-	}
-
-	.contact-items {
-		grid-template-columns: 1fr;
 	}
 
 	.hero-inner {

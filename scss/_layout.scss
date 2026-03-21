@@ -29,17 +29,22 @@ body {
 }
 
 body{
-  &.wh-full {
-    width: var(--full);
-    height: var(--full-dvh);
-    min-height: var(--full-dvh);
-  }
+	&.wh-full {
+		width: var(--full);
+		height: var(--full-dvh);
+		min-height: var(--full-dvh);
+	}
+
+	&.db-body, 
+	&.login-page {
+		background-color: var(--bg-default);
+	}
 }
+
 
 .db-body {
 	padding-top: var(--header-h-md);
 	min-height: var(--full-dvh);
-	background-color: var(--bg-default);
 }
 
 @media (max-width: 1152px) {

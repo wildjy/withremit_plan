@@ -180,6 +180,9 @@
 .btn-kakao {
 	background-color: #fee500;
 	color: var(--black);
+	.sns-icon-img {
+		filter: none; /* 카카오톡 아이콘은 원래 색상을 유지 */
+	}
 }
 
 .btn-kakao {

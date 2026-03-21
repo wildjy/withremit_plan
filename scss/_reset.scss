@@ -19,7 +19,7 @@ body {
 	font-family: var(--font-family);
 	font-size: var(--text-md);
 	color: var(--text-heavy);
-	
+	line-height: 1.5;
 	background-color: var(--white);
 	overflow-x: hidden;
 	*{
@@ -30,9 +30,17 @@ body {
 @media (max-width: 768px) {
 	html,
 	body {
-		font-size: var(--smBase);
+		font-size: var(--smBase); // 16px at 768px
 	}
 }
+
+@media (max-width: 480px) {
+	html,
+	body {
+		font-size: var(--xsBase);
+	}
+}
+
 
 li, dd {
 	list-style: none;
@@ -70,7 +78,8 @@ table {
 
 input, select, textarea {
 	width: var(--full);
-	padding: var(--s3-14) var(--s4);
+	height: var(--input-h);
+	padding: var(--s3) var(--s4);
 	font-size: var(--text-md);
 	font-weight: 500;
 	background-color: var(--white);
