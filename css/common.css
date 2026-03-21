@@ -1,5 +1,62 @@
 @charset "UTF-8";
 /* Date Picker Custom Style */
+.guide-note {
+  margin-top: var(--s4);
+}
+.guide-note.caution {
+  padding: var(--s6);
+  background-color: var(--bg-negative);
+  border-radius: var(--radius-md);
+}
+.guide-note.caution p {
+  color: var(--negative);
+}
+.guide-note.caution p:before {
+  background-image: var(--icon-error);
+}
+.guide-note.caution ul li {
+  color: var(--text-strong);
+}
+.guide-note p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--s2);
+  color: var(--primary-heavy);
+  font-weight: 600;
+}
+.guide-note p ~ .guide-list {
+  margin-top: var(--s4);
+}
+.guide-note p:before {
+  content: "";
+  background-image: var(--icon-info-navy);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: var(--s5);
+  height: var(--s5);
+  aspect-ratio: 1/1;
+}
+
+.guide-list {
+  padding-left: 0;
+}
+.guide-list li {
+  position: relative;
+  padding-left: var(--s5);
+  color: var(--text-default);
+}
+.guide-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--text-default);
+  font-weight: bold;
+}
+
 .field-info,
 .field-error {
   margin-top: var(--s2);

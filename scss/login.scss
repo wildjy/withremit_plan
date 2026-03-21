@@ -135,7 +135,7 @@
 	align-items: center;
 	justify-content: flex-start;
 	margin-bottom: var(--s2);
-	font-size: 13px;
+	font-size: var(--text-sm);
 	color: var(--text-default);
 	font-weight: 500;
 	text-transform: uppercase;
@@ -587,7 +587,6 @@
 
 	.field-label {
 		margin-bottom: var(--s1);
-		font-size: var(--text-xs);
 	}
 
 	.password-wrap {

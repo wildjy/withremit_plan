@@ -1965,6 +1965,137 @@ function openDetailModal(index, mode) {
     modal.classList.add('active');
 }
 
+function getRegularRemittanceDataArray() {
+    const regularRemittanceData = window.regularRemittanceData || {};
+    return Object.values(regularRemittanceData).sort((a, b) => b.no - a.no);
+}
+
+function renderRegularRemittanceCards() {
+    const grid = document.getElementById('remitCardGrid');
+    if (!grid || !document.getElementById('scheduleDetailModal')) return;
+
+    const dataArray = getRegularRemittanceDataArray();
+    grid.innerHTML = '';
+
+    dataArray.forEach((item) => {
+        const card = document.createElement('div');
+        card.className = 'remit-card';
+        card.onclick = (e) => {
+            if (!e.target.closest('button')) {
+                openRegularRemittanceDetailModal(item.id);
+            }
+        };
+
+        const isSendAmountType = item.type === '송금액 기준';
+        const amountLabel = isSendAmountType ? '송금 금액' : '수취 금액';
+        const amountDisplay = isSendAmountType ? item.sendAmount : item.receiveAmount;
+
+        card.innerHTML = `
+            <div class="remit-card-header">
+                <span class="remit-card-date" style="font-size: 1.1rem;">${item.recipient}</span>
+                <button class="btn btn-text" onclick="openRegularRemittanceDetailModal(${item.id})">
+                    자세히
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+            <div class="remit-card-body">
+                <div class="remit-card-col remit-card-col-bank">
+                    <span class="remit-card-label">은행</span>
+                    <span class="remit-card-detail-value">${item.bank}</span>
+                </div>
+                <div class="remit-card-col remit-card-col-type">
+                    <span class="remit-card-label">송금 구분</span>
+                    <span class="remit-card-detail-value">${item.type}</span>
+                </div>
+                <div class="remit-card-col remit-card-col-amount">
+                    <span class="remit-card-label">${amountLabel}</span>
+                    <span class="remit-card-amount-value">${amountDisplay}</span>
+                </div>
+                <div class="remit-card-col remit-card-col-cycle">
+                    <span class="remit-card-label">주기</span>
+                    <span class="remit-card-detail-value">${item.cycle}</span>
+                </div>
+                <div class="remit-card-col remit-card-status-wrapper">
+                    <span class="remit-card-label remit-card-status-label" style="display: none;">상태</span>
+                    <span class="remit-status status-${item.status}">
+                        ${getStatusSVG(item.status)}
+                        ${item.statusText}
+                    </span>
+                </div>
+            </div>
+        `;
+
+        grid.appendChild(card);
+    });
+
+    const totalCount = document.getElementById('totalCount');
+    if (totalCount) {
+        totalCount.textContent = String(dataArray.length);
+    }
+}
+
+window.openRegularRemittanceDetailModal = function(id) {
+    const data = (window.regularRemittanceData || {})[id];
+    if (!data) return;
+
+    window.currentRegularRemittanceDetailId = id;
+
+    document.getElementById('modalRecipient').textContent = data.recipient;
+    document.getElementById('modalBank').textContent = data.bank;
+    document.getElementById('modalType').textContent = data.type;
+
+    if (data.type === '송금액 기준') {
+        document.getElementById('modalAmountLabel').textContent = '송금 금액';
+        document.getElementById('modalAmount').textContent = data.sendAmount;
+    } else {
+        document.getElementById('modalAmountLabel').textContent = '수취 금액';
+        document.getElementById('modalAmount').textContent = data.receiveAmount;
+    }
+
+    document.getElementById('modalCycle').textContent = data.cycle;
+
+    const withdrawalAccount = data.withdrawalAccount || {};
+    document.getElementById('modalWithdrawalAccount').textContent =
+        `${withdrawalAccount.bankName || ''} / ${withdrawalAccount.accountNumber || ''} / ${withdrawalAccount.holderName || ''}`;
+
+    const statusIcon = getStatusSVG(data.status);
+    const statusElement = document.getElementById('modalStatus');
+    statusElement.innerHTML = `${statusIcon} <span>${data.statusText}</span>`;
+    statusElement.style.color = data.status === 'paused' ? '#6b7280' : '#059669';
+
+    openModal('scheduleDetailModal');
+}
+
+window.executeRegularRemittanceStop = function() {
+    closeModal('stopConfirmModal');
+
+    const currentId = window.currentRegularRemittanceDetailId;
+    const regularRemittanceData = window.regularRemittanceData || {};
+    if (currentId && regularRemittanceData[currentId]) {
+        regularRemittanceData[currentId].status = 'paused';
+        regularRemittanceData[currentId].statusText = '정지';
+
+        renderRegularRemittanceCards();
+
+        const statusIcon = getStatusSVG('paused');
+        const statusElement = document.getElementById('modalStatus');
+        if (statusElement) {
+            statusElement.innerHTML = `${statusIcon} <span>정지</span>`;
+            statusElement.style.color = '#6b7280';
+        }
+    }
+
+    openModal('stopSuccessModal');
+}
+
+window.closeRegularRemittanceStopSuccess = function() {
+    closeModal('stopSuccessModal');
+    closeModal('scheduleDetailModal');
+}
+
+
 // ===== 1:1 문의 목록 렌더링 (CS_03_02) =====
 function renderInquiryList() {
     const inquiryData = window.inquiryData || [];

@@ -33,64 +33,6 @@
 	color: #4A90E2;
 }
 
-.guide-note {
-	margin-top: 15px;
-  &.caution {
-    padding: var(--s6);
-    background-color: var(--bg-negative);
-    border-radius: var(--radius-md);
-
-    p {
-      color: var(--negative);
-
-      &:before {
-        background-image: var(--icon-error);
-      }
-    }
-
-    ul li {
-      color: var(--text-strong);
-    }
-  }
-
-  p {
-    display: flex;
-    align-items: center;
-    gap: var(--s2);
-    color: var(--primary-heavy);
-    font-weight: 600;
-    & ~ .guide-list {
-      margin-top: var(--s4);
-    }
-
-    &:before {
-      content: '';
-      background-image: var(--icon-info-navy);
-      background-size: contain;
-      background-repeat: no-repeat;
-      width: var(--s5);
-      height: var(--s5);
-      aspect-ratio: 1/1;
-    }
-  }
-}
-
-.guide-list {
-	padding-left: 0;
-  li {
-    position: relative;
-    padding-left: var(--s5);
-    color: var(--text-default);
-    &::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--text-default);
-      font-weight: bold;
-    }
-  }
-}
-
 .guide-highlight {
 	color: var(--primary-default);
 	font-weight: 600;
@@ -461,7 +403,9 @@
   }
 
   &.join-guide {
+    margin-bottom: 0;
     .grid-info-card {
+      margin-top: 0;
       h4 {
         margin-top: var(--s8);
       }
@@ -539,13 +483,14 @@
   &.col-1 {
 	  grid-template-columns: repeat(1, 1fr);
   }
+  &.company,
   &.join-guide {
     > div {
       display: grid;
       grid-template-columns: auto 1fr;
       grid-template-rows: auto;
       column-gap: var(--s5);
-      padding: var(--s8);
+      padding: var(--s6);
       align-items: start;
       text-align: left;
       .icon-box {
@@ -638,6 +583,10 @@
   padding: var(--s10) 0;
   background-color: var(--white);
   border-bottom: 1px solid var(--border-soft);
+  &.none-border {
+    margin-bottom: 0;
+    border: none;
+  }
   &:first-of-type {
     padding-top: 0;
   }
@@ -728,8 +677,6 @@
 	justify-content: space-between;
 	align-items: flex-start;
 	margin-bottom: 30px;
-	padding-bottom: var(--s5);
-	border-bottom: 1px solid #f1f5f9;
 }
 
 .location-info {
@@ -822,14 +769,6 @@
     grid-template-columns: 1fr;
   }
 
-  .grid-info-wrapper.join-guide {
-    margin-bottom: 0;
-    .grid-info-card {
-      h4 {
-        margin-top: 0;
-      }
-    }
-  }
   .guide-countries-grid {
     grid-template-columns: repeat(1, 1fr);
   }

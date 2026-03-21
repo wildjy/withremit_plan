@@ -151,7 +151,7 @@
                     <p>정기 해외 송금 정지 후 재개할 수 없습니다.<br>정말 정지하시겠습니까?</p>
                     <div class="modal-btn-group">
                         <button class="btn btn-secondary size-lg" onclick="closeModal('stopConfirmModal')">취소</button>
-                        <button class="btn btn-primary size-lg" onclick="executeStop()">정지</button>
+                        <button class="btn btn-primary size-lg" onclick="executeRegularRemittanceStop()">정지</button>
                     </div>
                 </div>
             </div>
@@ -167,7 +167,7 @@
                     <h3>정지 완료</h3>
                     <p>정기 해외 송금이 정지되었습니다.</p>
                     <div class="modal-btn-group">
-                        <button class="btn btn-primary" onclick="closeStopSuccess()">확인</button>
+                        <button class="btn btn-primary" onclick="closeRegularRemittanceStopSuccess()">확인</button>
                     </div>
                 </div>
             </div>
@@ -179,256 +179,13 @@
     <script src="data/main-data.js"></script>
     <script src="js/main.js"></script>
     <script src="js/includes.js"></script>
-
     <script>
 
-        // 모달 데이터 (Mock)
-        const mockData = {
-            1: {
-                id: 1,
-                no: 3,
-                recipient: 'MARIA SANTOS',
-                bank: 'BDO Unibank',
-                type: '수취 금액 기준',
-                sendAmount: '₩ 500,000',
-                receiveAmount: '₱ 21,000',
-                cycle: '매월 25일',
-                status: 'processing',
-                statusText: '진행중',
-                withdrawalAccount: { bankName: '기업은행', accountNumber: '064-146189-04-024', holderName: '홍길동' }
-            },
-            2: {
-                id: 2,
-                no: 2,
-                recipient: 'KIM CHULSU',
-                bank: 'Mizuho Bank',
-                type: '송금액 기준',
-                sendAmount: '₩ 500,000',
-                receiveAmount: '¥ 50,000',
-                cycle: '매월 10일',
-                status: 'processing',
-                statusText: '진행중',
-                withdrawalAccount: { bankName: '농협은행', accountNumber: '301-0313-2544-01', holderName: '홍길동' }
-            },
-            3: {
-                id: 3,
-                no: 1,
-                recipient: 'LEE YOUNGHEE',
-                bank: 'Vietcombank',
-                type: '송금액 기준',
-                sendAmount: '₩ 100,000',
-                receiveAmount: '₫ 1,852,000',
-                cycle: '매주 월요일',
-                status: 'paused',
-                statusText: '정지',
-                withdrawalAccount: { bankName: '신한은행', accountNumber: '110-456-789012', holderName: '홍길동' }
-            },
-            4: {
-                id: 4,
-                no: 4,
-                recipient: 'RAJESH KUMAR',
-                bank: 'Nepal Bank',
-                type: '수취 금액 기준',
-                sendAmount: '₩ 300,000',
-                receiveAmount: '₨ 29,500',
-                cycle: '매월 1일',
-                status: 'processing',
-                statusText: '진행중',
-                withdrawalAccount: { bankName: '기업은행', accountNumber: '064-146189-04-024', holderName: '홍길동' }
-            },
-            5: {
-                id: 5,
-                no: 5,
-                recipient: 'ZHANG WEI',
-                bank: 'ICBC',
-                type: '송금액 기준',
-                sendAmount: '₩ 2,000,000',
-                receiveAmount: '¥ 10,800',
-                cycle: '매주 금요일',
-                status: 'paused',
-                statusText: '정지',
-                withdrawalAccount: { bankName: '농협은행', accountNumber: '301-0313-2544-01', holderName: '홍길동' }
+        document.addEventListener('DOMContentLoaded', () => {
+            if (document.getElementById('scheduleDetailModal') && document.getElementById('remitCardGrid')) {
+                renderRegularRemittanceCards();
             }
-        };
-
-        const dataArray = Object.values(mockData).sort((a, b) => b.no - a.no);
-
-        // SVG Helper from HI_01_01
-        // function getStatusSVG(status) {
-        //     const svgs = {
-        //         running: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
-        //         paused: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
-        //         active: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
-        //         stop: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>'
-        //     };
-        //     return svgs[status] || svgs['running'];
-        // }
-
-
-        // 사이드바 활성화 (정기 해외 송금)
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                const links = document.querySelectorAll('.sidebar-nav a');
-                links.forEach(link => {
-                    if (link.textContent.includes('정기 해외 송금')) {
-                        link.classList.add('active');
-                    }
-                });
-            }, 100);
-
-            // 데이터 렌더링 호출
-            renderCards();
         });
-
-        // 카드 리스트 렌더링 함수 (통합)
-        function renderCards() {
-            // Target the grid container
-            const grid = document.getElementById('remitCardGrid');
-            grid.innerHTML = '';
-
-            dataArray.forEach((item, index) => { // Changed from remittanceData to dataArray
-                const card = document.createElement('div');
-                card.className = 'remit-card';
-                card.onclick = (e) => {
-                    if (!e.target.closest('button')) openDetailModal(item.id);
-                };
-
-                // Amount Display Logic
-                let amountDisplay = '';
-                let amountLabel = '금액';
-
-                if (item.type === '송금액 기준') {
-                    amountDisplay = `${item.sendAmount}`; // Use sendAmount from mockData
-                    amountLabel = '송금 금액';
-                } else {
-                    amountDisplay = `${item.receiveAmount}`; // Use receiveAmount from mockData
-                    amountLabel = '수취 금액';
-                }
-
-                card.innerHTML = `
-                    <!-- 1. Header: Name & View Button -->
-                    <div class="remit-card-header">
-                        <!-- Recipient Name as Title -->
-                        <span class="remit-card-date" style="font-size: 1.1rem;">${item.recipient}</span>
-                        <!-- View Button -->
-                        <button class="remit-card-view-btn" onclick="openDetailModal(${item.id})">
-                            자세히
-                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <!-- 2. Body: Info Grid -->
-                    <div class="remit-card-body">
-                        <!-- Col 1: Bank -->
-                        <div class="remit-card-col remit-card-col-bank">
-                            <span class="remit-card-label">은행</span>
-                            <span class="remit-card-detail-value">${item.bank}</span>
-                        </div>
-
-                        <!-- Col 2: Type -->
-                        <div class="remit-card-col remit-card-col-type">
-                            <span class="remit-card-label">송금 구분</span>
-                            <span class="remit-card-detail-value">${item.type}</span>
-                        </div>
-
-                        <!-- Col 3: Amount -->
-                        <div class="remit-card-col remit-card-col-amount">
-                            <span class="remit-card-label">${amountLabel}</span>
-                            <span class="remit-card-amount-value">${amountDisplay}</span>
-                        </div>
-
-                        <!-- Col 4: Cycle -->
-                        <div class="remit-card-col remit-card-col-cycle">
-                            <span class="remit-card-label">주기</span>
-                            <span class="remit-card-detail-value">${item.cycle}</span>
-                        </div>
-
-                        <!-- Col 5: Status (Right Aligned, No Label -> Mobile: Label + Value) -->
-                        <div class="remit-card-col remit-card-status-wrapper">
-                            <span class="remit-card-label remit-card-status-label" style="display: none;">상태</span>
-                            <span class="remit-status status-${item.status}">
-                                ${getStatusSVG(item.status)}
-                                ${item.statusText}
-                            </span>
-                        </div>
-                    </div>
-                `;
-
-                grid.appendChild(card);
-            });
-
-            document.getElementById('totalCount').innerText = dataArray.length;
-        }
-
-        let currentDetailId = null;
-
-        function openDetailModal(id) {
-            currentDetailId = id; // Store current ID
-            const data = mockData[id];
-
-            if (data) {
-                document.getElementById('modalRecipient').textContent = data.recipient;
-                document.getElementById('modalBank').textContent = data.bank;
-                document.getElementById('modalType').textContent = data.type;
-
-                // 송금 구분에 따라 금액과 라벨 표시
-                if (data.type === '송금액 기준') {
-                    document.getElementById('modalAmountLabel').textContent = '송금 금액';
-                    document.getElementById('modalAmount').textContent = data.sendAmount;
-                } else {
-                    document.getElementById('modalAmountLabel').textContent = '수취 금액';
-                    document.getElementById('modalAmount').textContent = data.receiveAmount;
-                }
-
-                document.getElementById('modalCycle').textContent = data.cycle;
-
-                // 출금 계좌 정보 표시 (슬래시로 구분)
-                const wa = data.withdrawalAccount;
-                document.getElementById('modalWithdrawalAccount').textContent =
-                    `${wa.bankName} / ${wa.accountNumber} / ${wa.holderName}`;
-
-                // 상태 아이콘과 텍스트 함께 표시
-                const statusIcon = getStatusSVG(data.status);
-                document.getElementById('modalStatus').innerHTML = `${statusIcon} <span>${data.statusText}</span>`;
-
-                // Status coloring in modal
-                const statusSpan = document.getElementById('modalStatus');
-                if (data.status === 'active') {
-                    statusSpan.style.color = '#059669'; // success color
-                } else if (data.status === 'paused') {
-                    statusSpan.style.color = '#6b7280'; // gray
-                }
-
-                openModal('scheduleDetailModal')
-            }
-        }
-
-        function executeStop() {
-            closeModal('stopConfirmModal');
-
-            // Logic to update status
-            if (currentDetailId && mockData[currentDetailId]) {
-                mockData[currentDetailId].status = 'paused';
-                mockData[currentDetailId].statusText = '정지'; // '중지' -> '정지'
-
-                // Re-render list
-                renderCards();
-
-                // Update Detail Modal View if open
-                const statusIcon = getStatusSVG('paused');
-                document.getElementById('modalStatus').innerHTML = `${statusIcon} <span>정지</span>`;
-                document.getElementById('modalStatus').style.color = '#6b7280';
-            }
-
-            openModal('stopSuccessModal');
-        }
-
-        function closeStopSuccess() {
-            closeModal('stopSuccessModal');
-            closeModal('scheduleDetailModal'); // Close the main detail modal too
-        }
 
     </script>
 </body>

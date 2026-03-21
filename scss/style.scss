@@ -1191,6 +1191,7 @@
 	transition: all 0.3s ease;
 	background-color: var(--white);
 	border-radius: var(--radius-xl);
+	box-shadow: var(--shadow);
 
 	@function remit-icon-url($index) {
 		@return url("../images/svg/icon_remit_#{$index}.svg");
@@ -1307,8 +1308,8 @@
 	align-items: center;
 	height: var(--s12);
 	padding: 0 var(--s4);
+	color: var(--primary-heavy);
 	font-weight: 600;
-	color: var(--text-heavy);
 	background-color: var(--bg-light);
 	border-radius: var(--radius);
 }
@@ -1382,8 +1383,9 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	text-align: center;
-	padding: 10px 6px;
+	// text-align: center;
+	padding: var(--s3) 0;
+	// padding: var(--s3) var(--s5);
 	border-right: 1px solid var(--border-default);
 }
 
@@ -1427,7 +1429,6 @@
 	}
 
 	.limit-info-item .limit-label {
-		font-size: 0.7rem;
 		margin-bottom: var(--s1);
 	}
 }
@@ -1440,7 +1441,6 @@
 	}
 
 	.limit-info-item .limit-label {
-		font-size: 0.75rem;
 		margin-bottom: var(--s1);
 	}
 
@@ -1482,6 +1482,7 @@
 	}
 
 	.calc-col-value {
+		font-size: var(--text-md);
 		text-align: right;
 	}
 
@@ -1498,7 +1499,6 @@
 	}
 
 	.limit-info-item .limit-label {
-		font-size: 0.7rem;
 		margin-bottom: 3px;
 	}
 
@@ -1562,6 +1562,7 @@
 	.btn.btn-text {
 		margin-left: auto;
 		padding-inline: 0;
+		height: auto;
 	}
 }
 
@@ -1732,15 +1733,10 @@
 	color: var(--text-heavy);
 }
 
-.receipt-section {
-	margin-bottom: 25px;
-}
-
 .receipt-section-title {
-	font-size: 1.1rem;
+	margin-bottom: var(--s3);
 	font-weight: 700;
 	color: var(--text-heavy);
-	margin-bottom: var(--s3);
 }
 
 .receipt-row {
@@ -2355,14 +2351,15 @@
 
 /* Balance Round Box */
 .remit-balance-round-box {
-	background-color: #f1f8ff;
-	border-radius: var(--s3);
 	padding: var(--s4) var(--s5);
 	margin-bottom: var(--s5);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	border: 1px solid #dbeafe;
+	color: var(--primary-heavy);
+	background-color: var(--bg-default);
+	border: 1px solid var(--border-default);
+	border-radius: var(--s3);
 }
 
 .remit-balance-round-box .balance-info {
@@ -2724,7 +2721,6 @@
 // RM_02_01 모달 영수증 스타일
 #scheduleDetailModal {
 	.receipt-section {
-		padding: 10px 0;
 		display: flex;
 		flex-direction: column;
 		gap: var(--s3);

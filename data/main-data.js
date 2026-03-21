@@ -294,3 +294,71 @@ window.inquiryData = [
     link: 'CS_03_03.html'
   }
 ];
+
+window.regularRemittanceData = {
+  1: {
+    id: 1,
+    no: 3,
+    recipient: 'MARIA SANTOS',
+    bank: 'BDO Unibank',
+    type: '수취 금액 기준',
+    sendAmount: '₩ 500,000',
+    receiveAmount: '₱ 21,000',
+    cycle: '매월 25일',
+    status: 'processing',
+    statusText: '진행중',
+    withdrawalAccount: { bankName: '기업은행', accountNumber: '064-146189-04-024', holderName: '홍길동' }
+  },
+  2: {
+    id: 2,
+    no: 2,
+    recipient: 'KIM CHULSU',
+    bank: 'Mizuho Bank',
+    type: '송금액 기준',
+    sendAmount: '₩ 500,000',
+    receiveAmount: '¥ 50,000',
+    cycle: '매월 10일',
+    status: 'processing',
+    statusText: '진행중',
+    withdrawalAccount: { bankName: '농협은행', accountNumber: '301-0313-2544-01', holderName: '홍길동' }
+  },
+  3: {
+    id: 3,
+    no: 1,
+    recipient: 'LEE YOUNGHEE',
+    bank: 'Vietcombank',
+    type: '송금액 기준',
+    sendAmount: '₩ 100,000',
+    receiveAmount: '₫ 1,852,000',
+    cycle: '매주 월요일',
+    status: 'paused',
+    statusText: '정지',
+    withdrawalAccount: { bankName: '신한은행', accountNumber: '110-456-789012', holderName: '홍길동' }
+  },
+  4: {
+    id: 4,
+    no: 4,
+    recipient: 'RAJESH KUMAR',
+    bank: 'Nepal Bank',
+    type: '수취 금액 기준',
+    sendAmount: '₩ 300,000',
+    receiveAmount: '₨ 29,500',
+    cycle: '매월 1일',
+    status: 'processing',
+    statusText: '진행중',
+    withdrawalAccount: { bankName: '기업은행', accountNumber: '064-146189-04-024', holderName: '홍길동' }
+  },
+  5: {
+    id: 5,
+    no: 5,
+    recipient: 'ZHANG WEI',
+    bank: 'ICBC',
+    type: '송금액 기준',
+    sendAmount: '₩ 2,000,000',
+    receiveAmount: '¥ 10,800',
+    cycle: '매주 금요일',
+    status: 'paused',
+    statusText: '정지',
+    withdrawalAccount: { bankName: '농협은행', accountNumber: '301-0313-2544-01', holderName: '홍길동' }
+  }
+};

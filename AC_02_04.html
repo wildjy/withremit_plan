@@ -5,10 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>WithRemit - 출금 계좌 등록</title>
-    <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" href="css/account.css"> -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
 
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
 
 </head>
 
@@ -28,59 +33,54 @@
 
 
                     <!-- Top Disclaimer -->
-                    <div class="remit-balance-round-box" style="margin-bottom: 30px;">
+                    <div class="remit-balance-round-box">
                         법령에 따라 조회 동의는 최대 5년까지 유효하며, 1년마다 재동의 여부를 확인해야 합니다.
                     </div>
 
-                    <div class="guide-section" style="margin-bottom: 0; padding-bottom: 0; border: none;">
-                        <h2 class="form-sec-head" style="margin-bottom: var(--s4);">
+                    <div class="guide-section">
+                        <h2 class="form-sec-head">
                             등록할 계좌 정보
                         </h2>
                     </div>
 
-                    <!-- Account Table -->
-                    <div class="bank-table-card">
-                        <div class="db-table-responsive">
-                            <table class="common-table">
-                                <colgroup>
-                                    <col width="40%">
-                                    <col width="60%">
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th class="center">은행명</th>
-                                        <th class="center">계좌 번호</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="center" data-label="은행명">산업</td>
-                                        <td class="center" data-label="계좌 번호">06493117232310 01</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="center" data-label="은행명">산업</td>
-                                        <td class="center" data-label="계좌 번호">06493117266310 01</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="center" data-label="은행명">케이뱅크</td>
-                                        <td class="center" data-label="계좌 번호">100144380011</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="center" data-label="은행명">카카오뱅크</td>
-                                        <td class="center" data-label="계좌 번호">3333037115702</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="center" data-label="은행명">카카오뱅크</td>
-                                        <td class="center" data-label="계좌 번호">3388140671141</td>
-                                    </tr>
-                                    <tr class="dotted-line-row">
-                                        <td class="center" data-label="은행명">토스뱅크</td>
-                                        <td class="center" data-label="계좌 번호">100063347871</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    <table class="common-table">
+                        <colgroup>
+                            <col width="40%">
+                            <col width="60%">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th class="center">은행명</th>
+                                <th class="center">계좌 번호</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center" data-label="은행명">산업</td>
+                                <td class="center" data-label="계좌 번호">06493117232310 01</td>
+                            </tr>
+                            <tr>
+                                <td class="center" data-label="은행명">산업</td>
+                                <td class="center" data-label="계좌 번호">06493117266310 01</td>
+                            </tr>
+                            <tr>
+                                <td class="center" data-label="은행명">케이뱅크</td>
+                                <td class="center" data-label="계좌 번호">100144380011</td>
+                            </tr>
+                            <tr>
+                                <td class="center" data-label="은행명">카카오뱅크</td>
+                                <td class="center" data-label="계좌 번호">3333037115702</td>
+                            </tr>
+                            <tr>
+                                <td class="center" data-label="은행명">카카오뱅크</td>
+                                <td class="center" data-label="계좌 번호">3388140671141</td>
+                            </tr>
+                            <tr class="dotted-line-row">
+                                <td class="center" data-label="은행명">토스뱅크</td>
+                                <td class="center" data-label="계좌 번호">100063347871</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
                     <!-- Bottom Info -->
                     <div class="guide-note">
@@ -92,11 +92,9 @@
 
 
                     <!-- Action Buttons -->
-                    <div class="btn-align" style="margin-top: var(--s10);">
-                        <button type="button" class="btn btn-secondary size-lg"
-                            onclick="location.href='AC_02_01.html'">취소</button>
-                        <button type="button" class="btn btn-primary" onclick="openModal('confirmModal')">모바일
-                            인증</button>
+                    <div class="btn-align">
+                        <button type="button" class="btn btn-secondary size-lg" onclick="location.href='AC_02_01.html'">취소</button>
+                        <button type="button" class="btn btn-primary size-lg" onclick="openModal('confirmModal')">모바일 인증</button>
                     </div>
 
                 </div>
@@ -118,7 +116,7 @@
                 <p>본인 인증 완료 후, <br> 선택한 계좌를 출금 계좌로 등록합니다.</p>
                 <div class="modal-btn-group">
                     <button class="btn btn-secondary size-lg" onclick="closeModal('confirmModal')">취소</button>
-                    <button class="btn btn-primary size-lg" onclick="confirmRegistration()">확인</button>
+                    <button class="btn btn-confirm size-lg" onclick="confirmRegistration()">확인</button>
                 </div>
             </div>
         </div>
