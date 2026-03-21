@@ -2314,10 +2314,9 @@ body.db-body, body.login-page {
       -ms-flex-align: center;
           align-items: center;
 }
-
-.calc-label {
+.calc-row-header .calc-label {
   margin-bottom: 0;
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   color: var(--text-default);
   display: block;
   font-weight: 500;
@@ -2325,11 +2324,10 @@ body.db-body, body.login-page {
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
-
-.calc-max-amount {
-  font-size: var(--text-xs);
+.calc-row-header .calc-max-amount {
+  font-size: var(--text-sm);
   color: var(--primary-heavy);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .calc-input-group {
@@ -2377,6 +2375,9 @@ body.db-body, body.login-page {
   }
 }
 @media (max-width: 480px) {
+  .calc-row-header {
+    margin-bottom: var(--s2);
+  }
   /* Calculator */
 }
 .calc-input-with-symbol {
