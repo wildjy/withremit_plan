@@ -538,6 +538,9 @@ input[type=checkbox]:checked + .custom-check::after {
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
+.lang-select:valid {
+  color: var(--text-strong);
+}
 
 /* ===== GM Header Responsiveness Updates ===== */
 /* Base Header Adjustments */
@@ -811,10 +814,6 @@ input[type=checkbox]:checked + .custom-check::after {
   right: 0;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-}
-.footer-logo img {
-  height: var(--s13);
-  width: auto;
 }
 
 @media (max-width: 1200px) {
@@ -1925,8 +1924,7 @@ body.db-body, body.login-page {
 }
 
 .banner-image-group img {
-  height: var(--full);
-  width: auto;
+  height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
   -webkit-transition: -webkit-transform 0.4s ease;
@@ -1947,6 +1945,7 @@ body.db-body, body.login-page {
     top: auto;
     bottom: var(--s10);
     right: var(--s6);
+    height: 10.625rem;
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
@@ -2085,9 +2084,6 @@ body.db-body, body.login-page {
     margin-top: var(--s4);
     width: 65%;
   }
-  .banner-image-group {
-    height: 200px;
-  }
 }
 @media (max-width: 768px) {
   /* Banner */
@@ -2099,9 +2095,6 @@ body.db-body, body.login-page {
     margin: 0;
     height: 20.5rem;
   }
-  .db-body .banner-image-group {
-    height: 10.625rem;
-  }
   .banner-content h2 {
     margin-bottom: var(--s2);
     font-size: var(--text-2xl);
@@ -2112,16 +2105,8 @@ body.db-body, body.login-page {
   .banner-text-group {
     text-align: left;
   }
-  .banner-image-group {
-    height: 10.625rem;
-  }
   .banner-controls {
     bottom: var(--s5);
-  }
-}
-@media (max-width: 480px) {
-  .banner-image-group {
-    height: 10rem;
   }
 }
 .sub-visual {
@@ -2355,7 +2340,7 @@ body.db-body, body.login-page {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  padding: var(--s3) var(--s4);
+  padding: 0 var(--s4);
   font-size: var(--text-xl);
   color: var(--text-heavy);
   font-weight: 600;
@@ -4566,7 +4551,7 @@ body.db-body, body.login-page {
 }
 
 .login-form {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--s6);
 }
 
 /* Info Box Style */
@@ -4711,13 +4696,12 @@ body.db-body, body.login-page {
 }
 
 .register-wrap {
+  margin-top: var(--s6);
   text-align: center;
-  margin-top: 10px;
-  padding-top: 0;
 }
 
 .register-item {
-  font-size: 14px;
+  font-size: var(--text-sm);
   -webkit-transition: var(--transition);
   transition: var(--transition);
   text-decoration: none !important;
@@ -4738,7 +4722,7 @@ body.db-body, body.login-page {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 14px;
+  font-size: var(--text-sm);
 }
 
 .find-links a {
@@ -5260,12 +5244,6 @@ body.db-body, body.login-page {
   }
   .find-links .v-bar {
     display: none !important;
-  }
-  .register-wrap {
-    margin-top: 10px;
-  }
-  .register-item {
-    font-size: 13px;
   }
 }
 /* ===== end Login Page Styles ===== */

@@ -133,7 +133,7 @@
 }
 
 .login-form {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--s6);
 }
 
 /* Info Box Style */
@@ -278,13 +278,12 @@
 }
 
 .register-wrap {
+  margin-top: var(--s6);
   text-align: center;
-  margin-top: 10px;
-  padding-top: 0;
 }
 
 .register-item {
-  font-size: 14px;
+  font-size: var(--text-sm);
   -webkit-transition: var(--transition);
   transition: var(--transition);
   text-decoration: none !important;
@@ -305,7 +304,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 14px;
+  font-size: var(--text-sm);
 }
 
 .find-links a {
@@ -827,12 +826,6 @@
   }
   .find-links .v-bar {
     display: none !important;
-  }
-  .register-wrap {
-    margin-top: 10px;
-  }
-  .register-item {
-    font-size: 13px;
   }
 }
 /* ===== end Login Page Styles ===== */

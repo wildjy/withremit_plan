@@ -132,6 +132,9 @@
 	border-radius: var(--s2);
 	cursor: pointer;
 	transition: var(--transition);
+	&:valid {
+		color: var(--text-strong);
+	}
 }
 /* ===== GM Header Responsiveness Updates ===== */
 /* Base Header Adjustments */

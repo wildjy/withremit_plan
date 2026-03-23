@@ -79,10 +79,6 @@
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  img {
-		height: var(--s13);
-		width: auto;
-  }
 }
 
 @media (max-width: 1200px) {

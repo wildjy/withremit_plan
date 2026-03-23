@@ -204,13 +204,13 @@
 	margin-bottom: var(--s3);
 	font-size: var(--text-2xl);
 	color: var(--text-heavy);
-	
+
 }
 
 .feature-card-content p,
 .feature-card p {
 	font-size: var(--text-md);
-	
+
 	color: var(--text-default);
 }
 
@@ -341,11 +341,13 @@
 	color: var(--primary-default);
 	font-size: var(--text-md);
 	background-color: var(--white);
+	border: none;
 }
 
 .cta .btn-primary:hover:not(:disabled):not(.is-disabled) {
 	color: var(--primary-default);
 	background-color: var(--white);
+	border: none;
 }
 
 /* ===== Contact Section ===== */
@@ -860,7 +862,6 @@
 	}
 
 	.calc-fee-box {
-		padding: var(--s3);
 		margin-bottom: var(--s4);
 		text-align: left;
 	}

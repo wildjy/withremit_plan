@@ -327,11 +327,13 @@
   color: var(--primary-default);
   font-size: var(--text-md);
   background-color: var(--white);
+  border: none;
 }
 
 .cta .btn-primary:hover:not(:disabled):not(.is-disabled) {
   color: var(--primary-default);
   background-color: var(--white);
+  border: none;
 }
 
 /* ===== Contact Section ===== */
@@ -851,7 +853,6 @@
     padding: var(--s3) var(--s2);
   }
   .calc-fee-box {
-    padding: var(--s3);
     margin-bottom: var(--s4);
     text-align: left;
   }
