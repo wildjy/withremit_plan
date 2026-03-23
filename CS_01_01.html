@@ -220,32 +220,25 @@
     <script src="js/main.js"></script>
     <script src="js/includes.js"></script>
     <script>
-        // Mobile search toggle
-        const mobileSearchToggle = document.getElementById('mobileSearchToggle');
-        const searchBox = document.getElementById('searchBox');
+        document.addEventListener('DOMContentLoaded', () => {
+            initMobileSearchToggle();
 
-        if (mobileSearchToggle && searchBox) {
-            mobileSearchToggle.addEventListener('click', () => {
-                mobileSearchToggle.classList.toggle('active');
-                searchBox.classList.toggle('mobile-active');
-            });
-        }
-
-        // Table row click handler
-        const noticeTableRows = document.querySelectorAll('.common-table tbody tr');
-        noticeTableRows.forEach(row => {
-            row.addEventListener('click', () => {
-                const titleElement = row.querySelector('.notice-title');
-                if (titleElement) {
-                    const title = titleElement.textContent.trim();
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const isGuest = urlParams.get('guest') === 'true';
-                    let targetUrl = `CS_01_02.html?title=${encodeURIComponent(title)}`;
-                    if (isGuest) {
-                        targetUrl += '&guest=true';
+            // Table row click handler
+            const noticeTableRows = document.querySelectorAll('.common-table tbody tr');
+            noticeTableRows.forEach(row => {
+                row.addEventListener('click', () => {
+                    const titleElement = row.querySelector('.notice-title');
+                    if (titleElement) {
+                        const title = titleElement.textContent.trim();
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const isGuest = urlParams.get('guest') === 'true';
+                        let targetUrl = `CS_01_02.html?title=${encodeURIComponent(title)}`;
+                        if (isGuest) {
+                            targetUrl += '&guest=true';
+                        }
+                        window.location.href = targetUrl;
                     }
-                    window.location.href = targetUrl;
-                }
+                });
             });
         });
     </script>

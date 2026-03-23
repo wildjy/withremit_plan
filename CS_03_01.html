@@ -237,56 +237,23 @@
         function openConfirmModal() {
             // Validation
             clearAllErrors();
-            let hasError = false;
 
-            const fields = [
-                { id: 'inquiryTitle', message: '제목을 입력해 주세요.' },
-                { id: 'emailLocal', message: '이메일 아이디를 입력해 주세요.' },
-                { id: 'emailDomain', message: '이메일 도메인을 입력해 주세요.' },
-                { id: 'inquiryName', message: '이름을 입력해 주세요.' },
-                { id: 'inquiryContent', message: '내용을 입력해 주세요.' }
+            const requiredFields = [
+                { id: 'inquiryTitle', message: 'error.inquiryTitleRequired' },
+                { id: 'emailLocal', message: 'error.emailLocalRequired' },
+                { id: 'emailDomain', message: 'error.emailDomainRequired' },
+                { id: 'inquiryName', message: 'error.nameRequired' },
+                { id: 'inquiryContent', message: 'error.inquiryContentRequired' }
             ];
 
-            fields.forEach(field => {
-                const el = document.getElementById(field.id);
-                if (!el.value.trim()) {
-                    showFieldError(field.id, field.message);
-                    hasError = true;
-                }
-            });
+            if (!validateRequiredFields(requiredFields)) return;
 
-            if (hasError) return;
-
-            document.getElementById('confirmModal').classList.add('active');
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).classList.remove('active');
+            openModal('confirmModal');
         }
 
         function submitInquiry() {
             location.href = 'CS_03_02.html';
         }
-
-        // function showFieldError(elementId, message) {
-        //     const element = document.getElementById(elementId);
-        //     if (!element) return;
-        //     element.classList.add('error');
-        //     const errorSpan = document.getElementById(`${elementId}Error`);
-        //     if (errorSpan) errorSpan.textContent = message;
-        // }
-
-        function clearAllErrors() {
-            document.querySelectorAll('.login-input.error').forEach(el => el.classList.remove('error'));
-            document.querySelectorAll('.field-error').forEach(el => el.textContent = '');
-        }
-
-        // Close modal when clicking overlay
-        document.getElementById('confirmModal').addEventListener('click', function (e) {
-            if (e.target === this) {
-                closeModal('confirmModal');
-            }
-        });
     </script>
 </body>
 

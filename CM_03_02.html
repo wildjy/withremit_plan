@@ -43,7 +43,7 @@
             <!-- 아이디 찾기 폼 -->
             <div id="tab-findId" class="tab-content active">
                 <form class="login-form">
-                    <div class="field-group">
+                    <div class="field-item field-group">
                         <label class="field-label" for="userNameId">영문 이름</label>
                         <div class="input-box-group" id="userNameIdBox">
                             <input type="text" id="userNameId" class="login-input" placeholder="영문 이름을 입력하세요">
@@ -51,7 +51,7 @@
                         <div class="field-error" id="userNameIdError"></div>
                     </div>
 
-                    <div class="field-group">
+                    <div class="field-item field-group">
                         <label class="field-label" for="userEmailId">이메일</label>
                         <div class="input-box-group" id="userEmailIdBox">
                             <input type="email" id="userEmailId" class="login-input" placeholder="이메일을 입력하세요">
@@ -71,7 +71,7 @@
             <!-- 비밀번호 찾기 폼 -->
             <div id="tab-findPw" class="tab-content">
                 <form class="login-form">
-                    <div class="field-group">
+                    <div class="field-item field-group">
                         <label class="field-label" for="userIdPw">아이디</label>
                         <div class="input-box-group" id="userIdPwBox">
                             <input type="text" id="userIdPw" class="login-input" placeholder="아이디를 입력하세요">
@@ -79,7 +79,7 @@
                         <div class="field-error" id="userIdPwError"></div>
                     </div>
 
-                    <div class="field-group">
+                    <div class="field-item field-group">
                         <label class="field-label" for="userEmailPw">이메일</label>
                         <div class="input-box-group" id="userEmailPwBox">
                             <input type="email" id="userEmailPw" class="login-input" placeholder="이메일을 입력하세요">
@@ -126,78 +126,37 @@
     <script src="js/main.js"></script>
     <script>
         function switchTab(tabId) {
-            // 버튼 상태 변경
-            document.querySelectorAll('.find-tab-btn').forEach(btn => btn.classList.remove('active'));
-            if (tabId === 'findId') {
-                document.querySelector('button[onclick="switchTab(\'findId\')"]').classList.add('active');
-            } else {
-                document.querySelector('button[onclick="switchTab(\'findPw\')"]').classList.add('active');
-            }
-
-            // 컨텐츠 표시 변경
-            document.querySelectorAll('.find-tab-content').forEach(content => content.classList.remove('active'));
-            document.getElementById(tabId + 'Content').classList.add('active');
-
-            // 에러 초기화
-            clearErrors();
+            clearAllErrors();
         }
         function resetForm() {
             document.querySelectorAll('.login-form input').forEach(input => input.value = '');
-            clearErrors();
-        }
-
-        function clearErrors() {
-            document.querySelectorAll('.input-box-group').forEach(box => box.classList.remove('error'));
-            document.querySelectorAll('.field-error').forEach(error => error.textContent = '');
-        }
-
-        function showError(inputId, message) {
-            document.getElementById(inputId + 'Box').classList.add('error');
-            document.getElementById(inputId + 'Error').textContent = message;
+            clearAllErrors();
         }
 
         function validateFindId() {
-            clearErrors();
-            let isValid = true;
+            clearAllErrors();
 
-            const name = document.getElementById('userNameId').value.trim();
-            const email = document.getElementById('userEmailId').value.trim();
+            const requiredFields = [
+                { id: 'userNameId', message: 'error.nameEnRequired' },
+                { id: 'userEmailId', message: 'error.emailRequired' }
+            ];
 
-            if (!name) {
-                showError('userNameId', '영문 이름을 입력해주세요.');
-                isValid = false;
-            }
+            if (!validateRequiredFields(requiredFields)) return;
 
-            if (!email) {
-                showError('userEmailId', '이메일을 입력해주세요.');
-                isValid = false;
-            }
-
-            if (isValid) {
-                alert('아이디 찾기 기능은 준비중입니다.');
-            }
+            alert('아이디 찾기 기능은 준비중입니다.');
         }
 
         function validateFindPw() {
-            clearErrors();
-            let isValid = true;
+            clearAllErrors();
 
-            const id = document.getElementById('userIdPw').value.trim();
-            const email = document.getElementById('userEmailPw').value.trim();
+            const requiredFields = [
+                { id: 'userIdPw', message: 'error.userIdRequired' },
+                { id: 'userEmailPw', message: 'error.emailRequired' }
+            ];
 
-            if (!id) {
-                showError('userIdPw', '아이디를 입력해주세요.');
-                isValid = false;
-            }
+            if (!validateRequiredFields(requiredFields)) return;
 
-            if (!email) {
-                showError('userEmailPw', '이메일을 입력해주세요.');
-                isValid = false;
-            }
-
-            if (isValid) {
-                alert('비밀번호 찾기 기능은 준비중입니다.');
-            }
+            alert('비밀번호 찾기 기능은 준비중입니다.');
         }
     </script>
 </body>

@@ -366,7 +366,7 @@
                     <div class="btn-align">
                         <button type="button" class="btn btn-secondary size-lg"
                             onclick="location.href='RM_02_01.html'">취소</button>
-                        <button type="button" class="btn btn-primary" onclick="submitEdit()">수정 완료</button>
+                        <button type="button" class="btn btn-primary size-lg" onclick="submitEdit()">수정 완료</button>
                     </div>
                 </div>
             </div>
@@ -569,6 +569,9 @@
     <script src="data/main-data.js"></script>
     <script src="js/main.js"></script><!-- 언어변경 스크립트 -->
     <script src="js/includes.js"></script>
+    <script src="data/remit-common-data.js"></script>
+    <script src="js/remit-common.js"></script>
+    <script src="js/remit-regular.js"></script>
     <script>
         // 수정 완료 함수
         function submitEdit() {
@@ -581,18 +584,14 @@
             }
 
             // 수정 완료 모달 표시
-            document.getElementById('remitCompleteModal').classList.add('active');
+            openModal('remitCompleteModal');
         }
 
         function closeRemitModal() {
-            document.getElementById('remitCompleteModal').classList.remove('active');
+            closeModal('remitCompleteModal');
             location.href = 'RM_02_01.html';
         }
-    </script>
-    <script src="data/remit-common-data.js"></script>
-    <script src="js/remit-common.js"></script>
-    <script src="js/remit-regular.js"></script>
-    <script>
+
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof window.initRemitAccountSelection === 'function') {
                 window.initRemitAccountSelection();
@@ -602,8 +601,7 @@
                 window.initEnhancedRemitCycle();
             }
         });
-    </script>
-    <script>
+
         function selectCard(id) {
             document.querySelectorAll('input[name="withdrawalAccountMobile"]').forEach(radio => {
                 radio.checked = (radio.value == id);

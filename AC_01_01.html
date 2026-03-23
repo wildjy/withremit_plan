@@ -255,10 +255,6 @@
     <script src="js/main.js"></script>
     <script src="js/includes.js"></script>
     <script>
-        function openAccountModal() {
-            document.getElementById('accountModal').classList.add('show');
-        }
-
         function closeAccountModal() {
             closeModal('accountModal')
             // Reset form
@@ -273,7 +269,7 @@
             const holder = document.getElementById('accountHolder').value;
 
             if (!bank || !accountNum || !holder) {
-                document.getElementById('validationModal').classList.add('active');
+                openModal('validationModal');
                 return;
             }
 

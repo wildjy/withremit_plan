@@ -210,6 +210,7 @@
                                         <span class="badge-required" data-i18n="join.required">필수</span>
                                     </label>
                                     <input type="text" placeholder="예: 홍" class="login-input" id="lastNameKo">
+                                    <span class="field-error" id="lastNameKoError"></span>
                                 </div>
                                 <div class="field-item">
                                     <label class="field-label">
@@ -217,6 +218,7 @@
                                         <span class="badge-required" data-i18n="join.required">필수</span>
                                     </label>
                                     <input type="text" placeholder="예: 길동" class="login-input" id="firstNameKo">
+                                    <span class="field-error" id="firstNameKoError"></span>
                                 </div>
                             </div>
                             <div class="form-row-2 no-mb">
@@ -226,6 +228,7 @@
                                         <span class="badge-required" data-i18n="join.required">필수</span>
                                     </label>
                                     <input type="text" placeholder="예: GILDONG" class="login-input" id="firstNameEn">
+                                    <span class="field-error" id="firstNameEnError"></span>
                                 </div>
                                 <div class="field-item">
                                     <label class="field-label">
@@ -233,6 +236,7 @@
                                         <span class="badge-required" data-i18n="join.required">필수</span>
                                     </label>
                                     <input type="text" placeholder="예: HONG" class="login-input" id="lastNameEn">
+                                    <span class="field-error" id="lastNameEnError"></span>
                                 </div>
                             </div>
                         </div>
@@ -514,7 +518,7 @@
 
             <div class="btn-align">
                 <button type="button" class="btn btn-secondary size-lg" onclick="location.href='CM_02_01.html'">취소</button>
-                <button type="button" class="btn btn-primary size-lg" onclick="openModal('regCompleteModal')">회원가입 신청 완료</button>
+                <button type="button" class="btn btn-primary size-lg" onclick="validateChecker();">회원가입 신청 완료</button>
             </div>
         </form>
 
@@ -632,9 +636,9 @@
                             </div>
                         </div>
 
-                        <div style="display: flex; gap: var(--s3); margin-top: var(--s6);">
-                            <button type="button" class="btn btn-secondary size-lg" onclick="closeModal('ocrModal')" style="flex: 1;">취소</button>
-                            <button type="button" class="btn btn-primary size-lg" onclick="applyOCRData()" style="flex: 1;">확인</button>
+                        <div class="btn-align">
+                            <button type="button" class="btn btn-secondary size-lg" onclick="closeModal('ocrModal')">취소</button>
+                            <button type="button" class="btn btn-primary size-lg" onclick="applyOCRData()">확인</button>
                         </div>
                     </div>
                 </div>
@@ -918,6 +922,22 @@
                 });
             }
         });
+
+        function validateChecker () {
+            // Validation
+            clearAllErrors();
+
+            const requiredFields = [
+                {id: 'lastNameKo', message: 'error.requiredLastNameKo'},
+                {id: 'firstNameKo', message: 'error.requiredFirstNameKo'},
+                {id: 'firstNameEn', message: 'error.firstNameEn'},
+                {id: 'lastNameEn', message: 'error.lastNameEn'},
+            ];
+
+            if (!validateRequiredFields(requiredFields)) return;
+
+            openModal('regCompleteModal')
+        }
 
         // 2. OCR 모달 열기
         function openOCRModal(docType, title) {

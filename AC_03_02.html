@@ -247,52 +247,23 @@
             }
         });
 
-        // 모든 에러 초기화
-        function clearAllErrors() {
-            document.querySelectorAll('.input-box-group.error').forEach(el => el.classList.remove('error'));
-            document.querySelectorAll('.select-styled.error').forEach(el => el.classList.remove('error'));
-            document.querySelectorAll('input.error').forEach(el => el.classList.remove('error'));
-            document.querySelectorAll('.field-error').forEach(el => el.textContent = '');
-        }
-
         function confirmRegister() {
             // Validation
             clearAllErrors();
 
-            let hasError = false;
-            let firstErrorElement = null;
-
             const requiredFields = [
-                { id: 'remitCountry', message: '국가를 선택해 주세요.' },
-                { id: 'firstNameEn', message: '이름을 입력해 주세요.' },
-                { id: 'lastNameEn', message: '성을 입력해 주세요.' },
-                { id: 'beneficiaryNameKana', message: '수취인 이름 (카나명)을 입력해 주세요.' },
-                { id: 'beneficiaryLastNameKana', message: '수취인 성 (카나명)을 입력해 주세요.' },
-                { id: 'bsbNumber', message: 'BSB 번호를 입력해 주세요.' },
-                { id: 'bankSelect', message: '은행을 선택해 주세요.' },
-                { id: 'accountNumber', message: '계좌 번호를 입력해 주세요.' },
-                { id: 'remitPurpose', message: '송금 목적을 선택해 주세요.' }
+                { id: 'remitCountry', message: 'error.countryRequired' },
+                { id: 'firstNameEn', message: 'error.firstNameRequired' },
+                { id: 'lastNameEn', message: 'error.lastNameRequired' },
+                { id: 'beneficiaryNameKana', message: 'error.kanaFirstNameRequired' },
+                { id: 'beneficiaryLastNameKana', message: 'error.kanaLastNameRequired' },
+                { id: 'bsbNumber', message: 'error.bsbRequired' },
+                { id: 'bankSelect', message: 'error.bankRequired' },
+                { id: 'accountNumber', message: 'error.accountNumberRequired' },
+                { id: 'remitPurpose', message: 'error.remitPurposeRequired' }
             ];
 
-            for (const field of requiredFields) {
-                const element = document.getElementById(field.id);
-                if (!element || !element.value || element.value.trim() === '') {
-                    showFieldError(field.id, field.message);
-                    hasError = true;
-                    if (!firstErrorElement) {
-                        firstErrorElement = element;
-                    }
-                } else {
-                    clearFieldError(field.id);
-                }
-            }
-
-            if (hasError) {
-                if (firstErrorElement) {
-                    firstErrorElement.focus();
-                }
-                return;
-            }
+            if (!validateRequiredFields(requiredFields)) return;
 
             openModal('successModal');
         }

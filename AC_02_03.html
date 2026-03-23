@@ -37,7 +37,7 @@
 
                         <div class="select-all-wrap">
                             <label class="check-label-group">
-                                <input type="checkbox" id="selectAll">
+                                <input type="checkbox" id="agreeAll">
                                 <span class="custom-check"></span>
                                 <span class="check-text">전체 선택</span>
                             </label>
@@ -225,7 +225,7 @@
         }
 
         function initializeCheckboxes() {
-            const selectAll = document.getElementById('selectAll');
+            const selectAll = document.getElementById('agreeAll');
             const checkboxes = document.querySelectorAll('.account-check:not([disabled])');
             const btnRegister = document.getElementById('btnRegister');
 

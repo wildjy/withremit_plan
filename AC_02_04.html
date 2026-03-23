@@ -127,30 +127,10 @@
     <script src="js/main.js"></script>
     <script src="js/includes.js"></script>
     <script>
-        // Manual override to ensure sidebar active state
-        document.addEventListener('DOMContentLoaded', () => {
-            const checkSidebar = setInterval(() => {
-                const nav = document.getElementById('navWithdrawalAccount');
-                if (nav) {
-                    nav.classList.add('active');
-                    clearInterval(checkSidebar);
-                }
-            }, 100);
-            setTimeout(() => clearInterval(checkSidebar), 5000); // Stop after 5s if not found
-        });
-
         function confirmRegistration() {
             closeModal('confirmModal');
             // Navigate to List
             location.href = 'AC_02_01.html';
-        }
-
-        // Close modal on click outside
-        window.onclick = function (event) {
-            const modal = document.getElementById('confirmModal');
-            if (event.target == modal) {
-                closeModal('confirmModal');
-            }
         }
     </script>
 </body>

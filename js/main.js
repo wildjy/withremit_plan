@@ -567,14 +567,14 @@ function openDupCheckModal({
 }
 
 // 에러 표시 함수
-function showFieldError(elementId, message) {
+function showFieldError(elementId, message, i18nKey) {
     const element = document.getElementById(elementId);
     if (!element) return;
 
     bindGlobalFieldErrorAutoClear();
 
     // 부모 요소 찾기
-    const fieldItem = element.closest('.field-item');
+    const fieldItem = element.closest('.field-item') || element.closest('.field-group');
     if (!fieldItem) return;
 
     // input-box-group에 에러 클래스 추가 (없는 경우도 있음)
@@ -595,8 +595,10 @@ function showFieldError(elementId, message) {
         errorSpan = fieldItem.querySelector('.field-error');
     }
     if (errorSpan) {
-        // errorSpan.style.display = 'block';
         errorSpan.textContent = message;
+        if (i18nKey) {
+            errorSpan.setAttribute('data-i18n', i18nKey);
+        }
     }
 
     // 값이 입력되면 해당 필드 에러 자동 해제 (중복 바인딩 방지)
@@ -650,7 +652,7 @@ function clearFieldError(elementOrId) {
     const value = (element.value ?? '').toString().trim();
     if (!value) return;
 
-    const fieldItem = element.closest('.field-item');
+    const fieldItem = element.closest('.field-item')
     const inputGroup = element.closest('.input-box-group');
 
     if (inputGroup) {
@@ -667,8 +669,8 @@ function clearFieldError(elementOrId) {
         errorSpan = fieldItem.querySelector('.field-error');
     }
     if (errorSpan) {
-        // errorSpan.style.display = 'none';
         errorSpan.textContent = '';
+        errorSpan.removeAttribute('data-i18n');
     }
 }
 
@@ -683,7 +685,36 @@ function clearAllErrors() {
     document.querySelectorAll('.select-styled.error').forEach(el => el.classList.remove('error'));
     document.querySelectorAll('input.error').forEach(el => el.classList.remove('error'));
     document.querySelectorAll('textarea.error').forEach(el => el.classList.remove('error'));
-    document.querySelectorAll('.field-error').forEach(el => el.textContent = '');
+    document.querySelectorAll('.field-error').forEach(el => {
+        el.textContent = '';
+        el.removeAttribute('data-i18n');
+    });
+}
+
+// 필수 필드 검증 공통 함수
+// @param {Array} requiredFields - [{ id, message }] message는 i18n 키
+// @returns {boolean} true = 유효(에러 없음), false = 에러 있음
+function validateRequiredFields(requiredFields) {
+    let hasError = false;
+    let firstErrorElement = null;
+
+    for (const field of requiredFields) {
+        const element = document.getElementById(field.id);
+        if (!element) continue;
+        if (!element.value || element.value.trim() === '') {
+            showFieldError(field.id, t(field.message), field.message);
+            hasError = true;
+            if (!firstErrorElement) firstErrorElement = element;
+        } else {
+            clearFieldError(field.id);
+        }
+    }
+
+    if (hasError && firstErrorElement) {
+        firstErrorElement.focus();
+    }
+
+    return !hasError;
 }
 
 function handleDelete() {
@@ -1762,14 +1793,20 @@ function initQuickDateButtons() {
     });
 }
 
-// Mobile search toggle (HI_01_01, HI_02_01, HI_03_01)
+// Mobile search toggle (HI_01_01, HI_02_01, HI_03_01, CS_01_01, CS_02_01, CS_03_02)
 function initMobileSearchToggle() {
     const toggleBtn = document.getElementById('mobileSearchToggle');
     const searchWrapper = document.querySelector('.remit-search-wrapper');
-    if (toggleBtn && searchWrapper) {
+    const searchBox = document.getElementById('searchBox');
+    if (toggleBtn && (searchWrapper || searchBox)) {
         toggleBtn.addEventListener('click', () => {
             toggleBtn.classList.toggle('active');
-            searchWrapper.classList.toggle('mobile-active');
+            if (searchWrapper) {
+                searchWrapper.classList.toggle('mobile-active');
+            }
+            if (searchBox) {
+                searchBox.classList.toggle('mobile-active');
+            }
         });
     }
 }
@@ -1783,6 +1820,17 @@ function initDetailSearchToggle() {
             detailToggleBtn.classList.toggle('active');
             searchDetail.classList.toggle('show');
         });
+    }
+}
+
+// Toggle FAQ Accordion
+function toggleFaq(row) {
+    row.classList.toggle('active');
+    const contentRow = row.nextElementSibling;
+
+    if (contentRow && contentRow.classList.contains('faq-content-row')) {
+        const isActive = row.classList.contains('active');
+        contentRow.style.display = isActive ? 'table-row' : 'none';
     }
 }
 

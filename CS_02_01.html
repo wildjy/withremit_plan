@@ -308,27 +308,10 @@
     <script src="js/main.js"></script>
     <script src="js/includes.js"></script>
     <script>
-        // Toggle FAQ Accordion
-        function toggleFaq(row) {
-            row.classList.toggle('active');
-            const contentRow = row.nextElementSibling;
-
-            if (contentRow && contentRow.classList.contains('faq-content-row')) {
-                const isActive = row.classList.contains('active');
-                contentRow.style.display = isActive ? 'table-row' : 'none';
-            }
-        }
-
-        // Mobile search toggle
-        const mobileSearchToggle = document.getElementById('mobileSearchToggle');
-        const searchBox = document.getElementById('searchBox');
-
-        if (mobileSearchToggle && searchBox) {
-            mobileSearchToggle.addEventListener('click', () => {
-                mobileSearchToggle.classList.toggle('active');
-                searchBox.classList.toggle('mobile-active');
-            });
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            initMobileSearchToggle();
+            toggleFaq(document.querySelector('.faq-row')); // 첫 번째 FAQ 열기
+        });
     </script>
 </body>
 

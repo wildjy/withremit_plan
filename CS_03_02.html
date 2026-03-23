@@ -137,15 +137,7 @@
     <script src="js/includes.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const toggleBtn = document.getElementById('mobileSearchToggle');
-            const searchBox = document.getElementById('searchBox');
-
-            if (toggleBtn && searchBox) {
-                toggleBtn.addEventListener('click', function () {
-                    toggleBtn.classList.toggle('active');
-                    searchBox.classList.toggle('show');
-                });
-            }
+            initMobileSearchToggle();
         });
     </script>
 </body>
