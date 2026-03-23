@@ -187,7 +187,7 @@
     </div>
 
     <!-- 계좌 선택 모달 -->
-    <div id="accountSelectionModal" class="modal-overlay">
+    <div class="modal-overlay disabled-outClose" id="accountSelectionModal">
         <div class="modal-content modal-layout lg">
             <div class="modal-inner">
                 <div class="modal-header">
@@ -244,12 +244,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof window.initRemitAccountSelection === 'function') {
                 window.initRemitAccountSelection();
-            }
-        });
-
-        document.getElementById('accountSelectionModal').addEventListener('click', function (e) {
-            if (e.target === this) {
-                closeModal('accountSelectionModal');
             }
         });
 

@@ -895,6 +895,7 @@ document.addEventListener('click', (e) => {
 
     // 직접 클릭한 요소가 modal-overlay인지 확인
     if (e.target.classList.contains('modal-overlay')) {
+        if (e.target.classList.contains('disabled-outClose')) return;
         closeModal(e.target.id);
         return;
     }
@@ -902,6 +903,7 @@ document.addEventListener('click', (e) => {
     // 또는 closest로도 확인 (form 내부 모달도 대응)
     const modalOverlay = e.target.closest('.modal-overlay');
     if (modalOverlay) {
+        if (modalOverlay.classList.contains('disabled-outClose')) return;
         // 클릭한 요소가 정확히 modal-overlay인지 확인
         if (e.target === modalOverlay) {
             closeModal(modalOverlay.id);
@@ -914,12 +916,14 @@ document.addEventListener('touchend', (e) => {
     if (!e.target.classList) return;
 
     if (e.target.classList.contains('modal-overlay')) {
+        if (e.target.classList.contains('disabled-outClose')) return;
         closeModal(e.target.id);
         return;
     }
 
     const modalOverlay = e.target.closest('.modal-overlay');
     if (modalOverlay && e.target === modalOverlay) {
+        if (modalOverlay.classList.contains('disabled-outClose')) return;
         closeModal(modalOverlay.id);
     }
 }, false);

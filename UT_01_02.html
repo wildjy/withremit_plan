@@ -384,97 +384,97 @@
     </div>
 
     <!-- Postcode Search Modal -->
-        <div class="modal-overlay" id="postcodeModal">
-            <div class="modal-content modal-layout">
-                <div class="modal-inner">
-                    <div class="modal-header">
-                        <h2 class="modal-title">우편번호 찾기</h2>
-                        <button type="button" class="btn-close-modal" onclick="closeModal('postcodeModal')">&times;</button>
+    <div class="modal-overlay disabled-outClose" id="postcodeModal">
+        <div class="modal-content modal-layout">
+            <div class="modal-inner">
+                <div class="modal-header">
+                    <h2 class="modal-title">우편번호 찾기</h2>
+                    <button type="button" class="btn-close-modal" onclick="closeModal('postcodeModal')">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="postcode-search-desc">
+                        <p class="search-title">찾으시려는 동 혹은 도로의 이름을 입력해 주세요.</p>
+                        <p class="search-info">지번주소 : 동/읍/면/리 이름을 입력하세요.
+                            (예:서현동)<br>도로명(새주소) : 도로명을 입력하세요. (예:성남대로)</p>
                     </div>
-                    <div class="modal-body">
-                        <div class="postcode-search-desc">
-                            <p class="search-title">찾으시려는 동 혹은 도로의 이름을 입력해 주세요.</p>
-                            <p class="search-info">지번주소 : 동/읍/면/리 이름을 입력하세요.
-                                (예:서현동)<br>도로명(새주소) : 도로명을 입력하세요. (예:성남대로)</p>
-                        </div>
 
-                        <div class="postcode-search-box">
-                            <input type="text" class="login-input" placeholder="검색어 입력" id="postcodeSearchInput">
-                            <button type="button" class="btn btn-primary size-lg" onclick="searchPostcode()">검색</button>
-                        </div>
+                    <div class="postcode-search-box">
+                        <input type="text" class="login-input" placeholder="검색어 입력" id="postcodeSearchInput">
+                        <button type="button" class="btn btn-primary size-lg" onclick="searchPostcode()">검색</button>
+                    </div>
 
-                        <div class="postcode-result-area">
-                            <ul class="postcode-list" id="postcodeResultList">
-                                <!-- Sample Results -->
-                                <li onclick="selectAddress('13560', '경기도 성남시 분당구 불정로 1')">
-                                    <div class="post-code">
-                                        463-867<br>13560
+                    <div class="postcode-result-area">
+                        <ul class="postcode-list" id="postcodeResultList">
+                            <!-- Sample Results -->
+                            <li onclick="selectAddress('13560', '경기도 성남시 분당구 불정로 1')">
+                                <div class="post-code">
+                                    463-867<br>13560
+                                </div>
+                                <div class="post-code-info">
+                                    <div class="post-info-box">
+                                        <span class="post-label">지번</span>
+                                        <span class="post-value">경기도 성남시 분당구 정자동 177</span>
                                     </div>
-                                    <div class="post-code-info">
-                                        <div class="post-info-box">
-                                            <span class="post-label">지번</span>
-                                            <span class="post-value">경기도 성남시 분당구 정자동 177</span>
-                                        </div>
-                                        <div class="post-info-box">
-                                            <span class="post-label">도로명</span>
-                                            <span class="post-value">경기도 성남시 분당구 불정로 1</span>
-                                        </div>
+                                    <div class="post-info-box">
+                                        <span class="post-label">도로명</span>
+                                        <span class="post-value">경기도 성남시 분당구 불정로 1</span>
                                     </div>
-                                </li>
-                                <li onclick="selectAddress('13606', '경기도 성남시 분당구 불정로 100')">
-                                    <div class="post-code">
-                                        463-815<br>13606
+                                </div>
+                            </li>
+                            <li onclick="selectAddress('13606', '경기도 성남시 분당구 불정로 100')">
+                                <div class="post-code">
+                                    463-815<br>13606
+                                </div>
+                                <div class="post-code-info">
+                                    <div class="post-info-box">
+                                        <span class="post-label">지번</span>
+                                        <span class="post-value">경기도 성남시 분당구 정자동 207</span>
                                     </div>
-                                    <div class="post-code-info">
-                                        <div class="post-info-box">
-                                            <span class="post-label">지번</span>
-                                            <span class="post-value">경기도 성남시 분당구 정자동 207</span>
-                                        </div>
-                                        <div class="post-info-box">
-                                            <span class="post-label">도로명</span>
-                                            <span class="post-value">경기도 성남시 분당구 불정로 100</span>
-                                        </div>
+                                    <div class="post-info-box">
+                                        <span class="post-label">도로명</span>
+                                        <span class="post-value">경기도 성남시 분당구 불정로 100</span>
                                     </div>
-                                </li>
-                                <li onclick="selectAddress('13606', '경기도 성남시 분당구 불정로 110')">
-                                    <div class="post-code">
-                                        463-815<br>13606
+                                </div>
+                            </li>
+                            <li onclick="selectAddress('13606', '경기도 성남시 분당구 불정로 110')">
+                                <div class="post-code">
+                                    463-815<br>13606
+                                </div>
+                                <div class="post-code-info">
+                                    <div class="post-info-box">
+                                        <span class="post-label">지번</span>
+                                        <span class="post-value">경기도 성남시 분당구 정자동 208</span>
                                     </div>
-                                    <div class="post-code-info">
-                                        <div class="post-info-box">
-                                            <span class="post-label">지번</span>
-                                            <span class="post-value">경기도 성남시 분당구 정자동 208</span>
-                                        </div>
-                                        <div class="post-info-box">
-                                            <span class="post-label">도로명</span>
-                                            <span class="post-value">경기도 성남시 분당구 불정로 110</span>
-                                        </div>
+                                    <div class="post-info-box">
+                                        <span class="post-label">도로명</span>
+                                        <span class="post-value">경기도 성남시 분당구 불정로 110</span>
                                     </div>
-                                </li>
-                                <li onclick="selectAddress('13606', '경기도 성남시 분당구 불정로 120')">
-                                    <div class="post-code">
-                                        463-815<br>13606
+                                </div>
+                            </li>
+                            <li onclick="selectAddress('13606', '경기도 성남시 분당구 불정로 120')">
+                                <div class="post-code">
+                                    463-815<br>13606
+                                </div>
+                                <div class="post-code-info">
+                                    <div class="post-info-box">
+                                        <span class="post-label">지번</span>
+                                        <span class="post-value">경기도 성남시 분당구 정자동 209</span>
                                     </div>
-                                    <div class="post-code-info">
-                                        <div class="post-info-box">
-                                            <span class="post-label">지번</span>
-                                            <span class="post-value">경기도 성남시 분당구 정자동 209</span>
-                                        </div>
-                                        <div class="post-info-box">
-                                            <span class="post-label">도로명</span>
-                                            <span class="post-value">경기도 성남시 분당구 불정로 120</span>
-                                        </div>
+                                    <div class="post-info-box">
+                                        <span class="post-label">도로명</span>
+                                        <span class="post-value">경기도 성남시 분당구 불정로 120</span>
                                     </div>
-                                </li>
-                            </ul>
-                        </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline" onclick="closeModal('postcodeModal')">닫기</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('postcodeModal')">닫기</button>
                 </div>
             </div>
         </div>
+    </div>
 
     <div id="warningModal" class="modal-overlay">
         <div class="modal-content">
