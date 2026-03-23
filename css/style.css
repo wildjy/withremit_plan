@@ -4128,19 +4128,6 @@ body.db-body, body.login-page {
   color: #7B1FA2;
 }
 
-/* Demo Guide Buttons */
-.demo-btn {
-  padding: 10px var(--s5);
-  border-radius: var(--s2);
-  font-weight: 600;
-  font-size: 14px;
-  color: white;
-  cursor: pointer;
-  -webkit-transition: opacity 0.2s;
-  transition: opacity 0.2s;
-  border: none;
-}
-
 /* ===== Loading Overlay & Component Styles ===== */
 /* Loading Page (CM_01_02.html) Body Reset */
 .loading-body {
@@ -4281,7 +4268,7 @@ body.db-body, body.login-page {
 
 /* ===== end Loading Overlay & Component Styles ===== */
 /* ===== Pagination + select ===== */
-.db-table-footer {
+.pagination-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4295,7 +4282,7 @@ body.db-body, body.login-page {
   margin-top: var(--s5);
 }
 
-.db-pagination {
+.pagination {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4363,7 +4350,6 @@ body.db-body, body.login-page {
 }
 
 .db-rows-select {
-  padding: var(--s2) var(--s8) var(--s2) var(--s3);
   width: auto;
   font-size: var(--text-sm);
 }
@@ -4378,7 +4364,7 @@ body.db-body, body.login-page {
 }
 
 @media (max-width: 1024px) {
-  .db-table-footer {
+  .pagination-box {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
@@ -4388,7 +4374,7 @@ body.db-body, body.login-page {
             align-items: stretch;
     gap: var(--s3);
   }
-  .db-pagination {
+  .pagination {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -4401,14 +4387,14 @@ body.db-body, body.login-page {
   }
 }
 @media (max-width: 480px) {
-  .db-table-footer {
+  .pagination-box {
     margin-top: var(--s4);
   }
   .db-rows-select {
     font-size: var(--text-xs);
     padding: 6px var(--s7) 6px 10px;
   }
-  .db-pagination {
+  .pagination {
     gap: 2px;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
