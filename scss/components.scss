@@ -119,26 +119,26 @@
 	max-width: 400px;
 	width: var(--full);
 
-    .btn-confirm {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
+    .btn-warning {
+        // display: inline-flex;
+        // justify-content: center;
+        // align-items: center;
         width: var(--full);
-        height: 48px;
-        background-color: #f59e0b;
-        color: var(--white);
-        font-size: var(--s4);
-        font-weight: 600;
-        border-radius: var(--s2);
-        border: none;
-        cursor: pointer;
-        text-decoration: none;
-        transition: background-color 0.2s;
+        // height: 48px;
+        // background-color: #f59e0b;
+        // color: var(--white);
+        // font-size: var(--s4);
+        // font-weight: 600;
+        // border-radius: var(--s2);
+        // border: none;
+        // cursor: pointer;
+        // text-decoration: none;
+        // transition: background-color 0.2s;
     }
 
-    .btn-confirm:hover {
-        background-color: #d97706;
-    }
+    // .btn-confirm:hover {
+    //     background-color: #d97706;
+    // }
 }
 
 .error-icon {

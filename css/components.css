@@ -81,7 +81,7 @@
   outline: 2px solid var(--primary-default);
   outline-offset: 2px;
 }
-.btn:disabled, .btn.is-disabled {
+.btn:disabled, .btn.disabled {
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -123,12 +123,12 @@
   color: var(--text-light);
   border-color: var(--primary-default);
 }
-.btn:hover:not(:disabled):not(.is-disabled) {
+.btn:hover:not(:disabled):not(.disabled) {
   background-color: var(--primary-strong);
   color: var(--text-light);
   border-color: var(--primary-strong);
 }
-.btn:disabled, .btn.is-disabled {
+.btn:disabled, .btn.disabled {
   background-color: var(--neutral-light);
   color: var(--bg-soft);
   border-color: var(--neutral-light);
@@ -143,12 +143,12 @@
   color: var(--text-light);
   border-color: var(--primary-default);
 }
-.btn-primary:hover:not(:disabled):not(.is-disabled) {
+.btn-primary:hover:not(:disabled):not(.disabled) {
   background-color: var(--primary-strong);
   color: var(--text-light);
   border-color: var(--primary-strong);
 }
-.btn-primary:disabled, .btn-primary.is-disabled {
+.btn-primary:disabled, .btn-primary.disabled {
   background-color: var(--neutral-light);
   color: var(--bg-soft);
   border-color: var(--neutral-light);
@@ -159,18 +159,18 @@
   color: var(--text-strong);
   border-color: var(--border-default);
 }
-.btn-secondary.size-sm:not(:disabled):not(.is-disabled) {
+.btn-secondary.size-sm:not(:disabled):not(.disabled) {
   color: var(--primary-heavy);
 }
-.btn-secondary.size-sm:hover:not(:disabled):not(.is-disabled) {
+.btn-secondary.size-sm:hover:not(:disabled):not(.disabled) {
   color: var(--primary-heavy);
 }
-.btn-secondary:hover:not(:disabled):not(.is-disabled) {
+.btn-secondary:hover:not(:disabled):not(.disabled) {
   background-color: var(--secondary-gray);
   color: var(--text-strong);
   border-color: var(--neutral-soft);
 }
-.btn-secondary:disabled, .btn-secondary.is-disabled {
+.btn-secondary:disabled, .btn-secondary.disabled {
   background-color: var(--secondary-gray-light);
   color: var(--neutral-light);
   border-color: var(--border-soft);
@@ -181,12 +181,12 @@
   color: var(--text-light);
   border-color: var(--neutral-default);
 }
-.btn-utility:hover:not(:disabled):not(.is-disabled) {
+.btn-utility:hover:not(:disabled):not(.disabled) {
   background-color: var(--neutral-strong);
   color: var(--text-light);
   border-color: var(--neutral-strong);
 }
-.btn-utility:disabled, .btn-utility.is-disabled {
+.btn-utility:disabled, .btn-utility.disabled {
   background-color: var(--neutral-light);
   color: var(--bg-soft);
   border-color: var(--neutral-light);
@@ -197,12 +197,12 @@
   color: var(--text-light);
   border-color: var(--primary-heavy);
 }
-.btn-confirm:hover:not(:disabled):not(.is-disabled) {
+.btn-confirm:hover:not(:disabled):not(.disabled) {
   background-color: #274f88;
   color: var(--text-light);
   border-color: #274f88;
 }
-.btn-confirm:disabled, .btn-confirm.is-disabled {
+.btn-confirm:disabled, .btn-confirm.disabled {
   background-color: #c7d6e7;
   color: var(--bg-soft);
   border-color: #c7d6e7;
@@ -213,12 +213,12 @@
   color: var(--text-light);
   border-color: var(--cautionary);
 }
-.btn-warning:hover:not(:disabled):not(.is-disabled) {
+.btn-warning:hover:not(:disabled):not(.disabled) {
   background-color: #df7d00;
   color: var(--text-light);
   border-color: #df7d00;
 }
-.btn-warning:disabled, .btn-warning.is-disabled {
+.btn-warning:disabled, .btn-warning.disabled {
   background-color: #f3e1bd;
   color: var(--bg-soft);
   border-color: #f3e1bd;
@@ -229,12 +229,12 @@
   color: var(--negative);
   border-color: var(--negative);
 }
-.btn-delete:hover:not(:disabled):not(.is-disabled) {
+.btn-delete:hover:not(:disabled):not(.disabled) {
   background-color: var(--bg-delete);
   color: var(--negative);
   border-color: var(--negative);
 }
-.btn-delete:disabled, .btn-delete.is-disabled {
+.btn-delete:disabled, .btn-delete.disabled {
   background-color: var(--bg-delete);
   color: var(--accent-red);
   border-color: var(--accent-red-light);
@@ -245,12 +245,12 @@
   color: var(--primary-heavy);
   border-color: transparent;
 }
-.btn-text:hover:not(:disabled):not(.is-disabled) {
+.btn-text:hover:not(:disabled):not(.disabled) {
   background-color: transparent;
   color: var(--primary-default);
   border-color: transparent;
 }
-.btn-text:disabled, .btn-text.is-disabled {
+.btn-text:disabled, .btn-text.disabled {
   background-color: transparent;
   color: var(--neutral-light);
   border-color: transparent;
@@ -1285,31 +1285,8 @@
   max-width: 400px;
   width: var(--full);
 }
-.error-container .btn-confirm {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.error-container .btn-warning {
   width: var(--full);
-  height: 48px;
-  background-color: #f59e0b;
-  color: var(--white);
-  font-size: var(--s4);
-  font-weight: 600;
-  border-radius: var(--s2);
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  -webkit-transition: background-color 0.2s;
-  transition: background-color 0.2s;
-}
-.error-container .btn-confirm:hover {
-  background-color: #d97706;
 }
 
 .error-icon {

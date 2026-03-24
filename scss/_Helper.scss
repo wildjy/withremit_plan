@@ -468,7 +468,7 @@ $btn-variants: (
   }
 
   &:disabled,
-  &.is-disabled {
+  &.disabled {
     cursor: not-allowed;
     pointer-events: none;
   }
@@ -519,23 +519,23 @@ $btn-variants: (
   border-color: map-get-deep($btn-variants, $variant-name, border);
 
   @if $variant-name == secondary {
-    &.size-sm:not(:disabled):not(.is-disabled) {
+    &.size-sm:not(:disabled):not(.disabled) {
       color: var(--primary-heavy);
     }
 
-    &.size-sm:hover:not(:disabled):not(.is-disabled) {
+    &.size-sm:hover:not(:disabled):not(.disabled) {
       color: var(--primary-heavy);
     }
   }
 
-  &:hover:not(:disabled):not(.is-disabled) {
+  &:hover:not(:disabled):not(.disabled) {
     background-color: map-get-deep($btn-variants, $variant-name, hover-bg);
     color: map-get-deep($btn-variants, $variant-name, hover-color);
     border-color: map-get-deep($btn-variants, $variant-name, hover-border);
   }
 
   &:disabled,
-  &.is-disabled {
+  &.disabled {
     background-color: map-get-deep($btn-variants, $variant-name, disabled-bg);
     color: map-get-deep($btn-variants, $variant-name, disabled-color);
     border-color: map-get-deep($btn-variants, $variant-name, disabled-border);
