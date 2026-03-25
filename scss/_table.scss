@@ -62,12 +62,12 @@
 }
 
 .common-table tbody tr:hover {
-	background-color: #f8fafa;
+	background-color: var(--bg-light);
 }
 
 // disabled row style
 .common-table tbody tr.disabled {
-	background-color: #f8fafa;
+	background-color: var(--bg-light);
 	td {
 		color: var(--text-soft);
 		cursor: not-allowed;

@@ -1181,6 +1181,9 @@
 			padding: var(--s3) var(--s4);
 			border-bottom: 1px solid #eee;
 			cursor: pointer;
+			&:hover {
+				background-color: var(--bg-light);
+			}
 			.post-code {
 				min-width: var(--s20);
 				font-size: var(--text-sm);

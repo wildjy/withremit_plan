@@ -338,6 +338,18 @@ function loadIncludes() {
             })
             .catch(error => console.error('Error loading footer:', error));
     }
+
+    // Load simple footer (login/auth pages)
+    const loginFooterContainer = document.getElementById('loginFooterContainer');
+    if (loginFooterContainer) {
+        fetch('includes/footer_login.html')
+            .then(response => response.text())
+            .then(data => {
+                loginFooterContainer.innerHTML = data;
+                applyTranslationsDeferred();
+            })
+            .catch(error => console.error('Error loading footer_login:', error));
+    }
 }
 
 // Load includes when DOM is ready

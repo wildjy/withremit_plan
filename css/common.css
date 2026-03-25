@@ -1256,6 +1256,9 @@
   border-bottom: 1px solid #eee;
   cursor: pointer;
 }
+.postcode-result-area ul li:hover {
+  background-color: var(--bg-light);
+}
 .postcode-result-area ul li .post-code {
   min-width: var(--s20);
   font-size: var(--text-sm);

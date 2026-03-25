@@ -25,7 +25,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #f8fafa;
+  background-color: var(--bg-light);
 }
 
 .login-page {
@@ -456,6 +456,9 @@
   -webkit-transition: var(--transition);
   transition: var(--transition);
   text-decoration: none !important;
+}
+.menu-text-list a b {
+  color: var(--primary-default);
 }
 
 .menu-text-list a::after {
@@ -1390,7 +1393,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #f8fafa;
+  background-color: var(--bg-light);
   padding: var(--s3);
   border-bottom: 1.5px solid var(--border-default);
   font-size: var(--s3);

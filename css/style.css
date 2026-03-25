@@ -2914,6 +2914,9 @@ body.db-body, body.login-page {
   border-bottom: 1px solid #eee;
   cursor: pointer;
 }
+.postcode-result-area ul li:hover {
+  background-color: var(--bg-light);
+}
 .postcode-result-area ul li .post-code {
   min-width: var(--s20);
   font-size: var(--text-sm);
@@ -4406,7 +4409,7 @@ body.db-body, body.login-page {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #f8fafa;
+  background-color: var(--bg-light);
 }
 
 .login-page {
@@ -4837,6 +4840,9 @@ body.db-body, body.login-page {
   -webkit-transition: var(--transition);
   transition: var(--transition);
   text-decoration: none !important;
+}
+.menu-text-list a b {
+  color: var(--primary-default);
 }
 
 .menu-text-list a::after {
@@ -5771,7 +5777,7 @@ body.db-body, body.login-page {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #f8fafa;
+  background-color: var(--bg-light);
   padding: var(--s3);
   border-bottom: 1.5px solid var(--border-default);
   font-size: var(--s3);
@@ -7001,11 +7007,11 @@ body.db-body, body.login-page {
 }
 
 .common-table tbody tr:hover {
-  background-color: #f8fafa;
+  background-color: var(--bg-light);
 }
 
 .common-table tbody tr.disabled {
-  background-color: #f8fafa;
+  background-color: var(--bg-light);
 }
 .common-table tbody tr.disabled td {
   color: var(--text-soft);
@@ -7576,7 +7582,7 @@ td.center {
 }
 
 .faq-row:hover {
-  background-color: #f8fafa;
+  background-color: var(--bg-light);
 }
 
 .faq-icon {

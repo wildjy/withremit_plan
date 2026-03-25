@@ -9,7 +9,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-color: #f8fafa;
+	background-color: var(--bg-light);
 }
 
 .login-page {
@@ -357,6 +357,9 @@
 	color: var(--text-soft);
 	transition: var(--transition);
 	text-decoration: none !important;
+	b {
+		color: var(--primary-default);
+	}
 }
 
 .menu-text-list a::after {
@@ -1176,7 +1179,7 @@
 
 .sh-header {
 	display: flex;
-	background-color: #f8fafa;
+	background-color: var(--bg-light);
 	padding: var(--s3);
 	border-bottom: 1.5px solid var(--border-default);
 	font-size: var(--s3);
