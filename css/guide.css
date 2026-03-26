@@ -646,18 +646,18 @@
   color: var(--text-default);
 }
 .grid-info-card ul li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: var(--s2);
+  padding-left: var(--s4);
   font-size: var(--text-sm);
   color: var(--text-default);
+  line-height: 1.8;
   text-align: left;
+  position: relative;
 }
 .grid-info-card ul li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
   content: "•";
 }
 

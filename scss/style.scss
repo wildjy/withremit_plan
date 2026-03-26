@@ -170,6 +170,9 @@
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: var(--s3);
+	.remit-sort-wrapper select {
+		height: var(--s8);
+	}
 }
 
 .db-mobile-search-toggle {

@@ -1323,7 +1323,15 @@
   gap: var(--s4);
   margin-top: var(--s5);
 }
+.pagination-box .db-rows-select {
+  height: var(--s8);
+}
 
+@media (max-width: 768px) {
+  .pagination-box .db-rows-select {
+    height: var(--s10);
+  }
+}
 .pagination {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1346,7 +1354,7 @@
           justify-content: center;
   width: var(--s8);
   height: var(--s8);
-  border: 1px solid var(--border-default);
+  border: 1px solid var(--border-soft);
   background-color: var(--white);
   border-radius: 6px;
   cursor: pointer;
@@ -1367,7 +1375,7 @@
   min-width: var(--s8);
   height: var(--s8);
   padding: 0 var(--s2);
-  border: 1px solid var(--border-default);
+  border: 1px solid var(--border-soft);
   background-color: var(--white);
   border-radius: 6px;
   font-size: var(--text-sm);

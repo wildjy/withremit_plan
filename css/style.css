@@ -907,7 +907,7 @@ input[type=checkbox]:checked + .custom-check::after {
   top: 0;
   left: 0;
   width: var(--sidebar-w);
-  height: var(--full-dvh);
+  height: var(--full);
   background-color: var(--white);
   border-radius: 0;
   -webkit-box-shadow: var(--shadow-lg);
@@ -1052,6 +1052,11 @@ body.db-body .sidebar.mobile-open {
   transition: 0.2s;
 }
 
+@media (max-width: 768px) {
+  .nav-link {
+    font-size: var(--text-md);
+  }
+}
 .nav-icon {
   width: var(--s5);
   height: var(--s5);
@@ -1458,6 +1463,7 @@ body.db-body, body.login-page {
   position: relative;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  min-height: calc(var(--full-dvh) - 20dvh);
 }
 .db-layout-flex.nowrap {
   -ms-flex-wrap: nowrap;
@@ -1687,6 +1693,7 @@ body.db-body, body.login-page {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  height: 18.75rem;
 }
 .empty-box:before {
   content: "";
@@ -4314,7 +4321,15 @@ body.db-body, body.login-page {
   gap: var(--s4);
   margin-top: var(--s5);
 }
+.pagination-box .db-rows-select {
+  height: var(--s8);
+}
 
+@media (max-width: 768px) {
+  .pagination-box .db-rows-select {
+    height: var(--s10);
+  }
+}
 .pagination {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4337,7 +4352,7 @@ body.db-body, body.login-page {
           justify-content: center;
   width: var(--s8);
   height: var(--s8);
-  border: 1px solid var(--border-default);
+  border: 1px solid var(--border-soft);
   background-color: var(--white);
   border-radius: 6px;
   cursor: pointer;
@@ -4358,7 +4373,7 @@ body.db-body, body.login-page {
   min-width: var(--s8);
   height: var(--s8);
   padding: 0 var(--s2);
-  border: 1px solid var(--border-default);
+  border: 1px solid var(--border-soft);
   background-color: var(--white);
   border-radius: 6px;
   font-size: var(--text-sm);
@@ -7615,6 +7630,9 @@ td.center {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: var(--s3);
+}
+.db-table-info .remit-sort-wrapper select {
+  height: var(--s8);
 }
 
 .db-mobile-search-toggle {

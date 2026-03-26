@@ -102,6 +102,12 @@ body{
 	width: calc(var(--full) - var(--sidebarContainer-w));
 }
 
+@media (max-width: 1024px) {
+	.db-content {
+		// min-height: calc(var(--full-dvh) - 20dvh);
+	}
+}
+
 .db-page-header {
 	margin-bottom: var(--s8);
 	display: flex;
@@ -140,7 +146,7 @@ body{
 @media (max-width: 768px) {
 	.mypage-main,
 	.remit-main,
-.sub-card-wrapper {
+	.sub-card-wrapper {
 		.db-content-card {
 			margin-top: var(--mobile-white-section-spacing);
 		}
@@ -224,6 +230,7 @@ body{
 	align-items: flex-start;
 	position: relative;
 	flex-wrap: wrap;
+	min-height: calc(var(--full-dvh) - 20dvh);
 	&.nowrap {
 		flex-wrap: nowrap;
 	}

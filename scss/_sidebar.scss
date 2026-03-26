@@ -50,7 +50,8 @@
 	top: 0;
 	left: 0;
 	width: var(--sidebar-w);
-	height: var(--full-dvh);
+	height: var(--full);
+	// height: calc(var(--full-dvh) - 20dvh);
 	background-color: var(--white);
 	border-radius: 0;
 	box-shadow: var(--shadow-lg);
@@ -183,6 +184,12 @@ body.db-body .sidebar {
 	color: var(--text-strong);
 	border-radius: var(--s2);
 	transition: 0.2s;
+}
+
+@media (max-width: 768px) {
+	.nav-link {
+		font-size: var(--text-md);
+	}
 }
 
 .nav-icon {

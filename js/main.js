@@ -1750,11 +1750,12 @@ window.initFriendInvite = function () {
 // 최근 송금 내역
 function recentRemittanceList() {
     const ongoingContainer = document.getElementById('dbOngoingInfo');
-    const emptyState = document.getElementById('dbOngoingEmpty');
-
+    const emptyState = document.getElementById('emptyStateOngoing');
+    
     if (!ongoingContainer || !emptyState) return;
 
-    const dataList = Array.isArray(remittanceData) ? remittanceData : [];
+    // const dataList = Array.isArray(remittanceData) ? remittanceData : [];
+    const dataList = Array.isArray(remittanceData) && [];
 
     if (dataList.length === 0) {
         ongoingContainer.innerHTML = '';
@@ -1883,10 +1884,39 @@ function toggleFaq(row) {
 // Render remittance cards (HI_01_01: 'send', HI_03_01: 'receive')
 function renderCards(mode) {
     const grid = document.getElementById('remitCardGrid');
+    const totalCount = document.getElementById('totalCount');
+    const emptyState = document.getElementById('emptyState');
+    const pagination = document.querySelector('.pagination-box');
+    // 송금 내역은 nodata처리,  수취 내역은 보여주도록 분기
+    const dataList = mode === 'send'
+        ? []
+        : (Array.isArray(remittanceData) ? remittanceData : []);
+
+    console.log('Rendering cards with mode:', mode, 'and data:', dataList.length, dataList);
+
     if (!grid) return;
     grid.innerHTML = '';
 
-    remittanceData.forEach((data, index) => {
+    if (totalCount) {
+        totalCount.textContent = dataList.length;
+    }
+
+    if (pagination) {
+        pagination.style.display = dataList.length > 0 ? 'flex' : 'none';
+    }
+
+    if (emptyState) {
+        emptyState.style.display = dataList.length === 0 ? 'flex' : 'none';
+    }
+
+    if (dataList.length === 0) {
+        grid.style.display = 'none';
+        return;
+    } else {
+        grid.style.display = 'grid';
+    }
+
+    dataList.forEach((data, index) => {
         const card = document.createElement('div');
         card.className = 'remit-card';
         card.onclick = (e) => {

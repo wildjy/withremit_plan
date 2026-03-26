@@ -12,6 +12,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  height: 18.75rem;
 }
 .empty-box:before {
   content: "";

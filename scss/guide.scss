@@ -466,13 +466,21 @@
 
   ul {
     li {
-      display: flex;
-      align-items: center;
-      gap: var(--s2);
+      // display: flex;
+      // justify-content: flex-start;
+      // align-items: center;
+      // gap: var(--s2);
+      padding-left: var(--s4);
       font-size: var(--text-sm);
       color: var(--text-default);
+      line-height: 1.8;
       text-align: left;
+      position: relative;
       &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
         content: '•';
       }
     }

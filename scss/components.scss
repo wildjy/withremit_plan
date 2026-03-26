@@ -167,6 +167,17 @@
 	align-items: center;
 	gap: var(--s4);
 	margin-top: var(--s5);
+	.db-rows-select {
+		height: var(--s8);
+	}
+}
+
+@media (max-width: 768px) {
+	.pagination-box {	
+		.db-rows-select {
+			height: var(--s10);
+		}
+	}
 }
 
 .pagination {
@@ -181,7 +192,7 @@
 	justify-content: center;
 	width: var(--s8);
 	height: var(--s8);
-	border: 1px solid var(--border-default);
+	border: 1px solid var(--border-soft);
 	background-color: var(--white);
 	border-radius: 6px;
 	cursor: pointer;
@@ -201,7 +212,7 @@
 	min-width: var(--s8);
 	height: var(--s8);
 	padding: 0 var(--s2);
-	border: 1px solid var(--border-default);
+	border: 1px solid var(--border-soft);
 	background-color: var(--white);
 	border-radius: 6px;
 	font-size: var(--text-sm);

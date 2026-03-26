@@ -122,7 +122,7 @@
                     </div>
 
                     <div class="db-table-info">
-                        <span class="db-total-count">총 <strong>10</strong>건</span>
+                        <span class="db-total-count">총 <strong id="totalCount">0</strong>건</span>
                         <div class="remit-sort-wrapper">
                             <select id="sortOrder">
                                 <option value="desc">최신 거래순</option>
@@ -173,6 +173,13 @@
                             <option value="50">50개씩 보기</option>
                         </select>
                     </div>
+
+                    <!-- Empty State -->
+                    <div class="empty-box" id="emptyState">
+                        <p class="empty-title">최근 송금 내역이 없습니다.</p>
+                        <p>송금을 진행하면 여기에 표시됩니다.</p>
+                    </div>
+                        
                 </div>
             </div>
         </div>
