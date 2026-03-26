@@ -121,6 +121,7 @@
   --radius-lg: 1rem;
   --radius-xl: 1.25rem;
   --transition: all 0.3s ease;
+  --icon-nodata: url("../images/icon_nodata.png");
   --icon-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M7.99674 1.33008C4.32341 1.33008 1.33008 4.32341 1.33008 7.99674C1.33008 11.6701 4.32341 14.6634 7.99674 14.6634C11.6701 14.6634 14.6634 11.6701 14.6634 7.99674C14.6634 4.32341 11.6701 1.33008 7.99674 1.33008ZM7.49674 5.33008C7.49674 5.05674 7.72341 4.83008 7.99674 4.83008C8.27008 4.83008 8.49674 5.05674 8.49674 5.33008V8.66341C8.49674 8.93674 8.27008 9.16341 7.99674 9.16341C7.72341 9.16341 7.49674 8.93674 7.49674 8.66341V5.33008ZM8.61008 10.9167C8.57674 11.0034 8.53008 11.0701 8.47008 11.1367C8.40341 11.1967 8.33008 11.2434 8.25008 11.2767C8.17008 11.3101 8.08341 11.3301 7.99674 11.3301C7.91008 11.3301 7.82341 11.3101 7.74341 11.2767C7.66341 11.2434 7.59008 11.1967 7.52341 11.1367C7.46341 11.0701 7.41674 11.0034 7.38341 10.9167C7.35008 10.8367 7.33008 10.7501 7.33008 10.6634C7.33008 10.5767 7.35008 10.4901 7.38341 10.4101C7.41674 10.3301 7.46341 10.2567 7.52341 10.1901C7.59008 10.1301 7.66341 10.0834 7.74341 10.0501C7.90341 9.98341 8.09008 9.98341 8.25008 10.0501C8.33008 10.0834 8.40341 10.1301 8.47008 10.1901C8.53008 10.2567 8.57674 10.3301 8.61008 10.4101C8.64341 10.4901 8.66341 10.5767 8.66341 10.6634C8.66341 10.7501 8.64341 10.8367 8.61008 10.9167Z' fill='%2300A0DC'/%3E%3C/svg%3E");
   --icon-info-navy: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M9.99674 3.33008C6.32341 3.33008 3.33008 6.32341 3.33008 9.99674C3.33008 13.6701 6.32341 16.6634 9.99674 16.6634C13.6701 16.6634 16.6634 13.6701 16.6634 9.99674C16.6634 6.32341 13.6701 3.33008 9.99674 3.33008ZM9.49674 7.33008C9.49674 7.05674 9.72341 6.83008 9.99674 6.83008C10.2701 6.83008 10.4967 7.05674 10.4967 7.33008V10.6634C10.4967 10.9367 10.2701 11.1634 9.99674 11.1634C9.72341 11.1634 9.49674 10.9367 9.49674 10.6634V7.33008ZM10.6101 12.9167C10.5767 13.0034 10.5301 13.0701 10.4701 13.1367C10.4034 13.1967 10.3301 13.2434 10.2501 13.2767C10.1701 13.3101 10.0834 13.3301 9.99674 13.3301C9.91008 13.3301 9.82341 13.3101 9.74341 13.2767C9.66341 13.2434 9.59008 13.1967 9.52341 13.1367C9.46341 13.0701 9.41674 13.0034 9.38341 12.9167C9.35008 12.8367 9.33008 12.7501 9.33008 12.6634C9.33008 12.5767 9.35008 12.4901 9.38341 12.4101C9.41674 12.3301 9.46341 12.2567 9.52341 12.1901C9.59008 12.1301 9.66341 12.0834 9.74341 12.0501C9.90341 11.9834 10.0901 11.9834 10.2501 12.0501C10.3301 12.0834 10.4034 12.1301 10.4701 12.1901C10.5301 12.2567 10.5767 12.3301 10.6101 12.4101C10.6434 12.4901 10.6634 12.5767 10.6634 12.6634C10.6634 12.7501 10.6434 12.8367 10.6101 12.9167Z' fill='%231B5E9E'/%3E%3C/svg%3E");
   --icon-error: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M8.00016 1.33331C4.32683 1.33331 1.3335 4.32665 1.3335 7.99998C1.3335 11.6733 4.32683 14.6666 8.00016 14.6666C11.6735 14.6666 14.6668 11.6733 14.6668 7.99998C14.6668 4.32665 11.6735 1.33331 8.00016 1.33331ZM10.2402 9.53331C10.4335 9.72665 10.4335 10.0466 10.2402 10.24C10.1402 10.34 10.0135 10.3866 9.88683 10.3866C9.76016 10.3866 9.6335 10.34 9.5335 10.24L8.00016 8.70665L6.46683 10.24C6.36683 10.34 6.24016 10.3866 6.1135 10.3866C5.98683 10.3866 5.86016 10.34 5.76016 10.24C5.56683 10.0466 5.56683 9.72665 5.76016 9.53331L7.2935 7.99998L5.76016 6.46665C5.56683 6.27331 5.56683 5.95331 5.76016 5.75998C5.9535 5.56665 6.2735 5.56665 6.46683 5.75998L8.00016 7.29331L9.5335 5.75998C9.72683 5.56665 10.0468 5.56665 10.2402 5.75998C10.4335 5.95331 10.4335 6.27331 10.2402 6.46665L8.70683 7.99998L10.2402 9.53331Z' fill='%23EF4444'/%3E%3C/svg%3E");
@@ -1674,6 +1675,34 @@ body.db-body, body.login-page {
 }
 
 /* Date Picker Custom Style */
+.empty-box {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.empty-box:before {
+  content: "";
+  margin: var(--s5) 0;
+  width: var(--s16);
+  height: var(--s16);
+  background-image: var(--icon-nodata);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.empty-box p {
+  font-size: var(--text-sm);
+  color: var(--text-default);
+}
+
 .guide-note {
   margin-top: var(--s4);
 }
@@ -3954,7 +3983,8 @@ body.db-body, body.login-page {
       -ms-flex-pack: center;
           justify-content: center;
 }
-.modal-icon svg {
+.modal-icon svg,
+.modal-icon img {
   width: 48px;
   height: 48px;
 }
@@ -5345,7 +5375,7 @@ body.db-body, body.login-page {
   padding: 10px var(--s3);
   text-align: center;
   background-color: var(--white);
-  border: 1.5px solid var(--border-default);
+  border: 1px solid var(--border-default);
   border-radius: var(--s4);
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -5609,7 +5639,7 @@ body.db-body, body.login-page {
 .custom-radio {
   width: 18px;
   height: 18px;
-  border: 1.5px solid var(--border-default);
+  border: 1px solid var(--border-default);
   border-radius: 50%;
   background-color: var(--white);
   position: relative;
@@ -5795,7 +5825,7 @@ body.db-body, body.login-page {
   width: var(--full);
   background-color: var(--white);
   border-radius: var(--s3);
-  border: 1.5px solid var(--border-default);
+  border: 1px solid var(--border-default);
   overflow: hidden;
 }
 
@@ -5872,11 +5902,11 @@ body.db-body, body.login-page {
 .sh-input {
   width: var(--full);
   padding: 10px;
-  border: 1.5px solid var(--border-default);
-  border-radius: 6px;
-  font-size: 13px;
+  font-size: var(--text-sm);
   outline: none;
-  background-color: var(--white) !important;
+  background-color: var(--white);
+  border: 1px solid var(--border-default);
+  border-radius: var(--s1-6);
 }
 
 .sh-input:focus {
@@ -6049,6 +6079,10 @@ body.db-body, body.login-page {
 .ocr-upload-area .ocr-upload-text.isMobile {
   display: none;
 }
+.ocr-upload-area .upload-icon {
+  width: var(--s12);
+  height: var(--s12);
+}
 .ocr-upload-area.has-image {
   display: none;
   margin-top: var(--s4);
@@ -6133,17 +6167,26 @@ body.db-body, body.login-page {
   overflow: hidden;
 }
 
+.db-info-card {
+  background-color: var(--white);
+}
+.db-info-card.db-ongoing-card, .db-info-card.db-transactions-card, .db-info-card.db-accounts-card {
+  min-height: 22.5rem;
+}
+.db-info-card.db-ongoing-card .empty-box, .db-info-card.db-transactions-card .empty-box, .db-info-card.db-accounts-card .empty-box {
+  height: calc(100% - var(--s8) * 2);
+}
+
 @media (max-width: 1024px) {
   .db-info-card,
   .db-col-info > .db-info-card,
   .db-col-calc > .calculator-card {
     padding: var(--s6) var(--s5);
   }
+  .db-info-card.db-ongoing-card, .db-info-card.db-transactions-card, .db-info-card.db-accounts-card {
+    min-height: auto;
+  }
 }
-.db-info-card {
-  background-color: var(--white);
-}
-
 .db-card-header {
   margin-bottom: var(--s5);
   display: -webkit-box;
@@ -9110,7 +9153,7 @@ td.center {
 
 .remit-card {
   background-color: var(--white);
-  border: 1.5px solid var(--border-default);
+  border: 1px solid var(--border-default);
   border-radius: var(--s2);
   padding: var(--s4) var(--s5);
   -webkit-transition: all 0.2s;

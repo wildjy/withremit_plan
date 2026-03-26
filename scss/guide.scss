@@ -413,6 +413,18 @@
   }
 }
 
+@media (max-width: 768px) {
+  .grid-info-wrapper {
+    &.join-guide {
+      .grid-info-card {
+        h4 {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
 .grid-info-card {
   display: flex;
   flex-wrap: wrap;
@@ -459,7 +471,7 @@
       gap: var(--s2);
       font-size: var(--text-sm);
       color: var(--text-default);
-      line-height: 1.57;
+      text-align: left;
       &::before {
         content: '•';
       }

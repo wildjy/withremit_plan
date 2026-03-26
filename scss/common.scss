@@ -6,6 +6,28 @@
 // 	text-align: left;
 // }
 
+.empty-box {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	// height: 80%;
+	&:before {
+		content: '';
+		margin: var(--s5) 0;
+		width: var(--s16);
+		height: var(--s16);
+		background-image: var(--icon-nodata);
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	p {
+		font-size: var(--text-sm);
+		color: var(--text-default);
+	}
+}
+
 .guide-note {
 	margin-top: var(--s4);
 	&.caution {

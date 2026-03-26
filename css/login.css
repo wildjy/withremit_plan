@@ -938,7 +938,7 @@
   padding: 10px var(--s3);
   text-align: center;
   background-color: var(--white);
-  border: 1.5px solid var(--border-default);
+  border: 1px solid var(--border-default);
   border-radius: var(--s4);
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -1202,7 +1202,7 @@
 .custom-radio {
   width: 18px;
   height: 18px;
-  border: 1.5px solid var(--border-default);
+  border: 1px solid var(--border-default);
   border-radius: 50%;
   background-color: var(--white);
   position: relative;
@@ -1388,7 +1388,7 @@
   width: var(--full);
   background-color: var(--white);
   border-radius: var(--s3);
-  border: 1.5px solid var(--border-default);
+  border: 1px solid var(--border-default);
   overflow: hidden;
 }
 
@@ -1465,11 +1465,11 @@
 .sh-input {
   width: var(--full);
   padding: 10px;
-  border: 1.5px solid var(--border-default);
-  border-radius: 6px;
-  font-size: 13px;
+  font-size: var(--text-sm);
   outline: none;
-  background-color: var(--white) !important;
+  background-color: var(--white);
+  border: 1px solid var(--border-default);
+  border-radius: var(--s1-6);
 }
 
 .sh-input:focus {
@@ -1641,6 +1641,10 @@
 }
 .ocr-upload-area .ocr-upload-text.isMobile {
   display: none;
+}
+.ocr-upload-area .upload-icon {
+  width: var(--s12);
+  height: var(--s12);
 }
 .ocr-upload-area.has-image {
   display: none;

@@ -24,17 +24,33 @@
 	overflow:  hidden;
 }
 
+.db-info-card {
+	background-color: var(--white);
+	&.db-ongoing-card,
+	&.db-transactions-card,
+	&.db-accounts-card {
+		min-height: 22.5rem;
+		.empty-box {
+			height: calc(100% - var(--s8) * 2);
+		}
+	}
+}
+
 @media (max-width: 1024px) {
 	.db-info-card,
 	.db-col-info > .db-info-card,
 	.db-col-calc > .calculator-card {
 		padding: var(--s6) var(--s5);
 	}
+	.db-info-card {
+		&.db-ongoing-card,
+		&.db-transactions-card,
+		&.db-accounts-card {
+			min-height: auto;
+		}
+	}
 }
 
-.db-info-card {
-	background-color: var(--white);
-}
 
 .db-card-header {
 	margin-bottom: var(--s5);

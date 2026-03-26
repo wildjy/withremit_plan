@@ -355,11 +355,14 @@
                         </div>
 
                         <div class="db-ongoing-info" id="dbOngoingInfo">
-                            <!-- recentRemittanceList() -->
+                            <!--
+                                recentRemittanceList()
+                                main-data.js = window.remittanceData = []; 주석처리
+                             -->
                         </div>
 
-                        <div class="db-ongoing-empty" id="dbOngoingEmpty">
-                            <div class="db-ongoing-empty-title">최근 송금 내역이 없습니다.</div>
+                        <div class="empty-box" id="dbOngoingEmpty">
+                            <p class="empty-title">최근 송금 내역이 없습니다.</p>
                             <p>송금을 진행하면 여기에 표시됩니다.</p>
                         </div>
                     </div>
@@ -370,6 +373,7 @@
                             <h3 class="db-card-title">최근 거래 내역</h3>
                             <a href="HI_02_01.html" class="btn btn-secondary size-sm">더 보기</a>
                         </div>
+
                         <div class="db-transaction-list-new">
                             <div class="db-transaction-item-new">
                                 <div class="db-trans-info">
@@ -402,6 +406,11 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="empty-box" id="">
+                            <p class="empty-title">최근 거래 내역이 없습니다.</p>
+                            <p>거래를 진행하면 여기에 표시됩니다.</p>
+                        </div>
                     </div>
 
                     <!-- Frequent Accounts -->
@@ -410,6 +419,7 @@
                             <h3 class="db-card-title">자주 쓰는 계좌</h3>
                             <a href="AC_03_01.html" class="btn btn-secondary size-sm">더 보기</a>
                         </div>
+
                         <div class="db-account-list">
                             <div class="db-account-item">
                                 <div class="db-account-flag">
@@ -438,6 +448,11 @@
                                     <div class="db-account-bank">ICBC ****8901</div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="empty-box" id="">
+                            <p class="empty-title">자주 쓰는 계좌가 없습니다.</p>
+                            <p>계좌를 추가하면 여기에 표시됩니다.</p>
                         </div>
                     </div>
                 </div>
@@ -555,7 +570,7 @@
         <div class="modal-content">
             <div class="modal-inner">
                 <div class="modal-icon">
-                    <img src="images/svg/icon_warning.svg" alt="경고 아이콘" class="upload-icon" />
+                    <img src="images/icon_warning.png" alt="경고 아이콘" class="upload-icon" />
                 </div>
 
                 <h3 data-i18n="modal.limit.title">송금 한도 초과</h3>
