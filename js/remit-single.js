@@ -20,6 +20,8 @@ function submitRemittance() {
         { id: 'accountHolder', message: 'error.accountHolderRequired' },
         { id: 'firstNameEn', message: 'error.firstNameEnRequired' },
         { id: 'lastNameEn', message: 'error.lastNameEnRequired' },
+        { id: 'recipientFirstNameEn', message: 'error.firstNameEnRequired' },
+        { id: 'recipientLastNameEn', message: 'error.lastNameEnRequired' },
         { id: 'relationship', message: 'error.relationshipRequired' },
         { id: 'beneficiaryBank', message: 'error.beneficiaryBankRequired' },
         { id: 'beneficiaryAccount', message: 'error.beneficiaryAccountRequired' },

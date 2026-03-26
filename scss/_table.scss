@@ -101,6 +101,10 @@
 	color: var(--text-strong);
 	border-top: 1px solid var(--border-soft);
 
+	&.right {
+		text-align: right;
+	}
+
 	.check-label-group {
 		justify-content: center;
 	}
@@ -250,8 +254,54 @@ td.center {
 
 	.common-table.history-mode {
 		&:is(.coupon-mode) {
-			td:nth-child(2) {
+			&:is(.invite-mode) {
+				td:nth-child(1) {
+					padding: 0;
+					flex-wrap: wrap;
+					grid-column: 1 / -1;
+					display: flex;
+					justify-content: flex-start;
+					font-weight: 600;
+					color: var(--text-strong);
+					border-bottom: 0;
+					&::before {
+						margin-bottom: var(--s3);
+						padding-bottom: var(--s3);
+						width: var(--full);
+						grid-column: 1 / -1;
+						content: attr(data-label);
+						font-size: var(--text-sm);
+						color: var(--text-default);
+						font-weight: 600;
+						text-align: left;
+						margin-right: auto;
+						border-bottom: 1px solid var(--border-default);
+					}
+				}
+			}
+			td:nth-child(1) {
+				padding: 0;
+				padding-bottom: var(--s3);
+				grid-column: 1 / -1;
+				display: flex;
+				justify-content: flex-start;
+				font-weight: 600;
+				color: var(--text-strong);
 				border-top: none;
+				border-bottom: 1px solid var(--border-default);
+			}
+			td:nth-child(2) {
+				padding: 0;
+				padding-top: var(--s3);
+				grid-column: 1 / -1;
+				border-bottom: 0;
+				&::before {
+					content: attr(data-label);
+					font-size: var(--text-sm);
+					color: var(--text-default);
+					font-weight: 600;
+					margin-right: auto;
+				}
 				.field-label {
 					display: flex;
 					margin-bottom: var(--s4);

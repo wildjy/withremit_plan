@@ -63,7 +63,7 @@
                                     <th>삭제</th>
                                 </tr>
                             </thead>
-                            <tbody id="deleteTableBody">
+                            <tbody id="individualDeleteTableBody">
                                 <tr>
                                     <td class="td-num" data-label="번호">3</td>
                                     <td data-label="은행명">신한은행</td>
@@ -276,7 +276,7 @@
             const maskedAccount = accountNum.substring(0, 4) + '*'.repeat(Math.max(7, accountNum.length - 4));
 
             // Add new row to table
-            const tbody = document.getElementById('deleteTableBody');
+            const tbody = document.getElementById('individualDeleteTableBody');
             const rowCount = tbody.querySelectorAll('tr').length;
             const newRow = document.createElement('tr');
 

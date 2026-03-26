@@ -103,6 +103,8 @@ function submitRemittance() {
         { id: 'sendAmount', message: 'error.sendAmountRequired' },
         { id: 'firstNameEn', message: 'error.firstNameEnRequired' },
         { id: 'lastNameEn', message: 'error.lastNameEnRequired' },
+        { id: 'recipientFirstNameEn', message: 'error.firstNameEnRequired' },
+        { id: 'recipientLastNameEn', message: 'error.lastNameEnRequired' },
         { id: 'relationship', message: 'error.relationshipRequired' },
         { id: 'beneficiaryBank', message: 'error.beneficiaryBankRequired' },
         { id: 'beneficiaryAccount', message: 'error.beneficiaryAccountRequired' },

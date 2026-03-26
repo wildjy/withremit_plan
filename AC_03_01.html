@@ -56,114 +56,15 @@
                                 <tr>
                                     <th class="th-num">번호</th>
                                     <th>국가</th>
-                                    <th>수취인명</th>
+                                    <th>수취인 이름</th>
+                                    <th>수취인 성</th>
                                     <th>은행명</th>
                                     <th>계좌 번호</th>
                                     <th>송금 목적</th>
                                     <th>삭제</th>
                                 </tr>
                             </thead>
-                            <tbody id="deleteTableBody">
-                                <tr>
-                                    <td class="td-num" data-label="번호">9</td>
-                                    <td data-label="국가">일본</td>
-                                    <td data-label="수취인명">Tanaka Hiro</td>
-                                    <td data-label="은행명">Mizuho Bank</td>
-                                    <td data-label="계좌 번호">123-4567-89</td>
-                                    <td data-label="송금 목적">가족 송금</td>
-                                    <td data-label="삭제">
-                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="td-num" data-label="번호">8</td>
-                                    <td data-label="국가">필리핀</td>
-                                    <td data-label="수취인명">Maria Cruz</td>
-                                    <td data-label="은행명">BDO</td>
-                                    <td data-label="계좌 번호">0011-2233-44</td>
-                                    <td data-label="송금 목적">생활비</td>
-                                    <td data-label="삭제">
-                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="td-num" data-label="번호">7</td>
-                                    <td data-label="국가">중국</td>
-                                    <td data-label="수취인명">Wang Wei</td>
-                                    <td data-label="은행명">ICBC</td>
-                                    <td data-label="계좌 번호">6222-0210-01</td>
-                                    <td data-label="송금 목적">사업</td>
-                                    <td data-label="삭제">
-                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="td-num" data-label="번호">6</td>
-                                    <td data-label="국가">네팔</td>
-                                    <td data-label="수취인명">Ram Thapa</td>
-                                    <td data-label="은행명">Nabil Bank</td>
-                                    <td data-label="계좌 번호">0101-0123-45</td>
-                                    <td data-label="송금 목적">저축</td>
-                                    <td data-label="삭제">
-                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="td-num" data-label="번호">5</td>
-                                    <td data-label="국가">호주</td>
-                                    <td data-label="수취인명">John Smith</td>
-                                    <td data-label="은행명">Commonwealth</td>
-                                    <td data-label="계좌 번호">062-000-1234</td>
-                                    <td data-label="송금 목적">교육비</td>
-                                    <td data-label="삭제">
-                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="td-num" data-label="번호">4</td>
-                                    <td data-label="국가">홍콩</td>
-                                    <td data-label="수취인명">Li Lei</td>
-                                    <td data-label="은행명">HSBC</td>
-                                    <td data-label="계좌 번호">123-456-789</td>
-                                    <td data-label="송금 목적">투자</td>
-                                    <td data-label="삭제">
-                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="td-num" data-label="번호">3</td>
-                                    <td data-label="국가">몽골</td>
-                                    <td data-label="수취인명">Bold Bat</td>
-                                    <td data-label="은행명">Khan Bank</td>
-                                    <td data-label="계좌 번호">5000-1234-56</td>
-                                    <td data-label="송금 목적">선물</td>
-                                    <td data-label="삭제">
-                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="td-num" data-label="번호">2</td>
-                                    <td data-label="국가">베트남</td>
-                                    <td data-label="수취인명">Nguyen Van A</td>
-                                    <td data-label="은행명">Vietcombank</td>
-                                    <td data-label="계좌 번호">0011-0022-33</td>
-                                    <td data-label="송금 목적">의료비</td>
-                                    <td data-label="삭제">
-                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="td-num" data-label="번호">1</td>
-                                    <td data-label="국가">스리랑카</td>
-                                    <td data-label="수취인명">Perera</td>
-                                    <td data-label="은행명">BOC</td>
-                                    <td data-label="계좌 번호">8888-7777-66</td>
-                                    <td data-label="송금 목적">기타</td>
-                                    <td data-label="삭제">
-                                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
-                                    </td>
-                                </tr>
-                            </tbody>
+                            <tbody id="deleteTableBody"></tbody>
                         </table>
                     </div>
                 </div>

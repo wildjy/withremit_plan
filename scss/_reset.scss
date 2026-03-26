@@ -79,7 +79,7 @@ table {
 input, select, textarea {
 	width: var(--full);
 	height: var(--input-h);
-	padding: var(--s3) var(--s4);
+	padding: var(--s1) var(--s4);
 	font-size: var(--text-md);
 	font-weight: 500;
 	background-color: var(--white);
@@ -119,7 +119,7 @@ input {
 }
 
 select {
-	padding: var(--s3-14) var(--s8) var(--s3-14)var(--s4);
+	padding: var(--s1) var(--s8) var(--s1) var(--s4);
 	color: var(--text-soft);
 	-webkit-text-fill-color: #A4B7C0; // iOS Safari 파란색 방지
 	color-scheme: light;
@@ -147,6 +147,10 @@ select {
 	&:disabled {
 		@include Helper.input-disabled;
 	}
+}
+
+textarea {
+	height: auto;
 }
 
 // checkbox, radio
@@ -182,7 +186,7 @@ input[type="checkbox"]:checked + .custom-check::after {
 }
 
 .hidden {
-	display: none;
+	display: none !important;
 }
 
 * {
@@ -191,8 +195,8 @@ input[type="checkbox"]:checked + .custom-check::after {
 }
 
 *::-webkit-scrollbar {
-	width: var(--s2);
-	height: var(--s4);
+	width: 0.5rem;
+	height: 1rem;
 }
 
 *::-webkit-scrollbar-thumb {

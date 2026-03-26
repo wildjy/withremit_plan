@@ -320,6 +320,13 @@
                         <button type="button" class="btn btn-primary size-lg" onclick="searchPostcode()">검색</button>
                     </div>
 
+                    <div class="postcode-nodata">
+                        <p>
+                            검색된 결과가 없습니다.<br />
+                            검색어를 다시 확인해 주세요
+                        </p>
+                    </div>
+
                     <div class="postcode-result-area">
                         <ul class="postcode-list" id="postcodeResultList">
                             <!-- Sample Results -->
@@ -387,7 +394,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline" onclick="closeModal('postcodeModal')">닫기</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('postcodeModal')">닫기</button>
                 </div>
             </div>
         </div>

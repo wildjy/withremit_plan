@@ -83,15 +83,6 @@
                                                 <option value="hotmail.com">hotmail.com</option>
                                                 <option value="nate.com">nate.com</option>
                                             </select>
-                                            <button
-                                                type="button"
-                                                class="btn btn-utility size-lg"
-                                                id="btnCheckEmail"
-                                                onclick="openModal('emailDupOkModal') // emailDupOkModal & emailDupUsedModal"
-                                                data-i18n="join.checkEmail"
-                                            >
-                                                이메일 중복
-                                            </button>
 
                                             <input type="hidden" id="emailFull" name="email" value="" />
                                         </div>
@@ -143,7 +134,7 @@
                             <div class="field-item">
                                 <label class="field-label">내용</label>
                                 <textarea placeholder="내용을 입력하세요" class="login-input textarea-inquiry"
-                                    id="inquiryContent" rows="10"></textarea>
+                                    id="inquiryContent" cols="30" rows="10"></textarea>
                             </div>
                         </div>
                     </div>
@@ -159,7 +150,7 @@
                             <strong>문의하신 내역이 있으신가요?</strong>
                             등록하신 1:1 문의 내역과 답변 상황을 확인하실 수 있습니다.
                         </div>
-                        <button type="button" class="btn btn-outline" onclick="location.href='CS_03_02.html'">문의 내역
+                        <button type="button" class="btn btn-utility" onclick="location.href='CS_03_02.html'">문의 내역
                             확인</button>
                     </div>
                 </div>
@@ -169,34 +160,6 @@
 
     <div id="contactContainer"></div>
     <div id="footerContainer"></div>
-
-    <!-- 이메일 중복 확인 모달 -->
-    <div id="emailDupOkModal" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-inner">
-                <div class="modal-icon">
-                    <img src="images/svg/icon_success.svg" alt="성공 아이콘" class="upload-icon" />
-                </div>
-                <h3 data-i18n="modal.emailDup.title">이메일 중복 확인</h3>
-                <p data-i18n="modal.emailDup.ok">사용 가능한 이메일입니다.</p>
-                <button class="btn btn-primary full size-lg" onclick="closeModal('emailDupOkModal')" data-i18n="button.confirm">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 이메일 중복 확인 실패 모달 -->
-    <div id="emailDupUsedModal" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-inner">
-                <div class="modal-icon">
-                    <img src="images/svg/icon_warning.svg" alt="경고 아이콘" class="upload-icon" />
-                </div>
-                <h3 data-i18n="modal.emailDup.title">이메일 중복 확인</h3>
-                <p data-i18n="modal.emailDup.fail">이미 사용 중인 이메일입니다.</p>
-                <button class="btn btn-warning full size-lg" onclick="closeModal('emailDupUsedModal')" data-i18n="button.confirm">확인</button>
-            </div>
-        </div>
-    </div>
 
     <!-- Confirm Modal -->
     <div id="confirmModal" class="modal-overlay">

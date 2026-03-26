@@ -446,11 +446,6 @@
                                         />
                                         <span class="field-error" id="beneficiaryPhoneError"></span>
                                     </div>
-                                    <div class="field-item">
-                                        <label class="field-label">은행 지점 번호</label>
-                                        <input type="text" placeholder="은행 지점 번호를 입력하세요" class="login-input" id="bankBranchNumber">
-                                        <span class="field-error" id="bankBranchNumberError"></span>
-                                    </div>
                                 </div>
 
                                 <div class="field-item top-level">
@@ -458,35 +453,6 @@
                                     <textarea class="login-input textarea-input" placeholder="수취인 주소를 입력하세요"
                                         id="beneficiaryAddress" rows="3"></textarea>
                                     <span class="field-error" id="beneficiaryAddressError"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="db-content-card">
-                        <div class="remit-form-section">
-                            <div class="form-sec-head-wrap">
-                                <h2 class="form-sec-head">쿠폰</h2>
-                            </div>
-
-                            <div class="form-sec">
-                                <div class="form-row no-mb">
-                                    <div class="field-item" id="couponInfoBox">
-                                        <label class="field-label between">
-                                            <span>할인쿠폰</span>
-                                            <span>보유 쿠폰 <span id="couponTotalCount">3</span>장</span>
-                                        </label>
-                                        <button type="button" class="coupon-btn btn btn-secondary size-lg" id="selectCouponBox">
-                                            <span class="btn-label" id="selectCouponLabel">쿠폰을 선택해 주세요.</span>
-                                            <span class="btn-icon" aria-hidden="true">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                    <path d="M7.94975 5.05025L12.8995 10L7.94975 14.9497" stroke="#4A5C64" stroke-width="1.6" stroke-linecap="round"/>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                        <input type="hidden" id="couponSelect" value="">
-                                        <span class="field-error" id="couponSelectError"></span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -627,46 +593,6 @@
                 <h3 data-i18n="modal.limit.title">송금 한도 초과</h3>
                 <p data-i18n="modal.limit.memo">외환거래법령에 따라 건당 최대 <b>$5,000(USD)</b>까지 송금이 가능합니다. 현재 환율 기준 송금 가능액인 <b>6,750,000원</b>으로 조정되었습니다.</p>
                 <button data-i18n="modal.ok" class="btn btn-warning full size-lg" onclick="closeModal('limitModal')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 쿠폰 선택 모달 -->
-    <div id="couponSelectionModal" class="modal-overlay disabled-outClose">
-        <div class="modal-content modal-layout">
-            <div class="modal-inner">
-                <div class="modal-header">
-                    <h2 class="modal-title">쿠폰 선택</h2>
-                    <button class="btn-close-modal" onclick="closeModal('couponSelectionModal')">&times;</button>
-                </div>
-
-                <div class="modal-body">
-                    <table class="common-table" id="">
-                        <colgroup>
-                            <col style="width: 60px;">
-                            <col>
-                            <col>
-                            <col>
-                            <col>
-                        </colgroup>
-                        <thead>
-                            <tr>
-                                <th>선택</th>
-                                <th>쿠폰명</th>
-                                <th>혜택</th>
-                                <th>유효기간</th>
-                            </tr>
-                        </thead>
-                        <tbody id="couponTableBody">
-                            <!-- main.data -->
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="modal-footer">
-                    <button class="btn btn-secondary size-lg" onclick="closeModal('couponSelectionModal')">취소</button>
-                    <button class="btn btn-primary size-lg" id="applyCouponBtn">선택</button>
-                </div>
             </div>
         </div>
     </div>

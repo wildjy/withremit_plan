@@ -146,19 +146,19 @@
                     <div class="form-sec-head" data-i18n="join.upload">서류 업로드</div>
                     <div class="form-row-2">
                         <div class="field-item">
-                            <label class="field-label" data-i18n="join.upload.front">
-                                여권 앞면
+                            <label class="field-label" >
+                                <span data-i18n="join.passport.front">여권 앞면</span>
                                 <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <button type="button" class="file-upload-wrap upload-btn"
                                 onclick="openOCRModal('passport-front', '여권 앞면 업로드')">
-                                <span class="file-name-display" id="passport-front-display">파일을 선택해 주세요</span>
-                                <span class="btn-file-trigger">찾아보기</span>
+                                <span class="file-name-display" id="passport-front-display" data-i18n="join.fileSelect">파일을 선택해 주세요</span>
+                                <span class="btn-file-trigger" data-i18n="join.browse">찾아보기</span>
                             </button>
                         </div>
                         <div class="field-item">
-                            <label class="field-label" data-i18n="join.upload.back">
-                                <span data-i18n="join.upload.back">여권 뒷면</span>
+                            <label class="field-label">
+                                <span data-i18n="join.passport.back">여권 뒷면</span>
                                 <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <button type="button" class="file-upload-wrap upload-btn"
@@ -170,8 +170,8 @@
                     </div>
                     <div class="form-row-2">
                         <div class="field-item">
-                            <label class="field-label" data-i18n="join.upload.front">
-                                <span data-i18n="join.upload.front">외국인등록증 앞면</span>
+                            <label class="field-label">
+                                <span data-i18n="join.alien.front">외국인등록증 앞면</span>
                                 <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <button type="button" class="file-upload-wrap upload-btn"
@@ -181,8 +181,8 @@
                             </button>
                         </div>
                         <div class="field-item">
-                            <label class="field-label" data-i18n="join.upload.back">
-                                <span data-i18n="join.upload.back">외국인등록증 뒷면</span>
+                            <label class="field-label">
+                                <span data-i18n="join.alien.back">외국인등록증 뒷면</span>
                                 <span class="badge-required" data-i18n="join.required">필수</span>
                             </label>
                             <button type="button" class="file-upload-wrap upload-btn"
@@ -402,8 +402,8 @@
                             </div>
                             <div class="field-item">
                                 <label class="field-label">
-                                    계좌 번호
-                                    <span class="badge-required">필수</span>
+                                    <span data-i18n="join.request.accountNumber">계좌 번호</span>
+                                    <span class="badge-required" data-i18n="join.required">필수</span>
                                 </label>
                                 <input
                                     type="text"
@@ -411,7 +411,7 @@
                                     inputmode="numeric"
                                     pattern="[0-9]*"
                                     oninput="this.value = this.value.replace(/[^0-9]/g, '');"
-                                    data-i18n="join.request.phonePlaceholder"
+                                    data-i18n="join.request.accountPlaceholder"
                                     placeholder="'-' 없이 숫자만 입력"
                                 />
                             </div>
@@ -516,7 +516,7 @@
                 </div>
             </div>
 
-            <div class="btn-align">
+            <div class="btn-align hidden" id="btn-align">
                 <button type="button" class="btn btn-secondary size-lg" onclick="location.href='CM_02_01.html'">취소</button>
                 <button type="button" class="btn btn-primary size-lg" onclick="validateChecker();">회원가입 신청 완료</button>
             </div>
@@ -553,11 +553,10 @@
                         </div>
 
                         <div id="ocrResultSection" style="display: none;">
-                            <div
-                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--s4);">
-                                <div class="form-sec-head" style="margin: 0; font-size: var(--s4);">인식된 정보</div>
+                            <div>
+                                <div class="form-sec-head">인식된 정보</div>
                             </div>
-                            <div class="form-row-2" style="margin-bottom: var(--s3);">
+                            <div class="form-row-2">
                                 <div class="field-item">
                                     <label class="field-label">
                                         성 (한글)
@@ -573,7 +572,7 @@
                                     <input type="text" id="ocrFirstNameKo" class="login-input">
                                 </div>
                             </div>
-                            <div class="form-row-2" style="margin-bottom: var(--s3);">
+                            <div class="form-row-2">
                                 <div class="field-item">
                                     <label class="field-label">
                                         이름 (영문)
@@ -589,7 +588,7 @@
                                     <input type="text" id="ocrLastNameEn" class="login-input">
                                 </div>
                             </div>
-                            <div class="form-row-3" style="margin-bottom: var(--s3);">
+                            <div class="form-row-2">
                                 <div class="field-item">
                                     <label class="field-label">
                                         <span data-i18n="join.request.birthdate">생년월일</span>
@@ -598,7 +597,7 @@
                                     <input type="text" class="login-input date-picker-custom" id="ocrBirthDate" placeholder="연도.월.일" data-i18n="join.request.birthdatePlaceholder"
                                         onfocus="this.type='date'; if (this.showPicker) this.showPicker();" onblur="if(!this.value){this.type='text'}">
                                 </div>
-                                <div class="field-item">
+                                <!-- <div class="field-item">
                                     <label class="field-label">
                                         국적
                                         <span class="badge-required">필수</span>
@@ -614,7 +613,7 @@
                                         <option value="ID">인도네시아</option>
                                         <option value="MY">말레이시아</option>
                                     </select>
-                                </div>
+                                </div> -->
                                 <div class="field-item">
                                     <label class="field-label">
                                         성별
@@ -724,6 +723,13 @@
                             <button type="button" class="btn btn-primary size-lg" onclick="searchPostcode()">검색</button>
                         </div>
 
+                        <div class="postcode-nodata">
+                            <p>
+                                검색된 결과가 없습니다.<br />
+                                검색어를 다시 확인해 주세요
+                            </p>
+                        </div>
+
                         <div class="postcode-result-area">
                             <ul class="postcode-list" id="postcodeResultList">
                                 <!-- Sample Results -->
@@ -791,7 +797,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline" onclick="closeModal('postcodeModal')">닫기</button>
+                        <button type="button" class="btn btn-secondary" onclick="closeModal('postcodeModal')">닫기</button>
                     </div>
                 </div>
             </div>
@@ -819,8 +825,9 @@
             function handleNationalityChange() {
                 // 폼 초기화
                 resetForm();
-
+                // console.log('폼이 초기화되었습니다. 내/외국인 선택 변경에 따른 초기화 수행.');
                 const natSelect = document.getElementById('nationalitySelect');
+                const btnAlign = document.getElementById('btn-align');
                 const krOption = natSelect.querySelector('option[value="KR"]');
 
 
@@ -828,9 +835,6 @@
                 if (!selectEl.value) selectEl.value = 'direct';
 
                 if (domesticRadio.checked) {
-                    // document.getElementById('domesticDocSection').style.display = 'block';
-                    // document.getElementById('foreignDocSection').style.display = 'none';
-                    // document.getElementById('commonInfoSection').style.display = 'block';
                     document.getElementById('domesticDocSection').classList.remove('hidden');
                     document.getElementById('foreignDocSection').classList.add('hidden');
                     document.getElementById('commonInfoSection').classList.remove('hidden');
@@ -843,9 +847,6 @@
                     // 여기서는 UI 로직만 구현. 필요 시 disabled 풀어주는 로직이나 hidden input 추가.
                     // (일단 UI 요구사항에 집중)
                 } else if (foreignRadio.checked) {
-                    // document.getElementById('domesticDocSection').style.display = 'none';
-                    // document.getElementById('foreignDocSection').style.display = 'block';
-                    // document.getElementById('commonInfoSection').style.display = 'block';
                     document.getElementById('domesticDocSection').classList.add('hidden');
                     document.getElementById('foreignDocSection').classList.remove('hidden');
                     document.getElementById('commonInfoSection').classList.remove('hidden');
@@ -855,6 +856,7 @@
                     natSelect.value = ''; // 초기화
                     if (krOption) krOption.style.display = 'none';
                 }
+                btnAlign.classList.remove('hidden');
             }
 
             // 폼 초기화 함수
@@ -1058,30 +1060,30 @@
             document.getElementById('ocrBirthDate').value = dummyData.birthDate;
 
             // 국적 선택 로직 적용 (메인 폼과 동일하게)
-            const ocrNatSelect = document.getElementById('ocrNationality');
-            const ocrKrOption = ocrNatSelect.querySelector('option[value="KR"]');
+            // const ocrNatSelect = document.getElementById('ocrNationality');
+            // const ocrKrOption = ocrNatSelect.querySelector('option[value="KR"]');
 
-            // 현재 내/외국인 상태 확인
-            const isDomestic = document.getElementById('domesticRadio').checked;
+            // // 현재 내/외국인 상태 확인
+            // const isDomestic = document.getElementById('domesticRadio').checked;
 
-            if (isDomestic) {
-                // 내국인: 대한민국 고정 및 비활성화
-                if (ocrKrOption) ocrKrOption.style.display = 'block';
-                ocrNatSelect.value = 'KR';
-                ocrNatSelect.disabled = true;
-            } else {
-                // 외국인: 대한민국 제외 (숨김) 및 활성화
-                ocrNatSelect.disabled = false;
-                if (ocrKrOption) ocrKrOption.style.display = 'none';
+            // if (isDomestic) {
+            //     // 내국인: 대한민국 고정 및 비활성화
+            //     if (ocrKrOption) ocrKrOption.style.display = 'block';
+            //     ocrNatSelect.value = 'KR';
+            //     ocrNatSelect.disabled = true;
+            // } else {
+            //     // 외국인: 대한민국 제외 (숨김) 및 활성화
+            //     ocrNatSelect.disabled = false;
+            //     if (ocrKrOption) ocrKrOption.style.display = 'none';
 
-                // OCR 결과가 KR인 경우 (더미데이터 상의 오류 방지) 다른 값으로 변경하거나 안내
-                if (dummyData.nationality === 'KR') {
-                    // 외국인인데 KR로 인식된 경우 (시뮬레이션 데이터 오류 방지용)
-                    ocrNatSelect.value = '';
-                } else {
-                    ocrNatSelect.value = dummyData.nationality;
-                }
-            }
+            //     // OCR 결과가 KR인 경우 (더미데이터 상의 오류 방지) 다른 값으로 변경하거나 안내
+            //     if (dummyData.nationality === 'KR') {
+            //         // 외국인인데 KR로 인식된 경우 (시뮬레이션 데이터 오류 방지용)
+            //         ocrNatSelect.value = '';
+            //     } else {
+            //         ocrNatSelect.value = dummyData.nationality;
+            //     }
+            // }
 
             if (dummyData.gender === 'male') {
                 document.getElementById('ocrGenderMale').checked = true;

@@ -1193,7 +1193,7 @@ function closeValidationModal() {
 }
 
 function updateTotalCount() {
-    const tbody = document.getElementById('deleteTableBody');
+    const tbody = document.querySelectorAll('.common-table tbody')[0];
     const count = tbody ? tbody.querySelectorAll('tr').length : 0;
     const countElement = document.getElementById('totalCount');
     if (countElement) {
@@ -1203,6 +1203,38 @@ function updateTotalCount() {
 
 // Initialize count on load
 document.addEventListener('DOMContentLoaded', updateTotalCount);
+
+function renderFrequentAccounts() {
+    const tbody = document.getElementById('deleteTableBody');
+    if (!tbody) return;
+
+    const accounts = window.remitFrequentAccounts || [];
+    const total = accounts.length;
+
+    tbody.innerHTML = accounts.map((item, i) => {
+        const name = item.firstName
+            ? `${item.firstName} ${item.lastName || ''}`.trim()
+            : (item.name || '');
+        const rowNum = total - i;
+        return `
+                <tr>
+                    <td class="td-num" data-label="번호">${rowNum}</td>
+                    <td data-label="국가">${item.countryName}</td>
+                    <td data-label="수취인 이름">${item.firstName}</td>
+                    <td data-label="수취인 성">${item.lastName}</td>
+                    <td data-label="은행명">${item.bank}</td>
+                    <td data-label="계좌 번호">${item.account}</td>
+                    <td data-label="송금 목적">${item.purposeName}</td>
+                    <td data-label="삭제">
+                        <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
+                    </td>
+                </tr>`;
+    }).join('');
+
+    updateTotalCount();
+}
+
+document.addEventListener('DOMContentLoaded', renderFrequentAccounts);
 
 function fillBeneficiaryName(name) {
     const beneficiaryNameInput = document.getElementById('beneficiaryName');
@@ -1304,10 +1336,23 @@ window.selectAccount = function (item) {
 
         const firstNameInput = document.getElementById('firstNameEn');
         const lastNameInput = document.getElementById('lastNameEn');
-        if ((firstNameInput || lastNameInput) && (item.firstName || item.lastName)) {
+        const recipientFirstNameInput = document.getElementById('recipientFirstNameEn');
+        const recipientLastNameInput = document.getElementById('recipientLastNameEn');
+
+        // 송금인 정보 채우기 (송금 폼에서)
+        if (firstNameInput || lastNameInput) {
             if (firstNameInput) firstNameInput.value = item.firstName || '';
             if (lastNameInput) lastNameInput.value = item.lastName || '';
-        } else if (name) {
+        }
+
+        // 수취인 정보 채우기 (송금 폼에서)
+        if (recipientFirstNameInput || recipientLastNameInput) {
+            if (recipientFirstNameInput) recipientFirstNameInput.value = item.firstName || '';
+            if (recipientLastNameInput) recipientLastNameInput.value = item.lastName || '';
+        }
+
+        // 수취인명 통합 필드 채우기 (회원가입 폼의 beneficiaryName)
+        if (!firstNameInput && !lastNameInput && !recipientFirstNameInput && !recipientLastNameInput && name) {
             fillBeneficiaryName(name);
         }
 
@@ -1496,8 +1541,9 @@ window.initCouponList = function () {
     couponItems.forEach((coupon, index) => {
         const tr = document.createElement('tr');
         tr.dataset.couponId = coupon.id;
+
+            // <td data-label='번호' data-i18n="">${couponItems.length - index}</td>
         tr.innerHTML = `
-            <td data-label='번호' data-i18n="">${couponItems.length - index}</td>
             <td data-label='쿠폰명' data-i18n="">${coupon.name || ''}</td>
             <td data-label='혜택' data-i18n="">${coupon.benefit || ''}</td>
             <td data-label='유효기간' data-i18n="">${coupon.validUntil || ''}</td>
@@ -1574,11 +1620,12 @@ window.initFriendInvite = function () {
     const REGISTERED_MEMBER_PHONES = new Set(['01012345678', '01099998888', '01077776666']);
     let inviteDeleteButton = null;
 
-    const inviteTableBody = document.getElementById('deleteTableBody');
-    const inviteTotalCount = document.getElementById('couponTotalCount');
+    const inviteTableBody = document.getElementById('couponTableBody');
+    // const inviteTotalCount = document.getElementById('couponTotalCount');
     const inviteConfirmModal = document.getElementById('inviteConfirmModal');
 
-    if (!inviteTableBody || !inviteTotalCount || !inviteConfirmModal) return;
+    // if (!inviteTableBody || !inviteTotalCount || !inviteConfirmModal) return;
+    if (!inviteTableBody || !inviteConfirmModal) return;
 
     function updateRowNumbers() {
         const rows = Array.from(inviteTableBody.querySelectorAll('tr'));
@@ -1604,8 +1651,7 @@ window.initFriendInvite = function () {
     function addFriendRow() {
         const newRow = document.createElement('tr');
         newRow.innerHTML = `
-            <td class="td-num" data-label="번호"></td>
-            <td>
+            <td data-label="친구 전화번호">
                 <div class="field-item">
                     <label class="field-label">전화번호</label>
                     <input type="text" placeholder="전화번호를 입력하세요" class="login-input" id="friendPhoneNew"/>
@@ -1618,7 +1664,7 @@ window.initFriendInvite = function () {
 
         inviteTableBody.insertBefore(newRow, inviteTableBody.firstChild);
         updateRowNumbers();
-        updateTotalCount();
+        // updateTotalCount();
     }
 
     function removeRow(button) {
@@ -1645,7 +1691,7 @@ window.initFriendInvite = function () {
         inviteDeleteButton = null;
         closeModal('deleteConfirmModal');
         updateRowNumbers();
-        updateTotalCount();
+        // updateTotalCount();
     }
 
     function closeValidationModal() {
@@ -1698,7 +1744,7 @@ window.initFriendInvite = function () {
     window.saveFriends = saveFriends;
 
     updateRowNumbers();
-    updateTotalCount();
+    // updateTotalCount();
 };
 
 // 최근 송금 내역

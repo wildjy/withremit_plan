@@ -978,6 +978,12 @@
 	background-color: var(--white);
 	border: 1px solid var(--border-default);
 	border-radius: var(--radius);
+
+	// & ~ .field-info {
+	// 	margin-top: var(--s4);
+	// 	padding-top: var(--s4);
+	// 	border-top: 1px solid var(--border-default);
+	// }
 }
 
 /* 필수/선택 badge styles */
@@ -1157,6 +1163,9 @@
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: var(--s5);
+	.form-sec-head {
+		margin-bottom: 0;
+	}
 }
 
 .btn-add-row {

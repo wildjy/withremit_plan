@@ -230,17 +230,17 @@
                                     <div class="form-row-2 no-mb">
                                         <div class="field-item">
                                             <label class="field-label">
-                                                <span data-i18n="join.request.firstNameEn">수취인 이름 (영문)</span>
+                                                <span data-i18n="join.request.recipientFirstNameEn">수취인 이름 (영문)</span>
                                             </label>
-                                            <input type="text" placeholder="영문으로 입력하세요" class="login-input" id="firstNameEn">
-                                            <span class="field-error" id="firstNameEnError"></span>
+                                            <input type="text" placeholder="영문으로 입력하세요" class="login-input" id="recipientFirstNameEn">
+                                            <span class="field-error" id="recipientFirstNameEnError"></span>
                                         </div>
                                         <div class="field-item">
                                             <label class="field-label">
-                                                <span data-i18n="join.request.lastNameEn">수취인 성 (영문)</span>
+                                                <span data-i18n="join.request.recipientLastNameEn">수취인 성 (영문)</span>
                                             </label>
-                                            <input type="text" placeholder="영문으로 입력하세요" class="login-input" id="lastNameEn">
-                                            <span class="field-error" id="lastNameEnError"></span>
+                                            <input type="text" placeholder="영문으로 입력하세요" class="login-input" id="recipientLastNameEn">
+                                            <span class="field-error" id="recipientLastNameEnError"></span>
                                         </div>
                                     </div>
                                     <div class="form-row no-mb">
@@ -374,20 +374,6 @@
                                         />
                                         <span class="field-error" id="beneficiaryPhoneError"></span>
                                     </div>
-                                    <div class="field-item">
-                                        <label class="field-label">은행 지점 번호</label>
-                                        <input
-                                            type="text"
-                                            class="login-input"
-                                            inputmode="numeric"
-                                            pattern="[0-9]*"
-                                            oninput="this.value = this.value.replace(/[^0-9]/g, '');"
-                                            data-i18n="join.request.phonePlaceholder"
-                                            id="bankBranchNumber"
-                                            placeholder="은행 지점 번호를 입력하세요"
-                                        />
-                                        <span class="field-error" id="bankBranchNumberError"></span>
-                                    </div>
                                 </div>
 
                                 <div class="field-item top-level">
@@ -431,7 +417,6 @@
 
                     <!-- 하단 버튼 -->
                     <div class="btn-align">
-                        <!-- <button type="button" class="btn btn-outline btn-remit-cancel" -->
                         <button type="button" class="btn btn-secondary size-lg" onclick="location.href='DB_01_01.html'">취소</button>
                         <button type="button" class="btn btn-primary size-lg" onclick="submitRemittance()">송금 신청</button>
                     </div>
@@ -592,7 +577,7 @@
                                 <th>선택</th>
                                 <th>쿠폰명</th>
                                 <th>혜택</th>
-                                <th>유효기간</th>
+                                <th>유효 기간</th>
                             </tr>
                         </thead>
                         <tbody id="couponTableBody" data-bound="0">
@@ -603,7 +588,7 @@
 
                 <div class="modal-footer">
                     <button class="btn btn-secondary size-lg" onclick="closeModal('couponSelectionModal')">취소</button>
-                    <button class="btn btn-primary size-lg" id="applyCouponBtn">선택</button>
+                    <button class="btn btn-primary size-lg" id="applyCouponBtn">확인</button>
                 </div>
             </div>
         </div>

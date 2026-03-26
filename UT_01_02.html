@@ -112,7 +112,7 @@
                                 <div class="form-row-2">
                                     <div class="field-item">
                                         <label class="field-label">업종</label>
-                                        <input type="text" value="서비스/IT" class="login-input">
+                                        <div class="field-value-plain">서비스/IT</div>
                                     </div>
                                     <div class="field-item">
                                         <label class="field-label">사업자등록번호</label>
@@ -230,14 +230,71 @@
                                         />
                                     </div>
                                 </div>
-                                <div class="field-item top-level">
+                                <!-- <div class="field-item top-level">
                                     <label class="field-label">관리자 이메일 주소 <span class="badge-required">필수</span></label>
                                     <div class="field-flex full-width">
                                         <input type="email" value="admin@withmoney.co.kr" class="login-input">
                                         <button type="button" class="btn btn-utility size-lg">이메일 중복 확인</button>
                                     </div>
+                                </div> -->
+                            </div>
+
+                        <div class="form-row-2">
+                            <div class="form-row-2 no-mb">
+                                <div class="field-item">
+                                    <label class="field-label">
+                                        <span data-i18n="join.request.email">이메일 주소</span>
+                                        <span class="badge-required" data-i18n="join.required">필수</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="emailLocal"
+                                        class="login-input half-KeyMode-only"
+                                        inputmode="email"
+                                        autocomplete="email"
+                                        placeholder="예: user"
+                                        aria-label="이메일 아이디"
+                                        data-i18n="join.emailLocalPlaceholder"
+                                    />
+                                </div>
+                                <div class="field-item align-end">
+                                    <input
+                                        type="text"
+                                        id="emailDomain"
+                                        class="login-input half-KeyMode-only"
+                                        inputmode="url"
+                                        placeholder="직접 입력"
+                                        aria-label="이메일 도메인 직접 입력"
+                                        data-i18n="join.emailDomainPlaceholder"
+                                    />
                                 </div>
                             </div>
+                            <div class="form-row no-mb">
+                                <div class="field-item align-end">
+                                    <div class="field-flex full-width">
+                                        <select id="domainMode" class="login-input select-styled" aria-label="도메인 입력 방식">
+                                            <option value="direct" selected data-i18n="join.emailDomainPlaceholder">직접 입력</option>
+                                            <option value="gmail.com">gmail.com</option>
+                                            <option value="naver.com">naver.com</option>
+                                            <option value="daum.net">daum.net</option>
+                                            <option value="hotmail.com">hotmail.com</option>
+                                            <option value="nate.com">nate.com</option>
+                                        </select>
+                                        <button
+                                            type="button"
+                                            class="btn btn-utility size-lg"
+                                            id="btnCheckEmail"
+                                            onclick="openModal('emailDupOkModal') // emailDupOkModal & emailDupUsedModal"
+                                            data-i18n="join.checkEmail"
+                                        >
+                                            이메일 중복
+                                        </button>
+
+                                        <input type="hidden" id="emailFull" name="email" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
 
@@ -321,37 +378,35 @@
                                     <label class="check-label-group"><input type="checkbox" checked><span
                                             class="custom-check"></span><span class="check-text">통관수입대금</span></label>
                                     <label class="check-label-group"><input type="checkbox"><span
-                                            class="custom-check"></span><span class="check-text">무통관수입대금</span></label>
-                                    <label class="check-label-group"><input type="checkbox"><span
-                                            class="custom-check"></span><span class="check-text">수출대금 반송분</span></label>
-                                    <label class="check-label-group"><input type="checkbox"><span
-                                            class="custom-check"></span><span class="check-text">유학 및 연수</span></label>
-                                    <label class="check-label-group"><input type="checkbox"><span
-                                            class="custom-check"></span><span class="check-text">여행</span></label>
-                                    <label class="check-label-group"><input type="checkbox"><span
-                                            class="custom-check"></span><span class="check-text">운수</span></label>
-                                    <label class="check-label-group"><input type="checkbox"><span
-                                            class="custom-check"></span><span class="check-text">보험(보험료, 보험금
-                                            등)</span></label>
-                                    <label class="check-label-group"><input type="checkbox" checked><span
-                                            class="custom-check"></span><span class="check-text">투자수익(배당금 및
-                                            이자)</span></label>
-                                    <label class="check-label-group"><input type="checkbox"><span
-                                            class="custom-check"></span><span class="check-text">정부거래</span></label>
-                                    <label class="check-label-group"><input type="checkbox" checked><span
-                                            class="custom-check"></span><span class="check-text">서비스거래(사업서비스)</span></label>
-                                    <label class="check-label-group"><input type="checkbox"><span
-                                            class="custom-check"></span><span class="check-text">서비스거래(임금)</span></label>
+                                            class="custom-check"></span><span class="check-text">보험(보험료, 보험금 등)</span></label>
                                     <label class="check-label-group"><input type="checkbox"><span
                                             class="custom-check"></span><span class="check-text">이전거래(무상지급)</span></label>
                                     <label class="check-label-group"><input type="checkbox"><span
+                                            class="custom-check"></span><span class="check-text">무통장수입대금</span></label>
+                                    <label class="check-label-group"><input type="checkbox"><span
+                                            class="custom-check"></span><span class="check-text">투자수익(배당금 및 이자)</span></label>
+                                    <label class="check-label-group"><input type="checkbox"><span
                                             class="custom-check"></span><span class="check-text">해외증권투자</span></label>
                                     <label class="check-label-group"><input type="checkbox"><span
-                                            class="custom-check"></span><span class="check-text">차입 상환</span></label>
+                                            class="custom-check"></span><span class="check-text">수출대금 반송분</span></label>
                                     <label class="check-label-group"><input type="checkbox"><span
-                                            class="custom-check"></span><span class="check-text">부동산 거래</span></label>
+                                            class="custom-check"></span><span class="check-text">정부거래(대사관, 영사관 등 경비 및 본국 송금 비자수수료 등)</span></label>
+                                    <label class="check-label-group"><input type="checkbox"><span
+                                            class="custom-check"></span><span class="check-text">차입 상환부동산 거래</span></label>
+                                    <label class="check-label-group"><input type="checkbox"><span
+                                            class="custom-check"></span><span class="check-text">유학 및 연수</span></label>
+                                    <label class="check-label-group"><input type="checkbox" checked><span
+                                            class="custom-check"></span><span class="check-text">서비스거래(사업서비스 및 기타 잡용역)</span></label>
                                     <label class="check-label-group"><input type="checkbox"><span
                                             class="custom-check"></span><span class="check-text">기타 자본거래</span></label>
+                                    <label class="check-label-group"><input type="checkbox"><span
+                                            class="custom-check"></span><span class="check-text">여행</span></label>
+                                    <label class="check-label-group"><input type="checkbox"><span
+                                            class="custom-check"></span><span class="check-text">서비스거래(임금)</span></label>
+                                    <label class="check-label-group"><input type="checkbox"><span
+                                            class="custom-check"></span><span class="check-text">운수</span></label>
+                                    <label class="check-label-group"><input type="checkbox" checked><span
+                                            class="custom-check"></span><span class="check-text">서비스거래(사업서비스 및 기타 잡용역, 입금 제외서비스 거래)</span></label>
                                 </div>
                             </div>
                         </div>
@@ -359,8 +414,8 @@
 
                     <!-- 하단 버튼 -->
                     <div class="btn-align">
-                        <button type="button" class="btn btn-outline" onclick="history.back()">취소</button>
-                        <button type="button" class="btn btn-primary" onclick="openModal('successModal')">저장</button>
+                        <button type="button" class="btn btn-secondary size-lg" onclick="history.back()">취소</button>
+                        <button type="button" class="btn btn-primary size-lg" onclick="openModal('successModal')">저장</button>
                     </div>
                 </div>
             </div>
@@ -369,6 +424,34 @@
 
     <div id="contactContainer"></div>
     <div id="footerContainer"></div>
+
+    <!-- 이메일 중복 확인 모달 -->
+    <div id="emailDupOkModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-inner">
+                <div class="modal-icon">
+                    <img src="images/svg/icon_success.svg" alt="성공 아이콘" class="upload-icon" />
+                </div>
+                <h3 data-i18n="modal.emailDup.title">이메일 중복 확인</h3>
+                <p data-i18n="modal.emailDup.ok">사용 가능한 이메일입니다.</p>
+                <button class="btn btn-primary full size-lg" onclick="closeModal('emailDupOkModal')" data-i18n="button.confirm">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 이메일 중복 확인 실패 모달 -->
+    <div id="emailDupUsedModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-inner">
+                <div class="modal-icon">
+                    <img src="images/svg/icon_warning.svg" alt="경고 아이콘" class="upload-icon">
+                </div>
+                <h3 data-i18n="modal.emailDup.title">이메일 중복 확인</h3>
+                <p data-i18n="modal.emailDup.fail">이미 사용 중인 이메일입니다.</p>
+                <button class="btn btn-warning full size-lg" onclick="closeModal('emailDupUsedModal')" data-i18n="button.confirm">확인</button>
+            </div>
+        </div>
+    </div>
 
     <div id="successModal" class="modal-overlay">
         <div class="modal-content">
@@ -401,6 +484,13 @@
                     <div class="postcode-search-box">
                         <input type="text" class="login-input" placeholder="검색어 입력" id="postcodeSearchInput">
                         <button type="button" class="btn btn-primary size-lg" onclick="searchPostcode()">검색</button>
+                    </div>
+
+                    <div class="postcode-nodata">
+                        <p>
+                            검색된 결과가 없습니다.<br />
+                            검색어를 다시 확인해 주세요
+                        </p>
                     </div>
 
                     <div class="postcode-result-area">
@@ -514,7 +604,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline" onclick="closeModal('postcodeModal')">닫기</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('postcodeModal')">닫기</button>
                 </div>
             </div>
         </div>
@@ -539,6 +629,11 @@
     <script src="js/main.js"></script>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 이메일 입력 방식 이벤트 핸들러
+            emailDomainEventHandler();
+        });
+
         function addShareholder() {
             const container = document.getElementById('shareholderContainer');
             const newRow = document.createElement('div');

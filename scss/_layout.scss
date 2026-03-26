@@ -35,7 +35,7 @@ body{
 		min-height: var(--full-dvh);
 	}
 
-	&.db-body, 
+	&.db-body,
 	&.login-page {
 		background-color: var(--bg-default);
 	}
@@ -124,7 +124,7 @@ body{
 }
 
 .mypage-main,
-.remit-main, 
+.remit-main,
 .sub-card-wrapper {
 	.db-content-card {
 		margin-top: var(--white-section-spacing);
@@ -139,7 +139,7 @@ body{
 
 @media (max-width: 768px) {
 	.mypage-main,
-	.remit-main, 
+	.remit-main,
 .sub-card-wrapper {
 		.db-content-card {
 			margin-top: var(--mobile-white-section-spacing);
@@ -151,7 +151,7 @@ body{
 	}
 }
 
-.remit-main, 
+.remit-main,
 .sub-card-wrapper {
 	.db-content-card {
 		&:first-child {
@@ -316,6 +316,19 @@ body{
 #foreignDocSection {
 	.form-sec-head {
 		margin-top: var(--s10);
+		font-size: var(--text-md);
+	}
+}
+
+#ocrResultSection {
+	.form-sec-head {
+		margin-top: 0;
+		margin-bottom: var(--s4);
+		font-size: var(--text-md);
+	}
+
+	.form-row-2 {
+		margin-bottom: var(--s3);
 	}
 }
 

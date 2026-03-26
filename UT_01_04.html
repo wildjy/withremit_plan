@@ -30,9 +30,6 @@
             <div class="db-content">
                 <div class="db-page-header">
                     <h1 class="db-page-title">친구 초대</h1>
-                    <div class="db-page-actions">
-                        <button type="button" class="btn btn-primary" onclick="addFriendRow()">친구 추가</button>
-                    </div>
                 </div>
 
                 <div class="sub-card-wrapper">
@@ -51,49 +48,47 @@
                     </div>
 
                     <div class="db-content-card">
-                        <!-- Total Count -->
-                        <p class="coupon-total-count">
-                            <span>총</span> <b id="couponTotalCount"></b><span>건</span>
-                        </p>
+                        <div class="db-table-info">
+                            <h3>친구 초대</h3>
+                            <div class="remit-sort-wrapper">
+                                <button type="button" class="btn btn-utility" onclick="addFriendRow()">친구 추가</button>
+                            </div>
+                        </div>
 
                         <!-- Table Container -->
                         <div class="db-table-responsive">
-                            <table class="common-table history-mode coupon-mode">
+                            <table class="common-table history-mode coupon-mode invite-mode">
                                 <colgroup>
-                                    <col class="col-num">
                                     <col>
                                     <col class="col-delete">
                                 </colgroup>
                                 <thead>
                                     <tr>
-                                        <th class="th-num">번호</th>
                                         <th>친구 전화번호</th>
                                         <th>삭제</th>
                                     </tr>
                                 </thead>
-                                <tbody id="deleteTableBody">
+                                <tbody id="couponTableBody">
                                     <tr>
-                                        <td class="td-num" data-label="번호">2</td>
                                         <td data-label="친구 전화번호">
-                                        <div class="field-item">
-                                            <label class="field-label">친구 전화번호</label>
-                                            <input type="text" placeholder="전화번호를 입력하세요" class="login-input" id="friendPhone2" />
-                                        </div>
+                                            <div class="field-item">
+                                                <label class="field-label">친구 전화번호</label>
+                                                <input type="text" placeholder="전화번호를 입력하세요" class="login-input" id="friendPhone2" />
+                                            </div>
                                         </td>
                                         <td data-label="삭제">
-                                            <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
+                                            <button type="button" class="btn btn-delete full size-lg" onclick="removeRow(this)">삭제</button>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="td-num" data-label="번호">1</td>
                                         <td data-label="친구 전화번호">
-                                        <div class="field-item">
-                                            <label class="field-label">친구 전화번호</label>
-                                            <input type="text" placeholder="전화번호를 입력하세요" class="login-input" id="friendPhone1" />
-                                        </div>
+                                            <div class="field-item">
+                                                <label class="field-label">친구 전화번호</label>
+                                                <input type="text" placeholder="전화번호를 입력하세요" class="login-input" id="friendPhone1" />
+                                            </div>
                                         </td>
                                         <td data-label="삭제">
-                                            <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
+                                            <button type="button" class="btn btn-delete full size-lg" onclick="removeRow(this)">삭제</button>
                                         </td>
                                     </tr>
                                 </tbody>
