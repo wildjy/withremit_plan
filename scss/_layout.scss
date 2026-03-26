@@ -115,6 +115,12 @@ body{
 	align-items: center;
 }
 
+@media (max-width: 768px) {
+	.db-page-header {
+		margin-bottom: var(--s6);
+	}
+}
+
 .db-page-title {
 	font-size: var(--text-3xl);
 	font-weight: 700;
