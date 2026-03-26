@@ -122,7 +122,7 @@
 	font-size: var(--text-sm);
 	font-weight: 500;
 	color: var(--text-strong);
-	-webkit-text-fill-color: #A4B7C0;
+	-webkit-text-fill-color: var(--text-strong);
 	color-scheme: light;
 	background-image: var(--icon-lang-select);
 	background-size: var(--s5);
@@ -134,6 +134,7 @@
 	transition: var(--transition);
 	&:valid {
 		color: var(--text-strong);
+		-webkit-text-fill-color: var(--text-strong);
 	}
 }
 /* ===== GM Header Responsiveness Updates ===== */

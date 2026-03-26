@@ -195,8 +195,10 @@
 
 .feature-icon {
 	margin-bottom: var(--s10);
-	width: var(--s16);
-	height: var(--s16);
+	img {
+		width: var(--s16);
+		height: var(--s16);
+	}
 }
 
 .feature-card-content h3,

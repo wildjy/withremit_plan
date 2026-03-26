@@ -81,7 +81,7 @@
                                         <div class="field-value-plain">WITHMONEY CO., LTD</div>
                                     </div>
                                     <div class="field-item grid-span-2">
-                                        <label class="field-label">회사형태</label>
+                                        <label class="field-label">회사 형태 선택</label>
                                         <select class="login-input select-styled">
                                             <option>주식회사</option>
                                             <option>유한회사</option>
@@ -355,14 +355,13 @@
                                                 <input type="text" value="서울특별시 중구 남대문로 120" class="sh-input">
                                             </div>
                                             <div class="sh-action">
-                                                <button type="button" class="btn btn-delete full size-sm"
+                                                <button type="button" class="btn btn-delete full size-lg"
                                                     onclick="removeRow(this)">삭제</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <p class="field-desc accent-red" style="margin-top: var(--s3); font-size: 13px; color: #ef4444;">
-                                    * 주식 25% 이상 소유자를 입력해 주세요.</p>
+                                <p class="field-info"> 주식 25% 이상 소유자를 입력해 주세요.</p>
                             </div>
                         </div>
                     </div>
@@ -374,7 +373,7 @@
                                 <h2 class="form-sec-head">송금 목적 (복수 선택 가능)</h2>
                             </div>
                             <div class="form-sec">
-                                <div class="purpose-grid-full business-purpose-grid">
+                                <div class="purpose-grid-full ">
                                     <label class="check-label-group"><input type="checkbox" checked><span
                                             class="custom-check"></span><span class="check-text">통관수입대금</span></label>
                                     <label class="check-label-group"><input type="checkbox"><span
@@ -649,7 +648,7 @@
                     <span class="sh-mobile-label">지분율(%)</span><input type="text" placeholder="00" class="sh-input" inputmode="numeric" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                 </div>
                 <div class="sh-field sh-addr"><span class="sh-mobile-label">주소</span><input type="text" placeholder="주소" class="sh-input"></div>
-                <div class="sh-action"><button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button></div>
+                <div class="sh-action"><button type="button" class="btn btn-delete full size-lg" onclick="removeRow(this)">삭제</button></div>
             `;
             container.appendChild(newRow);
         }

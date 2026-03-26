@@ -73,7 +73,7 @@
                             <label class="field-label">회사 형태</label>
                             <select
                                 class="login-input select-styled">
-                                <option value="" disabled selected>회사형태 선택</option>
+                                <option value="" disabled selected>회사 형태 선택</option>
                                 <option>주식회사</option>
                                 <option>유한회사</option>
                                 <option>합자회사</option>
@@ -151,15 +151,35 @@
                 <section class="form-sec">
                     <div class="form-sec-head">법인 관리자 정보</div>
                     <div class="form-row-3">
-                        <div class="field-item"><label class="field-label">이름 (한글)</label><input type="text"
-                                placeholder="관리자 성함" class="login-input"></div>
-                        <div class="field-item"><label class="field-label">생년월일</label><input type="date"
-                                class="login-input date-picker-custom"></div>
-                        <div class="field-item"><label class="field-label">성별</label>
-                            <div class="field-flex h-52"><label class="radio-wrap"><input type="radio"
-                                        name="admin_g"><span class="custom-radio"></span><span>남성</span></label><label
-                                    class="radio-wrap"><input type="radio" name="admin_g"><span
-                                        class="custom-radio"></span><span>여성</span></label></div>
+                        <div class="field-item">
+                            <label class="field-label">이름 (한글)</label>
+                            <input type="text" placeholder="관리자 성함" class="login-input">
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label" for="birthDate">생년월일</label>
+                            <input type="text"
+                                class="login-input date-picker-custom"
+                                id="birthDate"
+                                placeholder="연도.월.일"
+                                data-i18n="join.request.birthdatePlaceholder"
+                                onfocus="this.type='date'; if (this.showPicker) this.showPicker();"
+                                onblur="if(!this.value){this.type='text'}
+                            ">
+                        </div>
+                        <div class="field-item">
+                            <label class="field-label">성별</label>
+                            <div class="field-flex h-52">
+                                <label class="radio-wrap">
+                                    <input type="radio" name="admin_g">
+                                    <span class="custom-radio"></span>
+                                    <span>남성</span>
+                                </label>
+                                <label class="radio-wrap">
+                                    <input type="radio" name="admin_g">
+                                    <span class="custom-radio"></span>
+                                    <span>여성</span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row-3">
@@ -359,7 +379,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="field-desc accent-red">* 신청자가 대표님이 아닐 경우 위임장을 첨부해 주셔야 합니다.</p>
+                    <p class="field-info">신청자가 대표님이 아닐 경우 위임장을 첨부해 주셔야 합니다.</p>
                 </section>
             </div>
 
@@ -370,6 +390,7 @@
                         <div class="form-sec-head">주주 명부</div>
                         <button type="button" class="btn-add-row" onclick="addShareholder()">주주 추가</button>
                     </div>
+
                     <div class="shareholder-table">
                         <div class="sh-header">
                             <div>이름(한글)</div>
@@ -421,7 +442,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="field-desc accent-red">* 주식 25% 이상 소유자를 입력해 주세요.</p>
+                    <p class="field-info">주식 25% 이상 소유자를 입력해 주세요.</p>
                 </section>
             </div>
 

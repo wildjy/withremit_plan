@@ -730,6 +730,9 @@
   color: var(--neutral-heavy);
   font-weight: 600;
 }
+.info-grid .info-content-box .value span {
+  display: block;
+}
 .info-grid ul {
   padding-left: var(--s5);
   margin: 0;
@@ -739,6 +742,16 @@
   margin-bottom: 6px;
 }
 
+@media (max-width: 768px) {
+  .info-grid .info-content-box .value span {
+    display: inline-block;
+  }
+  .info-grid .info-content-box .value span:before {
+    content: "|";
+    margin: 0 var(--s2);
+    color: var(--text-soft);
+  }
+}
 .useRemit-grid-new {
   display: -webkit-box;
   display: -ms-flexbox;

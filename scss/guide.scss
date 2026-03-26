@@ -534,6 +534,9 @@
       font-size: var(--s4);
       color: var(--neutral-heavy);
       font-weight: 600;
+      span {
+        display: block;
+      }
     }
   }
 
@@ -546,6 +549,24 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .info-grid {
+    .info-content-box {
+      .value {
+        span {
+          display: inline-block;
+          &:before {
+            content: '|';
+            margin: 0 var(--s2);
+            color: var(--text-soft);
+          }
+        }
+      }
+    }
+  }
+}
+
 
 .useRemit-grid-new {
   display: flex;
@@ -639,7 +660,7 @@
 @media (max-width: 768px) {
   .guide-text {
     text-align: left;
-}
+  }
 }
 
 .section-icon {

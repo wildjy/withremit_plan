@@ -959,6 +959,7 @@
       -ms-flex-pack: end;
           justify-content: flex-end;
   padding: var(--s4) var(--s6);
+  padding-top: 0;
   gap: var(--s4);
 }
 .modal-footer .btn.full, .modal-footer a.full, .modal-footer button.full {

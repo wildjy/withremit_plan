@@ -305,6 +305,7 @@ select:disabled {
 }
 
 textarea {
+  padding: var(--s4);
   height: auto;
 }
 
@@ -530,7 +531,7 @@ input[type=checkbox]:checked + .custom-check::after {
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--text-strong);
-  -webkit-text-fill-color: #A4B7C0;
+  -webkit-text-fill-color: var(--text-strong);
   color-scheme: light;
   background-image: var(--icon-lang-select);
   background-size: var(--s5);
@@ -544,6 +545,7 @@ input[type=checkbox]:checked + .custom-check::after {
 }
 .lang-select:valid {
   color: var(--text-strong);
+  -webkit-text-fill-color: var(--text-strong);
 }
 
 /* ===== GM Header Responsiveness Updates ===== */
@@ -1739,7 +1741,7 @@ body.db-body, body.login-page {
   line-height: 1.5;
   background-repeat: no-repeat;
   background-size: var(--s4) var(--s4);
-  background-position: 0 calc(100% - 1px);
+  background-position: 0 1px;
 }
 
 .field-info {
@@ -3919,6 +3921,7 @@ body.db-body, body.login-page {
       -ms-flex-pack: end;
           justify-content: flex-end;
   padding: var(--s4) var(--s6);
+  padding-top: 0;
   gap: var(--s4);
 }
 .modal-footer .btn.full, .modal-footer a.full, .modal-footer button.full {
@@ -5800,13 +5803,13 @@ body.db-body, body.login-page {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: var(--bg-light);
   padding: var(--s3);
-  border-bottom: 1.5px solid var(--border-default);
   font-size: var(--s3);
   font-weight: 700;
   color: #555;
   text-align: center;
+  background-color: var(--bg-default);
+  border-bottom: 1px solid var(--border-default);
 }
 
 .sh-header div,
@@ -5924,8 +5927,7 @@ body.db-body, body.login-page {
             flex-direction: column !important;
     padding: var(--s5) !important;
     gap: var(--s3) !important;
-    border: 1.5px solid var(--border-default) !important;
-    border-left: var(--s1) solid var(--primary-strong) !important;
+    border: 1px solid var(--border-default) !important;
     border-radius: var(--s3) !important;
     margin-bottom: var(--s4) !important;
     -webkit-box-align: stretch !important;
@@ -5981,23 +5983,6 @@ body.db-body, body.login-page {
   }
   .sh-header {
     display: none !important;
-  }
-  .sh-row {
-    -webkit-box-orient: vertical !important;
-    -webkit-box-direction: normal !important;
-        -ms-flex-direction: column !important;
-            flex-direction: column !important;
-    padding: var(--s5) !important;
-    gap: var(--s3) !important;
-    border: 1.5px solid var(--border-default) !important;
-    border-left: var(--s1) solid var(--primary-strong) !important;
-    border-radius: var(--s3) !important;
-    margin-bottom: var(--s4) !important;
-    -webkit-box-align: stretch !important;
-        -ms-flex-align: stretch !important;
-            align-items: stretch !important;
-    -webkit-box-shadow: var(--shadow-sm) !important;
-            box-shadow: var(--shadow-sm) !important;
   }
   .sh-field {
     width: var(--full) !important;
@@ -10419,15 +10404,6 @@ td.center {
 @media (max-width: 480px) {
   .remit-edit-page .field-value-text {
     padding: 10px 0;
-    font-size: var(--text-sm);
-  }
-  .remit-edit-page {
-    /* Inputs adjustments if needed */
-  }
-  .remit-edit-page .login-input {
-    font-size: var(--text-sm);
-  }
-  .remit-edit-page .select-styled {
     font-size: var(--text-sm);
   }
 }

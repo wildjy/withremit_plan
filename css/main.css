@@ -182,6 +182,8 @@
 
 .feature-icon {
   margin-bottom: var(--s10);
+}
+.feature-icon img {
   width: var(--s16);
   height: var(--s16);
 }

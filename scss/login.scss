@@ -1188,13 +1188,13 @@
 
 .sh-header {
 	display: flex;
-	background-color: var(--bg-light);
 	padding: var(--s3);
-	border-bottom: 1.5px solid var(--border-default);
 	font-size: var(--s3);
 	font-weight: 700;
 	color: #555;
 	text-align: center;
+	background-color: var(--bg-default);
+	border-bottom: 1px solid var(--border-default);
 }
 
 .sh-header div,
@@ -1292,8 +1292,8 @@
 		flex-direction: column !important;
 		padding: var(--s5) !important;
 		gap: var(--s3) !important;
-		border: 1.5px solid var(--border-default) !important;
-		border-left: var(--s1) solid var(--primary-strong) !important;
+		border: 1px solid var(--border-default) !important;
+		// border-left: var(--s1) solid var(--primary-strong) !important;
 		border-radius: var(--s3) !important;
 		margin-bottom: var(--s4) !important;
 		align-items: stretch !important;
@@ -1352,18 +1352,6 @@
 
 	.sh-header {
 		display: none !important;
-	}
-
-	.sh-row {
-		flex-direction: column !important;
-		padding: var(--s5) !important;
-		gap: var(--s3) !important;
-		border: 1.5px solid var(--border-default) !important;
-		border-left: var(--s1) solid var(--primary-strong) !important;
-		border-radius: var(--s3) !important;
-		margin-bottom: var(--s4) !important;
-		align-items: stretch !important;
-		box-shadow: var(--shadow-sm) !important;
 	}
 
 	.sh-field {
