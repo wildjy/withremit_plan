@@ -4444,15 +4444,6 @@ body.db-body, body.login-page {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .db-page-num {
-    min-width: var(--s7);
-    height: var(--s7);
-    font-size: var(--text-xs);
-  }
-  .db-page-btn {
-    width: var(--s7);
-    height: var(--s7);
-  }
   .db-page-num:nth-child(n+7):nth-last-child(n+3) {
     display: none;
   }
