@@ -1324,7 +1324,9 @@
   margin-top: var(--s5);
 }
 .pagination-box .db-rows-select {
-  height: var(--s8);
+  padding-top: 0;
+  padding-bottom: 0;
+  height: var(--s10);
 }
 
 @media (max-width: 768px) {
@@ -1352,8 +1354,8 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: var(--s8);
-  height: var(--s8);
+  width: var(--s10);
+  height: var(--s10);
   border: 1px solid var(--border-soft);
   background-color: var(--white);
   border-radius: 6px;
@@ -1372,8 +1374,8 @@
 }
 
 .db-page-num {
-  min-width: var(--s8);
-  height: var(--s8);
+  min-width: var(--s10);
+  height: var(--s10);
   padding: 0 var(--s2);
   border: 1px solid var(--border-soft);
   background-color: var(--white);
@@ -1401,7 +1403,6 @@
 
 .db-rows-select {
   width: auto;
-  font-size: var(--text-sm);
 }
 
 .db-rows-select:hover {
@@ -1439,10 +1440,6 @@
 @media (max-width: 480px) {
   .pagination-box {
     margin-top: var(--s4);
-  }
-  .db-rows-select {
-    font-size: var(--text-xs);
-    padding: 6px var(--s7) 6px 10px;
   }
   .pagination {
     gap: 2px;

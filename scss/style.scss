@@ -171,7 +171,9 @@
 	align-items: center;
 	margin-bottom: var(--s3);
 	.remit-sort-wrapper select {
-		height: var(--s8);
+		padding-top: 0;
+		padding-bottom: 0;
+		height: var(--s10);
 	}
 }
 
