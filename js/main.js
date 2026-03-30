@@ -1658,7 +1658,7 @@ window.initFriendInvite = function () {
                 </div>
             </td>
             <td data-label="삭제">
-                <button type="button" class="btn btn-delete full size-sm" onclick="removeRow(this)">삭제</button>
+                <button type="button" class="btn btn-delete full size-lg" onclick="removeRow(this)">삭제</button>
             </td>
         `;
 
@@ -1751,7 +1751,7 @@ window.initFriendInvite = function () {
 function recentRemittanceList() {
     const ongoingContainer = document.getElementById('dbOngoingInfo');
     const emptyState = document.getElementById('emptyStateOngoing');
-    
+
     if (!ongoingContainer || !emptyState) return;
 
     // const dataList = Array.isArray(remittanceData) ? remittanceData : [];
