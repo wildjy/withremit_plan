@@ -63,7 +63,7 @@
                                     <th>삭제</th>
                                 </tr>
                             </thead>
-                            <tbody id="individualDeleteTableBody">
+                            <tbody id="deleteTrTableBody">
                                 <tr>
                                     <td class="td-num" data-label="번호">3</td>
                                     <td data-label="은행명">신한은행</td>
@@ -183,7 +183,7 @@
                 <p>정말 삭제하시겠습니까?</p>
                 <div class="modal-btn-group">
                     <button class="btn btn-secondary size-lg" onclick="closeModal('deleteConfirmModal')">취소</button>
-                    <button class="btn btn-confirm size-lg" onclick="confirmDelete()">삭제</button>
+                    <button class="btn btn-confirm size-lg" onclick="confirmTrDelete()">삭제</button>
                 </div>
             </div>
         </div>
@@ -282,7 +282,7 @@
             const maskedAccount = accountNum.substring(0, 4) + '*'.repeat(Math.max(7, accountNum.length - 4));
 
             // Add new row to table
-            const tbody = document.getElementById('individualDeleteTableBody');
+            const tbody = document.getElementById('deleteTrTableBody');
             const rowCount = tbody.querySelectorAll('tr').length;
             const newRow = document.createElement('tr');
 

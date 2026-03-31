@@ -1182,6 +1182,21 @@ function confirmDelete() {
     closeDeleteModal();
 }
 
+function confirmTrDelete() {
+    if (currentDeleteButton) {
+        currentDeleteButton.closest('tr').remove();
+        // Re-number rows
+        const tbody = document.getElementById('deleteTrTableBody');
+        const rows = tbody.querySelectorAll('tr');
+        rows.forEach((row, index) => {
+            row.querySelector('td:first-child').textContent = rows.length - index;
+        });
+        currentDeleteButton = null;
+        updateTotalCount();
+    }
+    closeDeleteModal();
+}
+
 function closeDeleteModal() {
     document.getElementById('deleteConfirmModal').classList.remove('active');
     currentDeleteButton = null;
@@ -1739,6 +1754,7 @@ window.initFriendInvite = function () {
     window.addFriendRow = addFriendRow;
     window.removeRow = removeRow;
     window.confirmDelete = confirmDelete;
+    window.confirmTrDelete = confirmTrDelete;
     window.closeValidationModal = closeValidationModal;
     window.confirmInviteSend = confirmInviteSend;
     window.saveFriends = saveFriends;
