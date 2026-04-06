@@ -1904,9 +1904,10 @@ function renderCards(mode) {
     const emptyState = document.getElementById('emptyState');
     const pagination = document.querySelector('.pagination-box');
     // 송금 내역은 nodata처리,  수취 내역은 보여주도록 분기
-    const dataList = mode === 'send'
-        ? []
-        : (Array.isArray(remittanceData) ? remittanceData : []);
+    // const dataList = mode === 'send'
+    //     ? []
+    //     : (Array.isArray(remittanceData) ? remittanceData : []);
+    const dataList = (Array.isArray(remittanceData) ? remittanceData : []);
 
     console.log('Rendering cards with mode:', mode, 'and data:', dataList.length, dataList);
 
@@ -2014,30 +2015,40 @@ function openDetailModal(index, mode) {
     if (!modal || !modalBody) return;
 
     const isSend = mode !== 'receive';
-    const title = isSend ? '해외 송금 내역서' : '해외 수취 내역서';
-    const subText = isSend ? 'Foreign Remittance Receipt' : 'Foreign Inbound Remittance Statement';
+    const title = isSend ? '해외송금 송금명세서' : '해외송금 수취명세서';
+    const subText = isSend ? 'Outward Remittance Advice' : 'Inward Remittance Advice';
 
     const senderSection = isSend
-        ? `<div class="receipt-row">
+        ? `
+            <div class="receipt-row">
+               <span class="receipt-label">송금인 이름 (Sender's Name)</span>
+               <span class="receipt-value">${data.senderName}</span>
+            </div>
+            <div class="receipt-row">
                <span class="receipt-label">송금액 (Send Amount)</span>
                <span class="receipt-value">${data.sendAmount}</span>
-           </div>
-           <div class="receipt-row">
-               <span class="receipt-label">입금액 (Deposit)</span>
-               <span class="receipt-value">${data.depositAmount} KRW</span>
-           </div>`
-        : `<div class="receipt-row">
-               <span class="receipt-label">송금 국가 (Country)</span>
-               <span class="receipt-value">${data.country}</span>
-           </div>
-           <div class="receipt-row">
-               <span class="receipt-label">송금액 (Send Amount)</span>
-               <span class="receipt-value">${data.sendAmount}</span>
-           </div>
-           <div class="receipt-row">
-               <span class="receipt-label">입금액 (Deposit)</span>
-               <span class="receipt-value">${data.depositAmount}</span>
-           </div>`;
+            </div>
+            <div class="receipt-row">
+                <span class="receipt-label">입금액 (Deposit)</span>
+                <span class="receipt-value">${data.depositAmount} KRW</span>
+            </div>`
+            :
+            `<div class="receipt-row">
+                <span class="receipt-label">송금 국가 (Country)</span>
+                <span class="receipt-value">${data.country}</span>
+            </div>
+            <div class="receipt-row">
+               <span class="receipt-label">송금인 이름 (Sender's Name)</span>
+               <span class="receipt-value">${data.senderName}</span>
+            </div>
+            <div class="receipt-row">
+                <span class="receipt-label">송금액 (Send Amount)</span>
+                <span class="receipt-value">${data.sendAmount}</span>
+            </div>
+            <div class="receipt-row">
+                <span class="receipt-label">입금액 (Deposit)</span>
+                <span class="receipt-value">${data.depositAmount}</span>
+            </div>`;
 
     const receiverCountry = isSend ? data.country : '대한민국';
     const footerText = isSend
@@ -2067,15 +2078,19 @@ function openDetailModal(index, mode) {
             </div>
             <div class="receipt-divider"></div>
             <div class="receipt-section">
-                <div class="receipt-section-title">보내는 분 (Sender)</div>
+                <div class="receipt-section-title">송금인 정보</div>
                 ${senderSection}
             </div>
             <div class="receipt-divider dashed"></div>
             <div class="receipt-section">
-                <div class="receipt-section-title">받는 분 (Receiver)</div>
+                <div class="receipt-section-title">수취인 정보</div>
                 <div class="receipt-row">
                     <span class="receipt-label">수취인 (Name)</span>
                     <span class="receipt-value">${data.name}</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">송금인과의 관계 (Relationship to Sender)</span>
+                    <span class="receipt-value">${data.relationship}</span>
                 </div>
                 <div class="receipt-row">
                     <span class="receipt-label">수취 국가 (Country)</span>

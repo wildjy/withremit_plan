@@ -1749,21 +1749,21 @@
 	justify-content: space-between;
 	align-items: flex-start;
 	padding: 2px 0;
-	font-size: 0.95rem;
+	font-size: var(--text-md);
 }
 
 .receipt-label {
+	flex: 2;
 	color: var(--text-soft);
 	font-weight: 500;
-	flex: 1;
 }
 
 .receipt-value {
+	flex: 1;
+	justify-content: flex-end;
 	color: var(--text-heavy);
 	font-weight: 600;
 	text-align: right;
-	justify-content: flex-end;
-	flex: 2;
 	word-break: break-all;
 }
 
