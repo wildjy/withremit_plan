@@ -2116,7 +2116,7 @@ function openDetailModal(index, mode) {
             </div>
             <div class="receipt-footer">
                 ${footerText}<br>
-                <strong>(주)위드머니 / withmoney Inc.</strong>
+                <strong>주식회사 위드머니 / withmoney Inc.</strong>
             </div>
         </div>
     `;

@@ -9064,21 +9064,7 @@ td.center {
     margin-bottom: var(--s1);
   }
 }
-@media (max-width: 768px) {
-  .limit-info-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-bottom: var(--s4);
-  }
-  .limit-info-item .limit-label {
-    margin-bottom: var(--s1);
-  }
-  .remit-form-section {
-    margin-bottom: var(--s5);
-  }
-  .remit-calc-result {
-    padding: var(--s1) var(--s4);
-  }
+@media (max-width: 900px) {
   .calc-result-cols {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -9110,6 +9096,22 @@ td.center {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 var(--full);
             flex: 0 0 var(--full);
+  }
+}
+@media (max-width: 768px) {
+  .limit-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: var(--s4);
+  }
+  .limit-info-item .limit-label {
+    margin-bottom: var(--s1);
+  }
+  .remit-form-section {
+    margin-bottom: var(--s5);
+  }
+  .remit-calc-result {
+    padding: var(--s1) var(--s4);
   }
   .calc-col-label {
     margin-bottom: 0;

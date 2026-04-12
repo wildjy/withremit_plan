@@ -128,7 +128,7 @@ const translations = {
         'banner.referral.title': '친구도 나도, 송금 수수료 0원!',
         'banner.referral.desc': '친구가 가입 후 첫 송금을 마치면 두 분 모두에게 수수료 무료 쿠폰을 드립니다.',
         'banner.referral.alt': '친구 추천 이벤트',
-        'banner.birthday.title': '해피 벌스데이! 위드레미트가 드리는 생일 선물',
+        'banner.birthday.title': '해피 벌스데이! 위드레밋이 드리는 생일 선물',
         'banner.birthday.desc': '생일인 달에는 송금 수수료가 무료! 지금 쿠폰함에서 확인해 보세요.',
         'banner.birthday.alt': '생일 쿠폰 이벤트',
         'banner.security.title': '국가가 인증하고 서울보증보험이 약속합니다.',

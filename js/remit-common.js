@@ -269,13 +269,15 @@ function calculateRemit() {
 
     // 수취 수수료 표시 및 그리드 컬럼 조정
     const withdrawalFeeRow = document.getElementById('withdrawalFeeRow');
+    const withdrawalFeeText = document.getElementById('withdrawalFeeText');
     const withdrawalFeeAmount = document.getElementById('withdrawalFeeAmount');
     const calcResultCols = document.querySelector('.calc-result-cols');
     const calcResult = document.getElementById('calcResult');
 
     if (withdrawalFee > 0) {
-        if (withdrawalFeeAmount) {
+        if (withdrawalFeeAmount && withdrawalFeeText) {
             withdrawalFeeAmount.textContent = `${rateInfo.symbol} ${withdrawalFee.toLocaleString('ko-KR')}`;
+            withdrawalFeeText.textContent = `${rateInfo.symbol} ${withdrawalFee.toLocaleString('ko-KR')}`;
         }
         if (withdrawalFeeRow) {
             withdrawalFeeRow.classList.remove('hidden');
